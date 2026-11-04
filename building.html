@@ -5,26 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How a benchmark is built | MechanicsHarness</title>
 <meta name="description" content="MechanicsHarness evaluates AI agents on mechanics problems using reproducible tasks, reference solutions, and documented human verification.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
+<body class="page-building">
 <header class="site">
-  <div class="wrap">
-    <a class="brand" href="index.html">MechanicsHarness</a>
-    <nav class="main" aria-label="Site">
+  <a class="brand" href="index.html">MechanicsHarness</a>
+  <nav class="main" aria-label="Site">
       <a href="index.html">Home</a>
       <a href="evaluates.html">What it evaluates</a>
       <a href="building.html" aria-current="page">How a benchmark is built</a>
       <a href="evaluation.html">Evaluation policy</a>
       <a href="get-started.html">Get started and contribute</a>
-    </nav>
-  </div>
+  </nav>
 </header>
-<main>
-  <div class="wrap">
+<main class="frame">
+<div class="page-head">
 <h1>How a benchmark is built</h1>
 <p class="lede">The procedure below follows the records of the rock benchmark. Everything that judges an agent is fixed and
 tested before any agent runs.</p>
+</div>
+<div class="content">
+<div class="block">
 <ol class="steps">
   <li><b>Choose a published model and a test.</b> Credit the reference work exactly: the paper and any code from its authors
   that we used, what we took from it, what is ours, and what we left out.</li>
@@ -50,12 +52,20 @@ tested before any agent runs.</p>
   <li><b>Record and share.</b> The session records, the agents' folders and the grades are kept. Results go to the authors
   of the source paper before publication, and their corrections are recorded.</li>
 </ol>
-  </div>
+</div>
+</div>
 </main>
 <footer class="site">
-  <div class="wrap">
+  <div class="frame footer-row">
     <p>MechanicsHarness is maintained by Teng Zhang, Syracuse University.
     Site source: <a href="https://github.com/tengzhang48/mechanicsharness.org">github.com/tengzhang48/mechanicsharness.org</a>.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="evaluates.html">What it evaluates</a>
+      <a href="building.html">How a benchmark is built</a>
+      <a href="evaluation.html">Evaluation policy</a>
+      <a href="get-started.html">Get started and contribute</a>
+    </nav>
   </div>
 </footer>
 </body>

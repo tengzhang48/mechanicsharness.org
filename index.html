@@ -5,79 +5,127 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MechanicsHarness</title>
 <meta name="description" content="MechanicsHarness evaluates AI agents on mechanics problems using reproducible tasks, reference solutions, and documented human verification.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
+<body class="page-index">
 <header class="site">
-  <div class="wrap">
-    <a class="brand" href="index.html">MechanicsHarness</a>
-    <nav class="main" aria-label="Site">
+  <a class="brand" href="index.html">MechanicsHarness</a>
+  <nav class="main" aria-label="Site">
       <a href="index.html" aria-current="page">Home</a>
       <a href="evaluates.html">What it evaluates</a>
       <a href="building.html">How a benchmark is built</a>
       <a href="evaluation.html">Evaluation policy</a>
       <a href="get-started.html">Get started and contribute</a>
-    </nav>
-  </div>
+  </nav>
 </header>
-<main>
-  <div class="wrap">
+<main class="frame">
+<div class="page-head hero">
 <h1>MechanicsHarness</h1>
 <p class="lede">MechanicsHarness evaluates AI agents on mechanics problems using reproducible tasks, reference solutions, and documented human verification.</p>
 <p class="status">The first two benchmarks are in preparation. Their tasks, code and results will be released after review,
 which includes review of each case study by the authors of its source paper.</p>
-
+</div>
+<div class="content">
+<section class="sec">
 <h2>What it evaluates</h2>
+<div class="sec-body with-figure">
+<div class="sec-text">
 <p>An AI coding agent receives a published mechanics model, restated as a self-contained task, and writes a simulation
 component for it. In the first benchmarks this is a user element (UEL) for Abaqus/Standard. A host program runs the element,
 and a scorer compares its results with an independent reference solution that the agent never sees.</p>
 <p>Robustness and accuracy are judged separately. Each element is also judged on how its stiffness is obtained and checked,
 and on whether its claims match its own files. <a href="evaluates.html">More on what is evaluated</a>.</p>
-
+</div>
+<figure class="flow" aria-hidden="true">
+  <ol class="flow-steps">
+    <li><b>Published model</b>and a test from its source paper</li>
+    <li><b>Self-contained task</b>a public problem to practise on</li>
+    <li class="flow-agent"><b>AI coding agent</b>writes a user element (UEL)</li>
+    <li><b>Host program</b>runs the element</li>
+    <li class="flow-score"><b>Scorer</b>compares the results</li>
+  </ol>
+  <div class="flow-ref"><b>Independent reference solution</b>not shown to the agent</div>
+</figure>
+</div>
+</section>
+<section class="sec">
 <h2>Benchmarks</h2>
+<div class="sec-body wide">
 <div class="cards">
   <article class="card" id="rock">
-    <span class="tag">In preparation</span>
+    <div class="cardtop"><span class="tag">In preparation</span></div>
+    <div class="illustration">
+      <svg viewBox="0 0 64 60" aria-hidden="true" focusable="false">
+        <path class="g-hidden" d="M24 40V8M24 40h32M24 40 6 54"/>
+        <path class="g-edge" d="M6 22h32v32H6zM6 22 24 8h32L38 22M56 8v32L38 54"/>
+        <g class="g-node"><circle cx="6" cy="22" r="2.4"/><circle cx="38" cy="22" r="2.4"/><circle cx="38" cy="54" r="2.4"/><circle cx="6" cy="54" r="2.4"/><circle cx="24" cy="8" r="2.4"/><circle cx="56" cy="8" r="2.4"/><circle cx="56" cy="40" r="2.4"/><circle cx="24" cy="40" r="2.4"/></g>
+      </svg>
+    </div>
+    <div class="cardbody">
     <h3>Rock fracture: a gradient-damage user element</h3>
     <p>Agents write an Abaqus/Standard user element (an 8-node brick with displacement and damage) for the gradient-damage
     rock model of L. Anand (2026), <i>Int. J. Solids Struct.</i> 325, 113739, tested on the one-element compression test of
     its Fig. 17.</p>
-    <dl>
+    <dl class="cardfooter">
       <dt>Status</dt>
       <dd>Case study shared with the source-paper author on 4 Nov 2026; release pending.</dd>
     </dl>
+    </div>
   </article>
   <article class="card" id="battery">
-    <span class="tag">In preparation</span>
+    <div class="cardtop"><span class="tag">In preparation</span></div>
+    <div class="illustration">
+      <svg viewBox="0 0 64 60" aria-hidden="true" focusable="false">
+        <path class="g-edge" d="M9 16 50 8 56 50 12 53Z"/>
+        <g class="g-node"><circle cx="9" cy="16" r="2.4"/><circle cx="50" cy="8" r="2.4"/><circle cx="56" cy="50" r="2.4"/><circle cx="12" cy="53" r="2.4"/></g>
+      </svg>
+    </div>
+    <div class="cardbody">
     <h3>Battery fatigue: a chemo-mechanical user element</h3>
     <p>Agents write an Abaqus/Standard user element (a 4-node quadrilateral with displacement, lithium concentration and
     damage) for the battery fatigue model of N. Noii et al. (2024), <i>Comput. Methods Appl. Mech. Eng.</i> 428, 117068, and
     its FEniCS implementation, <i>Eng. Fract. Mech.</i> 306, 110251.</p>
-    <dl>
+    <dl class="cardfooter">
       <dt>Status</dt>
       <dd>Case study shared with the authors on 24 Oct 2026; release pending.</dd>
     </dl>
+    </div>
   </article>
 </div>
-
+</div>
+</section>
+<div class="principles">
+<section class="principle">
 <h2>How a benchmark is built</h2>
 <p>A benchmark starts from a published model and a test from its source paper. The independent reference, the hidden
 problems and the tolerances are fixed before any agent runs, and the host and scorer are first tested on known-good and
 known-wrong elements. <a href="building.html">The steps</a>.</p>
-
+</section>
+<section class="principle">
 <h2>Evaluation policy</h2>
 <p>Hidden tests for future rounds stay private. Every published verdict will point to its evidence and to the evaluation
 version that produced it, and case studies separate errors of the agents from errors of our own test programs.
 <a href="evaluation.html">The policy</a>.</p>
-
+</section>
+<section class="principle">
 <h2>Get started and contribute</h2>
 <p>No code is released yet. <a href="get-started.html">What the first release will contain, and how to get in touch</a>.</p>
-  </div>
+</section>
+</div>
+</div>
 </main>
 <footer class="site">
-  <div class="wrap">
+  <div class="frame footer-row">
     <p>MechanicsHarness is maintained by Teng Zhang, Syracuse University.
     Site source: <a href="https://github.com/tengzhang48/mechanicsharness.org">github.com/tengzhang48/mechanicsharness.org</a>.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="evaluates.html">What it evaluates</a>
+      <a href="building.html">How a benchmark is built</a>
+      <a href="evaluation.html">Evaluation policy</a>
+      <a href="get-started.html">Get started and contribute</a>
+    </nav>
   </div>
 </footer>
 </body>
