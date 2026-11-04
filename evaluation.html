@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evaluation policy | MechanicsHarness</title>
+<meta name="description" content="MechanicsHarness evaluates AI agents on mechanics problems using reproducible tasks, reference solutions, and documented human verification.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">MechanicsHarness</a>
+    <nav class="main" aria-label="Site">
+      <a href="index.html">Home</a>
+      <a href="evaluates.html">What it evaluates</a>
+      <a href="building.html">How a benchmark is built</a>
+      <a href="evaluation.html" aria-current="page">Evaluation policy</a>
+      <a href="get-started.html">Get started and contribute</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<h1>Evaluation policy</h1>
+<p class="lede">How tests are kept, how verdicts are traced, and how source papers and their authors are treated.</p>
+
+<h2>Hidden tests</h2>
+<p>Tests reserved for future blind evaluation, and their reference results, stay private. We publish the properties they test
+and this policy. Completed historical tests may be released as evaluation cases; once released, they are no longer hidden, and
+later rounds use new private cases.</p>
+
+<h2>Traceable verdicts</h2>
+<p>Every published verdict will identify the task, the agent and model version, the tools, the resource budget, the
+submission, the host and scorer versions, and the reference data. Where a fix to the host or the scorer affects a result, the
+saved submissions are rescored on a common corrected evaluator, the original results are kept, and evaluation changes made
+after the runs are labelled.</p>
+
+<h2>Agent errors and evaluator errors</h2>
+<p>Case studies distinguish defects of the agent, defects of our own host or scorer, and outcomes that remain unresolved. The
+runs form a small collection and are described as case studies; we avoid broad rankings across different task conditions.</p>
+
+<h2>Human verification</h2>
+<p>Each case study states who specified the physics, who interpreted the source paper, who wrote or checked the reference, who
+reviewed discrepancies, and who made each final judgment.</p>
+
+<h2>Source papers and their authors</h2>
+<p>Results are shared with the authors of the source paper before publication, and any factual corrections they provide are
+recorded. Source papers are cited and linked. Third-party material is included only where its redistribution terms permit,
+and files that authors share with us privately stay private.</p>
+
+<h2>Agent records</h2>
+<p>Session records are kept for every run. Transcripts or excerpts are released only after review for credentials, personal
+information and private correspondence.</p>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>MechanicsHarness is maintained by Teng Zhang, Syracuse University.
+    Site source: <a href="https://github.com/tengzhang48/mechanicsharness.org">github.com/tengzhang48/mechanicsharness.org</a>.</p>
+  </div>
+</footer>
+</body>
+</html>

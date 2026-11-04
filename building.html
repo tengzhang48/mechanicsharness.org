@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How a benchmark is built | MechanicsHarness</title>
+<meta name="description" content="MechanicsHarness evaluates AI agents on mechanics problems using reproducible tasks, reference solutions, and documented human verification.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">MechanicsHarness</a>
+    <nav class="main" aria-label="Site">
+      <a href="index.html">Home</a>
+      <a href="evaluates.html">What it evaluates</a>
+      <a href="building.html" aria-current="page">How a benchmark is built</a>
+      <a href="evaluation.html">Evaluation policy</a>
+      <a href="get-started.html">Get started and contribute</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<h1>How a benchmark is built</h1>
+<p class="lede">The procedure below follows the records of the rock benchmark. Everything that judges an agent is fixed and
+tested before any agent runs.</p>
+<ol class="steps">
+  <li><b>Choose a published model and a test.</b> Credit the reference work exactly: the paper and any code from its authors
+  that we used, what we took from it, what is ours, and what we left out.</li>
+  <li><b>Fix the test conditions from the source.</b> Geometry, loading, boundary conditions and parameters are checked
+  against the source. The paper is the source of truth, and our code is checked against it.</li>
+  <li><b>Restate the model as a self-contained task.</b> The text fixes the model, the parameters, the element contract and
+  a public problem, and leaves the numerical method to the agent.</li>
+  <li><b>Provide a host.</b> A model-free program compiles the agent's element, calls it through the standard Abaqus/Standard
+  argument list, and solves each increment by Newton's method on the element's residual and stiffness, cutting the increment
+  back when needed, as Abaqus/Standard does.</li>
+  <li><b>Build an independent reference before any agent runs.</b> Where two references are built separately, they must
+  agree before a problem is used.</li>
+  <li><b>Write hidden problems of the same kind as the public one.</b> They never enter the agent's workspace.</li>
+  <li><b>Set the tolerances before any agent runs.</b> They come from the spread between the references and the time-step
+  error at the public step, not from agent results.</li>
+  <li><b>Test the test.</b> A known-good element and several known-wrong elements go through the host and the scorer first.
+  Each known-wrong element must fail.</li>
+  <li><b>Freeze and run.</b> The agent's starting folder is frozen by file hashes. Each agent runs alone in a sandbox with a
+  fresh home folder, no internet, a one-line prompt and a time limit.</li>
+  <li><b>Score and review.</b> The scorer reports accuracy, robustness and the solver's behaviour, and edge cases not told to
+  the agents probe further. A person asks what each mismatch means before calling it a failure, and separates defects of the
+  agent from defects of our host or scorer.</li>
+  <li><b>Record and share.</b> The session records, the agents' folders and the grades are kept. Results go to the authors
+  of the source paper before publication, and their corrections are recorded.</li>
+</ol>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>MechanicsHarness is maintained by Teng Zhang, Syracuse University.
+    Site source: <a href="https://github.com/tengzhang48/mechanicsharness.org">github.com/tengzhang48/mechanicsharness.org</a>.</p>
+  </div>
+</footer>
+</body>
+</html>

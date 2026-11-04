@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get started and contribute | MechanicsHarness</title>
+<meta name="description" content="MechanicsHarness evaluates AI agents on mechanics problems using reproducible tasks, reference solutions, and documented human verification.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">MechanicsHarness</a>
+    <nav class="main" aria-label="Site">
+      <a href="index.html">Home</a>
+      <a href="evaluates.html">What it evaluates</a>
+      <a href="building.html">How a benchmark is built</a>
+      <a href="evaluation.html">Evaluation policy</a>
+      <a href="get-started.html" aria-current="page">Get started and contribute</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<h1>Get started and contribute</h1>
+<p class="status">No code is released yet. Both benchmarks are in preparation (see the <a href="index.html#rock">benchmark
+cards</a>).</p>
+
+<h2>The first code release</h2>
+<p>The first code release will contain the released tasks, the host programs and scorers, reference data, citation
+information, and one example that runs from a clean checkout. It will be versioned in a public GitHub repository, which will
+remain the authoritative home for code and evaluation instructions; this site introduces the project.</p>
+
+<h2>What you will need</h2>
+<p>The hosts are written in Python with NumPy, and they compile the agent's Fortran element with gfortran through NumPy's
+f2py. Abaqus itself is not needed to run them.</p>
+
+<h2>Report a problem or propose a case</h2>
+<p>We plan to accept proposed cases and outside submissions once the evaluation workflow has been exercised on a contributed
+submission. Until the code repository opens, please open an issue in this site's repository,
+<a href="https://github.com/tengzhang48/mechanicsharness.org/issues">github.com/tengzhang48/mechanicsharness.org</a>.</p>
+
+<h2>Citation</h2>
+<p>Citation information will be published with the first code release.</p>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>MechanicsHarness is maintained by Teng Zhang, Syracuse University.
+    Site source: <a href="https://github.com/tengzhang48/mechanicsharness.org">github.com/tengzhang48/mechanicsharness.org</a>.</p>
+  </div>
+</footer>
+</body>
+</html>

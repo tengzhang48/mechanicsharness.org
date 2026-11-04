@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What it evaluates | MechanicsHarness</title>
+<meta name="description" content="MechanicsHarness evaluates AI agents on mechanics problems using reproducible tasks, reference solutions, and documented human verification.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">MechanicsHarness</a>
+    <nav class="main" aria-label="Site">
+      <a href="index.html">Home</a>
+      <a href="evaluates.html" aria-current="page">What it evaluates</a>
+      <a href="building.html">How a benchmark is built</a>
+      <a href="evaluation.html">Evaluation policy</a>
+      <a href="get-started.html">Get started and contribute</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+<h1>What MechanicsHarness evaluates</h1>
+<p class="lede">Whether an AI coding agent can implement a published solid-mechanics model as working simulation code, and
+show that it is right.</p>
+
+<h2>The task</h2>
+<p>The agent writes a component that a finite element code calls during a simulation. In the first benchmarks this is a user
+element (UEL) for Abaqus/Standard, with the standard argument list: it returns the residual and the full stiffness matrix,
+keeps its own state variables, and can ask for a smaller time increment.</p>
+<p>The model is from the published literature, and the task is not a test of new physics. The benchmarks test how AI agents
+implement a published model. They do not test or reproduce the source authors' results, and an agent's error is not an error
+in the source paper.</p>
+
+<h2>What the agent receives</h2>
+<ul>
+  <li>The model, restated as equations in a self-contained text, with its parameters.</li>
+  <li>A public problem to practise on.</li>
+  <li>A host program that calls the element as Abaqus/Standard does.</li>
+  <li>A one-line prompt that points to these files.</li>
+</ul>
+<p>The agent works alone and offline, inside its own folder, with no human help and a fixed time budget of about six to eight
+hours. Abaqus itself is not available to it.</p>
+
+<h2>What the agent decides</h2>
+<ul>
+  <li>How to integrate the model in time, including any substepping.</li>
+  <li>How to compute the stiffness, and how to check it.</li>
+  <li>The interpolation and quadrature of each field, and any extra variables the formulation needs.</li>
+  <li>How and when history variables are stored and updated.</li>
+  <li>How the element behaves on invalid states, and when it asks for a smaller increment.</li>
+</ul>
+
+<h2>How the work is judged</h2>
+<ul>
+  <li><b>Accuracy.</b> The host's results with the agent's element are compared with an independent reference solution that
+  is not shown to the agent, on the public problem and on hidden problems of the same kind.</li>
+  <li><b>Robustness.</b> Every problem completes with no NaN; history variables never decrease; Newton's method converges
+  without avoidable cutbacks.</li>
+  <li><b>The stiffness.</b> Its accuracy, and how the agent obtains and checks it.</li>
+  <li><b>The design.</b> Whether the agent's choices are justified by evidence.</li>
+  <li><b>Honesty.</b> Whether the agent's claims match what its files show.</li>
+</ul>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>MechanicsHarness is maintained by Teng Zhang, Syracuse University.
+    Site source: <a href="https://github.com/tengzhang48/mechanicsharness.org">github.com/tengzhang48/mechanicsharness.org</a>.</p>
+  </div>
+</footer>
+</body>
+</html>
