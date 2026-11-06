@@ -125,7 +125,7 @@ built</a></p>
 </div>
 </section>
 <section class="sec">
-<h2>Benchmarks in preparation</h2>
+<h2>Element benchmarks</h2>
 <div class="sec-body wide">
 <div class="cards">
   <article class="card" id="rock">
@@ -157,10 +157,12 @@ built</a></p>
     damage) for the battery fatigue model of N. Noii et al. (2024), <a href="https://doi.org/10.1016/j.cma.2024.117068"><i>Comput. Methods Appl. Mech. Eng.</i> 428, 117068</a>, and
     its FEniCS implementation, <a href="https://doi.org/10.1016/j.engfracmech.2024.110251"><i>Eng. Fract. Mech.</i> 306, 110251</a>. The same agent built the element three times: without our
     code-generation framework <a href="https://github.com/tengzhang48/abaqus_ufl">abaqus_ufl</a>, with it and a team of
-    sub-agents, and with it as a single agent.</p>
+    sub-agents, and with it as a single agent. All three elements were robust; two predicted too much damage.</p>
     <dl class="cardfooter">
       <dt>Status</dt>
-      <dd>Case study shared with the authors on 24 Oct 2026; release pending.</dd>
+      <dd>Released on 6 Nov 2026: the task, host, scorer, reference code, the three runs and their results.
+      <a href="case-studies/battery-fatigue.html">Read the case study</a> &middot;
+      <a href="https://github.com/tengzhang48/agent-mechanics-benchmarks-public/tree/main/noii_battery_fatigue">Get the files</a></dd>
     </dl>
     </div>
   </article>
@@ -183,7 +185,9 @@ studies separate errors of the agents from errors of our own test programs.
 </section>
 <section class="principle">
 <h2>Get started and contribute</h2>
-<p>No benchmark code is released yet. <a href="get-started.html">What the first release will contain, and how to get in touch</a>.</p>
+<p>The battery benchmark is released in the public code repository,
+<a href="https://github.com/tengzhang48/agent-mechanics-benchmarks-public">agent-mechanics-benchmarks-public</a>, with a practice problem that anyone can rerun; the rock
+benchmark is in preparation. <a href="get-started.html">How to run it and how to get in touch</a>.</p>
 </section>
 </div>
 </div>

@@ -22,37 +22,41 @@
 <main class="frame">
 <div class="page-head">
 <h1>Get started and contribute</h1>
-<p class="status">No benchmark code is released yet. Both element benchmarks are in preparation (see the <a href="index.html#rock">benchmark
-cards</a>).</p>
+<p class="status">The battery benchmark is released (6 Nov 2026); the rock benchmark is in preparation (see the
+<a href="index.html#rock">benchmark cards</a>).</p>
 </div>
 <div class="content">
 <section class="sec">
-<h2>The first code release</h2>
+<h2>The code repository</h2>
 <div class="sec-body">
-<p>The first code release will contain the released tasks, the host programs and scorers, reference data, citation
-information, and one example that runs from a clean checkout. It will be versioned in a public GitHub repository, which will
-remain the authoritative home for code and evaluation instructions; this site introduces the project.</p>
+<p><a href="https://github.com/tengzhang48/agent-mechanics-benchmarks-public">github.com/tengzhang48/agent-mechanics-benchmarks-public</a> holds the released benchmarks: for each,
+the task as the agents received it, the host that runs a submitted element, the scorer, the reference solution's code, the
+agents' submissions and the results, with a practice problem that runs from a clean checkout. It is the authoritative home for
+code and evaluation instructions; this site introduces the project.</p>
 </div>
 </section>
 <section class="sec">
 <h2>What you will need</h2>
 <div class="sec-body">
-<p>The hosts are written in Python with NumPy, and they compile the agent's Fortran element with gfortran through NumPy's
-f2py. Abaqus itself is not needed to run them.</p>
+<p>The hosts are written in Python and compile the agent's Fortran element with gfortran through NumPy's f2py, on the public
+<a href="https://github.com/tengzhang48/abaqus_ufl">abaqus_ufl</a> solver. Abaqus itself is not needed to run them. The
+battery benchmark's README gives the install line and the two commands that score a saved element on its practice problem.</p>
 </div>
 </section>
 <section class="sec">
 <h2>Report a problem or propose a case</h2>
 <div class="sec-body">
 <p>We plan to accept proposed cases and outside submissions once the evaluation workflow has been exercised on a contributed
-submission. Until the code repository opens, please open an issue in this site's repository,
-<a href="https://github.com/tengzhang48/mechanicsharness.org/issues">github.com/tengzhang48/mechanicsharness.org</a>.</p>
+submission. For the benchmarks and their results, please open an issue in the
+<a href="https://github.com/tengzhang48/agent-mechanics-benchmarks-public/issues">code repository</a>; there you can also ask for an element to be scored on the battery benchmark's
+hidden problem. For this website, open an issue in
+<a href="https://github.com/tengzhang48/mechanicsharness.org/issues">its repository</a>.</p>
 </div>
 </section>
 <section class="sec">
 <h2>Citation</h2>
 <div class="sec-body">
-<p>Citation information will be published with the first code release.</p>
+<p>The code repository's <a href="https://github.com/tengzhang48/agent-mechanics-benchmarks-public/blob/main/CITATION.cff">CITATION.cff</a> gives the citation information.</p>
 </div>
 </section>
 </div>

@@ -48,12 +48,12 @@ separates the agent's errors from errors in our own checks. More on the site:
 
 ## Get started and contribute
 
-No benchmark code is released yet. The first code release will contain the released tasks, the host programs and scorers,
-reference data, citation information, and one example that runs from a clean checkout. It will be versioned in a public
-GitHub repository.
+The battery benchmark is released in the code repository,
+[agent-mechanics-benchmarks-public](https://github.com/tengzhang48/agent-mechanics-benchmarks-public): the task, host, scorer, reference code, the three runs and their results,
+with a practice problem that anyone can rerun. The rock benchmark is in preparation.
 
 We plan to accept proposed cases and outside submissions once the evaluation workflow has been exercised on a contributed
-submission. Until the code repository opens, please
+submission. For the benchmarks, please [open an issue in the code repository](https://github.com/tengzhang48/agent-mechanics-benchmarks-public/issues); for this website,
 [open an issue in this repository](https://github.com/tengzhang48/mechanicsharness.org/issues).
 
 ## This repository
@@ -65,6 +65,7 @@ The website itself: plain HTML and CSS, no build step, served by GitHub Pages.
 | `index.html` | Home page |
 | `evaluates.html`, `building.html`, `evaluation.html`, `get-started.html` | The other pages |
 | `404.html` | Page not found |
+| `case-studies/battery-fatigue.html` | The battery benchmark's case study |
 | `assets/` | Style sheet, site icon and figures |
 | `CNAME`, `.nojekyll` | GitHub Pages settings |
 | `LICENSE`, `LICENSE-CONTENT` | Licences (below) |
