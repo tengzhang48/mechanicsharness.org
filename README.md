@@ -52,7 +52,8 @@ The battery benchmark is released in the code repository,
 [agent-mechanics-benchmarks-public](https://github.com/tengzhang48/agent-mechanics-benchmarks-public): the task, host, scorer, reference code, the three runs and their results,
 with a practice problem that anyone can rerun. The rock benchmark is in preparation.
 
-We plan to accept proposed cases and outside submissions once the evaluation workflow has been exercised on a contributed
+You can already ask for your own element to be scored on the battery benchmark's hidden problem (see the code repository's
+`CONTRIBUTING.md`). We plan to accept proposed cases once the evaluation workflow has been exercised on a contributed
 submission. For the benchmarks, please [open an issue in the code repository](https://github.com/tengzhang48/agent-mechanics-benchmarks-public/issues); for this website,
 [open an issue in this repository](https://github.com/tengzhang48/mechanicsharness.org/issues).
 
