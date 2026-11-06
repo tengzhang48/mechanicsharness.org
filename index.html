@@ -39,7 +39,7 @@ and on whether its claims match its own files. <a href="evaluates.html">More on 
 </div>
 <figure class="flow" aria-hidden="true">
   <ol class="flow-steps">
-    <li><b>Published model</b>and a test from its source paper</li>
+    <li><b>Published model</b>and a test problem</li>
     <li><b>Self-contained task</b>a public problem to practise on</li>
     <li class="flow-agent"><b>AI coding agent</b>writes a user element (UEL)</li>
     <li><b>Host program</b>runs the element</li>
@@ -65,7 +65,7 @@ and on whether its claims match its own files. <a href="evaluates.html">More on 
     <div class="cardbody">
     <h3>Rock fracture: a gradient-damage user element</h3>
     <p>Agents write an Abaqus/Standard user element (an 8-node brick with displacement and damage) for the gradient-damage
-    rock model of L. Anand (2026), <i>Int. J. Solids Struct.</i> 325, 113739, tested on the one-element compression test of
+    rock model of L. Anand (2026), <a href="https://doi.org/10.1016/j.ijsolstr.2025.113739"><i>Int. J. Solids Struct.</i> 325, 113739</a>, tested on the one-element compression test of
     its Fig. 17.</p>
     <dl class="cardfooter">
       <dt>Status</dt>
@@ -84,8 +84,10 @@ and on whether its claims match its own files. <a href="evaluates.html">More on 
     <div class="cardbody">
     <h3>Battery fatigue: a chemo-mechanical user element</h3>
     <p>Agents write an Abaqus/Standard user element (a 4-node quadrilateral with displacement, lithium concentration and
-    damage) for the battery fatigue model of N. Noii et al. (2024), <i>Comput. Methods Appl. Mech. Eng.</i> 428, 117068, and
-    its FEniCS implementation, <i>Eng. Fract. Mech.</i> 306, 110251.</p>
+    damage) for the battery fatigue model of N. Noii et al. (2024), <a href="https://doi.org/10.1016/j.cma.2024.117068"><i>Comput. Methods Appl. Mech. Eng.</i> 428, 117068</a>, and
+    its FEniCS implementation, <a href="https://doi.org/10.1016/j.engfracmech.2024.110251"><i>Eng. Fract. Mech.</i> 306, 110251</a>. The same agent built the element three times: without our
+    code-generation framework <a href="https://github.com/tengzhang48/abaqus_ufl">abaqus_ufl</a>, with it and a team of
+    sub-agents, and with it as a single agent.</p>
     <dl class="cardfooter">
       <dt>Status</dt>
       <dd>Case study shared with the authors on 24 Oct 2026; release pending.</dd>
@@ -98,7 +100,7 @@ and on whether its claims match its own files. <a href="evaluates.html">More on 
 <div class="principles">
 <section class="principle">
 <h2>How a benchmark is built</h2>
-<p>A benchmark starts from a published model and a test from its source paper. The independent reference, the hidden
+<p>A benchmark starts from a published model and a test problem, from the source paper or our own. The independent reference, the hidden
 problems and the tolerances are fixed before any agent runs, and the host and scorer are first tested on known-good and
 known-wrong elements. <a href="building.html">The steps</a>.</p>
 </section>
@@ -110,7 +112,7 @@ version that produced it, and case studies separate errors of the agents from er
 </section>
 <section class="principle">
 <h2>Get started and contribute</h2>
-<p>No code is released yet. <a href="get-started.html">What the first release will contain, and how to get in touch</a>.</p>
+<p>No benchmark code is released yet. <a href="get-started.html">What the first release will contain, and how to get in touch</a>.</p>
 </section>
 </div>
 </div>
