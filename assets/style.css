@@ -212,3 +212,33 @@ footer.site a:focus-visible { outline-color: #ffffff; }
   footer.site { background: none; color: var(--ink); border-top: 1px solid var(--line); }
   footer.site a { color: var(--ink); }
 }
+
+/* Home: the three levels as rising steps (level 1 lowest, level 3 highest) */
+.ladder { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: start; margin: 0 0 18px; }
+.rung {
+  background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--ink); border-radius: 0 0 12px 12px;
+  padding: 18px 22px 20px; display: flex; flex-direction: column;
+}
+.rung-1 { margin-top: 112px; }
+.rung-2 { margin-top: 56px; }
+.rung-3 { border-top-style: dashed; }
+.rung-num { font: 400 40px/1 var(--f-serif); color: var(--muted); margin-bottom: 10px; }
+.rung h3 { font-size: 22px; line-height: 1.2; margin: 0 0 8px; }
+.rung p { font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); margin: 0 0 14px; }
+.rung-cases { list-style: none; margin: auto 0 0; padding: 12px 0 0; border-top: 1px solid var(--line); }
+.rung-cases li {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  font-size: 14px; font-weight: 600; padding: 6px 0;
+}
+.rung-cases li.planned { color: var(--muted); font-weight: 400; }
+.ladder-note { font-size: 15px; line-height: 1.6; color: var(--ink-soft); max-width: 760px; margin: 0; }
+.page-head.hero .lede { color: var(--ink-soft); font-size: 20px; max-width: 760px; }
+.illustration { height: 84px; }
+.illustration svg { height: 52px; }
+.tag { white-space: nowrap; }
+.sec.full { grid-template-columns: minmax(0, 1fr); }
+.sec.full h2 { margin-bottom: 6px; }
+@media (max-width: 760px) {
+  .ladder { grid-template-columns: 1fr; gap: 14px; }
+  .rung-1, .rung-2 { margin-top: 0; }
+}

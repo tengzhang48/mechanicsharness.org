@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MechanicsHarness</title>
-<meta name="description" content="MechanicsHarness evaluates AI agents on mechanics problems using reproducible tasks, reference solutions, and documented human verification.">
+<meta name="description" content="MechanicsHarness shows how AI agents and mechanics can work together, with every result checked against an independent reference or a measurement.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -22,35 +22,68 @@
 <main class="frame">
 <div class="page-head hero">
 <h1>MechanicsHarness</h1>
-<p class="lede">MechanicsHarness evaluates AI agents on mechanics problems using reproducible tasks, reference solutions, and documented human verification.</p>
-<p class="status">The first two benchmarks are in preparation. Their tasks, code and results will be released after review,
-which includes review of each case study by the authors of its source paper.</p>
+<p class="lede">How AI agents and mechanics can work together, with every result checked against an independent reference or
+a measurement.</p>
 </div>
 <div class="content">
+<section class="sec full">
+<h2>Three levels</h2>
+<div class="sec-body wide">
+<div class="ladder">
+  <div class="rung rung-1">
+    <span class="rung-num">1</span>
+    <h3>Classical problems</h3>
+    <p>Analysis problems with known answers, from published papers. The agent derives and computes the asked quantities.</p>
+    <ul class="rung-cases">
+      <li><span>Fracture mechanics</span><span class="tag">In preparation</span></li>
+    </ul>
+  </div>
+  <div class="rung rung-2">
+    <span class="rung-num">2</span>
+    <h3>Published research models</h3>
+    <p>The agent implements a recent paper's model as working simulation code, checked against an independent reference.</p>
+    <ul class="rung-cases">
+      <li><a href="#rock">Rock fracture (Anand 2026)</a><span class="tag">In preparation</span></li>
+      <li><a href="#battery">Battery fatigue (Noii et al. 2024)</a><span class="tag">In preparation</span></li>
+    </ul>
+  </div>
+  <div class="rung rung-3">
+    <span class="rung-num">3</span>
+    <h3>Real-world problems</h3>
+    <p>Open questions without a published answer, judged against measurements. This is the aim.</p>
+    <ul class="rung-cases">
+      <li class="planned"><span>First cases</span><span class="tag">Planned</span></li>
+    </ul>
+  </div>
+</div>
+<p class="ladder-note">Results are dated. As AI agents improve, newer agents are run on the same cases, so the record shows how
+far up the levels they reach. Errors are reported as well as successes.</p>
+</div>
+</section>
 <section class="sec">
-<h2>What it evaluates</h2>
+<h2>How every result is checked</h2>
 <div class="sec-body with-figure">
 <div class="sec-text">
-<p>An AI coding agent receives a published mechanics model, restated as a self-contained task, and writes a simulation
-component for it. In the first benchmarks this is a user element (UEL) for Abaqus/Standard. A host program runs the element,
-and a scorer compares its results with an independent reference solution that the agent never sees.</p>
-<p>Robustness and accuracy are judged separately. Each element is also judged on how its stiffness is obtained and checked,
-and on whether its claims match its own files. <a href="evaluates.html">More on what is evaluated</a>.</p>
+<p>Each case restates a published problem as a self-contained task. The agent's answer, or the code it writes, is compared with
+an independent reference that the agent never sees. A person asks what each mismatch means before calling it a failure, and
+separates the agent's errors from errors in our own checks.</p>
+<p><a href="evaluates.html">What the element benchmarks evaluate</a> &middot; <a href="building.html">How a benchmark is
+built</a></p>
 </div>
 <figure class="flow" aria-hidden="true">
   <ol class="flow-steps">
-    <li><b>Published model</b>and a test problem</li>
-    <li><b>Self-contained task</b>a public problem to practise on</li>
-    <li class="flow-agent"><b>AI coding agent</b>writes a user element (UEL)</li>
-    <li><b>Host program</b>runs the element</li>
+    <li><b>Published problem</b>a model or an analysis from a paper</li>
+    <li><b>Self-contained task</b>restated with its parameters</li>
+    <li class="flow-agent"><b>AI agent</b>derives, computes or writes code</li>
+    <li><b>Host or checker</b>runs the code or reads the answer</li>
     <li class="flow-score"><b>Scorer</b>compares the results</li>
   </ol>
-  <div class="flow-ref"><b>Independent reference solution</b>not shown to the agent</div>
+  <div class="flow-ref"><b>Independent reference</b>not shown to the agent</div>
 </figure>
 </div>
 </section>
 <section class="sec">
-<h2>Benchmarks</h2>
+<h2>Benchmarks in preparation</h2>
 <div class="sec-body wide">
 <div class="cards">
   <article class="card" id="rock">
