@@ -304,3 +304,4 @@ footer.site a:focus-visible { outline-color: #ffffff; }
   .feature { grid-template-columns: minmax(0, 1fr); padding: 26px 0 34px; }
   .feature h2 { font-size: 28px; }
 }
+.illustration img.field { display: block; width: 66px; height: 66px; }
