@@ -47,16 +47,24 @@ a measurement.</p>
       </svg>
     </figure>
     <p>A crack in a fluid-saturated solid is loaded suddenly. At the crack scale the solid has no time to drain, but within
-    &radic;(ct) of each tip it drains at once, so the requested tip intensity is the drained one.</p>
+    &radic;(ct) of each tip it drains at once. The task asked for the tip intensity just after loading without saying which
+    limit comes first; the key takes the tip limit first, which gives the drained value, 0.808 times the crack-scale value,
+    and gives partial credit for the crack-scale value itself.</p>
     <p class="feature-source">Problem from E. Detournay and A. H.-D. Cheng (1991), <a href="https://doi.org/10.1016/0020-7683(91)90067-P"><i>Int. J. Solids
     Struct.</i> 27, 1645&ndash;1662</a>, given to the agents without the paper.</p>
     <p class="finding">Of the fifteen runs shown, thirteen matched all five crack-scale values. Only GPT, in three of three runs,
-    and Opus 5.5, in one, found the drained-tip value; the other eleven took the crack-scale value at the tip.</p>
+    and Opus 5.5, in one, found the drained-tip value; the other eleven gave the crack-scale value, which the key credits in
+    part.</p>
   </div>
   <figure class="feature-fig">
+    <picture>
+    <source media="(max-width: 700px)" srcset="assets/poroelastic-runs-mobile.svg" width="576" height="697">
     <img src="assets/poroelastic-runs.svg" width="683" height="716" alt="Which of nine reference values each poroelastic run matched. GPT 9, 9, 8; Opus 5.5 9; Kimi K3 4, 5, 5; Kimi K3.1 5, 5; GLM-5.3 7, 5, 5; DeepSeek reasoning on 5, 4, 5. Thirteen of the fifteen runs matched all five crack-scale values. Only GPT and Opus matched the tip intensity.">
-    <figcaption>Each row is one saved run, October 2026; a filled cell is a value within 1% of the corrected key. Not shown:
-    three DeepSeek runs with reasoning off, which matched two or three of the nine values and missed the drained-tip value.</figcaption>
+    </picture>
+    <figcaption>Each row is one saved run, October 2026; a filled cell is a value within 1% of the corrected key (0.01
+    absolute for K&#8322;(0&#8314;), whose key value is 0). Key and checker as corrected on 26 October 2026; the case page,
+    with the task, the key and every saved answer, will be linked here. Not shown: three DeepSeek runs with reasoning off,
+    which matched two or three of the nine values and missed the drained-tip value.</figcaption>
   </figure>
 </section>
 <div class="content">
@@ -165,14 +173,15 @@ built</a></p>
 <div class="principles">
 <section class="principle">
 <h2>How a benchmark is built</h2>
-<p>A benchmark starts from a published model and a test problem, from the source paper or our own. The independent reference, the hidden
+<p>An element benchmark starts from a published model and a test problem, from the source paper or our own. The independent reference, the hidden
 problems and the tolerances are fixed before any agent runs, and the host and scorer are first tested on known-good and
 known-wrong elements. <a href="building.html">The steps</a>.</p>
 </section>
 <section class="principle">
 <h2>Evaluation policy</h2>
 <p>Hidden tests for future rounds stay private. Every published verdict will point to its evidence and to the evaluation
-version that produced it, and case studies separate errors of the agents from errors of our own test programs.
+version that produced it (a featured result may appear before its case page, with its key and checker versions), and case
+studies separate errors of the agents from errors of our own test programs.
 <a href="evaluation.html">The policy</a>.</p>
 </section>
 <section class="principle">
