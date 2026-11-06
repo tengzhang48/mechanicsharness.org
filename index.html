@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MechanicsHarness</title>
 <meta name="description" content="MechanicsHarness shows how AI agents and mechanics can work together, with every result checked against an independent reference or a measurement.">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.svg?v=crack-tip" type="image/svg+xml">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body class="page-index">
@@ -25,6 +25,40 @@
 <p class="lede">How AI agents and mechanics can work together, with every result checked against an independent reference or
 a measurement.</p>
 </div>
+<section class="feature" id="featured" aria-label="Featured case">
+  <div class="feature-text">
+    <p class="kicker">Featured case &middot; Level 1 &middot; Fracture mechanics</p>
+    <h2>Drained at the tip, undrained at the crack</h2>
+    <figure class="schem">
+      <svg viewBox="0 0 460 172" role="img" aria-label="A crack of length 2L in a solid that is undrained at the crack scale, with a small drained region of size the square root of c t at each tip" xmlns="http://www.w3.org/2000/svg">
+      <defs><marker id="sc-dim" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse"><path d="M6 3 L0 0 L0 6Z" class="sc-ink"/></marker></defs>
+      <rect class="sc-und" x="1" y="1" width="458" height="170" rx="6"/>
+      <text class="sc-lab" x="16" y="26">Undrained at the crack scale</text>
+      <text class="sc-lab sc-mut" x="16" y="44">ct ≪ L²</text>
+      <path class="sc-crack" d="M92 98 Q230 84 368 98 Q230 112 92 98Z"/>
+      <circle class="sc-dr" cx="92" cy="98" r="21"/><circle class="sc-dr" cx="368" cy="98" r="21"/>
+      <path class="sc-dim" d="M368 98 L383 83" marker-end="url(#sc-dim)"/>
+      <text class="sc-lab sc-mut" x="388" y="84">√(ct)</text>
+      <path class="sc-lead" d="M352 84 L322 50"/>
+      <text class="sc-lab" x="444" y="40" text-anchor="end">Drained within √(ct)</text>
+      <text class="sc-lab" x="444" y="57" text-anchor="end">of each tip</text>
+      <path class="sc-dim" d="M94 146 H366" marker-start="url(#sc-dim)" marker-end="url(#sc-dim)"/>
+      <text class="sc-lab sc-mut" x="230" y="140" text-anchor="middle">2L</text>
+      </svg>
+    </figure>
+    <p>A crack in a fluid-saturated solid is loaded suddenly. At the crack scale the solid has no time to drain, but within
+    &radic;(ct) of each tip it drains at once, so the requested tip intensity is the drained one.</p>
+    <p class="feature-source">Problem from E. Detournay and A. H.-D. Cheng (1991), <a href="https://doi.org/10.1016/0020-7683(91)90067-P"><i>Int. J. Solids
+    Struct.</i> 27, 1645&ndash;1662</a>, given to the agents without the paper.</p>
+    <p class="finding">Of the fifteen runs shown, thirteen matched all five crack-scale values. Only GPT, in three of three runs,
+    and Opus 5.5, in one, found the drained-tip value; the other eleven took the crack-scale value at the tip.</p>
+  </div>
+  <figure class="feature-fig">
+    <img src="assets/poroelastic-runs.svg" width="683" height="716" alt="Which of nine reference values each poroelastic run matched. GPT 9, 9, 8; Opus 5.5 9; Kimi K3 4, 5, 5; Kimi K3.1 5, 5; GLM-5.3 7, 5, 5; DeepSeek reasoning on 5, 4, 5. Thirteen of the fifteen runs matched all five crack-scale values. Only GPT and Opus matched the tip intensity.">
+    <figcaption>Each row is one saved run, October 2026; a filled cell is a value within 1% of the corrected key. Not shown:
+    three DeepSeek runs with reasoning off, which matched two or three of the nine values and missed the drained-tip value.</figcaption>
+  </figure>
+</section>
 <div class="content">
 <section class="sec full">
 <h2>Three levels</h2>
@@ -35,7 +69,7 @@ a measurement.</p>
     <h3>Classical problems</h3>
     <p>Analysis problems with known answers, from published papers. The agent derives and computes the asked quantities.</p>
     <ul class="rung-cases">
-      <li><span>Fracture mechanics</span><span class="tag">In preparation</span></li>
+      <li><a href="#featured">Fracture mechanics</a></li>
     </ul>
   </div>
   <div class="rung rung-2">
@@ -43,8 +77,8 @@ a measurement.</p>
     <h3>Published research models</h3>
     <p>The agent implements a recent paper's model as working simulation code, checked against an independent reference.</p>
     <ul class="rung-cases">
-      <li><a href="#rock">Rock fracture (Anand 2026)</a><span class="tag">In preparation</span></li>
-      <li><a href="#battery">Battery fatigue (Noii et al. 2024)</a><span class="tag">In preparation</span></li>
+      <li><a href="#rock">Rock fracture (Anand 2026)</a></li>
+      <li><a href="#battery">Battery fatigue (Noii et al. 2024)</a></li>
     </ul>
   </div>
   <div class="rung rung-3">
@@ -78,7 +112,7 @@ built</a></p>
     <li><b>Host or checker</b>runs the code or reads the answer</li>
     <li class="flow-score"><b>Scorer</b>compares the results</li>
   </ol>
-  <div class="flow-ref"><b>Independent reference</b>not shown to the agent</div>
+  <div class="flow-ref"><b>Independent reference</b>not shown to the agent<span class="flow-join"></span></div>
 </figure>
 </div>
 </section>
@@ -87,7 +121,6 @@ built</a></p>
 <div class="sec-body wide">
 <div class="cards">
   <article class="card" id="rock">
-    <div class="cardtop"><span class="tag">In preparation</span></div>
     <div class="illustration">
       <svg viewBox="0 0 64 60" aria-hidden="true" focusable="false">
         <path class="g-hidden" d="M24 40V8M24 40h32M24 40 6 54"/>
@@ -107,7 +140,6 @@ built</a></p>
     </div>
   </article>
   <article class="card" id="battery">
-    <div class="cardtop"><span class="tag">In preparation</span></div>
     <div class="illustration">
       <svg viewBox="0 0 64 60" aria-hidden="true" focusable="false">
         <path class="g-edge" d="M9 16 50 8 56 50 12 53Z"/>
