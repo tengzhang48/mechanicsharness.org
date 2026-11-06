@@ -139,11 +139,12 @@ built</a></p>
     <div class="cardbody">
     <h3>Rock fracture: a gradient-damage user element</h3>
     <p>Agents write an Abaqus/Standard user element (an 8-node brick with displacement and damage) for the gradient-damage
-    rock model of L. Anand (2026), <a href="https://doi.org/10.1016/j.ijsolstr.2025.113739"><i>Int. J. Solids Struct.</i> 325, 113739</a>, tested on the one-element compression test of
-    its Fig. 17.</p>
+    rock model of L. Anand (2026), tested on the one-element compression test of the paper's Fig. 17.</p>
     <dl class="cardfooter">
       <dt>Status</dt>
       <dd>Case study shared with the source-paper author on 4 Nov 2026; release pending.</dd>
+      <dt>Source paper</dt>
+      <dd class="refs">L. Anand (2026), <a href="https://doi.org/10.1016/j.ijsolstr.2025.113739"><i>Int. J. Solids Struct.</i> 325, 113739</a>.</dd>
     </dl>
     </div>
   </article>
@@ -153,16 +154,21 @@ built</a></p>
     </div>
     <div class="cardbody">
     <h3>Battery fatigue: a chemo-mechanical user element</h3>
+    <div class="card-cta">
+      <a class="button" href="case-studies/battery-fatigue.html">Read the case study</a>
+      <a class="button ghost" href="https://github.com/tengzhang48/agent-mechanics-benchmarks-public/tree/main/noii_battery_fatigue">Get the files</a>
+    </div>
     <p>Agents write an Abaqus/Standard user element (a 4-node quadrilateral with displacement, lithium concentration and
-    damage) for the battery fatigue model of N. Noii et al. (2024), <a href="https://doi.org/10.1016/j.cma.2024.117068"><i>Comput. Methods Appl. Mech. Eng.</i> 428, 117068</a>, and
-    its FEniCS implementation, <a href="https://doi.org/10.1016/j.engfracmech.2024.110251"><i>Eng. Fract. Mech.</i> 306, 110251</a>. The same agent built the element three times: without our
-    code-generation framework <a href="https://github.com/tengzhang48/abaqus_ufl">abaqus_ufl</a>, with it and a team of
-    sub-agents, and with it as a single agent. All three elements were robust; two predicted too much damage.</p>
+    damage) for the battery fatigue model of N. Noii et al. (2024) and its FEniCS implementation. The same agent built the
+    element three times: without our code-generation framework <a href="https://github.com/tengzhang48/abaqus_ufl">abaqus_ufl</a>,
+    with it and a team of sub-agents, and with it as a single agent. All three elements were robust; two predicted too much
+    damage.</p>
     <dl class="cardfooter">
       <dt>Status</dt>
-      <dd>Released on 6 Nov 2026: the task, host, scorer, reference code, the three runs and their results.
-      <a href="case-studies/battery-fatigue.html">Read the case study</a> &middot;
-      <a href="https://github.com/tengzhang48/agent-mechanics-benchmarks-public/tree/main/noii_battery_fatigue">Get the files</a></dd>
+      <dd>Released on 6 Nov 2026: the task, host, scorer, reference code, the three runs and their results.</dd>
+      <dt>Source papers</dt>
+      <dd class="refs">N. Noii, D. Milijasevic, H. Waisman, A. Khodadadian (2024), <a href="https://doi.org/10.1016/j.cma.2024.117068"><i>Comput. Methods Appl. Mech. Eng.</i> 428, 117068</a>;
+      N. Noii, D. Milijasevic, A. Khodadadian, T. Wick (2024), <a href="https://doi.org/10.1016/j.engfracmech.2024.110251"><i>Eng. Fract. Mech.</i> 306, 110251</a>.</dd>
     </dl>
     </div>
   </article>
