@@ -304,6 +304,7 @@ footer.site a:focus-visible { outline-color: #ffffff; }
 .button.ghost:hover { background: #f0f0f0; }
 .feature-fig { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 14px 12px; }
 .feature-fig img { display: block; width: 100%; height: auto; border-radius: 6px; }
+.feature-fig p.finding { margin: 12px 0 0; font-size: 18px; padding-left: 14px; }
 .feature-fig figcaption { margin-top: 10px; font-size: 13px; line-height: 1.5; color: var(--muted); }
 @media (max-width: 900px) {
   .feature { grid-template-columns: minmax(0, 1fr); padding: 26px 0 34px; }
