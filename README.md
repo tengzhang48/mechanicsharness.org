@@ -16,14 +16,15 @@ for the crack-scale value itself. Problem from E. Detournay and A. H.-D. Cheng
 (1991), [*Int. J. Solids Struct.* 27, 1645–1662](https://doi.org/10.1016/0020-7683(91)90067-P), given to the agents without
 the paper.
 
-Of the fifteen runs shown, thirteen matched all five crack-scale values. Only GPT, in three of three runs, and Opus 5.5, in
+Of fifteen runs by six agents, thirteen matched all five crack-scale values. Only GPT, in three of three runs, and Opus 5.5, in
 one, found the drained-tip value; the other eleven gave the crack-scale value, which the key credits in part.
 
-<img src="assets/poroelastic-runs.svg" width="560" alt="Which of nine reference values each poroelastic run matched, one row per run">
+<img src="assets/poroelastic-best.svg" width="560" alt="Which of nine reference values the best run of each agent matched, one row per agent">
 
-Each row is one saved run, October 2026; a filled cell is a value within 1% of the corrected key (0.01 absolute for K₂(0⁺),
+Each row is an agent's best saved run, October 2026 (of three runs for GPT, Kimi K3, GLM-5.3 and DeepSeek, two for Kimi K3.1,
+one for Opus 5.5); a filled cell is a value within 1% of the corrected key (0.01 absolute for K₂(0⁺),
 whose key value is 0). Key and checker as corrected on 26 October 2026; the case page, with the task, the key and every saved
-answer, will be linked from the website. Not shown: three DeepSeek runs with reasoning off, which matched two or three of the
+answer, will be linked from the website. Also left out: three DeepSeek runs with reasoning off, which matched two or three of the
 nine values and missed the drained-tip value.
 
 ## Three levels
