@@ -9,10 +9,9 @@ Website: **https://mechanicsharness.org**
 
 ## Featured case: drained at the tip, undrained at the crack
 
-A crack in a fluid-saturated solid is loaded suddenly. At the crack scale the solid has no time to drain, but within √(ct) of
-each tip it drains at once. The task asked for the tip intensity just after loading without saying which limit comes first;
-the key takes the tip limit first, which gives the drained value, 0.808 times the crack-scale value, and gives partial credit
-for the crack-scale value itself. Problem from E. Detournay and A. H.-D. Cheng
+A crack in a fluid-saturated solid is loaded suddenly. The crack as a whole has no time to drain, but within √(ct) of each tip
+the solid drains at once. The task did not say which limit comes first; the key takes the drained tip, 0.808 times the
+crack-scale value, and credits the latter in part. Problem from E. Detournay and A. H.-D. Cheng
 (1991), [*Int. J. Solids Struct.* 27, 1645–1662](https://doi.org/10.1016/0020-7683(91)90067-P), given to the agents without
 the paper.
 
