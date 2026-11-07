@@ -1,0 +1,5 @@
+nreg=  200  lambda1(N=40)=88.375819
+nreg=  400  lambda1(N=40)=88.312779
+nreg=  800  lambda1(N=40)=88.281423
+nreg= 1600  lambda1(N=40)=88.265781
+nreg= 3200  lambda1(N=40)=88.257968

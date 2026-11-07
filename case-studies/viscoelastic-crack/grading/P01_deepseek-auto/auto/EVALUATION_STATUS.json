@@ -1,0 +1,81 @@
+{
+  "started_utc": "2026-10-22T18:12:02.108155+00:00",
+  "scientific_review": "ungraded: Grok review pipeline did not deliver a final analytical assessment",
+  "study_pass": null,
+  "submitted_numeric_pass": false,
+  "input_integrity": {
+    "case.json": true,
+    "PROBLEM.md": true,
+    "CONTRACT.md": true
+  },
+  "reproduction_exit_code": 0,
+  "reproduced_numeric_pass": false,
+  "reproduction": "finished in separate offline container with no key mounted",
+  "ended_utc": "2026-10-22T18:13:37.714417+00:00",
+  "external_review": {
+    "status": "incomplete after three review attempts",
+    "reviewer_model": "grok-4.6",
+    "run_id": "R05_grok46_oneshot_azure_deepseek",
+    "started_utc": "2026-10-22T20:49:40.131438+00:00",
+    "hard_deadline_utc": "2026-10-22T21:09:40.131438+00:00",
+    "method": "Single preloaded-context native OpenCode/Azure Responses assessment with all tools disabled; public final assessment retained, private reasoning excluded. Prior Grok computations supplied; no new execution claimed in this pass.",
+    "final_score": null,
+    "checked_utc": "2026-10-22T21:09:57.173797+00:00",
+    "review_run": "R05_grok46_oneshot_azure_deepseek",
+    "exit_code": 137,
+    "time_limit_reached": true,
+    "ended_utc": "2026-10-22T21:09:50.336187+00:00",
+    "artifacts": {
+      "REVIEW.md": false,
+      "GRADING.json": false
+    },
+    "reported_score": null,
+    "reported_verdict": null,
+    "input_mismatches": [],
+    "scientific_status": "Recorded external model output only; Codex process audit and consistency check still required.",
+    "process_audit": "execution/delivery audit complete; scientific grading incomplete",
+    "last_checked_utc": "2026-10-22T22:10:54.340018+00:00",
+    "delivery_audit": "<pilot-folder>/reviews/grok46_azure_deepseek_2026-10-22/REVIEW_DELIVERY_AUDIT.json"
+  },
+  "previous_external_review": {
+    "status": "time limit reached; incomplete review",
+    "reviewer_model": "grok-4.6",
+    "run_id": "R03_grok46_analytical_azure_deepseek",
+    "started_utc": "2026-10-22T18:25:52.725068+00:00",
+    "assessment": "User-directed analytical weighting 70/20/10; original rubric also retained",
+    "input_freeze": "<pilot-folder>/reviews/grok46_azure_deepseek_2026-10-22/INPUT_FREEZE.json",
+    "last_checked_utc": "2026-10-22T20:11:19.777112+00:00",
+    "progress": "Independent numeric rerun completed; final analytical score and runnable audit missing",
+    "preliminary_snapshot": "reviews/grok46_azure_deepseek_2026-10-22/preliminary_snapshot_20261022T185519Z",
+    "ended_utc": "2026-10-22T19:26:03.031820+00:00",
+    "exit_code": 137,
+    "final_score": null
+  },
+  "prior_external_reviews": [
+    {
+      "status": "review incomplete; process exited",
+      "reviewer_model": "grok-4.6",
+      "run_id": "R04_grok46_finalize_azure_deepseek",
+      "started_utc": "2026-10-22T20:13:07.429103+00:00",
+      "hard_deadline_utc": "2026-10-22T20:43:07.429103+00:00",
+      "assessment": "Complete missing analytical judgments and audit using prior real Grok execution evidence; same original and supplementary rubrics",
+      "final_score": null,
+      "input_freeze": "<pilot-folder>/reviews/grok46_azure_deepseek_2026-10-22/CONTINUATION_INPUT_FREEZE.json",
+      "checked_utc": "2026-10-22T20:43:27.958450+00:00",
+      "review_run": "R04_grok46_finalize_azure_deepseek",
+      "exit_code": 137,
+      "time_limit_reached": true,
+      "ended_utc": "2026-10-22T20:43:17.657928+00:00",
+      "artifacts": {
+        "REVIEW.md": false,
+        "GRADING.json": false,
+        "audit.py": false,
+        "audit_results.json": false
+      },
+      "reported_score": null,
+      "reported_verdict": null,
+      "input_mismatches": [],
+      "scientific_status": "Recorded external model output only; Codex process audit and consistency check still required."
+    }
+  ]
+}

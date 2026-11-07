@@ -1,0 +1,7 @@
+# Grading process
+
+- 19:01:23 UTC — Read TASK.md and inventoried the submission; beginning comparison of the problem, key, automatic checks, and delivered work. All grading work remains in this folder; no web access will be used.
+- 19:02:18 UTC — Reran `python3 solve.py` on `scratch/submission`; exit 0 and identical results.json. Inspected the final reproducer and supporting scripts. All five requested values agree with the key; now auditing claimed checks and ancillary statements.
+- 19:04:55 UTC — Verified quadrature/grid variants with copied dbg13.py, reproduced the NaN endpoint defect in check1.py, and ran scratch/audit.py. The stated n^4.5 ratio comparison is false; an actual 2000-point residual grid exceeds the claimed global bound. Confirmed unused helper defects without changing the submission.
+- 19:07:40 UTC — Completed the error inventory, including the inaccurate development ahead-tip K estimator. Classified requested numbers as correct against the key; identified the stated relaxation-criterion ambiguity as a definition challenge, with both conventions graded.
+- 19:10:15 UTC — Completed GRADE.md with all nine required sections and the final JSON profile. Validated JSON syntax, section coverage, profile counts, and identical reproduced results.json. The audit also demonstrates that inserting twice the slow rate makes the modal slope check reproduce that incorrect rate. All reruns finished normally; no process was stopped, no source submission was modified, and no web access was used.

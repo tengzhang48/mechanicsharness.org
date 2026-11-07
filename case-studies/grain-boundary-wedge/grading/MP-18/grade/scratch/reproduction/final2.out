@@ -1,0 +1,16 @@
+N= 160  lambda1=60.3862  lambda2=349.1399  lambda3=886.6643  f(0.5)=-0.73948
+N= 320  lambda1=60.1481  lambda2=348.1079  lambda3=1056.2885  f(0.5)=-0.74221
+N= 640  lambda1=60.0235  lambda2=347.4612  lambda3=1055.8329  f(0.5)=-0.74351
+N=1280  lambda1=59.9595  lambda2=347.1105  lambda3=1055.0016  f(0.5)=-0.74415
+Traceback (most recent call last):
+  File "<round-runs>/runs/MP-18/solve_final.py", line 105, in <module>
+    main()
+    ~~~~^^
+  File "<round-runs>/runs/MP-18/solve_final.py", line 69, in main
+    L3 = richardson(lam[3], Ns[1:])
+  File "<round-runs>/runs/MP-18/solve_final.py", line 46, in richardson
+    return np.linalg.lstsq(A, np.array(vals), rcond=None)[0][0]
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<home>/miniconda3/lib/python3.13/site-packages/numpy/linalg/_linalg.py", line 2523, in lstsq
+    raise LinAlgError('Incompatible dimensions')
+numpy.linalg.LinAlgError: Incompatible dimensions

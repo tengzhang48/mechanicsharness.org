@@ -1,0 +1,15 @@
+Command: python3 -u solve.py
+Directory: scratch/reproduction
+Exit status: 0
+
+N=16 lambda1 = 12.272998
+N=20 lambda1 = 12.147477
+N=20 lambda2 = 257.493356
+{
+  "lambda1": 11.871,
+  "lambda2": 257.493,
+  "mode1_shape_half": 0.8001,
+  "K_inf_norm": 1.1215,
+  "relaxation_time_t0": 0.0842,
+  "method": "spectral collocation of N[f]=int s f''' with PV subtraction; well-conditioned BC basis {3x-3x^2+x^3} U {x(1-x)^3 P_j}; mpmath 70-digit eigenproblem; Richardson extrapolation in N"
+}

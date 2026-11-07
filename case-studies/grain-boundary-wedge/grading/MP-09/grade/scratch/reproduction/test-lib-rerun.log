@@ -1,0 +1,37 @@
+=== TEST 1: C0 = PV int_0^inf S(1,t) dt should be -4 (derived analytically) ===
+C0 numeric = -4.000000000000000  (expect -4)
+=== TEST 2: T_moment vs direct numerical PV integration ===
+m=0 x=0.05  recurrence=-3.618737403121e+00  quad=-3.618737403121e+00  diff= 0.00e+00
+m=0 x=0.30  recurrence=-2.102854282718e+00  quad=-2.102854282718e+00  diff=-4.44e-16
+m=0 x=0.65  recurrence=-3.961427161471e-01  quad=-3.961427161471e-01  diff= 2.78e-16
+m=0 x=0.95  recurrence= 2.111950863750e+00  quad= 2.111950863750e+00  diff= 1.33e-15
+m=1 x=0.05  recurrence=-8.363875686014e-01  quad=-8.363875686015e-01  diff= 3.18e-14
+m=1 x=0.30  recurrence=-1.593852232168e+00  quad=-1.593852232168e+00  diff=-4.44e-16
+m=1 x=0.65  recurrence=-9.950756834380e-01  quad=-9.950756834380e-01  diff=-7.77e-16
+m=1 x=0.95  recurrence= 1.437799486882e+00  quad= 1.437799486882e+00  diff=-2.00e-15
+m=3 x=0.05  recurrence=-1.702721552823e-01  quad=-1.702721552823e-01  diff= 8.33e-17
+m=3 x=0.30  recurrence=-6.874792753194e-01  quad=-6.874792753194e-01  diff=-1.11e-16
+m=3 x=0.65  recurrence=-1.068804447334e+00  quad=-1.068804447334e+00  diff=-4.44e-16
+m=3 x=0.95  recurrence= 6.576628162448e-01  quad= 6.576628162448e-01  diff=-5.00e-15
+m=7 x=0.05  recurrence=-5.957669730206e-02  quad=-5.957669730206e-02  diff= 6.25e-17
+m=7 x=0.30  recurrence=-2.515029298491e-01  quad=-2.515029298491e-01  diff= 0.00e+00
+m=7 x=0.65  recurrence=-6.344483225503e-01  quad=-6.344483225503e-01  diff=-3.33e-16
+m=7 x=0.95  recurrence=-1.038450630248e-01  quad=-1.038450630248e-01  diff=-1.40e-14
+=== TEST 3: T_0 via antiderivative S_int ===
+x=0.1  T0=-3.270403684703e+00  via S_int(-4 at 0)=-3.270403684703e+00  diff=-1.33e-15
+x=0.4  T0=-1.601681731450e+00  via S_int(-4 at 0)=-1.601681731450e+00  diff=-4.44e-16
+x=0.8  T0= 4.688295156078e-01  via S_int(-4 at 0)= 4.688295156078e-01  diff=-2.22e-16
+=== TEST 4: Theta_k vs analytic Af for f = x^2(1-x)^3 ===
+x=0.02  Theta.g= 43.548477514848  exact= 43.548477514848  diff=-4.26e-14
+x=0.13  Theta.g=-2.158137158727  exact=-2.158137158727  diff= 1.07e-14
+x=0.37  Theta.g=-13.873232313334  exact=-13.873232313334  diff= 2.66e-14
+x=0.50  Theta.g=-7.438118217424  exact=-7.438118217424  diff=-2.31e-14
+x=0.71  Theta.g= 6.320242945041  exact= 6.320242945041  diff=-1.56e-13
+x=0.90  Theta.g= 10.476350051683  exact= 10.476350051683  diff=-3.55e-15
+x=0.99  Theta.g=-5.801668929963  exact=-5.801668929963  diff=-3.30e-13
+=== TEST 5: F_k properties (third derivative = T_k*, BCs) ===
+k=0  max|F'''-T_k*|=1.44e-04   F(0)=0.0e+00  F'(1)~1.7e-09  F''(1)~-1.0e-04
+k=1  max|F'''-T_k*|=6.29e-05   F(0)=0.0e+00  F'(1)~1.7e-09  F''(1)~-1.0e-04
+k=4  max|F'''-T_k*|=1.03e-04   F(0)=0.0e+00  F'(1)~1.7e-09  F''(1)~-1.0e-04
+k=9  max|F'''-T_k*|=1.08e-05   F(0)=0.0e+00  F'(1)~1.7e-09  F''(1)~-9.9e-05
+ALL LIB TESTS DONE

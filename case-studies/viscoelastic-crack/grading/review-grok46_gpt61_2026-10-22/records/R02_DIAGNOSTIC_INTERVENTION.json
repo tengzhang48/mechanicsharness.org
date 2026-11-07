@@ -1,0 +1,16 @@
+{
+  "applied_utc": "2026-10-22T17:08:33.972616+00:00",
+  "pid": 310925,
+  "command": [
+    "<home>/miniconda3/bin/python",
+    "<pilot-folder>/reviews/grok46_gpt61_2026-10-22/stream_diagnostics.py",
+    "/tmp/ve-model-dbh6gk2f",
+    "<pilot-folder>/runs/R02_grok46_analytical_gpt61/RUN.json",
+    "<pilot-folder>/reviews/grok46_gpt61_2026-10-22/R02_STREAM_DIAGNOSTICS.jsonl"
+  ],
+  "purpose": "Identify SSE failure codes/categories without retaining model/request content",
+  "changes": "Transparent relay for future connections of this grading run only; no request or response bytes changed; established connections untouched",
+  "checks": "Offline byte-identity, error categorization and private-content exclusion passed",
+  "original_model_relay_preserved": true,
+  "solver_runs_changed": false
+}

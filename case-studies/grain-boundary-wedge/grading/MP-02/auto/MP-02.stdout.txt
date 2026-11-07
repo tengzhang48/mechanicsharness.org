@@ -1,0 +1,11 @@
+=== MP-02 results (values written to results.json) ===
+lambda1             = 11.7426680713
+lambda2             = 264.6342241574
+mode1_shape_half    = 0.8019565030
+K_inf_norm          = 1.1215222555
+relaxation_time_t0  = 0.0851595220
+
+=== checks ===
+time-domain late-time decay rate = 11.742669  (spectral lambda1 = 11.742668)
+time-domain sigma(0.5)/sigma(1) at tau=0.4 = 0.80195650  (mode shape = 0.80195650)
+edge-crack reference value 1.1215223 (Wigglesworth/Tada), computed K_inf_norm = 1.1215223

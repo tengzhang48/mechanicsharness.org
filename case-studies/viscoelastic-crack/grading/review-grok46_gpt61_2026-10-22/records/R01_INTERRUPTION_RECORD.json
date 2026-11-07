@@ -1,0 +1,18 @@
+{
+  "recorded_utc": "2026-10-22T17:00:59.635231+00:00",
+  "run_id": "R01_grok46_grade_gpt61",
+  "reason": "No review/audit delivered after repeated long-response interruptions; retry with a longer grading-client header timeout and user-requested analytical weighting",
+  "not_a_solver_attempt": true,
+  "scientific_verdict": null,
+  "input_files_checked": 28,
+  "changed_inputs": [],
+  "new_output_files_before_stop": [],
+  "original_input_freeze_preserved": true,
+  "original_runtime_image": "sha256:be20de7b94ab0704a12554df9909fe1fe6301bc8612c8341e7b782e06966c65a",
+  "tool_evidence": "TOOL_EXECUTION_EVIDENCE.json",
+  "notes": "OpenCode 2.0.32 embedded code has a 300000 ms default header timeout and 900000 ms chunk timeout. Request/action times and a client disconnect are consistent with an operational interruption; exact upstream root cause is not proven.",
+  "docker_stop_exit_code": 0,
+  "final_run_status": "process exited; artifact review pending",
+  "cli_exit_code": 137,
+  "ended_utc": "2026-10-22T17:01:09.846590+00:00"
+}

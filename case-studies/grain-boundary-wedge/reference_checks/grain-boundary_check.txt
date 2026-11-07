@@ -1,0 +1,54 @@
+# grain-boundary_check.py run 2026-10-25T13:02:35Z with python 3.13.9 numpy 2.5.0 scipy 1.18.0
+# command: python -I grain-boundary_check.py (from assets/solution-evidence-2026-10-25)
+
+1. Eigenvalues by the paper's Gauss-Chebyshev collocation (Appendix A)
+  N= 30: lambda1 11.742832  lambda2 264.6745  lambda3 1357.74  f1(0.5)/f1(1) 0.801956
+  N= 60: lambda1 11.742659  lambda2 264.6402  lambda3 1357.53  f1(0.5)/f1(1) 0.801957
+  N=120: lambda1 11.742662  lambda2 264.6346  lambda3 1357.46  f1(0.5)/f1(1) 0.801957
+  Table 1 (paper): lambda1 11.74265  lambda2 264.6348  lambda3 1357.44
+  relative difference at N=120: lambda1 1.0e-06  lambda2 -8.3e-07
+  first mode at N=120, normalized f1(1) = 1:
+    x=0.10: f1 0.21316   opening shape -f1'' 2.63811   crack shape 3 sqrt(1-x^2) 2.98496
+    x=0.25: f1 0.48341   opening shape -f1'' 2.64686   crack shape 3 sqrt(1-x^2) 2.90474
+    x=0.50: f1 0.80196   opening shape -f1'' 2.54676   crack shape 3 sqrt(1-x^2) 2.59808
+    x=0.75: f1 0.96326   opening shape -f1'' 2.07012   crack shape 3 sqrt(1-x^2) 1.98431
+    x=0.90: f1 0.99619   opening shape -f1'' 1.39922   crack shape 3 sqrt(1-x^2) 1.30767
+    x=0.00: opening shape -f1'' 2.63560 (crack shape 3)
+
+2. Traction-free limit (edge crack of depth h), K/(sigma0 sqrt(pi h)) = pi |R(1)|
+  N= 30: K_inf/(sigma0 sqrt(pi h)) = 1.11753
+  N= 60: K_inf/(sigma0 sqrt(pi h)) = 1.11951
+  N=120: K_inf/(sigma0 sqrt(pi h)) = 1.12051
+  handbook edge-crack value quoted in the key: 1.1215 (not from the paper)
+
+3. Appendix B closed form (crack-shaped first mode)
+  int_0^1 f1 dx = 0.705476  (closed form 1 - 3 pi/32 = 0.705476)
+  Eq. B8: lambda1 ~ 3 pi / int f1 = 13.3595 (paper 13.3595); +13.8% from Table 1
+  f1(0) = -0, f1(1) = 1.000000, f1(0.5) = 0.8111
+  check f1'' = -3 sqrt(1-x^2) at x=0.3: -2.86182 vs -2.86182
+
+4. Decay ratios (Table 1) and the e-folding time
+  lambda_n/lambda_1 = 22.5, 115.6, 327.5, 709.2
+  1/lambda1 = 0.08516 t0
+
+5. Late-time amplitude c1 of the first mode (f1(1) = 1), discrete projection of sigma(x,0) = 1
+  N= 30: c1 = 1.52244
+  N= 60: c1 = 1.52670
+  N=120: c1 = 1.52887
+
+6. The round's automatic checker on the saved results (E/checks.py, unchanged)
+  MP-02: lambda1 11.742668071309005   class exact       '_ok' flags 4/4 (summary_data 4/4)  own checks True, True
+  MP-09: lambda1 11.742668210336962   class exact       '_ok' flags 4/4 (summary_data 4/4)  own checks True, True
+  MP-03: lambda1 11.7427              class exact       '_ok' flags 4/4 (summary_data 4/4)  own checks True, True
+  MP-05: lambda1 11.74266781911283    class exact       '_ok' flags 4/4 (summary_data 4/4)  own checks True, True
+  MP-40: lambda1 11.871               class approximate '_ok' flags 3/4 (summary_data 3/4)  own checks True, True
+  MP-44: lambda1 88.2491              class wrong       '_ok' flags 1/4 (summary_data 1/4)  own checks True, True
+  MP-47: lambda1 11.7436              class exact       '_ok' flags 4/4 (summary_data 4/4)  own checks True, True
+  MP-18: lambda1 188.1648             class wrong       '_ok' flags 1/4 (summary_data 1/4)  own checks True, True
+  MP-20: lambda1 0.59877              class wrong       '_ok' flags 0/4 (summary_data 0/4)  own checks True, True
+  the '_ok' flags are lambda2, mode1_shape, K_inf and relaxation_time; lambda1_class is not among them
+
+7. MP-44's solve.py replayed at N = 40 (evidence copy, unchanged except where stated)
+  identity: s = sin^2(th) gives 2s-1 = -0.696707 = -cos(2 th) = -0.696707
+  as delivered, T_k(cos 2th):       lambda1 88.25016  lambda2 1361.902  f1(0.5) 0.9705
+  one sign changed, T_k(-cos 2th):  lambda1 11.74267  lambda2 264.635  f1(0.5) 0.8020

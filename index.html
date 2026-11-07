@@ -6,7 +6,7 @@
 <title>MechanicsHarness</title>
 <meta name="description" content="MechanicsHarness shows how AI agents and mechanics can work together, with every result checked against an independent reference or a measurement.">
 <link rel="icon" href="assets/favicon.svg?v=crack-tip" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css?v=145a0792">
+<link rel="stylesheet" href="assets/style.css?v=4ea5439e">
 </head>
 <body class="page-index">
 <header class="site">
@@ -78,6 +78,8 @@ a measurement.</p>
     <ul class="rung-cases">
       <li><a href="#poroelastic-crack">Poroelastic crack (Detournay and Cheng 1991)</a></li>
       <li><a href="#xia-hutchinson-film">Thin-film cracking (Xia and Hutchinson 2000)</a></li>
+      <li><a href="#viscoelastic-crack">Viscoelastic crack (Hui and Long 2026)</a></li>
+      <li><a href="#grain-boundary-wedge">Grain-boundary diffusion wedge (Gao et al. 1999)</a></li>
     </ul>
   </div>
   <div class="rung rung-2">
@@ -178,6 +180,60 @@ the key and what every agent did.</p>
       <dd>Released on 7 Nov 2026: the task, the key and its checker, the five released runs, the grading and the records.</dd>
       <dt>Source paper</dt>
       <dd class="refs">Z. C. Xia and J. W. Hutchinson (2000), Crack patterns in thin films, <a href="https://doi.org/10.1016/S0022-5096(99)00081-2"><i>J. Mech. Phys. Solids</i> 48, 1107&ndash;1131</a>.</dd>
+    </dl>
+    </div>
+  </article>
+  <article class="card" id="viscoelastic-crack">
+    <div class="illustration">
+      <svg viewBox="0 0 64 60" aria-hidden="true" focusable="false">
+        <path class="g-edge" d="M4 12H60M4 48H60"/>
+        <path class="g-edge" d="M4 30H30"/>
+        <path class="g-new" d="M30 30H42"/>
+        <path class="g-hidden" d="M42 30H60"/>
+      </svg>
+    </div>
+    <div class="cardbody">
+    <h3>Viscoelastic crack: steady growth in a strip</h3>
+    <div class="card-cta">
+      <a class="button" href="case-studies/viscoelastic-crack.html">Read the case study</a>
+      <a class="button ghost" href="https://github.com/tengzhang48/mechanicsharness.org/tree/main/case-studies/viscoelastic-crack">Get the files</a>
+    </div>
+    <p>A crack runs at constant speed along the middle of a viscoelastic strip, opening through a cohesive zone. Without the
+    paper, the agents were asked for the load, zone length and fields of the steady state, the range of speeds where it
+    exists, and the bulk dissipation. GPT rebuilt the published analytical solution in 17 minutes; both DeepSeek runs
+    produced useful reductions but did not close them into the physical state.</p>
+    <dl class="cardfooter">
+      <dt>Status</dt>
+      <dd>Released on 7 Nov 2026: the task, the key and its scorer, every saved answer, the reviews and the records.</dd>
+      <dt>Source paper</dt>
+      <dd class="refs">C.-Y. Hui and R. Long (2026), <a href="https://doi.org/10.1016/j.jmps.2026.106662"><i>J. Mech. Phys. Solids</i> 214, 106662</a>.</dd>
+    </dl>
+    </div>
+  </article>
+  <article class="card" id="grain-boundary-wedge">
+    <div class="illustration">
+      <svg viewBox="0 0 64 60" aria-hidden="true" focusable="false">
+        <path class="g-edge" d="M4 14H60M4 40H60"/>
+        <path class="g-hidden" d="M4 52H60"/>
+        <path class="g-new" d="M28 14C28.4 28 30 36 32 40C34 36 35.6 28 36 14Z"/>
+      </svg>
+    </div>
+    <div class="cardbody">
+    <h3>Grain-boundary diffusion wedge: how a film relaxes into a crack</h3>
+    <div class="card-cta">
+      <a class="button" href="case-studies/grain-boundary-wedge.html">Read the case study</a>
+      <a class="button ghost" href="https://github.com/tengzhang48/mechanicsharness.org/tree/main/case-studies/grain-boundary-wedge">Get the files</a>
+    </div>
+    <p>Atoms diffusing from the free surface of a tensile film into a grain boundary insert a wedge that relaxes the
+    boundary&rsquo;s traction. Without the paper, the agents were asked for the decay rates of the traction, what the
+    boundary becomes at long times and its stress intensity factor, and the time scale of relaxation. All four Kimi and GLM
+    answers matched the paper&rsquo;s decay rates to one part in 10&#8309;; the five DeepSeek answers ranged from 0.60
+    to 188 against 11.74.</p>
+    <dl class="cardfooter">
+      <dt>Status</dt>
+      <dd>Released on 7 Nov 2026: the task, the key and its checker, the twelve runs, the grading and the records.</dd>
+      <dt>Source paper</dt>
+      <dd class="refs">H. Gao, L. Zhang, W. D. Nix, C. V. Thompson and E. Arzt (1999), <a href="https://doi.org/10.1016/S1359-6454(99)00178-0"><i>Acta Mater.</i> 47, 2865&ndash;2878</a>.</dd>
     </dl>
     </div>
   </article>

@@ -1,0 +1,9 @@
+{
+  "lambda1": 11.742668071309005,
+  "lambda2": 264.6342241574134,
+  "mode1_shape_half": 0.8019565030257383,
+  "K_inf_norm": 1.1215222555236433,
+  "relaxation_time_t0": 0.08515952200363318,
+  "method": "Spectral collocation of the dimensionless integro-differential relaxation equation dSigma/dtau = L[Sigma'''] (L = Cauchy-PV integral operator of the free-surface climb-dislocation kernel) in a basis phi_0=1-(1-Z)^(5/2), phi_j=Z(1-Z)^(5/2) T_{j-1}(2Z-1) that satisfies the boundary conditions and the exact crack-tip behavior; Gauss-Legendre PV quadrature after the smoothing substitution Z'=1-y^2; generalized eigendecomposition (scipy.linalg.eig) for lambda f = -L[f''']; steady state L[A]=1 solved with crack-singular basis R/sqrt(1-Z) giving K_inf = 1.1215223 sigma0 sqrt(pi h) (edge crack). Cross-checks: independent polynomial-basis eigensolver and direct time-domain integration reproduce lambda1 and the mode shape.",
+  "reproduce_command": "python3 solve.py"
+}

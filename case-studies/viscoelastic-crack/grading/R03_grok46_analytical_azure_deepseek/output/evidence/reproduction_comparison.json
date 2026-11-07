@@ -1,0 +1,8 @@
+{
+  "comparison": "Submitted JSON versus previously completed key-free offline replay; runtime_seconds excluded",
+  "differences": [],
+  "exact_match_excluding_runtime": true,
+  "command_provenance": "Existing monitor evaluate() constructs docker replay; this is not an independently captured Docker command record.",
+  "record": "EVALUATION_STATUS.json",
+  "replay_elapsed_from_evaluation_including_scoring_seconds": 95.606262
+}

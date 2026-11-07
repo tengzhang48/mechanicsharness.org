@@ -1,0 +1,28 @@
+{
+  "checked_utc": "2026-10-22T20:11:19.777112+00:00",
+  "review_run": "R03_grok46_analytical_azure_deepseek",
+  "candidate_run": "P01_deepseek",
+  "status": "time limit reached; incomplete review",
+  "started_utc": "2026-10-22T18:25:52.725068+00:00",
+  "ended_utc": "2026-10-22T19:26:03.031820+00:00",
+  "exit_code": 137,
+  "time_limit_reached": true,
+  "final_score": null,
+  "scientific_grade": "inconclusive; only preliminary assessment exists",
+  "input_integrity": {
+    "files": 75,
+    "mismatches": []
+  },
+  "completed_work": [
+    "candidate and primary-source reads retained in tool-action evidence",
+    "submitted scorer executed: eight accuracy failures",
+    "candidate entry-point independently rerun: exit 0, exact JSON reproduction",
+    "reproduced scorer executed: same eight failures"
+  ],
+  "missing_work": [
+    "final analytical item judgments and total scores",
+    "final gate assessment",
+    "requested runnable audit.py and audit_results.json"
+  ],
+  "provenance": "The controller ended the reviewer at the one-hour operational deadline. This is reviewer execution incompleteness, not a new DeepSeek solver outcome."
+}

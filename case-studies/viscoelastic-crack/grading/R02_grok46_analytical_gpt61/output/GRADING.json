@@ -1,0 +1,142 @@
+{
+  "reviewer_model": "grok-4.6",
+  "overall_verdict": "pass",
+  "total_score": 100,
+  "category_scores": {
+    "model_and_conditions": {
+      "score": 10,
+      "maximum": 10,
+      "evidence": "All five original 2-point anchors: infinite Mode-III strip; moving origin at the cohesive front; fully relaxed far-ahead history with E=T not lambda T; rate-independent Dugdale law including 2w(-lc,0+)=delta_c; supplied free-energy density and phi_D=|q|^2/eta. ANSWER.md secs. 1 and 4; PROBLEM.md geometry and psi; main pp. 4-6 eqs. 1-10 and pp. 22-24 eqs. 77-84."
+    },
+    "analytical_derivation_and_steady_branch": {
+      "score": 60,
+      "maximum": 60,
+      "evidence": "Four 15-point analytical items all awarded in full; see analytical_items. Derived Cauchy/closed-form stress, creep history excluding the homogeneous mode, implicit opening equation selecting epsilon(V) and a(epsilon), and finite V* with slow-speed and infinite-zone limits."
+    },
+    "scalar_numerical_verification": {
+      "score": 5,
+      "maximum": 5,
+      "evidence": "V* and all nine positive epsilon, a, R values meet the original 0.5% relative tolerance. Worst relative error 5.1e-13 (V*). Frozen scorer 251/251; audit_results.json scalars."
+    },
+    "field_numerical_verification": {
+      "score": 5,
+      "maximum": 5,
+      "evidence": "All 180 requested T1,T2,E1,E2 samples present, unique, and within absolute 0.005. Worst absolute error 3.94e-14 versus organizer key."
+    },
+    "spatial_dissipation_and_numerical_evidence": {
+      "score": 10,
+      "maximum": 10,
+      "evidence": "V2 split: 2.5 bulk numbers (all three D within 0.01*max(1,D_ref); worst abs 4.36e-6) + 5 demonstrated spatial integral (Hermite/GL quadrature of |T-E|^2, not R-1) + 2.5 refinement/tail/residual (last-grid changes <=1.04e-5; B=24-40 tail control; |D+1-R|/max(1,R)<=3.28e-6). Candidate ANSWER.md secs. 4-6 and solve.py spatial_loss; main eqs. 84-86."
+    },
+    "reproduction_and_reporting": {
+      "score": 10,
+      "maximum": 10,
+      "evidence": "Entry point reproduced submitted JSON exactly ignoring runtime_seconds (this session 41.9 s; organizer offline replay 43.3 s). verify.py runnable and matching verification.log. Claims, residuals, unresolved=[] and limitations match the executed work. Original 4+4+2 anchors all full."
+    }
+  },
+  "analytical_recovery": "supported",
+  "analytical_items": [
+    {
+      "item": "stress_and_zone_selection",
+      "score": 15,
+      "maximum": 15,
+      "status": "supported",
+      "evidence": "ANSWER.md eqs. 5-8: Cauchy representation, front-singularity cancellation a=(2/pi)arccos(e^{-eps/2}), closed form S=(2/pi)arctan(L/sqrt(1-e^{-z})). Identical to main p.6 eq.12 and p.7 eqs.17-18 / SI S2.6 (S2.50)-(S2.52). Independent identity max |S_paper-S_cand|=2.2e-16. Not a mesh field."
+    },
+    {
+      "item": "material_history",
+      "score": 15,
+      "maximum": 15,
+      "status": "supported",
+      "evidence": "ANSWER.md eqs. 1-3: E=lambda T+(1-lambda)Q_V T from Boltzmann plus relaxed far-ahead state; homogeneous e^{X/(lambda V)} mode excluded. Matches main pp.11-12 eqs.38-47 and SI S3. Independent convolution at V=0.1, (X,y/h)=(0,0.1) agrees to 1.1e-16."
+    },
+    {
+      "item": "separation_and_loading",
+      "score": 15,
+      "maximum": 15,
+      "status": "supported",
+      "evidence": "ANSWER.md eqs. 9-11: H(eps,V)=pi delta_bar/2 equivalent to main p.12 eqs.51-52. Paper (51) residual <=2e-15 at submitted roots. Unique increasing physical branch; R=a^2/delta_bar from main eqs.9,22. Vertical reconstruction of delta_bar independent of the root formula, error <=3.5e-13."
+    },
+    {
+      "item": "speed_range_and_limits",
+      "score": 15,
+      "maximum": 15,
+      "status": "supported",
+      "evidence": "ANSWER.md eqs. 12-14: 0<V<V*=13.4235715733 because delta_bar>lambda; endpoint is a supremum with eps->inf, a->1, R->5. Equivalent to main pp.13-15 eqs.58-59 and 68-70. Paper (59) residual 1.9e-15. Slow-speed a0, eps0, R0=1 match main eqs.64-65 exactly. Printed V*=13.4 on p.18."
+    }
+  ],
+  "original_rubric_score": 100,
+  "original_category_scores": {
+    "model_and_conditions": {
+      "score": 10,
+      "maximum": 10,
+      "anchors": "2+2+2+2+2 for strip/kinematics, moving origin, relaxed history, cohesive law/separation, supplied free energy."
+    },
+    "derivation_and_steady_branch": {
+      "score": 20,
+      "maximum": 20,
+      "anchors": "5+5+5+5 for stress/zone, material history, loading/separation, speed range/limits; same evidence as the four 15-point V2 items."
+    },
+    "scalar_results": {
+      "score": 20,
+      "maximum": 20,
+      "anchors": "5 for accurate finite V* plus 15 equally among nine positive epsilon,a,R; all meet 0.5%."
+    },
+    "stress_and_strain_fields": {
+      "score": 20,
+      "maximum": 20,
+      "anchors": "20/180 per accurate unique component; 180/180 within 0.005."
+    },
+    "spatial_dissipation": {
+      "score": 20,
+      "maximum": 20,
+      "anchors": "5 bulk numbers (all three) + 10 demonstrated spatial integration + 5 numerical evidence (2 refinement, 2 wake-tail, 1 residual)."
+    },
+    "reproduction_and_reporting": {
+      "score": 10,
+      "maximum": 10,
+      "anchors": "4 entry-point JSON reproduction + 4 runnable verify.py with matching log + 2 supported claims/limitations."
+    }
+  },
+  "gates": {
+    "numeric_accuracy": {
+      "result": "pass",
+      "evidence": "Frozen score_submission.py: all_required_numeric_gates_pass true, 251 checks, 0 failed. Independent audit: V* rel err 5.10e-13; nine scalars rel err <=1.63e-13; 180 fields worst abs 3.94e-14; three bulk abs err <=4.36e-6 vs 0.01*max(1,D_ref). Public tolerances from agent/CONTRACT.md used unchanged."
+    },
+    "energy_consistency": {
+      "result": "pass",
+      "evidence": "Residuals |D+1-R|/max(1,R) = 1.21e-6, 3.28e-6, 5.33e-8. D from spatial_loss of |T-E|^2 with core bounds, Y=pi t^2, geometric nodes at X=-eps and 0, analytic left strain tail, four-level refinement and B=24/32/40 tail checks. solve.py does not set D=R-1."
+    },
+    "scientific_support": {
+      "result": "pass",
+      "evidence": "Core stress/zone, strain-history, separation/loading and speed-range claims are correct against Hui and Long 2026 (main eqs. 12, 17, 38-42, 51-52, 58-70, 84-86; SI S2-S6) and are justified in ANSWER.md secs. 1-4 with field PDE/boundary/opening checks on the reported samples. Analytical recovery supported."
+    },
+    "reproduction_and_access": {
+      "result": "pass",
+      "evidence": "This-session python candidate/solve.py case.json audit/reproduced_results.json matched submitted numbers exactly except runtime_seconds (41.9 s). verify.py passed. Hashes match evidence/candidate_manifest.json. Organizer offline network-none replay 43.3 s also exact. Closed-book judgment limited to recorded evidence: solver_execution.json network none, ~16 min, no paper/reference mounts; ANSWER.md sec. 7 resource statement. No recorded retrieval. Unlogged actions cannot be disproved."
+    }
+  },
+  "findings": [
+    "Candidate recovered the Hui-Long Mode-III strip solution analytically: equivalent closed-form stress, creep history, implicit opening equation, and finite terminal speed, then evaluated those relations numerically.",
+    "S=(2/pi)arctan(L/sqrt(1-e^{-z})) is identically main eq. (12) on the upper-half-strip branch; a(eps)=(2/pi)arccos(e^{-eps/2}) is main eqs. (17)-(18).",
+    "H(eps,V)=pi delta_bar/2 is equivalent to main eq. (51); H_inf series is equivalent to main eq. (59). Submitted roots satisfy both to ~1e-15.",
+    "Admissible range 0<V<V*=13.4235715733 with eps->inf, a->1, R->5 at the supremum; slow-speed a0=sqrt(0.2), eps0=-2 log cos(pi sqrt(0.2)/2), R0=1.",
+    "All public numeric gates pass by large margins. Bulk D is an independent spatial integral.",
+    "Supplementary 70/20/10 weighting was requested after GPT delivery and is reported separately from the original frozen rubric; both totals are 100."
+  ],
+  "reference_findings": [
+    "Organizer reference_solver.py reproduces published equations; REFERENCE.md correctly states it is not independent scientific review.",
+    "Printed Figure 9 is three-decimal; extra key digits are organizer quadrature. Candidate agrees with both the key (machine precision on scalars/fields) and the printed rounding.",
+    "The digamma form of eq. (59) is an organizer identity; it matches the paper odd-term series plus integral tail to 6.8e-13 at submitted V*.",
+    "Main p.15 remark on post-terminal acceleration is not a theorem of the quasistatic steady model. Candidate correctly reports a supremum / nonexistence of finite-zone states for V>=V*."
+  ],
+  "limitations": [
+    "External model review, not a human domain seal or retrospectively preregistered study.",
+    "Closed-book compliance assessed only from recorded execution evidence; absence of a logged retrieval is not a proof that none occurred.",
+    "The original solver prompt allowed numerical methods; analytical-only emphasis and V2 weights arrived after launch and after GPT delivery.",
+    "Candidate slow-speed expansion of R-1 with Euler's constant was not independently re-derived; the leading slow-speed limits were.",
+    "Energy residuals ~1e-6 reflect the candidate quadrature, coarser than the organizer adaptive integral but well inside the public 0.01 gate.",
+    "A prior Grok review attempt was interrupted before saving a verdict; this operational retry uses the same candidate, sources and thresholds."
+  ],
+  "weighting_disclosure": "SCORING_ANALYTICAL_V2.md (70 analytical / 20 numerical / 10 reproduction) was user-requested after solver runs began and after GPT delivered. Original SCORING.md scores are retained. Weighting is reviewer item-level scoring under the supplementary anchors, not mechanical rescaling of an earlier finished review."
+}

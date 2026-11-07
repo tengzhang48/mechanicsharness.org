@@ -1,0 +1,16 @@
+{
+  "lambda1": 11.742668210336962,
+  "lambda2": 264.6342256450044,
+  "mode1_shape_half": 0.8019565032081655,
+  "K_inf_norm": 1.1215223627074167,
+  "relaxation_time_t0": 0.0851595209953824,
+  "mode1_amplitude_c1": 1.547333642632111,
+  "K_inf_routes": {
+    "tip_coefficient": 1.1215223627074167,
+    "outside_stress": 1.1215340709468753,
+    "COD_mouth_Estar_over_sigma0h": 5.817191677545708
+  },
+  "steady_state": "sigma_gb -> 0 everywhere (traction-free grain boundary); deposited wedge holds it open as a classical edge crack of length h under remote tension sigma0; K = 1.1215 sigma0 sqrt(pi h).",
+  "method": "Eigen-analysis of A f = PV int S(x,xi) f'''(xi) dxi, BCs f(0)=0, f'(1)=f''(1)=0. Primary: spectral collocation in s=sqrt(1-x), basis phi_k=s^k-1, exact kernel moments, truncated-SVD projection + QZ for the numerically singular pencil. Cross-checks: two finite-difference panel discretizations (Richardson limits bracket the spectral lambda1), off-grid continuous-equation residuals, implicit-Euler time evolution (decay-rate fit, sigma->0). K: crack integral equation solved by moment collocation in the (1-xi)^m basis; extracted from tip coefficient and outside stress; both give 1.12152, matching the classical edge crack 1.1215.",
+  "reproduce_command": "python3 solve.py"
+}

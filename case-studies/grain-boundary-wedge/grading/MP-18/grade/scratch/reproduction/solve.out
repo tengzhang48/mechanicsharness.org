@@ -1,0 +1,52 @@
+<round-runs>/runs/MP-18/solve.py:69: IntegrationWarning: The occurrence of roundoff error is detected, which prevents 
+  the requested tolerance from being achieved.  The error may be 
+  underestimated.
+  left = quad(integ, 0.0, x, limit=400, epsabs=1e-14, epsrel=1e-14)[0]
+<round-runs>/runs/MP-18/solve.py:70: IntegrationWarning: The occurrence of roundoff error is detected, which prevents 
+  the requested tolerance from being achieved.  The error may be 
+  underestimated.
+  right = quad(integ, x, 1.0, limit=400, epsabs=1e-14, epsrel=1e-14)[0]
+<round-runs>/runs/MP-18/solve.py:69: IntegrationWarning: The algorithm does not converge.  Roundoff error is detected
+  in the extrapolation table.  It is assumed that the requested tolerance
+  cannot be achieved, and that the returned result (if full_output = 1) is 
+  the best which can be obtained.
+  left = quad(integ, 0.0, x, limit=400, epsabs=1e-14, epsrel=1e-14)[0]
+<round-runs>/runs/MP-18/solve.py:70: IntegrationWarning: The algorithm does not converge.  Roundoff error is detected
+  in the extrapolation table.  It is assumed that the requested tolerance
+  cannot be achieved, and that the returned result (if full_output = 1) is 
+  the best which can be obtained.
+  right = quad(integ, x, 1.0, limit=400, epsabs=1e-14, epsrel=1e-14)[0]
+<round-runs>/runs/MP-18/solve.py:60: RuntimeWarning: divide by zero encountered in log
+  return np.log(np.abs((x - y) / (x + y))) + 2.0 * x * y / (x + y) ** 2
+<round-runs>/runs/MP-18/solve.py:70: IntegrationWarning: The maximum number of subdivisions (400) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  right = quad(integ, x, 1.0, limit=400, epsabs=1e-14, epsrel=1e-14)[0]
+<round-runs>/runs/MP-18/solve.py:69: IntegrationWarning: The maximum number of subdivisions (400) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  left = quad(integ, 0.0, x, limit=400, epsabs=1e-14, epsrel=1e-14)[0]
+ nb  N   rightmost eigenvalues
+  8  24  +417259.84462+0.00000i  -0.99742+0.00000i  -205.14251+0.00000i  -597.77419+0.00000i  -3043.97042+0.00000i
+ 12  32  +5082079.58992+0.00000i  +0.06958+0.00000i  -394.13619+39.09389i  -394.13619-39.09389i  -3524.97595+0.00000i
+ 16  40  +29320074.24199+0.00000i  -0.00096+0.00000i  -386.47982+160.89900i  -386.47982-160.89900i  -3732.37733+0.00000i
+ 20  48  +113996174.35665+0.00000i  +0.00000+0.00000i  -380.09895-206.25905i  -380.09895+206.25905i  -3889.36355+0.00000i
+Traceback (most recent call last):
+  File "<round-runs>/runs/MP-18/solve.py", line 120, in <module>
+    xc, A, Phi, ev, V = spectrum(nb, N)
+                        ~~~~~~~~^^^^^^^
+  File "<round-runs>/runs/MP-18/solve.py", line 112, in spectrum
+    ev, V = np.linalg.eig(M)
+            ~~~~~~~~~~~~~^^^
+  File "<home>/miniconda3/lib/python3.13/site-packages/numpy/linalg/_linalg.py", line 1495, in eig
+    _assert_finite(a)
+    ~~~~~~~~~~~~~~^^^
+  File "<home>/miniconda3/lib/python3.13/site-packages/numpy/linalg/_linalg.py", line 251, in _assert_finite
+    raise LinAlgError("Array must not contain infs or NaNs")
+numpy.linalg.LinAlgError: Array must not contain infs or NaNs

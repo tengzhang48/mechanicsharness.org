@@ -1,0 +1,9 @@
+symbolic operator ready
+eigen lambda: ['12.17604', '257.59217', '1387.84940', '3781.22886', '8468.18417']
+lambda1=12.176043  f(0.5)/f(1)=0.800149  f(0.25)/f(1)=0.480444  f(0.75)/f(1)=0.962881
+window [0.15,0.40]  decay rate = 10.89734
+window [0.25,0.50]  decay rate = 10.89734
+window [0.30,0.60]  decay rate = 10.89734
+window [0.40,0.80]  decay rate = 10.89734
+late profile f(0.5)/f(1)=0.800149  (tau=0.5)
+EXIT=0

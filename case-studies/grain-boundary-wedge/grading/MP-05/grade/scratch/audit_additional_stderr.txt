@@ -1,0 +1,40 @@
+<round-runs>/grading/MP-05/scratch/reproduction/solver5.py:107: RuntimeWarning: invalid value encountered in divide
+  J1 = 1.0 / u - ell / (2.0 * d)
+<round-runs>/grading/MP-05/scratch/reproduction/solver5.py:108: RuntimeWarning: divide by zero encountered in divide
+  J2 = -1.0 / (2.0 * d**2 * u) - ell / (4.0 * d**3) - 1.0 / u**2
+<round-runs>/grading/MP-05/scratch/reproduction/solver5.py:108: RuntimeWarning: invalid value encountered in divide
+  J2 = -1.0 / (2.0 * d**2 * u) - ell / (4.0 * d**3) - 1.0 / u**2
+<round-runs>/grading/MP-05/scratch/reproduction/solver5.py:109: RuntimeWarning: divide by zero encountered in divide
+  J3 = -3.0 / (4.0 * d**4 * u) + 1.0 / (2.0 * d**2 * u**2) - 3.0 * ell / (8.0 * d**5) + 2.0 / u**3
+<round-runs>/grading/MP-05/scratch/reproduction/solver5.py:109: RuntimeWarning: invalid value encountered in add
+  J3 = -3.0 / (4.0 * d**4 * u) + 1.0 / (2.0 * d**2 * u**2) - 3.0 * ell / (8.0 * d**5) + 2.0 / u**3
+<round-runs>/grading/MP-05/scratch/reproduction/solver5.py:109: RuntimeWarning: invalid value encountered in divide
+  J3 = -3.0 / (4.0 * d**4 * u) + 1.0 / (2.0 * d**2 * u**2) - 3.0 * ell / (8.0 * d**5) + 2.0 / u**3
+<round-runs>/grading/MP-05/scratch/reproduction/solver7.py:49: RuntimeWarning: invalid value encountered in divide
+  J1 = -4.0 + 3.0*t**2*ell/(2.0*t) * 0 + 0  # placeholder; replaced below
+<round-runs>/grading/MP-05/scratch/reproduction/solver7.py:55: RuntimeWarning: divide by zero encountered in divide
+  lp = -1.0/(np.sqrt(s)*(1.0-s))                      # dl/ds
+<round-runs>/grading/MP-05/scratch/reproduction/solver7.py:56: RuntimeWarning: invalid value encountered in multiply
+  dJds = 2.0 + 1.5*ss*ell + s**1.5*lp
+<round-runs>/grading/MP-05/scratch/reproduction/solver7.py:58: RuntimeWarning: divide by zero encountered in power
+  lpp = 0.5*s**-1.5/(1.0-s) - ss**-1/(1.0-s)**2       # d2l/ds2
+<round-runs>/grading/MP-05/scratch/reproduction/solver7.py:58: RuntimeWarning: divide by zero encountered in reciprocal
+  lpp = 0.5*s**-1.5/(1.0-s) - ss**-1/(1.0-s)**2       # d2l/ds2
+<round-runs>/grading/MP-05/scratch/reproduction/solver7.py:58: RuntimeWarning: invalid value encountered in subtract
+  lpp = 0.5*s**-1.5/(1.0-s) - ss**-1/(1.0-s)**2       # d2l/ds2
+<round-runs>/grading/MP-05/scratch/reproduction/solver7.py:59: RuntimeWarning: divide by zero encountered in power
+  d2 = 0.75*s**-0.5*ell + 1.5*ss*lp - 1.0/(1.0-s)**2
+<round-runs>/grading/MP-05/scratch/reproduction/solver7.py:59: RuntimeWarning: invalid value encountered in multiply
+  d2 = 0.75*s**-0.5*ell + 1.5*ss*lp - 1.0/(1.0-s)**2
+<round-runs>/grading/MP-05/scratch/reproduction/solver7.py:61: RuntimeWarning: divide by zero encountered in power
+  lppp = -0.75*s**-2.5/(1.0-s) + s**-1.5/(1.0-s)**2 + 2.0*ss**-1/(1.0-s)**3
+<round-runs>/grading/MP-05/scratch/reproduction/solver7.py:61: RuntimeWarning: invalid value encountered in add
+  lppp = -0.75*s**-2.5/(1.0-s) + s**-1.5/(1.0-s)**2 + 2.0*ss**-1/(1.0-s)**3
+<round-runs>/grading/MP-05/scratch/reproduction/solver7.py:61: RuntimeWarning: divide by zero encountered in reciprocal
+  lppp = -0.75*s**-2.5/(1.0-s) + s**-1.5/(1.0-s)**2 + 2.0*ss**-1/(1.0-s)**3
+<round-runs>/grading/MP-05/scratch/reproduction/solver7.py:62: RuntimeWarning: divide by zero encountered in power
+  d3ds3 = -0.375*s**-1.5*ell + 1.5*s**-0.5*lp + 1.5*ss*lpp - 2.0/(1.0-s)**3
+<round-runs>/grading/MP-05/scratch/reproduction/solver7.py:62: RuntimeWarning: invalid value encountered in multiply
+  d3ds3 = -0.375*s**-1.5*ell + 1.5*s**-0.5*lp + 1.5*ss*lpp - 2.0/(1.0-s)**3
+<round-runs>/grading/MP-05/scratch/reproduction/solver2.py:65: RuntimeWarning: divide by zero encountered in divide
+  sub = np.where(mask, W / (xi_ - x), 0.0)

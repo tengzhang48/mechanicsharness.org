@@ -145,6 +145,14 @@ ol.steps li::before {
 
 /* Benchmark cards */
 .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin: 0; }
+.cards-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cards-3 .cardbody { padding: 18px 20px 21px; }
+.cards-3 .card-cta { gap: 6px; }
+.cards-3 .card-cta .button { padding: 8px 9px; font-size: 12.5px; }
+@media (max-width: 1199px) {
+  .cards-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards-3 > .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
 .card {
   display: flex; flex-direction: column; overflow: hidden;
   background: var(--surface); border: 1px solid var(--line); border-radius: 12px;

@@ -1,0 +1,22 @@
+symbolic operator ready
+D=22  lam1=12.21964  lam2=256.94956
+D=24  lam1=12.17604  lam2=257.59217
+D=26  lam1=12.13975  lam2=258.13482
+D=28  lam1=12.10906  lam2=258.59935
+D=30  lam1=12.08278  lam2=259.00160
+D=32  lam1=12.06002  lam2=259.35338
+D=34  lam1=12.04011  lam2=259.66367
+D=36  lam1=251.22633  lam2=4389.86494
+D=38  lam1=241.58062  lam2=4893.93178
+D=40  lam1=239524.29020  lam2=493146.75142
+
+lambda1 convergence:
+  D=22,24,26  d1=-0.04360 d2=-0.03630  Aitken lam_inf=11.95939
+  D=24,26,28  d1=-0.03630 d2=-0.03068  Aitken lam_inf=11.94125
+  D=26,28,30  d1=-0.03068 d2=-0.02628  Aitken lam_inf=11.92590
+  D=28,30,32  d1=-0.02628 d2=-0.02276  Aitken lam_inf=11.91276
+  D=30,32,34  d1=-0.02276 d2=-0.01991  Aitken lam_inf=11.90137
+  D=32,34,36  d1=-0.01991 d2=239.18621  Aitken lam_inf=12.06002
+  D=34,36,38  d1=239.18621 d2=-9.64571  Aitken lam_inf=241.95452
+  D=36,38,40  d1=-9.64571 d2=239282.70958  Aitken lam_inf=251.22594
+fit failed f(a) and f(b) must have different signs

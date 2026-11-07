@@ -1,0 +1,19 @@
+{
+  "checked_utc": "2026-10-22T20:43:27.958450+00:00",
+  "review_run": "R04_grok46_finalize_azure_deepseek",
+  "status": "review incomplete; process exited",
+  "exit_code": 137,
+  "time_limit_reached": true,
+  "ended_utc": "2026-10-22T20:43:17.657928+00:00",
+  "artifacts": {
+    "REVIEW.md": false,
+    "GRADING.json": false,
+    "audit.py": false,
+    "audit_results.json": false
+  },
+  "reported_score": null,
+  "reported_verdict": null,
+  "input_mismatches": [],
+  "scientific_status": "Recorded external model output only; Codex process audit and consistency check still required.",
+  "interpretation": "Second reviewer attempt did not deliver the required final assessment. Preserve it as incomplete; no score inferred from prose or tool computations."
+}

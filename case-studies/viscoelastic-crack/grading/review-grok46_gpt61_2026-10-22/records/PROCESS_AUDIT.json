@@ -1,0 +1,138 @@
+{
+  "checked_utc": "2026-10-22T17:56:36.931785+00:00",
+  "status": "complete with reporting notes; external grade supported by recorded checks",
+  "scope": "Codex process audit of an external Grok review; not a substitute scientific grade against a self-authored key",
+  "reviewer_run": "R02_grok46_analytical_gpt61",
+  "reviewer_model": "grok-4.6",
+  "checks": {
+    "input_integrity": {
+      "status": "pass",
+      "files_checked": 32,
+      "changes": []
+    },
+    "requested_model": {
+      "status": "pass",
+      "basis": "Provider-reported model IDs on completed requests",
+      "observed_models": [
+        "grok-4.6"
+      ]
+    },
+    "runtime_isolation": {
+      "status": "pass",
+      "evidence": "R02_RUNTIME_ISOLATION_OBSERVED.json"
+    },
+    "source_equation_inspection": {
+      "status": "pass with coverage note",
+      "evidence": "R02_TOOL_EXECUTION_EVIDENCE.json",
+      "coverage": "Selected text from main PDF pages 4\u20138, 11\u201315, 18\u201319, 22\u201324; SI pages 2\u201316; submitted derivation and code",
+      "scientific_correctness": "Final external item-level review pending"
+    },
+    "numeric_audit_coverage": {
+      "status": "pass",
+      "evidence": "runs/R02_grok46_analytical_gpt61/workspace/audit/score_report.json",
+      "checks": 251,
+      "failures": 0,
+      "field_components": 180,
+      "maximum_absolute_field_error": 3.93574062229618e-14,
+      "report_sha256": "4ea853ac0b0b6de2112fa3bff5eb53660dc2cdc583692eba611ae3f8020b3158",
+      "scope": "Coverage and recorded execution of Grok numeric checks; agreement with organizer key alone is not physical proof"
+    },
+    "entry_point_reproduction": {
+      "status": "pass",
+      "evidence": "R02_REPRODUCTION_CHECK.json",
+      "excluded_field": "runtime_seconds"
+    },
+    "original_submissions_unchanged": {
+      "status": "pass"
+    },
+    "analytical_item_evidence": {
+      "status": "pass",
+      "basis": "Four externally scored analytical items, 15/15 each, with candidate formulas and primary-source citations in final REVIEW.md. This is not an organizer-authored replacement verdict.",
+      "items": {
+        "stress_and_zone_selection": 15,
+        "material_history": 15,
+        "separation_and_loading": 15,
+        "speed_range_and_limits": 15
+      },
+      "source_locators_checked": "Main PDF eqs.12 p.6;17 p.7;38,42,44 p.11;48,51 p.12;59 p.13;65 p.14;84,86 p.24"
+    },
+    "score_arithmetic_and_rubric": {
+      "status": "pass",
+      "category_maxima": {
+        "model_and_conditions": 10,
+        "analytical_derivation_and_steady_branch": 60,
+        "scalar_numerical_verification": 5,
+        "field_numerical_verification": 5,
+        "spatial_dissipation_and_numerical_evidence": 10,
+        "reproduction_and_reporting": 10
+      },
+      "category_sum": 100,
+      "analytical_item_sum": 60,
+      "analytical_content_total": 70,
+      "original_score_sum": 100,
+      "four_gates": "all pass"
+    },
+    "standalone_audit_code_replay": {
+      "status": "pass",
+      "evidence": "OFFLINE_AUDIT_REPLAY_CHECK.json",
+      "duration_seconds": 44.25986816699151,
+      "model_api_or_credentials_mounted": false
+    }
+  },
+  "operational_history": {
+    "first_attempt": "R01 interrupted without verdict; R01_INTERRUPTION_RECORD.json",
+    "retry_timeouts": "R02 longer reviewer-only header/chunk wait; no solver task/runtime changes",
+    "diagnostic_relay": "R02_DIAGNOSTIC_INTERVENTION.json; byte-preserving relay, categories only",
+    "root_cause": "Not conclusively established; short disconnects also occurred after timeout increase"
+  },
+  "weighting": {
+    "analytical": 70,
+    "numerical_verification": 20,
+    "reproduction_reporting": 10,
+    "provenance": "User-directed supplementary weighting after solver launch and GPT delivery; original rubric retained"
+  },
+  "limitations": [
+    "External model review is complete. The optional next-order slow-speed R-1 expansion was not independently re-derived by Grok; required leading limits were checked.",
+    "The supplied reference reproduction/key was prepared by Codex; scientific judgments must come from the external source-based review.",
+    "Tool action evidence and repeated executable checks do not reveal private reasoning or prove every unlogged action."
+  ],
+  "reviewer_audit_issues": "INITIAL_AUDIT_ISSUES.json",
+  "reviewer_audit_issues_resolution": {
+    "serialization": "corrected by Grok",
+    "finite_series_truncation": "corrected by Grok with tail estimate; cold replay and positive-tail interval check pass",
+    "minor_comment_typo": "noted in OFFLINE_AUDIT_REPLAY_CHECK.json; executable expression is correct"
+  },
+  "external_grade": {
+    "reviewer_model": "grok-4.6",
+    "external_overall_verdict": "pass",
+    "analytical_recovery": "supported",
+    "analytical_weighted_score": 100,
+    "analytical_content_score": 70,
+    "original_rubric_score": 100,
+    "gates": {
+      "numeric_accuracy": "pass",
+      "energy_consistency": "pass",
+      "scientific_support": "pass",
+      "reproduction_and_access": "pass"
+    }
+  },
+  "reporting_notes": [
+    {
+      "kind": "resolved audit-helper error",
+      "detail": "Grok corrected NumPy boolean serialization and the auxiliary finite-series comparison by adding a positive-tail estimate. The corrected code passes a fresh offline replay and the positive-series interval check; original public thresholds were unchanged."
+    },
+    {
+      "kind": "minor helper comment typo",
+      "detail": "A comment writes tail coefficient 2 where the executable expression correctly uses 4/(pi^2*(2N-1)). No effect on computed results or grade."
+    },
+    {
+      "kind": "read-coverage reporting note",
+      "detail": "The retained actions document selected SI pages 2\u201316. The report says SI S2\u2013S6, while S6 begins on page 17 and no explicit read of that page is recorded. The critical-speed identity was directly read and checked in main-text equation 59 on PDF page 13; this scope overstatement does not change that result."
+    },
+    {
+      "kind": "reference-residual reporting note",
+      "detail": "The review shorthand contrasts candidate energy residuals near 1e-6 with organizer residuals near 1e-9. The actual organizer residuals in audit_results.json range from 1.56e-9 to 4.22e-8. All remain far inside the public 0.01 threshold."
+    }
+  ],
+  "final_result": "FINAL_RESULT.json"
+}

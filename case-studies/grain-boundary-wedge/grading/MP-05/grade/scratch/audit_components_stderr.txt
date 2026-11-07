@@ -1,0 +1,16 @@
+<round-runs>/grading/MP-05/scratch/reproduction/crack.py:48: RuntimeWarning: invalid value encountered in power
+  rho_a = (1.0 - xa)**(-0.5) * (Qa @ a)
+<round-runs>/grading/MP-05/scratch/reproduction/solver5.py:107: RuntimeWarning: invalid value encountered in divide
+  J1 = 1.0 / u - ell / (2.0 * d)
+<round-runs>/grading/MP-05/scratch/reproduction/solver5.py:108: RuntimeWarning: divide by zero encountered in divide
+  J2 = -1.0 / (2.0 * d**2 * u) - ell / (4.0 * d**3) - 1.0 / u**2
+<round-runs>/grading/MP-05/scratch/reproduction/solver5.py:108: RuntimeWarning: invalid value encountered in divide
+  J2 = -1.0 / (2.0 * d**2 * u) - ell / (4.0 * d**3) - 1.0 / u**2
+<round-runs>/grading/MP-05/scratch/reproduction/solver5.py:109: RuntimeWarning: divide by zero encountered in divide
+  J3 = -3.0 / (4.0 * d**4 * u) + 1.0 / (2.0 * d**2 * u**2) - 3.0 * ell / (8.0 * d**5) + 2.0 / u**3
+<round-runs>/grading/MP-05/scratch/reproduction/solver5.py:109: RuntimeWarning: invalid value encountered in add
+  J3 = -3.0 / (4.0 * d**4 * u) + 1.0 / (2.0 * d**2 * u**2) - 3.0 * ell / (8.0 * d**5) + 2.0 / u**3
+<round-runs>/grading/MP-05/scratch/reproduction/solver5.py:109: RuntimeWarning: invalid value encountered in divide
+  J3 = -3.0 / (4.0 * d**4 * u) + 1.0 / (2.0 * d**2 * u**2) - 3.0 * ell / (8.0 * d**5) + 2.0 / u**3
+<round-runs>/grading/MP-05/scratch/reproduction/solver2.py:65: RuntimeWarning: divide by zero encountered in divide
+  sub = np.where(mask, W / (xi_ - x), 0.0)

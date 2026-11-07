@@ -1,0 +1,6 @@
+chebyshev-basis eigenvalues: [np.float64(11.8209), np.float64(257.9232), np.float64(1355.1056), np.float64(3761.9479)]
+lam=11.82087  Nsigma/-sigma ratio at x=[np.float64(0.1), np.float64(0.25), np.float64(0.5), np.float64(0.75), np.float64(0.9)]:
+    [ 0.2872  0.2648  0.1882  0.074  -0.0667]  resid(rel)= 1.0056413748802049
+lam=257.92319  Nsigma/-sigma ratio at x=[np.float64(0.1), np.float64(0.25), np.float64(0.5), np.float64(0.75), np.float64(0.9)]:
+    [-15.6047  -6.5445  -0.6529   1.5886   2.278 ]  resid(rel)= 0.9911677601239847
+EXIT=0

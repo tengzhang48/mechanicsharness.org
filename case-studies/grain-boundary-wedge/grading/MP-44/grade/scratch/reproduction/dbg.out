@@ -1,0 +1,6 @@
+B 2 0.2 sing: brute=2.94053 ident=-2.94053 | reg: brute=-0.44745 ident=-0.44745
+B 2 0.5 sing: brute=0.00000 ident=0.00000 | reg: brute=-0.06545 ident=-0.06545
+B 2 0.7 sing: brute=-2.96566 ident=2.96566 | reg: brute=-0.01375 ident=-0.01375
+A 1 0.2 sing: brute=-3.14091 ident=3.14159 | reg: brute=1.99209 ident=1.98711
+A 1 0.5 sing: brute=-3.14116 ident=3.14159 | reg: brute=0.72302 ident=0.72142
+A 1 0.7 sing: brute=-3.14107 ident=3.14159 | reg: brute=0.43299 ident=0.43205

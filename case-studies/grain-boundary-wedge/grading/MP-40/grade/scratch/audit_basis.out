@@ -1,0 +1,13 @@
+Submitted expanded Legendre basis: endpoint defects (should all vanish except phi0(1)=1)
+N=8 max_coefficient_error=0.0 max_endpoint_defects=['0.0', '0.0', '0.0']
+N=12 max_coefficient_error=0.0 max_endpoint_defects=['0.0', '0.0', '0.0']
+N=16 max_coefficient_error=0.0 max_endpoint_defects=['0.0', '0.0', '0.0']
+N=20 max_coefficient_error=0.0 max_endpoint_defects=['0.0', '0.0', '0.0']
+N=24 max_coefficient_error=70.0 max_endpoint_defects=['35.91168213', '1995.037064', '11217.4819']
+N=28 max_coefficient_error=146166.0 max_endpoint_defects=['59492.125', '416123.2814', '16811230.53']
+explore26 phi0 ascending coefficients: [0.0, 1.0, -1.0, 1.0]
+explore26 phi0 at (1), first and second derivatives: ['1.0', '2.0', '4.0']
+Relative numerical errors: {'lambda1': 1.093024147019639, 'lambda2': -2.6987380344535183, 'mode1_shape_half': -0.23690773067331916}
+phi0 operator x=0.4 submitted=-9.61009038869718633 analytic=-9.61009038869718648 error=1.53912596338e-16
+phi0 operator x=0.7 submitted=-0.80346633203122315 analytic=-0.803466332031223259 error=1.09008291697e-16
+phi0 operator x=0.004657026981834667 submitted=-23.7774992900064589 analytic=-23.7774972936920269 error=-1.99631443195e-6

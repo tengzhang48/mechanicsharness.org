@@ -1,0 +1,9 @@
+# viscoelastic_check.py rerun 2026-10-25T00:51:23Z with python 3.13.9 numpy 2.5.0 scipy 1.18.0
+# command: python -I viscoelastic_check.py (from assets/case_studies_review_checks_2026-10-23)
+V=0.001 eps=0.5447055551 a=0.4488424892 R=1.0072979004
+V=0.1 eps=0.7407809317 a=0.5148121867 R=1.3251579381
+V=10 eps=6.3333056844 a=0.9731620763 R=4.7352221340
+slow limit eps 0.5403622880546666
+d=0.15 V*=28.7659553448
+d=0.20 V*=13.4235715733
+d=0.30 V*=5.7589714141

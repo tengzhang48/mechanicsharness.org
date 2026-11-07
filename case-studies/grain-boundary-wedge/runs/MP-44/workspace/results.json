@@ -1,0 +1,9 @@
+{
+  "lambda1": 88.2491,
+  "lambda2": 1361.871,
+  "mode1_shape_half": 0.9705,
+  "K_inf_norm": 1.1215,
+  "relaxation_time_t0": 0.01133,
+  "method": "weighted-Chebyshev spectral collocation for the nonlocal traction eigenproblem lambda f = -int_0^1 S(Z,Xi) f'''(Xi) dXi, f''' expanded in (Z(1-Z))^{-1/2} T_k(2Z-1) (Cauchy part analytic, regular kernel part by paneled Gauss quadrature), f_k = triple integral of f'''_k with f(0)=f'(1)=f''(1)=0, collocation at interior Chebyshev points",
+  "reproduce_command": "python3 solve.py"
+}

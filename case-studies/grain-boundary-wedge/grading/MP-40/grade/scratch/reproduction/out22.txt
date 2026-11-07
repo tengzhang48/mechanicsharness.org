@@ -1,0 +1,32 @@
+D(x) = (2*x*(2*x + 3) + (-log(1 - x) + log(x + 1))*(x**2 + 2*x + 1) + (-4 + I*pi)*(x**2 + 2*x + 1))/(x**2 + 2*x + 1)
+N[x^3] = 6*(-x**2*log(1 - x) + I*pi*x**2 - 2*x*log(1 - x) - 2*x + 2*I*pi*x - log(1 - x) + log((x + 1)**(x**2 + 2*x + 1)) - 4 + I*pi)/(x**2 + 2*x + 1)
+<round-runs>/runs/MP-40/explore22.py:41: ComplexWarning: Casting complex values to real discards the imaginary part
+  O[:, p] = Nnum[p](nodes)
+D= 8 m= 6  13.3442  242.5848  1456.1083  6152.2244
+<lambdifygenerated-10>:2: RuntimeWarning: overflow encountered in power
+  return (168/5)*x*(-15*x**7*log(1 - x) + 15*1j*pi*x**7 - 30*x**6*log(1 - x) - 1470*x**6 + 30*1j*pi*x**6 - 15*x**5*log(1 - x) - 2220*x**5 + 15*1j*pi*x**5 - 520*x**4 + 100*x**3 - 64*x**2 + 12*x + log(x**(-1440*x**5*(x**2 + 2*x + 1))*(x + 1)**(1455*x**5*(x**2 + 2*x + 1))) - 24)/(x**2 + 2*x + 1)
+<lambdifygenerated-10>:2: RuntimeWarning: overflow encountered in multiply
+  return (168/5)*x*(-15*x**7*log(1 - x) + 15*1j*pi*x**7 - 30*x**6*log(1 - x) - 1470*x**6 + 30*1j*pi*x**6 - 15*x**5*log(1 - x) - 2220*x**5 + 15*1j*pi*x**5 - 520*x**4 + 100*x**3 - 64*x**2 + 12*x + log(x**(-1440*x**5*(x**2 + 2*x + 1))*(x + 1)**(1455*x**5*(x**2 + 2*x + 1))) - 24)/(x**2 + 2*x + 1)
+<lambdifygenerated-10>:2: RuntimeWarning: invalid value encountered in multiply
+  return (168/5)*x*(-15*x**7*log(1 - x) + 15*1j*pi*x**7 - 30*x**6*log(1 - x) - 1470*x**6 + 30*1j*pi*x**6 - 15*x**5*log(1 - x) - 2220*x**5 + 15*1j*pi*x**5 - 520*x**4 + 100*x**3 - 64*x**2 + 12*x + log(x**(-1440*x**5*(x**2 + 2*x + 1))*(x + 1)**(1455*x**5*(x**2 + 2*x + 1))) - 24)/(x**2 + 2*x + 1)
+<lambdifygenerated-10>:2: RuntimeWarning: invalid value encountered in divide
+  return (168/5)*x*(-15*x**7*log(1 - x) + 15*1j*pi*x**7 - 30*x**6*log(1 - x) - 1470*x**6 + 30*1j*pi*x**6 - 15*x**5*log(1 - x) - 2220*x**5 + 15*1j*pi*x**5 - 520*x**4 + 100*x**3 - 64*x**2 + 12*x + log(x**(-1440*x**5*(x**2 + 2*x + 1))*(x + 1)**(1455*x**5*(x**2 + 2*x + 1))) - 24)/(x**2 + 2*x + 1)
+<lambdifygenerated-11>:2: RuntimeWarning: divide by zero encountered in log
+  return 48*x*(-15*x**8*log(1 - x) + 15*1j*pi*x**8 - 30*x**7*log(1 - x) + 1890*x**7 + 30*1j*pi*x**7 - 15*x**6*log(1 - x) + 2820*x**6 + 15*1j*pi*x**6 + 600*x**5 - 180*x**4 + 48*x**3 - 44*x**2 + 8*x + log(x**(1920*x**6*(x**2 + 2*x + 1))*(x + 1)**(-1905*x**6*(x**2 + 2*x + 1))) - 20)/(x**2 + 2*x + 1)
+<lambdifygenerated-11>:2: RuntimeWarning: invalid value encountered in multiply
+  return 48*x*(-15*x**8*log(1 - x) + 15*1j*pi*x**8 - 30*x**7*log(1 - x) + 1890*x**7 + 30*1j*pi*x**7 - 15*x**6*log(1 - x) + 2820*x**6 + 15*1j*pi*x**6 + 600*x**5 - 180*x**4 + 48*x**3 - 44*x**2 + 8*x + log(x**(1920*x**6*(x**2 + 2*x + 1))*(x + 1)**(-1905*x**6*(x**2 + 2*x + 1))) - 20)/(x**2 + 2*x + 1)
+<lambdifygenerated-11>:2: RuntimeWarning: invalid value encountered in divide
+  return 48*x*(-15*x**8*log(1 - x) + 15*1j*pi*x**8 - 30*x**7*log(1 - x) + 1890*x**7 + 30*1j*pi*x**7 - 15*x**6*log(1 - x) + 2820*x**6 + 15*1j*pi*x**6 + 600*x**5 - 180*x**4 + 48*x**3 - 44*x**2 + 8*x + log(x**(1920*x**6*(x**2 + 2*x + 1))*(x + 1)**(-1905*x**6*(x**2 + 2*x + 1))) - 20)/(x**2 + 2*x + 1)
+Traceback (most recent call last):
+  File "<round-runs>/runs/MP-40/explore22.py", line 50, in <module>
+    lam, nodes, VZ, OZ = make(D, m)
+                         ~~~~^^^^^^
+  File "<round-runs>/runs/MP-40/explore22.py", line 43, in make
+    ev = np.linalg.eigvals(np.linalg.solve(VZ, OZ))
+  File "<home>/miniconda3/lib/python3.13/site-packages/numpy/linalg/_linalg.py", line 1242, in eigvals
+    _assert_finite(a)
+    ~~~~~~~~~~~~~~^^^
+  File "<home>/miniconda3/lib/python3.13/site-packages/numpy/linalg/_linalg.py", line 251, in _assert_finite
+    raise LinAlgError("Array must not contain infs or NaNs")
+numpy.linalg.LinAlgError: Array must not contain infs or NaNs
+EXIT=1

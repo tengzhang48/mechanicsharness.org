@@ -1,0 +1,28 @@
+symbolic operator ready
+M=16  eig=-24.40015   (ratio should be constant = eig)
+   x=0.10  sigma=-0.00000  Nsigma=-0.00000  ratio=104.6932+0.0000j
+   x=0.25  sigma=-0.00000  Nsigma=0.00000  ratio=-5.9720+0.0000j
+   x=0.40  sigma=-0.00000  Nsigma=0.00000  ratio=-25.0108+0.0000j
+   x=0.50  sigma=-0.00000  Nsigma=0.00000  ratio=-24.4001+0.0000j
+   x=0.60  sigma=-0.00000  Nsigma=0.00000  ratio=-24.1007-0.0000j
+   x=0.75  sigma=-0.00000  Nsigma=0.00000  ratio=-27.1631-0.0000j
+   x=0.90  sigma=-0.00000  Nsigma=0.00000  ratio=-27.9859-0.0000j
+   x=0.97  sigma=-0.00000  Nsigma=0.00000  ratio=-32.3202-0.0000j
+M=20  eig=-24.77775   (ratio should be constant = eig)
+   x=0.10  sigma=-0.00000  Nsigma=0.00000  ratio=-67.7321-0.0000j
+   x=0.25  sigma=-0.00000  Nsigma=0.00000  ratio=-39.9337-0.0000j
+   x=0.40  sigma=-0.00000  Nsigma=0.00000  ratio=-29.5756-0.0000j
+   x=0.50  sigma=-0.00000  Nsigma=0.00000  ratio=-24.7778-0.0000j
+   x=0.60  sigma=-0.00000  Nsigma=0.00000  ratio=-22.4391+0.0000j
+   x=0.75  sigma=-0.00000  Nsigma=0.00000  ratio=-22.5492+0.0000j
+   x=0.90  sigma=-0.00000  Nsigma=0.00000  ratio=-23.6441+0.0000j
+   x=0.97  sigma=-0.00000  Nsigma=0.00000  ratio=-18.5473+0.0000j
+M=24  eig=-25.03590   (ratio should be constant = eig)
+   x=0.10  sigma=-0.00000  Nsigma=0.00000  ratio=-57.6562-0.0000j
+   x=0.25  sigma=-0.00000  Nsigma=0.00000  ratio=-25.0359+0.0000j
+   x=0.40  sigma=-0.00000  Nsigma=0.00000  ratio=-30.2170+0.0000j
+   x=0.50  sigma=-0.00000  Nsigma=0.00000  ratio=-25.0359+0.0000j
+   x=0.60  sigma=-0.00000  Nsigma=0.00000  ratio=-22.5210+0.0000j
+   x=0.75  sigma=-0.00000  Nsigma=0.00000  ratio=-25.0359-0.0000j
+   x=0.90  sigma=-0.00000  Nsigma=0.00000  ratio=-24.2056-0.0000j
+   x=0.97  sigma=-0.00000  Nsigma=0.00000  ratio=-17.6977-0.0000j

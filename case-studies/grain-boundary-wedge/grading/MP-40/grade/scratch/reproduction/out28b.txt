@@ -1,0 +1,10 @@
+symbolic operator ready
+lam=24.77775  residue at nodes:
+  max node resid: 634.0373745011617
+  x=0.20  sigma=0.12824  Nsigma=-65.51629  Nsigma/sigma=-510.8774
+  x=0.35  sigma=0.18857  Nsigma=-20.35427  Nsigma/sigma=-107.9417
+  x=0.50  sigma=0.22760  Nsigma=4.70247  Nsigma/sigma=20.6612
+  x=0.65  sigma=0.27762  Nsigma=10.71574  Nsigma/sigma=38.5986
+  x=0.80  sigma=0.35921  Nsigma=7.33145  Nsigma/sigma=20.4101
+  x=0.90  sigma=0.43583  Nsigma=4.63403  Nsigma/sigma=10.6328
+sigma at first nodes: ['0.0025', '0.0120', '0.0315', '0.0610', '0.0962', '0.1315']

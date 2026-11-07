@@ -1,0 +1,33 @@
+CONSTANT-KERNEL QUADRATURE ACCURACY
+M 256 Z [0.001      0.00046294] error [-1.38401793e-07 -8.43618694e-05]
+phi0 third-derivative transform [-7.54713401 -7.52466833]
+M 384 Z [0.001      0.00046294] error [ 1.30140343e-11 -9.14480371e-08]
+phi0 third-derivative transform [-7.54713375 -7.52451034]
+M 768 Z [0.001      0.00046294] error [2.29829489e-11 5.59823299e-11]
+phi0 third-derivative transform [-7.54713375 -7.52451017]
+M 1536 Z [0.001      0.00046294] error [-1.31997080e-10 -2.80956591e-10]
+phi0 third-derivative transform [-7.54713375 -7.52451017]
+WEDGE GROWTH RATE FROM THE SOLVER'S EVOLUTION
+tau 0.0025 min dimensionless opening rate -1.953356279359184 at Z 0.889 tip stress 1.0907609541437058 max stress 1.212817500408677
+tau 0.005 min dimensionless opening rate -0.4116683587537511 at Z 0.9440000000000001 tip stress 1.2321845396375912 max stress 1.2391667866285965
+tau 0.01 min dimensionless opening rate 0.0 at Z 1.0 tip stress 1.304948272662307 max stress 1.304948272662307
+tau 0.02 min dimensionless opening rate 0.0 at Z 1.0 tip stress 1.206576148183433 max stress 1.206576148183433
+tau 0.05 min dimensionless opening rate 0.0 at Z 1.0 tip stress 0.8511373323107052 max stress 0.8511373323107052
+tau 0.1 min dimensionless opening rate 0.0 at Z 1.0 tip stress 0.4731638524163279 max stress 0.4731638524163279
+POLYNOMIAL FITS VS RECIPROCAL N
+first N 10.0 degree 1 lambda 1 limit 11.78622278899694
+first N 10.0 degree 1 lambda 2 limit 264.77516340283364
+first N 10.0 degree 2 lambda 1 limit 11.745922644405155
+first N 10.0 degree 2 lambda 2 limit 264.64481496151075
+first N 24.0 degree 1 lambda 1 limit 11.757889738470208
+first N 24.0 degree 1 lambda 2 limit 264.67482596136244
+first N 24.0 degree 2 lambda 1 limit 11.747232165122643
+first N 24.0 degree 2 lambda 2 limit 264.5686768381663
+first N 32.0 degree 1 lambda 1 limit 11.754478766291085
+first N 32.0 degree 1 lambda 2 limit 264.6473488463866
+first N 32.0 degree 2 lambda 1 limit 11.749840642137379
+first N 32.0 degree 2 lambda 2 limit 264.51695809238464
+first N 44.0 degree 1 lambda 1 limit 11.752766291708856
+first N 44.0 degree 1 lambda 2 limit 264.61034656558763
+first N 44.0 degree 2 lambda 1 limit 11.756216807500014
+first N 44.0 degree 2 lambda 2 limit 264.4013347861106

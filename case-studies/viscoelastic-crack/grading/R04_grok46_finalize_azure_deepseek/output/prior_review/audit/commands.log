@@ -1,0 +1,24 @@
+=== 2026-10-22T19:00:32Z score_submission.py submitted results ===
+CMD: python /workspace/reference/score_submission.py /workspace/reference/reference_results.json /workspace/candidate/results.json /workspace/audit/submitted_score_report.json
+{
+  "all_required_numeric_gates_pass": false,
+  "scientific_review": "pending",
+  "study_pass": null,
+  "scope": "JSON accuracy only; derivation, integration provenance, reproducibility and access audit require review"
+}
+EXIT:1
+=== 2026-10-22T19:08:34Z candidate solve.py reproduce ===
+CMD: python solve.py case.json /workspace/audit/reproduced_results.json
+CWD: /workspace/candidate
+wrote /workspace/audit/reproduced_results.json
+EXIT:0
+=== 2026-10-22T19:10:11Z solve.py finished ===
+=== 2026-10-22T19:16:30Z score reproduced_results.json ===
+CMD: python /workspace/reference/score_submission.py /workspace/reference/reference_results.json /workspace/audit/reproduced_results.json /workspace/audit/reproduced_score_report.json
+{
+  "all_required_numeric_gates_pass": false,
+  "scientific_review": "pending",
+  "study_pass": null,
+  "scope": "JSON accuracy only; derivation, integration provenance, reproducibility and access audit require review"
+}
+EXIT:1

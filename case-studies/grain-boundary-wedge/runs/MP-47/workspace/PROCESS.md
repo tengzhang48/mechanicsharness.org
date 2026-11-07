@@ -1,0 +1,5 @@
+22:37:32  Started. Read TASK.md: GB diffusion wedge in a thin film, report lambda1/lambda2, mode shape f(0.5) with f(1)=1, K_inf/(sigma0 sqrt(pi h)), relaxation time in t0.
+22:50:00  Re-ran eigen scans with the high-accuracy operator op2.build_Op2 (GL quadrature + synthetic Chebyshev interpolation). Verified operator rel err ~1e-12 (python3 op2.py). Drop-variant scand: 'start' (drop eq. at node near x=1) converges tightly to lambda1=11.7435, lambda2=264.6415 for N=240..400.
+22:56:00  Independent overdetermined SVD scan (scan3.py/refine3.py, all interior equations, minima of sigma_min(A-lam M)): N=250 minima at lam=11.764 and 264.22 -> same ladder within 0.2%. Galerkin in x(1-x)^2 T_n rejected (K-dependent garbage, gal2.log).
+23:01:00  solve.py: N-convergence table + adopted values (N=300). lambda1=11.7436, lambda2=264.6466, f(0.5)=0.80196, K_inf_norm=1.1215 (edge crack), relaxation_time_t0=1/lambda1=0.0852. Wrote results.json.
+23:02:00  Wrote ANSWER.md (answers, derivation, method, checks, questions/assumptions). Reproduce command: python3 solve.py.

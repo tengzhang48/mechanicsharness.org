@@ -1,0 +1,13 @@
+symbolic operator ready
+eigen lambda: ['12.17604', '257.59217', '1387.84940', '3781.22886', '8468.18417']
+lambda1=12.176043  f(0.5)/f(1)=0.800149  f(0.25)/f(1)=0.480444  f(0.75)/f(1)=0.962881
+<round-runs>/runs/MP-40/explore25.py:50: RuntimeWarning: divide by zero encountered in log
+  p = np.polyfit(hist[mask, 0], np.log(hist[mask, 1]), 1)
+time-step tail decay rate (should -> lambda1): nan
+normalized late-time profile at x=0.5: 0.00000
+Traceback (most recent call last):
+  File "<round-runs>/runs/MP-40/explore25.py", line 59, in <module>
+    print("late profile f(0.5)/f(1)=%.6f" % (float(sig_late(0.5))/float(sig_late(1.0))))
+                                             ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+ZeroDivisionError: float division by zero
+EXIT=1

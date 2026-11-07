@@ -1,0 +1,16 @@
+symbolic operator ready
+D=18  lam1=12.33979  lam2=255.22557
+D=20  lam1=12.27300  lam2=256.17595
+D=22  lam1=12.21964  lam2=256.94956
+D=24  lam1=12.17604  lam2=257.59217
+D=26  lam1=12.13975  lam2=258.13482
+D=28  lam1=12.10906  lam2=258.59935
+
+lambda1 convergence:
+  D=18,20,22  d1=-0.06679 d2=-0.05335  Aitken lam_inf=12.00779
+  D=20,22,24  d1=-0.05335 d2=-0.04360  Aitken lam_inf=11.98117
+  D=22,24,26  d1=-0.04360 d2=-0.03630  Aitken lam_inf=11.95939
+  D=24,26,28  d1=-0.03630 d2=-0.03068  Aitken lam_inf=11.94125
+
+  fit: p=1.1785  C=17.067  lam_inf=11.77286
+EXIT=0

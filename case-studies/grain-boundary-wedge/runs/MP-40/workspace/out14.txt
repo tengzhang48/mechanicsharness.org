@@ -1,0 +1,31 @@
+<round-runs>/runs/MP-40/explore14.py:32: RankWarning: Polyfit may be poorly conditioned
+  coef = np.polyfit(XI, sig, deg)
+<round-runs>/runs/MP-40/explore14.py:32: RankWarning: Polyfit may be poorly conditioned
+  coef = np.polyfit(XI, sig, deg)
+<round-runs>/runs/MP-40/explore14.py:32: RankWarning: Polyfit may be poorly conditioned
+  coef = np.polyfit(XI, sig, deg)
+<round-runs>/runs/MP-40/explore14.py:32: RankWarning: Polyfit may be poorly conditioned
+  coef = np.polyfit(XI, sig, deg)
+<round-runs>/runs/MP-40/explore14.py:32: RankWarning: Polyfit may be poorly conditioned
+  coef = np.polyfit(XI, sig, deg)
+<round-runs>/runs/MP-40/explore14.py:32: RankWarning: Polyfit may be poorly conditioned
+  coef = np.polyfit(XI, sig, deg)
+<round-runs>/runs/MP-40/explore14.py:32: RankWarning: Polyfit may be poorly conditioned
+  coef = np.polyfit(XI, sig, deg)
+smallest magnitudes of |lam|, real parts:
+   lam = 11.826042  -0.000000 i   imag/|lam|=0.00e+00
+   lam = 258.784428  -0.000000 i   imag/|lam|=0.00e+00
+   lam = 1356.824576  -0.000000 i   imag/|lam|=0.00e+00
+   lam = 3773.619057  -0.000000 i   imag/|lam|=0.00e+00
+   lam = 8291.467277  -0.000000 i   imag/|lam|=0.00e+00
+   lam = 15102.013190  -0.000000 i   imag/|lam|=0.00e+00
+   lam = 25420.494463  -0.000000 i   imag/|lam|=0.00e+00
+   lam = 38817.800553  -0.000000 i   imag/|lam|=0.00e+00
+
+lam1=11.826042 lam2=258.784428 ratio=21.8826
+x  : [0.   0.1  0.25 0.5  0.75 0.9  1.  ]
+sig: [ 0.      +0.j -0.291787+0.j -0.663145+0.j -1.102894+0.j -1.327096+0.j
+ -1.373485+0.j -1.37907 +0.j]
+normalized f(1)=1: [-0.      -0.j  0.211582-0.j  0.480864-0.j  0.799737-0.j  0.962313-0.j
+  0.99595 -0.j  1.      -0.j]
+f(0.5) = (0.7997374472266596-0j)

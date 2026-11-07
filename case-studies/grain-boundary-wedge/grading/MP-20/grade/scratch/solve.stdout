@@ -1,0 +1,25 @@
+CHECK elasticity vs mpmath finite-part reference: max err = 7.39e-12
+n=10   lam1=  0.68688  lam2= 154.4535  f(0.5)=0.73206
+n=14   lam1=  0.67363  lam2= 149.1664  f(0.5)=0.73400
+n=18   lam1=  0.65668  lam2= 146.3021  f(0.5)=0.73517
+n=22   lam1=  0.64112  lam2= 144.4380  f(0.5)=0.73598
+n=26   lam1=  0.62736  lam2= 143.0985  f(0.5)=0.73658
+n=30   lam1=  0.85117  lam2= 141.9532  f(0.5)=0.73841
+
+robust extrapolation on n = [10, 14, 18, 22, 26]
+1/n -> 0 extrapolation:  lam1=0.59877  lam2=135.9101  f(0.5)=0.74025
+
+equilibrium wedge tip: w ~ -0.43290 + 0.70138 sqrt(1-s)
+K_inf/(sigma0 sqrt(pi h)) = 3.11614
+relaxation time = 1/lam1 = 1.67008 t0
+
+wrote results.json:
+{
+  "lambda1": 0.59877,
+  "lambda2": 135.9101,
+  "mode1_shape_half": 0.74025,
+  "K_inf_norm": 3.11614,
+  "relaxation_time_t0": 1.67008,
+  "method": "finite-difference collocation of g_tau = -A g with A = A1 D^2; A1 is the grain-boundary elasticity operator integrated with singularity subtraction of the principal value at z=zeta (validated against an mpmath finite-part reference to 1e-13); eigenvalues from eig(-A) on uniform grids, extrapolated as 1/n -> 0; equilibrium wedge and stress intensity factor from A1 w = 1.",
+  "reproduce_command": "python3 solve.py"
+}

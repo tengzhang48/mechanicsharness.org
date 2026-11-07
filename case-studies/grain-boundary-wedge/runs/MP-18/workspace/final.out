@@ -1,0 +1,12 @@
+N= 160  lambda1=60.3862  lambda2=349.1399  lambda3=886.6643  f(0.5)=-0.73948
+N= 320  lambda1=60.1481  lambda2=348.1079  lambda3=1056.2885  f(0.5)=-0.74221
+N= 640  lambda1=60.0235  lambda2=347.4612  lambda3=1055.8329  f(0.5)=-0.74351
+N=1280  lambda1=59.9595  lambda2=347.1105  lambda3=1055.0016  f(0.5)=-0.74415
+
+Richardson-extrapolated (1/N, 1/N^2):
+  lambda1 = 59.8947
+  lambda2 = 346.7344
+  lambda3 = 1026.1501
+  f(0.5)  = -0.74478   (slowest mode, normalised f(1)=1)
+
+wrote results_final.json

@@ -1,0 +1,150 @@
+# Changes made for this release
+
+Every file here is as saved at the time, except for the changes listed below. Machine paths were replaced by a
+label in angle brackets, for example `<volume-2>`; excerpts are marked inside the file. In the HTML records,
+links to files in this package were re-pointed, and links to files not released were removed, keeping their
+text. The original of every file is kept in the private repository; its SHA-256 is recorded there.
+
+- `audit_2026-10-25/AUDIT.md`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `audit_2026-10-25/audit.json`
+  - machine path replaced by <pilot-folder> (24 times)
+- `diagnostics_2026-10-23/check.py`
+  - file name of the source paper replaced by a label (the paper is not included)
+  - machine path replaced by <pilot-folder>
+- `diagnostics_2026-10-23/results.json`
+  - file name of the source paper replaced by a label (the paper is not included)
+- `grading/P01_deepseek-auto/auto/EVALUATION_STATUS.json`
+  - machine path replaced by <pilot-folder> (3 times)
+- `grading/P03_gpt61_sol-auto/auto/LATEST_REPRODUCIBILITY.json`
+  - machine path replaced by <pilot-folder>
+- `grading/R01_grok46_grade_gpt61/output/evidence/organizer_reproduction.json`
+  - machine path replaced by <pilot-folder>
+- `grading/R01_grok46_grade_gpt61/output/evidence/solver_execution.json`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `grading/R01_grok46_grade_gpt61/records/RUN.json`
+  - file name of the source paper replaced by a label (the paper is not included)
+  - file name of the paper's supplement replaced by a label (not included)
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `grading/R02_grok46_analytical_gpt61/output/evidence/organizer_reproduction.json`
+  - machine path replaced by <pilot-folder>
+- `grading/R02_grok46_analytical_gpt61/output/evidence/solver_execution.json`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `grading/R02_grok46_analytical_gpt61/records/RUN.json`
+  - file name of the source paper replaced by a label (the paper is not included)
+  - file name of the paper's supplement replaced by a label (not included)
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `grading/R03_grok46_analytical_azure_deepseek/output/evidence/RUN.json`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `grading/R03_grok46_analytical_azure_deepseek/records/RUN.json`
+  - file name of the source paper replaced by a label (the paper is not included)
+  - file name of the paper's supplement replaced by a label (not included)
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `grading/R04_grok46_finalize_azure_deepseek/output/FINALIZATION_CONTEXT.md`
+  - file name of the source paper replaced by a label (the paper is not included)
+  - file name of the paper's supplement replaced by a label (not included)
+- `grading/R04_grok46_finalize_azure_deepseek/output/evidence/RUN.json`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `grading/R04_grok46_finalize_azure_deepseek/output/prior_review/TOOL_EXECUTION_EVIDENCE.json`
+  - file name of the source paper replaced by a label (the paper is not included)
+  - file name of the paper's supplement replaced by a label (not included)
+- `grading/R04_grok46_finalize_azure_deepseek/records/RUN.json`
+  - file name of the source paper replaced by a label (the paper is not included)
+  - file name of the paper's supplement replaced by a label (not included)
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `grading/R05_grok46_oneshot_azure_deepseek/output/evidence/RUN.json`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `grading/R05_grok46_oneshot_azure_deepseek/records/RUN.json`
+  - file name of the source paper replaced by a label (the paper is not included)
+  - file name of the paper's supplement replaced by a label (not included)
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `grading/review-grok46_azure_deepseek_2026-10-22/records/CONTINUATION_INPUT_FREEZE.json`
+  - file name of the source paper replaced by a label (the paper is not included)
+  - file name of the paper's supplement replaced by a label (not included)
+- `grading/review-grok46_azure_deepseek_2026-10-22/records/CONTINUATION_RUNTIME_OBSERVED.json`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `grading/review-grok46_azure_deepseek_2026-10-22/records/INPUT_FREEZE.json`
+  - file name of the source paper replaced by a label (the paper is not included)
+  - file name of the paper's supplement replaced by a label (not included)
+- `grading/review-grok46_azure_deepseek_2026-10-22/records/LATEST_VERIFICATION_REPLAY.json`
+  - machine path replaced by <pilot-folder>
+- `grading/review-grok46_azure_deepseek_2026-10-22/records/ONESHOT_INPUT_FREEZE.json`
+  - file name of the source paper replaced by a label (the paper is not included)
+  - file name of the paper's supplement replaced by a label (not included)
+- `grading/review-grok46_azure_deepseek_2026-10-22/records/ONESHOT_RUNTIME_OBSERVED.json`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `grading/review-grok46_azure_deepseek_2026-10-22/records/RUNTIME_ISOLATION_OBSERVED.json`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `grading/review-grok46_azure_deepseek_2026-10-22/records/STATE.json`
+  - machine path replaced by <pilot-folder>
+- `grading/review-grok46_azure_deepseek_2026-10-22/records/TOOL_EXECUTION_EVIDENCE.json`
+  - file name of the source paper replaced by a label (the paper is not included)
+  - file name of the paper's supplement replaced by a label (not included)
+- `grading/review-grok46_gpt61_2026-10-22/records/FINAL_RESULT.json`
+  - machine path replaced by <pilot-folder> (7 times)
+- `grading/review-grok46_gpt61_2026-10-22/records/INPUT_FREEZE.json`
+  - file name of the source paper replaced by a label (the paper is not included)
+  - file name of the paper's supplement replaced by a label (not included)
+- `grading/review-grok46_gpt61_2026-10-22/records/LATEST_OFFLINE_AUDIT_REPLAY.json`
+  - machine path replaced by <pilot-folder> (2 times)
+- `grading/review-grok46_gpt61_2026-10-22/records/OFFLINE_AUDIT_REPLAY_CHECK.json`
+  - machine path replaced by <pilot-folder>
+- `grading/review-grok46_gpt61_2026-10-22/records/R02_DIAGNOSTIC_INTERVENTION.json`
+  - machine path replaced by <pilot-folder> (3 times)
+  - machine path replaced by <home>
+- `grading/review-grok46_gpt61_2026-10-22/records/R02_RUNTIME_ISOLATION_OBSERVED.json`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `grading/review-grok46_gpt61_2026-10-22/records/R02_TOOL_EVIDENCE_COLLECTOR.json`
+  - machine path replaced by <pilot-folder> (3 times)
+  - machine path replaced by <home>
+- `grading/review-grok46_gpt61_2026-10-22/records/RETRY_V2_INPUT_FREEZE.json`
+  - file name of the source paper replaced by a label (the paper is not included)
+  - file name of the paper's supplement replaced by a label (not included)
+- `grading/review-grok46_gpt61_2026-10-22/records/RUNTIME_ISOLATION_OBSERVED.json`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `grading/review-grok46_gpt61_2026-10-22/records/STATE.json`
+  - machine path replaced by <pilot-folder> (2 times)
+  - machine path replaced by <home>
+- `grading/review-grok46_gpt61_2026-10-22/records/TOOL_EVIDENCE_COLLECTOR.json`
+  - machine path replaced by <pilot-folder> (3 times)
+  - machine path replaced by <home>
+- `key/REFERENCE.md`
+  - file name of the source paper replaced by a label (the paper is not included)
+  - file name of the paper's supplement replaced by a label (not included)
+- `records/Case_Studies_Review_2026-10-23.html`
+  - excerpt: sections verdict, patterns, diffusion, hydraulic, poro, mr, xh and index, the limit and the scripts of the other cases, the reviewed-copies paragraph and the in-page navigation left out; a note says so
+  - navigation link to the case library index now points to the case page, with the text "← Viscoelastic crack case"
+  - description tag added to the page head
+  - machine path replaced by <volume>
+- `records/Case_Studies_Review_Response_2026-10-23.html`
+  - excerpt: table rows of the five other cases, the qualifications section and the account of checks left out; a note says so
+  - navigation link to the case library index now points to the case page, with the text "← Viscoelastic crack case"
+  - navigation link to the case library index now points to the case page, with the text "← Viscoelastic crack case"
+  - navigation link to the case library index now points to the case page, with the text "← Viscoelastic crack case"
+- `records/PROCESS_LOG.md`
+  - machine path replaced by <home> (3 times)
+- `runs/P01_deepseek/records/RUN.json`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `runs/P03_gpt61_sol/records/RUN.json`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)
+- `runs/P04_deepseek_direct_1017/records/RUN.json`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home> (2 times)

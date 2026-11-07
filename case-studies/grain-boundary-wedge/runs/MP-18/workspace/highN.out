@@ -1,0 +1,6 @@
+high-N chain mode2: [60.059107 59.994587 59.963243 59.944953]
+diffs: [-0.06452  -0.031344 -0.01829 ]
+p=1.0  extrap(last3)=59.870292  extrap(last2)=59.871793
+p=1.5  extrap(last3)=59.902546  extrap(last2)=59.898945
+p=2.0  extrap(last3)=59.918503  extrap(last2)=59.912437
+p=2.5  extrap(last3)=59.927937  extrap(last2)=59.920466

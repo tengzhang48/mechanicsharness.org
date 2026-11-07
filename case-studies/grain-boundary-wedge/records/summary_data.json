@@ -1,0 +1,329 @@
+[
+ {
+  "label": "MP-02",
+  "agent": "k3az",
+  "problem": "E",
+  "repeat": 2,
+  "minutes": 35,
+  "exit": "exit 0",
+  "answered": true,
+  "key_checks": [
+   4,
+   4
+  ],
+  "claims": "5/5",
+  "parts": {
+   "a": "partly",
+   "b": "right",
+   "c": "right"
+  },
+  "method": "right",
+  "errors": {
+   "decisive": 1,
+   "side": 4,
+   "presentation": 3
+  },
+  "checks": [
+   6,
+   6
+  ],
+  "source": "Wigglesworth/Tada edge-crack constant 1.1215",
+  "challenges": [
+   "Uniform initial traction conflicts with zero surface traction at t=0; enforce the surface condition for t>0."
+  ]
+ },
+ {
+  "label": "MP-03",
+  "agent": "glm",
+  "problem": "E",
+  "repeat": 1,
+  "minutes": 46,
+  "exit": "exit 0",
+  "answered": true,
+  "key_checks": [
+   4,
+   4
+  ],
+  "claims": "5/5",
+  "parts": {
+   "a": "right",
+   "b": "right",
+   "c": "contested"
+  },
+  "method": "right",
+  "errors": {
+   "decisive": 0,
+   "side": 9,
+   "presentation": 3
+  },
+  "checks": [
+   5,
+   7
+  ],
+  "source": "none",
+  "challenges": [
+   "The relaxation criterion is unspecified; e-folding and 95% threshold times differ"
+  ]
+ },
+ {
+  "label": "MP-05",
+  "agent": "glm",
+  "problem": "E",
+  "repeat": 3,
+  "minutes": 67,
+  "exit": "exit 0",
+  "answered": true,
+  "key_checks": [
+   4,
+   4
+  ],
+  "claims": "5/5",
+  "parts": {
+   "a": "partly",
+   "b": "right",
+   "c": "right"
+  },
+  "method": "right",
+  "errors": {
+   "decisive": 2,
+   "side": 24,
+   "presentation": 2
+  },
+  "checks": [
+   9,
+   12
+  ],
+  "source": "none",
+  "challenges": []
+ },
+ {
+  "label": "MP-07",
+  "agent": "dsaz",
+  "problem": "E",
+  "repeat": 1,
+  "minutes": null,
+  "exit": null,
+  "answered": false,
+  "key_checks": null,
+  "claims": null,
+  "parts": null,
+  "method": null,
+  "errors": null,
+  "checks": null,
+  "source": null,
+  "challenges": null
+ },
+ {
+  "label": "MP-09",
+  "agent": "k3az",
+  "problem": "E",
+  "repeat": 3,
+  "minutes": 85,
+  "exit": "exit 0",
+  "answered": true,
+  "key_checks": [
+   4,
+   4
+  ],
+  "claims": "9/9",
+  "parts": {
+   "a": "right",
+   "b": "right",
+   "c": "right"
+  },
+  "method": "right",
+  "errors": {
+   "decisive": 0,
+   "side": 12,
+   "presentation": 7
+  },
+  "checks": [
+   21,
+   22
+  ],
+  "source": "vs classical 1.1215 (Tada)",
+  "challenges": []
+ },
+ {
+  "label": "MP-15",
+  "agent": "k3az",
+  "problem": "E",
+  "repeat": 1,
+  "minutes": 43,
+  "exit": "exit 0",
+  "answered": false,
+  "key_checks": null,
+  "claims": null,
+  "parts": null,
+  "method": null,
+  "errors": null,
+  "checks": null,
+  "source": null,
+  "challenges": null
+ },
+ {
+  "label": "MP-18",
+  "agent": "dsaz",
+  "problem": "E",
+  "repeat": 3,
+  "minutes": 107,
+  "exit": "exit 0",
+  "answered": true,
+  "key_checks": [
+   1,
+   4
+  ],
+  "claims": "5/5",
+  "parts": {
+   "a": "partly",
+   "b": "right",
+   "c": "wrong"
+  },
+  "method": "general_or_wrong",
+  "errors": {
+   "decisive": 6,
+   "side": 9,
+   "presentation": 5
+  },
+  "checks": [
+   7,
+   11
+  ],
+  "source": "none",
+  "challenges": [
+   "Stated kernel has an unphysical sign",
+   "Fixed t0 leaves a pi normalization ambiguity",
+   "Cohesive interpretation could require K_inf=0"
+  ]
+ },
+ {
+  "label": "MP-20",
+  "agent": "dsaz",
+  "problem": "E",
+  "repeat": 2,
+  "minutes": 36,
+  "exit": "exit 0",
+  "answered": true,
+  "key_checks": [
+   0,
+   4
+  ],
+  "claims": "5/5",
+  "parts": {
+   "a": "partly",
+   "b": "partly",
+   "c": "wrong"
+  },
+  "method": "general_or_wrong",
+  "errors": {
+   "decisive": 8,
+   "side": 31,
+   "presentation": 4
+  },
+  "checks": [
+   8,
+   11
+  ],
+  "source": "none",
+  "challenges": []
+ },
+ {
+  "label": "MP-32",
+  "agent": "glm",
+  "problem": "E",
+  "repeat": 2,
+  "minutes": null,
+  "exit": "watchdog stop",
+  "answered": false,
+  "key_checks": null,
+  "claims": null,
+  "parts": null,
+  "method": null,
+  "errors": null,
+  "checks": null,
+  "source": null,
+  "challenges": null
+ },
+ {
+  "label": "MP-40",
+  "agent": "dsazT",
+  "problem": "E",
+  "repeat": 2,
+  "minutes": 96,
+  "exit": "exit 0",
+  "answered": true,
+  "key_checks": [
+   3,
+   4
+  ],
+  "claims": "5/5",
+  "parts": {
+   "a": "partly",
+   "b": "right",
+   "c": "right"
+  },
+  "method": "right",
+  "errors": {
+   "decisive": 1,
+   "side": 8,
+   "presentation": 4
+  },
+  "checks": [
+   6,
+   7
+  ],
+  "source": "none",
+  "challenges": []
+ },
+ {
+  "label": "MP-44",
+  "agent": "dsazT",
+  "problem": "E",
+  "repeat": 3,
+  "minutes": 46,
+  "exit": "exit 0",
+  "answered": true,
+  "key_checks": [
+   1,
+   4
+  ],
+  "claims": "5/5",
+  "parts": {
+   "a": "partly",
+   "b": "right",
+   "c": "wrong"
+  },
+  "method": "right",
+  "errors": {
+   "decisive": 1,
+   "side": 6,
+   "presentation": 3
+  },
+  "checks": [
+   3,
+   4
+  ],
+  "source": "none",
+  "challenges": []
+ },
+ {
+  "label": "MP-47",
+  "agent": "dsazT",
+  "problem": "E",
+  "repeat": 1,
+  "minutes": 28,
+  "exit": "exit 0",
+  "answered": true,
+  "key_checks": [
+   4,
+   4
+  ],
+  "claims": "5/5",
+  "parts": null,
+  "method": null,
+  "errors": null,
+  "checks": null,
+  "source": null,
+  "challenges": null
+ }
+]

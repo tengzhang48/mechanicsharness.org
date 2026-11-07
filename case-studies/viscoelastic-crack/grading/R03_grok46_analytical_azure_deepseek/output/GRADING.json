@@ -1,0 +1,67 @@
+{
+  "reviewer_model": "Grok 4.6",
+  "candidate_run": "P01_deepseek",
+  "status": "preliminary",
+  "overall_verdict": "inconclusive",
+  "analytical_recovery": "inconclusive",
+  "total_score": null,
+  "category_scores": {
+    "model_and_conditions": {"score": null, "max": 10, "note": "unresolved pending focused source check"},
+    "analytical_derivation_and_steady_branch": {"score": null, "max": 60, "note": "unresolved; four items below still being sourced"},
+    "scalar_numerical_verification": {"score": null, "max": 5},
+    "field_numerical_verification": {"score": null, "max": 5},
+    "spatial_dissipation_and_numerical_evidence": {"score": null, "max": 10},
+    "reproduction_and_reporting": {"score": null, "max": 10}
+  },
+  "analytical_items": [
+    {
+      "name": "stress_and_zone_selection",
+      "score": null,
+      "max": 15,
+      "evidence": "inconclusive; FD mixed BVP + SIF fit in candidate/solve.py; source eqs 12,17 not yet line-cited in this pass"
+    },
+    {
+      "name": "material_history",
+      "score": null,
+      "max": 15,
+      "evidence": "inconclusive; convolution in DERIVATION.md / solve.py vs source eqs 38-47"
+    },
+    {
+      "name": "separation_and_loading",
+      "score": null,
+      "max": 15,
+      "evidence": "inconclusive; discrete Newton/secant vs source eqs 49-69"
+    },
+    {
+      "name": "speed_range_and_limits",
+      "score": null,
+      "max": 15,
+      "evidence": "inconclusive; ANSWER.md §2-3 vs source eqs 58-70"
+    }
+  ],
+  "original_rubric_score": null,
+  "original_category_scores": {
+    "model_and_conditions": {"score": null, "max": 10},
+    "derivation_and_steady_branch": {"score": null, "max": 20},
+    "scalar_results": {"score": null, "max": 20},
+    "stress_and_strain_fields": {"score": null, "max": 20},
+    "spatial_dissipation": {"score": null, "max": 20},
+    "reproduction_and_reporting": {"score": null, "max": 10}
+  },
+  "gates": {
+    "numeric_accuracy": {"result": "inconclusive", "evidence": "submitted report fails; live scorer not yet run"},
+    "energy_consistency": {"result": "inconclusive", "evidence": "spatial integral in solve.bulk_ratio; live residuals pending"},
+    "scientific_support": {"result": "inconclusive", "evidence": "pending item-level source check"},
+    "reproduction_and_access": {"result": "inconclusive", "evidence": "live solve.py not yet run; evidence/RUN.json shows network none"}
+  },
+  "findings": [],
+  "reference_findings": [],
+  "limitations": [
+    "Preliminary file written before executing the frozen scorer and candidate entry point.",
+    "User requested analytical weighting after solver runs; original frozen task allowed numerical methods."
+  ],
+  "anchor_arithmetic": {
+    "analytical_v2": "pending 10 + four*15 + scaled original remainder",
+    "original": "pending 10+20+20+20+20+10 with published item splits"
+  }
+}

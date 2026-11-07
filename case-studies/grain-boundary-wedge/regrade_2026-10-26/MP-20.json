@@ -1,0 +1,19 @@
+{
+ "run": "MP-20",
+ "checks": {
+  "lambda1_class": "wrong",
+  "lambda1_ok": false,
+  "lambda2_ok": false,
+  "mode1_shape_ok": false,
+  "K_inf_ok": false,
+  "relaxation_time_ok": false,
+  "own_lambda2_gt_lambda1": true,
+  "own_time_consistent_with_lambda1": true
+ },
+ "changed_from_saved": {
+  "lambda1_ok": [
+   null,
+   false
+  ]
+ }
+}

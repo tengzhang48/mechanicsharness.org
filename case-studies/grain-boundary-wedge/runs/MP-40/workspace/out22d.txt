@@ -1,0 +1,17 @@
+D(x) = (4*x**2 + 6*x + (x**2 + 2*x + 1)*(-log(1 - x) + log(x + 1) - 4))/(x**2 + 2*x + 1)
+N[x^3] = 6*(-x**2*log(1 - x) - 2*x*log(1 - x) - 2*x - log(1 - x) + log((x + 1)**(x**2 + 2*x + 1)) - 4)/(x**2 + 2*x + 1)
+D= 8 m= 6  13.3442  242.5848  1456.1083  6152.2244
+D=10 m= 8  12.9433  247.3778  1449.4738  3538.6191  8464.9853
+D=12 m=10  12.7012  250.3492  1426.6217  3733.1372  8825.7873
+Traceback (most recent call last):
+  File "<round-runs>/runs/MP-40/explore22.py", line 62, in <module>
+    lam, nodes, VZ, OZ = make(D, m)
+                         ~~~~^^^^^^
+  File "<round-runs>/runs/MP-40/explore22.py", line 53, in make
+    O[i, p] = evalN(p, nodes[i])
+              ~~~~~^^^^^^^^^^^^^
+  File "<round-runs>/runs/MP-40/explore22.py", line 37, in evalN
+    return float(Nnum[p](mpmath.mpf(str(v))))
+                 ~~~~^^^
+KeyError: 13
+EXIT=1

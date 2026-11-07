@@ -1,0 +1,18 @@
+{
+  "status": "review delivery failed across three retained attempts; no final analytical grade",
+  "review_run": "R05_grok46_oneshot_azure_deepseek",
+  "candidate_run": "P01_deepseek",
+  "controller_pid": 379128,
+  "started_utc": "2026-10-22T20:49:40.131438+00:00",
+  "hard_deadline_utc": "2026-10-22T21:09:40.131438+00:00",
+  "scientific_grade": "incomplete; no final score",
+  "method": "Single preloaded-context native OpenCode/Azure Responses assessment with all tools disabled; public final assessment retained, private reasoning excluded. Prior Grok computations supplied; no new execution claimed in this pass.",
+  "input_freeze": "<pilot-folder>/reviews/grok46_azure_deepseek_2026-10-22/ONESHOT_INPUT_FREEZE.json",
+  "completion_watcher_pid": 379259,
+  "ended_utc": "2026-10-22T21:09:50.336187+00:00",
+  "exit_code": 137,
+  "reported_score": null,
+  "process_audit": "execution/delivery audit complete; scientific grading incomplete",
+  "last_checked_utc": "2026-10-22T22:10:54.340018+00:00",
+  "active_review_processes": 0
+}

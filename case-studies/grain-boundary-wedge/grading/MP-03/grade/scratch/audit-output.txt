@@ -1,0 +1,22 @@
+<round-runs>/grading/MP-03/scratch/submission/gbcore.py:21: RuntimeWarning: divide by zero encountered in divide
+  D[i] = (w / w[i]) / dx
+<round-runs>/grading/MP-03/scratch/submission/gbcore.py:45: RuntimeWarning: invalid value encountered in divide
+  L = C / np.sum(C, axis=1, keepdims=True)
+Computed first twelve rates: [1.17426681e+01 2.64634220e+02 1.35744933e+03 3.84519917e+03
+ 8.32750402e+03 1.53824842e+04 2.55975189e+04 3.95555656e+04
+ 5.78419214e+04 8.10405328e+04 1.09736180e+05 1.44513100e+05]
+Actual first five successive ratios: [22.5361236   5.12953061  2.83266497  2.16568861  1.84719024]
+Ratios required by lambda_n proportional to n^4.5: [22.627417    6.20027091  3.64942392  2.72957517  2.27151499]
+lambda_n / n^3, n=6..12: [71.2152045  74.6283351  77.25696399 79.34419942 81.04053281 82.44641603
+ 83.63026619]
+Actual independent 2000-point residual grid: max 5.17044461898538e-06 at x 0.0005
+Ten-mode IC reconstruction max error on fit grid: 0.10301279163790444
+Injected twice-too-large slow rate and fitted decay: 23.485336193985713 -23.485336193985702
+IC projection nm/ng: 5 19 late mid-boundary amplitude: 1.1793757274145413 threshold times: [0.09920959 0.26916519]
+IC projection nm/ng: 10 19 late mid-boundary amplitude: 1.1979432393078289 threshold times: [0.10053985 0.27049546]
+IC projection nm/ng: 10 199 late mid-boundary amplitude: 1.20649171014457 threshold times: [0.10114539 0.271101  ]
+IC projection nm/ng: 16 399 late mid-boundary amplitude: 1.2144582639542596 threshold times: [0.10170586 0.27166146]
+Delivered mode_shape return: None
+General-node diff_mat max derivative error for x^2: 0.40000000000000013
+eig.eigen_s returned eigenvalue/vector dimensions: 22 (25, 25)
+Development crack.py density and finite-distance ahead K estimates: 1.1215222570611154 1.1674240450396307

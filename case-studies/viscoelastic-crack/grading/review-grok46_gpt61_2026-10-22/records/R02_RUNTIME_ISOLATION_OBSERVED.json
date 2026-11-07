@@ -1,0 +1,41 @@
+{
+  "observed_utc": "2026-10-22T17:02:06.324803+00:00",
+  "run_id": "R02_grok46_analytical_gpt61",
+  "input_hashes_match_freeze": true,
+  "input_count": 32,
+  "changed_inputs": [],
+  "image": "sha256:2690734a0e95843a471109ae8396031e6cb7d35df010b94e0ec72d5ad14db01d",
+  "user": "1001:1001",
+  "network_mode": "none",
+  "read_only_root": true,
+  "memory_bytes": 8589934592,
+  "nano_cpus": 2000000000,
+  "mounts": [
+    {
+      "source": "<home>/.opencode/bin/opencode",
+      "destination": "/usr/local/bin/opencode",
+      "writable": false
+    },
+    {
+      "source": "<home>/.kimi-code/bin/kimi",
+      "destination": "/usr/local/bin/kimi",
+      "writable": false
+    },
+    {
+      "source": "<pilot-folder>/runs/R02_grok46_analytical_gpt61/workspace",
+      "destination": "/workspace",
+      "writable": true
+    },
+    {
+      "source": "/tmp/ve-model-dbh6gk2f",
+      "destination": "/run/model",
+      "writable": false
+    }
+  ],
+  "runtime_config": {
+    "headerTimeout": 3600000,
+    "chunkTimeout": 3600000,
+    "helper_sha256": "012d5e2f283a7f9a69a224c7d1a701d80f623983408988fd452c6d06b15cea64"
+  },
+  "runtime_helper_matches_freeze": true
+}

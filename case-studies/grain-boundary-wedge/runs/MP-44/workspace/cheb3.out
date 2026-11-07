@@ -1,0 +1,25 @@
+setup 3.1s
+VERIFY A 1 0.2 Rval=-5.130542 brute=1.148615
+VERIFY A 1 0.5 Rval=-3.863605 brute=2.417711
+VERIFY B 2 0.2 Rval=3.387978 brute=-2.493084
+VERIFY B 2 0.5 Rval=0.065448 brute=0.065448
+<round-runs>/runs/MP-44/cheb3.py:13: RuntimeWarning: divide by zero encountered in power
+  x=2*Z-1; return (1-x**2)**(-0.5)*chebT(k,x)
+<round-runs>/runs/MP-44/cheb3.py:34: RuntimeWarning: invalid value encountered in scalar subtract
+  B=I0[-1]-I1[-1]; C=-I0[-1]/2
+<round-runs>/runs/MP-44/cheb3.py:35: RuntimeWarning: invalid value encountered in multiply
+  fv=I2+B*Zs+C*Zs**2
+<home>/miniconda3/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:54: RuntimeWarning: invalid value encountered in accumulate
+  return bound(*args, **kwds)
+Traceback (most recent call last):
+  File "<round-runs>/runs/MP-44/cheb3.py", line 66, in <module>
+    lam,vec=eig(Rm,Mm)
+            ~~~^^^^^^^
+  File "<home>/.local/lib/python3.13/site-packages/scipy/linalg/_decomp.py", line 256, in eig
+    b1 = _asarray_validated(b, check_finite=check_finite)
+  File "<home>/.local/lib/python3.13/site-packages/scipy/_lib/_util.py", line 410, in _asarray_validated
+    a = toarray(a)
+  File "<home>/miniconda3/lib/python3.13/site-packages/numpy/lib/_function_base_impl.py", line 673, in asarray_chkfinite
+    raise ValueError(
+        "array must not contain infs or NaNs")
+ValueError: array must not contain infs or NaNs

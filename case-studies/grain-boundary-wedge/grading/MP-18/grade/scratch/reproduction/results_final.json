@@ -1,0 +1,13 @@
+{
+  "problem": "MP-18",
+  "lambda1": 59.8947,
+  "lambda2": 346.7344,
+  "lambda3": 1026.1501,
+  "mode1_f_at_half": -0.74478,
+  "lambda1_units": "1/t0",
+  "t0_definition": "t0 = 4*pi*kT*h^3/(E*delta_gb*D_gb*Omega)",
+  "K_inf_norm": null,
+  "relaxation_time_t0": null,
+  "method": "PV hat-basis integral operator M (statement kernel S), uniform D3 with BCs, Richardson extrapolation in 1/N; validated vs PV Gauss quadrature",
+  "notes": "Discrete D3 has a 1-D null space -> one marginal discrete mode discarded. Spectrum below 1100 contains exactly 3 modes: -59.9, -346.9, -1054.5."
+}

@@ -1,0 +1,9 @@
+<round-runs>/grading/MP-03/scratch/submission/dbg10.py:18: RuntimeWarning: divide by zero encountered in scalar divide
+  Gx = (x/np.sqrt(1-x))*Bx
+<round-runs>/grading/MP-03/scratch/submission/dbg10.py:22: RuntimeWarning: divide by zero encountered in scalar divide
+  I2 = Gx*np.log(x/(1-x))
+<round-runs>/grading/MP-03/scratch/submission/dbg10.py:25: RuntimeWarning: invalid value encountered in add
+  A[i] = I1+I2+I3
+A finite: False F finite: True
+A[3]: [-3.83391607 -2.36109113  0.79272366  1.44359188 -1.09857229]
+F[3]: [ 0.3282456   0.24563305  0.0950843   0.01143983 -0.00185355]

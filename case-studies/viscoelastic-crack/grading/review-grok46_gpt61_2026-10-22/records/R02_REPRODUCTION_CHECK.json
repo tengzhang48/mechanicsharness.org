@@ -1,0 +1,25 @@
+{
+  "checked_utc": "2026-10-22T17:28:48.661413+00:00",
+  "purpose": "Audit of actual Grok entry-point replay; operational reproduction only, not a new scientific grade",
+  "comparison": "Grok-generated replay compared solely against the exact original GPT submission; no reference key used by this comparison",
+  "excluded_field": "runtime_seconds",
+  "all_other_values_and_types_exactly_reproduced": true,
+  "differences": [],
+  "command": {
+    "command": "python3 solve.py case.json /workspace/audit/reproduced_results.json",
+    "workdir": "/workspace/candidate",
+    "timeout": 120000
+  },
+  "tool_time": {
+    "created": 1792689984273,
+    "ran": 1792689984278,
+    "completed": 1792690026892
+  },
+  "tool_message_id": "msg_164a349ef001c42mRCT5iRBz6Z",
+  "original_results_sha256": "366f01fc1c3814320e2cecadc34bf4f45138a6f8ba52c49c094f79269737c281",
+  "replayed_results_sha256": "816db0ca60ed8f2cb0764682abe04c1f9f37c194342c5e8dcfb368b98099aef9",
+  "input_files_checked": 32,
+  "changed_inputs": [],
+  "original_candidate_files_changed": [],
+  "earlier_key_free_replay": "runs/P03_gpt61_sol/replay_ungraded_20261022T161517Z/REPRODUCIBILITY_STATUS.json"
+}

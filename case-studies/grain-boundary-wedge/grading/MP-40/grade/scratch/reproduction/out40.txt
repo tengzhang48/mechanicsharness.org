@@ -1,0 +1,7 @@
+symbolic operator ready
+lambda1 = 12.147477
+Traceback (most recent call last):
+  File "<round-runs>/runs/MP-40/explore40.py", line 31, in <module>
+    print("f(1)=%.6f" % float(f1))
+                        ~~~~~^^^^
+TypeError: float() argument must be a string or a real number, not 'mpc'

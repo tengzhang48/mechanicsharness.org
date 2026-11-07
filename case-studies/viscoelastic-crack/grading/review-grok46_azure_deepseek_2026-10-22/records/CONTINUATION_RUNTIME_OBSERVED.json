@@ -1,0 +1,39 @@
+{
+  "observed_utc": "2026-10-22T20:13:07.538349+00:00",
+  "review_run": "R04_grok46_finalize_azure_deepseek",
+  "image": "sha256:2690734a0e95843a471109ae8396031e6cb7d35df010b94e0ec72d5ad14db01d",
+  "network_mode": "none",
+  "read_only_rootfs": true,
+  "cap_drop": [
+    "ALL"
+  ],
+  "security_opt": [
+    "no-new-privileges"
+  ],
+  "memory_bytes": 8589934592,
+  "nano_cpus": 2000000000,
+  "user": "1001:1001",
+  "mounts": [
+    {
+      "source": "/tmp/ve-model-1juwb9ad",
+      "destination": "/run/model",
+      "read_write": false
+    },
+    {
+      "source": "<home>/.opencode/bin/opencode",
+      "destination": "/usr/local/bin/opencode",
+      "read_write": false
+    },
+    {
+      "source": "<home>/.kimi-code/bin/kimi",
+      "destination": "/usr/local/bin/kimi",
+      "read_write": false
+    },
+    {
+      "source": "<pilot-folder>/runs/R04_grok46_finalize_azure_deepseek/workspace",
+      "destination": "/workspace",
+      "read_write": true
+    }
+  ],
+  "input_mismatches": []
+}

@@ -1,0 +1,15 @@
+{
+  "checked_utc": "2026-10-22T20:11:19.777112+00:00",
+  "run_id": "P01_deepseek",
+  "completed_api_requests": 226,
+  "reasoning_effort_counts": {
+    "high": 226
+  },
+  "usage_records_with_reasoning_count": 226,
+  "positive_reasoning_count_records": 226,
+  "reported_reasoning_tokens_total": 318273,
+  "thinking_type_logging": {
+    "NOT_RECORDED": 226
+  },
+  "claim_basis": "Provider token-usage accounting plus frozen configuration; no private reasoning content inspected or retained."
+}

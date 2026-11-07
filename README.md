@@ -30,7 +30,7 @@ nine values and missed the drained-tip value.
 
 | Level | What the agent does | Cases |
 |---|---|---|
-| 1. Classical problems | Analysis problems with known answers, from published papers. The agent derives and computes the asked quantities. | Poroelastic crack (Detournay and Cheng 1991); thin-film cracking (Xia and Hutchinson 2000) |
+| 1. Classical problems | Analysis problems with known answers, from published papers. The agent derives and computes the asked quantities. | Poroelastic crack (Detournay and Cheng 1991); thin-film cracking (Xia and Hutchinson 2000); viscoelastic crack (Hui and Long 2026); grain-boundary diffusion wedge (Gao et al. 1999) |
 | 2. Published research models | The agent implements a recent paper's model as working simulation code, checked against an independent reference. | Rock fracture (Anand 2026); battery fatigue (Noii et al. 2024) |
 | 3. Real-world problems | Open questions without a published answer, judged against measurements. This is the aim. | Planned |
 
@@ -50,9 +50,11 @@ separates the agent's errors from errors in our own checks. More on the site:
 
 The battery benchmark is released in the code repository,
 [agent-mechanics-benchmarks-public](https://github.com/tengzhang48/agent-mechanics-benchmarks-public): the task, host, scorer, reference code, the three runs and their results,
-with a practice problem that anyone can rerun. The rock benchmark is in preparation. Two fracture mechanics cases, the
-[poroelastic crack](https://mechanicsharness.org/case-studies/poroelastic-crack.html) and
-[thin-film cracking](https://mechanicsharness.org/case-studies/xia-hutchinson-film.html), are released on this website, each
+with a practice problem that anyone can rerun. The rock benchmark is in preparation. Four fracture mechanics cases, the
+[poroelastic crack](https://mechanicsharness.org/case-studies/poroelastic-crack.html),
+[thin-film cracking](https://mechanicsharness.org/case-studies/xia-hutchinson-film.html), the
+[viscoelastic crack](https://mechanicsharness.org/case-studies/viscoelastic-crack.html) and the
+[grain-boundary diffusion wedge](https://mechanicsharness.org/case-studies/grain-boundary-wedge.html), are released on this website, each
 with its task, key, checker and the agents' runs (folders under `case-studies/`).
 
 You can already ask for your own element to be scored on the battery benchmark's hidden problem (see the code repository's
@@ -72,6 +74,8 @@ The website itself: plain HTML and CSS, no build step, served by GitHub Pages.
 | `case-studies/battery-fatigue.html` | The battery benchmark's case study |
 | `case-studies/poroelastic-crack.html`, `case-studies/poroelastic-crack/` | The featured case: its page, and its files (task, key, checker, every run, records) |
 | `case-studies/xia-hutchinson-film.html`, `case-studies/xia-hutchinson-film/` | The thin-film cracking case: its page and its files |
+| `case-studies/viscoelastic-crack.html`, `case-studies/viscoelastic-crack/` | The viscoelastic crack case: its page and its files |
+| `case-studies/grain-boundary-wedge.html`, `case-studies/grain-boundary-wedge/` | The grain-boundary diffusion wedge case: its page and its files |
 | `assets/` | Style sheet, site icon and figures |
 | `CNAME`, `.nojekyll` | GitHub Pages settings |
 | `LICENSE`, `LICENSE-CONTENT` | Licences (below) |

@@ -317,17 +317,20 @@ figure .fig.wide-fig{max-width:900px;margin-inline:auto}
 <style>/* layout for the site (release_fracture/case_layout.py) */
 .side-col{display:grid;gap:1rem;align-content:start;min-width:0}
 .side-col>p{margin-bottom:.55rem}
+.fill>table{width:100%}.fill th.num{text-align:right}
 @media (min-width:1060px) and (min-height:820px){section.block>aside.math{position:sticky;top:60px}}
 @media (min-width:1060px){
 figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2rem;align-items:center}
 .pair{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:2rem}
 .pair>.head{grid-column:1/-1}
 }
+.fig-stack{display:none}
+@media (max-width:600px){.fig-wide{display:none}.fig-stack{display:grid;gap:.75rem}.fig-stack .fig{min-width:0;max-width:440px}}
 </style>
 </head>
 <body>
 <div class="page">
-<nav class="case-navigation" aria-label="Case study navigation"><a href="../index.html">← MechanicsHarness</a><span>Xia–Hutchinson · thin-film cracking</span></nav>
+<nav class="case-navigation" aria-label="Case study navigation"><a href="../index.html#xia-hutchinson-film">← MechanicsHarness</a><span>Xia–Hutchinson · thin-film cracking</span></nav>
 <header>
   <div class="kicker">Fracture mechanics case study · AI agents and thin-film cracking · October 2026</div>
   <h1>Sequential film cracking: can AI agents rebuild the energy argument of Xia and Hutchinson?</h1><p class="paths"><a href="#model">Read the mechanics: model and solution</a><a href="#agent-performance">See how the agents did</a></p>
@@ -347,7 +350,85 @@ figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2re
 
 
 <figure class="laminate-overview">
-  <div class="figwrap"><svg class="fig" viewBox="0 0 760 272" role="img" aria-label="Plan view of the two crack histories of Section 4.2" xmlns="http://www.w3.org/2000/svg">
+  <div class="figwrap fig-wide"><svg class="fig" viewBox="0 0 760 272" role="img" aria-label="Plan view of the two crack histories of Section 4.2" xmlns="http://www.w3.org/2000/svg">
+<text class="cap" x="24" y="24">A · All cracks advance together</text>
+<rect class="band" x="24" y="44" width="190" height="196" rx="3"/>
+<rect class="sheet-edge" x="24" y="44" width="330" height="196" rx="3"/>
+<line class="crack s1" x1="24" y1="62" x2="214" y2="62"/>
+<circle class="tipdot s1f" cx="214" cy="62" r="4.2"/>
+<path class="adv s1" d="M222.00 62.00h24m-6 -5l6 5-6 5"/>
+<line class="crack s1" x1="24" y1="102" x2="214" y2="102"/>
+<circle class="tipdot s1f" cx="214" cy="102" r="4.2"/>
+<path class="adv s1" d="M222.00 102.00h24m-6 -5l6 5-6 5"/>
+<line class="crack s1" x1="24" y1="142" x2="214" y2="142"/>
+<circle class="tipdot s1f" cx="214" cy="142" r="4.2"/>
+<path class="adv s1" d="M222.00 142.00h24m-6 -5l6 5-6 5"/>
+<line class="crack s1" x1="24" y1="182" x2="214" y2="182"/>
+<circle class="tipdot s1f" cx="214" cy="182" r="4.2"/>
+<path class="adv s1" d="M222.00 182.00h24m-6 -5l6 5-6 5"/>
+<line class="crack s1" x1="24" y1="222" x2="214" y2="222"/>
+<circle class="tipdot s1f" cx="214" cy="222" r="4.2"/>
+<path class="adv s1" d="M222.00 222.00h24m-6 -5l6 5-6 5"/>
+<path class="dim" d="M340 62V102M335 62h10M335 102h10"/>
+<text class="small" x="332" y="86.0" text-anchor="end">H</text>
+<text class="small" x="28" y="262">far behind: strips of width H</text>
+<text class="small" x="224" y="262">far ahead: intact film</text>
+<text class="cap" x="404" y="24">B · New cracks advance between old ones</text>
+<rect class="band" x="404" y="44" width="190" height="196" rx="3"/>
+<rect class="sheet-edge" x="404" y="44" width="330" height="196" rx="3"/>
+<line class="oldcrack" x1="404" y1="62" x2="734" y2="62"/>
+<line class="crack s2" x1="404" y1="102" x2="594" y2="102"/>
+<circle class="tipdot s2f" cx="594" cy="102" r="4.2"/>
+<path class="adv s2" d="M602.00 102.00h24m-6 -5l6 5-6 5"/>
+<line class="oldcrack" x1="404" y1="142" x2="734" y2="142"/>
+<line class="crack s2" x1="404" y1="182" x2="594" y2="182"/>
+<circle class="tipdot s2f" cx="594" cy="182" r="4.2"/>
+<path class="adv s2" d="M602.00 182.00h24m-6 -5l6 5-6 5"/>
+<line class="oldcrack" x1="404" y1="222" x2="734" y2="222"/>
+<path class="dim" d="M720 62V142M715 62h10M715 142h10"/>
+<text class="small" x="712" y="106.0" text-anchor="end">2H</text>
+<text class="small" x="408" y="262">far behind: strips of width H</text>
+<text class="small" x="604" y="262">far ahead: strips of width 2H</text>
+</svg></div><div class="fig-stack" role="img" aria-label="Plan view of the two crack histories of Section 4.2"><svg class="fig" viewBox="9 0 360 272" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+<text class="cap" x="24" y="24">A · All cracks advance together</text>
+<rect class="band" x="24" y="44" width="190" height="196" rx="3"/>
+<rect class="sheet-edge" x="24" y="44" width="330" height="196" rx="3"/>
+<line class="crack s1" x1="24" y1="62" x2="214" y2="62"/>
+<circle class="tipdot s1f" cx="214" cy="62" r="4.2"/>
+<path class="adv s1" d="M222.00 62.00h24m-6 -5l6 5-6 5"/>
+<line class="crack s1" x1="24" y1="102" x2="214" y2="102"/>
+<circle class="tipdot s1f" cx="214" cy="102" r="4.2"/>
+<path class="adv s1" d="M222.00 102.00h24m-6 -5l6 5-6 5"/>
+<line class="crack s1" x1="24" y1="142" x2="214" y2="142"/>
+<circle class="tipdot s1f" cx="214" cy="142" r="4.2"/>
+<path class="adv s1" d="M222.00 142.00h24m-6 -5l6 5-6 5"/>
+<line class="crack s1" x1="24" y1="182" x2="214" y2="182"/>
+<circle class="tipdot s1f" cx="214" cy="182" r="4.2"/>
+<path class="adv s1" d="M222.00 182.00h24m-6 -5l6 5-6 5"/>
+<line class="crack s1" x1="24" y1="222" x2="214" y2="222"/>
+<circle class="tipdot s1f" cx="214" cy="222" r="4.2"/>
+<path class="adv s1" d="M222.00 222.00h24m-6 -5l6 5-6 5"/>
+<path class="dim" d="M340 62V102M335 62h10M335 102h10"/>
+<text class="small" x="332" y="86.0" text-anchor="end">H</text>
+<text class="small" x="28" y="262">far behind: strips of width H</text>
+<text class="small" x="224" y="262">far ahead: intact film</text>
+<text class="cap" x="404" y="24">B · New cracks advance between old ones</text>
+<rect class="band" x="404" y="44" width="190" height="196" rx="3"/>
+<rect class="sheet-edge" x="404" y="44" width="330" height="196" rx="3"/>
+<line class="oldcrack" x1="404" y1="62" x2="734" y2="62"/>
+<line class="crack s2" x1="404" y1="102" x2="594" y2="102"/>
+<circle class="tipdot s2f" cx="594" cy="102" r="4.2"/>
+<path class="adv s2" d="M602.00 102.00h24m-6 -5l6 5-6 5"/>
+<line class="oldcrack" x1="404" y1="142" x2="734" y2="142"/>
+<line class="crack s2" x1="404" y1="182" x2="594" y2="182"/>
+<circle class="tipdot s2f" cx="594" cy="182" r="4.2"/>
+<path class="adv s2" d="M602.00 182.00h24m-6 -5l6 5-6 5"/>
+<line class="oldcrack" x1="404" y1="222" x2="734" y2="222"/>
+<path class="dim" d="M720 62V142M715 62h10M715 142h10"/>
+<text class="small" x="712" y="106.0" text-anchor="end">2H</text>
+<text class="small" x="408" y="262">far behind: strips of width H</text>
+<text class="small" x="604" y="262">far ahead: strips of width 2H</text>
+</svg><svg class="fig" viewBox="396 0 360 272" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
 <text class="cap" x="24" y="24">A · All cracks advance together</text>
 <rect class="band" x="24" y="44" width="190" height="196" rx="3"/>
 <rect class="sheet-edge" x="24" y="44" width="330" height="196" rx="3"/>
@@ -434,9 +515,8 @@ figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2re
     <p>The paper replaces the substrate by a linear foundation. The film, of thickness h, carries plane-stress membrane forces, and the substrate pulls back on it with a force −k u per unit area. Disturbances caused by a crack therefore decay over distances of order ℓ = √(Ēh/k).</p>
     <p>The paper chooses k so that a single semi-infinite crack releases exactly the energy of a steady channeling crack in the full film–substrate problem. This ties ℓ to the film thickness and the elastic mismatch, ℓ = (π/2) g h, where g is Beuth’s function of the Dundurs parameters: ℓ ≈ 2h without mismatch, and much larger for a stiff film on a compliant substrate. Our test kept ℓ as a parameter and did not ask for this calibration.</p>
     <p>Before cracking the film carries an equibiaxial tension σ₀. Cracks run through the thickness, and their faces are free of total traction: the prestress plus the stress change, not the change alone. This condition drives everything below, and it is where one agent run went wrong.</p>
-    <p class="status"><span class="chip fpc">As in the paper</span> Based on Eqs. (4)–(6) and (12) of the paper; the energy functional ΔΠ is written out explicitly, as it was given to the agents.</p>
   </div>
-  <aside class="math" aria-label="Model equations">
+  <div class="side-col"><aside class="math" aria-label="Model equations">
     <div class="mh">The model as given to the agents</div>
     <div class="eq"><svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='16.818em' height='3.711em' role='img' aria-label='\begin{gathered}\sigma_{\alpha\beta}=\sigma_0\delta_{\alpha\beta}+\Delta\sigma_{\alpha\beta},\qquad \bar E=\frac{E}{1-\nu^2},\\\Delta\sigma_{\alpha\beta}=\bar E\big[(1-\nu)\,\epsilon_{\alpha\beta}+\nu\,\epsilon_{\gamma\gamma}\delta_{\alpha\beta}\big]\end{gathered}' viewBox='-70.62516 -70.970552 168.180374 37.108737'>
 <defs>
@@ -774,6 +854,8 @@ figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2re
 </g>
 </svg></div>
   </aside>
+    <p class="status"><span class="chip fpc">As in the paper</span> Based on Eqs. (4)–(6) and (12) of the paper; the energy functional ΔΠ is written out explicitly, as it was given to the agents.</p>
+  </div>
 </section>
 
 <section class="block" id="argument">
@@ -1625,10 +1707,9 @@ figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2re
     <div class="head"><div class="kicker">5 · GPT</div><h2>The paper’s route in six minutes</h2></div>
     <p>GPT went straight to the far field. Its derivation file starts with the translation-invariant strip: bounded equilibrium with traction-free faces gives u₁ = 0 and the sinh profile, with each strip between cracks centred separately. It then integrates the energy, uses the steady translation of the crack front to equate the release with the ahead-minus-behind difference, and counts one advancing tip per period in both cases.</p>
     <p>It checked the result eight ways and wrote down what each check would catch, from a symbolic check of equilibrium and the face conditions to a variational finite-element calculation of the strip refined to 2048 elements (Appendix A).</p>
-    <p>It also stated what its checks share: all rest on the one-dimensional far-field reduction, and none extracts K from a two-dimensional crack-tip field. Its answer ends with what applying the thresholds to a real film would require: dimensional data, and validation of the foundation model, plane stress and bonding.</p>
     <p class="status"><span class="chip proved">all seven items right</span> 16 of 16 values exact; rerunning its reproduction command reproduces every value and check flag.</p>
   </div>
-  <aside class="math" aria-label="From GPT's files">
+  <div class="side-col"><aside class="math" aria-label="From GPT's files">
     <div class="mh">From GPT’s derivation file (excerpt)</div>
 <pre class="code">Both horizontal edges are traction free: sigma22 = sigma12 = 0.
 Hence u2'(+/-W/2) = -sigma0/Ebar. The unique solution is
@@ -1641,6 +1722,8 @@ U_ahead - U_behind; divide by advancing-tip count and h,
 not by period width.</pre>
     <p class="src">Excerpt from <a href="xia-hutchinson-film/runs/S01/workspace/DERIVATION.md">DERIVATION.md</a>. Its eight checks are listed in Appendix A.</p>
   </aside>
+    <p>It also stated what its checks share: all rest on the one-dimensional far-field reduction, and none extracts K from a two-dimensional crack-tip field. Its answer ends with what applying the thresholds to a real film would require: dimensional data, and validation of the foundation model, plane stress and bonding.</p>
+  </div>
 </section>
 
 <section class="block" id="kimi">
@@ -1673,11 +1756,9 @@ not by period width.</pre>
     <p>At minute 6.3 it left itself a note: “see next: use energy method with strip modes”. Half a minute later <a href="xia-hutchinson-film/runs/S02/workspace/derive8.py">derive8.py</a> put the prestress back but allowed only fields linear across the strip. It found that equilibrium then forces u = 0, and concluded that the only bounded state independent of the coordinate along the cracks is u = 0, the unchanged prestressed state. The claim that no relaxed state exists far behind the tips went into its final answer.</p>
     <p>Finite-element work had begun at minute 5.4 and occupied the rest of the run; it saved 30 scripts in all. On the way it rejected a closed form that gave negative and NaN values, a J-integral that depended on the path, and a first case-B mesh that could not open. These were good catches, and its final values lie within 0.23–1.59% of the exact ones.</p>
     <p>Three mathematical or reporting problems remained. It had no closed form for either array and no case-B limiting forms. Its claim that critical stress increases with crack spacing reversed its own preceding trend: decreasing γ with ℓ/H means increasing γ with H, so the critical stress falls as H grows.</p>
-<p>The no-relaxed-wake claim contradicted both the problem’s stated relaxed wake and the finite-element field reported in the answer. At 18ℓ behind the tips, σ₂₂ was about 0.003σ₀ at the faces and 0.114σ₀ at the centre, against foundation-model values of zero and about 0.113σ₀ at W = ℓ. This is clearer evidence than the quoted σ₁₁ ≈ 0.74σ₀ alone.</p>
-<p>Separately, rerunning its reproduction command changed five saved case-B values. Those mismatches are a reproducibility defect; they do not establish another mathematical error by themselves.</p>
     <p class="status"><span class="chip wrong">far-field state wrong</span><span class="chip pend">other six items partly</span> 0 of 16 values exact at 10⁻⁶; all 16 within 1.6% (Appendix A).</p>
   </div>
-  <aside class="math" aria-label="From DeepSeek's files">
+  <div class="side-col"><aside class="math" aria-label="From DeepSeek's files">
     <div class="mh">Two partial tries at the far field</div>
     <div class="eq"><svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24.018em' height='2.580em' role='img' aria-label='\begin{gathered}\text{derive7.py:}\quad \Delta\sigma_{22}=\bar E\,u_2&#39;=0\ \text{at the faces}\ \Longrightarrow\ u_2=0\\\text{needed:}\quad \sigma_{22}=\sigma_0+\bar E\,u_2&#39;=0\ \text{at the faces}\end{gathered}' viewBox='-70.66501 -71.031444 240.175299 25.803177'>
 <defs>
@@ -1972,6 +2053,9 @@ print("see next: use energy method with strip modes")
 # bounded state is u=0</pre>
     <p class="src">Excerpts from <a href="xia-hutchinson-film/runs/S02/workspace/derive7.py">derive7.py</a>, <a href="xia-hutchinson-film/runs/S02/workspace/reduce1d.py">reduce1d.py</a> and <a href="xia-hutchinson-film/runs/S02/workspace/derive8.py">derive8.py</a>, shortened. In <a href="xia-hutchinson-film/runs/S02/workspace/derive7.py">derive7.py</a>, sig22 is the stress change only; σ₀ does not appear.</p>
   </aside>
+    <p>The no-relaxed-wake claim contradicted both the problem’s stated relaxed wake and the finite-element field reported in the answer. At 18ℓ behind the tips, σ₂₂ was about 0.003σ₀ at the faces and 0.114σ₀ at the centre, against foundation-model values of zero and about 0.113σ₀ at W = ℓ. This is clearer evidence than the quoted σ₁₁ ≈ 0.74σ₀ alone.</p>
+    <p>Separately, rerunning its reproduction command changed five saved case-B values. Those mismatches are a reproducibility defect; they do not establish another mathematical error by themselves.</p>
+  </div>
 </section>
 
 <section class="block" id="deepseek2">
@@ -1981,9 +2065,8 @@ print("see next: use energy method with strip modes")
     <p>Its first script wrote the strip equation with the face condition σ₀ + Ē u₂′ = 0, prestress included. The hyperbolic-sine solution, both closed forms and all sixteen values were saved by minute 3.1, and eight consistency checks by minute 3.8. It then built a two-dimensional finite-difference solution with a J-integral: case A agreed with the closed form to within 0.08% at three spacings, and case B to 0.6% on its finest grid. It finished at 10.2 minutes.</p>
     <p>Its written answer has two errors that its code does not. It says the prestress term integrates to zero over the strip, when that term is in fact twice the whole strip energy (Kimi’s split in Section 6). And its displayed case-B balance has the sign reversed, although the formula that follows and all the values are right. It also calls its two-dimensional checks independent of the one-dimensional route, but they impose the closed-form wake at the ends of the domain, and several checks print values without testing the tolerances that its results file reports as passed.</p>
     <p>Grok’s blinded review rated six items right and physical scope partly. Its own variational finite-element check confirms all sixteen values, and it flags the false statement about the prestress term, yet rates the energy item right because the code includes the term. It does not mention the reversed case-B balance, and it accepts the 2D check as a separate route. The two written errors stand regardless of the grade.</p>
-    <p class="status"><span class="chip proved">six items right</span><span class="chip pend">physical scope partly</span> 16 of 16 values exact; our reruns reproduce the values and all seventeen printed 2D samples.</p>
   </div>
-  <aside class="math" aria-label="From the thinking-on DeepSeek run">
+  <div class="side-col"><aside class="math" aria-label="From the thinking-on DeepSeek run">
     <div class="mh">The face condition, from its first script</div>
 <pre class="code"># compute.py, minute 3.0
 u2w = A_*sp.cosh((x - H/2)/ell) + B_*sp.sinh((x - H/2)/ell)
@@ -2149,6 +2232,8 @@ bc0 = sp.Eq(s0 + Ebar*sp.diff(u2w, x).subs(x, 0), 0)</pre>
 </tbody></table></div>
     <p class="src">From <a href="xia-hutchinson-film/runs/D01/workspace/check_A_H_output.txt">check_A_H_output.txt</a> and <a href="xia-hutchinson-film/runs/D01/workspace/check_B_conv_output.txt">check_B_conv_output.txt</a>; units σ₀ = Ē = ℓ = h = 1, ν = 0.3. Case B ranges cover two J-integral path radii. Its Richardson extrapolation for case B is an estimate, not a computed grid; the saved and rerun 2D outputs carry quadrature warnings.</p>
   </aside>
+    <p class="status"><span class="chip proved">six items right</span><span class="chip pend">physical scope partly</span> 16 of 16 values exact; our reruns reproduce the values and all seventeen printed 2D samples.</p>
+  </div>
 </section>
 
 <section class="block" id="separated">
@@ -2444,7 +2529,7 @@ bc0 = sp.Eq(s0 + Ebar*sp.diff(u2w, x).subs(x, 0), 0)</pre>
   </div>
 </section>
 
-<nav class="case-return" aria-label="Continue through the case studies"><a href="../index.html">← MechanicsHarness home</a><a href="xia-hutchinson-film/README.md">The case package →</a></nav>
+<nav class="case-return" aria-label="Continue through the case studies"><a href="../index.html#xia-hutchinson-film">← MechanicsHarness home</a><a href="xia-hutchinson-film/README.md">The case package →</a></nav>
 <footer>
   <div><strong>Paper:</strong> Z.C. Xia and J.W. Hutchinson, Crack patterns in thin films, J. Mech. Phys. Solids 48 (2000) 1107–1131, <a href="https://groups.seas.harvard.edu/hutchinson/papers/crackpatterns.pdf">PDF</a>.</div>
   <div><strong>Study record:</strong> the problem as given to the agents, their answers and code, the reviews, all numerical values, timings and our own errors are kept in the study record and are available on request.</div>

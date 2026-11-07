@@ -1,0 +1,40 @@
+{
+  "checked_utc": "2026-10-22T17:45:32.257632+00:00",
+  "container_exit_code": 0,
+  "all_replay_steps_passed": true,
+  "stage": "<pilot-folder>/reviews/grok46_gpt61_2026-10-22/offline_audit_replay_20261022T174313Z",
+  "audit_program_hash": "4943b28f0768a299c631ff7121cbc9931255784bfdce561065092e52d8565b56",
+  "current_grok_program_matches_replayed": true,
+  "audit_results_match_ignoring_replay_runtime": true,
+  "regenerated_submission_matches_ignoring_runtime": true,
+  "fresh_input_integrity_changes": [],
+  "summary": {
+    "numeric_gates_pass": true,
+    "formula_identities_pass": true,
+    "figure_9_rounding_pass": true,
+    "n_scalar_items": 10,
+    "n_field_components": 180,
+    "n_bulk": 3,
+    "n_energy_residuals": 3,
+    "worst_scalar_relative_error": 5.101366337931496e-13,
+    "worst_field_absolute_error": 3.93574062229618e-14,
+    "worst_bulk_absolute_error": 4.360233086642129e-06,
+    "worst_energy_residual": 3.279051353284258e-06
+  },
+  "positive_series_tail_bounds_contain_digamma_value": true,
+  "auxiliary_series_comparison": {
+    "name": "paper (59) digamma identity vs odd sum plus integral tail at submitted V*",
+    "digamma": 0.8888888888888868,
+    "odd_sum": 0.8888883822830146,
+    "odd_sum_plus_tail": 0.8888888888895661,
+    "absolute_error": 6.792344464656708e-13,
+    "passed": true,
+    "source": "main p.13 eq.59; organizer digamma identity in reference_solver.py"
+  },
+  "scope_notes": [
+    "Source-formula probes and numerical error calculations replayed.",
+    "The audit marks the dissipation prefactor and integral provenance as source/code-inspection judgments; their boolean flags are not executed symbolic proofs.",
+    "Analytical item grades remain the external reviewer judgment."
+  ],
+  "minor_documentation_note": "The auxiliary tail comment says 2/(pi^2*(2N-1)); the executed expression uses 4/(pi^2*(2N-1)), the appropriate positive-series upper-tail bound. This comment typo has no effect on the calculations."
+}

@@ -1,0 +1,11 @@
+{
+  "pid": 308118,
+  "command": [
+    "<home>/miniconda3/bin/python",
+    "<pilot-folder>/reviews/grok46_gpt61_2026-10-22/collect_tool_evidence.py",
+    "ve-strip-r02-grok46-analytical-gpt61",
+    "<pilot-folder>/runs/R02_grok46_analytical_gpt61/RUN.json",
+    "<pilot-folder>/reviews/grok46_gpt61_2026-10-22/R02_TOOL_EXECUTION_EVIDENCE.json",
+    "--follow"
+  ]
+}

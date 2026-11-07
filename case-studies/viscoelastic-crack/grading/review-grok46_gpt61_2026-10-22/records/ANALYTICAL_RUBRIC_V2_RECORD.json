@@ -1,0 +1,22 @@
+{
+  "recorded_utc": "2026-10-22T16:44:36.437432+00:00",
+  "user_instruction": "We will rate analytical solution higer",
+  "rubric": "private/SCORING_ANALYTICAL_V2.md",
+  "sha256": "4965c911dcc5409a1a2e25cf168480fd8ed6818eae4031811461e28c0f53e81f",
+  "category_maxima": {
+    "model_and_conditions": 10,
+    "analytical_derivation_and_steady_branch": 60,
+    "scalar_numerical_verification": 5,
+    "field_numerical_verification": 5,
+    "spatial_dissipation_and_numerical_evidence": 10,
+    "reproduction_and_reporting": 10
+  },
+  "analytical_content_points": 70,
+  "numerical_verification_points": 20,
+  "reproduction_reporting_points": 10,
+  "introduced_after_solver_launch": true,
+  "introduced_after_gpt_delivery": true,
+  "original_frozen_rubric_preserved": true,
+  "external_analytical_review_required": true,
+  "original_grok_review_inputs_changed": false
+}

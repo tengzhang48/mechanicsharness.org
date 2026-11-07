@@ -1,0 +1,14 @@
+N=20 exact_coefficients_and_integrals=False first_rates=['12.147477078884', '257.49335584412', '1387.5033742647'] nonreal=6 nondecaying=0
+Submitted discarded eigenvalues: ['(-4924237.17618263 - 2227401.60884206j)', '(-436439.538002693 - 161478.369128643j)', '(-191108.628002508 - 15225.6357451191j)', '(-191108.628002508 + 15225.6357451191j)', '(-436439.538002693 + 161478.369128643j)', '(-4924237.17618263 + 2227401.60884206j)']
+N=20 exact_coefficients_and_integrals=True first_rates=['12.176043286158', '257.59217314947', '1387.849396505'] nonreal=6 nondecaying=0
+N=24 exact_coefficients_and_integrals=True first_rates=['12.109063143313', '258.59934558987', '1383.058462015'] nonreal=6 nondecaying=0
+N=28 exact_coefficients_and_integrals=True first_rates=['12.060018357784', '259.3533777728', '1379.57131177'] nonreal=8 nondecaying=0
+N=40 exact_coefficients_and_integrals=True first_rates=['11.969097654927', '260.79163451907', '1373.1574126743'] nonreal=10 nondecaying=0
+monomial cross-check x=0.4 p=3 error=1.53913e-16
+monomial cross-check x=0.4 p=4 error=5.52816e-16
+monomial cross-check x=0.4 p=5 error=8.87032e-16
+monomial cross-check x=0.4 p=8 error=-8.79399e-16
+monomial cross-check x=0.7 p=3 error=1.09008e-16
+monomial cross-check x=0.7 p=4 error=5.16115e-16
+monomial cross-check x=0.7 p=5 error=1.15395e-15
+monomial cross-check x=0.7 p=8 error=4.57772e-16

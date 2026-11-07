@@ -1,0 +1,6 @@
+N=  480  chain lam~60 = 60.1248879
+N=  960  chain lam~60 = 59.9945869
+N= 1440  chain lam~60 = 59.9530211
+N= 1920  chain lam~60 = 59.9330786
+N= 2400  chain lam~60 = 59.9215563
+extrapolate L + a/N + b/N^2 : L = 59.874788

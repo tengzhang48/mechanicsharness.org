@@ -1,0 +1,15 @@
+N= 100  K_norm tail (r=1e-4..1e-7): [0.0215, 0.015, 0.0105, 0.0074, 0.0053, 0.0038]
+N= 200  K_norm tail (r=1e-4..1e-7): [0.0341, 0.0231, 0.0158, 0.011, 0.0077, 0.0055]
+N= 400  K_norm tail (r=1e-4..1e-7): [0.0494, 0.0367, 0.025, 0.0169, 0.0116, 0.008]
+N= 800  K_norm tail (r=1e-4..1e-7): [-0.0945, 0.0157, 0.0356, 0.0269, 0.0183, 0.0124]
+
+Literature check -- single edge crack of depth h in a half plane,
+remote tension sigma0:  K = F * sigma0 sqrt(pi h) with F = 1.1215.
+Here the crack is fully open (faces traction free after full relaxation),
+so the same universal F = 1.1215 should apply.
+
+Singular-basis equilibrium solve (w = hats + C/sqrt(1-zeta)):
+  N= 200  singular amplitude C = -0.1466   residual(rel) = 3.484e-12
+  N= 400  singular amplitude C = -0.1131   residual(rel) = 1.553e-11
+  (a sizeable C shows the equilibrium solution does carry a sqrt tip density,
+   i.e. the boundary becomes crack-like -> K_inf = 1.1215 sigma0 sqrt(pi h).)

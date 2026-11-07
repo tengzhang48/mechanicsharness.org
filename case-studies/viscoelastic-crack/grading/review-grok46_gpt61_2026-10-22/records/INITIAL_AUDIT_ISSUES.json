@@ -1,0 +1,26 @@
+{
+  "recorded_utc": "2026-10-22T17:40:34.216877+00:00",
+  "owner_of_issue": "Grok reviewer audit helper, not the candidate submission",
+  "snapshot_hashes": {
+    "audit.py": "4943b28f0768a299c631ff7121cbc9931255784bfdce561065092e52d8565b56",
+    "audit_results.json": "93361ffb24bc4083a284e078e65e0d6d9a27e679ebebf026dbd612234dc53106"
+  },
+  "issues": [
+    {
+      "issue": "NumPy boolean JSON serialization",
+      "state": "Grok corrected before valid audit_results.json",
+      "evidence": "R02_TOOL_EXECUTION_EVIDENCE.json: first audit run exit 1; py() conversion patch; rerun produced JSON"
+    },
+    {
+      "issue": "Untailed 20000-term odd series compared with infinite digamma identity at 1e-10 tolerance",
+      "state": "Grok investigating; not resolved at snapshot",
+      "observed_absolute_errors": {
+        "N=20000": 1.0132099493076474e-05,
+        "N=200000": 1.0132116489147691e-06,
+        "N=2000000": 1.0132118344330365e-07
+      },
+      "interpretation": "Observed 1/N convergence is consistent with the omitted positive 1/n^2 tail. A correct auxiliary comparison must account for finite truncation. This is separate from the candidate critical-speed public tolerance."
+    }
+  ],
+  "candidate_public_numeric_gates": "pass in frozen 251-check scorer; this snapshot does not change that result"
+}

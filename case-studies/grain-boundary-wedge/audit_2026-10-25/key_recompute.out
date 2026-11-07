@@ -1,0 +1,15 @@
+N=  30: lambda1 11.7428320 lambda2 264.67455 f1(0.5)/f1(1) 0.801955 K_inf 1.11753 c1 1.52244
+N=  60: lambda1 11.7426587 lambda2 264.64024 f1(0.5)/f1(1) 0.801956 K_inf 1.11951 c1 1.52670
+N= 120: lambda1 11.7426622 lambda2 264.63458 f1(0.5)/f1(1) 0.801957 K_inf 1.12051 c1 1.52887
+N= 240: lambda1 11.7426670 lambda2 264.63416 f1(0.5)/f1(1) 0.801957 K_inf 1.12102 c1 1.52996
+N= 480: lambda1 11.7426680 lambda2 264.63420 f1(0.5)/f1(1) 0.801957 K_inf 1.12127 c1 1.53050
+Richardson (2*X(2N) - X(N)), assuming error ~ 1/N:
+  from N=120,240: lambda1 11.742672  lambda2 264.633740  shape 0.801956  K_inf 1.121520  c1 1.531045
+  from N=240,480: lambda1 11.742669  lambda2 264.634239  shape 0.801956  K_inf 1.121522  c1 1.531048
+e-folding time 1/lambda1 = 0.08516 t0
+half-time at z = h (higher modes decay by exp(-lambda2 t) ~ e^-25 there): ln(2 c1)/lambda1 = 0.09530 t0 (c1 = 1.53105)
+95% relaxation at z = h: ln(20 c1)/lambda1 = 0.2914 t0;  ln(20)/lambda1 = 0.2551 t0
+half-time t_1/2 at z = h from the full modal sum sigma(1,t) = sum c_n f_n(1) exp(-lambda_n t):
+  N=120: sigma(1, 0.001) = 1.0101, sigma(1, 0.05) = 0.8499, t_1/2 = 0.09518 t0
+  N=240: sigma(1, 0.001) = 1.0100, sigma(1, 0.05) = 0.8505, t_1/2 = 0.09524 t0
+  N=480: sigma(1, 0.001) = 1.0100, sigma(1, 0.05) = 0.8508, t_1/2 = 0.09527 t0

@@ -1,0 +1,275 @@
+# Changes made for this release
+
+Every file here is as saved at the time, except for the changes listed below. Machine paths were replaced by a
+label in angle brackets, for example `<volume-2>`; excerpts are marked inside the file. In the HTML records,
+links to files in this package were re-pointed, and links to files not released were removed, keeping their
+text. The original of every file is kept in the private repository; its SHA-256 is recorded there.
+
+- `audit_2026-10-25/AUDIT.md`
+  - file name of the source paper replaced by a label (the paper is not included)
+- `audit_2026-10-25/key_recompute.py`
+  - machine path replaced by <volume>
+- `grading/MP-03/grade/scratch/audit-output.txt`
+  - machine path replaced by <round-runs> (2 times)
+- `grading/MP-03/grade/scratch/check1-output.txt`
+  - machine path replaced by <round-runs> (4 times)
+- `grading/MP-03/grade/scratch/dbg10-output.txt`
+  - machine path replaced by <round-runs> (3 times)
+- `grading/MP-03/grade/scratch/solve-output.txt`
+  - machine path replaced by <round-runs> (2 times)
+- `grading/MP-05/grade/scratch/audit_additional_stderr.txt`
+  - machine path replaced by <round-runs> (20 times)
+- `grading/MP-05/grade/scratch/audit_components_stderr.txt`
+  - machine path replaced by <round-runs> (8 times)
+- `grading/MP-05/grade/scratch/scratch1_stderr.txt`
+  - machine path replaced by <round-runs> (4 times)
+- `grading/MP-15/auto/MP-15.json`
+  - machine path replaced by <round-runs>
+- `grading/MP-18/grade/scratch/reproduction/final2.out`
+  - machine path replaced by <round-runs> (3 times)
+  - machine path replaced by <home>
+- `grading/MP-18/grade/scratch/reproduction/solve.out`
+  - machine path replaced by <round-runs> (9 times)
+  - machine path replaced by <home> (2 times)
+- `grading/MP-18/grade/scratch/reproduction/solve2.out`
+  - machine path replaced by <round-runs> (8 times)
+  - machine path replaced by <home> (2 times)
+- `grading/MP-32/auto/MP-32.json`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/GRADE.md`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore14.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore15.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore17.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore18.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore20.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore24.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore25.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore26.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore27.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore28.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore29.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore30.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore31.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore32.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore33.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore34.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore36.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore37.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore38.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore39.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore40.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore8.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/explore9.py`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/out14.txt`
+  - machine path replaced by <round-runs> (7 times)
+- `grading/MP-40/grade/scratch/reproduction/out15.txt`
+  - machine path replaced by <round-runs>
+  - machine path replaced by <home> (3 times)
+- `grading/MP-40/grade/scratch/reproduction/out22.txt`
+  - machine path replaced by <round-runs> (3 times)
+  - machine path replaced by <home> (2 times)
+- `grading/MP-40/grade/scratch/reproduction/out22b.txt`
+  - machine path replaced by <round-runs> (3 times)
+  - machine path replaced by <home> (2 times)
+- `grading/MP-40/grade/scratch/reproduction/out22c.txt`
+  - machine path replaced by <round-runs> (2 times)
+- `grading/MP-40/grade/scratch/reproduction/out22d.txt`
+  - machine path replaced by <round-runs> (3 times)
+- `grading/MP-40/grade/scratch/reproduction/out23.txt`
+  - machine path replaced by <round-runs> (2 times)
+  - machine path replaced by <home> (2 times)
+- `grading/MP-40/grade/scratch/reproduction/out24.txt`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/out25.txt`
+  - machine path replaced by <round-runs> (2 times)
+- `grading/MP-40/grade/scratch/reproduction/out26.txt`
+  - machine path replaced by <round-runs> (2 times)
+  - machine path replaced by <home> (3 times)
+- `grading/MP-40/grade/scratch/reproduction/out27.txt`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/out28.txt`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/out30.txt`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/out31.txt`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/out31b.txt`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/out31c.txt`
+  - machine path replaced by <round-runs>
+- `grading/MP-40/grade/scratch/reproduction/out36.txt`
+  - machine path replaced by <round-runs> (2 times)
+- `grading/MP-40/grade/scratch/reproduction/out38.txt`
+  - machine path replaced by <round-runs> (3 times)
+- `grading/MP-40/grade/scratch/reproduction/out38b.txt`
+  - machine path replaced by <round-runs> (2 times)
+- `grading/MP-40/grade/scratch/reproduction/out40.txt`
+  - machine path replaced by <round-runs>
+- `grading/MP-44/grade/scratch/reproduction/cheb3.out`
+  - machine path replaced by <round-runs> (4 times)
+  - machine path replaced by <home> (4 times)
+- `key/KEY.md`
+  - file name of the source paper replaced by a label (the paper is not included)
+- `key/KEY_2026-10-08.md`
+  - a notice at the top says it is superseded
+  - file name of the source paper replaced by a label (the paper is not included)
+- `key/checks_2026-10-08.py`
+  - a notice at the top says it is superseded
+- `key/reproduce_keys.py`
+  - excerpt: the reproduction of problem E's numbers kept, those of problems A, B and D left out; a comment says so
+- `records/HARNESS_NOTES.md`
+  - excerpt: the title and correction 2 kept, the rest left out; a note says so
+- `records/MILESTONE_2_SUMMARY.md`
+  - excerpt: the title and section 6 kept, the rest left out; a note says so
+- `records/MP-18_web_requests_excerpt.txt`
+  - excerpt: the agent's requests kept, the fetched content and command outputs left out; a note says so
+  - machine path replaced by <round-runs>
+- `records/Multiphysics_Round_Summary_2026-10-08.html`
+  - excerpt: problem E only (the other problems' results, sections and conclusions and the agents' totals over all four problems left out); a note says so
+  - charset and viewport tags added before the title
+  - description tag added to the page head
+  - private repository name removed from the line above the title
+- `records/PROCESS_LOG.md`
+  - excerpt: the title and entries P374, P389, P406 and P412, with the table's header kept, the rest left out; a note says so
+- `records/ROUND_RECORD.md`
+  - excerpt: the title, incidents 76-79 and the challenges raised on problem E, with their tables' headers kept, the rest left out; a note says so
+- `records/make_summary_html.py`
+  - private repository name removed from the line above the title
+  - machine path replaced by <documents> (2 times)
+- `records/summary_data.json`
+  - excerpt: the 12 records with problem = E kept, 60 others left out
+- `records/summary_data.py`
+  - machine path replaced by <round-runs>
+- `reference_checks/grain-boundary_check.py`
+  - machine path replaced by <study-folder> (2 times)
+- `regrade_2026-10-26/MP-15.json`
+  - machine path replaced by <volume-2>
+- `regrade_2026-10-26/MP-32.json`
+  - machine path replaced by <volume-2>
+- `runs/MP-18/workspace/final2.out`
+  - machine path replaced by <round-runs> (3 times)
+  - machine path replaced by <home>
+- `runs/MP-18/workspace/solve.out`
+  - machine path replaced by <round-runs> (9 times)
+  - machine path replaced by <home> (2 times)
+- `runs/MP-18/workspace/solve2.out`
+  - machine path replaced by <round-runs> (8 times)
+  - machine path replaced by <home> (2 times)
+- `runs/MP-40/workspace/explore14.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore15.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore17.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore18.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore20.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore24.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore25.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore26.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore27.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore28.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore29.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore30.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore31.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore32.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore33.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore34.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore36.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore37.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore38.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore39.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore40.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore8.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/explore9.py`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/out14.txt`
+  - machine path replaced by <round-runs> (7 times)
+- `runs/MP-40/workspace/out15.txt`
+  - machine path replaced by <round-runs>
+  - machine path replaced by <home> (3 times)
+- `runs/MP-40/workspace/out22.txt`
+  - machine path replaced by <round-runs> (3 times)
+  - machine path replaced by <home> (2 times)
+- `runs/MP-40/workspace/out22b.txt`
+  - machine path replaced by <round-runs> (3 times)
+  - machine path replaced by <home> (2 times)
+- `runs/MP-40/workspace/out22c.txt`
+  - machine path replaced by <round-runs> (2 times)
+- `runs/MP-40/workspace/out22d.txt`
+  - machine path replaced by <round-runs> (3 times)
+- `runs/MP-40/workspace/out23.txt`
+  - machine path replaced by <round-runs> (2 times)
+  - machine path replaced by <home> (2 times)
+- `runs/MP-40/workspace/out24.txt`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/out25.txt`
+  - machine path replaced by <round-runs> (2 times)
+- `runs/MP-40/workspace/out26.txt`
+  - machine path replaced by <round-runs> (2 times)
+  - machine path replaced by <home> (3 times)
+- `runs/MP-40/workspace/out27.txt`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/out28.txt`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/out30.txt`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/out31.txt`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/out31b.txt`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/out31c.txt`
+  - machine path replaced by <round-runs>
+- `runs/MP-40/workspace/out36.txt`
+  - machine path replaced by <round-runs> (2 times)
+- `runs/MP-40/workspace/out38.txt`
+  - machine path replaced by <round-runs> (3 times)
+- `runs/MP-40/workspace/out38b.txt`
+  - machine path replaced by <round-runs> (2 times)
+- `runs/MP-40/workspace/out40.txt`
+  - machine path replaced by <round-runs>
+- `runs/MP-44/workspace/cheb3.out`
+  - machine path replaced by <round-runs> (4 times)
+  - machine path replaced by <home> (4 times)

@@ -1,0 +1,411 @@
+{
+  "created_utc": "2026-10-22T12:06:16.279167+00:00",
+  "scope": "Source reproduction and numerical consistency; no independent reviewer or agent runs",
+  "all_passed": true,
+  "checks": [
+    {
+      "name": "terminal speed series versus direct quadrature",
+      "error": 6.391331908162101e-12,
+      "tolerance": 1e-07,
+      "passed": true,
+      "series": 13.42357157330645,
+      "quadrature": 13.423571573300059,
+      "scope": "Two evaluations of the paper's endpoint equation, not two physical models"
+    },
+    {
+      "name": "terminal speed versus printed paper",
+      "error": 0.023571573306449878,
+      "tolerance": 0.05,
+      "passed": true
+    },
+    {
+      "name": "no finite steady root above endpoint",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "name": "V=0.001 epsilon versus printed Figure 9",
+      "error": 0.00029444490656982403,
+      "tolerance": 0.00051,
+      "passed": true
+    },
+    {
+      "name": "V=0.001 a versus printed Figure 9",
+      "error": 0.0001575108301195005,
+      "tolerance": 0.00051,
+      "passed": true
+    },
+    {
+      "name": "V=0.001 R versus printed Figure 9",
+      "error": 0.0002979004210714731,
+      "tolerance": 0.00051,
+      "passed": true
+    },
+    {
+      "name": "V=0.001 cohesive separation equation",
+      "error": 2.7755575615628914e-17,
+      "tolerance": 1e-09,
+      "passed": true
+    },
+    {
+      "name": "V=0.001 equilibrium finite difference",
+      "error": 9.000022949123831e-09,
+      "tolerance": 2e-06,
+      "passed": true
+    },
+    {
+      "name": "V=0.001 strain compatibility finite difference",
+      "error": 4.070285775092941e-09,
+      "tolerance": 2e-06,
+      "passed": true
+    },
+    {
+      "name": "V=0.001 local SLS constitutive equation",
+      "error": 4.434721141822425e-09,
+      "tolerance": 4e-06,
+      "passed": true
+    },
+    {
+      "name": "V=0.001 convolution versus history ODE",
+      "error": 3.400873162661539e-11,
+      "tolerance": 4e-07,
+      "passed": true,
+      "scope": "Different numerical history evaluations sharing the published stress field"
+    },
+    {
+      "name": "V=0.001 fixed-edge tangential stress and strain",
+      "error": 9.287998690627957e-18,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "V=0.001 cohesive and separated face traction",
+      "error": 1.5464246549967697e-09,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "V=0.001 relaxed far-ahead stress",
+      "error": 1.9903641160260015e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "V=0.001 spatial dissipation versus energy release",
+      "error": 1.5666409940162662e-09,
+      "tolerance": 2e-05,
+      "passed": true,
+      "target": 0.007297900421071368,
+      "refinements": [
+        {
+          "value": 0.0072872701829944046,
+          "ny": 16,
+          "X_min": -32.54470555509343,
+          "X_max": 32.0,
+          "tail_times": 18.0,
+          "ode_rtol": 2e-09,
+          "ode_evaluations": 3004,
+          "quadrature_error": 1.2402707184885288e-09
+        },
+        {
+          "value": 0.007297814387788287,
+          "ny": 32,
+          "X_min": -32.54470555509343,
+          "X_max": 32.0,
+          "tail_times": 18.0,
+          "ode_rtol": 2e-09,
+          "ode_evaluations": 3230,
+          "quadrature_error": 7.822449474824345e-10
+        },
+        {
+          "value": 0.007297898854430374,
+          "ny": 64,
+          "X_min": -32.54470555509343,
+          "X_max": 32.0,
+          "tail_times": 18.0,
+          "ode_rtol": 2e-09,
+          "ode_evaluations": 3323,
+          "quadrature_error": 8.935766333038531e-10
+        }
+      ],
+      "scope": "Field integration does not use R-1; both routes share the published model"
+    },
+    {
+      "name": "V=0.001 energy ordinate refinement",
+      "error": 8.446664208697219e-08,
+      "tolerance": 2e-05,
+      "passed": true
+    },
+    {
+      "name": "V=0.1 epsilon versus printed Figure 9",
+      "error": 0.00021906833000540082,
+      "tolerance": 0.00051,
+      "passed": true
+    },
+    {
+      "name": "V=0.1 a versus printed Figure 9",
+      "error": 0.0001878132596742077,
+      "tolerance": 0.00051,
+      "passed": true
+    },
+    {
+      "name": "V=0.1 R versus printed Figure 9",
+      "error": 0.0001579380817804399,
+      "tolerance": 0.00051,
+      "passed": true
+    },
+    {
+      "name": "V=0.1 cohesive separation equation",
+      "error": 3.727573805178963e-14,
+      "tolerance": 1e-09,
+      "passed": true
+    },
+    {
+      "name": "V=0.1 equilibrium finite difference",
+      "error": 7.252323741546718e-09,
+      "tolerance": 2e-06,
+      "passed": true
+    },
+    {
+      "name": "V=0.1 strain compatibility finite difference",
+      "error": 1.0565159858089146e-09,
+      "tolerance": 2e-06,
+      "passed": true
+    },
+    {
+      "name": "V=0.1 local SLS constitutive equation",
+      "error": 2.486795102361292e-09,
+      "tolerance": 4e-06,
+      "passed": true
+    },
+    {
+      "name": "V=0.1 convolution versus history ODE",
+      "error": 1.1895748716442173e-09,
+      "tolerance": 4e-07,
+      "passed": true,
+      "scope": "Different numerical history evaluations sharing the published stress field"
+    },
+    {
+      "name": "V=0.1 fixed-edge tangential stress and strain",
+      "error": 1.1179024682516403e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "V=0.1 cohesive and separated face traction",
+      "error": 1.1109990705193695e-09,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "V=0.1 relaxed far-ahead stress",
+      "error": 2.013382689445425e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "V=0.1 spatial dissipation versus energy release",
+      "error": 1.4971967332577663e-08,
+      "tolerance": 2e-05,
+      "passed": true,
+      "target": 0.3251579380817804,
+      "refinements": [
+        {
+          "value": 0.3251576750756696,
+          "ny": 16,
+          "X_min": -32.740780931669995,
+          "X_max": 32.0,
+          "tail_times": 18.0,
+          "ode_rtol": 2e-09,
+          "ode_evaluations": 2289,
+          "quadrature_error": 6.260756920644456e-09
+        },
+        {
+          "value": 0.3251579236792068,
+          "ny": 32,
+          "X_min": -32.740780931669995,
+          "X_max": 32.0,
+          "tail_times": 18.0,
+          "ode_rtol": 2e-09,
+          "ode_evaluations": 2393,
+          "quadrature_error": 5.552073980165144e-08
+        },
+        {
+          "value": 0.32515792310981306,
+          "ny": 64,
+          "X_min": -32.740780931669995,
+          "X_max": 32.0,
+          "tail_times": 18.0,
+          "ode_rtol": 2e-09,
+          "ode_evaluations": 2445,
+          "quadrature_error": 1.2568463534058565e-08
+        }
+      ],
+      "scope": "Field integration does not use R-1; both routes share the published model"
+    },
+    {
+      "name": "V=0.1 energy ordinate refinement",
+      "error": 5.693937543682637e-10,
+      "tolerance": 2e-05,
+      "passed": true
+    },
+    {
+      "name": "V=10.0 epsilon versus printed Figure 9",
+      "error": 0.0003056844399109693,
+      "tolerance": 0.00051,
+      "passed": true
+    },
+    {
+      "name": "V=10.0 a versus printed Figure 9",
+      "error": 0.00016207632143216966,
+      "tolerance": 0.00051,
+      "passed": true
+    },
+    {
+      "name": "V=10.0 R versus printed Figure 9",
+      "error": 0.00022213395120385115,
+      "tolerance": 0.00051,
+      "passed": true
+    },
+    {
+      "name": "V=10.0 cohesive separation equation",
+      "error": 6.106226635438361e-16,
+      "tolerance": 1e-09,
+      "passed": true
+    },
+    {
+      "name": "V=10.0 equilibrium finite difference",
+      "error": 2.7775091254733653e-10,
+      "tolerance": 2e-06,
+      "passed": true
+    },
+    {
+      "name": "V=10.0 strain compatibility finite difference",
+      "error": 7.730361489821647e-12,
+      "tolerance": 2e-06,
+      "passed": true
+    },
+    {
+      "name": "V=10.0 local SLS constitutive equation",
+      "error": 3.970733452543857e-12,
+      "tolerance": 4e-06,
+      "passed": true
+    },
+    {
+      "name": "V=10.0 convolution versus history ODE",
+      "error": 9.466772818895872e-09,
+      "tolerance": 4e-07,
+      "passed": true,
+      "scope": "Different numerical history evaluations sharing the published stress field"
+    },
+    {
+      "name": "V=10.0 fixed-edge tangential stress and strain",
+      "error": 1.0956359144808994e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "V=10.0 cohesive and separated face traction",
+      "error": 3.05252267907008e-10,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "V=10.0 relaxed far-ahead stress",
+      "error": 1.6973868033440865e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "V=10.0 spatial dissipation versus energy release",
+      "error": 5.3523300987619974e-08,
+      "tolerance": 2e-05,
+      "passed": true,
+      "target": 3.735222133951204,
+      "refinements": [
+        {
+          "value": 3.7352218586115327,
+          "ny": 16,
+          "X_min": -186.33330568443992,
+          "X_max": 32.0,
+          "tail_times": 18.0,
+          "ode_rtol": 2e-09,
+          "ode_evaluations": 1615,
+          "quadrature_error": 6.467173612673358e-07
+        },
+        {
+          "value": 3.7352219521841215,
+          "ny": 32,
+          "X_min": -186.33330568443992,
+          "X_max": 32.0,
+          "tail_times": 18.0,
+          "ode_rtol": 2e-09,
+          "ode_evaluations": 1658,
+          "quadrature_error": 5.818159705391964e-07
+        },
+        {
+          "value": 3.7352219340297856,
+          "ny": 64,
+          "X_min": -186.33330568443992,
+          "X_max": 32.0,
+          "tail_times": 18.0,
+          "ode_rtol": 2e-09,
+          "ode_evaluations": 1688,
+          "quadrature_error": 5.75173695331475e-07
+        }
+      ],
+      "scope": "Field integration does not use R-1; both routes share the published model"
+    },
+    {
+      "name": "V=10.0 energy ordinate refinement",
+      "error": 4.86030955091332e-09,
+      "tolerance": 2e-05,
+      "passed": true
+    },
+    {
+      "name": "long-wake domain and ODE refinement",
+      "error": 3.927883223868012e-08,
+      "tolerance": 1e-06,
+      "passed": true,
+      "ordinary": {
+        "value": 3.7352219340297856,
+        "ny": 64,
+        "X_min": -186.33330568443992,
+        "X_max": 32.0,
+        "tail_times": 18.0,
+        "ode_rtol": 2e-09,
+        "ode_evaluations": 1688,
+        "quadrature_error": 5.75173695331475e-07
+      },
+      "extended": {
+        "value": 3.735222080744949,
+        "ny": 64,
+        "X_min": -246.33330568443992,
+        "X_max": 32.0,
+        "tail_times": 24,
+        "ode_rtol": 5e-10,
+        "ode_evaluations": 2077,
+        "quadrature_error": 4.7315862533210384e-08
+      }
+    },
+    {
+      "name": "elastic control R=1 at every speed",
+      "error": 4.440892098500626e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "elastic control zone independent of speed",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "elastic control no terminal speed",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    }
+  ]
+}

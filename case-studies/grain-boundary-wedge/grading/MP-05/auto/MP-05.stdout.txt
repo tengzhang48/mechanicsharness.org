@@ -1,0 +1,15 @@
+=== checks ===
+crack colloc residual (max |K rho - 1|): 4.44e-16
+K_norm from stress ahead at r=1e-2,3e-3,1e-3: 1.126369 1.122974 1.122006  -> extrapolates to 1.1215223 (tip coefficient)
+N-convergence of lambda1, lambda2: N=20:11.7426656/264.634488  N=24:11.7426669/264.634252  N=28:11.7426675/264.634208  N=32:11.7426678/264.634203
+lambda3 = 1357.449434
+mode-1 eigen-relation brute check (rel err at x=0.3,0.5,0.7): 1.2e-04 1.3e-04 1.7e-04
+
+=== results.json ===
+K_inf_norm: 1.1215222566009713
+lambda1: 11.742667819112832
+lambda2: 264.63420316251757
+mode1_shape_half: 0.8019565042704976
+relaxation_time_t0: 0.08515952383259623
+method: resolvent poles of (p-L)^-1 via smallest-singular-value minima of the square collocation system in a crack-like Chebyshev basis rho=(1-x)^(-1/2)T_n with all BCs built into the triple antiderivative; exact singular-integral operator (closed-form PV + Gauss-Jacobi images); K_inf from the steady crack solve cross-checked by stress-ahead extrapolation
+reproduce_command: python3 solve.py

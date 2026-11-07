@@ -1,0 +1,26 @@
+# Commands executed in this grok-4.6 review session
+# Candidate, task and reference files were not modified.
+
+python3 /workspace/reference/score_submission.py \
+  /workspace/reference/reference_results.json \
+  /workspace/candidate/results.json \
+  /workspace/audit/score_report.json
+# exit 0; all_required_numeric_gates_pass true; 251 checks, 0 failed
+
+python3 /workspace/candidate/verify.py \
+  /workspace/candidate/case.json \
+  /workspace/candidate/results.json
+# cwd: /workspace/candidate
+# PASS all three speeds and endpoint/PDE/boundary assertions
+
+python3 /workspace/candidate/solve.py \
+  /workspace/candidate/case.json \
+  /workspace/audit/reproduced_results.json
+# cwd: /workspace/candidate
+# Saved /workspace/audit/reproduced_results.json; runtime 41.9 s
+# exact match to candidate/results.json ignoring runtime_seconds
+
+python3 /workspace/audit.py
+# independent numeric errors vs organizer key; paper (12)/(17)/(38)/(51)/(59)/(65)/(86)
+# identities; Figure 9 rounding; spatial-evidence extraction
+# numeric_gates_pass true; formula_identities_pass true

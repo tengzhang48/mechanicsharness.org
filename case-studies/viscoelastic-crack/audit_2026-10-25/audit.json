@@ -1,0 +1,164 @@
+{
+ "id": "V_viscoelastic_strip",
+ "title": "Steady crack growth in a viscoelastic strip (Mode III, SLS, Dugdale zone)",
+ "source_paper": "C.-Y. Hui, R. Long (2026), J. Mech. Phys. Solids 214, 106662, and supplement",
+ "verdict": "READY AFTER FIXES",
+ "issues": [
+  {
+   "severity": "grade",
+   "where": "<pilot-folder>/private/score_submission.py:61-67; agent/CONTRACT.md:27",
+   "what": "bulk-dissipation and energy-balance gates vacuous at V=0.001: Gamma_D=0 passes; P01 (+22%) and P04 (+49%) passed",
+   "evidence": "mutant zero_bulk_at_V0p001; reviews/QUALITATIVE_FINDINGS.md"
+  },
+  {
+   "severity": "grade",
+   "where": "<pilot-folder>/private/SCORING.md:40; SCORING_ANALYTICAL_V2.md",
+   "what": "rubric is 'proposed', never frozen; V2 weighting added after launch",
+   "evidence": "README.md:13"
+  },
+  {
+   "severity": "minor",
+   "where": "<pilot-folder>/private/score_submission.py",
+   "what": "no internal-consistency checks a=(2/pi)acos(exp(-eps/2)), R=a^2/d (Eqs. 18, 22)",
+   "evidence": "P01 inconsistency 2.45% found by hand (QUALITATIVE_FINDINGS.md)"
+  },
+  {
+   "severity": "minor",
+   "where": "<pilot-folder>/private/score_submission.py:84-85",
+   "what": "T1=E1=0 at y/h=1 and all V=0.001 E samples (E~T) are near-trivial items",
+   "evidence": "mutant E_equals_T passes all V=0.001 fields"
+  },
+  {
+   "severity": "minor",
+   "where": "<pilot-folder>/agent/PROBLEM.md:56,58",
+   "what": "mild cues: 'any finite endpoint'; energy balance stated in the ban on subtraction",
+   "evidence": "text"
+  },
+  {
+   "severity": "minor",
+   "where": "<pilot-folder>/private/isolated_run.py:125,250-251",
+   "what": "absolute machine paths (auth file, CLI binaries) in harness",
+   "evidence": "grep"
+  }
+ ],
+ "public_files": [
+  "<pilot-folder>/agent/PROBLEM.md",
+  "<pilot-folder>/agent/CONTRACT.md (after fix 1)",
+  "<pilot-folder>/agent/case.json",
+  "<pilot-folder>/private/score_submission.py (after fix 1; holds no key values)",
+  "<pilot-folder>/private/SCORING.md (once frozen)",
+  "<pilot-folder>/private/Dockerfile*"
+ ],
+ "hidden_files": [
+  "<pilot-folder>/private/reference_results.json",
+  "<pilot-folder>/private/REFERENCE.md",
+  "<pilot-folder>/private/reference_solver.py",
+  "<pilot-folder>/private/verify_reference.py",
+  "<pilot-folder>/private/verification_results.json",
+  "<pilot-folder>/private/published_fig9.json",
+  "<pilot-folder>/private/test_scoring.py",
+  "<pilot-folder>/private/isolated_run.py",
+  "<pilot-folder>/private/monitor_pilot.py",
+  "<pilot-folder>/runs/",
+  "<pilot-folder>/reviews/",
+  "<pilot-folder>/private/sources/*.pdf (never distribute)"
+ ],
+ "mutants": [
+  {
+   "name": "key",
+   "values": "reference_results.json",
+   "expected": "pass",
+   "checker_result": "all_pass=True, n_failed=0"
+  },
+  {
+   "name": "our_recomputation",
+   "values": "own solver (audit_visco.py)",
+   "expected": "pass",
+   "checker_result": "all_pass=True, n_failed=0"
+  },
+  {
+   "name": "elastic_no_viscosity",
+   "values": "R=1, eps=eps0, E=T, critical_speed null",
+   "expected": "fail",
+   "checker_result": "all_pass=False, n_failed=34"
+  },
+  {
+   "name": "speed_without_pi",
+   "values": "V* = 13.42/pi",
+   "expected": "fail",
+   "checker_result": "all_pass=False, n_failed=1"
+  },
+  {
+   "name": "unbounded_speed",
+   "values": "critical_speed null",
+   "expected": "fail",
+   "checker_result": "all_pass=False, n_failed=1"
+  },
+  {
+   "name": "V10_declared_inadmissible",
+   "values": "V=10 admissible false",
+   "expected": "fail",
+   "checker_result": "all_pass=False, n_failed=1"
+  },
+  {
+   "name": "criterion_factor2_d0p1",
+   "values": "w(-lc)=delta_c (effective d=0.1)",
+   "expected": "fail",
+   "checker_result": "all_pass=False, n_failed=12"
+  },
+  {
+   "name": "T1_sign_flip",
+   "values": "T1,E1 sign flipped",
+   "expected": "fail",
+   "checker_result": "all_pass=False, n_failed=46"
+  },
+  {
+   "name": "E_instantaneous_lambdaT",
+   "values": "E = 0.1 T",
+   "expected": "fail",
+   "checker_result": "all_pass=False, n_failed=65"
+  },
+  {
+   "name": "E_equals_T",
+   "values": "E = T (no history)",
+   "expected": "fail at V=0.1,10; V=0.001 fields cannot see it (slow limit)",
+   "checker_result": "all_pass=False, n_failed=23"
+  },
+  {
+   "name": "bulk_by_subtraction",
+   "values": "Gamma_D = R-1",
+   "expected": "should fail integration gate; numeric scorer cannot",
+   "checker_result": "all_pass=True, n_failed=0"
+  },
+  {
+   "name": "zero_bulk_at_V0p001",
+   "values": "Gamma_D = 0 at V=0.001",
+   "expected": "should fail",
+   "checker_result": "all_pass=True, n_failed=0"
+  },
+  {
+   "name": "eps_0p4pct_low",
+   "values": "eps x 0.996",
+   "expected": "pass (inside 0.5%)",
+   "checker_result": "all_pass=True, n_failed=0"
+  },
+  {
+   "name": "saved_P01_deepseek",
+   "values": "run results.json",
+   "expected": "saved SUBMITTED_NUMERIC_REPORT.json",
+   "checker_result": "all_pass=False, n_failed=8, same_as_saved=True"
+  },
+  {
+   "name": "saved_P03_gpt61_sol",
+   "values": "run results.json",
+   "expected": "saved SUBMITTED_NUMERIC_REPORT.json",
+   "checker_result": "all_pass=True, n_failed=0, same_as_saved=no saved report"
+  },
+  {
+   "name": "saved_P04_deepseek_direct_1017",
+   "values": "run results.json",
+   "expected": "saved SUBMITTED_NUMERIC_REPORT.json",
+   "checker_result": "all_pass=False, n_failed=31, same_as_saved=True"
+  }
+ ]
+}

@@ -1,0 +1,75 @@
+<round-runs>/grading/MP-03/scratch/submission/gbcore.py:21: RuntimeWarning: divide by zero encountered in divide
+  D[i] = (w / w[i]) / dx
+<round-runs>/grading/MP-03/scratch/submission/gbcore.py:45: RuntimeWarning: invalid value encountered in divide
+  L = C / np.sum(C, axis=1, keepdims=True)
+Stress relaxation by diffusion into a grain boundary of a thin film.
+
+Solves the full problem and prints every reported quantity:
+  (a) lambda1, lambda2 of the late-time traction decay  s ~ f(z/h) e^{-lambda t/t0}
+  (b) K_inf/(sigma0 sqrt(pi h)) of the final crack-like (diffusion wedge) state
+  (c) relaxation time in units of t0
+
+Model (nondimensional): x=z/h, tau=t/t0, s=sigma/sigma0, w=(E*/2 pi sigma0) u_z
+  s = 1 - A[w],  A[w](x) = PV-int_0^1 Shat(x,xi) w(xi) dxi,
+  Shat = 1/(x-xi) - 1/(x+xi) - 2 xi (x-xi)/(x+xi)^3
+  w_tau = -s_xxx,  BCs: s(0)=0 <=> w(0)=-1/4,  s_x(1)=0,  s_xx(1)=0,  w(x,0)=0.
+Eigenproblem (traction modes f):  A[f'''] = -lambda f,  f(0)=0, f'(1)=f''(1)=0.
+Final state: traction-free wedge = surface crack with face pressure sigma0
+  => K_inf = 1.1215 sigma0 sqrt(pi h) (edge-crack value), reproduced below.
+
+Run:  python3 solve.py
+
+=== kernel check: numeric A[1](x) vs closed form ===
+  x=0.01: numeric -3.920789451921  exact -3.920789451909
+  x=0.1: numeric -3.270403684704  exact -3.270403684703
+  x=0.5: numeric -1.123609933554  exact -1.123609933554
+  x=0.9: numeric 1.337790779720  exact 1.337790779720
+=== (b) final state (crack / diffusion wedge) ===
+K_inf/(sigma0 sqrt(pi h)) from wedge-tip density coefficient : 1.121522
+K_inf/(sigma0 sqrt(pi h)) from traction ahead of tip (extrap): 1.121516
+handbook edge-crack in half-space, uniform face pressure      : 1.1215
+emergent w(0) = -0.249998 (exact -0.250000)
+
+=== (a) eigenvalues of the traction relaxation ===
+convergence in basis size Nv (lambda1, lambda2):
+  Nv= 16:  11.7426636   264.63391
+  Nv= 24:  11.7426678   264.63413
+  Nv= 48:  11.7426681   264.63422
+  Nv= 64:  11.7426681   264.63422
+first six rates: [1.17427000e+01 2.64634200e+02 1.35744930e+03 3.84519920e+03
+ 8.32750400e+03 1.53824842e+04]
+(successive ratios match the n^4.5 spectral asymptotics of this operator)
+
+mode-1 shape f(x)/f(1): x=0.1: 0.21316  x=0.5: 0.80196  x=0.9: 0.99619
+pointwise eigenpair residual |A[g]+lambda1 f| on independent grid:
+  x=0.02: 7.19e-07
+  x=0.10: 1.42e-07
+  x=0.30: 8.17e-08
+  x=0.50: 1.24e-13
+  x=0.70: 5.44e-08
+  x=0.90: 5.13e-08
+  x=0.98: 1.54e-07
+
+=== independent cross-check: D3-pencil (s-space collocation) ===
+  N=40: lam1=11.77468 lam2=265.3428  f(0.5)/f(1)=0.80238
+  N=60: lam1=11.75682 lam2=264.9493  f(0.5)/f(1)=0.80215
+  N=96: lam1=11.74818 lam2=264.7574  f(0.5)/f(1)=0.80203
+  N^-2 extrapolated: lam1=11.7426 (g-form 11.7427); lam2=264.634 (g-form 264.634)
+
+=== (c) late-time decay check (mode expansion of s(x,tau)) ===
+  fitted d/dtau ln s at x=0.25: -11.7427   (-lambda1 = -11.7427)
+  fitted d/dtau ln s at x=0.5: -11.7427   (-lambda1 = -11.7427)
+  fitted d/dtau ln s at x=0.9: -11.7427   (-lambda1 = -11.7427)
+  s(0.5) falls to 1/e: tau = 0.1005 t0
+  s(0.5) falls to 5%: tau = 0.2705 t0
+
+=== results.json ===
+{
+  "lambda1": 11.7427,
+  "lambda2": 264.6342,
+  "mode1_shape_half": 0.802,
+  "K_inf_norm": 1.1215,
+  "relaxation_time_t0": 0.0852,
+  "method": "Chebyshev collocation eigenanalysis of the nonlocal diffusion-elasticity operator A[f'''] = -lambda f (PV singular-integral kernel, quadrature by singularity subtraction; eigenmodes with built-in BCs and tip sqrt structure; validated against edge-crack K=1.1215 and an independent differentiation-based pencil)",
+  "reproduce_command": "python3 solve.py"
+}

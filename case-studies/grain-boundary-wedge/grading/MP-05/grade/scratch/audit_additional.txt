@@ -1,0 +1,4 @@
+J0_pieces ValueError operands could not be broadcast together with shapes (3,) (2,) (3,) 
+J0w_pieces ValueError operands could not be broadcast together with shapes (3,) (2,) (3,) 
+solver8_weighted_moment_constant 0.28571428571428575 expected 0.40000000000000013
+solver2_B_boundary_nonzero_count 12

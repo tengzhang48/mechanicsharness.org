@@ -1,0 +1,9 @@
+{
+  "lambda1": 11.7427,
+  "lambda2": 264.6342,
+  "mode1_shape_half": 0.802,
+  "K_inf_norm": 1.1215,
+  "relaxation_time_t0": 0.0852,
+  "method": "Chebyshev collocation eigenanalysis of the nonlocal diffusion-elasticity operator A[f'''] = -lambda f (PV singular-integral kernel, quadrature by singularity subtraction; eigenmodes with built-in BCs and tip sqrt structure; validated against edge-crack K=1.1215 and an independent differentiation-based pencil)",
+  "reproduce_command": "python3 solve.py"
+}

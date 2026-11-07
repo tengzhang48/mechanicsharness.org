@@ -1,0 +1,19 @@
+{
+ "run": "MP-09",
+ "checks": {
+  "lambda1_class": "exact",
+  "lambda1_ok": true,
+  "lambda2_ok": true,
+  "mode1_shape_ok": true,
+  "K_inf_ok": true,
+  "relaxation_time_ok": true,
+  "own_lambda2_gt_lambda1": true,
+  "own_time_consistent_with_lambda1": true
+ },
+ "changed_from_saved": {
+  "lambda1_ok": [
+   null,
+   true
+  ]
+ }
+}

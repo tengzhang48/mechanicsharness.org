@@ -1,0 +1,1870 @@
+{
+ "run": "P01_deepseek",
+ "announced_gates_same_as_saved": true,
+ "all_required_numeric_gates_pass": false,
+ "checks": [
+  {
+   "name": "critical speed",
+   "passed": true,
+   "actual": 13.44,
+   "expected": 13.42357157330645,
+   "absolute_error": 0.01642842669354927,
+   "tolerance": 0.06711785786653225
+  },
+  {
+   "name": "case count",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 unique result",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 admissibility",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 epsilon",
+   "passed": false,
+   "actual": 0.577,
+   "expected": 0.5447055550934302,
+   "absolute_error": 0.03229444490656974,
+   "tolerance": 0.0027235277754671513
+  },
+  {
+   "name": "V=0.001 a",
+   "passed": true,
+   "actual": 0.44940200380307205,
+   "expected": 0.4488424891698805,
+   "absolute_error": 0.0005595146331915379,
+   "tolerance": 0.0022442124458494027
+  },
+  {
+   "name": "V=0.001 R",
+   "passed": true,
+   "actual": 1.009810805111082,
+   "expected": 1.0072979004210714,
+   "absolute_error": 0.002512904690010531,
+   "tolerance": 0.005036489502105357
+  },
+  {
+   "name": "V=0.001 bulk dissipation",
+   "passed": true,
+   "actual": 0.008924659279008866,
+   "expected": 0.007297898854430374,
+   "absolute_error": 0.0016267604245784918,
+   "tolerance": 0.01
+  },
+  {
+   "name": "V=0.001 energy balance",
+   "passed": true,
+   "error": 0.0008775364925665932,
+   "tolerance": 0.01
+  },
+  {
+   "name": "V=0.001 field row count",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 X=-4.0 y/h=0.1 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 X=-4.0 y/h=0.1 T1",
+   "passed": true,
+   "actual": -0.0746483526159177,
+   "expected": -0.07331387330483383,
+   "absolute_error": 0.0013344793110838804,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-4.0 y/h=0.1 T2",
+   "passed": true,
+   "actual": 0.012162414094247998,
+   "expected": 0.011935974828005347,
+   "absolute_error": 0.00022643926624265134,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-4.0 y/h=0.1 E1",
+   "passed": true,
+   "actual": -0.07468325600273659,
+   "expected": -0.07334770799700709,
+   "absolute_error": 0.001335548005729506,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-4.0 y/h=0.1 E2",
+   "passed": true,
+   "actual": 0.012168434111009051,
+   "expected": 0.011941783931463133,
+   "absolute_error": 0.00022665017954591818,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-4.0 y/h=0.5 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 X=-4.0 y/h=0.5 T1",
+   "passed": true,
+   "actual": -0.05200620739309202,
+   "expected": -0.05112304891620953,
+   "absolute_error": 0.0008831584768824938,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-4.0 y/h=0.5 T2",
+   "passed": true,
+   "actual": 0.053477197666672006,
+   "expected": 0.052530225004867925,
+   "absolute_error": 0.0009469726618040811,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-4.0 y/h=0.5 E1",
+   "passed": true,
+   "actual": -0.0520291596644512,
+   "expected": -0.051145405518357126,
+   "absolute_error": 0.0008837541460940748,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-4.0 y/h=0.5 E2",
+   "passed": true,
+   "actual": 0.05350221983599109,
+   "expected": 0.052554482903860084,
+   "absolute_error": 0.0009477369321310089,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-4.0 y/h=1.0 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 X=-4.0 y/h=1.0 T1",
+   "passed": true,
+   "actual": 1.7571659129316456e-10,
+   "expected": -4.31249103190276e-18,
+   "absolute_error": 1.757165956056556e-10,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-4.0 y/h=1.0 T2",
+   "passed": true,
+   "actual": 0.0735796550698669,
+   "expected": 0.07233934746620185,
+   "absolute_error": 0.0012403076036650446,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-4.0 y/h=1.0 E1",
+   "passed": true,
+   "actual": 1.7348861046670887e-10,
+   "expected": -4.314278611624382e-18,
+   "absolute_error": 1.734886147809875e-10,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-4.0 y/h=1.0 E2",
+   "passed": true,
+   "actual": 0.07361222016692102,
+   "expected": 0.07237105480836072,
+   "absolute_error": 0.0012411653585603089,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-2.0 y/h=0.1 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 X=-2.0 y/h=0.1 T1",
+   "passed": true,
+   "actual": -0.22169921916279958,
+   "expected": -0.21707781760081632,
+   "absolute_error": 0.004621401561983263,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-2.0 y/h=0.1 T2",
+   "passed": true,
+   "actual": 0.04430147204424319,
+   "expected": 0.04302313443999417,
+   "absolute_error": 0.0012783376042490163,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-2.0 y/h=0.1 E1",
+   "passed": true,
+   "actual": -0.22182256977406709,
+   "expected": -0.21719622696027663,
+   "absolute_error": 0.004626342813790457,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-2.0 y/h=0.1 E2",
+   "passed": true,
+   "actual": 0.044337066505100296,
+   "expected": 0.04305636586961064,
+   "absolute_error": 0.0012807006354896566,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-2.0 y/h=0.5 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 X=-2.0 y/h=0.5 T1",
+   "passed": true,
+   "actual": -0.12667095274925833,
+   "expected": -0.12503951391140972,
+   "absolute_error": 0.0016314388378486089,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-2.0 y/h=0.5 T2",
+   "passed": true,
+   "actual": 0.15557395771239532,
+   "expected": 0.15258768043828208,
+   "absolute_error": 0.0029862772741132415,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-2.0 y/h=0.5 E1",
+   "passed": true,
+   "actual": -0.1267115761807233,
+   "expected": -0.12508034180930788,
+   "absolute_error": 0.0016312343714154076,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-2.0 y/h=0.5 E2",
+   "passed": true,
+   "actual": 0.15565308584455212,
+   "expected": 0.1526644797903728,
+   "absolute_error": 0.0029886060541793324,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-2.0 y/h=1.0 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 X=-2.0 y/h=1.0 T1",
+   "passed": true,
+   "actual": -1.028628388919981e-09,
+   "expected": -9.285900442474355e-18,
+   "absolute_error": 1.0286283796340805e-09,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-2.0 y/h=1.0 T2",
+   "passed": true,
+   "actual": 0.1846189855789932,
+   "expected": 0.18191635092891734,
+   "absolute_error": 0.0027026346500758636,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-2.0 y/h=1.0 E1",
+   "passed": true,
+   "actual": -9.935012076076726e-10,
+   "expected": -9.287998690627957e-18,
+   "absolute_error": 9.935011983196739e-10,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=-2.0 y/h=1.0 E2",
+   "passed": true,
+   "actual": 0.18468815439063355,
+   "expected": 0.18198461068064492,
+   "absolute_error": 0.002703543709988626,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=0.0 y/h=0.1 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 X=0.0 y/h=0.1 T1",
+   "passed": false,
+   "actual": -0.2010047360823951,
+   "expected": -0.21875036317973948,
+   "absolute_error": 0.01774562709734437,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=0.0 y/h=0.1 T2",
+   "passed": true,
+   "actual": 0.6618397842391847,
+   "expected": 0.6644512522486994,
+   "absolute_error": 0.002611468009514728,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=0.0 y/h=0.1 E1",
+   "passed": false,
+   "actual": -0.20052351775387467,
+   "expected": -0.21823543828839817,
+   "absolute_error": 0.0177119205345235,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=0.0 y/h=0.1 E2",
+   "passed": true,
+   "actual": 0.6617182717530388,
+   "expected": 0.6643618877188636,
+   "absolute_error": 0.0026436159658248526,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=0.0 y/h=0.5 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 X=0.0 y/h=0.5 T1",
+   "passed": true,
+   "actual": -0.11865632059883365,
+   "expected": -0.12077382815738495,
+   "absolute_error": 0.002117507558551307,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=0.0 y/h=0.5 T2",
+   "passed": true,
+   "actual": 0.39086121189967693,
+   "expected": 0.3874556637105441,
+   "absolute_error": 0.0034055481891328565,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=0.0 y/h=0.5 E1",
+   "passed": true,
+   "actual": -0.11859302046194803,
+   "expected": -0.120711355666719,
+   "absolute_error": 0.002118335204770977,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=0.0 y/h=0.5 E2",
+   "passed": true,
+   "actual": 0.390940230259773,
+   "expected": 0.3875373008182949,
+   "absolute_error": 0.0034029294414780753,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=0.0 y/h=1.0 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 X=0.0 y/h=1.0 T1",
+   "passed": true,
+   "actual": 0.0002611470699407719,
+   "expected": -8.61037964754237e-18,
+   "absolute_error": 0.00026114706994078053,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=0.0 y/h=1.0 T2",
+   "passed": true,
+   "actual": 0.34759795145737976,
+   "expected": 0.3448398058615909,
+   "absolute_error": 0.0027581455957888523,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=0.0 y/h=1.0 E1",
+   "passed": true,
+   "actual": 5.0684684790423854e-05,
+   "expected": -8.607410745549758e-18,
+   "absolute_error": 5.068468479043246e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=0.0 y/h=1.0 E2",
+   "passed": true,
+   "actual": 0.3476183715504337,
+   "expected": 0.3449030597955921,
+   "absolute_error": 0.002715311754841576,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=2.0 y/h=0.1 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 X=2.0 y/h=0.1 T1",
+   "passed": true,
+   "actual": -0.007331877773918601,
+   "expected": -0.00760116172271424,
+   "absolute_error": 0.00026928394879563965,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=2.0 y/h=0.1 T2",
+   "passed": true,
+   "actual": 0.4702478425760992,
+   "expected": 0.4704006575931059,
+   "absolute_error": 0.0001528150170067022,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=2.0 y/h=0.1 E1",
+   "passed": true,
+   "actual": -0.007324499226981141,
+   "expected": -0.007593284780617226,
+   "absolute_error": 0.0002687855536360846,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=2.0 y/h=0.1 E2",
+   "passed": true,
+   "actual": 0.47022833469057496,
+   "expected": 0.47038000007737446,
+   "absolute_error": 0.00015166538679950436,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=2.0 y/h=0.5 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 X=2.0 y/h=0.5 T1",
+   "passed": true,
+   "actual": -0.020490724694305837,
+   "expected": -0.021132827351498965,
+   "absolute_error": 0.0006421026571931283,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=2.0 y/h=0.5 T2",
+   "passed": true,
+   "actual": 0.4479552342117955,
+   "expected": 0.4473003016650853,
+   "absolute_error": 0.0006549325467102296,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=2.0 y/h=0.5 E1",
+   "passed": true,
+   "actual": -0.020472845537736123,
+   "expected": -0.021114055881103263,
+   "absolute_error": 0.00064121034336714,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=2.0 y/h=0.5 E2",
+   "passed": true,
+   "actual": 0.4479577193071114,
+   "expected": 0.44730305140033344,
+   "absolute_error": 0.0006546679067779837,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=2.0 y/h=1.0 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 X=2.0 y/h=1.0 T1",
+   "passed": true,
+   "actual": -4.132286822481766e-10,
+   "expected": -2.2658345641892633e-18,
+   "absolute_error": 4.13228679982342e-10,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=2.0 y/h=1.0 T2",
+   "passed": true,
+   "actual": 0.4301478502493766,
+   "expected": 0.4290153854217409,
+   "absolute_error": 0.001132464827635682,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=2.0 y/h=1.0 E1",
+   "passed": true,
+   "actual": -4.027247954937603e-10,
+   "expected": -2.2640665680827424e-18,
+   "absolute_error": 4.027247932296937e-10,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=2.0 y/h=1.0 E2",
+   "passed": true,
+   "actual": 0.430163772390706,
+   "expected": 0.4290320227339283,
+   "absolute_error": 0.001131749656777703,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=4.0 y/h=0.1 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 X=4.0 y/h=0.1 T1",
+   "passed": true,
+   "actual": -0.0008779830959632523,
+   "expected": -0.0009061762080573314,
+   "absolute_error": 2.819311209407917e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=4.0 y/h=0.1 T2",
+   "passed": true,
+   "actual": 0.45207590559232197,
+   "expected": 0.45160232970211456,
+   "absolute_error": 0.00047357589020741164,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=4.0 y/h=0.1 E1",
+   "passed": true,
+   "actual": -0.0008771995319095959,
+   "expected": -0.0009053459762889453,
+   "absolute_error": 2.814644437934945e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=4.0 y/h=0.1 E2",
+   "passed": true,
+   "actual": 0.4520735419507129,
+   "expected": 0.4515998273242797,
+   "absolute_error": 0.00047371462643319706,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=4.0 y/h=0.5 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 X=4.0 y/h=0.5 T1",
+   "passed": true,
+   "actual": -0.0027893070158321646,
+   "expected": -0.002877136229854167,
+   "absolute_error": 8.782921402200258e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=4.0 y/h=0.5 T2",
+   "passed": true,
+   "actual": 0.44937528827783896,
+   "expected": 0.4488140334432229,
+   "absolute_error": 0.000561254834616054,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=4.0 y/h=0.5 E1",
+   "passed": true,
+   "actual": -0.002786861000411121,
+   "expected": -0.002874549971577966,
+   "absolute_error": 8.768897116684512e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=4.0 y/h=0.5 E2",
+   "passed": true,
+   "actual": 0.44937533394893936,
+   "expected": 0.44881408455423244,
+   "absolute_error": 0.0005612493947069197,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=4.0 y/h=1.0 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.001 X=4.0 y/h=1.0 T1",
+   "passed": true,
+   "actual": 4.4630657865569124e-11,
+   "expected": -3.4553288887435377e-19,
+   "absolute_error": 4.4630658211102015e-11,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=4.0 y/h=1.0 T2",
+   "passed": true,
+   "actual": 0.4466398426018457,
+   "expected": 0.44599317212947287,
+   "absolute_error": 0.0006466704723728234,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=4.0 y/h=1.0 E1",
+   "passed": true,
+   "actual": 4.295520613095762e-11,
+   "expected": -3.4522826756601483e-19,
+   "absolute_error": 4.2955206476185885e-11,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.001 X=4.0 y/h=1.0 E2",
+   "passed": true,
+   "actual": 0.44664224359517213,
+   "expected": 0.4459957089831919,
+   "absolute_error": 0.0006465346119802207,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 unique result",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 admissibility",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 epsilon",
+   "passed": false,
+   "actual": 0.7686,
+   "expected": 0.7407809316699946,
+   "absolute_error": 0.02781906833000536,
+   "tolerance": 0.003703904658349973
+  },
+  {
+   "name": "V=0.1 a",
+   "passed": true,
+   "actual": 0.5152246957660931,
+   "expected": 0.5148121867403258,
+   "absolute_error": 0.00041250902576728254,
+   "tolerance": 0.002574060933701629
+  },
+  {
+   "name": "V=0.1 R",
+   "passed": true,
+   "actual": 1.3272824356363158,
+   "expected": 1.3251579380817804,
+   "absolute_error": 0.002124497554535365,
+   "tolerance": 0.006625789690408902
+  },
+  {
+   "name": "V=0.1 bulk dissipation",
+   "passed": true,
+   "actual": 0.3262022658682324,
+   "expected": 0.32515792310981306,
+   "absolute_error": 0.0010443427584193588,
+   "tolerance": 0.01
+  },
+  {
+   "name": "V=0.1 energy balance",
+   "passed": true,
+   "error": 0.0008138205848896749,
+   "tolerance": 0.01
+  },
+  {
+   "name": "V=0.1 field row count",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 X=-4.0 y/h=0.1 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 X=-4.0 y/h=0.1 T1",
+   "passed": true,
+   "actual": -0.09183897692795083,
+   "expected": -0.09045214561112065,
+   "absolute_error": 0.0013868313168301782,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-4.0 y/h=0.1 T2",
+   "passed": true,
+   "actual": 0.015033010228390233,
+   "expected": 0.014795899839180837,
+   "absolute_error": 0.00023711038920939606,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-4.0 y/h=0.1 E1",
+   "passed": true,
+   "actual": -0.09637767019034385,
+   "expected": -0.09488537449825897,
+   "absolute_error": 0.0014922956920848801,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-4.0 y/h=0.1 E2",
+   "passed": true,
+   "actual": 0.01583510541235441,
+   "expected": 0.015575897226495874,
+   "absolute_error": 0.0002592081858585355,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-4.0 y/h=0.5 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 X=-4.0 y/h=0.5 T1",
+   "passed": true,
+   "actual": -0.06369721781473518,
+   "expected": -0.06278889469910505,
+   "absolute_error": 0.000908323115630133,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-4.0 y/h=0.5 T2",
+   "passed": true,
+   "actual": 0.0657935379080008,
+   "expected": 0.06481186946987494,
+   "absolute_error": 0.00098166843812586,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-4.0 y/h=0.5 E1",
+   "passed": true,
+   "actual": -0.0666066568080733,
+   "expected": -0.06564431257588216,
+   "absolute_error": 0.0009623442321911452,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-4.0 y/h=0.5 E2",
+   "passed": true,
+   "actual": 0.06904478651350218,
+   "expected": 0.06798812728569673,
+   "absolute_error": 0.0010566592278054565,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-4.0 y/h=1.0 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 X=-4.0 y/h=1.0 T1",
+   "passed": true,
+   "actual": 3.357668766136842e-10,
+   "expected": -5.274425145876558e-18,
+   "absolute_error": 3.3576688188810936e-10,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-4.0 y/h=1.0 T2",
+   "passed": true,
+   "actual": 0.09013918173226339,
+   "expected": 0.08886545619554043,
+   "absolute_error": 0.001273725536722961,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-4.0 y/h=1.0 E1",
+   "passed": true,
+   "actual": 1.345021497029646e-10,
+   "expected": -5.497511375639391e-18,
+   "absolute_error": 1.3450215520047597e-10,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-4.0 y/h=1.0 E2",
+   "passed": true,
+   "actual": 0.09427644828747125,
+   "expected": 0.09292382540412535,
+   "absolute_error": 0.001352622883345908,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-2.0 y/h=0.1 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 X=-2.0 y/h=0.1 T1",
+   "passed": false,
+   "actual": -0.27722808531132476,
+   "expected": -0.27217093759850347,
+   "absolute_error": 0.005057147712821286,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-2.0 y/h=0.1 T2",
+   "passed": true,
+   "actual": 0.05794104258802006,
+   "expected": 0.05641716233281835,
+   "absolute_error": 0.0015238802552017122,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-2.0 y/h=0.1 E1",
+   "passed": false,
+   "actual": -0.29468711699114897,
+   "expected": -0.2890637938540239,
+   "absolute_error": 0.005623323137125047,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-2.0 y/h=0.1 E2",
+   "passed": true,
+   "actual": 0.06404300114843316,
+   "expected": 0.06215326878267701,
+   "absolute_error": 0.0018897323657561457,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-2.0 y/h=0.5 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 X=-2.0 y/h=0.5 T1",
+   "passed": true,
+   "actual": -0.15190801900348047,
+   "expected": -0.15035816129575225,
+   "absolute_error": 0.001549857707728225,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-2.0 y/h=0.5 T2",
+   "passed": true,
+   "actual": 0.1927075759759592,
+   "expected": 0.1895551825827395,
+   "absolute_error": 0.0031523933932196824,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-2.0 y/h=0.5 E1",
+   "passed": true,
+   "actual": -0.15616466661745762,
+   "expected": -0.15468385122653414,
+   "absolute_error": 0.0014808153909234845,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-2.0 y/h=0.5 E2",
+   "passed": true,
+   "actual": 0.20302500831649076,
+   "expected": 0.19967031584070274,
+   "absolute_error": 0.0033546924757880126,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-2.0 y/h=1.0 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 X=-2.0 y/h=1.0 T1",
+   "passed": true,
+   "actual": 2.8841436515494364e-07,
+   "expected": -1.0982423078337286e-17,
+   "absolute_error": 2.8841436516592606e-07,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-2.0 y/h=1.0 T2",
+   "passed": true,
+   "actual": 0.22366758531010783,
+   "expected": 0.22095053738624448,
+   "absolute_error": 0.002717047923863347,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-2.0 y/h=1.0 E1",
+   "passed": true,
+   "actual": 3.6568046204218275e-08,
+   "expected": -1.1179024682516403e-17,
+   "absolute_error": 3.65680462153973e-08,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=-2.0 y/h=1.0 E2",
+   "passed": true,
+   "actual": 0.23196147096543968,
+   "expected": 0.2291821208776653,
+   "absolute_error": 0.002779350087774385,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=0.0 y/h=0.1 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 X=0.0 y/h=0.1 T1",
+   "passed": false,
+   "actual": -0.1791389180331695,
+   "expected": -0.19215423942861287,
+   "absolute_error": 0.013015321395443369,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=0.0 y/h=0.1 T2",
+   "passed": true,
+   "actual": 0.7262852782212381,
+   "expected": 0.7298006677723978,
+   "absolute_error": 0.003515389551159709,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=0.0 y/h=0.1 E1",
+   "passed": false,
+   "actual": -0.1469096223975444,
+   "expected": -0.15755108930188164,
+   "absolute_error": 0.010641466904337232,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=0.0 y/h=0.1 E2",
+   "passed": true,
+   "actual": 0.7091015180201703,
+   "expected": 0.7135396737123018,
+   "absolute_error": 0.0044381556921314624,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=0.0 y/h=0.5 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 X=0.0 y/h=0.5 T1",
+   "passed": true,
+   "actual": -0.12501706286183123,
+   "expected": -0.1272055089114768,
+   "absolute_error": 0.002188446049645576,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=0.0 y/h=0.5 T2",
+   "passed": true,
+   "actual": 0.45936155306783394,
+   "expected": 0.456490845586929,
+   "absolute_error": 0.002870707480904955,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=0.0 y/h=0.5 E1",
+   "passed": true,
+   "actual": -0.11775358175595196,
+   "expected": -0.11994184847584843,
+   "absolute_error": 0.00218826671989647,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=0.0 y/h=0.5 E2",
+   "passed": true,
+   "actual": 0.46630524239155297,
+   "expected": 0.4636775455261858,
+   "absolute_error": 0.0026276968653671795,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=0.0 y/h=1.0 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 X=0.0 y/h=1.0 T1",
+   "passed": true,
+   "actual": -2.919183870869598e-05,
+   "expected": -9.322687674620721e-18,
+   "absolute_error": 2.9191838708686657e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=0.0 y/h=1.0 T2",
+   "passed": true,
+   "actual": 0.40857877835580236,
+   "expected": 0.4059010368143894,
+   "absolute_error": 0.0026777415414129813,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=0.0 y/h=1.0 E1",
+   "passed": true,
+   "actual": -3.56881784561679e-06,
+   "expected": -8.954376869430408e-18,
+   "absolute_error": 3.5688178456078358e-06,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=0.0 y/h=1.0 E2",
+   "passed": true,
+   "actual": 0.41486442417211694,
+   "expected": 0.41245158519091196,
+   "absolute_error": 0.002412838981204979,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=2.0 y/h=0.1 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 X=2.0 y/h=0.1 T1",
+   "passed": true,
+   "actual": -0.007343398739274762,
+   "expected": -0.007584030593689015,
+   "absolute_error": 0.00024063185441425272,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=2.0 y/h=0.1 T2",
+   "passed": true,
+   "actual": 0.5362608519345604,
+   "expected": 0.53649337685421,
+   "absolute_error": 0.00023252491964953492,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=2.0 y/h=0.1 E1",
+   "passed": true,
+   "actual": -0.006684374638977273,
+   "expected": -0.006893479704663985,
+   "absolute_error": 0.00020910506568671237,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=2.0 y/h=0.1 E2",
+   "passed": true,
+   "actual": 0.5344760469153863,
+   "expected": 0.5346323427796642,
+   "absolute_error": 0.0001562958642779,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=2.0 y/h=0.5 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 X=2.0 y/h=0.5 T1",
+   "passed": true,
+   "actual": -0.02081780238594946,
+   "expected": -0.02140641172557742,
+   "absolute_error": 0.0005886093396279615,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=2.0 y/h=0.5 T2",
+   "passed": true,
+   "actual": 0.5138923218640216,
+   "expected": 0.5133995386772328,
+   "absolute_error": 0.0004927831867888033,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=2.0 y/h=0.5 E1",
+   "passed": true,
+   "actual": -0.019142580736906233,
+   "expected": -0.01966868741394496,
+   "absolute_error": 0.0005261066770387256,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=2.0 y/h=0.5 E2",
+   "passed": true,
+   "actual": 0.5140878931615066,
+   "expected": 0.5136104331330082,
+   "absolute_error": 0.00047746002849835545,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=2.0 y/h=1.0 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 X=2.0 y/h=1.0 T1",
+   "passed": true,
+   "actual": -1.194209989674927e-10,
+   "expected": -2.3230350918217883e-18,
+   "absolute_error": 1.1942099664445762e-10,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=2.0 y/h=1.0 T2",
+   "passed": true,
+   "actual": 0.4955593442483747,
+   "expected": 0.4946165716384906,
+   "absolute_error": 0.0009427726098841238,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=2.0 y/h=1.0 E1",
+   "passed": true,
+   "actual": 2.043827359934668e-11,
+   "expected": -2.1523229672303683e-18,
+   "absolute_error": 2.043827575166965e-11,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=2.0 y/h=1.0 E2",
+   "passed": true,
+   "actual": 0.49707541814147677,
+   "expected": 0.49618438650509966,
+   "absolute_error": 0.0008910316363771043,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=4.0 y/h=0.1 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 X=4.0 y/h=0.1 T1",
+   "passed": true,
+   "actual": -0.0008892898557339697,
+   "expected": -0.000915351051216849,
+   "absolute_error": 2.6061195482879307e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=4.0 y/h=0.1 T2",
+   "passed": true,
+   "actual": 0.5179356502222631,
+   "expected": 0.5176027723217504,
+   "absolute_error": 0.0003328779005126181,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=4.0 y/h=0.1 E1",
+   "passed": true,
+   "actual": -0.000816574684603095,
+   "expected": -0.0008393864447594322,
+   "absolute_error": 2.281176015633726e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=4.0 y/h=0.1 E2",
+   "passed": true,
+   "actual": 0.5177156149120231,
+   "expected": 0.5173729945464242,
+   "absolute_error": 0.0003426203655989557,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=4.0 y/h=0.5 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 X=4.0 y/h=0.5 T1",
+   "passed": true,
+   "actual": -0.0028301885084517555,
+   "expected": -0.0029115952547594756,
+   "absolute_error": 8.140674630772006e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=4.0 y/h=0.5 T2",
+   "passed": true,
+   "actual": 0.5152001486381559,
+   "expected": 0.5147861437807624,
+   "absolute_error": 0.0004140048573935129,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=4.0 y/h=0.5 E1",
+   "passed": true,
+   "actual": -0.002601889360202342,
+   "expected": -0.0026734082707195045,
+   "absolute_error": 7.151891051716255e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=4.0 y/h=0.5 E2",
+   "passed": true,
+   "actual": 0.515203735637156,
+   "expected": 0.5147900498829775,
+   "absolute_error": 0.0004136857541785499,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=4.0 y/h=1.0 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=0.1 X=4.0 y/h=1.0 T1",
+   "passed": true,
+   "actual": -4.376950488325186e-10,
+   "expected": -3.5032065641182e-19,
+   "absolute_error": 4.3769504848219794e-10,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=4.0 y/h=1.0 T2",
+   "passed": true,
+   "actual": 0.5124195765699174,
+   "expected": 0.5119260933794161,
+   "absolute_error": 0.0004934831905013537,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=4.0 y/h=1.0 E1",
+   "passed": true,
+   "actual": -5.127232491840336e-11,
+   "expected": -3.220806311765278e-19,
+   "absolute_error": 5.127232459632273e-11,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=0.1 X=4.0 y/h=1.0 E2",
+   "passed": true,
+   "actual": 0.5126443127802677,
+   "expected": 0.5121604863209036,
+   "absolute_error": 0.0004838264593640673,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 unique result",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 admissibility",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 epsilon",
+   "passed": true,
+   "actual": 6.34,
+   "expected": 6.333305684439911,
+   "absolute_error": 0.006694315560088704,
+   "tolerance": 0.03166652842219956
+  },
+  {
+   "name": "V=10.0 a",
+   "passed": true,
+   "actual": 0.9729338032023915,
+   "expected": 0.9731620763214321,
+   "absolute_error": 0.00022827311904061176,
+   "tolerance": 0.004865810381607161
+  },
+  {
+   "name": "V=10.0 R",
+   "passed": true,
+   "actual": 4.733000927069349,
+   "expected": 4.735222133951204,
+   "absolute_error": 0.002221206881855231,
+   "tolerance": 0.02367611066975602
+  },
+  {
+   "name": "V=10.0 bulk dissipation",
+   "passed": true,
+   "actual": 3.738413275977389,
+   "expected": 3.7352219340297856,
+   "absolute_error": 0.003191341947603288,
+   "tolerance": 0.03735221934029786
+  },
+  {
+   "name": "V=10.0 energy balance",
+   "passed": true,
+   "error": 0.001143534301268622,
+   "tolerance": 0.01
+  },
+  {
+   "name": "V=10.0 field row count",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 X=-4.0 y/h=0.1 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 X=-4.0 y/h=0.1 T1",
+   "passed": true,
+   "actual": -0.1993949312664255,
+   "expected": -0.1999915328785475,
+   "absolute_error": 0.0005966016121220219,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-4.0 y/h=0.1 T2",
+   "passed": true,
+   "actual": 0.9656044903025276,
+   "expected": 0.9655010940421416,
+   "absolute_error": 0.0001033962603860239,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-4.0 y/h=0.1 E1",
+   "passed": true,
+   "actual": -0.045447331401359384,
+   "expected": -0.04562314382570104,
+   "absolute_error": 0.00017581242434165645,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-4.0 y/h=0.1 E2",
+   "passed": true,
+   "actual": 0.9762212403038163,
+   "expected": 0.9763623356981079,
+   "absolute_error": 0.00014109539429163487,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-4.0 y/h=0.5 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 X=-4.0 y/h=0.5 T1",
+   "passed": true,
+   "actual": -0.13377705889590644,
+   "expected": -0.13412871448521146,
+   "absolute_error": 0.0003516555893050277,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-4.0 y/h=0.5 T2",
+   "passed": true,
+   "actual": 0.8546578498385541,
+   "expected": 0.8542762514788721,
+   "absolute_error": 0.0003815983596819894,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-4.0 y/h=0.5 E1",
+   "passed": true,
+   "actual": -0.03184493230976971,
+   "expected": -0.03195228765700783,
+   "absolute_error": 0.00010735534723812362,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-4.0 y/h=0.5 E2",
+   "passed": true,
+   "actual": 0.9485067409424603,
+   "expected": 0.9485775344219751,
+   "absolute_error": 7.079347951477466e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-4.0 y/h=1.0 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 X=-4.0 y/h=1.0 T1",
+   "passed": true,
+   "actual": -6.367167937539241e-10,
+   "expected": -1.0956359144808994e-17,
+   "absolute_error": 6.367167827975649e-10,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-4.0 y/h=1.0 T2",
+   "passed": true,
+   "actual": 0.8064446754020561,
+   "expected": 0.8060032281395644,
+   "absolute_error": 0.00044144726249173427,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-4.0 y/h=1.0 E1",
+   "passed": true,
+   "actual": 4.998741629120254e-10,
+   "expected": -2.682186528767901e-18,
+   "absolute_error": 4.998741655942119e-10,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-4.0 y/h=1.0 E2",
+   "passed": true,
+   "actual": 0.9355081459731587,
+   "expected": 0.935554917278965,
+   "absolute_error": 4.6771305806325714e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-2.0 y/h=0.1 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 X=-2.0 y/h=0.1 T1",
+   "passed": true,
+   "actual": -0.06700827553207601,
+   "expected": -0.06728578327562112,
+   "absolute_error": 0.00027750774354511065,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-2.0 y/h=0.1 T2",
+   "passed": true,
+   "actual": 0.9875979678365328,
+   "expected": 0.9875872074004607,
+   "absolute_error": 1.0760436072065893e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-2.0 y/h=0.1 E1",
+   "passed": true,
+   "actual": -0.013091666821070129,
+   "expected": -0.013182610394559926,
+   "absolute_error": 9.09435734897969e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-2.0 y/h=0.1 E2",
+   "passed": true,
+   "actual": 0.9781831780431476,
+   "expected": 0.9783760164323526,
+   "absolute_error": 0.00019283838920503005,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-2.0 y/h=0.5 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 X=-2.0 y/h=0.5 T1",
+   "passed": true,
+   "actual": -0.04778312787443494,
+   "expected": -0.047977154060430606,
+   "absolute_error": 0.00019402618599566324,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-2.0 y/h=0.5 T2",
+   "passed": true,
+   "actual": 0.9446675952778436,
+   "expected": 0.944605148404199,
+   "absolute_error": 6.24468736446504e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-2.0 y/h=0.5 E1",
+   "passed": true,
+   "actual": -0.010172315493932953,
+   "expected": -0.010228719568267187,
+   "absolute_error": 5.640407433423443e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-2.0 y/h=0.5 E2",
+   "passed": true,
+   "actual": 0.9679592773579416,
+   "expected": 0.9681254918533657,
+   "absolute_error": 0.0001662144954240885,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-2.0 y/h=1.0 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 X=-2.0 y/h=1.0 T1",
+   "passed": true,
+   "actual": 1.755495087197629e-07,
+   "expected": -4.1331852007697404e-18,
+   "absolute_error": 1.7554950872389608e-07,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-2.0 y/h=1.0 T2",
+   "passed": true,
+   "actual": 0.9227017694157289,
+   "expected": 0.9226044790963905,
+   "absolute_error": 9.729031933836119e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-2.0 y/h=1.0 E1",
+   "passed": true,
+   "actual": 1.7976230244301592e-08,
+   "expected": -9.057912547458148e-19,
+   "absolute_error": 1.7976230245207385e-08,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=-2.0 y/h=1.0 E2",
+   "passed": true,
+   "actual": 0.9626662456356293,
+   "expected": 0.9628179296203879,
+   "absolute_error": 0.00015168398475862155,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=0.0 y/h=0.1 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 X=0.0 y/h=0.1 T1",
+   "passed": true,
+   "actual": -0.009387710598276224,
+   "expected": -0.009752727719195164,
+   "absolute_error": 0.00036501712091894026,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=0.0 y/h=0.1 T2",
+   "passed": true,
+   "actual": 0.9882034143394618,
+   "expected": 0.9885767844920077,
+   "absolute_error": 0.00037337015254590433,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=0.0 y/h=0.1 E1",
+   "passed": true,
+   "actual": -0.0014341523673274134,
+   "expected": -0.001484025838845153,
+   "absolute_error": 4.987347151773954e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=0.0 y/h=0.1 E2",
+   "passed": true,
+   "actual": 0.9756225833630189,
+   "expected": 0.975883177790114,
+   "absolute_error": 0.0002605944270951399,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=0.0 y/h=0.5 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 X=0.0 y/h=0.5 T1",
+   "passed": true,
+   "actual": -0.01206905810696023,
+   "expected": -0.01219619767232955,
+   "absolute_error": 0.00012713956536932088,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=0.0 y/h=0.5 T2",
+   "passed": true,
+   "actual": 0.9703511206158578,
+   "expected": 0.9705063854099579,
+   "absolute_error": 0.0001552647941001073,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=0.0 y/h=0.5 E1",
+   "passed": true,
+   "actual": -0.0022515992778355054,
+   "expected": -0.0022767876712103253,
+   "absolute_error": 2.5188393374819904e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=0.0 y/h=0.5 E2",
+   "passed": true,
+   "actual": 0.9725527220733665,
+   "expected": 0.9727698302333733,
+   "absolute_error": 0.00021710816000675148,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=0.0 y/h=1.0 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 X=0.0 y/h=1.0 T1",
+   "passed": true,
+   "actual": 3.9240565816552706e-05,
+   "expected": -1.158589016585159e-18,
+   "absolute_error": 3.9240565816553865e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=0.0 y/h=1.0 T2",
+   "passed": true,
+   "actual": 0.9619841592794737,
+   "expected": 0.9620678967772415,
+   "absolute_error": 8.37374977677996e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=0.0 y/h=1.0 E1",
+   "passed": true,
+   "actual": 3.922769917098869e-06,
+   "expected": -2.2605846299498684e-19,
+   "absolute_error": 3.922769917099095e-06,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=0.0 y/h=1.0 E2",
+   "passed": true,
+   "actual": 0.9708640003131185,
+   "expected": 0.9710663738412565,
+   "absolute_error": 0.00020237352813801124,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=2.0 y/h=0.1 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 X=2.0 y/h=0.1 T1",
+   "passed": true,
+   "actual": -0.0005914188133227794,
+   "expected": -0.0006004691866447777,
+   "absolute_error": 9.050373321998345e-06,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=2.0 y/h=0.1 T2",
+   "passed": true,
+   "actual": 0.9746844579040603,
+   "expected": 0.9749395866230929,
+   "absolute_error": 0.0002551287190325491,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=2.0 y/h=0.1 E1",
+   "passed": true,
+   "actual": -0.00010607582437674076,
+   "expected": -0.00010756558418722068,
+   "absolute_error": 1.4897598104799266e-06,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=2.0 y/h=0.1 E2",
+   "passed": true,
+   "actual": 0.973250346309027,
+   "expected": 0.9734831831232608,
+   "absolute_error": 0.00023283681423380553,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=2.0 y/h=0.5 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 X=2.0 y/h=0.5 T1",
+   "passed": true,
+   "actual": -0.00178524140710452,
+   "expected": -0.001809778351926853,
+   "absolute_error": 2.4536944822333134e-05,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=2.0 y/h=0.5 T2",
+   "passed": true,
+   "actual": 0.972874777605861,
+   "expected": 0.9731008355429774,
+   "absolute_error": 0.00022605793711638622,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=2.0 y/h=0.5 E1",
+   "passed": true,
+   "actual": -0.000325081366700136,
+   "expected": -0.0003292682277960553,
+   "absolute_error": 4.186861095919331e-06,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=2.0 y/h=0.5 E2",
+   "passed": true,
+   "actual": 0.9729253508574074,
+   "expected": 0.9731533203733995,
+   "absolute_error": 0.00022796951599213244,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=2.0 y/h=1.0 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 X=2.0 y/h=1.0 T1",
+   "passed": true,
+   "actual": 7.320535135215957e-08,
+   "expected": -2.0842973736654117e-19,
+   "absolute_error": 7.320535135236801e-08,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=2.0 y/h=1.0 T2",
+   "passed": true,
+   "actual": 0.9712017645588737,
+   "expected": 0.9714059166830087,
+   "absolute_error": 0.00020415212413493755,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=2.0 y/h=1.0 E1",
+   "passed": true,
+   "actual": 8.137066535217028e-09,
+   "expected": -3.8412477929519825e-20,
+   "absolute_error": 8.13706653525544e-09,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=2.0 y/h=1.0 E2",
+   "passed": true,
+   "actual": 0.9726165381315529,
+   "expected": 0.972840575574462,
+   "absolute_error": 0.00022403744290910854,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=4.0 y/h=0.1 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 X=4.0 y/h=0.1 T1",
+   "passed": true,
+   "actual": -7.554543118669587e-05,
+   "expected": -7.653078625116315e-05,
+   "absolute_error": 9.853550644672805e-07,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=4.0 y/h=0.1 T2",
+   "passed": true,
+   "actual": 0.9731648495767452,
+   "expected": 0.9733964658716037,
+   "absolute_error": 0.00023161629485846102,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=4.0 y/h=0.1 E1",
+   "passed": true,
+   "actual": -1.3723973572112611e-05,
+   "expected": -1.3888407778564648e-05,
+   "absolute_error": 1.644342064520372e-07,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=4.0 y/h=0.1 E2",
+   "passed": true,
+   "actual": 0.9729758143367978,
+   "expected": 0.9732046567246495,
+   "absolute_error": 0.00022884238785170208,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=4.0 y/h=0.5 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 X=4.0 y/h=0.5 T1",
+   "passed": true,
+   "actual": -0.0002423510153677073,
+   "expected": -0.00024547544865353017,
+   "absolute_error": 3.124433285822876e-06,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=4.0 y/h=0.5 T2",
+   "passed": true,
+   "actual": 0.9729327118413413,
+   "expected": 0.9731609483893477,
+   "absolute_error": 0.0002282365480064108,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=4.0 y/h=0.5 E1",
+   "passed": true,
+   "actual": -4.4109029389900053e-05,
+   "expected": -4.4632444323133085e-05,
+   "absolute_error": 5.234149332330313e-07,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=4.0 y/h=0.5 E2",
+   "passed": true,
+   "actual": 0.9729336469801125,
+   "expected": 0.9731619151858091,
+   "absolute_error": 0.00022826820569654682,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=4.0 y/h=1.0 unique field sample",
+   "passed": true
+  },
+  {
+   "name": "V=10.0 X=4.0 y/h=1.0 T1",
+   "passed": true,
+   "actual": 8.46874180701e-11,
+   "expected": -2.9790777071247774e-20,
+   "absolute_error": 8.468741809989079e-11,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=4.0 y/h=1.0 T2",
+   "passed": true,
+   "actual": 0.972692883377447,
+   "expected": 0.972917708404286,
+   "absolute_error": 0.00022482502683907057,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=4.0 y/h=1.0 E1",
+   "passed": true,
+   "actual": 1.1456714008501853e-11,
+   "expected": -5.4270728668070035e-21,
+   "absolute_error": 1.1456714013928925e-11,
+   "tolerance": 0.005
+  },
+  {
+   "name": "V=10.0 X=4.0 y/h=1.0 E2",
+   "passed": true,
+   "actual": 0.9728899187764916,
+   "expected": 0.9731176023787271,
+   "absolute_error": 0.00022768360223557327,
+   "tolerance": 0.005
+  }
+ ],
+ "scientific_review": "pending",
+ "study_pass": null,
+ "audit_checks_2026_10_26_pass": false,
+ "audit_checks_2026_10_26": [
+  {
+   "name": "V=0.001 bulk dissipation, 5% band",
+   "passed": false,
+   "actual": 0.008924659279008866,
+   "expected": 0.007297898854430374,
+   "tolerance": 0.00036489494272151873
+  },
+  {
+   "name": "V=0.001 energy balance, relative",
+   "passed": false,
+   "error": 0.0008861458320730264,
+   "tolerance": 0.0006905402555540949
+  },
+  {
+   "name": "V=0.001 own a from own epsilon (Eq. 18)",
+   "passed": false,
+   "actual": 0.44940200380307205,
+   "implied": 0.46069678947533554
+  },
+  {
+   "name": "V=0.001 own R from own a (Eq. 22)",
+   "passed": true,
+   "actual": 1.009810805111082,
+   "implied": 1.009810805111082
+  },
+  {
+   "name": "V=0.1 bulk dissipation, 5% band",
+   "passed": true,
+   "actual": 0.3262022658682324,
+   "expected": 0.32515792310981306,
+   "tolerance": 0.016257896155490652
+  },
+  {
+   "name": "V=0.1 energy balance, relative",
+   "passed": true,
+   "error": 0.0010801697680833389,
+   "tolerance": 0.016564121781815787
+  },
+  {
+   "name": "V=0.1 own a from own epsilon (Eq. 18)",
+   "passed": false,
+   "actual": 0.5152246957660931,
+   "implied": 0.5231540678529697
+  },
+  {
+   "name": "V=0.1 own R from own a (Eq. 22)",
+   "passed": true,
+   "actual": 1.3272824356363158,
+   "implied": 1.3272824356363158
+  },
+  {
+   "name": "V=10.0 bulk dissipation, 5% band",
+   "passed": true,
+   "actual": 3.738413275977389,
+   "expected": 3.7352219340297856,
+   "tolerance": 0.1867610967014893
+  },
+  {
+   "name": "V=10.0 energy balance, relative",
+   "passed": true,
+   "error": 0.005412348908039988,
+   "tolerance": 0.18685004635346747
+  },
+  {
+   "name": "V=10.0 own a from own epsilon (Eq. 18)",
+   "passed": true,
+   "actual": 0.9729338032023915,
+   "implied": 0.9732518098134653
+  },
+  {
+   "name": "V=10.0 own R from own a (Eq. 22)",
+   "passed": true,
+   "actual": 4.733000927069349,
+   "implied": 4.733000927069349
+  }
+ ],
+ "scope": "JSON accuracy only; derivation, integration provenance, reproducibility and access audit require review"
+}

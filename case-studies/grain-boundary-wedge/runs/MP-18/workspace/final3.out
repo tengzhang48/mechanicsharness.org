@@ -1,0 +1,16 @@
+N= 160  lambda1=189.7089  lambda2=1096.8553  lambda3=2785.5380  f(0.5)=-0.73948
+N= 320  lambda1=188.9609  lambda2=1093.6133  lambda3=3318.4281  f(0.5)=-0.74221
+N= 640  lambda1=188.5694  lambda2=1091.5816  lambda3=3316.9969  f(0.5)=-0.74351
+N=1280  lambda1=188.3683  lambda2=1090.4798  lambda3=3314.3853  f(0.5)=-0.74415
+
+Richardson-extrapolated (1/N, 1/N^2):
+  lambda1 = 188.1648
+  lambda2 = 1089.2984
+  f(0.5)  = -0.74478   (slowest mode, normalised f(1)=1)
+  [lambda3 at N=1280 = 3314.385; not extrapolated, N=160 unresolved by 1/N fit]
+  [alternative normalisation  L=(1/pi)Int S s'''  gives lambda1/pi = 59.8947]
+
+K_inf/(sigma0 sqrt(pi h)) = 1.1215  (edge-crack factor of depth h at a free surface)
+relaxation time scale  = 1/lambda1 = 0.00531 t0
+
+wrote results.json

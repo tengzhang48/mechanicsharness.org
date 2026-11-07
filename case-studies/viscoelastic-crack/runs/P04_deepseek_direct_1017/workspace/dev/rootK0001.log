@@ -1,0 +1,4 @@
+`xtol` termination condition is satisfied.
+Function evaluations 8, initial cost 2.5141e-06, final cost 8.3716e-21, first-order optimality 1.36e-09.
+SOL 0.001 [0.45026446 0.5475007 ] [-1.09864340e-11 -1.28928429e-10] 8 t 345.58125400543213
+DETAIL ue 0.100000000 C -1.289284e-11

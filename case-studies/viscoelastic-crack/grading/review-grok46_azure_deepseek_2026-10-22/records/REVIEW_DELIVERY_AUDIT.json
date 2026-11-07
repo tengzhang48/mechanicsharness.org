@@ -1,0 +1,68 @@
+{
+  "checked_utc": "2026-10-22T22:10:54.340018+00:00",
+  "candidate_run": "P01_deepseek",
+  "reviewer": "grok-4.6 through native OpenCode/Azure",
+  "status": "review delivery failed across three retained attempts; no final analytical grade",
+  "scientific_score": null,
+  "execution_process_audit": "complete: timeouts, delivery and input integrity checked; scientific assessment incomplete",
+  "attempts": [
+    {
+      "review_run": "R03_grok46_analytical_azure_deepseek",
+      "started_utc": "2026-10-22T18:25:52.725068+00:00",
+      "ended_utc": "2026-10-22T19:26:03.031820+00:00",
+      "exit_code": 137,
+      "time_limit_reached": true,
+      "input_file_count": 75,
+      "input_mismatches": [],
+      "grade_file_present": true,
+      "grade_status": "preliminary",
+      "final_score": null,
+      "final_assessment_delivered": false
+    },
+    {
+      "review_run": "R04_grok46_finalize_azure_deepseek",
+      "started_utc": "2026-10-22T20:13:07.429103+00:00",
+      "ended_utc": "2026-10-22T20:43:17.657928+00:00",
+      "exit_code": 137,
+      "time_limit_reached": true,
+      "input_file_count": 86,
+      "input_mismatches": [],
+      "grade_file_present": false,
+      "grade_status": null,
+      "final_score": null,
+      "final_assessment_delivered": false
+    },
+    {
+      "review_run": "R05_grok46_oneshot_azure_deepseek",
+      "started_utc": "2026-10-22T20:49:40.131438+00:00",
+      "ended_utc": "2026-10-22T21:09:50.336187+00:00",
+      "exit_code": 137,
+      "time_limit_reached": true,
+      "input_file_count": 76,
+      "input_mismatches": [],
+      "grade_file_present": false,
+      "grade_status": null,
+      "final_score": null,
+      "final_assessment_delivered": false
+    }
+  ],
+  "confirmed_numerical_result": {
+    "reproduced": true,
+    "failed_checks": 8,
+    "total_checks": 251,
+    "failed_epsilon_values": 2,
+    "failed_field_components": 6
+  },
+  "verification_replay": {
+    "exit_code": 0,
+    "elapsed_seconds": 35.33955162100028,
+    "directory": "verification_replay_20261022T205012Z"
+  },
+  "qualitative_comparison": "reviews/QUALITATIVE_FINDINGS.md",
+  "limitations": [
+    "No final scientific score inferred from preliminary prose or numerical accuracy.",
+    "The final one-shot attempt retained no completed public assessment. Its completed API metadata alone cannot establish the cause of the subsequent nondelivery.",
+    "No human ledger approval, seal or waiver performed."
+  ],
+  "active_review_processes": 0
+}

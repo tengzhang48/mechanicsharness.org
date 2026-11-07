@@ -336,12 +336,15 @@ details.steps>.step:first-of-type{border-top:0}
 <style>/* layout for the site (release_fracture/case_layout.py) */
 .side-col{display:grid;gap:1rem;align-content:start;min-width:0}
 .side-col>p{margin-bottom:.55rem}
+.fill>table{width:100%}.fill th.num{text-align:right}
 @media (min-width:1060px) and (min-height:820px){section.block>aside.math{position:sticky;top:60px}}
 @media (min-width:1060px){
 figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2rem;align-items:center}
 .pair{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:2rem}
 .pair>.head{grid-column:1/-1}
 }
+.fig-stack{display:none}
+@media (max-width:600px){.fig-wide{display:none}.fig-stack{display:grid;gap:.75rem}.fig-stack .fig{min-width:0;max-width:440px}}
 </style>
 </head>
 <body>
@@ -364,7 +367,7 @@ figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2re
 </header>
 
 <figure class="laminate-overview">
-  <div class="figwrap"><svg class="fig" viewBox="0 0 760 280" role="img" aria-label="The crack with its two face loadings, and one tip at a small positive time with a drained inner region inside an undrained outer field" xmlns="http://www.w3.org/2000/svg">
+  <div class="figwrap fig-wide"><svg class="fig" viewBox="0 0 760 280" role="img" aria-label="The crack with its two face loadings, and one tip at a small positive time with a drained inner region inside an undrained outer field" xmlns="http://www.w3.org/2000/svg">
 <defs><marker id="pe-arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7Z" class="loadf"/></marker>
 <marker id="pe-dim" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse"><path d="M6 3 L0 0 L0 6Z" fill="currentColor"/></marker></defs>
 <text class="cap" x="24" y="22">A · The crack and its two loadings</text>
@@ -383,6 +386,52 @@ figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2re
 <path d="M404 150H560" stroke="currentColor" stroke-width="3" style="color:var(--fg)"/>
 <circle cx="560" cy="150" r="3.2" class="ink"/>
 <path class="dim" d="M560 150L582 128" style="color:var(--muted)" marker-end="url(#pe-dim)"/>
+<text class="lbl" x="586" y="130">√(ct)</text>
+<path class="lead" d="M541 124L506 54"/><text class="lbl" x="398" y="48">drained tip, r ≪ √(ct)</text>
+<text class="lbl" x="662" y="138">undrained</text><text class="lbl" x="662" y="154">crack-scale</text><text class="lbl" x="662" y="170">field</text>
+<text class="lbl muted" x="398" y="262">The requested K is taken here: r → 0 first, then t → 0⁺.</text>
+</svg></div><div class="fig-stack" role="img" aria-label="The crack with its two face loadings, and one tip at a small positive time with a drained inner region inside an undrained outer field"><svg class="fig" viewBox="9 2 360 244" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="pe-arr-p1" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7Z" class="loadf"/></marker>
+<marker id="pe-dim-p1" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse"><path d="M6 3 L0 0 L0 6Z" fill="currentColor"/></marker></defs>
+<text class="cap" x="24" y="22">A · The crack and its two loadings</text>
+<rect class="solid" x="24" y="38" width="330" height="200" rx="3"/>
+<path class="crackfill" d="M74 138 Q189 118 304 138 Q189 158 74 138Z"/>
+<g class="load" marker-end="url(#pe-arr-p1)"><path d="M114 132V112"/><path d="M164 127V107"/><path d="M214 127V107"/><path d="M264 132V112"/>
+<path d="M114 144V164"/><path d="M164 149V169"/><path d="M214 149V169"/><path d="M264 144V164"/></g>
+<text class="lbl" x="74" y="60">loading 1: σ<tspan class="sub" dy="3">yy</tspan><tspan dy="-3"> = −1, p = 0</tspan></text>
+<text class="lbl" x="74" y="78">loading 2: σ<tspan class="sub" dy="3">yy</tspan><tspan dy="-3"> = 0, p = 1</tspan></text>
+<text class="lbl muted" x="66" y="190">−L</text><text class="lbl muted" x="296" y="190">+L</text>
+<path class="dim" d="M76 212H302" marker-start="url(#pe-dim-p1)" marker-end="url(#pe-dim-p1)" style="color:var(--muted)"/>
+<text class="lbl muted" x="189" y="230" text-anchor="middle">2L, plane strain, infinite Biot solid</text>
+<text class="cap" x="398" y="22">B · One tip at a small positive time t</text>
+<circle class="outer" cx="560" cy="150" r="88"/>
+<circle class="inner" cx="560" cy="150" r="34"/>
+<path d="M404 150H560" stroke="currentColor" stroke-width="3" style="color:var(--fg)"/>
+<circle cx="560" cy="150" r="3.2" class="ink"/>
+<path class="dim" d="M560 150L582 128" style="color:var(--muted)" marker-end="url(#pe-dim-p1)"/>
+<text class="lbl" x="586" y="130">√(ct)</text>
+<path class="lead" d="M541 124L506 54"/><text class="lbl" x="398" y="48">drained tip, r ≪ √(ct)</text>
+<text class="lbl" x="662" y="138">undrained</text><text class="lbl" x="662" y="154">crack-scale</text><text class="lbl" x="662" y="170">field</text>
+<text class="lbl muted" x="398" y="262">The requested K is taken here: r → 0 first, then t → 0⁺.</text>
+</svg><svg class="fig" viewBox="382 2 360 270" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="pe-arr-p2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7Z" class="loadf"/></marker>
+<marker id="pe-dim-p2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse"><path d="M6 3 L0 0 L0 6Z" fill="currentColor"/></marker></defs>
+<text class="cap" x="24" y="22">A · The crack and its two loadings</text>
+<rect class="solid" x="24" y="38" width="330" height="200" rx="3"/>
+<path class="crackfill" d="M74 138 Q189 118 304 138 Q189 158 74 138Z"/>
+<g class="load" marker-end="url(#pe-arr-p2)"><path d="M114 132V112"/><path d="M164 127V107"/><path d="M214 127V107"/><path d="M264 132V112"/>
+<path d="M114 144V164"/><path d="M164 149V169"/><path d="M214 149V169"/><path d="M264 144V164"/></g>
+<text class="lbl" x="74" y="60">loading 1: σ<tspan class="sub" dy="3">yy</tspan><tspan dy="-3"> = −1, p = 0</tspan></text>
+<text class="lbl" x="74" y="78">loading 2: σ<tspan class="sub" dy="3">yy</tspan><tspan dy="-3"> = 0, p = 1</tspan></text>
+<text class="lbl muted" x="66" y="190">−L</text><text class="lbl muted" x="296" y="190">+L</text>
+<path class="dim" d="M76 212H302" marker-start="url(#pe-dim-p2)" marker-end="url(#pe-dim-p2)" style="color:var(--muted)"/>
+<text class="lbl muted" x="189" y="230" text-anchor="middle">2L, plane strain, infinite Biot solid</text>
+<text class="cap" x="398" y="22">B · One tip at a small positive time t</text>
+<circle class="outer" cx="560" cy="150" r="88"/>
+<circle class="inner" cx="560" cy="150" r="34"/>
+<path d="M404 150H560" stroke="currentColor" stroke-width="3" style="color:var(--fg)"/>
+<circle cx="560" cy="150" r="3.2" class="ink"/>
+<path class="dim" d="M560 150L582 128" style="color:var(--muted)" marker-end="url(#pe-dim-p2)"/>
 <text class="lbl" x="586" y="130">√(ct)</text>
 <path class="lead" d="M541 124L506 54"/><text class="lbl" x="398" y="48">drained tip, r ≪ √(ct)</text>
 <text class="lbl" x="662" y="138">undrained</text><text class="lbl" x="662" y="154">crack-scale</text><text class="lbl" x="662" y="170">field</text>
@@ -437,10 +486,8 @@ figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2re
     <p>A stationary crack of length 2L lies in an infinite, isotropic Biot solid in plane strain. The pores are filled with fluid that flows by Darcy’s law. Stress and pore pressure couple in both directions: compressing the solid raises the pore pressure, and pore pressure strains the skeleton.</p>
     <p>Two time scales matter. If the load changes faster than fluid can move, the fluid content of each material point is fixed and the solid behaves elastically with the undrained Poisson ratio ν<sub>u</sub>. Once the pore pressure has diffused away it behaves elastically with the drained ratio ν. Diffusion over a distance ℓ takes a time ℓ²/c, so after a time t the drained region extends about √(ct) from any drained boundary.</p>
     <p>Two loadings act on both crack faces from t = 0. In loading 1 the faces carry a unit pressure and are kept drained, p = 0. In loading 2 the faces carry no traction but a unit pore pressure. The task asked for K and the crack volume V at t = 0⁺ and as t → ∞, the leading growth of V at small times, and the pore pressure induced next to the faces, for ν = 0.2, ν<sub>u</sub> = 0.4 and α = 0.89.</p>
-    <p class="status"><span class="chip fpc">As in the paper</span> Model, loadings and material values from Detournay and Cheng (1991), Eqs. 1–10 and p. 1655, as given to the agents.</p>
-    <p class="evidence"><strong>Evidence</strong><a href="poroelastic-crack/task/PROBLEM.md">problem as given</a> · <a href="poroelastic-crack/key/KEY.md">key, source table</a></p>
   </div>
-  <aside class="math" aria-label="Model equations">
+  <div class="side-col"><aside class="math" aria-label="Model equations">
     <div class="mh">The model as given to the agents</div>
     <p>Total stress σ (tension positive), pore pressure p, strain e and fluid-content change ζ:</p>
     <div class="eq"><svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='17.329em' height='3.829em' role='img' aria-label='\begin{gathered}2G\,e_{ij}=\sigma_{ij}-\nu\,\sigma_{kk}\delta_{ij}+\alpha(1-2\nu)\,\delta_{ij}\,p,\\2G\,\zeta=\alpha(1-2\nu)\,\sigma_{kk}+\frac{\alpha^2(1-2\nu)^2}{\nu_u-\nu}\,p\end{gathered}' viewBox='-70.505608 -70.107139 173.289924 38.291033'>
@@ -718,6 +765,9 @@ figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2re
 </svg></div>
     <p>Indices run over 1 and 2 (plane strain), so σ<sub>kk</sub> = σ<sub>xx</sub> + σ<sub>yy</sub>. Setting ζ = 0 in the second line and eliminating p gives elasticity with ν<sub>u</sub>; setting p = 0 gives elasticity with ν.</p>
   </aside>
+    <p class="status"><span class="chip fpc">As in the paper</span> Model, loadings and material values from Detournay and Cheng (1991), Eqs. 1–10 and p. 1655, as given to the agents.</p>
+    <p class="evidence"><strong>Evidence</strong><a href="poroelastic-crack/task/PROBLEM.md">problem as given</a> · <a href="poroelastic-crack/key/KEY.md">key, source table</a></p>
+  </div>
 </section>
 
 <section class="block" id="solution">
@@ -2455,10 +2505,8 @@ magnitude):
     <p>All three GPT runs wrote the problem in Fourier–Laplace form, where drained and undrained behaviour appear as the two ends of one transform symbol. MP-37 then defined the tip intensity explicitly, “first extract the stress singularity at each positive time, then let time tend to zero”, and noted that the opposite order gives a different number.</p>
     <p>It solved the tip problem by a canonical Wiener–Hopf factorization and checked the factors with the identity n<sub>11</sub>² + n<sub>21</sub>² = 1 + η<sub>t</sub>, a Laplace-domain balance of the configurational energy flux that includes its pore-pressure part (not conservation of elastic energy during the transient). Reciprocity then gave the full volume coefficient, faces and tips: 2.440220.</p>
     <p>MP-38 reached the same values. MP-39 found the tip value, 0.807, from a collocation calculation it called provisional, but kept the faces-only volume term 1.354. Its answer names the unresolved tip matching as “the principal missing part of this answer”.</p>
-    <p>A later extension to other materials showed the limit of the delivered code: at η<sub>t</sub> = 1 its factorization returned an exponent near 1.15, inconsistent with the trend, where the separate Wilson factorization gives K/K₀ = 0.601850. The original success did not establish a solver that works for every material.</p>
-    <p class="status"><span class="chip proved">drained tip 3/3</span><span class="chip pend">full volume 2/3</span><span class="chip proved">loading 2 3/3</span> 9, 9 and 8 of 9 values.</p>
   </div>
-  <aside class="math" aria-label="From GPT's answer">
+  <div class="side-col"><aside class="math" aria-label="From GPT's answer">
     <div class="mh">From MP-37’s answer (excerpt)</div>
 <pre class="code">The results below use the true-tip definition of the stress
 intensity: first extract the stress singularity at each
@@ -2472,6 +2520,9 @@ entire tip field by an undrained elastic solution interchanges
 singular limits.</pre>
     <p class="src">From <a href="poroelastic-crack/runs/MP-37/workspace/ANSWER.md">MP-37 ANSWER.md</a>, lines 12–15 and 100–103; <a href="poroelastic-crack/runs/MP-39/workspace/ANSWER.md">MP-39 ANSWER.md</a> for the provisional run. The η<sub>t</sub> = 1 failure is recorded in the <a href="poroelastic-crack/records/Case_Study_GPT_Challenge_2026-10-08.html">GPT challenge record</a>.</p>
   </aside>
+    <p>A later extension to other materials showed the limit of the delivered code: at η<sub>t</sub> = 1 its factorization returned an exponent near 1.15, inconsistent with the trend, where the separate Wilson factorization gives K/K₀ = 0.601850. The original success did not establish a solver that works for every material.</p>
+    <p class="status"><span class="chip proved">drained tip 3/3</span><span class="chip pend">full volume 2/3</span><span class="chip proved">loading 2 3/3</span> 9, 9 and 8 of 9 values.</p>
+  </div>
 </section>
 
 <section class="block" id="opus">
@@ -2506,10 +2557,9 @@ The crack-tip regions add A_tip = 1.086. So A = 2.440.</pre>
     <div class="head"><div class="kicker">7 · Kimi K3 and K3.1</div><h2>The crack scale right, the tip and loading 2 not</h2></div>
     <p>The three K3 runs started, correctly, from undrained elasticity at t = 0⁺ and drained elasticity at long times, and gave √(πL) for the tip at both. All three noticed the tip zones of size √(ct) and dismissed them: MP-24 wrote that they “contribute only O((ct)<sup>3/4</sup>) and are subleading”. That estimate keeps the singular stress but treats the fluid content in the zone as bounded. It is singular too, as r<sup>−1/2</sup>; over a zone of area ct the two singular factors give order √(ct), the same as the faces.</p>
     <p>For loading 2 all three took the long-time pore pressure to be uniform and the solid free to swell, which gives zero intensity and zero volume. In an infinite solid with zero pressure at infinity the pressurized region stays confined.</p>
-    <p>K3.1 Pro, in fresh high and max sessions on 24 October, kept the elastic tip value. High integrated the strain through the face layers and reported A = 1.128; max added the reciprocal response of the outer body and found the full face term, 1.354055, but not the tips. Both replaced loading 2 by an effective face traction α on a drained crack, giving −α in place of −η. Their own checks restate those reduced formulas, so they pass.</p>
     <p class="status"><span class="chip wrong">tip 0 of 5 runs</span><span class="chip pend">face term 1 of 5</span><span class="chip wrong">loading 2 0 of 5</span> K3: 4, 5 and 5 of 9. K3.1: 5 and 5 of 9; Grok: partial for both.</p>
   </div>
-  <aside class="math" aria-label="From Kimi's answers">
+  <div class="side-col"><aside class="math" aria-label="From Kimi's answers">
     <div class="mh">From Kimi’s answers (excerpts)</div>
 <pre class="code"># K3, MP-24
 Tip zones of size sqrt(ct) contribute only O((ct)^{3/4})
@@ -2527,6 +2577,8 @@ For the long-time drained response, use the effective stress
   σ̄_ij = σ_ij + α p δ_ij ...  K2(∞) = −α√(πL)</pre>
     <p class="src">From <a href="poroelastic-crack/runs/MP-24/workspace/ANSWER.md">MP-24</a> line 59, <a href="poroelastic-crack/runs/MP-22/workspace/ANSWER.md">MP-22</a> lines 60–63 and <a href="poroelastic-crack/runs/kimi-k31-max-2026-10-24/workspace/ANSWER.md">K3.1 max</a> lines 48–51 and 197–220, shortened. <a href="poroelastic-crack/records/grok-review-kimi-k31-2026-10-24.html">Grok’s A/B review of K3.1</a>.</p>
   </aside>
+    <p>K3.1 Pro, in fresh high and max sessions on 24 October, kept the elastic tip value. High integrated the strain through the face layers and reported A = 1.128; max added the reciprocal response of the outer body and found the full face term, 1.354055, but not the tips. Both replaced loading 2 by an effective face traction α on a drained crack, giving −α in place of −η. Their own checks restate those reduced formulas, so they pass.</p>
+  </div>
 </section>
 
 <section class="block" id="glm">
@@ -2535,9 +2587,8 @@ For the long-time drained response, use the effective stress
     <p>All three GLM runs gave K = √(πL) at both ends. MP-06 gave the reason: the intensity of a uniformly loaded crack is fixed by the tractions alone, for any Poisson ratio. It estimated the tip corrections to the volume as O(ct/L²) and kept a one-dimensional face-layer coefficient, 1.128.</p>
     <p>For loading 2, MP-06 reasoned as the paper does. It described the pressurized matrix near the crack as “constrained by the far field, exactly like a hot inclusion which squeezes itself”, and obtained −η and the closing volume. The other two runs gave zero long-time intensity.</p>
     <p>MP-06’s own numerical calculation produced K near 0.82, close to the corrected key. The record traced that number to the grid smoothing the singular pressure before any diffusion step; no refinement was supplied to tell smoothing from a converged tip limit. It was not evidence that the run had resolved drainage, and its stated answer remained 1.</p>
-    <p class="status"><span class="chip wrong">tip 0/3</span><span class="chip pend">loading 2 1/3</span> 7, 5 and 5 of 9 values.</p>
   </div>
-  <aside class="math" aria-label="From GLM's answer">
+  <div class="side-col"><aside class="math" aria-label="From GLM's answer">
     <div class="mh">From MP-06’s answer (excerpt)</div>
 <pre class="code">Loading 1, K: SIF of a uniformly loaded crack is fixed by
 tractions alone (any ν): K = σ₀√(πL) at t = 0⁺ (undrained)
@@ -2551,6 +2602,8 @@ A traction-free crack cutting a compressed zone relieves
 the compression by closing.</pre>
     <p class="src">From <a href="poroelastic-crack/runs/MP-06/workspace/ANSWER.md">MP-06 ANSWER.md</a>, lines 29–30, 37 and 42–46, shortened. The smoothing diagnosis is correction P382 in <a href="poroelastic-crack/records/Why_Drained_Tip_Missed_2026-10-08.html">Why the drained tip was missed</a>.</p>
   </aside>
+    <p class="status"><span class="chip wrong">tip 0/3</span><span class="chip pend">loading 2 1/3</span> 7, 5 and 5 of 9 values.</p>
+  </div>
 </section>
 
 <section class="block" id="deepseek">
@@ -2558,10 +2611,9 @@ the compression by closing.</pre>
     <div class="head"><div class="kicker">9 · DeepSeek, reasoning on</div><h2>An elastic tip and a reduced loading 2</h2></div>
     <p>The three reasoning-on DeepSeek runs reported the crack-scale value 1 at the tip. MP-46 gave an explicit reason: with p = 0 on the faces, it argued, the coupling term that could make K time dependent vanishes, so the total stress, and K, are constant in time.</p>
     <p>That argument holds at the crack scale and fails inside the diffusion layer. MP-46 also ran a transient finite-element model and read its constant drained-modulus K as confirmation. By its own calibration the model was off by 34% in volume and 43% in K, with about 40 nodes along the crack; it could not resolve a tip layer of size √(ct).</p>
-    <p>For loading 2, MP-41 and MP-50 gave zero; MP-41 took the pressure to leak away to zero at every fixed point, and MP-50 took the long-time pressure to be a steady harmonic field, which it argued produces no stress. MP-46 applied the effective traction −α from the start, so its K₂(0⁺) was −0.89 instead of 0.</p>
     <p class="status"><span class="chip wrong">tip 0/3</span><span class="chip wrong">loading 2 0/3</span> 5, 4 and 5 of 9 values.</p>
   </div>
-  <aside class="math" aria-label="From DeepSeek's answer">
+  <div class="side-col"><aside class="math" aria-label="From DeepSeek's answer">
     <div class="mh">From MP-46’s answer (excerpt)</div>
 <pre class="code">The faces are drained (p = 0 there) and carry the constant
 opening traction P = 1. Because p = 0 on the crack boundary
@@ -2573,6 +2625,8 @@ undrained to drained.
 K1_0 = K1_∞ = √(πL)</pre>
     <p class="src">From <a href="poroelastic-crack/runs/MP-46/workspace/ANSWER.md">MP-46 ANSWER.md</a>, lines 26–31; <a href="poroelastic-crack/runs/MP-41/workspace/ANSWER.md">MP-41</a> and <a href="poroelastic-crack/runs/MP-50/workspace/ANSWER.md">MP-50</a> (lines 99–106) for the zero loading-2 answers.</p>
   </aside>
+    <p>For loading 2, MP-41 and MP-50 gave zero; MP-41 took the pressure to leak away to zero at every fixed point, and MP-50 took the long-time pressure to be a steady harmonic field, which it argued produces no stress. MP-46 applied the effective traction −α from the start, so its K₂(0⁺) was −0.89 instead of 0.</p>
+  </div>
 </section>
 
 <section class="block" id="findings">

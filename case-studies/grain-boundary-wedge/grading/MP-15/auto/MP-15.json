@@ -1,0 +1,9 @@
+{
+ "label": "MP-15",
+ "answer_md": false,
+ "results_json": "unreadable: FileNotFoundError",
+ "reproduce_command": null,
+ "checks": {
+  "results_json": "unreadable: [Errno 2] No such file or directory: '<round-runs>/runs/MP-15/results.json'"
+ }
+}

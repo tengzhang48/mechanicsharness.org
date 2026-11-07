@@ -1,0 +1,12 @@
+<round-runs>/grading/MP-03/scratch/submission/gbcore.py:45: RuntimeWarning: invalid value encountered in divide
+  L = C / np.sum(C, axis=1, keepdims=True)
+<round-runs>/grading/MP-03/scratch/submission/gbcore.py:82: RuntimeWarning: divide by zero encountered in scalar divide
+  t2 = d * np.log(x / (1.0 - x))
+<round-runs>/grading/MP-03/scratch/submission/gbcore.py:82: RuntimeWarning: invalid value encountered in multiply
+  t2 = d * np.log(x / (1.0 - x))
+<round-runs>/grading/MP-03/scratch/submission/gbcore.py:91: RuntimeWarning: divide by zero encountered in divide
+  return (np.log(x**2 / (1.0 - x**2)) + 6 * x / (1 + x) + 2 * np.log(1 + x)
+N=40: max rel err A[1] = nan at x=1.0000
+   near-0 row x=1.54e-03: num=-3.98768830 exact=-3.98768830 (limit -4)
+N=80: max rel err A[1] = nan at x=1.0000
+   near-0 row x=3.85e-04: num=-3.99691733 exact=-3.99691733 (limit -4)

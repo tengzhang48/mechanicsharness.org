@@ -1,0 +1,38 @@
+<round-runs>/runs/MP-18/solve2.py:64: IntegrationWarning: The algorithm does not converge.  Roundoff error is detected
+  in the extrapolation table.  It is assumed that the requested tolerance
+  cannot be achieved, and that the returned result (if full_output = 1) is 
+  the best which can be obtained.
+  + quad(f, x, 1.0, limit=300, epsabs=1e-12, epsrel=1e-12)[0])
+<round-runs>/runs/MP-18/solve2.py:73: IntegrationWarning: The occurrence of roundoff error is detected, which prevents 
+  the requested tolerance from being achieved.  The error may be 
+  underestimated.
+  return quad(lambda x: PL.polyval(x, prod), 0.0, 1.0,
+<round-runs>/runs/MP-18/solve2.py:63: IntegrationWarning: The occurrence of roundoff error is detected, which prevents 
+  the requested tolerance from being achieved.  The error may be 
+  underestimated.
+  return (quad(f, 0.0, x, limit=300, epsabs=1e-12, epsrel=1e-12)[0]
+<round-runs>/runs/MP-18/solve2.py:50: RuntimeWarning: divide by zero encountered in log
+  return np.log(np.abs((x - y) / (x + y))) + 2.0 * x * y / (x + y) ** 2
+<round-runs>/runs/MP-18/solve2.py:64: IntegrationWarning: Extremely bad integrand behavior occurs at some points of the
+  integration interval.
+  + quad(f, x, 1.0, limit=300, epsabs=1e-12, epsrel=1e-12)[0])
+<round-runs>/runs/MP-18/solve2.py:73: IntegrationWarning: The maximum number of subdivisions (200) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  return quad(lambda x: PL.polyval(x, prod), 0.0, 1.0,
+nb= 4  -31.866390+7.360521i  -31.866390-7.360521i  -828.968867+0.000000i  -2859.822514+0.000000i
+nb= 6  +771.087315+0.000000i  -15.215336+0.000000i  -546.249668-581.698772i  -546.249668+581.698772i
+Traceback (most recent call last):
+  File "<round-runs>/runs/MP-18/solve2.py", line 98, in <module>
+    ev = run(nb)
+  File "<round-runs>/runs/MP-18/solve2.py", line 92, in run
+    ev = np.linalg.eigvals(A)
+  File "<home>/miniconda3/lib/python3.13/site-packages/numpy/linalg/_linalg.py", line 1242, in eigvals
+    _assert_finite(a)
+    ~~~~~~~~~~~~~~^^^
+  File "<home>/miniconda3/lib/python3.13/site-packages/numpy/linalg/_linalg.py", line 251, in _assert_finite
+    raise LinAlgError("Array must not contain infs or NaNs")
+numpy.linalg.LinAlgError: Array must not contain infs or NaNs

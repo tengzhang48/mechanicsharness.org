@@ -1,0 +1,18 @@
+{
+ "label": "MP-05",
+ "answer_md": true,
+ "results_json": "ok",
+ "reproduce_command": "python3 solve.py",
+ "rerun_exit": 0,
+ "claims_total": 5,
+ "claims_printed_by_rerun": 5,
+ "checks": {
+  "lambda1_class": "exact",
+  "lambda2_ok": true,
+  "mode1_shape_ok": true,
+  "K_inf_ok": true,
+  "relaxation_time_ok": true,
+  "own_lambda2_gt_lambda1": true,
+  "own_time_consistent_with_lambda1": true
+ }
+}

@@ -1,0 +1,63 @@
+########## PART 0: FD operator validation ##########
+FD-A N=  64: max|L f - Af| = 4.832e+00 (interior 1.992e-01)
+FD-A N= 256: max|L f - Af| = 4.890e+00 (interior 1.909e-01)
+FD-A N=1024: max|L f - Af| = 4.908e+00 (interior 1.908e-01)
+FD-B N=  64: max|L f - Af| = 1.979e+01 (interior 2.409e-01)
+FD-B N= 256: max|L f - Af| = 2.029e+01 (interior 2.361e-01)
+FD-B N=1024: max|L f - Af| = 2.041e+01 (interior 2.368e-01)
+########## PART 1: spectral eigenvalues (s = sqrt(1-x), SVD-QZ) ##########
+s-spectral N= 24: lam1=11.7426630526  lam2=264.6378786513  f(1/2)=0.8019564595  offgrid rel resid=1.1e-05
+s-spectral N= 40: lam1=11.7426665345  lam2=264.6340223997  f(1/2)=0.8019565003  offgrid rel resid=2.2e-06
+s-spectral N= 60: lam1=11.7426678465  lam2=264.6341789577  f(1/2)=0.8019564986  offgrid rel resid=1.7e-06
+s-spectral N= 80: lam1=11.7426683917  lam2=264.6342220615  f(1/2)=0.8019565042  offgrid rel resid=2.9e-06
+s-spectral N=110: lam1=11.7426682103  lam2=264.6342256450  f(1/2)=0.8019565032  offgrid rel resid=1.0e-06
+########## PART 2: FD eigenvalues (cross-check, bracketing) ##########
+N=  128: FD-A lam1=11.67425605 lam2=263.07481086 | FD-B lam1=11.81187827 lam2=266.17594012
+N=  256: FD-A lam1=11.70836439 lam2=263.85668840 | FD-B lam1=11.77717061 lam2=265.40739635
+N=  512: FD-A lam1=11.72549166 lam2=264.24601401 | FD-B lam1=11.75989398 lam2=265.02133267
+N= 1024: FD-A lam1=11.73407259 lam2=264.44025595 | FD-B lam1=11.75127281 lam2=264.82790073
+Richardson limits: FD-A lam1 ~ 11.74268824 (order 1.00) ; FD-B lam1 ~ 11.74268578 (order 1.00)
+bracket on lam1: [11.74268578, 11.74268824] ; spectral 11.74266821
+########## PART 3: slowest-mode shape at x=1/2 (FD check) ##########
+N=  256: FD-A lam1=11.70836439 f(1/2)=0.80149328 | FD-B lam1=11.77717060 f(1/2)=0.80242500   (spectral: f(1/2)=0.80195650)
+N=  512: FD-A lam1=11.72549167 f(1/2)=0.80172484 | FD-B lam1=11.75989410 f(1/2)=0.80218949   (spectral: f(1/2)=0.80195650)
+########## PART 4: time evolution and steady state ##########
+time evolution (FD-A N=512, dt=2e-04, implicit Euler):
+  tau*lam1   max|sigma|   sigma(0.5)   sigma(tip)   c1(t)
+      0.05   1.2194e+00   +1.18683e+00   +1.19031e+00   +1.42733
+      0.10   1.2972e+00   +1.11549e+00   +1.29717e+00   +1.49396
+      0.20   1.2444e+00   +1.00532e+00   +1.24438e+00   +1.52733
+      0.30   1.1331e+00   +9.08345e-01   +1.13310e+00   +1.53018
+      0.50   9.2942e-01   +7.44287e-01   +9.29417e-01   +1.53209
+      0.80   6.8866e-01   +5.51479e-01   +6.88662e-01   +1.53237
+      1.20   4.6246e-01   +3.70334e-01   +4.62456e-01   +1.53513
+      1.60   3.1055e-01   +2.48689e-01   +3.10552e-01   +1.53790
+      2.20   1.7050e-01   +1.36532e-01   +1.70496e-01   +1.53845
+      3.00   7.6885e-02   +6.15692e-02   +7.68849e-02   +1.54400
+      4.00   2.8345e-02   +2.26990e-02   +2.83455e-02   +1.54733
+      6.00   3.8527e-03   +3.08526e-03   +3.85273e-03   +1.55403
+  fitted late-time decay rate = 11.71274712  (lam1 = 11.74266821)
+  final max|sigma| at tau*lam1=6.0: 3.853e-03  -> GB traction-free
+########## PART 5: steady-state crack K ##########
+crack M=10: c0=-0.252425966655  K_tip=1.1214990204  K_out=1.1215107241  COD_mouth=5.81702399
+crack M=14: c0=-0.252430613854  K_tip=1.1215196674  K_out=1.1215313751  COD_mouth=5.81713979
+crack M=18: c0=-0.252431171501  K_tip=1.1215221449  K_out=1.1215338531  COD_mouth=5.81718215
+crack M=24: c0=-0.252431220520  K_tip=1.1215223627  K_out=1.1215340709  COD_mouth=5.81719168
+classical edge-crack references: K_norm = 1.1215 ; mouth opening u(0) E*/(sigma0 h) = 2.9086 (Tada) [our COD_mouth = 2 u(0)]
+########## results.json ##########
+{
+  "lambda1": 11.742668210336962,
+  "lambda2": 264.6342256450044,
+  "mode1_shape_half": 0.8019565032081655,
+  "K_inf_norm": 1.1215223627074167,
+  "relaxation_time_t0": 0.0851595209953824,
+  "mode1_amplitude_c1": 1.547333642632111,
+  "K_inf_routes": {
+    "tip_coefficient": 1.1215223627074167,
+    "outside_stress": 1.1215340709468753,
+    "COD_mouth_Estar_over_sigma0h": 5.817191677545708
+  },
+  "steady_state": "sigma_gb -> 0 everywhere (traction-free grain boundary); deposited wedge holds it open as a classical edge crack of length h under remote tension sigma0; K = 1.1215 sigma0 sqrt(pi h).",
+  "method": "Eigen-analysis of A f = PV int S(x,xi) f'''(xi) dxi, BCs f(0)=0, f'(1)=f''(1)=0. Primary: spectral collocation in s=sqrt(1-x), basis phi_k=s^k-1, exact kernel moments, truncated-SVD projection + QZ for the numerically singular pencil. Cross-checks: two finite-difference panel discretizations (Richardson limits bracket the spectral lambda1), off-grid continuous-equation residuals, implicit-Euler time evolution (decay-rate fit, sigma->0). K: crack integral equation solved by moment collocation in the (1-xi)^m basis; extracted from tip coefficient and outside stress; both give 1.12152, matching the classical edge crack 1.1215.",
+  "reproduce_command": "python3 solve.py"
+}

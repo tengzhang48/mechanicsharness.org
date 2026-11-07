@@ -1,0 +1,9 @@
+{
+  "K_inf_norm": 1.121522256600971,
+  "lambda1": 11.74266781911283,
+  "lambda2": 264.6342031625176,
+  "mode1_shape_half": 0.8019565042704974,
+  "relaxation_time_t0": 0.08515952383259624,
+  "method": "resolvent poles of (p-L)^-1 via smallest-singular-value minima of the square collocation system in a crack-like Chebyshev basis rho=(1-x)^(-1/2)T_n with all BCs built into the triple antiderivative; exact singular-integral operator (closed-form PV + Gauss-Jacobi images); K_inf from the steady crack solve cross-checked by stress-ahead extrapolation",
+  "reproduce_command": "python3 solve.py"
+}

@@ -1,0 +1,203 @@
+{
+ "id": "E_grain_boundary",
+ "title": "Grain-boundary diffusion wedge in a thin film (multiphysics round, problem E)",
+ "source_paper": "H. Gao, L. Zhang, W. D. Nix, C. V. Thompson & E. Arzt (1999) Crack-like grain-boundary diffusion wedges in thin metal films, Acta Mater. 47(10) 2865-2878; Eqs. 1-21, Table 1, Appendices A-B",
+ "verdict": "READY AFTER FIXES",
+ "issues": [
+  {
+   "severity": "statement",
+   "where": "E/PROBLEM.md:31",
+   "what": "(c) 'time scale' has no defined measure; e-folding (0.085), half-time at z=h (0.095) pass, 95% time at z=h (0.291) fails",
+   "evidence": "MP-03 (c) contested; key_recompute.out; case page Result status"
+  },
+  {
+   "severity": "statement",
+   "where": "E/PROBLEM.md:25 / E/KEY.md (a)",
+   "what": "'Describe how sigma_gb evolves' has no stated content; graders scored the unrequested, unkeyed amplitude c1 as decisive (MP-02 (a) partly; MP-05 D2) but as a side error for MP-09",
+   "evidence": "MP-02 GRADE.md:27; MP-05 GRADE.md:30; MP-09 GRADE.md:33"
+  },
+  {
+   "severity": "grade",
+   "where": "summary_data.py:22 with E/checks.py:12-13",
+   "what": "round 'key checks' count only *_ok flags; lambda1_class is excluded, so a run with only lambda1 wrong shows 4/4",
+   "evidence": "mutant 'lambda1 x 4 pi' -> class wrong, 4/4; bundle grain-boundary_check.txt section 6"
+  },
+  {
+   "severity": "minor",
+   "where": "E/checks.py:16",
+   "what": "K_inf band passes a typed-in handbook 1.1215 regardless of the computation (MP-18, MP-44 with lambda1 wrong); value itself right",
+   "evidence": "audit_checks.out MP-18, MP-44; MP-47 solve.py:25"
+  },
+  {
+   "severity": "minor",
+   "where": "E/checks.py:15",
+   "what": "mode1_shape band 2% admits the Appendix B crack-shape estimate 0.8111",
+   "evidence": "mutants_result.json"
+  },
+  {
+   "severity": "minor",
+   "where": "E/KEY.md:50-55",
+   "what": "K_inf supported only as a handbook value; the model's own limit is 1.121522 (now computed), equal to it",
+   "evidence": "key_recompute.out"
+  },
+  {
+   "severity": "minor",
+   "where": "case page Result status (lead)",
+   "what": "'our projection 1.529 at N = 120' is unconverged; N=480 gives 1.53050 and Richardson 1.531048 = graders' 1.531049 (lead refuted)",
+   "evidence": "key_recompute.out"
+  }
+ ],
+ "public_files": [
+  "multiphysics_round/TASK_HEADER.md",
+  "multiphysics_round/E/PROBLEM.md (proposed version)",
+  "multiphysics_round/GRADER_INSTRUCTIONS.md"
+ ],
+ "hidden_files": [
+  "multiphysics_round/E/KEY.md",
+  "multiphysics_round/E/checks.py (key values line 4)",
+  "multiphysics_round/reproduce_keys.py",
+  "corpus-runs/multiphysics/{runs,auto,grading}/MP-02,03,05,07,09,15,18,20,32,40,44,47",
+  "AI_Agents_in_Mechanics/cases/Grain_Boundary_Diffusion_Case_Study_2026-10-25.html",
+  "AI_Agents_in_Mechanics/assets/solution-evidence-2026-10-25/grain-boundary_check.py and its output"
+ ],
+ "mutants": [
+  {
+   "name": "seen MP-44 (sign slip): wrong modes, handbook K typed in",
+   "values": {
+    "lambda1": 88.2491,
+    "lambda2": 1361.871,
+    "mode1_shape_half": 0.9705,
+    "K_inf_norm": 1.1215,
+    "relaxation_time_t0": 0.01133
+   },
+   "expected": "lambda fail; K pass only if recall is accepted",
+   "checker_result": "class=wrong key_checks(summary_data rule)=1/4 failed=['lambda2_ok', 'mode1_shape_ok', 'relaxation_time_ok']"
+  },
+  {
+   "name": "seen MP-18: wrong modes, handbook K typed in",
+   "values": {
+    "lambda1": 188.1648,
+    "lambda2": 1089.2984,
+    "mode1_shape_half": -0.74478,
+    "K_inf_norm": 1.1215,
+    "relaxation_time_t0": 0.00531
+   },
+   "expected": "same",
+   "checker_result": "class=wrong key_checks(summary_data rule)=1/4 failed=['lambda2_ok', 'mode1_shape_ok', 'relaxation_time_ok']"
+  },
+  {
+   "name": "seen MP-20: wrong but self-consistent",
+   "values": {
+    "lambda1": 0.59877,
+    "lambda2": 135.9101,
+    "mode1_shape_half": 0.74025,
+    "K_inf_norm": 3.11614,
+    "relaxation_time_t0": 1.67008
+   },
+   "expected": "fail",
+   "checker_result": "class=wrong key_checks(summary_data rule)=0/4 failed=['lambda2_ok', 'mode1_shape_ok', 'K_inf_ok', 'relaxation_time_ok']"
+  },
+  {
+   "name": "seen MP-40: lambda1 +1.1%, lambda2 -2.7%",
+   "values": {
+    "lambda1": 11.871,
+    "lambda2": 257.493,
+    "mode1_shape_half": 0.8001,
+    "relaxation_time_t0": 0.0842
+   },
+   "expected": "lambda1 approximate, lambda2 fail",
+   "checker_result": "class=approximate key_checks(summary_data rule)=3/4 failed=['lambda2_ok']"
+  },
+  {
+   "name": "only lambda1 wrong (x4 pi slip), everything else right",
+   "values": {
+    "lambda1": 147.5627180893758,
+    "relaxation_time_t0": 0.08515952252077637
+   },
+   "expected": "summary must not show 4/4",
+   "checker_result": "class=wrong key_checks(summary_data rule)=4/4 failed=['own_time_consistent_with_lambda1']"
+  },
+  {
+   "name": "paper App. B estimate lambda1 = 13.3595 and B6 shape 0.8111",
+   "values": {
+    "lambda1": 13.3595,
+    "mode1_shape_half": 0.8111,
+    "relaxation_time_t0": 0.07485310078970021
+   },
+   "expected": "approximate class; shape is an approximation",
+   "checker_result": "class=approximate key_checks(summary_data rule)=4/4 failed=[]"
+  },
+  {
+   "name": "B6 crack-shape approximation for the mode shape only",
+   "values": {
+    "mode1_shape_half": 0.8111
+   },
+   "expected": "approximation (1.1% off)",
+   "checker_result": "class=exact key_checks(summary_data rule)=4/4 failed=[]"
+  },
+  {
+   "name": "relaxation time = 95% decay at z=h, ln(20 c1)/lambda1",
+   "values": {
+    "relaxation_time_t0": 0.2914
+   },
+   "expected": "right under a 95% reading (statement ambiguity)",
+   "checker_result": "class=exact key_checks(summary_data rule)=3/4 failed=['relaxation_time_ok', 'own_time_consistent_with_lambda1']"
+  },
+  {
+   "name": "relaxation time = half-time at z=h, ln(2 c1)/lambda1",
+   "values": {
+    "relaxation_time_t0": 0.0953
+   },
+   "expected": "right under a half-time reading",
+   "checker_result": "class=exact key_checks(summary_data rule)=4/4 failed=[]"
+  },
+  {
+   "name": "relaxation time = 1/lambda2",
+   "values": {
+    "relaxation_time_t0": 0.003778803932979133
+   },
+   "expected": "fail",
+   "checker_result": "class=exact key_checks(summary_data rule)=3/4 failed=['relaxation_time_ok', 'own_time_consistent_with_lambda1']"
+  },
+  {
+   "name": "relaxation time from a 40% wrong lambda1 = 7",
+   "values": {
+    "relaxation_time_t0": 0.14285714285714285
+   },
+   "expected": "fail (but band admits it)",
+   "checker_result": "class=exact key_checks(summary_data rule)=4/4 failed=[]"
+  },
+  {
+   "name": "K without free-surface factor (Griffith 1.0)",
+   "values": {
+    "K_inf_norm": 1.0
+   },
+   "expected": "fail",
+   "checker_result": "class=exact key_checks(summary_data rule)=3/4 failed=['K_inf_ok']"
+  },
+  {
+   "name": "K in units of sigma0 sqrt(h)",
+   "values": {
+    "K_inf_norm": 1.987806993790536
+   },
+   "expected": "fail",
+   "checker_result": "class=exact key_checks(summary_data rule)=3/4 failed=['K_inf_ok']"
+  },
+  {
+   "name": "K at a finite time (MP-02 grader: 0.71 at 0.1 t0)",
+   "values": {
+    "K_inf_norm": 0.71029
+   },
+   "expected": "fail",
+   "checker_result": "class=exact key_checks(summary_data rule)=3/4 failed=['K_inf_ok']"
+  },
+  {
+   "name": "lambda2 = third eigenvalue 1357.46 (missed mode)",
+   "values": {
+    "lambda2": 1357.46
+   },
+   "expected": "fail",
+   "checker_result": "class=exact key_checks(summary_data rule)=3/4 failed=['lambda2_ok']"
+  }
+ ]
+}

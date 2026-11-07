@@ -1,0 +1,11 @@
+80 191.08518 1094.93608
+160 189.70888 1096.85531
+320 188.96095 1093.61334
+640 188.56944 1091.58158
+1280 188.36825 1090.47982
+2560 188.2659 1089.90632
+Traceback (most recent call last):
+  File "<string>", line 13, in <module>
+    N=np.array([Ns[i] for i in npts],float); y=np.array([L[i] for i in npts])
+                ~~^^^
+IndexError: list index out of range

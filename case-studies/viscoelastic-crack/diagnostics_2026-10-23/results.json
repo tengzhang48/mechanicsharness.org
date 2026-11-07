@@ -1,0 +1,399 @@
+{
+  "checked_utc": "2026-10-23T11:17:12.495971+00:00",
+  "scope": "Source-based diagnostic calculations, not an independent scientific grade.",
+  "source_equations": "Hui and Long main equations 12, 14, 17, 51, 59",
+  "original_files_changed": false,
+  "input_sha256": {
+    "private/<source paper PDF, not included>": "7ffea06d89b523b2b86b44cebfc82329e221d531a13ec7bbe6b3d5733b8db217",
+    "private/REFERENCE.md": "83136e36d6c457a9a993ba790436eac4d05023e1628b15263e1eb00bf90125e7",
+    "runs/P01_deepseek/workspace/ANSWER.md": "89370ec7e3b7d7bf084b2dc77a929020caddee664759dc0795c97369b31a1c7c",
+    "runs/P01_deepseek/workspace/solve.py": "33d46fa33bf82f75794b5f1e0e614a417b8d0eb41d1b2c2a19bce41935eb10c9",
+    "runs/P01_deepseek/workspace/results.json": "8bfef297d26351f8f8b89c2e0bd6741b654d4b57a3c98a86302daff610815be9",
+    "runs/P04_deepseek_direct_1017/workspace/ANSWER.md": "f1c481cccde95abddfa82e02dd0843394da62d7562e32a29ccafca4cc40972b1",
+    "runs/P04_deepseek_direct_1017/workspace/solve.py": "cd7fe2b6c4176e9f0f8e63c55d27102b92ceab06a2461717894053ed2b5df699",
+    "runs/P04_deepseek_direct_1017/workspace/results.json": "940a333359b3d33b595f979590960b3b64e55ea06f0768c2b3e9dd58d52f218a",
+    "runs/P03_gpt61_sol/workspace/ANSWER.md": "bc0f7258372990fe99e6315d62df0abe964509839a2a9f09b8dee3d338c505de",
+    "runs/P03_gpt61_sol/workspace/solve.py": "4d49fdd33de6d02dbf3755f854bb72ab94fbec3677192b191268baed94b22489",
+    "runs/P03_gpt61_sol/workspace/results.json": "366f01fc1c3814320e2cecadc34bf4f45138a6f8ba52c49c094f79269737c281"
+  },
+  "necessary_load_zone_relation": [
+    {
+      "run": "P01_deepseek",
+      "V": 0.001,
+      "epsilon": 0.577,
+      "a": 0.44940200380307205,
+      "a_required_by_bounded_stress": 0.46069678947533554,
+      "true_front_singular_coefficient": -0.011294785672263497,
+      "relative_load_mismatch": -0.024516744918336768
+    },
+    {
+      "run": "P01_deepseek",
+      "V": 0.1,
+      "epsilon": 0.7686,
+      "a": 0.5152246957660931,
+      "a_required_by_bounded_stress": 0.5231540678529697,
+      "true_front_singular_coefficient": -0.007929372086876607,
+      "relative_load_mismatch": -0.015156858321715516
+    },
+    {
+      "run": "P01_deepseek",
+      "V": 10.0,
+      "epsilon": 6.34,
+      "a": 0.9729338032023915,
+      "a_required_by_bounded_stress": 0.9732518098134653,
+      "true_front_singular_coefficient": -0.00031800661107372896,
+      "relative_load_mismatch": -0.00032674648828516284
+    },
+    {
+      "run": "P04_deepseek_direct_1017",
+      "V": 0.001,
+      "epsilon": 0.5489,
+      "a": 0.451,
+      "a_required_by_bounded_stress": 0.450407593716606,
+      "true_front_singular_coefficient": 0.0005924062833940202,
+      "relative_load_mismatch": 0.0013152670862089395
+    },
+    {
+      "run": "P04_deepseek_direct_1017",
+      "V": 0.1,
+      "epsilon": 0.755,
+      "a": 0.5175,
+      "a_required_by_bounded_stress": 0.519103301191102,
+      "true_front_singular_coefficient": -0.00160330119110208,
+      "relative_load_mismatch": -0.0030885975631887628
+    },
+    {
+      "run": "P03_gpt61_sol",
+      "V": 0.001,
+      "epsilon": 0.5447055550934309,
+      "a": 0.4488424891698808,
+      "a_required_by_bounded_stress": 0.4488424891698808,
+      "true_front_singular_coefficient": 0.0,
+      "relative_load_mismatch": 0.0
+    },
+    {
+      "run": "P03_gpt61_sol",
+      "V": 0.1,
+      "epsilon": 0.7407809316701152,
+      "a": 0.5148121867403626,
+      "a_required_by_bounded_stress": 0.5148121867403626,
+      "true_front_singular_coefficient": 0.0,
+      "relative_load_mismatch": 0.0
+    },
+    {
+      "run": "P03_gpt61_sol",
+      "V": 10.0,
+      "epsilon": 6.3333056844398365,
+      "a": 0.9731620763214311,
+      "a_required_by_bounded_stress": 0.9731620763214311,
+      "true_front_singular_coefficient": 0.0,
+      "relative_load_mismatch": 0.0
+    }
+  ],
+  "azure_fit_isolation": [
+    {
+      "V": 0.001,
+      "front_panel_nodes": 320,
+      "true_epsilon": 0.5447055550934302,
+      "reported_azure_epsilon": 0.577,
+      "epsilon_with_only_fit_condition_changed": 0.5747551716213402,
+      "a_with_only_fit_condition_changed": 0.44897534366624414,
+      "fraction_of_reported_zone_error_reproduced": 0.9304887145404028
+    },
+    {
+      "V": 0.001,
+      "front_panel_nodes": 400,
+      "true_epsilon": 0.5447055550934302,
+      "reported_azure_epsilon": 0.577,
+      "epsilon_with_only_fit_condition_changed": 0.5756664305882458,
+      "a_with_only_fit_condition_changed": 0.4489832745751996,
+      "fraction_of_reported_zone_error_reproduced": 0.958705919373681
+    },
+    {
+      "V": 0.1,
+      "front_panel_nodes": 320,
+      "true_epsilon": 0.7407809316699946,
+      "reported_azure_epsilon": 0.7686,
+      "epsilon_with_only_fit_condition_changed": 0.7672604357347313,
+      "a_with_only_fit_condition_changed": 0.5148832808220709,
+      "fraction_of_reported_zone_error_reproduced": 0.9518472635611682
+    },
+    {
+      "V": 0.1,
+      "front_panel_nodes": 400,
+      "true_epsilon": 0.7407809316699946,
+      "reported_azure_epsilon": 0.7686,
+      "epsilon_with_only_fit_condition_changed": 0.7681087315280777,
+      "a_with_only_fit_condition_changed": 0.514887800305038,
+      "fraction_of_reported_zone_error_reproduced": 0.9823405850226699
+    }
+  ],
+  "azure_omitted_regular_terms_correction_control": [
+    {
+      "V": 0.001,
+      "extra_regular_terms_in_fit": 0,
+      "added_powers": [],
+      "predicted_epsilon": 0.5756664305882455,
+      "relative_zone_error": 0.056839654388148766,
+      "unchanged": "Exact continuum stress and opening, original fit interval, original front-panel coordinates"
+    },
+    {
+      "V": 0.001,
+      "extra_regular_terms_in_fit": 1,
+      "added_powers": [
+        1.5
+      ],
+      "predicted_epsilon": 0.5506149980399474,
+      "relative_zone_error": 0.010848875858267265,
+      "unchanged": "Exact continuum stress and opening, original fit interval, original front-panel coordinates"
+    },
+    {
+      "V": 0.001,
+      "extra_regular_terms_in_fit": 2,
+      "added_powers": [
+        1.5,
+        2.5
+      ],
+      "predicted_epsilon": 0.5458549915001963,
+      "relative_zone_error": 0.002110197694916051,
+      "unchanged": "Exact continuum stress and opening, original fit interval, original front-panel coordinates"
+    },
+    {
+      "V": 0.001,
+      "extra_regular_terms_in_fit": 3,
+      "added_powers": [
+        1.5,
+        2.5,
+        3.5
+      ],
+      "predicted_epsilon": 0.5449315655012513,
+      "relative_zone_error": 0.000414922164291757,
+      "unchanged": "Exact continuum stress and opening, original fit interval, original front-panel coordinates"
+    },
+    {
+      "V": 0.001,
+      "extra_regular_terms_in_fit": 4,
+      "added_powers": [
+        1.5,
+        2.5,
+        3.5,
+        4.5
+      ],
+      "predicted_epsilon": 0.5447502232120247,
+      "relative_zone_error": 8.200415467918512e-05,
+      "unchanged": "Exact continuum stress and opening, original fit interval, original front-panel coordinates"
+    },
+    {
+      "V": 0.1,
+      "extra_regular_terms_in_fit": 0,
+      "added_powers": [],
+      "predicted_epsilon": 0.7681087315280797,
+      "relative_zone_error": 0.036890528211192083,
+      "unchanged": "Exact continuum stress and opening, original fit interval, original front-panel coordinates"
+    },
+    {
+      "V": 0.1,
+      "extra_regular_terms_in_fit": 1,
+      "added_powers": [
+        1.5
+      ],
+      "predicted_epsilon": 0.7448745403237281,
+      "relative_zone_error": 0.005526071850290515,
+      "unchanged": "Exact continuum stress and opening, original fit interval, original front-panel coordinates"
+    },
+    {
+      "V": 0.1,
+      "extra_regular_terms_in_fit": 2,
+      "added_powers": [
+        1.5,
+        2.5
+      ],
+      "predicted_epsilon": 0.7414025441788115,
+      "relative_zone_error": 0.0008391313575195926,
+      "unchanged": "Exact continuum stress and opening, original fit interval, original front-panel coordinates"
+    },
+    {
+      "V": 0.1,
+      "extra_regular_terms_in_fit": 3,
+      "added_powers": [
+        1.5,
+        2.5,
+        3.5
+      ],
+      "predicted_epsilon": 0.7408770072613787,
+      "relative_zone_error": 0.00012969501140849718,
+      "unchanged": "Exact continuum stress and opening, original fit interval, original front-panel coordinates"
+    },
+    {
+      "V": 0.1,
+      "extra_regular_terms_in_fit": 4,
+      "added_powers": [
+        1.5,
+        2.5,
+        3.5,
+        4.5
+      ],
+      "predicted_epsilon": 0.7407958867078895,
+      "relative_zone_error": 2.018820579146648e-05,
+      "unchanged": "Exact continuum stress and opening, original fit interval, original front-panel coordinates"
+    }
+  ],
+  "why_the_fit_is_biased": {
+    "original_basis": [
+      "X**(-1/2)",
+      "1",
+      "X**(1/2)"
+    ],
+    "true_bounded_front_expansion": "T2 = 1 - 2/(pi*L)*sqrt(X) + [1/(2*pi*L)+2/(3*pi*L**3)]*X**(3/2) + O(X**(5/2)); L=sqrt(exp(epsilon)-1)",
+    "mechanism": "Omitted regular curvature projects into the fitted X**(-1/2) coefficient. Forcing that regression coefficient to zero changes the physical load and zone length.",
+    "mesh_refinement_limit": "A fixed fit interval retains this bias even with exact continuum fields.",
+    "speed_dependence": "The omitted curvature is larger for short low-speed zones and smaller for the long high-speed zone.",
+    "leading_omitted_term_examples": [
+      {
+        "epsilon": 0.577,
+        "coefficient_of_X_to_three_halves": 0.4877676851661562
+      },
+      {
+        "epsilon": 0.7686,
+        "coefficient_of_X_to_three_halves": 0.3185494155338074
+      },
+      {
+        "epsilon": 6.34,
+        "coefficient_of_X_to_three_halves": 0.006706753012659262
+      }
+    ]
+  },
+  "isolation_limitations": [
+    "This isolates the regression condition in the continuum problem; it does not replay all numerical discretization errors.",
+    "Errors remaining after this control can include the mesh, constitutive averaging, field reconstruction and rounded selected states.",
+    "The finite-window coefficient is a regression parameter, not the true asymptotic stress-intensity coefficient."
+  ],
+  "fit_on_exact_bounded_stress_window_sensitivity": [
+    {
+      "fit_window": [
+        0.02,
+        0.4
+      ],
+      "true_singular_coefficient": 0.0,
+      "fitted_singular_coefficient": 0.009626526016533228
+    },
+    {
+      "fit_window": [
+        0.006,
+        0.12
+      ],
+      "true_singular_coefficient": 0.0,
+      "fitted_singular_coefficient": 0.0011629969974897294
+    },
+    {
+      "fit_window": [
+        0.002,
+        0.04000000000000001
+      ],
+      "true_singular_coefficient": 0.0,
+      "fitted_singular_coefficient": 0.00014255347828151426
+    },
+    {
+      "fit_window": [
+        0.0006,
+        0.012
+      ],
+      "true_singular_coefficient": 0.0,
+      "fitted_singular_coefficient": 1.3304155206194092e-05
+    },
+    {
+      "fit_window": [
+        0.0002,
+        0.004
+      ],
+      "true_singular_coefficient": 0.0,
+      "fitted_singular_coefficient": 1.4939562617826702e-06
+    }
+  ],
+  "gpt_optional_slow_speed_expansion": [
+    {
+      "V": 0.001,
+      "exact_scalar_loss": 0.007297900421073308,
+      "gpt_leading_expansion": 0.007293032926972241,
+      "relative_error": 0.0006669718439856476,
+      "remainder_over_V": 0.004867494101066898
+    },
+    {
+      "V": 0.0001,
+      "exact_scalar_loss": 0.0009393385606660679,
+      "gpt_leading_expansion": 0.0009392738750506473,
+      "relative_error": 6.88629405086078e-05,
+      "remainder_over_V": 0.0006468561542058871
+    },
+    {
+      "V": 1e-05,
+      "exact_scalar_loss": 0.00011492525171868098,
+      "gpt_leading_expansion": 0.00011492444574040704,
+      "relative_error": 7.01306511738566e-06,
+      "remainder_over_V": 8.05978273935048e-05
+    },
+    {
+      "V": 1e-06,
+      "exact_scalar_loss": 1.3592160046614064e-05,
+      "gpt_leading_expansion": 1.3592150397574936e-05,
+      "relative_error": 7.098974036865887e-07,
+      "remainder_over_V": 9.649039127583906e-06
+    },
+    {
+      "V": 1e-07,
+      "exact_scalar_loss": 1.5691857344906e-06,
+      "gpt_leading_expansion": 1.5691856221109167e-06,
+      "relative_error": 7.161655939020117e-08,
+      "remainder_over_V": 1.1237968334840251e-06
+    }
+  ],
+  "gpt_endpoint_checks": {
+    "Vstar_from_source_condition_60_digit_arithmetic": "13.42357157330003893904662863912133916754",
+    "minus_Hinfinite_derivative": "0.0102409389617335809679737719711",
+    "gap_divided_by_2_exp_minus_epsilon_over_2": [
+      {
+        "epsilon": 20,
+        "ratio_expected_to_approach_one": "0.8022273339015287335857904"
+      },
+      {
+        "epsilon": 40,
+        "ratio_expected_to_approach_one": "0.9554235369722757071591347"
+      },
+      {
+        "epsilon": 60,
+        "ratio_expected_to_approach_one": "0.9899528446611713066296519"
+      },
+      {
+        "epsilon": 80,
+        "ratio_expected_to_approach_one": "0.9977354567083020164053931"
+      },
+      {
+        "epsilon": 100,
+        "ratio_expected_to_approach_one": "0.9994895912179087191133722"
+      }
+    ]
+  },
+  "terminal_depends_on_fracture_threshold_at_fixed_lambda": [
+    {
+      "lambda": ".1",
+      "delta_bar": "0.15",
+      "terminal_speed": "28.765955344814071694493696511"
+    },
+    {
+      "lambda": ".1",
+      "delta_bar": "0.2",
+      "terminal_speed": "13.4235715733000389390466286391"
+    },
+    {
+      "lambda": ".1",
+      "delta_bar": "0.3",
+      "terminal_speed": "5.758971414096215643642925774"
+    }
+  ],
+  "gpt_check_scope": [
+    "No discrepancy found in these targeted source-relation and asymptotic checks.",
+    "Numerical asymptotic convergence is evidence, not a uniform error proof.",
+    "The prior external grade is unchanged; no new total score is assigned.",
+    "These calculations do not establish performance on a new blind problem or identify internal reasoning causes."
+  ]
+}

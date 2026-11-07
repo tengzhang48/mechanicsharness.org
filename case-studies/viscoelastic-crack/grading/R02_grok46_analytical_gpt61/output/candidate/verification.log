@@ -1,0 +1,4 @@
+PASS V=0.001: 15 field rows; relative balance=1.211e-06; last bulk refinement=1.764e-06; tail change=2.094e-11
+PASS V=0.1: 15 field rows; relative balance=3.279e-06; last bulk refinement=1.044e-05; tail change=1.040e-09
+PASS V=10: 15 field rows; relative balance=5.329e-08; last bulk refinement=6.245e-07; tail change=4.132e-07
+PASS: finite JSON, all requested rows, endpoint side/series checks, PDE/material/local-energy residuals, boundaries and critical separation.

@@ -1,0 +1,11 @@
+Correct BCs: sigma(0)=0, sigma'(1)=sigma''(1)=0, sigma(1) free
+   G sym resid K=8: 1.05e+00
+K= 8  lam1=12.398176 lam2=228.47869 lam3=1367.2069 lam4=4033.433
+   G sym resid K=12: 1.16e+00
+K=12  lam1=12.011677 lam2=247.19624 lam3=1361.5655 lam4=3664.076
+   G sym resid K=16: 1.21e+00
+K=16  lam1=11.883017 lam2=254.52163 lam3=1357.3689 lam4=3727.987
+   G sym resid K=20: 1.22e+00
+K=20  lam1=11.825424 lam2=258.00603 lam3=1355.9630 lam4=3764.673
+   G sym resid K=24: 1.23e+00
+K=24  lam1=10.816609 lam2=277.31543 lam3=1286.8136 lam4=3941.727

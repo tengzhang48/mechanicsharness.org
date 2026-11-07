@@ -1,0 +1,9 @@
+N 24 tau 0.0025 Z [0.889 0.944] dimensionless opening rate [-1.95335032 -1.71224364] dimensionless opening [-0.00299101 -0.00232281] late-mode amplitude estimate 1.1232561057132153
+N 24 tau 0.005 Z [0.889 0.944] dimensionless opening rate [-0.27443404 -0.41167515] dimensionless opening [-0.00577802 -0.00502405] late-mode amplitude estimate 1.3066956688353104
+N 24 tau 0.1 Z [0.889 0.944] dimensionless opening rate [0.69442991 0.5040046 ] dimensionless opening [0.10642891 0.07559783] late-mode amplitude estimate 1.531048704242358
+N 56 tau 0.0025 Z [0.889 0.944] dimensionless opening rate [-1.95335539 -1.71225016] dimensionless opening [-0.00299104 -0.00232283] late-mode amplitude estimate 1.123256722160305
+N 56 tau 0.005 Z [0.889 0.944] dimensionless opening rate [-0.27442514 -0.41166804] dimensionless opening [-0.00577803 -0.00502406] late-mode amplitude estimate 1.3066961821702407
+N 56 tau 0.1 Z [0.889 0.944] dimensionless opening rate [0.69442999 0.50400465] dimensionless opening [0.1064289  0.07559782] late-mode amplitude estimate 1.5310492799944029
+N 72 tau 0.0025 Z [0.889 0.944] dimensionless opening rate [-1.95335523 -1.71225003] dimensionless opening [-0.00299104 -0.00232283] late-mode amplitude estimate 1.1232567207861843
+N 72 tau 0.005 Z [0.889 0.944] dimensionless opening rate [-0.27442517 -0.41166806] dimensionless opening [-0.00577803 -0.00502406] late-mode amplitude estimate 1.3066961757001945
+N 72 tau 0.1 Z [0.889 0.944] dimensionless opening rate [0.69442998 0.50400464] dimensionless opening [0.1064289  0.07559782] late-mode amplitude estimate 1.5310492729008054

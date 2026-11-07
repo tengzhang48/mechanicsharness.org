@@ -1,0 +1,11 @@
+symbolic operator ready
+D=18  lam1=12.33979  lam2=255.22557
+D=20  lam1=12.27300  lam2=256.17595
+Traceback (most recent call last):
+  File "<round-runs>/runs/MP-40/explore24.py", line 5, in <module>
+    lam, nodes, Z, On, Vn = run(D)
+                            ~~~^^^
+  File "<string>", line 58, in run
+  File "<string>", line 31, in Nval
+KeyError: 21
+EXIT=1

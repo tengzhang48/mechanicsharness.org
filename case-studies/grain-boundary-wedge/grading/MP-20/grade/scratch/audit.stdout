@@ -1,0 +1,55 @@
+Exact original/rerun results.json match: True
+
+Spectrum, interface curvature, and polynomial derivative BC residuals
+n 10 min real -27414.51287138192 max |imag| 5969.9816925829855 negative-real count 1
+ lambda1 0.6868776172726645 D2_fd f(1) -2.228170366417686 D1_polynomial f(1) 0.001147101543097051 D2_polynomial f(1) -2.213672887237408
+n 18 min real -341510.39747667126 max |imag| 93097.63217399301 negative-real count 1
+ lambda1 0.656683271227296 D2_fd f(1) -2.1824963352569284 D1_polynomial f(1) 0.00022976158561505144 D2_polynomial f(1) -2.179198615398491
+n 26 min real -1601065.1729479232 max |imag| 449441.05590134143 negative-real count 3
+ lambda1 0.6273598192754661 D2_fd f(1) -2.1618494583929078 D1_polynomial f(1) 8.999213332572253e-05 D2_polynomial f(1) -2.160533854039386
+ purported gauge eigenvalue -1601065.1729479232 initial-state coefficient (0.03800024957850016+3.703972716175235e-11j) constant-direction overlap 0.2051009744754632
+ polynomial basis max derivative magnitude at quadrature 20923534.30085146
+n 30 min real -2911395.7388092754 max |imag| 820220.2448656448 negative-real count 3
+ lambda1 0.8511658920648291 D2_fd f(1) -2.1010735505128926 D1_polynomial f(1) 3.585710146580823e-07 D2_polynomial f(1) -2.0778734385967255
+
+Roundoff sensitivity of algebraically equivalent node definitions
+n 26 multiply lambda1 0.6273598192754661
+n 26 divide lambda1 0.6263803071693325
+n 30 multiply lambda1 0.8511658920648291
+n 30 divide lambda1 0.5132587971580088
+
+Equilibrium tip fit sensitivity
+n 16 max elasticity residual 0.7389607347645173
+ cutoff 0.85 intercept -0.408844188957954 c 0.6631530981181037 claimed K 2.9463115850157844 fit max residual 0.005483770608371991
+ cutoff 0.95 intercept -0.41104013751743773 c 0.6928951675268369 claimed K 3.0784521177373665 fit max residual 2.7755575615628914e-16
+n 24 max elasticity residual 0.6111484913652436
+ cutoff 0.85 intercept -0.42586059150323285 c 0.6916824255973437 claimed K 3.0730640473104325 fit max residual 0.0035039220565894758
+ cutoff 0.95 intercept -0.4253713316706792 c 0.6859827688145232 claimed K 3.0477411394366802 fit max residual 0.0014327497671015599
+ cutoff 0.98 intercept -0.42775092989540636 c 0.7198978221844299 claimed K 3.198421751400569 fit max residual 2.220446049250313e-16
+n 30 max elasticity residual 0.5462545520463709
+ cutoff 0.85 intercept -0.432900720905765 c 0.7013777075566154 claimed K 3.116139050107915 fit max residual 0.0025770344472195728
+ cutoff 0.95 intercept -0.43455712962788645 c 0.7172648569295039 claimed K 3.1867237949926945 fit max residual 0.0011339637499177546
+ cutoff 0.98 intercept -0.43381608019852447 c 0.7071615466593232 claimed K 3.1418359701743883 fit max residual 0.0008937113458609147
+n 40 max elasticity residual 0.4731819157010033
+ cutoff 0.85 intercept -0.44168659325433524 c 0.7217531874098633 claimed K 3.2066649219046996 fit max residual 0.0021117873105582496
+ cutoff 0.95 intercept -0.4425974568945102 c 0.7305782083468876 claimed K 3.245873456854695 fit max residual 0.0009438260739441651
+ cutoff 0.98 intercept -0.4424817805223371 c 0.7284056201902767 claimed K 3.236220902002043 fit max residual 0.000521325323179278
+n 60 max elasticity residual 0.3833006781225059
+ cutoff 0.85 intercept -0.4502275431959575 c 0.7380861009944031 claimed K 3.279230144999866 fit max residual 0.002104531898770551
+ cutoff 0.95 intercept -0.451363711111286 c 0.748767281016143 claimed K 3.326685377477853 fit max residual 0.0004910739846457068
+ cutoff 0.98 intercept -0.4513724482029064 c 0.7487990796657065 claimed K 3.3268266551554544 fit max residual 0.0002827292959439731
+
+Symbolic auxiliary checks
+S_aa: -12*a*b/(a + b)**5 + 36*b**2/(a + b)**5 - 2/(a + b)**3 + 2/(a - b)**3
+regular diagonal S_aa: 1/(2*b**3)
+S(a,b)-S(b,a) at (.25,.75): -3.0
+S_bb - S_aa: 16*(a - 2*b)/(a + b)**4
+J2 code at .25: -2.666666666666667 correct finite part: -5.333333333333333 correct linear-subtraction coefficient: 5.333333333333333
+derive.py wrong derivative discrepancy: 12*b*(a - 5*b)/(a + b)**5
+derive.py expansion discrepancy: 12*b*(a - b)*(a + b - 1)/(a + b)**6
+
+Weak/Galerkin claimed symmetry
+gb5 W relative asymmetry: 1.22593972252054
+gb5 weak operator relative asymmetry: 1.3601176334747016
+interior basis endpoint values are not zero; constant interpolation at 0 = 1
+gb7 returns only K, not (M,K): <class 'numpy.ndarray'> (8, 8)

@@ -1,0 +1,11 @@
+{
+  "checked_utc": "2026-10-22T18:55:19.195248+00:00",
+  "review_run": "R03_grok46_analytical_azure_deepseek",
+  "status": "running",
+  "preliminary_files": "reviews/grok46_azure_deepseek_2026-10-22/preliminary_snapshot_20261022T185519Z",
+  "final_score": null,
+  "note": "Preliminary REVIEW.md contains tentative judgments while GRADING.json keeps scores null. Do not report either as a final completed grade.",
+  "supplied_input_count": 75,
+  "input_mismatches": [],
+  "direct_deepseek_run": "2026-10-22T18:47:23.594268+00:00"
+}

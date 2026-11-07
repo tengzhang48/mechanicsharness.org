@@ -1,0 +1,33 @@
+{
+  "checked_utc": "2026-10-22T17:23:23.132287+00:00",
+  "transport_adapter_tests": {
+    "passed": 9,
+    "exit_code": 0
+  },
+  "repository_tests": {
+    "passed": 111,
+    "exit_code": 0,
+    "elapsed_seconds": 3.49
+  },
+  "rigor": {
+    "failures": 0,
+    "applicable_conformance_mutants_detected": 15,
+    "applicable_textbook_mutants_detected": 10,
+    "existing_expert_flags_retained": true
+  },
+  "git_diff_check": {
+    "exit_code": 0
+  },
+  "diagnostic_relay_offline_checks": [
+    "byte identity in both directions",
+    "error categorization",
+    "private-content exclusion"
+  ],
+  "scope": "Software behavior only; no scientific grade or independent physical validation",
+  "source_hashes": {
+    "container_agent.py": "012d5e2f283a7f9a69a224c7d1a701d80f623983408988fd452c6d06b15cea64",
+    "isolated_run.py": "f7b5e197e7292b2acb6f60d4af850306b034e5f74a4aabbf0f2bb8b85c8f4550",
+    "monitor_pilot.py": "a31d73faf413186f621d4c8f1bfd1a23dcac8accb57013831d629ceb7324679b",
+    "test_isolated_transport.py": "6c1073b82d06710b50591a4e2850423d2dcb3a1cc538876ad93dfda1e8056fb6"
+  }
+}

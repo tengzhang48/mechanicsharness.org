@@ -1,0 +1,9 @@
+{
+  "lambda1": 0.59877,
+  "lambda2": 135.9101,
+  "mode1_shape_half": 0.74025,
+  "K_inf_norm": 3.11614,
+  "relaxation_time_t0": 1.67008,
+  "method": "finite-difference collocation of g_tau = -A g with A = A1 D^2; A1 is the grain-boundary elasticity operator integrated with singularity subtraction of the principal value at z=zeta (validated against an mpmath finite-part reference to 1e-13); eigenvalues from eig(-A) on uniform grids, extrapolated as 1/n -> 0; equilibrium wedge and stress intensity factor from A1 w = 1.",
+  "reproduce_command": "python3 solve.py"
+}

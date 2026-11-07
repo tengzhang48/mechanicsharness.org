@@ -1,0 +1,201 @@
+{
+  "basis": "Mechanical count from Grok executed frozen scorer; no analytical judgment",
+  "all_checks": 251,
+  "failed_checks": [
+    {
+      "name": "V=0.001 epsilon",
+      "passed": false,
+      "actual": 0.577,
+      "expected": 0.5447055550934302,
+      "absolute_error": 0.03229444490656974,
+      "tolerance": 0.0027235277754671513
+    },
+    {
+      "name": "V=0.001 X=0.0 y/h=0.1 T1",
+      "passed": false,
+      "actual": -0.2010047360823951,
+      "expected": -0.21875036317973948,
+      "absolute_error": 0.01774562709734437,
+      "tolerance": 0.005
+    },
+    {
+      "name": "V=0.001 X=0.0 y/h=0.1 E1",
+      "passed": false,
+      "actual": -0.20052351775387467,
+      "expected": -0.21823543828839817,
+      "absolute_error": 0.0177119205345235,
+      "tolerance": 0.005
+    },
+    {
+      "name": "V=0.1 epsilon",
+      "passed": false,
+      "actual": 0.7686,
+      "expected": 0.7407809316699946,
+      "absolute_error": 0.02781906833000536,
+      "tolerance": 0.003703904658349973
+    },
+    {
+      "name": "V=0.1 X=-2.0 y/h=0.1 T1",
+      "passed": false,
+      "actual": -0.27722808531132476,
+      "expected": -0.27217093759850347,
+      "absolute_error": 0.005057147712821286,
+      "tolerance": 0.005
+    },
+    {
+      "name": "V=0.1 X=-2.0 y/h=0.1 E1",
+      "passed": false,
+      "actual": -0.29468711699114897,
+      "expected": -0.2890637938540239,
+      "absolute_error": 0.005623323137125047,
+      "tolerance": 0.005
+    },
+    {
+      "name": "V=0.1 X=0.0 y/h=0.1 T1",
+      "passed": false,
+      "actual": -0.1791389180331695,
+      "expected": -0.19215423942861287,
+      "absolute_error": 0.013015321395443369,
+      "tolerance": 0.005
+    },
+    {
+      "name": "V=0.1 X=0.0 y/h=0.1 E1",
+      "passed": false,
+      "actual": -0.1469096223975444,
+      "expected": -0.15755108930188164,
+      "absolute_error": 0.010641466904337232,
+      "tolerance": 0.005
+    }
+  ],
+  "field_component_count": 180,
+  "field_component_pass_count": 174,
+  "scalar_checks": [
+    {
+      "name": "critical speed",
+      "passed": true,
+      "actual": 13.44,
+      "expected": 13.42357157330645,
+      "absolute_error": 0.01642842669354927,
+      "tolerance": 0.06711785786653225
+    },
+    {
+      "name": "V=0.001 epsilon",
+      "passed": false,
+      "actual": 0.577,
+      "expected": 0.5447055550934302,
+      "absolute_error": 0.03229444490656974,
+      "tolerance": 0.0027235277754671513
+    },
+    {
+      "name": "V=0.001 a",
+      "passed": true,
+      "actual": 0.44940200380307205,
+      "expected": 0.4488424891698805,
+      "absolute_error": 0.0005595146331915379,
+      "tolerance": 0.0022442124458494027
+    },
+    {
+      "name": "V=0.001 R",
+      "passed": true,
+      "actual": 1.009810805111082,
+      "expected": 1.0072979004210714,
+      "absolute_error": 0.002512904690010531,
+      "tolerance": 0.005036489502105357
+    },
+    {
+      "name": "V=0.1 epsilon",
+      "passed": false,
+      "actual": 0.7686,
+      "expected": 0.7407809316699946,
+      "absolute_error": 0.02781906833000536,
+      "tolerance": 0.003703904658349973
+    },
+    {
+      "name": "V=0.1 a",
+      "passed": true,
+      "actual": 0.5152246957660931,
+      "expected": 0.5148121867403258,
+      "absolute_error": 0.00041250902576728254,
+      "tolerance": 0.002574060933701629
+    },
+    {
+      "name": "V=0.1 R",
+      "passed": true,
+      "actual": 1.3272824356363158,
+      "expected": 1.3251579380817804,
+      "absolute_error": 0.002124497554535365,
+      "tolerance": 0.006625789690408902
+    },
+    {
+      "name": "V=10.0 epsilon",
+      "passed": true,
+      "actual": 6.34,
+      "expected": 6.333305684439911,
+      "absolute_error": 0.006694315560088704,
+      "tolerance": 0.03166652842219956
+    },
+    {
+      "name": "V=10.0 a",
+      "passed": true,
+      "actual": 0.9729338032023915,
+      "expected": 0.9731620763214321,
+      "absolute_error": 0.00022827311904061176,
+      "tolerance": 0.004865810381607161
+    },
+    {
+      "name": "V=10.0 R",
+      "passed": true,
+      "actual": 4.733000927069349,
+      "expected": 4.735222133951204,
+      "absolute_error": 0.002221206881855231,
+      "tolerance": 0.02367611066975602
+    }
+  ],
+  "bulk_checks": [
+    {
+      "name": "V=0.001 bulk dissipation",
+      "passed": true,
+      "actual": 0.008924659279008866,
+      "expected": 0.007297898854430374,
+      "absolute_error": 0.0016267604245784918,
+      "tolerance": 0.01
+    },
+    {
+      "name": "V=0.1 bulk dissipation",
+      "passed": true,
+      "actual": 0.3262022658682324,
+      "expected": 0.32515792310981306,
+      "absolute_error": 0.0010443427584193588,
+      "tolerance": 0.01
+    },
+    {
+      "name": "V=10.0 bulk dissipation",
+      "passed": true,
+      "actual": 3.738413275977389,
+      "expected": 3.7352219340297856,
+      "absolute_error": 0.003191341947603288,
+      "tolerance": 0.03735221934029786
+    }
+  ],
+  "energy_checks": [
+    {
+      "name": "V=0.001 energy balance",
+      "passed": true,
+      "error": 0.0008775364925665932,
+      "tolerance": 0.01
+    },
+    {
+      "name": "V=0.1 energy balance",
+      "passed": true,
+      "error": 0.0008138205848896749,
+      "tolerance": 0.01
+    },
+    {
+      "name": "V=10.0 energy balance",
+      "passed": true,
+      "error": 0.001143534301268622,
+      "tolerance": 0.01
+    }
+  ],
+  "reproduction_match": "Grok retained shell output reports submitted==reproduced True; prior independent organizer replay also matches. See actual tool evidence and commands.log."
+}

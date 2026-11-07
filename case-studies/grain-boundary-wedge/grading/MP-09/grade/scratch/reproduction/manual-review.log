@@ -1,0 +1,54 @@
+Reproduced JSON identical: False
+Required value errors relative to key:
+lambda1 value= 11.742668210336962 relative_error= 1.5507859778551847e-06
+lambda2 value= 264.6342256450044 relative_error= -2.1703683551477226e-06
+mode1_shape_half value= 0.8019565032081655 relative_error= -5.4235401290014806e-05
+K_inf_norm value= 1.1215223627074167 relative_error= 1.993999769656085e-05
+
+FD manufactured-function errors, shrinking versus fixed interior:
+A 64 four-cell-trimmed_max= 0.19921503440860278 location= 0.0703125 fixed_[.05,.95]_max= 0.38847400790113085
+A 256 four-cell-trimmed_max= 0.1909171001406733 location= 0.017578125 fixed_[.05,.95]_max= 0.00931215574887645
+A 1024 four-cell-trimmed_max= 0.19077678415290222 location= 0.00439453125 fixed_[.05,.95]_max= 0.00043174399887391246
+B 64 four-cell-trimmed_max= 0.24089062662167748 location= 0.078125 fixed_[.05,.95]_max= 0.4412914357787159
+B 256 four-cell-trimmed_max= 0.23612692622646136 location= 0.01953125 fixed_[.05,.95]_max= 0.01580348706569268
+B 1024 four-cell-trimmed_max= 0.23681385961142354 location= 0.0048828125 fixed_[.05,.95]_max= 0.00043787884593893267
+
+Spectral tolerance/resolution sensitivity:
+N= 60 tol= 1e-11 rank= 18 lambda1= 11.742667934982569 lambda2= 264.6341321735266
+N= 60 tol= 1e-12 rank= 20 lambda1= 11.742667846477145 lambda2= 264.6341789577036
+N= 60 tol= 1e-13 rank= 21 lambda1= 11.742668351559471 lambda2= 264.63422162237333
+N= 80 tol= 1e-11 rank= 19 lambda1= 11.74266859917857 lambda2= 264.6342108508685
+N= 80 tol= 1e-12 rank= 21 lambda1= 11.742668391698475 lambda2= 264.63422206146083
+N= 80 tol= 1e-13 rank= 23 lambda1= 11.742668269647835 lambda2= 264.63421844609087
+N= 110 tol= 1e-11 rank= 21 lambda1= 11.742668289515839 lambda2= 264.63422269119906
+N= 110 tol= 1e-12 rank= 23 lambda1= 11.742668210336962 lambda2= 264.6342256450044
+N= 110 tol= 1e-13 rank= 24 lambda1= 11.742668112316961 lambda2= 264.6342304798741
+
+Tip expansion coefficient a5= -1.225121277570183 ; a7= 0.18479342060729725
+r= 0.001 (f(1-r)-1)/r^2.5= -1.2249358207385945 sqrt(r)*fthird= 2.294669831344104
+r= 0.0001 (f(1-r)-1)/r^2.5= -1.2251026330456714 sqrt(r)*fthird= 2.296858780295296
+r= 1e-05 (f(1-r)-1)/r^2.5= -1.2251193786599053 sqrt(r)*fthird= 2.2970778329921244
+r= 1e-06 (f(1-r)-1)/r^2.5= -1.225121076695135 sqrt(r)*fthird= 2.297099873464414
+
+True non-normal spectral projection of uniform initial data:
+FD128 lambda1= 11.674256051568616 biorthogonal c1= 1.529705448359775
+Tip BC counterexample: s^4 has fs(0)=fss(0)=fsss(0)=0, but fxx(1)=2.
+
+Crack matrix conditioning:
+M= 10 cond(A)= 428089981.6155854 maxabs(c)= 0.5287181730970671
+M= 14 cond(A)= 24936590169689.855 maxabs(c)= 8.587703029015735
+M= 18 cond(A)= 3.44775535282172e+18 maxabs(c)= 650.9557386905186
+M= 24 cond(A)= 2.902108623872294e+17 maxabs(c)= 656.0772998694041
+
+Near-tip COD-K coefficient check:
+r= 0.01 COD/sqrt(r)= 6.33518344773384 8*Knorm/sqrt(2)= 6.344288543382184
+r= 0.0001 COD/sqrt(r)= 6.3441973657695945 8*Knorm/sqrt(2)= 6.344288543382184
+r= 1e-06 COD/sqrt(r)= 6.344287631593517 8*Knorm/sqrt(2)= 6.344288543382184
+r= 1e-08 COD/sqrt(r)= 6.344288534264296 8*Knorm/sqrt(2)= 6.344288543382184
+Identity at r=0: -8*pi*c0= 6.344288543382184 ; same c0 determines K_tip.
+
+Outside stress comparison with an intentionally wrong crack density:
+Wrong c0= -0.1 K_tip= 0.4442882938158366 K_out_samples= [np.float64(0.45361407590468833), np.float64(0.44522085383298465), np.float64(0.4443815511475879)] yet boundary traction equation is not satisfied.
+
+Stored Richardson interval versus spectral value:
+11.74267930 <= lambda1 <= 11.74268899: False

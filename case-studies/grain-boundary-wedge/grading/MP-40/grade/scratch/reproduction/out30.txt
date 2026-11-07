@@ -1,0 +1,10 @@
+symbolic operator ready
+M=20 lam1=24.77775  colres=6.966e-36 rowres=1.815e+13
+   time-step rate=22.13640 -> lam1=24.77775
+M=24 lam1=25.03590  colres=4.353e-32 rowres=2.987e+18
+   time-step rate=22.34307 -> lam1=25.03590
+Traceback (most recent call last):
+  File "<round-runs>/runs/MP-40/explore30.py", line 74, in <module>
+    (conv, float(sig(mp.mpf('0.5'))/f1), float(sig(mp.mpf('0.25'))/f1), float(sig(mp.mpf('0.75'))/f1)))
+           ~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'mpc'

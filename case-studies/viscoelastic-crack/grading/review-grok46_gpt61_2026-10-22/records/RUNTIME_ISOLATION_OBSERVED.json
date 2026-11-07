@@ -1,0 +1,54 @@
+{
+  "observed_utc": "2026-10-22T16:34:47.646287+00:00",
+  "run_id": "R01_grok46_grade_gpt61",
+  "purpose": "Observed grading-process isolation and file integrity; scientific review still pending",
+  "container_id": "33680b35e05a0e829fd6d8fce6624bfe645a800cc38641ec0a26395fcf7dc537",
+  "image": "sha256:be20de7b94ab0704a12554df9909fe1fe6301bc8612c8341e7b782e06966c65a",
+  "user": "1001:1001",
+  "network_mode": "none",
+  "read_only_root": true,
+  "memory_bytes": 8589934592,
+  "nano_cpus": 2000000000,
+  "cap_drop": [
+    "ALL"
+  ],
+  "security_opt": [
+    "no-new-privileges"
+  ],
+  "mounts": [
+    {
+      "source": "<pilot-folder>/runs/R01_grok46_grade_gpt61/workspace",
+      "destination": "/workspace",
+      "writable": true,
+      "type": "bind"
+    },
+    {
+      "source": "/tmp/ve-model-56kr8vqc",
+      "destination": "/run/model",
+      "writable": false,
+      "type": "bind"
+    },
+    {
+      "source": "<home>/.opencode/bin/opencode",
+      "destination": "/usr/local/bin/opencode",
+      "writable": false,
+      "type": "bind"
+    },
+    {
+      "source": "<home>/.kimi-code/bin/kimi",
+      "destination": "/usr/local/bin/kimi",
+      "writable": false,
+      "type": "bind"
+    }
+  ],
+  "input_integrity": {
+    "checked": 28,
+    "changed_or_missing": []
+  },
+  "candidate_original_comparison": {
+    "checked": 9,
+    "changed_or_missing": []
+  },
+  "runtime_helper_hash": "ab89f39e966018afb1301f1bd8604cb7b47f8427676c32aeab34a7e07bfb8139",
+  "runtime_helper_matches_freeze": true
+}

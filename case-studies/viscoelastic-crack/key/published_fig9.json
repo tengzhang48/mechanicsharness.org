@@ -1,0 +1,12 @@
+{
+  "source": "Hui and Long 2026, main paper page 19, Figure 9 column headings; visually transcribed",
+  "precision": "rounded to 3 decimal places, not full precision reference values",
+  "lambda": 0.1,
+  "delta_bar": 0.2,
+  "cases": [
+    {"V": 0.001, "epsilon": 0.545, "a": 0.449, "R": 1.007},
+    {"V": 0.1, "epsilon": 0.741, "a": 0.515, "R": 1.325},
+    {"V": 10.0, "epsilon": 6.333, "a": 0.973, "R": 4.735}
+  ],
+  "critical_speed": {"value": 13.4, "source": "main paper page 18, first paragraph", "precision": "one decimal place"}
+}
