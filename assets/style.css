@@ -175,6 +175,8 @@ ol.steps li::before {
 .g-zone { fill: none; stroke: #c0562f; stroke-width: 4.5; }
 .g-arrow { fill: none; stroke: #2c3a44; stroke-width: 1.6; }
 .g-arrowhead { fill: #2c3a44; }
+.g-ss { fill: none; stroke: #2c3a44; stroke-width: 1.9; stroke-linejoin: round; }
+.g-dash { fill: #ffffff; stroke: #2c3a44; stroke-width: 1.9; }
 .g-sub { fill: #e3e9ee; stroke: #2c3a44; stroke-width: 1.5; }
 .g-wedge { fill: #c0562f; fill-opacity: .28; stroke: #c0562f; stroke-width: 1.8; stroke-linejoin: round; }
 .g-node circle { fill: #ffffff; stroke: var(--ink); stroke-width: 1.4; }
