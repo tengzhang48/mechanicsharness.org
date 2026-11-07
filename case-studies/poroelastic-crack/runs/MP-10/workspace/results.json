@@ -1,0 +1,23 @@
+{
+  "K1_0": 1.0,
+  "K1_inf": 1.0,
+  "V1_0": 1.8849555921538759,
+  "V1_inf": 2.5132741228718345,
+  "V1_short_coeff": 1.1283791670955128,
+  "p_faces_0": 0.7490636704119851,
+  "K2_0": 0.0,
+  "K2_inf": 0.0,
+  "V2_inf": 0.33995495844428847,
+  "formulas": {
+    "K1_0": "sigma*sqrt(pi*L) (undrained elastic limit, nu_u; K of a Griffith crack is independent of elastic constants) -> 1 in units sqrt(pi*L) per unit |sigma_n|",
+    "K1_inf": "sigma*sqrt(pi*L) (drained elastic limit, nu) -> 1 in units sqrt(pi*L)",
+    "V1_0": "pi*(1-nu_u)*sigma*L^2/G",
+    "V1_inf": "pi*(1-nu)*sigma*L^2/G",
+    "V1_short_coeff": "A = 8*(nu_u-nu)/((1-nu)*sqrt(pi)), i.e. V ~ V1_0 + A*(L^2/G)*sqrt(c*t/L^2)",
+    "p_faces_0": "2*(nu_u-nu)/(alpha*(1-2*nu)) * sigma  (= 2B/3, B=3(nu_u-nu)/(alpha(1-2nu)), since sigma_kk = -2*sigma on the faces)",
+    "K2_0": "0 (no mechanical load at t=0+; diffusive boundary layer of vanishing thickness)",
+    "K2_inf": "0 (steady state: p_ss=(2/pi)Re[arcsin(L/z)] harmonic and sigma_ij = 0 identically is the exact solution)",
+    "V2_inf": "2*alpha*(1-2*nu)*L^2/(pi*G) (swelling displacement u_y=c*(2/pi)*int_x^L arccosh(L/x')dx', c=alpha(1-2nu)/(2G))"
+  },
+  "reproduce_command": "python3 solve.py"
+}

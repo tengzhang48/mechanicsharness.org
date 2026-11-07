@@ -1,0 +1,21 @@
+{
+ "gamma_A_0.5_ok": true,
+ "gamma_B_0.5_ok": false,
+ "kI_A_0.5_ok": true,
+ "kI_B_0.5_ok": true,
+ "gamma_A_1.0_ok": false,
+ "gamma_B_1.0_ok": false,
+ "kI_A_1.0_ok": true,
+ "kI_B_1.0_ok": true,
+ "gamma_A_1.5_ok": false,
+ "gamma_B_1.5_ok": false,
+ "kI_A_1.5_ok": true,
+ "kI_B_1.5_ok": false,
+ "gamma_A_2.0_ok": false,
+ "gamma_B_2.0_ok": false,
+ "kI_A_2.0_ok": true,
+ "kI_B_2.0_ok": false,
+ "values_within_0.5pct": 7,
+ "values_within_1e-6_abs": 0,
+ "missing": []
+}

@@ -1,0 +1,24 @@
+=== results.json values (K in sqrt(pi L), V in L^2/G, per unit loading) ===
+K1_0            = 1
+K1_inf          = 1
+V1_0            = 1.88495559215
+V1_inf          = 2.51327412287
+V1_short_coeff  = 0.564189583548
+p_faces_0       = 0.374531835206
+K2_0            = 0
+K2_inf          = 0
+V2_inf          = 0
+results.json written
+
+=== checks ===
+[PASS] COD quadrature for V (drained): got 2.51327412193, want 2.51327412287, rel err 3.74e-10
+[PASS] COD quadrature for V (undrained): got 1.88495559145, want 1.88495559215, rel err 3.74e-10
+[PASS] int_0^inf erfc(s) ds: got 0.56418958355, want 0.564189583548, rel err 4.17e-12
+[PASS] oedometric de_yy/dp: got 0.33374999997, want 0.33375, rel err 8.98e-11
+[PASS] diffusivity c (derived vs given): got 1.87032127464, want 1.87032127444, rel err 1.11e-10
+[PASS] FD diffusion short-time A at ct/L^2=0.001: got 0.564253051394, want 0.564189583548, rel err 1.12e-04
+[PASS] FD diffusion short-time A at ct/L^2=0.003: got 0.56421074027, want 0.564189583548, rel err 3.75e-05
+[PASS] FD diffusion short-time A at ct/L^2=0.01: got 0.564195930646, want 0.564189583548, rel err 1.12e-05
+[PASS] analytic-profile short-time A: got 0.56418958355, want 0.564189583548, rel err 3.47e-12
+
+checks finished: 0 failure(s)

@@ -1,0 +1,51 @@
+{
+  "manufactured_load": "q(x)=1+0.5*U_2(x/L)",
+  "coded_volume": 2.932153143350473,
+  "volume_from_opening_integral": 2.513274122871834,
+  "correct_volume_from_a1": 2.513274122871834,
+  "uniform_load_K_L2_coded_normalized": 0.49999999999999495,
+  "uniform_load_K_L2_expected_normalized": 1.0,
+  "neumann_bc_neighbor": 1.0,
+  "neumann_bc_code_imposes_boundary": -5.000025000125001e-06,
+  "neumann_bc_expected_boundary": 1.0,
+  "mirroring_negative_x_minus_h_maps_to_x": 0.0,
+  "mirroring_negative_x_minus_h_should_map_to_x": 0.00390625,
+  "strip_p_y_at_x2L_L1": 0.2122065907891938,
+  "uncracked_plane_p_y_expected": 0.0,
+  "c_conditional_from_balance": 1.8703212744369164,
+  "c_given": 1.8703212744369166,
+  "literal_3D_extension_diffusivity_at_given_parameters": 4.208222867483063,
+  "general_pressure_equation": "p_t = c*laplacian(p) - alpha*(1-2*nu)/storage_H * H_t, H=s+gamma*p",
+  "fft_convergence": [
+    {
+      "box": 4,
+      "N": 256,
+      "trace_at_x05": -0.2564274302689785
+    },
+    {
+      "box": 4,
+      "N": 512,
+      "trace_at_x05": -0.25642397875413636
+    },
+    {
+      "box": 4,
+      "N": 1024,
+      "trace_at_x05": -0.25642354829360625
+    },
+    {
+      "box": 4,
+      "N": 2048,
+      "trace_at_x05": -0.2564234945165289
+    },
+    {
+      "box": 8,
+      "N": 1024,
+      "trace_at_x05": -0.2952105928789901
+    },
+    {
+      "box": 16,
+      "N": 2048,
+      "trace_at_x05": -0.314496982787902
+    }
+  ]
+}

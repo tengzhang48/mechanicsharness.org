@@ -1,0 +1,130 @@
+{
+  "submissions": {
+    "C": {
+      "overall": "correct",
+      "parts": {
+        "a": "correct",
+        "b": "correct",
+        "c": "correct"
+      },
+      "verification_coverage": "sufficient",
+      "limit_order_ambiguity_preserved": true,
+      "notes": {
+        "K1_0": "Reports the drained-tip inner limit 0.80759 (corrected key 0.807593). Records the undrained-outer reading 1 as the instantaneous t=0 snapshot; that reading is a legitimate interpretation of the original t=0+ wording and is not treated as an error. Paper heuristic 0.75 is rejected.",
+        "V1_short_coeff": "Faces 1.354055 (exact) plus tips 1.0862 (numerical inner problem). Paper faces-only 1.354 is identified as incomplete. Reported 2.44 vs key 2.440220.",
+        "loading_2": "Coupled 2-D back-stress -eta, not -alpha. Long-time and far-field limits are nonuniform; approach is logarithmic. K2_0=0 from t^{1/4} inner layer.",
+        "face_conditions": "Total traction sigma_n and pore pressure p prescribed on the faces (not effective stress).",
+        "numerical_vs_proof": "Closed forms for V1_0, V1_inf, K1_inf, p_faces_0, K2_0, K2_inf, V2_inf, and A_face. K1_0 and A_tip are numerical BVP results with documented residuals, convergence, and extrapolation; matching the key is not treated as a closed-form proof.",
+        "supplementary_not_graded_as_answers": [
+          "polynomial fits a(gamma) and chat(gamma)",
+          "K1 ~ 0.8076 + 0.1947 tau^{1/4}",
+          "K2 ~ -0.2599 tau^{1/4}",
+          "logarithmic capacity laws for K2(t) and V2(t)",
+          "first-order closed form A=2.4175"
+        ],
+        "fit_caveat": "Claimed chat(gamma) polynomial error <5e-4 is slightly overstated (max |dchat|~7.7e-4 at gamma=0.5). Does not affect reported A at gamma=0.25 beyond the quoted +/-3e-4."
+      },
+      "quantities": {
+        "K1_0": {
+          "reported": 0.80759,
+          "reference": 0.807593,
+          "verdict": "correct",
+          "tolerance": "1% relative",
+          "relative_error": 3.715e-06,
+          "reason": "Drained-tip / undrained-far-field factor a(gamma=0.25) from mixed Laplace BVP; W=s(K1+2 beta K2) extrapolated in s^{-1/2}. Saved large-s residuals ~1e-8; N-convergence of s=1e7 to 4e-9. Uncertainty +/-5e-6 is an extrapolation estimate, not a remainder theorem. Instantaneous undrained value 1 is recorded separately."
+        },
+        "K1_inf": {
+          "reported": 1.0,
+          "reference": 1.0,
+          "verdict": "correct",
+          "tolerance": "1% relative",
+          "relative_error": 0.0,
+          "reason": "Drained Griffith K=sigma sqrt(pi L); independent of material constants. Small-s: s K1 -> 1 to 1e-9."
+        },
+        "V1_0": {
+          "reported": 1.884956,
+          "reference": 1.8849555921538759,
+          "verdict": "correct",
+          "tolerance": "1% relative",
+          "relative_error": 2.164e-07,
+          "reason": "Undrained Sneddon volume pi(1-nu_u)."
+        },
+        "V1_inf": {
+          "reported": 2.513274,
+          "reference": 2.5132741228718345,
+          "verdict": "correct",
+          "tolerance": "1% relative",
+          "relative_error": 4.889e-08,
+          "reason": "Drained Sneddon volume pi(1-nu). Principle check V1_inf/V1_0=(1-nu)/(1-nu_u) holds on the agent's numbers."
+        },
+        "V1_short_coeff": {
+          "reported": 2.44,
+          "reference": 2.44022,
+          "verdict": "correct",
+          "tolerance": "1% relative",
+          "relative_error": 9.016e-05,
+          "reason": "A_face exact 1.354055 plus A_tip 1.0862 from inner-region zeta in the reciprocal identity. Direct large-s extrapolation 2.43999; exact-face+tip 2.44022. Uncertainty +/-3e-4 from s^{-1/4} remainder is consistent with rounding to 2.44."
+        },
+        "p_faces_0": {
+          "reported": 0.749064,
+          "reference": 0.7490636704119851,
+          "verdict": "correct",
+          "tolerance": "1% relative",
+          "relative_error": 4.4e-07,
+          "reason": "Undrained p=2 beta next to the faces (faces themselves have p=0)."
+        },
+        "K2_0": {
+          "reported": 0.0,
+          "reference": 0.0,
+          "verdict": "correct",
+          "tolerance": "0.01 absolute",
+          "absolute_error": 0.0,
+          "reason": "Inner problem driven by a layer of thickness sqrt(ct); K2=O(t^{1/4}) -> 0."
+        },
+        "K2_inf": {
+          "reported": -0.33375,
+          "reference": -0.33375,
+          "verdict": "correct",
+          "tolerance": "1% relative",
+          "relative_error": 0.0,
+          "reason": "Coupled 2-D back-stress -eta, not -alpha. Far-field remains unloaded; -eta is a slowly expanding near-crack plateau. Log approach fitted X_inf=-0.333750."
+        },
+        "V2_inf": {
+          "reported": -0.838805,
+          "reference": -0.838805239317278,
+          "verdict": "correct",
+          "tolerance": "1% relative",
+          "relative_error": 2.843e-07,
+          "reason": "V2_inf=-pi eta (1-nu)=-pi alpha(1-2nu)/2. Reciprocal check with Griffith integrals."
+        }
+      },
+      "formulas": {
+        "verdict": "correct",
+        "reason": "Closed forms match the requested answers. K1_0 and A_tip are stated as inner-problem definitions plus numerics, not as fake closed forms. Fitted polynomials and time-history prefactors live under supplementary."
+      },
+      "physical_conditions": {
+        "total_traction_and_pore_pressure_faces": "correct",
+        "undrained_outer_vs_drained_inner_tip": "correct",
+        "order_of_time_and_tip_limits": "correct_ambiguity_preserved",
+        "loading_2_coupled_2d_nonuniform_limits": "correct"
+      },
+      "solver_audit": {
+        "formulation": "Laplace-domain mixed BVP; total sigma_yy and p on |x|<L; U=Q=0 on |x|>L; drained-tip K conversion 1/(1-nu).",
+        "residuals": "Energy identity relative residual 4e-10 at s=1 (rerun). s=1e7 N=150 vs 190: sK1 differs by 4e-9.",
+        "convergence": "Documented in N, kmax, and small-s graded panels. First solver without Debye tail retained as a failed record.",
+        "extrapolation_K1_0": "W=s(K1+2 beta K2) ~ a + O(s^{-1/2}); re-fit a=0.807592986, max residual 1.6e-8. Claimed +/-5e-6 justified as extrapolation estimate.",
+        "extrapolation_V1_short_coeff": "s^{-1/4} contamination present; numeric A_face 1.35382 vs exact 1.354055; A=2.4401 +/- 0.0003 consistent.",
+        "independent_reruns": "Copied solver in scratch/; s=100 N=20 bit-identical to saved JSON; s=1e-4 N=16 matches small_s.log. Did not rerun s=1e6-1e7 N~190 or the Talbot campaign.",
+        "general_formulas_justified": true,
+        "claimed_uncertainty_justified": "yes for a; yes-with-caveat for A (limited by s^{-1/4}); chat polynomial error bound slightly tight"
+      },
+      "reference_and_validation_limits": [
+        "Key is REFERENCE.md log P374, not Detournay-Cheng 1991 for K1_0 and V1_short_coeff.",
+        "Original PROBLEM.md leaves K1_0 limit order implicit; an answer of 1 would be partial, 0.75 wrong. C reports 0.80759 and records 1.",
+        "Nine-value test is consistency, not a proof that the discrete system is the BVP.",
+        "No closed Wiener-Hopf factorization; no independent FE; Fourier-symbol algebra not re-derived line by line.",
+        "Independent checks used only supplied files, copies under scratch/, and local computation."
+      ]
+    }
+  }
+}

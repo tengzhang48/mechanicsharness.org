@@ -1,0 +1,39 @@
+{
+  "recorded_at_utc": "2026-10-16T00:13:32.848722+00:00",
+  "profile": {
+    "solver": "D01",
+    "review": "R05",
+    "selected_model": "deepseek/deepseek-flash",
+    "attempt_kind": "Fresh direct-API thinking-enabled follow-up",
+    "grader": "azure/grok-4.6",
+    "rubric_judgments": {
+      "1_wake_formulation_and_fields": "right",
+      "2_energy_release": "right",
+      "3_fracture_modes_and_intensities": "right",
+      "4_propagation_thresholds_and_limits": "right",
+      "5_requested_numerical_values": "right",
+      "6_verification_and_reproducibility": "right",
+      "7_physical_scope_and_uncertainty": "partly"
+    },
+    "verdict_counts": {
+      "right": 6,
+      "partly": 1
+    },
+    "numeric_values_delivered": 16,
+    "numeric_agreement_count": 16,
+    "numeric_agreement_of": 16,
+    "grade_file": "reviews/R05/grade.json",
+    "review_replay_exit_code": 0,
+    "reviewer_FEM_agreement_count": 16,
+    "reviewer_FEM_tolerance_abs": 1e-06,
+    "interpretation": "Grok rates six right and physical scope partly. Its report acknowledges the nonzero-prestress prose error, but does not explicitly discuss the reversed displayed Case B balance. Retain the separate coordinator observations; this is not a declaration of an error-free proof.",
+    "original_S02_grade_replaced": false,
+    "historical_thinking_mode": "unverified",
+    "controlled_off_on_comparison": false
+  },
+  "grader_report": "../../reviews/R05/GRADE.md",
+  "grader_code_replay": "../../reviews/R05/REVIEWER_REPLAY.json",
+  "coordinator_original_observations": "FINAL_OBSERVATIONS.json",
+  "grade_is_AI_review_not_expert_endorsement": true,
+  "original_delivery_completion_record_preserved": true
+}

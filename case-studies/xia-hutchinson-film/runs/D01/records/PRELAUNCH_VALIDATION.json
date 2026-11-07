@@ -1,0 +1,67 @@
+{
+  "checked_at_utc": "2026-10-15T21:18:30.615526+00:00",
+  "metadata_filter_tests_passed": true,
+  "dry_run_passed": true,
+  "plan": {
+    "cap_backend_behavior": "Requested by OpenCode environment; audit actual usage separately",
+    "comparison_limits": "Fresh follow-up; provider, explicit reasoning and reporting schedule differ from S02. Not a controlled thinking off/on pair.",
+    "controller_pid": 502511,
+    "folder": "<solver-runs>/followup_runs/D01_direct_thinking_2026-10-15/work",
+    "framework": "OpenCode 1.17.18 through metadata-only proxy",
+    "guard": "<review-runs>/execution_guard",
+    "input_manifest": {
+      "PROBLEM.md": {
+        "sha256": "ff71c35e326a323596567ae22e39df5df7907eefc3037cea2e5d64e37ec3b2ea",
+        "type": "file"
+      },
+      "RUN_PROTOCOL.md": {
+        "sha256": "844a3678be014ce6d6b2682748851dede27575119e47d3ecf116cdd5c0e1c592",
+        "type": "file"
+      },
+      "TASK.md": {
+        "sha256": "e88f52976d49c25210efbf50fab8e64c01707fe84fbf7189727d983622d98cc6",
+        "type": "file"
+      }
+    },
+    "isolation": "Named-command guard if supplied; shared Unix account, not OS isolation",
+    "logbase": "<pilot-folder>/followup_runs/D01_direct_thinking_2026-10-15/controller",
+    "model": "deepseek/deepseek-flash",
+    "original_attempt": "S02",
+    "output_caps_requested": {
+      "report": 4096,
+      "work": 16384
+    },
+    "privacy": "Only session/tool-status/usage metadata persisted; stderr and private content discarded",
+    "profile_evidence": "Direct DeepSeek high thinking configuration verified by LIVE_PROBE_DIRECT.json (61 reasoning tokens); not historical Azure mode",
+    "provider": "Direct DeepSeek API",
+    "reference_or_peer_artifacts_provided": false,
+    "report_variant": {
+      "backend_behavior": "Not established by controller or CLI metadata",
+      "requested": "high",
+      "selected": "high",
+      "selection_basis": "Listed in supplied model-profile metadata"
+    },
+    "runner": "<pilot-folder>/followup_runs/D01_direct_thinking_2026-10-15/public_opencode.py",
+    "schedule_seconds": {
+      "checkpoint_snapshot": 360.0,
+      "final_analysis_end": 2700.0,
+      "first_analysis_end": 300.0,
+      "overall_deadline": 3000.0
+    },
+    "scope": "Workflow and delivery; no scientific grading or solution hints",
+    "started_at_utc": "2026-10-15T21:18:30.608176+00:00",
+    "supported_variants": [
+      "high"
+    ],
+    "thinking_configuration": {
+      "reasoningEffort": "high",
+      "type": "enabled"
+    },
+    "work_variant": {
+      "backend_behavior": "Not established by controller or CLI metadata",
+      "requested": "high",
+      "selected": "high",
+      "selection_basis": "Listed in supplied model-profile metadata"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "K1_0": 0.8069769386688506,
+  "K1_inf": 1.0,
+  "V1_0": 1.8849555921538759,
+  "V1_inf": 2.5132741228718345,
+  "V1_short_coeff": 1.354055000514615,
+  "p_faces_0": 0.7490636704119851,
+  "K2_0": 0.0,
+  "K2_inf": -0.33375,
+  "V2_inf": -0.8388052385084748,
+  "formulas": {
+    "K1_0": "K1_0/sqrt(pi*L) = R(r), r=(1-nu_u)/(1-nu); R(r)=r*a_beta, beta=2*(1-r), where a_beta is the inner/outer square-root opening ratio of the mixed Fourier operator defined in ANSWER.md. Numerical estimate only; not an evaluated closed formula.",
+    "K1_inf": "K1_inf = sqrt(pi*L)",
+    "V1_0": "V1_0 = pi*(1-nu_u)*L^2/G",
+    "V1_inf": "V1_inf = pi*(1-nu)*L^2/G",
+    "V1_short_coeff": "A = 16*(nu_u-nu)*(1-nu_u)/((1-nu)*sqrt(pi)); G*V1/L^2 = pi*(1-nu_u)+A*sqrt(c*t/L^2)+o(sqrt(c*t/L^2))",
+    "p_faces_0": "p_faces_0 = 2*(nu_u-nu)/(alpha*(1-2*nu)) in the undrained outer limit; exactly on the face p=0",
+    "K2_0": "K2_0 = 0",
+    "K2_inf": "K2_inf = -alpha*(1-2*nu)/(2*(1-nu))*sqrt(pi*L)",
+    "V2_inf": "V2_inf = -pi*alpha*(1-2*nu)*L^2/(2*G)"
+  },
+  "K1_0_status": "Provisional numerical extrapolation, estimated uncertainty 0.01; exact tip matching remains unresolved.",
+  "reproduce_command": "python3 solve.py"
+}

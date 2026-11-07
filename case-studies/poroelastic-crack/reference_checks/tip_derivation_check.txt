@@ -1,0 +1,17 @@
+N11 at xi->0: 1.333333333333 (1+gamma = 1.333333333333); at xi=1e6: 1.000000000 (-> 1)
+|N12| at xi->0: 2.58e-05; at xi=1e6: 4.08e-07 (both -> 0)
+max |det N - (1 + gamma (m-k)/(m+k))| = 2.22e-16
+min eigenvalue of N on the samples = 0.762237 (> 0: positive definite)
+count  16384: n11 = 1.0768692598  n21 = 0.4167564405  factor residual 7.4e-08
+count  65536: n11 = 1.0768299701  n21 = 0.4168579479  factor residual 9.3e-09
+count 262144: n11 = 1.0768103216  n21 = 0.4169087005  factor residual 1.2e-09
+extrapolated: n11 = 1.0767906707  n21 = 0.4169594523
+K(0+)/sqrt(pi L) = n11/(1+gamma) = 0.807593003   (key 0.807593)
+energy identity n11^2 + n21^2 - (1+gamma) = 7.26e-14
+hydraulic share n21^2/(1+gamma) = 13.0391%
+A_faces = 16 d/((1+gamma) sqrt(pi)) = 1.354055001   (paper Eq. 18: 1.354055)
+A_tips  = 4 d/((1+gamma) sqrt(pi)) * pi sqrt(2/gamma) n21 = 1.086164578   (key 1.086165)
+A = 2.440219578   (key 2.440220)
+paper simplified K = 1/(1+gamma) = 0.750000; elastic-energy estimate (1+gamma)^-1/2 = 0.866025
+weak coupling: gamma = 0.01  K/K_out = 0.992567  slope (K/K_out - 1)/gamma = -0.7433  (expected -> -0.75)
+weak coupling: gamma = 0.02  K/K_out = 0.985267  slope (K/K_out - 1)/gamma = -0.7366  (expected -> -0.75)

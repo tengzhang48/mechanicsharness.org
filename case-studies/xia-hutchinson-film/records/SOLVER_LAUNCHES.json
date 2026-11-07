@@ -1,0 +1,212 @@
+{
+  "updated_at_utc": "2026-10-15T14:42:21.206471+00:00",
+  "reference_frozen_before_launch": true,
+  "key_freeze": "KEY_FREEZE.json",
+  "runs": [
+    {
+      "label": "S01",
+      "selected_model": "azure/gpt-6.1-sol",
+      "started_at_utc": "2026-10-15T13:02:53.644370+00:00",
+      "launch_record": "<solver-runs>/logs/S01.launch.json",
+      "controller_pid": 377068,
+      "schedule_seconds": {
+        "checkpoint_snapshot": 900,
+        "final_analysis_end": 2700,
+        "first_analysis_end": 780,
+        "overall_deadline": 3000
+      },
+      "input_manifest": {
+        "PROBLEM.md": {
+          "sha256": "ff71c35e326a323596567ae22e39df5df7907eefc3037cea2e5d64e37ec3b2ea",
+          "type": "file"
+        },
+        "TASK.md": {
+          "sha256": "e88f52976d49c25210efbf50fab8e64c01707fe84fbf7189727d983622d98cc6",
+          "type": "file"
+        }
+      },
+      "work_variant": {
+        "backend_behavior": "Not established by controller or CLI metadata",
+        "requested": "high",
+        "selected": "high",
+        "selection_basis": "Listed in supplied model-profile metadata"
+      },
+      "report_variant": {
+        "backend_behavior": "Not established by controller or CLI metadata",
+        "requested": "low",
+        "selected": "low",
+        "selection_basis": "Listed in supplied model-profile metadata"
+      }
+    },
+    {
+      "label": "S02",
+      "selected_model": "azure/DeepSeek-V4.1-Flash",
+      "started_at_utc": "2026-10-15T13:02:53.644696+00:00",
+      "launch_record": "<solver-runs>/logs/S02.launch.json",
+      "controller_pid": 377067,
+      "schedule_seconds": {
+        "checkpoint_snapshot": 900,
+        "final_analysis_end": 2700,
+        "first_analysis_end": 780,
+        "overall_deadline": 3000
+      },
+      "input_manifest": {
+        "PROBLEM.md": {
+          "sha256": "ff71c35e326a323596567ae22e39df5df7907eefc3037cea2e5d64e37ec3b2ea",
+          "type": "file"
+        },
+        "TASK.md": {
+          "sha256": "e88f52976d49c25210efbf50fab8e64c01707fe84fbf7189727d983622d98cc6",
+          "type": "file"
+        }
+      },
+      "work_variant": {
+        "backend_behavior": "Not established by controller or CLI metadata",
+        "requested": "high",
+        "selected": null,
+        "selection_basis": "Unsupported in supplied metadata; provider default"
+      },
+      "report_variant": {
+        "backend_behavior": "Not established by controller or CLI metadata",
+        "requested": "low",
+        "selected": null,
+        "selection_basis": "Unsupported in supplied metadata; provider default"
+      }
+    },
+    {
+      "label": "S03",
+      "selected_model": "FW-Kimi-K3",
+      "configured_deployment": "azure/FW-Kimi-K3",
+      "route": "task-local Azure nonstream fallback",
+      "started_at_utc": "2026-10-15T13:31:27.276520+00:00",
+      "launch_record": "<solver-runs>/logs/S03-nonstream.launch.json",
+      "controller_pid": 383564,
+      "schedule_seconds": {
+        "checkpoint_snapshot": 900,
+        "final_analysis_end": 2700,
+        "first_analysis_end": 780,
+        "overall_deadline": 3000
+      },
+      "input_manifest": {
+        "PROBLEM.md": {
+          "sha256": "ff71c35e326a323596567ae22e39df5df7907eefc3037cea2e5d64e37ec3b2ea",
+          "type": "file"
+        },
+        "TASK.md": {
+          "sha256": "e88f52976d49c25210efbf50fab8e64c01707fe84fbf7189727d983622d98cc6",
+          "type": "file"
+        }
+      },
+      "request_shape": {
+        "authorization_scheme": "Bearer",
+        "cap_field": "max_tokens",
+        "effort_override": null,
+        "header_names": [
+          "Content-Type",
+          "Authorization"
+        ],
+        "method": "POST",
+        "output_caps_requested": {
+          "report": 4096,
+          "work": 16384
+        },
+        "path_suffix": "/chat/completions",
+        "retries": 0,
+        "stream": false,
+        "tool_choice": "auto"
+      },
+      "driver_sha256": "f7028bcebd76899611fc8173a7d011af53bb99f9d2325ca705e015d063271a87",
+      "same_framework_as_other_solvers": false,
+      "outcome": "Controller aborted before mathematical problem delivery",
+      "operational_abort_record": "KIMI_PRE_PROBLEM_ABORT.json",
+      "eligible_for_scientific_grade": false
+    },
+    {
+      "label": "S03-restart",
+      "logical_solver": "S03",
+      "selected_model": "FW-Kimi-K3",
+      "configured_deployment": "azure/FW-Kimi-K3",
+      "route": "task-local Azure nonstream fallback",
+      "started_at_utc": "2026-10-15T13:46:51.186767+00:00",
+      "launch_record": "<solver-runs>/logs/S03-nonstream-restart.launch.json",
+      "controller_pid": 395876,
+      "folder": "<solver-runs>/solvers/S03b",
+      "schedule_seconds": {
+        "checkpoint_snapshot": 900,
+        "final_analysis_end": 2700,
+        "first_analysis_end": 780,
+        "overall_deadline": 3000
+      },
+      "input_manifest": {
+        "PROBLEM.md": {
+          "sha256": "ff71c35e326a323596567ae22e39df5df7907eefc3037cea2e5d64e37ec3b2ea",
+          "type": "file"
+        },
+        "TASK.md": {
+          "sha256": "e88f52976d49c25210efbf50fab8e64c01707fe84fbf7189727d983622d98cc6",
+          "type": "file"
+        }
+      },
+      "request_shape": {
+        "authorization_scheme": "Bearer",
+        "cap_field": "max_tokens",
+        "effort_override": null,
+        "header_names": [
+          "Content-Type",
+          "Authorization"
+        ],
+        "method": "POST",
+        "output_caps_requested": {
+          "report": 4096,
+          "work": 16384
+        },
+        "path_suffix": "/chat/completions",
+        "retries": 0,
+        "stream": false,
+        "tool_choice": "auto"
+      },
+      "driver_sha256": "25c8c7ef3606a751a829308870ecfddd58f3843fae9c5163cbd7f14653dde61f",
+      "same_framework_as_other_solvers": false,
+      "reason_for_fresh_restart": "Preserved coordinator controller failure before problem contents/tool delivery; no mathematical feedback"
+    },
+    {
+      "label": "S04",
+      "logical_solver": "S04",
+      "selected_model": "kimi-code/k3",
+      "route": "native subscription CLI",
+      "started_at_utc": "2026-10-15T14:37:18.280470+00:00",
+      "launch_record": "<solver-runs>/logs/S04-subscription.launch.json",
+      "controller_pid": 404106,
+      "folder": "<solver-runs>/solvers/S04",
+      "schedule_seconds": {
+        "checkpoint_snapshot": 900,
+        "final_analysis_end": 2700,
+        "first_analysis_end": 780,
+        "overall_deadline": 3000
+      },
+      "input_manifest": {
+        "PROBLEM.md": {
+          "sha256": "ff71c35e326a323596567ae22e39df5df7907eefc3037cea2e5d64e37ec3b2ea",
+          "type": "file"
+        },
+        "TASK.md": {
+          "sha256": "e88f52976d49c25210efbf50fab8e64c01707fe84fbf7189727d983622d98cc6",
+          "type": "file"
+        }
+      },
+      "configured_thinking": {
+        "effort": "max",
+        "enabled": true
+      },
+      "output_caps_requested": null,
+      "no_scientific_feedback_supplied": true,
+      "additional_user_authorized_trial": true
+    }
+  ],
+  "pending_solver": null,
+  "operational_adapter_check_pending": false,
+  "Kimi_fallback_limit": "Different frontend/tools/transport; no matched cross-model ranking",
+  "launch_invocations": 5,
+  "selected_model_families": 3,
+  "controller_abort_before_problem_delivery": 1
+}

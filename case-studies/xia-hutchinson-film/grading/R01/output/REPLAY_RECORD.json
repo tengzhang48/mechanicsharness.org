@@ -1,0 +1,190 @@
+{
+  "started_at_utc": "2026-10-15T14:03:11.506525+00:00",
+  "recorded_after_completion_at_utc": "2026-10-15T14:14:32.605720+00:00",
+  "scope": "Factual reproduction and rounded-table agreement, not scientific correctness/parent grading",
+  "declared_command": [
+    "python3",
+    "reproduce_all.py"
+  ],
+  "coordinator_timeout_wrapper_seconds": 1200,
+  "exit_code_observed": 0,
+  "script_unchanged": true,
+  "stdout_sha256": "c4a3e723ab28e5efaee22ae1b2d08fb9f7ccd59303ef7d43e670d30fa7fdab00",
+  "stderr_bytes": 242,
+  "rows": [
+    {
+      "ell_over_H": 0.5,
+      "G_A": 0.348109,
+      "gamma_A": 0.765074,
+      "kI_A": 0.834396,
+      "G_B": 0.25595,
+      "gamma_B": 0.562528,
+      "kI_B": 0.715472
+    },
+    {
+      "ell_over_H": 1.0,
+      "G_A": 0.423505,
+      "gamma_A": 0.46539,
+      "kI_A": 0.650772,
+      "G_B": 0.149395,
+      "gamma_B": 0.16417,
+      "kI_B": 0.386517
+    },
+    {
+      "ell_over_H": 1.5,
+      "G_A": 0.442271,
+      "gamma_A": 0.324008,
+      "kI_A": 0.542998,
+      "G_B": 0.08308,
+      "gamma_B": 0.060865,
+      "kI_B": 0.235344
+    },
+    {
+      "ell_over_H": 2.0,
+      "G_A": 0.44935,
+      "gamma_A": 0.246896,
+      "kI_A": 0.473999,
+      "G_B": 0.050993,
+      "gamma_B": 0.028018,
+      "kI_B": 0.159676
+    }
+  ],
+  "rounding_comparison_tolerance": 5.1e-05,
+  "rounding_tolerance_basis": "Submitted four-decimal entries plus six-decimal printed replay, unrelated to1e-6 key accuracy tolerance",
+  "values_reproduced_within_display_rounding": 11,
+  "values_compared": 16,
+  "comparison_details": [
+    {
+      "ell_over_H": 0.5,
+      "quantity": "gamma_A",
+      "submitted_json": 0.7651,
+      "replay_printed_value": 0.765074,
+      "difference": -2.599999999997049e-05,
+      "within_four_decimal_rounding": true
+    },
+    {
+      "ell_over_H": 0.5,
+      "quantity": "gamma_B",
+      "submitted_json": 0.5642,
+      "replay_printed_value": 0.562528,
+      "difference": -0.0016720000000000068,
+      "within_four_decimal_rounding": false
+    },
+    {
+      "ell_over_H": 0.5,
+      "quantity": "kI_A",
+      "submitted_json": 0.8344,
+      "replay_printed_value": 0.834396,
+      "difference": -4.000000000004e-06,
+      "within_four_decimal_rounding": true
+    },
+    {
+      "ell_over_H": 0.5,
+      "quantity": "kI_B",
+      "submitted_json": 0.7158,
+      "replay_printed_value": 0.715472,
+      "difference": -0.00032799999999999496,
+      "within_four_decimal_rounding": false
+    },
+    {
+      "ell_over_H": 1.0,
+      "quantity": "gamma_A",
+      "submitted_json": 0.4654,
+      "replay_printed_value": 0.46539,
+      "difference": -9.99999999995449e-06,
+      "within_four_decimal_rounding": true
+    },
+    {
+      "ell_over_H": 1.0,
+      "quantity": "gamma_B",
+      "submitted_json": 0.1642,
+      "replay_printed_value": 0.16417,
+      "difference": -3.0000000000002247e-05,
+      "within_four_decimal_rounding": true
+    },
+    {
+      "ell_over_H": 1.0,
+      "quantity": "kI_A",
+      "submitted_json": 0.6508,
+      "replay_printed_value": 0.650772,
+      "difference": -2.8000000000028002e-05,
+      "within_four_decimal_rounding": true
+    },
+    {
+      "ell_over_H": 1.0,
+      "quantity": "kI_B",
+      "submitted_json": 0.3865,
+      "replay_printed_value": 0.386517,
+      "difference": 1.6999999999989246e-05,
+      "within_four_decimal_rounding": true
+    },
+    {
+      "ell_over_H": 1.5,
+      "quantity": "gamma_A",
+      "submitted_json": 0.324,
+      "replay_printed_value": 0.324008,
+      "difference": 8.000000000008e-06,
+      "within_four_decimal_rounding": true
+    },
+    {
+      "ell_over_H": 1.5,
+      "quantity": "gamma_B",
+      "submitted_json": 0.0612,
+      "replay_printed_value": 0.060865,
+      "difference": -0.000334999999999995,
+      "within_four_decimal_rounding": false
+    },
+    {
+      "ell_over_H": 1.5,
+      "quantity": "kI_A",
+      "submitted_json": 0.543,
+      "replay_printed_value": 0.542998,
+      "difference": -2.0000000000575113e-06,
+      "within_four_decimal_rounding": true
+    },
+    {
+      "ell_over_H": 1.5,
+      "quantity": "kI_B",
+      "submitted_json": 0.2359,
+      "replay_printed_value": 0.235344,
+      "difference": -0.0005560000000000009,
+      "within_four_decimal_rounding": false
+    },
+    {
+      "ell_over_H": 2.0,
+      "quantity": "gamma_A",
+      "submitted_json": 0.2469,
+      "replay_printed_value": 0.246896,
+      "difference": -4.000000000004e-06,
+      "within_four_decimal_rounding": true
+    },
+    {
+      "ell_over_H": 2.0,
+      "quantity": "gamma_B",
+      "submitted_json": 0.028,
+      "replay_printed_value": 0.028018,
+      "difference": 1.8000000000000654e-05,
+      "within_four_decimal_rounding": true
+    },
+    {
+      "ell_over_H": 2.0,
+      "quantity": "kI_A",
+      "submitted_json": 0.474,
+      "replay_printed_value": 0.473999,
+      "difference": -9.999999999732445e-07,
+      "within_four_decimal_rounding": true
+    },
+    {
+      "ell_over_H": 2.0,
+      "quantity": "kI_B",
+      "submitted_json": 0.1598,
+      "replay_printed_value": 0.159676,
+      "difference": -0.00012399999999998523,
+      "within_four_decimal_rounding": false
+    }
+  ],
+  "unintended_import_output": "Import of fem_energy2.py executes an unguarded demo printing negativeG and nanKI; it precedes separate claimed CaseA/B tables and is not mapped as a submitted table row",
+  "scientific_grade": null,
+  "stdout": "REPLAY_STDOUT.txt",
+  "stderr": "REPLAY_STDERR.txt"
+}

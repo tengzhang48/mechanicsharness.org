@@ -1,0 +1,34 @@
+{
+  "K1_0": 0.808,
+  "K1_inf": 1.0,
+  "V1_0": 1.8849555921538759,
+  "V1_inf": 2.5132741228718345,
+  "V1_short_coeff": 2.44,
+  "p_faces_0": 0.7490636704119851,
+  "K2_0": 0.0,
+  "K2_inf": -0.33375,
+  "V2_inf": -0.8388052385084748,
+  "formulas": {
+    "K1_0": "lim_{q->infinity} sum_{j>=0} (-1)^j*(2*j+1)*u_j(q)/(1-nu); u solves the spectral Schur system specified in ANSWER.md",
+    "K1_inf": "1",
+    "V1_0": "pi*(1-nu_u)",
+    "V1_inf": "pi*(1-nu)",
+    "V1_short_coeff": "(2/sqrt(pi))*lim_{q->infinity} q*(pi*u_0(q)-pi*(1-nu_u)); u solves the spectral Schur system specified in ANSWER.md",
+    "p_faces_0": "2*(nu_u-nu)/(alpha*(1-2*nu))",
+    "K2_0": "0",
+    "K2_inf": "-alpha*(1-2*nu)/(2*(1-nu))",
+    "V2_inf": "-pi*alpha*(1-2*nu)/2",
+    "spectral_definitions": "q=sqrt(s), m=sqrt(k^2+q^2), d=2*(nu_u-nu)/(1-nu), Phi_j=pi*(2*j+1)*J_(2*j+1)(k)/k, Psi_j=pi*J_(2*j)(k), D_ij=pi*(2*i+1)*delta_ij/2",
+    "spectral_A": "A_ij=D_ij-(d/pi)*integral_0^infinity k^3*Phi_i*Phi_j/[m*(m+k)] dk",
+    "spectral_B": "B_ij=(d/pi)*integral_0^infinity q^2*k*Phi_i*Psi_j/[m*(m+k)] dk",
+    "spectral_C": "C_ij=(d/pi)*integral_0^infinity q^2*Psi_i*Psi_j/m dk",
+    "spectral_u": "(A-B*C^(-1)*B^T)*u=(1-nu_u)*(pi/2)*e_0; use infinite-basis limit before q->infinity; at d=0 use A=D without hydraulic block",
+    "V1_short": "V1(t)=(L^2/G)*[pi*(1-nu_u)+V1_short_coeff*sqrt(c*t/L^2)+o(sqrt(c*t/L^2))]"
+  },
+  "reproduce_command": "python3 solve.py",
+  "numerical_uncertainty": {
+    "K1_0": 0.001,
+    "V1_short_coeff": 0.01
+  },
+  "K1_0_outer_undrained": 1.0
+}

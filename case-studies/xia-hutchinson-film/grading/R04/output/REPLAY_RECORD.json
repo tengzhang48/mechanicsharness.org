@@ -1,0 +1,29 @@
+{
+  "started_at_utc": "2026-10-15T15:17:29.390165+00:00",
+  "ended_at_utc": "2026-10-15T15:17:38.262191+00:00",
+  "duration_seconds": 8.872019144997466,
+  "command": [
+    "timeout",
+    "1200s",
+    "python3",
+    "run_all.py"
+  ],
+  "command_basis": "Single reproduction command declared in original run_all.py docstring; no REPRODUCE.md/ANSWER.md was delivered",
+  "exit_code": 0,
+  "script_unchanged": true,
+  "generated_results_present": true,
+  "generated_rows_equal_original_partial_table": false,
+  "original_final_results_json_present": false,
+  "replay_results_not_copied_into_original_submission": true,
+  "scope": "Unchanged partial-script replay and data comparison, no parent scientific grade",
+  "maximum_target_quantity_difference_vs_original_partial_table": 2.220446049250313e-16,
+  "target_quantities_reproduced_within_1e_14": true,
+  "raw_rows_bit_identical": false,
+  "generated_results_role": "Coordinator execution of unchanged supplied script; not delivered as solver final results.json",
+  "original_final_answer_file_present": false,
+  "original_partial_numeric_file": "submission/numeric_rows.json",
+  "numeric_mapping": "The original partial file is a JSON list with16requested values; do not confuse absence of final filenames with absence of all mathematics",
+  "operational_stop": "CLI exit1; user reports an account usage limit; exact provider error payload unavailable",
+  "coordinator_replay_generated_result_file": "replay_output/results.json",
+  "coordinator_generated_result_is_not_original_submission": true
+}

@@ -6,7 +6,7 @@
 <title>MechanicsHarness</title>
 <meta name="description" content="MechanicsHarness shows how AI agents and mechanics can work together, with every result checked against an independent reference or a measurement.">
 <link rel="icon" href="assets/favicon.svg?v=crack-tip" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css?v=5b4ff8d7">
+<link rel="stylesheet" href="assets/style.css?v=710d63ef">
 </head>
 <body class="page-index">
 <header class="site">
@@ -29,6 +29,7 @@ a measurement.</p>
   <div class="feature-text">
     <p class="kicker">Featured case &middot; Level 1 &middot; Fracture mechanics</p>
     <h2>Drained at the tip, undrained at the crack</h2>
+    <div class="card-cta"><a class="button" href="case-studies/poroelastic-crack.html">Read the case study</a> <a class="button ghost" href="https://github.com/tengzhang48/mechanicsharness.org/tree/main/case-studies/poroelastic-crack">Get the files</a></div>
     <figure class="schem">
       <svg viewBox="0 0 460 172" role="img" aria-label="A crack of length 2L in a solid that is undrained at the crack scale, with a small drained region of size the square root of c t at each tip" xmlns="http://www.w3.org/2000/svg">
       <defs><marker id="sc-dim" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse"><path d="M6 3 L0 0 L0 6Z" class="sc-ink"/></marker></defs>
@@ -59,12 +60,12 @@ a measurement.</p>
   <figure class="feature-fig">
     <picture>
     <source media="(max-width: 700px)" srcset="assets/poroelastic-best-mobile.svg" width="576" height="436">
-    <img src="assets/poroelastic-best.svg" width="683" height="428" alt="Which of nine reference values the best run of each agent matched: GPT 9, Opus 5.5 9, Kimi K3 5, Kimi K3.1 5, GLM-5.3 7, DeepSeek reasoning on 5. All six matched the five crack-scale values. Only GPT and Opus matched the tip intensity.">
+    <img src="assets/poroelastic-best.svg" width="683" height="444" alt="Which of nine reference values the best run of each agent matched: GPT 9, Opus 5.5 9, Kimi K3 5, Kimi K3.1 5, GLM-5.3 7, DeepSeek reasoning on 5. All six matched the five crack-scale values. Only GPT and Opus matched the tip intensity.">
     </picture>
     <figcaption>Each row is an agent's best saved run, October 2026 (of three runs for GPT, Kimi K3, GLM-5.3 and DeepSeek, two
     for Kimi K3.1, one for Opus 5.5); a filled cell is a value within 1% of the corrected key (0.01
-    absolute for K&#8322;(0&#8314;), whose key value is 0). Key and checker as corrected on 26 October 2026; the case page,
-    with the task, the key and every saved answer, will be linked here. Also left out: three DeepSeek runs with reasoning off,
+    absolute for K&#8322;(0&#8314;), whose key value is 0). Key and checker as corrected on 26 October 2026; the case page has
+    the task, the key and every run's saved answer. Also left out: three DeepSeek runs with reasoning off,
     which matched two or three of the nine values and missed the drained-tip value.</figcaption>
   </figure>
 </section>
@@ -78,7 +79,8 @@ a measurement.</p>
     <h3>Classical problems</h3>
     <p>Analysis problems with known answers, from published papers. The agent derives and computes the asked quantities.</p>
     <ul class="rung-cases">
-      <li><a href="#featured">Fracture mechanics</a></li>
+      <li><a href="#poroelastic-crack">Poroelastic crack (Detournay and Cheng 1991)</a></li>
+      <li><a href="#xia-hutchinson-film">Thin-film cracking (Xia and Hutchinson 2000)</a></li>
     </ul>
   </div>
   <div class="rung rung-2">
@@ -123,6 +125,66 @@ built</a></p>
   </ol>
   <div class="flow-ref"><b>Independent reference</b>not shown to the agent<span class="flow-join"></span></div>
 </figure>
+</div>
+</section>
+<section class="sec">
+<h2>Fracture mechanics cases</h2>
+<div class="sec-body wide">
+<p>Level 1: problems from published fracture papers, given to the agents without the paper. Each case page shows the task,
+the key and what every agent did.</p>
+<div class="cards">
+  <article class="card" id="poroelastic-crack">
+    <div class="illustration">
+      <svg viewBox="0 0 64 60" aria-hidden="true" focusable="false">
+        <path class="g-hidden" d="M4 8H60V52H4Z"/>
+        <path class="g-edge" d="M15 30 Q32 23 49 30 Q32 37 15 30Z"/>
+        <circle class="sc-dr" cx="15" cy="30" r="8"/><circle class="sc-dr" cx="49" cy="30" r="8"/>
+      </svg>
+    </div>
+    <div class="cardbody">
+    <h3>Poroelastic crack: the tip just after loading</h3>
+    <div class="card-cta">
+      <a class="button" href="case-studies/poroelastic-crack.html">Read the case study</a>
+      <a class="button ghost" href="https://github.com/tengzhang48/mechanicsharness.org/tree/main/case-studies/poroelastic-crack">Get the files</a>
+    </div>
+    <p>A crack in a fluid-saturated solid is loaded suddenly. Given only the governing equations and the two loadings, the
+    agents were asked for the stress intensities and crack volumes at short and long times. Every run found the crack-scale
+    limits; only GPT and Opus 5.5 treated the tip as drained and found its intensity (the featured case above).</p>
+    <dl class="cardfooter">
+      <dt>Status</dt>
+      <dd>Released on 7 Nov 2026: the task, the key and its checker, every saved run, the grading and the records.</dd>
+      <dt>Source paper</dt>
+      <dd class="refs">E. Detournay and A. H.-D. Cheng (1991), <a href="https://doi.org/10.1016/0020-7683(91)90067-P"><i>Int. J. Solids Struct.</i> 27, 1645&ndash;1662</a>.</dd>
+    </dl>
+    </div>
+  </article>
+  <article class="card" id="xia-hutchinson-film">
+    <div class="illustration">
+      <svg viewBox="0 0 64 60" aria-hidden="true" focusable="false">
+        <path class="g-edge" d="M6 8H58V52H6Z"/>
+        <path class="g-edge" d="M16 8V52M32 8V52M48 8V52"/>
+        <path class="g-new" d="M24 52V30M40 52V30"/>
+      </svg>
+    </div>
+    <div class="cardbody">
+    <h3>Thin-film cracking: the energy of channel cracks</h3>
+    <div class="card-cta">
+      <a class="button" href="case-studies/xia-hutchinson-film.html">Read the case study</a>
+      <a class="button ghost" href="https://github.com/tengzhang48/mechanicsharness.org/tree/main/case-studies/xia-hutchinson-film">Get the files</a>
+    </div>
+    <p>A prestressed film on a bed of springs cracks along parallel lines. The agents were asked to rebuild the energy
+    release rates of Section 4.2 of the paper, including new cracks midway between old ones, without the paper. GPT and Kimi
+    rebuilt the paper&rsquo;s argument. DeepSeek&rsquo;s default run gave close values from a wrong argument, and its later
+    run exact values with two errors in its written argument.</p>
+    <dl class="cardfooter">
+      <dt>Status</dt>
+      <dd>Released on 7 Nov 2026: the task, the key and its checker, the five released runs, the grading and the records.</dd>
+      <dt>Source paper</dt>
+      <dd class="refs">Z. C. Xia and J. W. Hutchinson (2000), Crack patterns in thin films, <a href="https://doi.org/10.1016/S0022-5096(99)00081-2"><i>J. Mech. Phys. Solids</i> 48, 1107&ndash;1131</a>.</dd>
+    </dl>
+    </div>
+  </article>
+</div>
 </div>
 </section>
 <section class="sec">

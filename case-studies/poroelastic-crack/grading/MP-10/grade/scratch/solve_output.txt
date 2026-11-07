@@ -1,0 +1,59 @@
+======================================================================
+(a) Loading 1: sigma_n = -H(t), p = 0 on crack faces (permeable crack)
+======================================================================
+K1_0    = 1.0000000000   (x sqrt(pi L), per unit |sigma_n|)
+K1_inf  = 1.0000000000
+V1_0    = 1.8849555922   (x L^2/G)
+V1_inf  = 2.5132741229
+V1_short_coeff A = 1.1283791671
+p_faces_0 = 0.7490636704
+
+======================================================================
+(b) Loading 2: sigma_n = 0, p = H(t) on crack faces
+======================================================================
+K2_0    = 0.0000000000
+K2_inf  = 0.0000000000
+V2_inf  = 0.3399549584
+
+======================================================================
+CHECKS
+======================================================================
+
+[1] Elastic crack via Westergaard Z(z)=tau*(1-z/sqrt(z^2-L^2)), tau=-1 (pressure loading).
+    compare: sigma_yy(x,0) for x>L -> K_I = 1*sqrt(pi L); sigma_xx(face)=-1
+    x-L=1e-03: K_num/sqrt(pi L) = 0.956028, bias-corrected = 1.00074984  (-> 1.0)
+    x-L=1e-04: K_num/sqrt(pi L) = 0.985933, bias-corrected = 1.00007500  (-> 1.0)
+    x-L=1e-05: K_num/sqrt(pi L) = 0.995535, bias-corrected = 1.00000750  (-> 1.0)
+    x-L=1e-06: K_num/sqrt(pi L) = 0.998587, bias-corrected = 1.00000075  (-> 1.0)
+    sigma_xx on faces = ['-1.000000', '-1.000000', '-1.000000', '-1.000000']  (expect -1)
+    => sigma_kk(faces) = -2  => p_u(face)=2(nu_u-nu)/(alpha(1-2nu)) = 0.74906367
+    FAIL MODE: if the Westergaard function or K extraction were wrong, K_num would not converge to 1 or sigma_xx(face) != -1.
+
+[2] Crack volume from COD delta(x)=2(1-nu)*p*sqrt(L^2-x^2)/G:
+    V1_0 (nu_u): numeric = 1.8849555922, formula pi(1-nu) = 1.8849555922
+    V1_inf (nu): numeric = 2.5132741229, formula pi(1-nu) = 2.5132741229
+    FAIL MODE: mismatch of numeric integral vs closed form would mean wrong COD.
+
+[3] Steady loading-2 pore pressure p_ss=(2/pi)Re[arcsin(L/z)]:
+    Laplacian(p_ss) at 4 points = ['-4.44e-08', '-2.22e-08', '2.22e-08', '0.00e+00'] (expect ~0)
+    p_ss on slit (x,0+), x=0.3,0.6,0.9: [1.0, 1.0, 1.0] (expect 1)
+    p_ss at (x,y)=(5,5): 6.34e-02; (20,10): 2.55e-02 (expect ->0)
+    FAIL MODE: nonzero Laplacian or wrong boundary values would kill the sigma=0 steady solution of loading 2.
+
+[4] V2_inf: V = 4*c*L^2/pi with c=alpha(1-2nu)/(2G); check via I=int_0^L x*arccosh(L/x)dx = L^2/2 and u_y(x,0+)=c*(2/pi)*int_x^L arccosh(L/x')dx':
+    I_num = 0.5000000000  vs L^2/2 = 0.5
+    V2_inf numeric (2*int u_y dx) = 0.33995529 vs formula 0.33995496
+    FAIL MODE: disagreement would mean wrong swelling-displacement construction.
+
+[5] Loading-2 short-time skin sign/coeff (not requested, consistency): dV2 ~ -4*alpha(1-2nu)/((1-nu)sqrt(pi)) * sqrt(ct/L^2):
+    that coefficient = -1.50638619 (V2 dips <0 then -> +0.3400)
+
+[6] skin diffusion p=p**erf(y/(2 sqrt(ct))): check int_0^inf erfc(y/(2 sqrt(ct)))dy = 2 sqrt(ct)/sqrt(pi):
+    numeric = 0.01128379, 2*sqrt(ct)/sqrt(pi) = 0.01128379
+    => dV1 = 4L*alpha(1-2nu)*p0*sqrt(ct)/(G(1-nu)sqrt(pi)) -> A = 1.12837917
+    FAIL MODE: if the skin constant were wrong, A would not follow from this.
+
+[7] Biot consistency: B = 3(nu_u-nu)/(alpha(1-2nu)) = 1.12359551, p_u(face)=2B/3*sigma = 0.74906367
+    Skempton: p_u = -B*sigma_kk/3, sigma_kk(faces) = -2*sigma.
+
+results.json written.

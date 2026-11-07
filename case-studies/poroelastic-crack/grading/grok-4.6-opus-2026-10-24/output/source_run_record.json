@@ -1,0 +1,35 @@
+{
+  "launched_utc": "2026-10-24T13:48:42.470145+00:00",
+  "workspace": "<opus-workspace>",
+  "problem_sha256": "13a85960cb1886f0967ad17c9836a549cf6dbeeba21aa561dda25dc262a4f93a",
+  "prompt_sha256": "592442fa17b0fe01eaa1f0691f48a95c8084d81bc8880d1d4fcb288b1bbc5c36",
+  "same_problem_and_prompt_as_prepared_cli_trial": true,
+  "execution_mode": "Fresh general-purpose subagent spawned by a Claude Code session (Agent tool), model alias 'opus', effort 'max'.",
+  "deviations_from_prepared_cli_trial": [
+    "Not a standalone CLI session: the claude CLI was not logged in from the parent session's shell, so the prepared launcher could not authenticate.",
+    "Not --safe-mode; runs as a subagent inside the parent session's harness. The subagent receives only its prompt, but harness-level settings are the parent's.",
+    "Tool set is the general-purpose agent's (wider than Read/Write/Edit/Bash); the prompt forbids web browsing and other agents.",
+    "Prompt = exact prompt.txt text preceded by one sentence giving the absolute workspace path (cwd differs).",
+    "Tool calls auto-approved (no interactive permission prompts).",
+    "Session ID is the subagent's, not the prepared 18dc625a-2d76-4b8f-a822-f4d71b2dda1b.",
+    "Parent session did not read PROBLEM.md before launch."
+  ],
+  "prepared_cli_trial_left_unlaunched": "<home>/poroelastic-opus-unaided-2026-10-24",
+  "completed_utc": "2026-10-24T15:22:41.520005+00:00",
+  "subagent_duration_s": 5617.5,
+  "subagent_tokens": 385350,
+  "tool_calls": {
+    "Bash": 63,
+    "Edit": 6,
+    "Read": 3,
+    "Write": 1,
+    "ToolSearch": 1,
+    "Monitor": 1
+  },
+  "no_web_or_agent_tools_used": true,
+  "outputs": [
+    "workspace/ANSWER.md",
+    "workspace/results.json",
+    "workspace/code/"
+  ]
+}

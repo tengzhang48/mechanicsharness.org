@@ -1,0 +1,87 @@
+========================================================================
+MP-21  suddenly pressurized crack in a poroelastic solid
+nu=0.2  nu_u=0.4  alpha=0.89  G=1.0  L=1.0  (per unit loading magnitude)
+eta=(nu_u-nu)/(alpha(1-2nu)) = 0.374531835   beta_sw=alpha(1-2nu)/(2G) = 0.267000000
+========================================================================
+
+--- CHECK 1: elastic crack (DD collocation vs Westergaard vs analytic) ---
+equilibrium d(sigma_xx)/dx + d(tau_xy)/dy at (0.37L,0.53L) = -9.853e-11   (sigma_xx=-0.118703, sigma_yy=-0.819902)
+faces |x|/L = [-0.9 -0.5  0.   0.5  0.9]
+  sigma_xx(face) = [-1.002415 -1.000308 -0.9998   -0.999692 -0.997585]  (expect -1)
+  sigma_yy(face) = [-1. -1. -1. -1. -1.]  (expect -1)
+  -> sigma_kk(face) = -2  =>  p_u(face) = 2*eta = 0.749064  (p_faces_0)
+  K from sigma_yy(L+1e-02,0): raw = 1.535057, bias-corrected = 1.78571966  (expect 1.77245385)
+  K from sigma_yy(L+1e-03,0): raw = 1.694516, bias-corrected = 1.77378291  (expect 1.77245385)
+  K from sigma_yy(L+1e-04,0): raw = 1.747520, bias-corrected = 1.77258678  (expect 1.77245385)
+  u_y(x=0.0L) = 0.80000110  expect (1-nu)*sqrt(L^2-x^2)/G = 0.80000000
+  u_y(x=0.5L) = 0.69282252  expect (1-nu)*sqrt(L^2-x^2)/G = 0.69282032
+  u_y(x=0.9L) = 0.34871656  expect (1-nu)*sqrt(L^2-x^2)/G = 0.34871192
+  PV-identity test n=1: dense = 3.139740001  pi*U_(n-1)(a) = 3.141592654
+  PV-identity test n=2: dense = 1.883844001  pi*U_(n-1)(a) = 1.884955592
+  PV-identity test n=4: dense = -3.091727333  pi*U_(n-1)(a) = -3.091327171
+DD solve [uniform P0=1, drained nu]: K = 1.77245385, V = 2.51315776, rel.resid = 1.15e-14
+DD solve [uniform P0=1, undrained nu_u]: K = 1.77245385, V = 1.88486832, rel.resid = 2.39e-14
+DD solve [quadratic 1-(x/L)^2, drained nu]: K = 0.88622693, V = 1.88489739, rel.resid = 4.53e-15
+DD solve [quadratic 1-(x/L)^2, undrained nu_u]: K = 0.88622693, V = 1.41367304, rel.resid = 3.38e-15
+  expect: uniform load  K = 1.77245385, V(drain) = 2.51327412, V(undr) = 1.88495559
+  expect: quadratic load K = 0.88622693 (weight-function integral)
+
+--- CHECK 2: local 1D poroelastic drainage layer (small-time V growth) ---
+oedometer identity: 1-eta*alpha(1-2nu)/(1-nu) = 0.750000000000 ; (1-nu_u)/(1-nu) = 0.750000000000  -> p_t = c p_yy exactly (diffusivity is c)
+    t (c*t)    delta u_y(0,t) numeric   analytic 2(nu_u-nu)sqrt(ct)/(G sqrt(pi)(1-nu))  ratio
+  1.000e-07     5.06230550e-04        8.92062058e-05   5.674836
+  3.162e-07     5.19571465e-04        1.58633559e-04   3.275294
+  1.000e-06     5.60625189e-04        2.82094792e-04   1.987365
+  3.162e-06     6.80398778e-04        5.01643360e-04   1.356340
+  1.000e-05     9.87704262e-04        8.92062058e-04   1.107215
+  3.162e-05     1.63739768e-03        1.58633559e-03   1.032189
+  1.000e-04     2.84931401e-03        2.82094792e-03   1.010056
+  3.162e-04     5.03234265e-03        5.01643360e-03   1.003171
+  1.000e-03     8.92955458e-03        8.92062058e-03   1.001002
+  3.162e-03     1.58683750e-02        1.58633559e-02   1.000316
+  1.000e-02     2.82123006e-02        2.82094792e-02   1.000100
+  ratio -> 1 confirms the sqrt(t) surface displacement; then
+  V1(t) = V1_0 + 2L*(2*delta u_y)  =>  A = 8(nu_u-nu)/(sqrt(pi)(1-nu))
+  profile check at t=1.00e-02: max|p_num - 2*eta*erf(y/(2 sqrt(ct)))| = 1.626e-05  (p scale 0.749)
+
+--- CHECK 3: loading-2 long-time state ---
+ (a) FD Laplace box vs harmonic candidate g = 1 - Re[z/sqrt(z^2-L^2)]:
+   box X= 6.0:  p_FD(0.0,2.0) =  0.43488   g_harmonic =  0.10557
+   box X= 6.0:  p_FD(1.5,0.5) =  0.57400   g_harmonic = -0.16070
+   box X= 6.0:  min p_FD = 0.0000  (FD stays in [0,1]; g_harmonic is unbounded <0 at the tips)  -> different solutions
+   box X=12.0:  p_FD(0.0,2.0) =  0.55396   g_harmonic =  0.10557
+   box X=12.0:  p_FD(1.5,0.5) =  0.66383   g_harmonic = -0.16070
+   box X=12.0:  min p_FD = 0.0000  (FD stays in [0,1]; g_harmonic is unbounded <0 at the tips)  -> different solutions
+   => no decaying bounded steady state exists; the harmonic candidate is NOT
+      the parabolic limit (also: p_FD at interior points GROWS with box size)
+ (b) parabolic FD (slit at p=1, box X=30 held at p=0): fixed points -> 1
+   ct =   10.0:  p(0,2)=0.3957  p(0,5)=0.1102  p(3,3)=0.1572   (-> 1)
+   ct =   50.0:  p(0,2)=0.5271  p(0,5)=0.2731  p(3,3)=0.3208   (-> 1)
+   ct =  200.0:  p(0,2)=0.6034  p(0,5)=0.3858  p(3,3)=0.4276   (-> 1)
+   => p -> 1 pointwise; with sigma -> 0 the final state is uniform swelling
+      u = beta_sw*(x,y): zero relative face displacement -> K2_inf = 0, V2_inf = 0
+
+========================================================================
+REPORTED VALUES (K in units sqrt(pi L); V in units L^2/G; per unit load)
+========================================================================
+              K1_0 = 1.0000000000
+            K1_inf = 1.0000000000
+              V1_0 = 1.8849555922
+            V1_inf = 2.5132741229
+    V1_short_coeff = 1.1283791671
+         p_faces_0 = 0.7490636704
+              K2_0 = 0.0000000000
+            K2_inf = 0.0000000000
+            V2_inf = 0.0000000000
+  formulas:
+                K1_0 : K1(0+) = dP*sqrt(pi*L)  (undrained; SIF set by face tractions)
+              K1_inf : K1(inf) = dP*sqrt(pi*L)  (drained; same - SIF independent of time)
+                V1_0 : V1(0+) = pi*(1-nu_u)*dP*L^2/G
+              V1_inf : V1(inf) = pi*(1-nu)*dP*L^2/G
+      V1_short_coeff : A = 8*(nu_u-nu)/(sqrt(pi)*(1-nu));  V1 ~ V1_0 + A*(L^2/G)*sqrt(c*t/L^2)
+           p_faces_0 : p_faces(0+) = -eta*(sigma_xx+sigma_yy)|face = 2*(nu_u-nu)/(alpha*(1-2*nu))*dP
+                K2_0 : 0  (nothing has diffused at t=0+; no mechanical load)
+              K2_inf : 0  (p->1 pointwise, total stress ->0 everywhere)
+              V2_inf : V2(inf) = 0  (final state p=1, sigma=0, uniform swelling u=beta_sw*(x,y): no relative face displacement; transiently V2<0, closing like ~ -sqrt(ct))
+
+wrote results.json

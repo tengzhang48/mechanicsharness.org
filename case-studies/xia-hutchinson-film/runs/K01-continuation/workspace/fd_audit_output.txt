@@ -1,0 +1,11 @@
+=== FD PATH-SPREAD AUDIT: case A, H=2.0 (single re-solve) ===
+J_ahead mean            = -9.806389e-10   (target continuum value: 0)
+J_behind mean           = -3.464662e-01
+ahead   abs spread      = 7.917e-09   rel spread = 8.073e+00  (denominator |mean J| = 9.806e-10)
+behind  abs spread      = 5.616e-07   rel spread = 1.621e-06  (denominator |mean J| = 3.465e-01)
+ahead abs spread / (G h/2) = 2.285e-08  (absolute error relative to released energy)
+G_fd=0.692932 G_exact=0.693051 rel_err=-0.017%
+INTERPRETATION: the relative spread 8.07 is a divide-by-near-zero artifact:
+J_ahead mean ~ -1e-9 (continuum target 0), so the relative normalization inflates
+an absolute path variation of ~8e-9 (~2e-8 of the released energy G h/2).
+Path independence in the ahead region is in fact better than behind (5.6e-7 abs).

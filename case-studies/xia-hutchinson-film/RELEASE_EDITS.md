@@ -1,0 +1,157 @@
+# Changes made for this release
+
+Every file here is as saved at the time, except for the changes listed below. Machine paths were replaced by a
+label in angle brackets, for example `<volume-2>`; excerpts are marked inside the file. In the HTML records,
+links to files in this package were re-pointed, and links to files not released were removed, keeping their
+text. The original of every file is kept in the private repository; its SHA-256 is recorded there.
+
+- `DECISION_PROBLEM_TEXT_2026-10-29.md`
+  - machine path replaced by <source paper PDF, not included>
+- `audit_2026-10-25/AUDIT.md`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <solver-runs>
+  - machine path replaced by <volumes>
+- `audit_2026-10-25/audit.json`
+  - machine path replaced by <pilot-folder> (16 times)
+  - machine path replaced by <solver-runs>
+  - machine path replaced by <review-runs>
+- `grading/D01-replay/replay/CHECKPOINT_REPLAY.json`
+  - machine path replaced by <pilot-folder>
+- `grading/D01-replay/replay/FINAL_REPLAY.json`
+  - machine path replaced by <pilot-folder> (3 times)
+- `grading/D01-replay/replay/FINAL_REPLAY_check_A_H_OUTPUT.txt`
+  - machine path replaced by <pilot-folder>
+- `grading/D01-replay/replay/FINAL_REPLAY_check_B_conv_OUTPUT.txt`
+  - machine path replaced by <pilot-folder>
+- `grading/D01-replay/replay/FINAL_REPLAY_check_j2d_cases_OUTPUT.txt`
+  - machine path replaced by <pilot-folder>
+- `grading/D01-replay/replay/final_replay/check_A_H_output.txt`
+  - machine path replaced by <solver-runs>
+- `grading/D01-replay/replay/final_replay/check_B_conv_output.txt`
+  - machine path replaced by <solver-runs>
+- `grading/D01-replay/replay/final_replay/check_j2d_cases_output.txt`
+  - machine path replaced by <solver-runs>
+- `grading/D01-replay/replay/final_replay/check_j2d_output.txt`
+  - machine path replaced by <solver-runs>
+- `grading/R01/records/R01_BLIND_PREPARATION.json`
+  - machine path replaced by <review-runs>
+- `grading/R03/records/R03_BLIND_PREPARATION.json`
+  - machine path replaced by <review-runs>
+- `grading/R03/records/R03_REVIEW_REPLAY.json`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <review-runs>
+- `grading/R04/records/R04_BLIND_PREPARATION.json`
+  - machine path replaced by <review-runs>
+- `grading/R04/records/R04_REVIEW_REPLAY.json`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <review-runs>
+- `grading/R05/output/PRELAUNCH_VALIDATION.json`
+  - machine path replaced by <pilot-folder> (2 times)
+  - machine path replaced by <review-runs> (2 times)
+- `grading/R05/output/REVIEWER_REPLAY_OUTPUT.txt`
+  - machine path replaced by <pilot-folder> (2 times)
+- `grading/R05/output/SETUP.json`
+  - machine path replaced by <pilot-folder> (3 times)
+  - machine path replaced by <review-runs> (3 times)
+  - machine path replaced by <home>
+- `grading/R05/output/controller.launch.json`
+  - machine path replaced by <pilot-folder> (2 times)
+  - machine path replaced by <review-runs> (2 times)
+- `grading/R05/output/controller.phase1.exit.json`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/controller.phase1.launch.json`
+  - machine path replaced by <pilot-folder> (2 times)
+  - machine path replaced by <review-runs> (3 times)
+- `grading/R05/output/controller.phase2.exit.json`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/controller.phase2.launch.json`
+  - machine path replaced by <pilot-folder> (2 times)
+  - machine path replaced by <review-runs> (3 times)
+- `grading/R05/output/controller.phase3.exit.json`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/controller.phase3.launch.json`
+  - machine path replaced by <pilot-folder> (2 times)
+  - machine path replaced by <review-runs> (3 times)
+- `grading/R05/output/controller.phases/01-initial_analysis.archive.json`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/controller.phases/01-initial_analysis/factual_replay/FINAL_REPLAY_check_A_H_OUTPUT.txt`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/controller.phases/01-initial_analysis/factual_replay/FINAL_REPLAY_check_B_conv_OUTPUT.txt`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/controller.phases/01-initial_analysis/factual_replay/FINAL_REPLAY_check_j2d_cases_OUTPUT.txt`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/controller.phases/02-checkpoint_report.archive.json`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/controller.phases/02-checkpoint_report/factual_replay/FINAL_REPLAY_check_A_H_OUTPUT.txt`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/controller.phases/02-checkpoint_report/factual_replay/FINAL_REPLAY_check_B_conv_OUTPUT.txt`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/controller.phases/02-checkpoint_report/factual_replay/FINAL_REPLAY_check_j2d_cases_OUTPUT.txt`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/controller.phases/03-continued_analysis.archive.json`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/controller.phases/03-continued_analysis/factual_replay/FINAL_REPLAY_check_A_H_OUTPUT.txt`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/controller.phases/03-continued_analysis/factual_replay/FINAL_REPLAY_check_B_conv_OUTPUT.txt`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/controller.phases/03-continued_analysis/factual_replay/FINAL_REPLAY_check_j2d_cases_OUTPUT.txt`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/controller.result.json`
+  - machine path replaced by <pilot-folder> (3 times)
+- `grading/R05/output/factual_replay/FINAL_REPLAY_check_A_H_OUTPUT.txt`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/factual_replay/FINAL_REPLAY_check_B_conv_OUTPUT.txt`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/factual_replay/FINAL_REPLAY_check_j2d_cases_OUTPUT.txt`
+  - machine path replaced by <pilot-folder>
+- `grading/R05/output/public_opencode.py`
+  - machine path replaced by <home>
+- `grading/S02-replay/replay/S02-replay.launch.json`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <review-runs>
+- `grading/S02-replay/replay/S02-replay.stderr`
+  - machine path replaced by <review-runs>
+- `grading/key-reference-review/output/check_independent_output.txt`
+  - machine path replaced by <review-runs>
+- `key/reference_frozen/REVIEW_check_independent_output.txt`
+  - machine path replaced by <review-runs>
+- `records/Case_Studies_Review_2026-10-23.html`
+  - excerpt: sections verdict, patterns, diffusion, hydraulic, poro, visco, mr and index, the limit and the scripts of the other cases, the reviewed-copies paragraph and the in-page navigation left out; a note says so
+  - navigation link to the case library index now points to the case page, with the text "← Xia–Hutchinson film case"
+  - description tag added to the page head
+  - machine path replaced by <volume>
+- `records/Case_Studies_Review_Response_2026-10-23.html`
+  - excerpt: table rows of the five other cases, the qualifications section and the account of checks left out; a note says so
+  - navigation link to the case library index now points to the case page, with the text "← Xia–Hutchinson film case"
+  - navigation link to the case library index now points to the case page, with the text "← Xia–Hutchinson film case"
+  - navigation link to the case library index now points to the case page, with the text "← Xia–Hutchinson film case"
+- `records/SOLVER_LAUNCHES.json`
+  - machine path replaced by <solver-runs> (7 times)
+- `runs/D01/records/PRELAUNCH_VALIDATION.json`
+  - machine path replaced by <pilot-folder> (2 times)
+  - machine path replaced by <solver-runs>
+  - machine path replaced by <review-runs>
+- `runs/D01/records/SETUP.json`
+  - machine path replaced by <pilot-folder> (3 times)
+  - machine path replaced by <solver-runs> (2 times)
+  - machine path replaced by <review-runs>
+  - machine path replaced by <home>
+- `runs/D01/records/public_opencode.py`
+  - machine path replaced by <home>
+- `runs/D01/workspace/check_A_H_output.txt`
+  - machine path replaced by <solver-runs>
+- `runs/D01/workspace/check_B_conv_output.txt`
+  - machine path replaced by <solver-runs>
+- `runs/D01/workspace/check_j2d_cases_output.txt`
+  - machine path replaced by <solver-runs>
+- `runs/D01/workspace/check_j2d_output.txt`
+  - machine path replaced by <solver-runs>
+- `runs/K01-continuation/records/LAUNCH_STATUS.json`
+  - machine path replaced by <solver-runs> (2 times)
+- `runs/K01-continuation/records/SETUP.json`
+  - machine path replaced by <solver-runs>
+- `task/D01/SETUP.json`
+  - machine path replaced by <pilot-folder> (3 times)
+  - machine path replaced by <solver-runs> (2 times)
+  - machine path replaced by <review-runs>
+  - machine path replaced by <home>

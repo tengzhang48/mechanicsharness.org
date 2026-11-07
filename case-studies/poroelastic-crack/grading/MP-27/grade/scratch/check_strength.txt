@@ -1,0 +1,11 @@
+Deliberately broken quadrature returns (0,0): check 1 passes=True; check 2 passes=False
+check 1: (1/pi)PVInt ds/(s-x) vs ln((1-x)/(1+x))/pi
+   x=+0.921061  num=-1.01603161  exact=-1.01603161
+   x=+0.362358  num=-0.24165919  exact=-0.24165919
+   x=-0.416147  num=+0.28203703  exact=+0.28203703
+   x=-0.904072  num=+0.95115886  exact=+0.95115886
+check 2: (1/pi)PVInt sqrt(1-s^2)/(s-x) ds vs -x
+   x=+0.921061  num=-0.39566134  exact=-0.92106099
+   x=+0.362358  num=-0.22523581  exact=-0.36235775
+   x=-0.416147  num=+0.25645554  exact=+0.41614684
+   x=-0.904072  num=+0.40650616  exact=+0.90407214

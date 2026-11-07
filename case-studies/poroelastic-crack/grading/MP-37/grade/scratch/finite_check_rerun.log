@@ -1,0 +1,16 @@
+Independent full mixed-boundary FFT check; expected A~2.4397; face-only A~1.354
+GRID box=64 N=1048576 dx=6.10351562e-05 crack_points=32768 V0_grid=1.88575682365 V0_infinite=1.88495559215
+RESULT s=100000 V=1.8921127108 A_grid=2.267938310 A_raw=2.553837596 sqrt_s_dx=0.019301 iterations=10 relres=6.79e-11 info=0 seconds=2.25
+RESULT s=1e+06 V=1.88782363585 A_grid=2.332147838 A_raw=3.236240762 sqrt_s_dx=0.0610352 iterations=9 relres=1.81e-10 info=0 seconds=2.16
+RESULT s=1e+07 V=1.88641464428 A_grid=2.347267300 A_raw=5.206260155 sqrt_s_dx=0.19301 iterations=9 relres=1.53e-10 info=0 seconds=2.22
+GRID box=64 N=2097152 dx=3.05175781e-05 crack_points=65536 V0_grid=1.88573494592 V0_infinite=1.88495559215
+RESULT s=100000 V=1.89209563014 A_grid=2.269650024 A_raw=2.547742792 sqrt_s_dx=0.00965051 iterations=11 relres=6.95e-12 info=0 seconds=7.42
+RESULT s=1e+06 V=1.88780694387 A_grid=2.337999326 A_raw=3.217405874 sqrt_s_dx=0.0305176 iterations=9 relres=1.29e-10 info=0 seconds=5.53
+RESULT s=1e+07 V=1.88639815291 A_grid=2.366487192 A_raw=5.147414873 sqrt_s_dx=0.0965051 iterations=10 relres=7.26e-12 info=0 seconds=6.89
+First-order dx extrapolation from last two grids (assumed, not guaranteed):
+EXTRAP s=100000 A_dx0=2.271361738
+EXTRAP s=1e+06 A_dx0=2.343850813
+EXTRAP s=1e+07 A_dx0=2.385707083
+FIT empirical powers s^(-1/4) degree=1 A_limit=2.438239292 max_fit_residual=0.000454
+FIT empirical powers s^(-1/4) degree=2 A_limit=2.440642227 max_fit_residual=4.88e-15
+Failure modes: finite periodic box; unresolved diffusion/tip layer when sqrt(s)*dx is large; midpoint sqrt-tip bias and singular flux; finite-s asymptotics; CG residual is not a discretization error bound. A_grid subtracts a same-grid undrained reference, not a factorization-derived correction.

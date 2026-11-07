@@ -1,0 +1,56 @@
+{
+  "K1_0": {
+    "submitted": 1.0,
+    "key": 0.807593,
+    "abs_error": 0.192407,
+    "in_band": false
+  },
+  "K1_inf": {
+    "submitted": 1.0,
+    "key": 1.0,
+    "abs_error": 0.0,
+    "in_band": true
+  },
+  "V1_0": {
+    "submitted": 3.7699111843077517,
+    "key": 1.8849555921538759,
+    "abs_error": 1.8849555921538759,
+    "in_band": false
+  },
+  "V1_inf": {
+    "submitted": 5.026548245743669,
+    "key": 2.5132741228718345,
+    "abs_error": 2.5132741228718345,
+    "in_band": false
+  },
+  "V1_short_coeff": {
+    "submitted": 1.4179630807244128,
+    "key": 2.44022,
+    "abs_error": 1.0222569192755873,
+    "in_band": false
+  },
+  "p_faces_0": {
+    "submitted": 1.2484394506866416,
+    "key": 0.7490636704119851,
+    "abs_error": 0.49937578027465657,
+    "in_band": false
+  },
+  "K2_0": {
+    "submitted": 0.0,
+    "key": 0.0,
+    "abs_error": 0.0,
+    "in_band": true
+  },
+  "K2_inf": {
+    "submitted": 0.0,
+    "key": -0.33375,
+    "abs_error": 0.33375,
+    "in_band": false
+  },
+  "V2_inf": {
+    "submitted": 4.473627938711865,
+    "key": -0.8388052385084748,
+    "abs_error": 5.31243317722034,
+    "in_band": false
+  }
+}

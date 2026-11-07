@@ -161,6 +161,7 @@ ol.steps li::before {
 .illustration svg { height: 92px; width: auto; }
 .g-edge { fill: none; stroke: #2c3a44; stroke-width: 1.5; stroke-linejoin: round; }
 .g-hidden { fill: none; stroke: #9aa5ad; stroke-width: 1.2; stroke-dasharray: 3 3; }
+.g-new { fill: none; stroke: #c0562f; stroke-width: 1.5; }
 .g-node circle { fill: #ffffff; stroke: var(--ink); stroke-width: 1.4; }
 .cardbody { display: flex; flex-direction: column; flex: 1; padding: 18px 22px 21px; }
 .card h3 { font-size: 24px; line-height: 1.2; margin: 0 0 12px; }

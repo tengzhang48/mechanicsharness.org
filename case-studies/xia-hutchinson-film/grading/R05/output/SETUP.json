@@ -1,0 +1,76 @@
+{
+  "prepared_at_utc": "2026-10-15T23:52:36.483479+00:00",
+  "review_id": "R05",
+  "submission_under_review": "D01",
+  "requested_by_user": "please check opus summary and assign Grok to grade DeepSeek work",
+  "grader": "azure/grok-4.6",
+  "work_variant": "high",
+  "report_variant": "low",
+  "work_directory": "<review-runs>/reviews/R05/work",
+  "launch_command": [
+    "<home>/miniconda3/bin/python3",
+    "<pilot-folder>/reviews/R05/review_run.py",
+    "--model",
+    "azure/grok-4.6",
+    "--folder",
+    "<review-runs>/reviews/R05/work",
+    "--logbase",
+    "<pilot-folder>/reviews/R05/controller",
+    "--runner",
+    "<pilot-folder>/reviews/R05/public_opencode.py",
+    "--guard",
+    "<review-runs>/execution_guard",
+    "--supported-variants",
+    "high",
+    "low",
+    "medium",
+    "none",
+    "xhigh",
+    "--work-variant",
+    "high",
+    "--report-variant",
+    "low",
+    "--profile-evidence",
+    "Same azure/grok-4.6 profile as original R01-R04; MODEL_CAPABILITIES.json lists high/low",
+    "--first-analysis-seconds",
+    "480",
+    "--checkpoint-seconds",
+    "600",
+    "--final-handoff-seconds",
+    "1200",
+    "--total-seconds",
+    "1500"
+  ],
+  "reference": "Unchanged previously frozen external reference",
+  "rubric_sha256": "8f03764996c585305e929645a92cedfd060a3ae0b00e5e8c8c02ca3e13a9dc52",
+  "problem_sha256": "ff71c35e326a323596567ae22e39df5df7907eefc3037cea2e5d64e37ec3b2ea",
+  "submission_source": "followup_runs/D01_direct_thinking_2026-10-15/completed_work",
+  "identity_and_coordinator_measured_solver_runtime_supplied": false,
+  "solver_written_timestamps_retained": true,
+  "prior_coordinator_findings_supplied": false,
+  "prior_summary_or_peer_grades_supplied": false,
+  "desired_grades_supplied": false,
+  "redactions": [
+    {
+      "file": "check_A_H_output.txt",
+      "kind": "Absolute operational path replaced with neutral submission label; scientific values unchanged"
+    },
+    {
+      "file": "check_B_conv_output.txt",
+      "kind": "Absolute operational path replaced with neutral submission label; scientific values unchanged"
+    },
+    {
+      "file": "check_j2d_cases_output.txt",
+      "kind": "Absolute operational path replaced with neutral submission label; scientific values unchanged"
+    },
+    {
+      "file": "check_j2d_output.txt",
+      "kind": "Absolute operational path replaced with neutral submission label; scientific values unchanged"
+    }
+  ],
+  "excluded_operational_cache": "__pycache__",
+  "review_budget_seconds": 1500,
+  "original_grades_replaced": false,
+  "scientific_grade": null,
+  "isolation": "Input discipline and named-command guard; shared Unix account, not OS isolation"
+}

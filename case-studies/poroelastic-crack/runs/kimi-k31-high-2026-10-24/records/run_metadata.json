@@ -1,0 +1,26 @@
+{
+  "started_utc": "2026-10-24T12:18:07.483394+00:00",
+  "model": "kimi-code/k3.1-pro",
+  "workspace": "<home>/poroelastic-kimi-k31-2026-10-24/workspace",
+  "source_problem": "<pilot-folder>/PROBLEM.md",
+  "problem_sha256": "13a85960cb1886f0967ad17c9836a549cf6dbeeba21aa561dda25dc262a4f93a",
+  "input_files": [
+    "PROBLEM.md"
+  ],
+  "conditions": "Fresh CLI session; skills disabled; no references, previous answers, web research or other-agent help; own derivation and local computation allowed.",
+  "session_id": "session_011ed4df-7e2b-4c6a-b520-2006f5ca0f1b",
+  "cli_version": "2.3.1",
+  "thinking_effort": "high",
+  "actual_started_utc": "2026-10-24T12:18:15.110000+00:00",
+  "actual_completed_utc": "2026-10-24T12:26:07.119000+00:00",
+  "duration_seconds": 471.888,
+  "submission_sha256": {
+    "ANSWER.md": "336b6575c23a125ed2120dcfdcdd9553a335deadb8ae208ae51becd5d3528ff2",
+    "PROBLEM.md": "13a85960cb1886f0967ad17c9836a549cf6dbeeba21aa561dda25dc262a4f93a",
+    "results.json": "a181e3cece01d895f1f5ebc83b0621885c818f9367af370fe4f0affe8fdd073f",
+    "verify.py": "28841eab67e7eb289bed73c419b2e4a89572aa1262295eceea480ac2c925bc0f"
+  },
+  "completion_status": "completed",
+  "comparison_reference_was_supplied_to_solver": false,
+  "cli_setup_note": "The CLI rejected --auto combined with --prompt before starting a session. The single completed run used prompt mode without --auto."
+}

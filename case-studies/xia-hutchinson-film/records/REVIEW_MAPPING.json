@@ -1,0 +1,12 @@
+{
+  "created_at_utc": "2026-10-15T13:20:53.160148+00:00",
+  "selection": "Deterministic permutation seed20261015; only identity masking, not a scientific choice",
+  "review_to_solver": {
+    "R01": "S02",
+    "R02": "S03",
+    "R03": "S01",
+    "R04": "S04"
+  },
+  "not_supplied_to_reviewers": true,
+  "subscription_extension_selection": "Fresh masked independent review of original S04 partial files, appended after the three initial reviews; no expected verdict supplied."
+}

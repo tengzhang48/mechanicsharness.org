@@ -1,0 +1,84 @@
+{
+  "recorded_at_utc": "2026-10-16T00:11:54.755850+00:00",
+  "review": "R05",
+  "submission": "D01",
+  "grader": "azure/grok-4.6",
+  "outcome": "natural_analysis_exit; delivery audited, no repair retry",
+  "ended_at_utc": "2026-10-16T00:11:11.779625+00:00",
+  "elapsed_seconds": 1111.151138385001,
+  "error": null,
+  "grade_status": "final",
+  "judgments": [
+    {
+      "id": 1,
+      "name": "wake_formulation_and_fields",
+      "verdict": "right",
+      "reason": "Decay length ell=sqrt(h Ebar/k); ahead/behind fields and total-traction strip edges match PROBLEM.md for both geometries.",
+      "evidence": "submission/ANSWER.md \u00a71-2; compute.py; factual_replay/CHECKPOINT_REPLAY_OUTPUT.txt",
+      "deciding_check": "replay u2'(faces)=-sigma0/Ebar; reviewer FEM natural slopes -> -1"
+    },
+    {
+      "id": 2,
+      "name": "energy_release",
+      "verdict": "right",
+      "reason": "GA, GB, period, moving-tip count and /h are correct. ANSWER.md L88-90 wrongly claims int h sigma0 eps_gg=0; compute.py includes the term and yields tanh.",
+      "evidence": "submission/ANSWER.md \u00a74; compute.py W_dens; review_check_independent_output.txt",
+      "deciding_check": "FEM gamma_A=-I(H), gamma_B=I(2H)-2I(H); int v' != 0 at all four samples"
+    },
+    {
+      "id": 3,
+      "name": "fracture_modes_and_intensities",
+      "verdict": "right",
+      "reason": "Pure mode I by reflection; G=KI^2/E; kI=sqrt((1-nu^2) gamma).",
+      "evidence": "submission/ANSWER.md \u00a73,5; results.json",
+      "deciding_check": "8 intensity samples vs sqrt(0.91*gamma) at 1e-12"
+    },
+    {
+      "id": 4,
+      "name": "propagation_thresholds_and_limits",
+      "verdict": "right",
+      "reason": "sigma_c and small/large H/ell limits at fixed h,E,nu,k; mechanical meaning consistent with the expressions.",
+      "evidence": "submission/ANSWER.md \u00a76; results.json limits",
+      "deciding_check": "FEM H/ell=0.02,0.05 vs H/(2ell) and H^3/(4 ell^3); H/ell=8,16 -> 1"
+    },
+    {
+      "id": 5,
+      "name": "requested_numerical_values",
+      "verdict": "right",
+      "reason": "Sixteen samples at requested normalization and ell/H locations.",
+      "evidence": "submission/results.json rows",
+      "deciding_check": "16/16 vs tanh/sqrt at 1e-12; 16/16 vs P1 FEM at 1e-6"
+    },
+    {
+      "id": 6,
+      "name": "verification_and_reproducibility",
+      "verdict": "right",
+      "reason": "Executed 1D checks share the 1D reduction. 2D J is a separate route (replay exit 0, IntegrationWarning). Reviewer FEM independently recovers the stated energy. Command success is not a scientific verdict.",
+      "evidence": "checks.py; factual_replay/*; review_check_independent_output.txt; REPRODUCE.md",
+      "deciding_check": "C1 omit foundation |d gamma_A| up to 0.17; C2 incremental traction v=0; FEM O(h^2) conv ratio 4.02"
+    },
+    {
+      "id": 7,
+      "name": "physical_scope_and_uncertainty",
+      "verdict": "partly",
+      "reason": "States linear Winkler / bonding / missing Gc. Omits wavenumber-dependent half-space vs k, isolated-crack calibration content, and that dense-array limits are not automatically real-substrate physics.",
+      "evidence": "submission/ANSWER.md \u00a78",
+      "deciding_check": "PROBLEM.md item 5 and rubric item 7 vs submitted scope text"
+    }
+  ],
+  "verdict_counts": {
+    "right": 6,
+    "partly": 1
+  },
+  "numeric_agreement_count": 16,
+  "numeric_agreement_of": 16,
+  "delivery_aliases_identical": true,
+  "input_files_modified": [],
+  "coordinator_findings_supplied": false,
+  "desired_grades_supplied": false,
+  "original_grades_replaced": false,
+  "grade_file_sha256": "60bdd3a7543d832249e18fa60c3c508c78ffb1605d84e1d3ea16dc478160aa6d",
+  "report_file_sha256": "ef4b83159a3b508938975ba8a5327fcca2fadf05a095de5886c4daa46bb3b7cc",
+  "replay_status": "passed",
+  "replay_record": "REVIEWER_REPLAY.json"
+}

@@ -1,0 +1,58 @@
+{
+  "created_at_utc": "2026-10-15T21:18:30.615892+00:00",
+  "attempt": "D01",
+  "scope": "Fresh direct-API thinking-enabled follow-up, not a controlled off/on comparison",
+  "model": "deepseek/deepseek-flash",
+  "thinking": {
+    "type": "enabled",
+    "reasoningEffort": "high"
+  },
+  "work_directory": "<solver-runs>/followup_runs/D01_direct_thinking_2026-10-15/work",
+  "launch_command": [
+    "<home>/miniconda3/bin/python3",
+    "<pilot-folder>/followup_runs/D01_direct_thinking_2026-10-15/direct_run.py",
+    "--model",
+    "deepseek/deepseek-flash",
+    "--folder",
+    "<solver-runs>/followup_runs/D01_direct_thinking_2026-10-15/work",
+    "--logbase",
+    "<pilot-folder>/followup_runs/D01_direct_thinking_2026-10-15/controller",
+    "--runner",
+    "<pilot-folder>/followup_runs/D01_direct_thinking_2026-10-15/public_opencode.py",
+    "--guard",
+    "<review-runs>/execution_guard",
+    "--supported-variants",
+    "high",
+    "--work-variant",
+    "high",
+    "--report-variant",
+    "high",
+    "--profile-evidence",
+    "Direct DeepSeek high thinking configuration verified by LIVE_PROBE_DIRECT.json (61 reasoning tokens); not historical Azure mode",
+    "--first-analysis-seconds",
+    "300",
+    "--checkpoint-seconds",
+    "360",
+    "--final-handoff-seconds",
+    "2700",
+    "--total-seconds",
+    "3000"
+  ],
+  "scientific_inputs": {
+    "PROBLEM.md": "ff71c35e326a323596567ae22e39df5df7907eefc3037cea2e5d64e37ec3b2ea",
+    "TASK.md": "e88f52976d49c25210efbf50fab8e64c01707fe84fbf7189727d983622d98cc6"
+  },
+  "workflow_input_sha256": "844a3678be014ce6d6b2682748851dede27575119e47d3ecf116cdd5c0e1c592",
+  "inputs_from_original_unchanged": true,
+  "reference_or_peer_outputs_supplied": false,
+  "reporting_schedule_seconds": [
+    300,
+    360,
+    2700,
+    3000
+  ],
+  "configuration_probe_scientific_result": false,
+  "old_thinking_mode_unverified": true,
+  "scientific_grade": null,
+  "isolation": "Input discipline and named-command guard; shared Unix account, not OS isolation"
+}

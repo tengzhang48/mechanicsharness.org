@@ -1,0 +1,9 @@
+{"at_utc": "2026-10-15T23:52:40.633921+00:00", "elapsed_seconds": 0.005436593957711011, "type": "controller_started"}
+{"at_utc": "2026-10-15T23:52:40.635570+00:00", "elapsed_seconds": 0.007083890959620476, "number": 1, "phase": "initial_analysis", "pid": 521286, "resumed_session_id": null, "type": "phase_started"}
+{"at_utc": "2026-10-16T00:00:38.700956+00:00", "elapsed_seconds": 478.072470939951, "exit_code": 124, "phase": "initial_analysis", "reason": "timeout", "type": "phase_ended"}
+{"at_utc": "2026-10-16T00:00:38.703077+00:00", "elapsed_seconds": 478.07459048798773, "number": 2, "phase": "checkpoint_report", "pid": 522907, "resumed_session_id": "ses_ebe048688ffeeex4aEn3agY8MX", "type": "phase_started"}
+{"at_utc": "2026-10-16T00:02:38.656778+00:00", "elapsed_seconds": 598.0282941569458, "exit_code": 124, "phase": "checkpoint_report", "reason": "timeout", "type": "phase_ended"}
+{"at_utc": "2026-10-16T00:02:38.658637+00:00", "elapsed_seconds": 598.0301504489616, "number": 3, "phase": "continued_analysis", "pid": 523227, "resumed_session_id": "ses_ebe048688ffeeex4aEn3agY8MX", "type": "phase_started"}
+{"at_utc": "2026-10-16T00:02:40.662375+00:00", "elapsed_seconds": 600.0338928719866, "model_report_present": true, "type": "checkpoint_snapshot"}
+{"at_utc": "2026-10-16T00:11:11.779517+00:00", "elapsed_seconds": 1111.1510322949616, "exit_code": 0, "phase": "continued_analysis", "reason": "natural_exit", "type": "phase_ended"}
+{"at_utc": "2026-10-16T00:11:11.780920+00:00", "elapsed_seconds": 1111.1524341689656, "outcome": "natural_analysis_exit; delivery audited, no repair retry", "type": "controller_finished"}

@@ -1,0 +1,56 @@
+{
+  "problem": "Energy release for periodic cracks in an elastic film on an elastic foundation",
+  "nu_used": 0.3,
+  "definitions": {
+    "Ebar": "E/(1-nu^2)",
+    "ell": "sqrt(h*Ebar/k)  (crack-wake decay length)",
+    "beta": "H/(2*ell)",
+    "gamma_A": "GA*Ebar/(sigma0^2*ell)",
+    "gamma_B": "GB*Ebar/(sigma0^2*ell)",
+    "kI_A": "KI_A/(sigma0*sqrt(ell))",
+    "kI_B": "KI_B/(sigma0*sqrt(ell))",
+    "relation": "G=(KI^2+KII^2)/E with KII=0; kI=sqrt(gamma*(1-nu^2))"
+  },
+  "formulas": {
+    "gamma_A": "tanh(H/(2*ell))",
+    "gamma_B": "2*tanh(H/(2*ell)) - tanh(H/ell)",
+    "GA": "(sigma0^2*ell/Ebar)*tanh(H/(2*ell))",
+    "GB": "(sigma0^2*ell/Ebar)*(2*tanh(H/(2*ell))-tanh(H/ell))",
+    "kI_A": "sqrt((1-nu^2)*tanh(H/(2*ell)))",
+    "kI_B": "sqrt((1-nu^2)*(2*tanh(H/(2*ell))-tanh(H/ell)))",
+    "sigma0_c_A": "sqrt(Gc*Ebar/(ell*tanh(H/(2*ell))))",
+    "sigma0_c_B": "sqrt(Gc*Ebar/(ell*(2*tanh(H/(2*ell))-tanh(H/ell))))"
+  },
+  "rows": [
+    {"ell_over_H": 0.5, "gamma_A": 0.7615941559557649, "gamma_B": 0.5591607318357129, "kI_A": 0.8324966558009383, "kI_B": 0.7133276007351032},
+    {"ell_over_H": 1.0, "gamma_A": 0.46211715726000974, "gamma_B": 0.16264015856425462, "kI_A": 0.6484802333969856, "kI_B": 0.38471098800719444},
+    {"ell_over_H": 1.5, "gamma_A": 0.32151273753163434, "gamma_B": 0.06024252971535857, "kI_A": 0.5409034952316237, "kI_B": 0.23413821140722907},
+    {"ell_over_H": 2.0, "gamma_A": 0.24491866240370913, "gamma_B": 0.027720167547408525, "kI_A": 0.4720974293378172, "kI_B": 0.1588249113588349}
+  ],
+  "limits": {
+    "gamma_A_H_over_ell_to_0": "H/(2*ell)",
+    "gamma_A_H_over_ell_to_inf": 1.0,
+    "gamma_B_H_over_ell_to_0": "H^3/(4*ell^3)",
+    "gamma_B_H_over_ell_to_inf": 1.0,
+    "sigma0_c_A_H_to_0": "sqrt(2*Gc*Ebar/H)",
+    "sigma0_c_A_H_to_inf": "sqrt(Gc*Ebar/ell)",
+    "sigma0_c_B_H_to_0": "sqrt(4*Gc*ell^2*Ebar/H^3)",
+    "sigma0_c_B_H_to_inf": "sqrt(Gc*Ebar/ell)"
+  },
+  "checks": [
+    {"name": "energy_quadrature_vs_closed_form", "output": "max relative error 1.5e-16 over H in {0.1,0.25,0.5,1,2,5}", "tolerance": 1e-9, "pass": true},
+    {"name": "wake_ode_residual", "output": "max |u2''-u2/ell^2| = 7.0e-7 (finite difference)", "tolerance": 1e-4, "pass": true},
+    {"name": "traction_free_strip_edges", "output": "max |sigma22(edge)| = 0.0", "tolerance": 1e-10, "pass": true},
+    {"name": "independent_bvp_solve_vs_closed_form", "output": "max |u2_num-u2_exact| = 9.33e-11", "tolerance": 1e-6, "pass": true},
+    {"name": "integration_by_parts_identity", "output": "max relative difference = 1.2e-16", "tolerance": 1e-8, "pass": true},
+    {"name": "small_H_limits", "output": "gamma_A~beta; gamma_B~2beta^3 confirmed at H=1e-3,1e-2", "tolerance": 1e-6, "pass": true},
+    {"name": "large_H_limits", "output": "gamma_A,gamma_B -> 1.0", "tolerance": 1e-9, "pass": true},
+    {"name": "G_equals_K2_over_E", "output": "gamma recovered from kI exactly", "tolerance": 1e-12, "pass": true},
+    {"name": "independent_2D_Jintegral_caseA", "output": "direct 2D finite-difference solve + J-integral arc: G_num=2*J_arc = 0.46200..0.46226 for r0=0.2..0.6 (H=ell=sigma0=Ebar=1); analytic 0.462117; path-independent", "tolerance": 0.001, "pass": true},
+    {"name": "independent_2D_Jintegral_caseB", "output": "direct 2D solve + J-integral arc: rel.err vs analytic 1.9%, 0.94%, 0.62% at dx=0.020,0.010,0.0067 (first-order, ->0); Richardson extrapolation G0=0.16271 vs analytic 0.162640", "tolerance": 0.01, "pass": true},
+    {"name": "independent_2D_H_dependence_caseA", "output": "2D J-integral at H=0.5,1,2 (ell=1): G_num=0.244833,0.462170,0.762159 vs analytic gamma_A=0.244919,0.462117,0.761594; rel.err 3.5e-4,1.1e-4,7.4e-4 (confirms tanh(H/2ell) shape)", "tolerance": 0.001, "pass": true}
+  ],
+  "unresolved": [
+    "The independent 2D J-integral check confirms the energy-release coefficient to numerical accuracy (Case A ~1e-4; Case B ~1% at coarse dx, converging to ~4e-4 by Richardson extrapolation). Model assumptions (plane stress, perfect bonding, fixed prestress, linear elasticity) remain the main limitation."
+  ]
+}

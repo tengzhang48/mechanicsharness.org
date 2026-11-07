@@ -1,0 +1,10 @@
+=== FD CHECKS (J-integral route) ===
+params: s0=h=E=ell=1, nu=0.3, Ebar=1.098901, k=1.098901
+case A H=1.0 d=0.0208: G_fd=0.420499 G_exact=0.420527 rel_err=-0.01% path_spread(b,a)=(8.92e-06,2.05e-01)
+case A H=2.0 d=0.0417: G_fd=0.692932 G_exact=0.693051 rel_err=-0.02% path_spread(b,a)=(1.62e-06,8.07e+00)
+case A H=0.5 d=0.0104: G_fd=0.222872 G_exact=0.222876 rel_err=-0.00% path_spread(b,a)=(6.88e-06,5.34e-02)
+case B H=1.0 d=0.0417: G_fd=0.147913 G_exact=0.148003 rel_err=-0.06% path_spread(b,a)=(8.26e-07,9.70e-07)
+case B H=2.0 d=0.0833: G_fd=0.508152 G_exact=0.508836 rel_err=-0.13% path_spread(b,a)=(2.36e-06,1.57e-06)
+convergence A/H=1: err(d)=6.499e-05 err(d/2)=1.652e-05 ratio=3.93
+J_behind(A,H=1)=-0.210250 vs -G*h/2=-0.210263
+FD CHECKS PASS (rel err < 3%)

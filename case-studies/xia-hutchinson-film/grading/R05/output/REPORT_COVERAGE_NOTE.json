@@ -1,0 +1,15 @@
+{
+  "recorded_at_utc": "2026-10-16T00:15:52.693514+00:00",
+  "scope": "Documentary comparison of the final reviewer report with retained submission statements; no new grade or grader-accuracy score",
+  "reported_energy_judgment": "right",
+  "reported_verification_judgment": "right",
+  "reported_physical_scope_judgment": "partly",
+  "false_zero_prestress_claim_explicitly_discussed": true,
+  "reversed_displayed_case_B_balance_explicitly_discussed": false,
+  "evidence": [
+    "GRADE.md:12",
+    "GRADE.md:51",
+    "../../followup_runs/D01_direct_thinking_2026-10-15/FINAL_OBSERVATIONS.json"
+  ],
+  "interpretation": "An unmentioned issue cannot establish what the reviewer internally noticed. Retain the actual labels, reasons and the documented mathematical inconsistency; do not present the profile as an error-free proof endorsement."
+}

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>GPT Challenge Case Study</title><meta name="description" content="Record of the poroelastic crack case (MechanicsHarness), as written at the time: GPT Challenge Case Study">
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body><nav aria-label="Collection navigation" style="padding:12px 20px;font:600 13px system-ui;background:#e5efeb;border-bottom:1px solid #ddd8cc"><a style="color:#0e6e6a" href="../../poroelastic-crack.html">← Poroelastic crack case</a></nav>
+<header id="title-block-header">
+<h1 class="title">GPT Challenge Case Study</h1>
+</header>
+<h1
+id="case-study-an-ai-agent-challenged-a-published-heuristic-and-the-challenge-held-log-p361p368">Case
+study: an AI agent challenged a published heuristic, and the challenge
+held (log P361–P368)</h1>
+<p>Teng: “This is very interesting.” … “challenging is the first step to
+get new insight.” … “please document, this is interesting.”</p>
+<h2 id="the-problem">The problem</h2>
+<p>Problem B of the multiphysics round, written open book from Detournay
+&amp; Cheng 1991 (“Plane strain analysis of a stationary hydraulic
+fracture in a poroelastic medium”, <em>Int. J. Solids Struct.</em>
+27(13), 1645–1662). - <strong>Setup:</strong> a crack of length 2L in an
+infinite Biot poroelastic solid in plane strain, suddenly loaded. -
+<strong>Loading 1:</strong> a normal-stress step on the faces, which are
+drained (p = 0). - <strong>Asked:</strong> the stress intensity factor
+just after loading, K(0⁺), and the small-time growth of the crack
+volume, V(t) = V(0⁺) + A√(ct/L²).</p>
+<p><strong>The paper’s answers, used as the key:</strong> -
+<strong>K(0⁺) = [(1 − ν_u)/(1 − ν)] √(πL)</strong> (Eq. 29). That is
+0.75√(πL) for ν = 0.2, ν_u = 0.4. The paper calls it a “heuristic
+argument” (p. 1650): the instantaneous undrained opening, read with the
+drained near-tip relation, because “the crack tips are effectively
+drained”. - <strong>A = 16(1 − ν_u)(ν_u − ν)/[√π(1 − ν)] =
+1.354</strong> (Eq. 18). It comes from one-dimensional diffusion through
+the faces, combined with a reciprocal-theorem argument.</p>
+<h2 id="what-the-agents-did-closed-book-no-library">What the agents did
+(closed book, no library)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Agent</th>
+<th>Runs</th>
+<th>K(0⁺)/√(πL)</th>
+<th>A</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DeepSeek-V4.1-Flash</td>
+<td>3</td>
+<td>1.0, 1.77 (in √L units), 1.25</td>
+<td>1.13, 1.13, 0.0</td>
+<td>the drained tip missed</td>
+</tr>
+<tr class="even">
+<td>GLM-5.3</td>
+<td>3</td>
+<td>1.0, 1.0, 1.0</td>
+<td>1.13, 1.13, 1.13</td>
+<td>“SIF fixed by crack-face tractions”; one run got the loading-2
+closure</td>
+</tr>
+<tr class="odd">
+<td><strong>GPT-6.1-sol</strong></td>
+<td>3</td>
+<td><strong>0.8076, 0.808, 0.8070</strong></td>
+<td><strong>2.44, 2.44, 1.354</strong></td>
+<td>the drained tip found in all three; loading 2 right in all
+three</td>
+</tr>
+</tbody>
+</table>
+<p><strong>GPT, in all three runs and naming no source:</strong> -
+<strong>It named the structure:</strong> “The inner elastic field is
+drained while the outer opening is undrained.” - <strong>It made the
+definition precise:</strong> “<code>K1_0</code> is ambiguous without an
+order of limits”. lim_{t→0} lim_{r→0} gives the true tip value; the
+reverse order gives exactly 1. - <strong>It solved the tip
+problem</strong> by a Wiener–Hopf-type factorization and checked it with
+an energy identity that includes the pressure-gradient term. -
+<strong>It concluded</strong> that “a purely elastic modulus-ratio
+estimate does not suffice”. That modulus-ratio estimate is exactly the
+paper’s heuristic. - <strong>It found three real gaps in our problem
+statement:</strong> shear traction not stated; the order of limits for
+K(0⁺); the literal face pressure is 0.</p>
+<h2 id="how-the-challenge-was-checked">How the challenge was
+checked</h2>
+<p><strong>1. Cross-family review: Codex</strong>
+(<code>grading/review_B_K10-codex/output/VERDICT.md</code>).
+- <strong>Method:</strong> an independent derivation from the problem
+statement (a Laplace–Fourier reduction, then a Wiener–Hopf factorization
+solved by more than one method), plus a finite-crack check. -
+<strong>K(0⁺) = 0.8075930√(πL).</strong> “The drained inner tip opening
+has an amplitude 1.07679067 times its matched undrained outer amplitude.
+The paper’s Eq. (29) effectively sets this matching factor to one.” “The
+paper’s 0.75 is neither of these two stress limits.” - <strong>A =
+2.4402</strong> = 1.3541 from the flat faces (the paper’s term) + 1.0862
+from the two tips, which “survives at order √τ, even though the tip
+region shrinks”. - <strong>Grok’s review</strong>
+(<code>review_B_K10/grok/VERDICT.md</code>, P372): K(0⁺) = 0.80759 ±
+0.00005 and A = 2.4402 ± 0.001, supporting GPT. Its factorization was
+rewritten from scratch, with the same kernel. A finite-crack spectral
+check extrapolates to 0.8074–0.8075. - On the paper’s mesh: “Fig. 9’s
+approach to 0.75 is therefore not an independent confirmation of a
+resolved inner tip”. - On the weak-coupling expansion: “K = 1 − (3/4)η +
+O(η²)”, which at η = 1/3 coincides with 0.75 at first order.</p>
+<p><strong>2. Opus’s direct simulation</strong>
+(<code>FE_CHECK.md</code>; FEniCSx, 2D plane strain, Biot
+poroelasticity, u P2 and p P1, backward Euler; meshes of 5–40 thousand
+cells graded to 10⁻⁵–10⁻⁶ L at the tip). - <strong>K(0⁺)/√(πL) ≈ 0.80 ±
+0.01:</strong> - stable across meshes and time steps; - the drained
+plateau visible at r ≲ 0.15√(ct), with the undrained field outside; -
+insensitive to resolving the face layer. - <strong>A ≈ 2.2–2.4</strong>
+with the face layer resolved: - the local slope is 2.21 at t = 1.1×10⁻⁵,
+rising as t → 0; - a tip-only mesh gave 1.07–1.09, which matches Codex’s
+tip part; - two of Opus’s meshing attempts failed first and are
+recorded.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th>Paper (key)</th>
+<th>GPT</th>
+<th>Codex</th>
+<th>FE (Opus)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>K(0⁺)/√(πL)</td>
+<td>0.75</td>
+<td>0.807–0.808</td>
+<td>0.80759</td>
+<td>0.80 ± 0.01</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>1.354</td>
+<td>2.44 (2 of 3)</td>
+<td>2.4402</td>
+<td>≈ 2.2–2.4</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-it-shows">What it shows</h2>
+<ol type="1">
+<li><strong>For this problem, the published heuristic is about 7% low,
+and the published small-time volume misses a tip contribution of the
+same order.</strong>
+<ul>
+<li>The paper itself called Eq. 29 heuristic, and Teng suspected an
+approximation (“I have a feeling 0.75 has some approxmination”).</li>
+<li>A plausible reason the paper’s numerical curve (Fig. 9) seemed to
+support it: six quadratic elements over 2L (p. 1655) cannot resolve a
+tip layer of width √(ct) ≈ 0.01L at t* = 10⁻⁴. This is Opus’s reading,
+not verified.</li>
+<li>We have not checked whether later literature already corrected Eq.
+29 or Eq. 18.</li>
+</ul></li>
+<li><strong>An AI agent proposed the correction itself.</strong> It did
+so unprompted, consistently over three runs, with an argument and a
+checkable value, and named no source. Two independent checks confirmed
+it. This is the first case in the pilot of an agent producing a checked
+correction to a published result. <strong>The correction is already in
+the literature</strong> (see “Literature check”): GPT re-derived a known
+exact result, it did not discover a new one.</li>
+<li><strong>Challenge, then verification, is the right process.</strong>
+<ul>
+<li>The automatic checks marked GPT “wrong” against the key; without a
+check, the challenge would have been graded as an error.</li>
+<li>The grading now records challenges and grades them both ways (P363),
+and the index has a challenge component
+(<code>MECHANICS_INDEX_CONCEPT.md</code>).</li>
+</ul></li>
+<li><strong>Agents differ in exactly this capability.</strong> Only GPT
+found the drained tip; DeepSeek and GLM kept the elastic intuition (“SIF
+fixed by crack-face tractions”). This is the “knowing the boundary”
+lesson, now with a model that knew it.</li>
+<li><strong>Keys must be derived and challengeable.</strong> This is the
+third source with a problem in its equations, after Detournay 2016 Eq.
+16 and Suo et al. Eq. 7.3. Here the problem is a heuristic, not a
+misprint.</li>
+</ol>
+<h2
+id="literature-check-p369-the-correction-is-already-known">Literature
+check (P369): the correction is already known</h2>
+<p>Yu, Bouklas, Landis &amp; Huang 2020 (“Poroelastic effects on the
+time- and rate-dependent fracture of polymer gels”, <em>J. Appl.
+Mech.</em> 87, 031005; uploaded by Teng) give the short-time limit for a
+stationary crack in a linearly poroelastic gel, citing Atkinson &amp;
+Craster [21] and Yu et al. [24] (p. 031005-4). - <strong>The
+result:</strong> K_I(t → 0⁺) = K_I0 [1/(2(1 − ν))]^α (Eq. 12). - α ≈
+0.735 for the immersed case, with the crack faces in contact with
+solvent, which drains them as in problem B’s loading 1; - α = 0.5 for
+the not-immersed case; - here ν_u = 0.5 (incompressible constituents),
+so 1/(2(1 − ν)) = (1 − ν_u)/(1 − ν). - <strong>Detournay &amp; Cheng’s
+Eq. 29 is this form with α = 1.</strong> The exact short-time analysis
+replaces the exponent 1 by about 0.735 for drained faces. - <strong>For
+problem B’s values (ν = 0.2, ν_u = 0.4),</strong> the value found by
+GPT, Codex and the FE, 0.8076 = 0.75^α, corresponds to α ≈ 0.743 (ours).
+That is the same structure, with α depending weakly on the parameters.
+The sources Yu et al. 2020 cite for it, Atkinson &amp; Craster [21] and
+Yu et al. [24], are not on disk. The 2020 result itself is reproduced
+below (P371).</p>
+<p><strong>What this changes:</strong> - <strong>GPT’s challenge is
+correct, and it agrees with the established exact result.</strong> GPT
+did not discover a new correction: it re-derived a known one, without
+naming the source (it named none). - Point 2 of “What it shows” is
+restated accordingly. It is the first case in the pilot of an agent
+producing a checked correction to a source paper’s result; the
+correction exists in later or parallel literature (Atkinson &amp;
+Craster; Yu et al.). - <strong>The lesson for keys stands, and is
+sharper:</strong> a key taken from one paper can be superseded by other
+literature. “Open book” should include checking whether the result was
+later corrected.</p>
+<p><strong>Did GPT know the literature result? (Teng, P370: “So, we are
+unsure whether GPT knows the new results”)</strong> We cannot be sure.
+The evidence separates the number from the method. 1. <strong>The number
+is computed, not quoted.</strong> The published gel exponent α ≈ 0.735
+(ν_u = 0.5) would give 0.75^0.735 = 0.809. GPT’s 0.8076 corresponds to α
+= 0.743 for ν = 0.2, ν_u = 0.4, which no paper on disk prints. Its
+<code>factor_check.py</code> computes a numerical Wiener–Hopf
+factorization, and the value agrees with Codex’s independent computation
+to 7 digits. 2. <strong>Literature-informed reasoning, no citation of
+the result.</strong> - MP-38’s log considers “Rice/Cleary small-scale
+drainage energy matching G_tip=G_outer” (the 0.866 bound) and moves past
+it to compute the factor. - “Atkinson”, “Craster”, “Bouklas”, “Landis”,
+“Huang” and “Hui” appear in no GPT log or file. 3. <strong>Prior
+knowledge of the structure</strong> (a drained tip; the modulus-ratio
+guess corrected) cannot be excluded.</p>
+<p><strong>Test:</strong> variants whose answer no paper prints (other
+parameters or boundary conditions), so that recall can supply at most
+the method. Proposed for the gel problems (G1).</p>
+<h2
+id="literature-check-continued-p376-hui-et-al.-2013-and-bouklas-et-al.-2015">Literature
+check, continued (P376): Hui et al. 2013 and Bouklas et al. 2015</h2>
+<p>Teng uploaded both papers. Details are in
+<code>../gel/LITERATURE_CHECK.md</code>. - <strong>Hui, Long &amp; Ning
+2013</strong> (<em>J. Appl. Mech.</em> 80, 021014) solved the same
+short-time tip problem for a gel. - From an approximation (σ₁₁ = 0 on
+the crack faces) they found K_tip = K_I/[2(1 − ν)] (Eq. 24), “one of our
+key results”, and reported FE agreement. - This is α = 1, the same as
+Detournay &amp; Cheng’s heuristic. - <strong>The literature therefore
+holds three statements of this one quantity:</strong> - α = 1: Detournay
+&amp; Cheng 1991 (heuristic) and Hui et al. 2013 (approximation and FE);
+- α ≈ 0.735: Atkinson &amp; Craster 1991 and Yu et al. 2018, cited by Yu
+et al. 2020. - <strong>GPT’s challenge sides with the second.</strong>
+So do Codex, Grok, and our FE, which excludes α = 1 at ν = 0.24
+(0.736–0.741 against 0.658). - <strong>Bouklas, Landis &amp; Huang
+2015</strong> (<em>J. Appl. Mech.</em> 82, 081007; nonlinear FE). For
+the immersed specimen they found the instantaneous J* “poor” against
+LEFM, and attributed it to the first time step (“solvent diffusion
+occurs almost instantaneously (over the first time step) … leading to a
+lower J*”). - <strong>Our reading:</strong> this is at least partly the
+physical drained tip layer, which gives J*(0⁺) = 0.82J₀ (Yu et al. 2020;
+our FE).</p>
+<h2 id="reproduction-of-yu-et-al.-2020-eqs.-1213-p371">Reproduction of
+Yu et al. 2020, Eqs. 12–13 (P371)</h2>
+<p>Teng: “that said, Yu et al’s solution has been reproduced already,
+right?” Not before this check: problem B uses ν_u = 0.4, and the gel has
+ν_u = 0.5 (incompressible constituents). Two routes now reproduce it at
+the gel values.</p>
+<p><strong>1. GPT’s factorization, at the gel values</strong>
+(<code>reproduce_yu2020.py</code> → <code>reproduce_yu2020.txt</code>).
+GPT’s <code>factor_check.py</code> from MP-37 is used unmodified, with η
+= (ν_u − ν)/(1 − ν_u).</p>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>ν (ν_u = 0.5)</th>
+<th style="text-align: right;">K(0⁺)/K₀ here</th>
+<th style="text-align: right;">α here</th>
+<th style="text-align: right;">Yu Eq. 12, α = 0.735</th>
+<th style="text-align: right;">J*(0⁺)/J₀ here</th>
+<th style="text-align: right;">Yu Eq. 13</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.10</td>
+<td style="text-align: right;">0.6491</td>
+<td style="text-align: right;">0.7352</td>
+<td style="text-align: right;">0.6492</td>
+<td style="text-align: right;">0.7584</td>
+<td style="text-align: right;">0.7586</td>
+</tr>
+<tr class="even">
+<td>0.20</td>
+<td style="text-align: right;">0.7068</td>
+<td style="text-align: right;">0.7382</td>
+<td style="text-align: right;">0.7079</td>
+<td style="text-align: right;">0.7994</td>
+<td style="text-align: right;">0.8018</td>
+</tr>
+<tr class="odd">
+<td><strong>0.24 (Yu’s Fig. 3)</strong></td>
+<td style="text-align: right;"><strong>0.7337</strong></td>
+<td style="text-align: right;"><strong>0.7395</strong></td>
+<td style="text-align: right;"><strong>0.7351</strong></td>
+<td style="text-align: right;"><strong>0.8183</strong></td>
+<td style="text-align: right;"><strong>0.8214</strong></td>
+</tr>
+<tr class="even">
+<td>0.30</td>
+<td style="text-align: right;">0.7792</td>
+<td style="text-align: right;">0.7416</td>
+<td style="text-align: right;">0.7809</td>
+<td style="text-align: right;">0.8499</td>
+<td style="text-align: right;">0.8537</td>
+</tr>
+<tr class="odd">
+<td>0.40</td>
+<td style="text-align: right;">0.8729</td>
+<td style="text-align: right;">0.7455</td>
+<td style="text-align: right;">0.8746</td>
+<td style="text-align: right;">0.9144</td>
+<td style="text-align: right;">0.9179</td>
+</tr>
+<tr class="even">
+<td>0.49</td>
+<td style="text-align: right;">0.9853</td>
+<td style="text-align: right;">0.7495</td>
+<td style="text-align: right;">0.9856</td>
+<td style="text-align: right;">0.9902</td>
+<td style="text-align: right;">0.9907</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Agreement:</strong> K(0⁺) within 0.2%, J<em>(0⁺) within
+0.4%, for ν = 0.1–0.49. At ν = 0.24 the short-time J</em> is 0.818,
+against Yu’s 0.821 and the Fig. 3(a) short-time line (≈ 0.82).</li>
+<li><strong>The exponent is not a constant here:</strong> α rises from
+0.735 (ν = 0.1) to about 0.75 (ν → 0.5). Yu’s single α ≈ 0.735 equals
+ours at ν = 0.1. Whether Atkinson &amp; Craster give α as a function or
+as one value is not checked (their paper is not on disk).</li>
+<li><strong>ν = 0 (η = 1):</strong> GPT’s code gives α = 1.15, off the
+trend.
+<ul>
+<li>Codex’s independent Wilson factorization
+(<code>review_B_K10/codex/scratch/wilson_factor.py</code>, P372) gives
+K/K₀ = 0.601850 (α = 0.7325). So GPT’s code fails at η = 1.</li>
+<li>Codex’s code agrees with GPT’s to 6 digits at ν = 0.1, 0.24 and 0.4,
+and at B’s values.</li>
+</ul></li>
+</ul>
+<p><strong>2. Our FE, at the gel values</strong>
+(<code>fe_check_K0.py</code> with NU=0.24 NUU=0.5 ALPHA=1; output
+<code>fe_check_K0_N18_g1.25_dt1e-07_gel.json</code> and
+<code>fe_check_K0_gel.log</code>). - <strong>Setup:</strong> the same
+mesh and extraction as B’s FE check (NREF 18, h_min = 2.7×10⁻⁶), with
+1/M = 0. B’s face loading is kept: the ratio K_inner/K_outer is a tip
+quantity, so it does not depend on how the crack is loaded. -
+<strong>Ratio at the earliest resolved steps</strong> (t = 2×10⁻⁷ –
+2×10⁻⁶): <strong>0.7256–0.7264</strong>, against the factorization’s
+0.7337 (−1.0 to −1.1%). - <strong>The same mesh on B</strong> gave
+0.8003–0.8013 against 0.8076 (−0.8 to −0.9%). The FE extraction reads
+about 1% low in both cases, the same bias.</p>
+<p><strong>Conclusion.</strong> Yu et al.’s short-time limit is
+reproduced to about 0.2% by GPT’s factorization and to about 1% by an
+independent FE. GPT’s B answer is the same exact tip solution at a
+different ν_u. Not reproduced: Yu’s finite-element time histories (Fig.
+3) and the delayed-fracture window. Those would be the subject of the
+gel problems.</p>
+<h2 id="caveats">Caveats</h2>
+<ul>
+<li>Grok’s verdict supports GPT (P372).</li>
+<li>The FE value of A is extrapolated (about ±0.1).</li>
+<li>All three checks share the stated model (plane strain, drained
+shear-free faces, Biot). That model is the problem as posed.</li>
+</ul>
+<h2 id="next">Next</h2>
+<ul>
+<li>Correct the key of B (K(0⁺) = 0.8076; A = 2.4402; the paper’s values
+kept on record) before grading. The grading of B then treats GPT’s
+answers as right and the paper-consistent answers by the corrected
+key.</li>
+<li>Problem B’s text for the next round: shear-free faces, the order of
+limits, the face-pressure definition.</li>
+<li>Literature: Eq. 29’s exponent is corrected in Atkinson &amp; Craster
+and Yu et al. (cited by Yu et al. 2020). Yu et al. 2020’s Eqs. 12–13 are
+now reproduced (P371). Eq. 18’s tip term is not yet checked against the
+literature.</li>
+</ul>
+</body>
+</html>

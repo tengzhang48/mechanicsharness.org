@@ -1,0 +1,220 @@
+{
+  "recorded_at_utc": "2026-10-15T21:29:48.251348+00:00",
+  "attempt": "D01",
+  "outcome": "natural_analysis_exit; delivery audited, no repair retry",
+  "ended_at_utc": "2026-10-15T21:28:50.203251+00:00",
+  "elapsed_seconds": 612.39884389902,
+  "elapsed_minutes": 10.206647398317,
+  "model": "deepseek/deepseek-flash",
+  "thinking_setting": "enabled",
+  "effort_requested": "high in work and reporting",
+  "reported_reasoning_tokens": 72160,
+  "public_error_events": [],
+  "session_id": "ses_ebe918f4affeIOwi3Ka4PA8xSQ",
+  "delivery_audit": {
+    "files": {
+      "ANSWER.md": {
+        "bytes": 11420,
+        "is_symlink": false,
+        "present": true,
+        "sha256": "fdd0b7dde9bc266cfcec384f9e1bba59b65ff07314e7937d1ed7746508ed2718"
+      },
+      "PROVISIONAL_REPORT.md": {
+        "bytes": 2274,
+        "is_symlink": false,
+        "present": true,
+        "sha256": "1a7d4860b76a7e9d0687dc9b5b74cadd542cd959a848183bdc602ef483774af0"
+      },
+      "STATUS.md": {
+        "bytes": 4069,
+        "is_symlink": false,
+        "present": true,
+        "sha256": "723c8825b676936376a05c99ee0b1eaf8130f737ca9fa7dd7d1e58d57ab16935"
+      },
+      "results.json": {
+        "bytes": 4069,
+        "is_symlink": false,
+        "present": true,
+        "sha256": "6f24372d87371ce01e5bccb1370dd5f4495cb93593b2a7295836ee301e626dd5",
+        "valid_json_object": true
+      }
+    },
+    "missing_or_invalid_final_files": [],
+    "required_final_files_present": true,
+    "scope": "File delivery and JSON parsing only; no scientific grading"
+  },
+  "extra_deliverables_present": {
+    "REPRODUCE.md": true,
+    "j2d.py": true,
+    "check_j2d_cases.py": true,
+    "check_B_conv.py": true,
+    "check_A_H.py": true
+  },
+  "archive": "completed_work",
+  "sha256": {
+    "ANSWER.md": "fdd0b7dde9bc266cfcec384f9e1bba59b65ff07314e7937d1ed7746508ed2718",
+    "FINAL_REPORT.md": "8e3df3cf9962ac38d76c10fd9bf7be23fe176ba0be2793eab4e05479f1d0e8e2",
+    "PROBLEM.md": "ff71c35e326a323596567ae22e39df5df7907eefc3037cea2e5d64e37ec3b2ea",
+    "PROVISIONAL_REPORT.md": "1a7d4860b76a7e9d0687dc9b5b74cadd542cd959a848183bdc602ef483774af0",
+    "REPRODUCE.md": "5fb411a618ce8024d2b7c723646cc974f461c847b7c11f30359393a0e82f41c2",
+    "RUN_PROTOCOL.md": "844a3678be014ce6d6b2682748851dede27575119e47d3ecf116cdd5c0e1c592",
+    "STATUS.md": "723c8825b676936376a05c99ee0b1eaf8130f737ca9fa7dd7d1e58d57ab16935",
+    "TASK.md": "e88f52976d49c25210efbf50fab8e64c01707fe84fbf7189727d983622d98cc6",
+    "__pycache__/j2d.cpython-313.pyc": "91c901d2b41fcd7b0ccf3b2a4c4e6f937ea8a26333aa761a3e5d714f3e8e37c2",
+    "check_A_H.py": "7ddb786e2bcbfa01481cbdc07136447b419a6def7d2352de63a39af2e5bc1b42",
+    "check_A_H_output.txt": "3b2cad734d017a107b4698b7a9dd3f8b5d5962132c7f962a92bd25d201d97021",
+    "check_B_conv.py": "fb8411f05b059494c2ec3da289bed077c2743f5cbaa4b79839292a0fa1a3549a",
+    "check_B_conv_output.txt": "d02151afe474b31e3b311b2b7b188fc26edda0ac2271d764a789f96eaafa73ce",
+    "check_j2d.py": "094760ffff66d23703a7f0d877d78664014620a13df746719bf56144e45d0bb2",
+    "check_j2d_cases.py": "5eab283202e93333f568bb76f0908bbd7eaeb7ee9b8524cd36b3ea65fa1bd0ae",
+    "check_j2d_cases_output.txt": "0b13bb9ba404ae116b41071ab7c195dcc602826614a38c30d41f939e366c521a",
+    "check_j2d_output.txt": "a9c4e978832542fd478828e14a63a47490bd1579a6cc64d95639a9d3d202e17d",
+    "check_output.txt": "ea34592767cb2ebcc59a8848e64df301a48c3fcd6dd66825383fbac2fe8ead5a",
+    "checks.py": "7b13ffa3f2ac1614c891480ae02d966679a419fc8804232ab21cc24dccb268c6",
+    "compute.py": "a7869b0f34526ac9ff8f81dc7258f46e4e9babc7d006de4cb9109424a64f42ad",
+    "j2d.py": "633802c527bfd4c5ed35977321e877bb38461f167f856a7f61047290f36b5d28",
+    "results.json": "6f24372d87371ce01e5bccb1370dd5f4495cb93593b2a7295836ee301e626dd5",
+    "results_analytic.json": "3ab7946505785015fe3a4803f2e015df7b10e8dde6f79a938ebc74b6ded10fa5"
+  },
+  "numeric_comparison": {
+    "matches": 16,
+    "total": 16,
+    "maximum_absolute_difference": 1.3877787807814457e-16,
+    "details": [
+      {
+        "ell_over_H": 0.5,
+        "quantity": "gamma_A",
+        "submitted": 0.7615941559557649,
+        "frozen_reference": 0.7615941559557649,
+        "absolute_error": 0.0,
+        "within_1e_minus_6": true
+      },
+      {
+        "ell_over_H": 0.5,
+        "quantity": "gamma_B",
+        "submitted": 0.5591607318357129,
+        "frozen_reference": 0.5591607318357128,
+        "absolute_error": 1.1102230246251565e-16,
+        "within_1e_minus_6": true
+      },
+      {
+        "ell_over_H": 0.5,
+        "quantity": "kI_A",
+        "submitted": 0.8324966558009383,
+        "frozen_reference": 0.8324966558009383,
+        "absolute_error": 0.0,
+        "within_1e_minus_6": true
+      },
+      {
+        "ell_over_H": 0.5,
+        "quantity": "kI_B",
+        "submitted": 0.7133276007351032,
+        "frozen_reference": 0.7133276007351032,
+        "absolute_error": 0.0,
+        "within_1e_minus_6": true
+      },
+      {
+        "ell_over_H": 1.0,
+        "quantity": "gamma_A",
+        "submitted": 0.46211715726000974,
+        "frozen_reference": 0.46211715726000974,
+        "absolute_error": 0.0,
+        "within_1e_minus_6": true
+      },
+      {
+        "ell_over_H": 1.0,
+        "quantity": "gamma_B",
+        "submitted": 0.16264015856425462,
+        "frozen_reference": 0.16264015856425462,
+        "absolute_error": 0.0,
+        "within_1e_minus_6": true
+      },
+      {
+        "ell_over_H": 1.0,
+        "quantity": "kI_A",
+        "submitted": 0.6484802333969856,
+        "frozen_reference": 0.6484802333969856,
+        "absolute_error": 0.0,
+        "within_1e_minus_6": true
+      },
+      {
+        "ell_over_H": 1.0,
+        "quantity": "kI_B",
+        "submitted": 0.38471098800719444,
+        "frozen_reference": 0.38471098800719444,
+        "absolute_error": 0.0,
+        "within_1e_minus_6": true
+      },
+      {
+        "ell_over_H": 1.5,
+        "quantity": "gamma_A",
+        "submitted": 0.32151273753163434,
+        "frozen_reference": 0.32151273753163434,
+        "absolute_error": 0.0,
+        "within_1e_minus_6": true
+      },
+      {
+        "ell_over_H": 1.5,
+        "quantity": "gamma_B",
+        "submitted": 0.06024252971535857,
+        "frozen_reference": 0.060242529715358484,
+        "absolute_error": 8.326672684688674e-17,
+        "within_1e_minus_6": true
+      },
+      {
+        "ell_over_H": 1.5,
+        "quantity": "kI_A",
+        "submitted": 0.5409034952316237,
+        "frozen_reference": 0.5409034952316238,
+        "absolute_error": 1.1102230246251565e-16,
+        "within_1e_minus_6": true
+      },
+      {
+        "ell_over_H": 1.5,
+        "quantity": "kI_B",
+        "submitted": 0.23413821140722907,
+        "frozen_reference": 0.23413821140722893,
+        "absolute_error": 1.3877787807814457e-16,
+        "within_1e_minus_6": true
+      },
+      {
+        "ell_over_H": 2.0,
+        "quantity": "gamma_A",
+        "submitted": 0.24491866240370913,
+        "frozen_reference": 0.24491866240370913,
+        "absolute_error": 0.0,
+        "within_1e_minus_6": true
+      },
+      {
+        "ell_over_H": 2.0,
+        "quantity": "gamma_B",
+        "submitted": 0.027720167547408525,
+        "frozen_reference": 0.027720167547408525,
+        "absolute_error": 0.0,
+        "within_1e_minus_6": true
+      },
+      {
+        "ell_over_H": 2.0,
+        "quantity": "kI_A",
+        "submitted": 0.4720974293378172,
+        "frozen_reference": 0.4720974293378172,
+        "absolute_error": 0.0,
+        "within_1e_minus_6": true
+      },
+      {
+        "ell_over_H": 2.0,
+        "quantity": "kI_B",
+        "submitted": 0.1588249113588349,
+        "frozen_reference": 0.1588249113588349,
+        "absolute_error": 0.0,
+        "within_1e_minus_6": true
+      }
+    ]
+  },
+  "analytic_scripts_unchanged_from_replayed_checkpoint": true,
+  "analytic_replay_evidence": "CHECKPOINT_REPLAY.json",
+  "scientific_grade": null,
+  "original_S02_grade_replaced": false,
+  "scope": "Delivery and frozen-value comparison only; not full scientific grade or physical validation",
+  "comparison_limits": "Different provider and explicit reasoning/report conditions from original S02; historical thinking mode is unverified, so this is not a controlled off/on experiment."
+}

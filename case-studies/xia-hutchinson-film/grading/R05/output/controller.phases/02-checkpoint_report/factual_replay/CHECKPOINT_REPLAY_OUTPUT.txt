@@ -1,0 +1,60 @@
+ell = sqrt(Ebar)*sqrt(h)/sqrt(k)
+u2 general: C1*exp(-sqrt(k)*x/(sqrt(Ebar)*sqrt(h))) + C2*exp(sqrt(k)*x/(sqrt(Ebar)*sqrt(h)))
+u1 general: C1*exp(-sqrt(2)*sqrt(k)*x*sqrt(-1/(nu - 1))/(sqrt(Ebar)*sqrt(h))) + C2*exp(sqrt(2)*sqrt(k)*x*sqrt(-1/(nu - 1))/(sqrt(Ebar)*sqrt(h)))
+A,B: {A: 0, B: -ell*sigma0/(Ebar*cosh(H/(2*ell)))}
+u2 wake (case A): ell*sigma0*sinh((H/2 - x)/ell)/(Ebar*cosh(H/(2*ell)))
+u2'(0): -sigma0/Ebar
+u2'(H): -sigma0/Ebar
+sigma22(x): sigma0*(sinh(x/ell)*tanh(H/(2*ell)) - cosh(x/ell) + 1)
+W_behind case A = -h*sigma0**2*(H + 3*ell*sinh(H/ell) - 2*Integral(cosh((H/2 - x)/ell)**2, (x, 0, H)))/(2*Ebar*(cosh(H/ell) + 1))
+W_A - expected: -h*sigma0**2*(H - 2*ell*(cosh(H/ell) + 1)*tanh(H/(2*ell)) + 3*ell*sinh(H/ell) - 2*Integral(cosh((H/2 - x)/ell)**2, (x, 0, H)))/(2*Ebar*(cosh(H/ell) + 1))
+GA = ell*sigma0**2*tanh(H/(2*ell))/Ebar
+GB = ell*sigma0**2*(2*tanh(H/(2*ell)) - tanh(H/ell))/Ebar
+gamma_A = tanh(H/(2*ell))
+gamma_B = 2*tanh(H/(2*ell)) - tanh(H/ell)
+{'ell_over_H': 0.5, 'gamma_A': 0.7615941559557649, 'gamma_B': 0.5591607318357129, 'kI_A': 0.8324966558009383, 'kI_B': 0.7133276007351032}
+{'ell_over_H': 1.0, 'gamma_A': 0.46211715726000974, 'gamma_B': 0.16264015856425462, 'kI_A': 0.6484802333969856, 'kI_B': 0.38471098800719444}
+{'ell_over_H': 1.5, 'gamma_A': 0.32151273753163434, 'gamma_B': 0.06024252971535857, 'kI_A': 0.5409034952316237, 'kI_B': 0.23413821140722907}
+{'ell_over_H': 2.0, 'gamma_A': 0.24491866240370913, 'gamma_B': 0.027720167547408525, 'kI_A': 0.4720974293378172, 'kI_B': 0.1588249113588349}
+gamma_A limit beta->0 : 0
+gamma_A limit beta->oo: 1
+gamma_B limit beta->0 : 2*beta**3 + O(beta**4)
+gamma_B limit beta->oo: 1
+=== CHECK 1: energy integral by direct quadrature vs closed form ===
+H= 0.10  W_quad=-4.9958374958e-02  W_closed=-4.9958374958e-02  rel.err=0.00e+00  tol1e-9 -> PASS
+H= 0.25  W_quad=-1.2435300177e-01  W_closed=-1.2435300177e-01  rel.err=0.00e+00  tol1e-9 -> PASS
+H= 0.50  W_quad=-2.4491866240e-01  W_closed=-2.4491866240e-01  rel.err=0.00e+00  tol1e-9 -> PASS
+H= 1.00  W_quad=-4.6211715726e-01  W_closed=-4.6211715726e-01  rel.err=1.20e-16  tol1e-9 -> PASS
+H= 2.00  W_quad=-7.6159415596e-01  W_closed=-7.6159415596e-01  rel.err=1.46e-16  tol1e-9 -> PASS
+H= 5.00  W_quad=-9.8661429815e-01  W_closed=-9.8661429815e-01  rel.err=0.00e+00  tol1e-9 -> PASS
+
+=== CHECK 2: wake ODE residual u2'' = u2/ell^2 (finite difference) ===
+x=0.1  resid=1.45e-07  tol1e-4 -> PASS
+x=0.5  resid=4.92e-07  tol1e-4 -> PASS
+x=0.9  resid=7.00e-07  tol1e-4 -> PASS
+
+=== CHECK 3: traction-free strip-edge conditions ===
+H=0.3: sigma22(0)=0.00e+00, sigma22(H)=0.00e+00, tol1e-10 -> PASS
+H=1.0: sigma22(0)=0.00e+00, sigma22(H)=0.00e+00, tol1e-10 -> PASS
+H=3.0: sigma22(0)=0.00e+00, sigma22(H)=0.00e+00, tol1e-10 -> PASS
+
+=== CHECK 4: numerical BVP solve (solve_bvp) vs closed form ===
+H=0.5: max|u2_num - u2_exact|=2.05e-13, tol1e-6 -> PASS
+H=1.0: max|u2_num - u2_exact|=5.46e-12, tol1e-6 -> PASS
+H=2.0: max|u2_num - u2_exact|=9.33e-11, tol1e-6 -> PASS
+
+=== CHECK 5: integration-by-parts identity (quadratic part) ===
+H=0.5: lhs=4.898373248074e-01 rhs=4.898373248074e-01 rel=1.13e-16 -> PASS
+H=1.0: lhs=9.242343145200e-01 rhs=9.242343145200e-01 rel=1.20e-16 -> PASS
+H=2.0: lhs=1.523188311912e+00 rhs=1.523188311912e+00 rel=0.00e+00 -> PASS
+
+=== CHECK 6: limits gamma_A, gamma_B ===
+H=0.001: gamma_A=5.000000e-04 vs beta=5.000000e-04; gamma_B=2.499999e-10 vs 2beta^3=2.500000e-10
+H=0.01: gamma_A=4.999958e-03 vs beta=5.000000e-03; gamma_B=2.499875e-07 vs 2beta^3=2.500000e-07
+H=10.0: gamma_A=0.9999092043 gamma_B=0.9998184126 (->1)
+H=50.0: gamma_A=1.0000000000 gamma_B=1.0000000000 (->1)
+
+=== CHECK 7: G = K^2/E consistency (kI = sqrt(gamma*(1-nu^2))) ===
+H=0.5: gamma_A rec=0.244918662404 orig=0.244918662404; gamma_B rec=0.027720167547 orig=0.027720167547
+H=1.0: gamma_A rec=0.462117157260 orig=0.462117157260; gamma_B rec=0.162640158564 orig=0.162640158564
+H=2.0: gamma_A rec=0.761594155956 orig=0.761594155956; gamma_B rec=0.559160731836 orig=0.559160731836

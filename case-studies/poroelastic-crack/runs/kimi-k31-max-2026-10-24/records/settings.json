@@ -1,0 +1,13 @@
+{
+  "model_alias": "kimi-code/k3.1-pro",
+  "thinking": {
+    "enabled": true,
+    "effort": "max"
+  },
+  "support_efforts": [
+    "low",
+    "high",
+    "max"
+  ],
+  "config_scope": "Isolated CLI data directory; user config unchanged"
+}

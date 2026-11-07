@@ -1,0 +1,27 @@
+{
+  "item1_wake": "right",
+  "item2_energy": "right",
+  "item3_modes": "right",
+  "item4_thresholds": "right",
+  "item5_numerics": "right",
+  "item6_verification": "right",
+  "item7_scope": "right",
+  "numerical_agreement_count": 16,
+  "numerical_agreement_of": 16,
+  "numerical_tolerance_abs": 1e-6,
+  "independent_check_file": "review_independent_check.py",
+  "independent_output_file": "review_independent_check_results.json",
+  "independent_route": "solve_bvp strip ODE + Simpson of stated DeltaPi density; G from ahead/behind U and N,h",
+  "closed_form_vs_bvp_max_abs": 1.0982215137289586e-11,
+  "coordinator_replay": {
+    "command": "timeout 120s python check.py",
+    "exit_code": 0,
+    "scientific_grade": null,
+    "scope": "factual unchanged-original replay"
+  },
+  "solver_verification": "check.py eight checks OVERALL PASS; FE energy vs analytic; not 2D tip extraction",
+  "source_recognition": "no paper citation in submission; formulas coincide with Xia-Hutchinson 2000 periodic-film reduction checked against reference for source claims only",
+  "uncertainty": "no 2D K extraction; foundation k not calibrated to a 3D substrate",
+  "missing_work": [],
+  "incomplete_obligations": []
+}

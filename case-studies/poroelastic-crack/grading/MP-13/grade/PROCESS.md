@@ -1,0 +1,7 @@
+# Grading process
+
+- 19:14:45 UTC — Started grading; read TASK.md, TASK_PROBLEM.md, KEY.md, and AUTO_CHECKS.json. No AGENTS.md is present in this folder. The corrected key supersedes the paper's initial stress intensity and short-time volume coefficient.
+- 19:15:48 UTC — Read all four submission files with line numbers. Copied the submission to scratch/rerun and ran python3 solve.py there successfully, leaving submission/ unchanged.
+- 19:18:10 UTC — Confirmed the regenerated JSON exactly matches the delivered JSON. Identified a common missing K normalization by sqrt(pi L), and a contradiction between the solver's hydraulic-loading anchor and its own superposed loading results.
+- 19:20:39 UTC — Ran scratch/verify.py: all nine printed claims match the submitted numbers; only the two loading-1 endpoint volumes meet the corrected key's bands. Independently verified undrained compliance and ellipse integration, disproved the claimed positive-sign undrained effective-stress trace, and checked the equal-moduli limits of the short-time coefficient and induced pressure. No web access was used.
+- 19:25:34 UTC — Completed GRADE.md with all nine requested sections, cited error inventory, check/claim assessments, source quotation, and challenge assessments. Validated the terminal JSON and agreement between its error counts and the written inventory. Confirmed the copied code and rerun JSON match the original submission exactly. Final answer profile: (a) partly, (b) wrong, (c) partly. Completed within the 25-minute limit.

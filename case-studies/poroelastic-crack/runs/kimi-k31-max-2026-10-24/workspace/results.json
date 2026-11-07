@@ -1,0 +1,22 @@
+{
+  "K1_0": 1.0,
+  "K1_inf": 1.0,
+  "V1_0": 1.8849555921538759,
+  "V1_inf": 2.5132741228718345,
+  "V1_short_coeff": 1.354055000514615,
+  "p_faces_0": 0.7490636704119851,
+  "K2_0": 0.0,
+  "K2_inf": -0.89,
+  "V2_inf": -2.236813969355933,
+  "formulas": {
+    "K1_0": "dimensional K = sqrt(pi*L); normalized K/(sqrt(pi*L)) = 1",
+    "K1_inf": "dimensional K = sqrt(pi*L); normalized K/(sqrt(pi*L)) = 1",
+    "V1_0": "dimensional V = pi*(1-nu_u)*L^2/G; normalized G*V/L^2 = pi*(1-nu_u)",
+    "V1_inf": "dimensional V = pi*(1-nu)*L^2/G; normalized G*V/L^2 = pi*(1-nu)",
+    "V1_short_coeff": "A = 16*(nu_u-nu)*(1-nu_u)/((1-nu)*sqrt(pi)) in V units of L^2/G; G*V/L^2 = pi*(1-nu_u) + A*sqrt(c*t/L^2)",
+    "p_faces_0": "p_faces(0+) = 2*(nu_u-nu)/(alpha*(1-2*nu)) per unit loading magnitude",
+    "K2_0": "K = 0",
+    "K2_inf": "dimensional K = -alpha*sqrt(pi*L); normalized K/(sqrt(pi*L)) = -alpha",
+    "V2_inf": "dimensional V = -alpha*pi*(1-nu)*L^2/G; normalized G*V/L^2 = -alpha*pi*(1-nu)"
+  }
+}

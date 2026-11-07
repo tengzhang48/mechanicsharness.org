@@ -1,0 +1,22 @@
+{
+  "checked_at_utc": "2026-10-15T23:53:08.406566+00:00",
+  "review": "R05",
+  "grader": "azure/grok-4.6",
+  "started_at_utc": "2026-10-15T23:52:40.635418+00:00",
+  "selected_variant": "high",
+  "owned_process_alive": true,
+  "public_events": 10,
+  "sessions": [
+    "ses_ebe048688ffeeex4aEn3agY8MX"
+  ],
+  "tools_executed": [
+    "write",
+    "glob",
+    "read",
+    "read",
+    "read"
+  ],
+  "public_errors": [],
+  "finished": false,
+  "owned_identity_verified": true
+}

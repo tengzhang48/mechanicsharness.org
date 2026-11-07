@@ -1,0 +1,34 @@
+{
+  "created_utc": "2026-10-24T12:47:13.005937+00:00",
+  "model": "kimi-code/k3.1-pro",
+  "requested_thinking_effort": "max",
+  "workspace": "<kimi-run-folder>/workspace",
+  "private_cli_home": "<home>/.kimi-code-max-poroelastic-2026-10-24",
+  "source_problem": "<pilot-folder>/PROBLEM.md",
+  "problem_sha256": "13a85960cb1886f0967ad17c9836a549cf6dbeeba21aa561dda25dc262a4f93a",
+  "prompt_sha256": "592442fa17b0fe01eaa1f0691f48a95c8084d81bc8880d1d4fcb288b1bbc5c36",
+  "same_prompt_as_high_run": true,
+  "input_files": [
+    "PROBLEM.md"
+  ],
+  "user_config_sha256_before": "c61d4510842a18b4b93c5774daeeef53e0cc3ef43fcdb6fb111fe6f0bc42a6f6",
+  "conditions": "Fresh CLI session; original unchanged problem; no earlier answers, feedback, knowledge packet, internet research or other-agent help; own computation allowed.",
+  "session_id": "session_eadc4a95-9aca-4e69-9649-eae37d2879d6",
+  "cli_version": "2.3.1",
+  "thinking_effort": "max",
+  "all_recorded_llm_requests_used_max": true,
+  "actual_started_utc": "2026-10-24T12:52:57.401000+00:00",
+  "actual_completed_utc": "2026-10-24T13:21:43.799000+00:00",
+  "duration_seconds": 1725.702,
+  "completion_status": "completed",
+  "submission_sha256": {
+    "ANSWER.md": "b28e4cdc25108ac5346594d7d291df10df2a60348c2054b17114b45ca76b600c",
+    "PROBLEM.md": "13a85960cb1886f0967ad17c9836a549cf6dbeeba21aa561dda25dc262a4f93a",
+    "results.json": "51d876dd2f03157c18c18badda2ec1c4b6167ff18b47b4a70d1b95784a190e13",
+    "verify.py": "b343aee2628ad81919bf2175cb19d6e083079d51a6fa0f3434ff582dc4ef0e2e"
+  },
+  "comparison_reference_was_supplied_to_solver": false,
+  "prior_high_run_was_supplied_to_solver": false,
+  "user_config_sha256_after": "c61d4510842a18b4b93c5774daeeef53e0cc3ef43fcdb6fb111fe6f0bc42a6f6",
+  "user_config_unchanged": true
+}

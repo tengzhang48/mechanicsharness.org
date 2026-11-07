@@ -1,0 +1,23 @@
+{
+  "K1_0": 1.0,
+  "K1_inf": 1.0,
+  "V1_0": 1.8849555921538759,
+  "V1_inf": 2.5132741228718345,
+  "V1_short_coeff": 0.7089815403622064,
+  "p_faces_0": 0.7490636704119851,
+  "K2_0": -0.89,
+  "K2_inf": -0.89,
+  "V2_inf": -2.2368139693559326,
+  "formulas": {
+    "K1_0": "s0*sqrt(pi*L)",
+    "K1_inf": "s0*sqrt(pi*L)",
+    "V1_0": "pi*(1-nu_u)*s0*L^2/G",
+    "V1_inf": "pi*(1-nu)*s0*L^2/G",
+    "V1_short_coeff": "2*sqrt(pi)*(nu_u-nu)*s0*L^2/G",
+    "p_faces_0": "2*(nu_u-nu)*s0/(alpha*(1-2*nu))",
+    "K2_0": "-alpha*p0*sqrt(pi*L)",
+    "K2_inf": "-alpha*p0*sqrt(pi*L)",
+    "V2_inf": " -pi*(1-nu)*alpha*p0*L^2/G"
+  },
+  "reproduce_command": "python3 solve.py"
+}

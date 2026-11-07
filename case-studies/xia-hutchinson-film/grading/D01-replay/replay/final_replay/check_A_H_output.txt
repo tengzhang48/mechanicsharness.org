@@ -1,0 +1,8 @@
+<solver-runs>/followup_runs/D01_direct_thinking_2026-10-15/work/j2d.py:96: IntegrationWarning: The occurrence of roundoff error is detected, which prevents 
+  the requested tolerance from being achieved.  The error may be 
+  underestimated.
+  val,_=quad(integrand,0.0,np.pi,limit=400)
+CASE A H-dependence (ell=1): analytic gamma_A=tanh(H/(2ell))
+H=0.5: r0=0.125 G_num=2.448334e-01 analytic=2.449187e-01 rel.err=3.48e-04
+H=1.0: r0=0.250 G_num=4.621700e-01 analytic=4.621172e-01 rel.err=1.14e-04
+H=2.0: r0=0.500 G_num=7.621588e-01 analytic=7.615942e-01 rel.err=7.41e-04

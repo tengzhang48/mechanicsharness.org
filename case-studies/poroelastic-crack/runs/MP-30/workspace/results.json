@@ -1,0 +1,29 @@
+{
+  "K1_0": 1.0,
+  "K1_inf": 1.0,
+  "V1_0": 3.7699111843077517,
+  "V1_inf": 5.026548245743669,
+  "V1_short_coeff": 1.4179630807244128,
+  "p_faces_0": 1.2484394506866416,
+  "K2_0": 0.0,
+  "K2_inf": 0.0,
+  "V2_inf": 4.473627938711865,
+  "formulas": {
+    "K1_0": "1*sqrt(pi*L)  (uniform face traction; elastic-constant independent)",
+    "K1_inf": "1*sqrt(pi*L)  (same as K1_0)",
+    "V1_0": "2*pi*(1-nu_u)*L^2/G",
+    "V1_inf": "2*pi*(1-nu)*L^2/G",
+    "V1_short_coeff": "(V1_inf - V1_0)*2/sqrt(pi) = 4*(nu_u-nu)*sqrt(pi)*L^2/G",
+    "p_faces_0": "2*(nu_u-nu)/(alpha*(1-2*nu)*(1-nu_u))",
+    "K2_0": "0",
+    "K2_inf": "0",
+    "V2_inf": "2*pi*(1-nu)*alpha*L^2/G = alpha*V1_inf"
+  },
+  "reproduce_command": "python3 solve.py",
+  "parameters": {
+    "nu": 0.2,
+    "nu_u": 0.4,
+    "alpha": 0.89,
+    "units": "K in sqrt(pi L), V in L^2/G, per unit loading magnitude"
+  }
+}

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Dimensional_Analysis_Crack_Tip</title><meta name="description" content="Record of the poroelastic crack case (MechanicsHarness), as written at the time: Dimensional_Analysis_Crack_Tip">
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body><nav aria-label="Collection navigation" style="padding:12px 20px;font:600 13px system-ui;background:#e5efeb;border-bottom:1px solid #ddd8cc"><a style="color:#0e6e6a" href="../../poroelastic-crack.html">← Poroelastic crack case</a></nav>
+<header id="title-block-header">
+<h1 class="title">Dimensional_Analysis_Crack_Tip</h1><p><strong>Excerpt for the poroelastic case, made on 6 November 2026.</strong> Section 4, which applies the same analysis to other problems of the collection (the gel problems and a large-deformation problem), is left out; the rest is unchanged.</p>
+
+</header>
+<h1
+id="dimensional-analysis-of-the-crack-tip-condition-log-p385p387">Dimensional
+analysis of the crack-tip condition (log P385–P387)</h1>
+<p>Teng: “why the undrained picture is not near tip” (P385); “We need
+some dimensionless analysis, like the Pi theorem?” (P386); “please
+document this” (P387).</p>
+<p><strong>In one line:</strong> the Pi theorem applied to the field,
+not only to the global answer, shows the condition the agents missed.
+“Small time” has no meaning until you say small compared with which
+length, and at the crack tip that length is the distance r itself.</p>
+<h2 id="the-physics-why-the-undrained-picture-fails-at-the-tip">1. The
+physics: why the undrained picture fails at the tip</h2>
+<p>“Undrained” means that the fluid has not had time to move. That holds
+where the pore pressure varies over a length ℓ with t ≪ ℓ²/c. -
+<strong>In the bulk,</strong> p varies over the crack size L. The solid
+is undrained for t ≪ L²/c. - <strong>At the tip,</strong> the undrained
+solution is singular. - p follows the mean stress, so p ~ K/√r and ∇p ~
+r^(−3/2). By Darcy’s law the flux at the tip is infinite at t = 0⁺. -
+The pressure varies over the distance r itself, so the local drainage
+time is ~r²/c, which tends to 0 as r → 0. - At any t &gt; 0 the zone r ≲
+√(ct) has drained. - <strong>Inside that zone:</strong> - the solid
+carries the load through its skeleton with the drained ν; - p vanishes
+at the tip: Hui, Long &amp; Ning 2013, “The pore pressure at the crack
+tip vanishes immediately after loading”, with p ~ √r there (their Eq.
+20). - <strong>Outside the zone</strong> the solid is still undrained,
+with ν_u. - <strong>Analogy:</strong> small-scale yielding, or the creep
+zone of a suddenly loaded crack (Riedel &amp; Rice, cited by Hui et
+al. 2013). The tip relaxes first because the fields there are strongest
+and change fastest. - <strong>Our FE</strong>
+(<code>FE_CHECK.md</code>): the near-tip K follows the drained relation
+in a plateau at r/√(ct) ≈ 0.03–0.15. It returns to the undrained
+relation at r/√(ct) ≈ 10–30.</p>
+<h2 id="pi-analysis">2. Pi analysis</h2>
+<p><strong>2.1 Global (what the agents did).</strong> K/(σ√(πL)) =
+f(ct/L², ν, ν_u, α). - The agents took ct/L² ≪ 1 and concluded
+“undrained everywhere”. - This group compares time with L only, so it
+cannot see the tip.</p>
+<p><strong>2.2 The field: a second group.</strong> σ_yy(r, θ, t) near
+the tip depends on two lengths, r and √(ct), so ρ = r/√(ct) appears.
+<strong>The two orders of limits are the two ends of ρ:</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Limit</th>
+<th>ρ</th>
+<th>State at the point</th>
+<th>Intensity obtained</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>t → 0 at fixed r</td>
+<td>→ ∞</td>
+<td>undrained</td>
+<td>the outer K = 1 (units σ√(πL))</td>
+</tr>
+<tr class="even">
+<td>r → 0 at fixed t &gt; 0 (the definition of K)</td>
+<td>→ 0</td>
+<td>drained</td>
+<td>K_tip</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2.3 The inner problem is self-similar.</strong> - Near the
+tip the only lengths are r and √(ct), and the load is K_outer. - So
+K_tip/K_outer = Φ(ν, ν_u, α), with no time dependence: no second length
+exists to form a group with √(ct). Hui et al. 2013 find the same
+similarity variable r/√(D_c t) (their Eq. 9d). -
+<strong>Consequence:</strong> K(0⁺) = Φ·K_outer, and the ratio survives
+t → 0⁺. K(0⁺) = 1 holds only if Φ = 1.</p>
+<p><strong>2.4 Rescaling the equations reduces Φ to one group.</strong>
+- Normalizing p removes α. The inner problem depends only on η = (ν_u −
+ν)/(1 − ν_u), so K_tip/K_outer = Φ(η) with Φ(0) = 1. This is Grok’s
+review of B (“independent of α”), with the weak-coupling expansion Φ = 1
+− (3/4)η + O(η²). - <strong>Two different η’s.</strong> η here is not
+Detournay &amp; Cheng’s η = α(1 − 2ν)/[2(1 − ν)]. - <strong>For a
+gel</strong> (ν_u = ½), η = 1 − 2ν and 1 + η = 2(1 − ν). So 1/(1 + η) is
+the base 1/[2(1 − ν)] of Yu et al.’s Eq. 12.</p>
+<p><strong>2.5 What the Pi theorem cannot give: the value of Φ.</strong>
+That takes the solution (a Wiener–Hopf factorization).</p>
+<p><strong>Φ(η) with drained faces, against the candidate
+formulas:</strong></p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">η</th>
+<th style="text-align: right;">Φ, ours (exact)</th>
+<th style="text-align: right;">1/(1 + η): Detournay &amp; Cheng; Hui et
+al. 2013</th>
+<th style="text-align: right;">(1 + η)^(−1/2): energy matching</th>
+<th style="text-align: right;">(1 + η)^(−0.735): Yu et al.</th>
+<th>Codes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.9853</td>
+<td style="text-align: right;">0.9804</td>
+<td style="text-align: right;">0.9901</td>
+<td style="text-align: right;">0.9856</td>
+<td>GPT</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">0.9312</td>
+<td style="text-align: right;">0.9091</td>
+<td style="text-align: right;">0.9535</td>
+<td style="text-align: right;">0.9323</td>
+<td>GPT</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">0.8729</td>
+<td style="text-align: right;">0.8333</td>
+<td style="text-align: right;">0.9129</td>
+<td style="text-align: right;">0.8746</td>
+<td>GPT, Codex</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1/3 (problem B)</td>
+<td style="text-align: right;">0.8076</td>
+<td style="text-align: right;">0.7500</td>
+<td style="text-align: right;">0.8660</td>
+<td style="text-align: right;">0.8094</td>
+<td>GPT, Codex, Grok</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0.7792</td>
+<td style="text-align: right;">0.7143</td>
+<td style="text-align: right;">0.8452</td>
+<td style="text-align: right;">0.7809</td>
+<td>GPT</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.52 (gel, ν = 0.24)</td>
+<td style="text-align: right;">0.7337</td>
+<td style="text-align: right;">0.6579</td>
+<td style="text-align: right;">0.8111</td>
+<td style="text-align: right;">0.7351</td>
+<td>GPT, Codex</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">0.7068</td>
+<td style="text-align: right;">0.6250</td>
+<td style="text-align: right;">0.7906</td>
+<td style="text-align: right;">0.7079</td>
+<td>GPT</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.8</td>
+<td style="text-align: right;">0.6491</td>
+<td style="text-align: right;">0.5556</td>
+<td style="text-align: right;">0.7454</td>
+<td style="text-align: right;">0.6492</td>
+<td>GPT, Codex</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.6018</td>
+<td style="text-align: right;">0.5000</td>
+<td style="text-align: right;">0.7071</td>
+<td style="text-align: right;">0.6008</td>
+<td>Codex (GPT’s code fails here)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Sources: <code>reproduce_yu2020.txt</code> (GPT’s MP-37 code),
+Codex’s Wilson code (P372), Grok’s <code>VERDICT.md</code>. The two
+codes agree to 6 digits where both ran.</li>
+<li><strong>With impermeable faces,</strong> Φ = (1 + η)^(−1/2). This is
+Yu et al.’s α = ½ for the gel; for the Biot solid our FE agrees to about
+1% (<code>../gel/G2/KEY.md</code>).</li>
+</ul>
+<h2 id="evidence-from-the-runs-on-b">3. Evidence from the runs on B</h2>
+<ul>
+<li><strong>No non-GPT run</strong> formed r/√(ct) or any similarity
+variable (0 of 9; grep of the ANSWER.md files).</li>
+<li><strong>All nine</strong> used the global group ct/L² ≪ 1, and
+judged the √(ct) tip zone by its share of the crack volume
+(<code>WHY_DRAINED_TIP_MISSED.md</code>).</li>
+<li><strong>GPT formed the tip variable:</strong>
+<ul>
+<li>MP-39: X = (x − L)/√(c/s), the Laplace-domain form of r/√(ct);</li>
+<li>MP-37 and MP-38: compared wavelength with √(c/s) through m = √(k² +
+s/c).</li>
+</ul></li>
+</ul>
+<h2 id="a-caution-and-a-draft-knowledge-entry-not-yet-approved">5. A
+caution, and a draft knowledge entry (not yet approved)</h2>
+<p><strong>The caution (P283,
+<code>../../KNOWLEDGE_ENTRY_DESIGN.md</code>).</strong> A generic “check
+the boundary first” instruction produced checklists, but did not make
+agents find the decisive boundary more often. A generic “do dimensional
+analysis” instruction may fail the same way. So the entry below follows
+the P283 format: it names the decisive comparison and the tempting wrong
+one.</p>
+<p><strong>Draft entry: fields near a singular point under a sudden load
+(diffusion-coupled solids).</strong> - <strong>Decisive
+comparison:</strong> the distance r to the singular point against the
+diffusion length √(ct). - The tempting wrong comparison is the body size
+L against √(ct). - <strong>The assumption it invalidates:</strong>
+“undrained (instantaneous) response everywhere at t = 0⁺”. It fails for
+r ≲ √(ct) at every t &gt; 0. - <strong>What replaces it:</strong> an
+inner drained zone, self-similar in r/√(ct), matched to the outer
+undrained field. - Pointwise quantities at the singular point (K, J*,
+the tip pressure) come from the inner zone: K_tip = Φ(η)·K_outer, with η
+= (ν_u − ν)/(1 − ν_u). - Φ needs a solution, e.g. a Wiener–Hopf
+factorization. Check point: Φ(1/3) = 0.807593 with drained faces. -
+<strong>What remains usable from the outer solution:</strong> bulk
+quantities (volumes, far fields, face pressures away from the tip) and
+K_outer as the load on the inner problem. - <strong>Independent
+checks:</strong> - Φ(0) = 1; - the weak-coupling slope dΦ/dη = −3/4; -
+the energy identity n₁₁² + n₂₁² = 1 + η; - with impermeable faces, Φ =
+(1 + η)^(−1/2). - <strong>Test (proposed):</strong> G1 and G2 in the
+next round, with and without this entry, for the agents that missed the
+drained tip on B.</p>
+</body>
+</html>

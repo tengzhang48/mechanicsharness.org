@@ -1,0 +1,21 @@
+{
+  "checked_at_utc": "2026-10-15T21:18:51.676794+00:00",
+  "attempt": "D01",
+  "started_at_utc": "2026-10-15T21:18:37.807388+00:00",
+  "selected_variant": "high",
+  "owned_timeout_pid": 502546,
+  "owned_process_identity_verified": true,
+  "public_events_received": 7,
+  "event_types": [
+    "step_finish",
+    "step_start",
+    "tool_use"
+  ],
+  "session_ids": [
+    "ses_ebe918f4affeIOwi3Ka4PA8xSQ"
+  ],
+  "solver_status_file_present": false,
+  "completion_record_present": false,
+  "state": "launched; waiting for first solver artifact",
+  "scientific_grade": null
+}

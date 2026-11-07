@@ -1,0 +1,52 @@
+{
+  "model_units": "E=1, sigma0=1, h=1, H=1 (so ell/H = ell numerically)",
+  "nu": 0.3,
+  "ell_definition": "ell = sqrt(E*h/(k*(1-nu^2)))",
+  "sampling": "ell/H = 0.5, 1.0, 1.5, 2.0",
+  "method": "plane-stress FEM (bilinear quads) of the film strip + Winkler foundation; prestress applied as crack-face tractions; G = -(1/h) dPi/da per advancing tip via two tip positions",
+  "rows": [
+    {"ell_over_H": 0.5, "gamma_A": 0.7651, "gamma_B": 0.5642, "kI_A": 0.8344, "kI_B": 0.7158,
+     "G_A": 0.3481, "G_B": 0.2560},
+    {"ell_over_H": 1.0, "gamma_A": 0.4654, "gamma_B": 0.1642, "kI_A": 0.6508, "kI_B": 0.3865,
+     "G_A": 0.4235, "G_B": 0.1494},
+    {"ell_over_H": 1.5, "gamma_A": 0.3240, "gamma_B": 0.0612, "kI_A": 0.5430, "kI_B": 0.2359,
+     "G_A": 0.4423, "G_B": 0.0835},
+    {"ell_over_H": 2.0, "gamma_A": 0.2469, "gamma_B": 0.0280, "kI_A": 0.4740, "kI_B": 0.1598,
+     "G_A": 0.4494, "G_B": 0.0510}
+  ],
+  "row_schema": {
+    "gamma_A": "G_A * Ebar/(sigma0^2 * ell), Ebar=E/(1-nu^2)",
+    "gamma_B": "G_B * Ebar/(sigma0^2 * ell)",
+    "kI_A": "KI_A/(sigma0*sqrt(ell)), KII=0 by symmetry",
+    "kI_B": "KI_B/(sigma0*sqrt(ell)), KII=0 by symmetry"
+  },
+  "limits": {
+    "A_H_over_ell_to_inf": {"gamma_A": 1.0, "kI_A": 0.9539, "note": "isolated-crack limit; measured H=8,12,16 at ell=1; sqrt(1-nu^2)=0.9539"},
+    "A_H_over_ell_to_0": {"gamma_A": 0.0, "kI_A_via_sqrtH": 0.68, "note": "G_A->0; K_A/(sigma0 sqrt H) ~ 0.68 but not fully converged"},
+    "B_limits": "not computed"
+  },
+  "checks": [
+    {"name": "mesh_convergence_A_ell_over_H_1", "outputs": [0.4245, 0.4235],
+     "detail": "nx=600 dx=0.075 vs nx=900 dx=0.05; rel diff 0.24%", "tol": 0.01, "pass": true},
+    {"name": "mesh_convergence_B_ell_over_H_0.5", "outputs": [0.12835, 0.12798],
+     "detail": "half-domain G; nx=600 vs nx=1000; rel diff 0.29%", "tol": 0.01, "pass": true},
+    {"name": "traction_free_crack_face", "outputs": [0.0029],
+     "detail": "far-behind wake sigma22 at face x2=0 is 0.0029 vs sigma0=1 (should be ~0)", "tol": 0.02, "pass": true},
+    {"name": "crack_plane_stress_recovery", "outputs": [1.0018, 1.0025],
+     "detail": "sigma22 on intact crack plane recovers to ~1.0=sigma0 well ahead of tip", "tol": 0.01, "pass": true},
+    {"name": "G_positive_sign", "outputs": [-8.4174, -8.3537, -8.2899, -8.2262, -8.1624],
+     "detail": "Pi decreases monotonically as crack lengthens (shifts -4..+4 at nx=400)", "tol": 0.0, "pass": true},
+    {"name": "isolated_crack_limit", "outputs": [0.999196, 0.999364, 0.998573],
+     "detail": "gamma_A at H/ell=8,12,16 -> 1.0", "tol": 0.005, "pass": true},
+    {"name": "rejected_wrong_closed_form", "outputs": ["Finf gave negative values"],
+     "detail": "compute.py closed form WRONG; discarded, not used", "pass": null},
+    {"name": "rejected_J_integral", "outputs": [0.015979, 0.001548, -0.001395],
+     "detail": "fem_j.py J not path-independent; discarded", "pass": null}
+  ],
+  "unresolved": [
+    "Case B H/ell limits not computed",
+    "H/ell->0 limit not fully converged",
+    "KII=0 argued by symmetry only, not symbolically proven",
+    "Case B factor-of-2 period accounting applied by hand (half-domain), verified by convergence but not independently"
+  ]
+}

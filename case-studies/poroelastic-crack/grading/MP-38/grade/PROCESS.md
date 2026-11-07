@@ -1,0 +1,8 @@
+19:46:13 Read TASK.md, the problem, corrected key, automatic checks, and submission files; began grading within the workspace and the 25-minute limit.
+19:46:47 Copied the submission to scratch/reproduction, recorded original file hashes, and started the stated reproduction command with its PID recorded in scratch/reproduction/solver.pid.
+19:47:22 Reproduction completed successfully. Independently compared all nine values with the corrected key and verified constitutive reduction, volume ratio, formula-string types, and the pasted JSON.
+19:49:02 Started scratch-only verification of the reported uncoupled/drained limits, basis/quadrature/cutoff configurations, intensity fits, and opening integrals; recorded the started process PID.
+19:51:15 All selected convergence configurations and volume integrals completed successfully, including the doubled production cutoff. Began exact comparison of every printed spectral table and extrapolation against the scratch computations.
+19:53:51 Corrected the grader's fit-window assumption for the N64 intensity check: the quoted fit uses its final three points, not all four. Restarted the scratch audit with that window and retained the computed production data.
+19:54:42 Verified all 14 printed spectral tables and all 10 groups of fitted values with no submission mismatches. Completed the grading profile, including the two supported challenges, check strengths, source omission, and the historical key's dimensional prefactor typo.
+19:55:09 Final validation passed: nine grading sections, the required final JSON block, check counts, all table/fit comparisons, and unchanged submission hashes. Completed within the 25-minute limit.

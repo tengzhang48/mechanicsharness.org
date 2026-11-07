@@ -1,0 +1,8 @@
+Reproduction: stored JSON == command stdout JSON == regenerated JSON: PASS
+Schema: all 9 Report quantities are numbers; all formulas are strings: PASS
+Volume from independently derived energy identity: 2.440219580900
+Reported volume coefficient: 2.440219579443
+Difference: 1.458e-09
+Weak coupling eta=0.0001: K=0.999925013475; first-order K=0.999925000000
+Weak-coupling scaled deficit (1-K)/eta: 0.749865248; expected limit 0.75
+Energy relation and weak-coupling checks: PASS

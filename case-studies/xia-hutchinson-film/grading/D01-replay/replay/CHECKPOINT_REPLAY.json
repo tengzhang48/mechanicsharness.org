@@ -1,0 +1,147 @@
+{
+  "checked_at_utc": "2026-10-15T21:25:43.105012+00:00",
+  "scope": "Factual replay and frozen-value comparison of minute-5 checkpoint; not final scientific grade",
+  "source_snapshot": "<pilot-folder>/followup_runs/D01_direct_thinking_2026-10-15/controller.phases/02-checkpoint_report",
+  "command": "timeout 180 python3 compute.py && timeout 180 python3 checks.py",
+  "scripts_modified": false,
+  "exit_code": 0,
+  "elapsed_seconds": 8.983813162951265,
+  "checks_printed_pass": 18,
+  "checks_printed_fail": 0,
+  "values_matching_reference": 16,
+  "requested_values_total": 16,
+  "maximum_absolute_difference": 1.3877787807814457e-16,
+  "reproduced_analytic_values_match_submitted": true,
+  "reference_sha256": "14932c4a7ea8017f729291595ea7737bc703567967c39a30ffc25585644f7f26",
+  "details": [
+    {
+      "ell_over_H": 0.5,
+      "quantity": "gamma_A",
+      "submitted": 0.7615941559557649,
+      "reference": 0.7615941559557649,
+      "absolute_difference": 0.0,
+      "within_frozen_1e_minus_6": true
+    },
+    {
+      "ell_over_H": 0.5,
+      "quantity": "gamma_B",
+      "submitted": 0.5591607318357129,
+      "reference": 0.5591607318357128,
+      "absolute_difference": 1.1102230246251565e-16,
+      "within_frozen_1e_minus_6": true
+    },
+    {
+      "ell_over_H": 0.5,
+      "quantity": "kI_A",
+      "submitted": 0.8324966558009383,
+      "reference": 0.8324966558009383,
+      "absolute_difference": 0.0,
+      "within_frozen_1e_minus_6": true
+    },
+    {
+      "ell_over_H": 0.5,
+      "quantity": "kI_B",
+      "submitted": 0.7133276007351032,
+      "reference": 0.7133276007351032,
+      "absolute_difference": 0.0,
+      "within_frozen_1e_minus_6": true
+    },
+    {
+      "ell_over_H": 1.0,
+      "quantity": "gamma_A",
+      "submitted": 0.46211715726000974,
+      "reference": 0.46211715726000974,
+      "absolute_difference": 0.0,
+      "within_frozen_1e_minus_6": true
+    },
+    {
+      "ell_over_H": 1.0,
+      "quantity": "gamma_B",
+      "submitted": 0.16264015856425462,
+      "reference": 0.16264015856425462,
+      "absolute_difference": 0.0,
+      "within_frozen_1e_minus_6": true
+    },
+    {
+      "ell_over_H": 1.0,
+      "quantity": "kI_A",
+      "submitted": 0.6484802333969856,
+      "reference": 0.6484802333969856,
+      "absolute_difference": 0.0,
+      "within_frozen_1e_minus_6": true
+    },
+    {
+      "ell_over_H": 1.0,
+      "quantity": "kI_B",
+      "submitted": 0.38471098800719444,
+      "reference": 0.38471098800719444,
+      "absolute_difference": 0.0,
+      "within_frozen_1e_minus_6": true
+    },
+    {
+      "ell_over_H": 1.5,
+      "quantity": "gamma_A",
+      "submitted": 0.32151273753163434,
+      "reference": 0.32151273753163434,
+      "absolute_difference": 0.0,
+      "within_frozen_1e_minus_6": true
+    },
+    {
+      "ell_over_H": 1.5,
+      "quantity": "gamma_B",
+      "submitted": 0.06024252971535857,
+      "reference": 0.060242529715358484,
+      "absolute_difference": 8.326672684688674e-17,
+      "within_frozen_1e_minus_6": true
+    },
+    {
+      "ell_over_H": 1.5,
+      "quantity": "kI_A",
+      "submitted": 0.5409034952316237,
+      "reference": 0.5409034952316238,
+      "absolute_difference": 1.1102230246251565e-16,
+      "within_frozen_1e_minus_6": true
+    },
+    {
+      "ell_over_H": 1.5,
+      "quantity": "kI_B",
+      "submitted": 0.23413821140722907,
+      "reference": 0.23413821140722893,
+      "absolute_difference": 1.3877787807814457e-16,
+      "within_frozen_1e_minus_6": true
+    },
+    {
+      "ell_over_H": 2.0,
+      "quantity": "gamma_A",
+      "submitted": 0.24491866240370913,
+      "reference": 0.24491866240370913,
+      "absolute_difference": 0.0,
+      "within_frozen_1e_minus_6": true
+    },
+    {
+      "ell_over_H": 2.0,
+      "quantity": "gamma_B",
+      "submitted": 0.027720167547408525,
+      "reference": 0.027720167547408525,
+      "absolute_difference": 0.0,
+      "within_frozen_1e_minus_6": true
+    },
+    {
+      "ell_over_H": 2.0,
+      "quantity": "kI_A",
+      "submitted": 0.4720974293378172,
+      "reference": 0.4720974293378172,
+      "absolute_difference": 0.0,
+      "within_frozen_1e_minus_6": true
+    },
+    {
+      "ell_over_H": 2.0,
+      "quantity": "kI_B",
+      "submitted": 0.1588249113588349,
+      "reference": 0.1588249113588349,
+      "absolute_difference": 0.0,
+      "within_frozen_1e_minus_6": true
+    }
+  ],
+  "limits": "An exit code does not grade the proof; some reported checks only print values, and all routes share the stated 1D reduction."
+}

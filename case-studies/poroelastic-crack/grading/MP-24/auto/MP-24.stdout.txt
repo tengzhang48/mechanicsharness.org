@@ -1,0 +1,26 @@
+=== MP-24 report values (part c: nu=0.2, nu_u=0.4, alpha=0.89) ===
+K1_0        = 1.0000000000   [sqrt(pi L)]
+K1_inf      = 1.0000000000   [sqrt(pi L)]
+V1_0        = 1.8849555922   [L^2/G]
+V1_inf      = 2.5132741229   [L^2/G]
+V1_short_coeff (A) = 1.8054066674   [L^2/G],  V ~ V1_0 + A sqrt(c t/L^2)
+p_faces_0   = 0.7490636704   [per unit applied traction]
+K2_0        = 0.0000000000   [sqrt(pi L)]
+K2_inf      = 0.0000000000   [sqrt(pi L)]
+V2_inf      = 0.0000000000   [L^2/G]
+
+CHECK 1 (reciprocity consistency, long-time limit)
+  int sigma_kk^2 dA = 6.277848  (grid 6.179674 + tail 0.098175)
+  expected 2*pi*L^2 = 6.283185,  rel.err = 8.494e-04
+
+CHECK 2 (2-D slit diffusion -> short-time volume growth)
+  face-layer prediction: M_face = 16 sqrt(t/pi)  (M/sqrt(t) -> 9.027033);  tips/curvature add O(t^0.75), O(t)
+  t= 2.610e-04  M=   0.1249  M_face=   0.1458  M/M_face=  0.8567
+  t= 5.724e-04  M=   0.1782  M_face=   0.2160  M/M_face=  0.8252
+  t= 1.253e-03  M=   0.2521  M_face=   0.3195  M/M_face=  0.7891
+  t= 2.749e-03  M=   0.3535  M_face=   0.4733  M/M_face=  0.7469
+  t= 6.034e-03  M=   0.4893  M_face=   0.7012  M/M_face=  0.6978
+  fit M = C0 sqrt(t/pi) + C1 t^0.75 + C2 t over 39 samples:
+  C0 = 16.1118 (predicted 16), C1 = -11.3458, C2 = 4.7682, rms resid = 4.84e-05
+
+results.json written

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Why_Drained_Tip_Missed</title><meta name="description" content="Record of the poroelastic crack case (MechanicsHarness), as written at the time: Why_Drained_Tip_Missed">
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body><nav aria-label="Collection navigation" style="padding:12px 20px;font:600 13px system-ui;background:#e5efeb;border-bottom:1px solid #ddd8cc"><a style="color:#0e6e6a" href="../../poroelastic-crack.html">← Poroelastic crack case</a></nav>
+<header id="title-block-header">
+<h1 class="title">Why_Drained_Tip_Missed</h1>
+</header>
+<h1 id="why-the-drained-tip-was-missed-log-p381">Why the drained tip was
+missed (log P381)</h1>
+<p>Teng: “why the drained tip was missed? That is something we can look
+into details. If you were working on it, will you be able to find
+it”.</p>
+<p><strong>Evidence.</strong> The nine non-GPT runs on problem B were
+read: - K3: MP-22, 24, 33; - GLM: MP-06, 10, 21; - DeepSeek: MP-13, 27,
+30.</p>
+<p>We read their ANSWER.md files and grepped them (tip zone,
+singularity, order of limits). For the three GPT runs, we searched the
+session logs for the first mention of the tip structure. Quotes are
+pasted from those files.</p>
+<h2 id="the-decisive-step">The decisive step</h2>
+<p>K is defined at the tip: K(t) = lim_{r→0} √(2πr) σ_yy at fixed t &gt;
+0. - <strong>The undrained t = 0⁺ field is singular there.</strong> The
+pore pressure goes as r^(−1/2), so its gradient goes as r^(−3/2). -
+<strong>The tip drains at once.</strong> At distance r the local
+drainage time is ~r²/c, which tends to 0 as r → 0. So at every t &gt; 0
+a region of size ~√(ct) around the tip has drained. K, being a limit at
+r → 0, is set inside that region. - <strong>The two limits do not
+commute.</strong> Taking t → 0 first, at fixed r, gives the outer
+undrained value 1. Taking r → 0 first gives 0.8076.</p>
+<h2 id="what-the-nine-runs-did">What the nine runs did</h2>
+<p><strong>1. The same chain in all nine.</strong> - “Instantaneous
+response = undrained elasticity” (MP-22). - K of a traction problem does
+not depend on the elastic constants, so K(0⁺) = K(∞) = 1. - Two quotes:
+“SIF of the Griffith crack depends only on face tractions” (MP-21); “the
+undrained/drained distinction does not [change K]” (MP-30). - Variants
+of the same answer: MP-13 reports √π, the same value in other units;
+MP-27 reports 1/(1 − ν), a different error. - <strong>No run mentions
+the order of limits</strong> (0 of 9).</p>
+<p><strong>2. The tip zone was noticed, then dismissed by a scaling that
+dropped the singularity.</strong> - Five runs name the √(ct) zone around
+the tip: - “The crack-tip regions (size ~√(ct)) contribute only
+O((ct)<sup>{3/4}L</sup>{1/2}) to V, which is higher order” (MP-22); -
+“Tip zones of size sqrt(ct) contribute only O((ct)^{3/4})” (MP-24); -
+MP-10 and MP-33 say the same; MP-13 has “A boundary layer of width √(ct)
+around each tip”. - <strong>They judged the zone by its share of the
+crack volume, never by its effect on K.</strong> - <strong>The
+(ct)^{3/4} estimate holds only for bounded fields</strong> inside the
+zone. With the r^(−1/2) field the tip zones contribute at order √t, the
+same order as the faces. Grok: “Tip contribution scaling as t^{3/4}
+rather than √t (would happen if Z were bounded rather than r^{-1/2})”. -
+<strong>One run had the missing piece and did not connect it.</strong>
+K3 MP-24 wrote that the undrained pressure “inherits the 1/sqrt(r)
+elastic singularity” at the tips, but did not draw the consequence
+(infinite gradient, so instant local drainage).</p>
+<p><strong>3. One run computed the right physics and explained it
+away</strong> (GLM MP-06, check 4). - Its own transient simulation gave:
+- “fit over ct in [4e-4,4e-3]: A_fit = 2.69359 (analytic 1.12838, diff
+138.71%)”; - K “≈ 0.8–0.84 instead of 1”. - It attributed both to
+numerics: “unresolved tip singularities of the Skempton initial field in
+the FFT trace (they also pollute the pipeline’s K, which came out ≈
+0.8–0.84 instead of 1)”. - It reported the analytic values, 1 and 1.128.
+- <strong>The simulation’s values were near the truth</strong> (K =
+0.8076, A = 2.4402), but partly by a numerical route. Correction P382,
+from the artifacts <code>partC.py</code> and <code>partC_out.txt</code>:
+- The pipeline adds a drained crack under unit traction (K = 1) to the
+crack problem of the pore-pressure eigenstress, computed by FFT on an
+800 × 500 grid. - The second part prints “K/sqrt(pi L) = -0.18009” at t
+= 0⁺, so the total is 0.82 at t = 0⁺, and 0.814–0.841 at later outputs.
+- <strong>The value 0.82 appears before any diffusion step.</strong> It
+comes from the grid smoothing the singular undrained pressure at the
+tip. That acts like a drained tip zone of grid size; it is not resolved
+drainage. The agent’s attribution to “unresolved tip singularities” was
+partly right. - <strong>The failure was not testing it.</strong> There
+was no grid refinement, and no question about what physics a smoothed
+tip would imply. A refinement would have shown whether the 0.82 depends
+on the grid; by self-similarity it should not. - The analysis (K = 1)
+was wrong. - <strong>The same pattern appears in print.</strong>
+Bouklas, Landis &amp; Huang 2015 attributed the immersed short-time drop
+in J* to “the first time step”
+(<code>../gel/LITERATURE_CHECK.md</code>).</p>
+<h2 id="what-gpt-did-differently">What GPT did differently</h2>
+<p>GPT read the definition of K literally and asked what the field is at
+the tip for t &gt; 0. - <strong>MP-37</strong> asked this at 13 min into
+the session: “the bulk undrained W gives K_outer = 1 but true near-tip K
+may differ”. - <strong>MP-38</strong> proposed the energy-matching value
+0.866 at 39 min (“rice/cleary small-scale drainage energy matching …
+k1_0=sqrt((1-nu_u)/(1-nu))=0.866025!”), then moved past it to the
+factorization. - <strong>MP-39:</strong> “At every fixed positive time,
+arbitrarily close to the tip the mechanical singularity is drained. The
+outer initial field is undrained. Their intensities need not agree.”</p>
+<h2 id="process-comparison-p383">Process comparison (P383)</h2>
+<p><strong>Run facts</strong> (from the session logs; budget 50 min for
+all runs):</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Agent</th>
+<th>Runs</th>
+<th>Minutes used</th>
+<th>Reasoning tokens (main thread)</th>
+<th>Subagent tasks</th>
+<th>Transform (Fourier–Laplace) formulation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>K3</td>
+<td>MP-22, 24, 33</td>
+<td>11, 22, 17</td>
+<td>not logged (Cline)</td>
+<td>none</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>DeepSeek</td>
+<td>MP-13, 27, 30</td>
+<td>16, 12, 6</td>
+<td>not logged (Cline)</td>
+<td>none</td>
+<td>no</td>
+</tr>
+<tr class="odd">
+<td>GLM</td>
+<td>MP-06, 10, 21</td>
+<td>55, 28, 39</td>
+<td>153k, 91k, 126k</td>
+<td>0, 0, 0 (tool available in opencode)</td>
+<td>no</td>
+</tr>
+<tr class="even">
+<td>GPT</td>
+<td>MP-37, 38, 39</td>
+<td>32, 47, 49</td>
+<td>11k, 5k, 10k (plus its subagents)</td>
+<td>6, 3, 3</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>What GPT did, from its subagent prompts:</strong> -
+<strong>It formulated the coupled problem exactly.</strong> MP-37 at 13
+min: “I derived exact half-space Fourier-Laplace relation, k=abs(x
+wavenumber), m=sqrt(k²+s/c) …”. In this form the drained limit (k → ∞)
+and the undrained limit (k → 0) are the two ends of one symbol, so the
+question of which end governs K cannot be avoided. - <strong>It started
+from the definition of K.</strong> MP-38: “K defined actual r-&gt;0
+stress intensity at any t&gt;0 where crack tip is drained.” - <strong>It
+checked its own result adversarially,</strong> with independent
+derivations by subagents and explicit instructions not to assume. MP-39:
+“Do not simply assume outer undrained K equals true near-tip K.” -
+<strong>It refined before concluding.</strong> MP-39: “resolution
+resolving tip … gives ~.865 .848 .836 .827 … Extrapolation suggests .816
+or .81.” Contrast GLM MP-06, which ran no refinement. - <strong>It used
+the whole budget.</strong></p>
+<p><strong>Reading:</strong> - <strong>Effort was not the
+limit.</strong> GLM spent 90k–150k reasoning tokens on the same chain. -
+<strong>Direction was the limit:</strong> - the formulation chosen
+(undrained elastic field plus a 1D face layer leaves no place for the
+tip); - a standard theorem that made K = 1 look exact; - checks that
+verified the elastic solution but could not fail on the assumption; - an
+early stop (K3, DeepSeek). - <strong>The harness alone does not explain
+it.</strong> GLM had the same subagent tool in opencode and did not use
+it. - <strong>GPT’s prior knowledge of the structure cannot be
+excluded</strong> (it cites Rice–Cleary small-scale drainage and
+Wiener–Hopf). - <strong>Our statement contributed.</strong> “just after
+loading (t = 0⁺)” without an order of limits invites the global reading.
+- <strong>Small sample:</strong> three runs per agent, one problem, and
+GPT ran only B.</p>
+<h2
+id="lessons-candidates-for-knowledge-entries-name-the-decisive-comparison">Lessons
+(candidates for knowledge entries; “name the decisive comparison”)</h2>
+<p><strong>The dimensional analysis behind lessons 2 and 3,</strong>
+with Φ(η) and a draft entry, is in <code>DIMENSIONAL_ANALYSIS.md</code>
+(P387).</p>
+<ol type="1">
+<li><strong>A pointwise quantity is set by the innermost zone,</strong>
+however small that zone is. K is not weighted by area.</li>
+<li><strong>A scaling estimate must carry the singularity.</strong>
+Bounded fields gave (ct)^{3/4}; the r^(−1/2) field gives √t.</li>
+<li><strong>“Undrained at t = 0⁺” holds in the bulk, not at a singular
+point.</strong> Compare the local drainage time r²/c with t; at a crack
+tip it tends to 0. Take r → 0 first for K.</li>
+<li><strong>When your own numerics disagree with your analysis,</strong>
+examine the analysis where they disagree before blaming the numerics
+(MP-06; Bouklas et al. 2015).</li>
+</ol>
+<h2 id="would-opus-find-it-opuss-own-account">Would Opus find it?
+(Opus’s own account)</h2>
+<p><strong>The record, as key writer for B (P341, open book).</strong> -
+I took the drained tip from the paper (“the crack tips are effectively
+drained”) and marked it as the decisive point. - I accepted the paper’s
+heuristic 0.75 and its faces-only 1.354 without checking either. - Teng
+suspected 0.75 (“I have a feeling 0.75 has some approxmination”). GPT
+found both errors. My FE came afterwards, as a check.</p>
+<p><strong>What that shows.</strong> Knowing the concept from the paper
+did not lead me to test the value. That is the same gap as MP-06:
+trusting the stated analysis.</p>
+<p><strong>Whether I would find it closed book is unknown.</strong> -
+This session now knows the answer, so it cannot be the test. - Recall is
+also a confound, as for GPT: these papers are probably in my training
+data.</p>
+<p><strong>The fair test.</strong> Fresh Opus sessions, closed book, on
+B and on G1/G2, three runs each, graded like the other agents.</p>
+</body>
+</html>

@@ -1,0 +1,71 @@
+{
+  "K1_0": 0.8075930027492326,
+  "K1_inf": 1.0,
+  "K2_0": 0.0,
+  "K2_inf": -0.33375,
+  "V1_0": 1.8849555921538759,
+  "V1_inf": 2.5132741228718345,
+  "V1_short_coeff": 2.4402195794425063,
+  "V2_inf": -0.8388052385084748,
+  "formulas": {
+    "K1_0": "n11/(1+eta) (true-tip r->0 first, then t->0+)",
+    "K1_0_bulk_alternative": "1 (t->0+ at fixed distance first, then r->0)",
+    "K1_inf": "1",
+    "K2_0": "0",
+    "K2_inf": "-a/(2*(1-nu))",
+    "V1_0": "pi*(1-nu_u)",
+    "V1_inf": "pi*(1-nu)",
+    "V1_short_coeff": "4*d/((1+eta)*sqrt(pi))*(4+pi*sqrt(2/eta)*n21)",
+    "V2_inf": "-pi*a/2",
+    "definitions": "d=nu_u-nu; a=alpha*(1-2*nu); eta=d/(1-nu_u); n11=N_minus(0;eta)[0,0]; n21=N_minus(0;eta)[1,0]",
+    "factor_definition": "N=N_plus*N_minus; N_plus and inverse analytic in Im(xi)>0; N_minus and inverse analytic in Im(xi)<0; N_plus(infinity)=N_minus(infinity)=I; square roots have positive real part",
+    "factor_kernel": "k=abs(xi); m=sqrt(1+xi^2); t=k/(m+k); D=1+eta-2*eta*k*t/m; k_plus=sqrt(-i*xi); k_minus=sqrt(i*xi); m_plus=sqrt(1-i*xi); m_minus=sqrt(1+i*xi); N=[[D,sqrt(2*eta)*t/(m_plus*k_plus)],[sqrt(2*eta)*t/(m_minus*k_minus),1]]; N(0)=diag(1+eta,1)",
+    "normalization": "K_report=K/sqrt(pi*L); V_report=G*V/L^2; unit step loading",
+    "p_faces_0": "2*d/a (undrained outer-limit pressure); actual prescribed face trace is 0"
+  },
+  "p_faces_0": 0.7490636704119851,
+  "reproduce_command": "OPENBLAS_NUM_THREADS=1 python3 solve.py"
+}
+{
+  "extrapolated_n11": 1.0767906703323102,
+  "extrapolated_n21": 0.4169594526473146,
+  "extrapolated_norm_error": -4.666793618213205e-10,
+  "face_only_A": 1.354055000514615,
+  "factor_grids": [
+    {
+      "K1_0": 0.8076224938115749,
+      "count": 65536,
+      "factor_norm_error": 5.277437731265877e-08,
+      "imaginary_zero_error": 8.392822674359131e-16,
+      "iterations": 42,
+      "n11": 1.0768299917487667,
+      "n21": 0.41685795539735343,
+      "projection_residual": 7.378395846389504e-15,
+      "scale": 0.01
+    },
+    {
+      "K1_0": 0.8076077454627784,
+      "count": 262144,
+      "factor_norm_error": 1.3660316877661671e-08,
+      "imaginary_zero_error": 8.713135287368024e-16,
+      "iterations": 42,
+      "n11": 1.0768103272837046,
+      "n21": 0.41690870229441257,
+      "projection_residual": 7.419293514385307e-15,
+      "scale": 0.01
+    },
+    {
+      "K1_0": 0.8076003734015992,
+      "count": 1048576,
+      "factor_norm_error": 3.473425547184661e-09,
+      "imaginary_zero_error": 9.401426776692667e-16,
+      "iterations": 42,
+      "n11": 1.076800497868799,
+      "n21": 0.41693407703888324,
+      "projection_residual": 7.464662548365556e-15,
+      "scale": 0.01
+    }
+  ],
+  "linear_extrapolated_A": 2.4402195771919195,
+  "linear_extrapolated_K1_0": 0.80759300134042
+}

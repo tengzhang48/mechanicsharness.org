@@ -1,0 +1,20 @@
+Against the corrected key (1% nonzero; absolute 0.01 for K2_0):
+K1_0: got=1, key=0.807593, error=0.238247, passes=False
+K1_inf: got=1, key=1, error=0, passes=True
+V1_0: got=1.88495559215, key=1.88495559215, error=0, passes=True
+V1_inf: got=2.51327412287, key=2.51327412287, error=0, passes=True
+V1_short_coeff: got=0.564189583548, key=2.44022, error=0.768796, passes=False
+p_faces_0: got=0.374531835206, key=0.749063670412, error=0.5, passes=False
+K2_0: got=0, key=0, error=0, passes=True
+K2_inf: got=0, key=-0.33375, error=1, passes=False
+V2_inf: got=0, key=-0.838805238508, error=1, passes=False
+
+Correct pressure, still using the submission's local opening rule: A=1.1283791671
+Key's face-only reciprocal contribution: A_face=1.35405500051
+Key's additional tip contribution: A_tip=1.08616499949
+
+Expanding pressurized disk: an equilibrium limit, not a transient crack simulation
+R=10: inner stress=-0.33375, displacement jump=0, traction jump=0
+R=100: inner stress=-0.33375, displacement jump=0, traction jump=0
+R=1000: inner stress=-0.33375, displacement jump=0, traction jump=0
+Crack-face correction in this limiting compressive field: K=-eta=-0.33375, V=-pi*(1-nu)*eta=-0.838805238508

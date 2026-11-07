@@ -1,0 +1,34 @@
+{
+  "prepared_at_utc": "2026-10-15T13:20:53.165955+00:00",
+  "review_id": "R03",
+  "solver_id": "S01",
+  "review_folder": "<review-runs>/reviews/R03",
+  "reference_unchanged_after_freeze": true,
+  "redactions": [],
+  "original_submission_sha256": {
+    "ANSWER.md": "211851e007e696fa3214219cc622a047cec640280f9938b09a5b58a69d5da616",
+    "CHECKS.txt": "e3e86d3d5cfabcf5f86157031953980dfa8e19c9657b82eb7721a86f68075d8c",
+    "DERIVATION.md": "1fc8a70eb0ab15bea576183c1ea6f856cc0bc943260b8bb5fd8c9096dc020a7c",
+    "PROBLEM.md": "ff71c35e326a323596567ae22e39df5df7907eefc3037cea2e5d64e37ec3b2ea",
+    "PROVISIONAL_REPORT.md": "2468cffd3e9c3c7f2f962aa2e4974870661094c14095adc7e23019ae57107a4c",
+    "REPRODUCE.md": "f7eae5304c49968a0dd59133157d606b04ea55538f4862b2c707480120a53da1",
+    "STATUS.md": "5236549719a91fab94433da0c0ab652bb811fe4e28b4414ee973474da6ff3fcb",
+    "TASK.md": "e88f52976d49c25210efbf50fab8e64c01707fe84fbf7189727d983622d98cc6",
+    "check.py": "024ee81204472749f98903d34ab8028fa91c6a2bd750d16ac7ae83c95246dc33",
+    "results.json": "d927beddaaba13da7cf5c4b1ce6cf18d7004d747921a86dbf16f483c59370d08"
+  },
+  "review_submission_sha256": {
+    "ANSWER.md": "211851e007e696fa3214219cc622a047cec640280f9938b09a5b58a69d5da616",
+    "CHECKS.txt": "e3e86d3d5cfabcf5f86157031953980dfa8e19c9657b82eb7721a86f68075d8c",
+    "DERIVATION.md": "1fc8a70eb0ab15bea576183c1ea6f856cc0bc943260b8bb5fd8c9096dc020a7c",
+    "PROBLEM.md": "ff71c35e326a323596567ae22e39df5df7907eefc3037cea2e5d64e37ec3b2ea",
+    "PROVISIONAL_REPORT.md": "2468cffd3e9c3c7f2f962aa2e4974870661094c14095adc7e23019ae57107a4c",
+    "REPRODUCE.md": "f7eae5304c49968a0dd59133157d606b04ea55538f4862b2c707480120a53da1",
+    "STATUS.md": "5236549719a91fab94433da0c0ab652bb811fe4e28b4414ee973474da6ff3fcb",
+    "TASK.md": "e88f52976d49c25210efbf50fab8e64c01707fe84fbf7189727d983622d98cc6",
+    "check.py": "024ee81204472749f98903d34ab8028fa91c6a2bd750d16ac7ae83c95246dc33",
+    "results.json": "d927beddaaba13da7cf5c4b1ce6cf18d7004d747921a86dbf16f483c59370d08"
+  },
+  "math_alteration_intended": false,
+  "masking_limit": "Labels withheld; style or prior knowledge may still permit inference; shared-account access boundary is instructional"
+}

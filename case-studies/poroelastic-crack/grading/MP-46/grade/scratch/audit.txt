@@ -1,0 +1,25 @@
+Reproduction results.json exactly matches original: True
+FEM output exactly matches delivered fem_out.txt: True
+K1_0: actual=1, key=0.807593, within_band=False
+K1_inf: actual=1, key=1, within_band=True
+V1_0: actual=1.88495559215, key=1.88495559215, within_band=True
+V1_inf: actual=2.51327412287, key=2.51327412287, within_band=True
+V1_short_coeff: actual=0.708981540362, key=2.44022, within_band=False
+p_faces_0: actual=0.749063670412, key=0.749063670412, within_band=True
+K2_0: actual=-0.89, key=0, within_band=False
+K2_inf: actual=-0.89, key=-0.33375, within_band=False
+V2_inf: actual=-2.23681396936, key=-0.838805238508, within_band=False
+nodes 14682 elems 28800
+Constitutive coupling su: implemented 1.068 required 0.89
+Constitutive storage bcoef: implemented 0.0 required 0.23762999999999995
+Element 0: computed grad(x)=[0. 1.], grad(y)=[-1.  1.]; required [1,0] and [0,1]
+Element 1: computed grad(x)=[ 1. -1.], grad(y)=[1. 0.]; required [1,0] and [0,1]
+Elastic calibration dimensional K: 1.4290547211216567 K normalized by sqrt(pi L): 0.8062577879765825
+Opening at nominal crack tip x= -1.0 : 0.26477390298201026 ; continuous crack tips require zero
+Opening at nominal crack tip x= 1.0 : 0.2673442946320697 ; continuous crack tips require zero
+Previous-step displacement contribution relative discrepancy: 0.05203742750714577
+Implemented RHS is su*Mp*M_lump^(-1)*Cp*u_n; consistent backward-Euler RHS is su*Cp*u_n (plus pressure storage).
+Reported transient V first/last ratio: 0.56760115168965
+Loading 1 K last/first: 1.6261612107291894
+Loading 2 |K| last/first: 2.529244409157073
+Permeability is included in Kp, then multiplied again by kap in A.

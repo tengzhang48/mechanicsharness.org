@@ -1,0 +1,137 @@
+{
+ "id": "X_xia_hutchinson",
+ "title": "Energy release for periodic cracks in an elastic film on a foundation",
+ "source_paper": "Z.C. Xia, J.W. Hutchinson (2000), J. Mech. Phys. Solids 48, 1107-1131, Eqs. 12, 28, 30",
+ "verdict": "READY AFTER FIXES",
+ "issues": [
+  {
+   "severity": "grade",
+   "where": "<pilot-folder>/KEY_FREEZE.json tolerances; NUMERICAL_EVIDENCE.json",
+   "what": "numeric comparison at 1e-6 absolute, never stated to solvers, for an open-method task; approximately right FEM values (0.2-1.6%) counted 0/16",
+   "evidence": "NUMERICAL_EVIDENCE.csv S02 rows; reviews/R01/grade.json item 5"
+  },
+  {
+   "severity": "statement",
+   "where": "<pilot-folder>/frozen_inputs/PROBLEM.md:3-4",
+   "what": "coordinator draft text shipped to solvers; says it is a 'source-faithful reproduction task' (recall cue)",
+   "evidence": "text; same sha in all runs"
+  },
+  {
+   "severity": "statement",
+   "where": "<pilot-folder>/frozen_inputs/PROBLEM.md:90-92",
+   "what": "no accuracy requirement for the sixteen values",
+   "evidence": "TASK.md, PROBLEM.md"
+  },
+  {
+   "severity": "minor",
+   "where": "<pilot-folder>/RUBRIC.md:26-28",
+   "what": "item 5 gives no numeric band; reviewer chose 1e-6 / 1e-3",
+   "evidence": "reviews/R01/grade.json"
+  },
+  {
+   "severity": "minor",
+   "where": "XH2000 Eqs. 28, 30",
+   "what": "closed forms printed in a freely hosted paper; no recall control",
+   "evidence": "README.md link"
+  }
+ ],
+ "public_files": [
+  "<pilot-folder>/frozen_inputs/TASK.md",
+  "<pilot-folder>/frozen_inputs/PROBLEM.md (after fixes; PROBLEM.md.proposed)",
+  "<pilot-folder>/RUBRIC.md",
+  "<pilot-folder>/REVIEW_TASK_TEMPLATE.md"
+ ],
+ "hidden_files": [
+  "<pilot-folder>/reference/",
+  "<pilot-folder>/KEY_FREEZE.json",
+  "<pilot-folder>/NUMERICAL_EVIDENCE.json",
+  "<pilot-folder>/NUMERICAL_EVIDENCE.csv",
+  "<pilot-folder>/submissions/",
+  "<pilot-folder>/reviews/",
+  "<pilot-folder>/followup_runs/",
+  "<pilot-folder>/continuations/",
+  "<review-runs>/",
+  "<solver-runs>/",
+  "paper PDFs (never distribute)"
+ ],
+ "mutants": [
+  {
+   "name": "key",
+   "values": "16 rows from the stated formula",
+   "expected": "16/16",
+   "checker_result": "1e-6 abs: 16/16; 0.5% rel: 16/16"
+  },
+  {
+   "name": "kI with Ebar (no (1-nu^2))",
+   "values": "16 rows from the stated formula",
+   "expected": "fail",
+   "checker_result": "1e-6 abs: 8/16; 0.5% rel: 8/16"
+  },
+  {
+   "name": "C1 omit foundation energy (reference.json control)",
+   "values": "16 rows from the stated formula",
+   "expected": "fail",
+   "checker_result": "1e-6 abs: 8/16; 0.5% rel: 8/16"
+  },
+  {
+   "name": "G per period, not per tip, Case B (x2)",
+   "values": "16 rows from the stated formula",
+   "expected": "fail",
+   "checker_result": "1e-6 abs: 8/16; 0.5% rel: 8/16"
+  },
+  {
+   "name": "C3 Case B spacings swapped (reference.json control)",
+   "values": "16 rows from the stated formula",
+   "expected": "fail",
+   "checker_result": "1e-6 abs: 8/16; 0.5% rel: 8/16"
+  },
+  {
+   "name": "ell/H read as H/ell",
+   "values": "16 rows from the stated formula",
+   "expected": "fail",
+   "checker_result": "1e-6 abs: 4/16; 0.5% rel: 4/16"
+  },
+  {
+   "name": "decay length 2*ell (H/(4 ell))",
+   "values": "16 rows from the stated formula",
+   "expected": "fail",
+   "checker_result": "1e-6 abs: 0/16; 0.5% rel: 0/16"
+  },
+  {
+   "name": "FEM-like +0.5% bias (S02 type)",
+   "values": "16 rows from the stated formula",
+   "expected": "fail at 1e-6, pass at 0.5% (approximately right)",
+   "checker_result": "1e-6 abs: 0/16; 0.5% rel: 16/16"
+  },
+  {
+   "name": "saved_S01",
+   "values": "run results.json rows",
+   "expected": "saved NUMERICAL_EVIDENCE count: 16",
+   "checker_result": "1e-6 abs: 16/16; 0.5% rel: 16/16"
+  },
+  {
+   "name": "saved_S02",
+   "values": "run results.json rows",
+   "expected": "saved NUMERICAL_EVIDENCE count: 0",
+   "checker_result": "1e-6 abs: 0/16; 0.5% rel: 7/16"
+  },
+  {
+   "name": "saved_S04",
+   "values": "run results.json rows",
+   "expected": "saved NUMERICAL_EVIDENCE count: 16",
+   "checker_result": "1e-6 abs: 16/16; 0.5% rel: 16/16"
+  },
+  {
+   "name": "saved_D01",
+   "values": "run results.json rows",
+   "expected": "saved NUMERICAL_EVIDENCE count: not in NUMERICAL_EVIDENCE",
+   "checker_result": "1e-6 abs: 16/16; 0.5% rel: 16/16"
+  },
+  {
+   "name": "saved_K01",
+   "values": "run results.json rows",
+   "expected": "saved NUMERICAL_EVIDENCE count: not in NUMERICAL_EVIDENCE",
+   "checker_result": "1e-6 abs: 16/16; 0.5% rel: 16/16"
+  }
+ ]
+}

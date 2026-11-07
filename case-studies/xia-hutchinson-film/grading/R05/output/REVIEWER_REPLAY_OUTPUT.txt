@@ -1,0 +1,89 @@
+Independent reviewer P1 FEM of PROBLEM.md strip energy
+Natural BCs v'(0)=v'(L)=-1 (total traction). No submission functions.
+nu=0.3  1-nu^2=0.91
+
+[CONV] L=1 (ell/H=1 Case A) vs tanh(0.5)
+  n_el=  40  gamma=0.462115364026  |err|=1.793e-06  vp0=-0.994327 vpL=-0.994327
+  n_el=  80  gamma=0.462116708790  |err|=4.485e-07  vp0=-0.997138 vpL=-0.997138
+  n_el= 160  gamma=0.462117045132  |err|=1.121e-07  vp0=-0.998562 vpL=-0.998562
+  n_el= 320  gamma=0.462117129228  |err|=2.803e-08  vp0=-0.999280 vpL=-0.999280
+  n_el= 640  gamma=0.462117150250  |err|=7.010e-09  vp0=-0.999639 vpL=-0.999639
+  n_el=1280  gamma=0.462117155516  |err|=1.744e-09  vp0=-0.999820 vpL=-0.999820
+  err(640)/err(1280)=4.020 (expect ~4 for O(h^2))
+
+[MAIN] n_el=4000 full-width P1 vs submission vs reference
+ell/H=0.5  gA_fem=0.7615941523633182  gA_sub=0.7615941559557649  |d|=3.592e-09
+         gB_fem=0.5591607589225167  gB_sub=0.5591607318357129  |d|=2.709e-08
+         kA_fem=0.8324966538374912  kA_sub=0.8324966558009383  |d|=1.963e-09
+         kB_fem=0.7133276180125723  kB_sub=0.7133276007351032  |d|=1.728e-08
+         int v' = -1.523188304723  (NOT zero; ANSWER.md linear-term claim)
+         natural-BC diagnostic vp0=-0.999810 vpL=-0.999810 (target -1)
+ell/H=1.0  gA_fem=0.4621171570719470  gA_sub=0.4621171572600097  |d|=1.881e-10
+         gB_fem=0.1626401617805758  gB_sub=0.1626401585642546  |d|=3.216e-09
+         kA_fem=0.6484802332650331  kA_sub=0.6484802333969856  |d|=1.320e-10
+         kB_fem=0.3847109918111569  kB_sub=0.3847109880071944  |d|=3.804e-09
+         int v' = -0.924234314147  (NOT zero; ANSWER.md linear-term claim)
+         natural-BC diagnostic vp0=-0.999942 vpL=-0.999942 (target -1)
+ell/H=1.5  gA_fem=0.3215127375036465  gA_sub=0.3215127375316343  |d|=2.799e-11
+         gB_fem=0.0602425303343572  gB_sub=0.0602425297153586  |d|=6.190e-10
+         kA_fem=0.5409034952080808  kA_sub=0.5409034952316237  |d|=2.354e-11
+         kB_fem=0.2341382126101271  kB_sub=0.2341382114072291  |d|=1.203e-09
+         int v' = -0.643025475006  (NOT zero; ANSWER.md linear-term claim)
+         natural-BC diagnostic vp0=-0.999973 vpL=-0.999973 (target -1)
+ell/H=2.0  gA_fem=0.2449186624519155  gA_sub=0.2449186624037091  |d|=4.821e-11
+         gB_fem=0.0277201678318840  gB_sub=0.0277201675474085  |d|=2.845e-10
+         kA_fem=0.4720974293842778  kA_sub=0.4720974293378172  |d|=4.646e-11
+         kB_fem=0.1588249121737974  kB_sub=0.1588249113588349  |d|=8.150e-10
+         int v' = -0.489837324900  (NOT zero; ANSWER.md linear-term claim)
+         natural-BC diagnostic vp0=-0.999985 vpL=-0.999985 (target -1)
+
+[FORMULA] reviewer tanh vs submission (not used inside FEM)
+  ell/H=0.5 gamma_A formula=0.7615941559557649 sub=0.7615941559557649 |d|=0.000e+00
+  ell/H=0.5 gamma_B formula=0.5591607318357128 sub=0.5591607318357129 |d|=1.110e-16
+  ell/H=0.5 kI_A formula=0.8324966558009383 sub=0.8324966558009383 |d|=0.000e+00
+  ell/H=0.5 kI_B formula=0.7133276007351032 sub=0.7133276007351032 |d|=0.000e+00
+  ell/H=1.0 gamma_A formula=0.4621171572600097 sub=0.4621171572600097 |d|=0.000e+00
+  ell/H=1.0 gamma_B formula=0.1626401585642546 sub=0.1626401585642546 |d|=0.000e+00
+  ell/H=1.0 kI_A formula=0.6484802333969856 sub=0.6484802333969856 |d|=0.000e+00
+  ell/H=1.0 kI_B formula=0.3847109880071944 sub=0.3847109880071944 |d|=0.000e+00
+  ell/H=1.5 gamma_A formula=0.3215127375316343 sub=0.3215127375316343 |d|=0.000e+00
+  ell/H=1.5 gamma_B formula=0.0602425297153585 sub=0.0602425297153586 |d|=8.327e-17
+  ell/H=1.5 kI_A formula=0.5409034952316238 sub=0.5409034952316237 |d|=1.110e-16
+  ell/H=1.5 kI_B formula=0.2341382114072289 sub=0.2341382114072291 |d|=1.388e-16
+  ell/H=2.0 gamma_A formula=0.2449186624037091 sub=0.2449186624037091 |d|=0.000e+00
+  ell/H=2.0 gamma_B formula=0.0277201675474085 sub=0.0277201675474085 |d|=0.000e+00
+  ell/H=2.0 kI_A formula=0.4720974293378172 sub=0.4720974293378172 |d|=0.000e+00
+  ell/H=2.0 kI_B formula=0.1588249113588349 sub=0.1588249113588349 |d|=0.000e+00
+formula vs submission agreement at 1e-12: 16/16
+FEM vs submission agreement at 1e-12: 0/16 (expect FEM truncation > 1e-12)
+FEM vs submission agreement at 1e-6: 16/16
+
+[LIMITS] small-H series from FEM vs claimed expansions
+  H/ell=0.020  gA_fem=9.999667e-03 ~ H/2ell=1.000000e-02  rel=3.333e-05
+             gB_fem=1.999602e-06 ~ H^3/4ell^3=2.000000e-06  rel=1.991e-04
+  H/ell=0.050  gA_fem=2.499479e-02 ~ H/2ell=2.500000e-02  rel=2.083e-04
+             gB_fem=3.121097e-05 ~ H^3/4ell^3=3.125000e-05  rel=1.249e-03
+
+[LIMITS] large-H FEM vs isolated gamma->1
+  H/ell=8.0  gA_fem=0.9993291341  gB_fem=0.9986591599
+  H/ell=16.0  gA_fem=0.9999991083  gB_fem=1.0000008832
+
+[CONTROL] C1 omit foundation energy at ell/H samples (should NOT match)
+  ell/H=0.5  C1_gamma_A=0.932404  sub=0.761594  |d|=1.708e-01
+  ell/H=1.0  C1_gamma_A=0.496564  sub=0.462117  |d|=3.445e-02
+  ell/H=1.5  C1_gamma_A=0.332831  sub=0.321513  |d|=1.132e-02
+  ell/H=2.0  C1_gamma_A=0.249876  sub=0.244919  |d|=4.957e-03
+
+[CONTROL] C2 incremental traction (Delta_sigma n=0) at L=1
+  gamma=-0.000000e+00  max|v|=0.000000e+00  (expect ~0; detects wrong face BC)
+
+[LINEAR TERM] int h sigma0 eps_gg is NOT zero
+  ANSWER.md L88-90 claims it integrates to zero; FEM int v' = v(L)-v(0)
+  For odd opening about midplane, v(L)=-v(0) so int v' = -2 v(0) != 0
+  compute.py still includes the term in W_dens; closed form remains tanh.
+
+[MODE] G=KI^2/E => kI=sqrt((1-nu^2) gamma); KII=0 by reflection.
+[BOOKKEEPING] Case A: period H, 1 moving tip, divide by h.
+[BOOKKEEPING] Case B: period 2H, 1 new moving tip; ahead S=2H, behind 2x S=H.
+
+wrote <pilot-folder>/reviews/R05/reviewer_replay/review_check_independent_output.txt and <pilot-folder>/reviews/R05/reviewer_replay/review_check_independent_results.json

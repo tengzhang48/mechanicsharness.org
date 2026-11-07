@@ -1,0 +1,2 @@
+Odd-Chebyshev identity independently confirmed; worst absolute error 2.042810365310288e-14
+Constant-forcing mass balance, zero-mean B, and zero crack-tip slope contradict the stated loadings and Sneddon opening.

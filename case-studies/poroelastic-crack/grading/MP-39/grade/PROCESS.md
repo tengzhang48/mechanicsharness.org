@@ -1,0 +1,8 @@
+# Grading process
+
+- 19:49:11 UTC — Read TASK.md, TASK_PROBLEM.md, KEY.md, and AUTO_CHECKS.json; noted the corrected crack-tip intensity and short-time volume coefficient. Working only in this folder, without network access.
+- 19:49:40 UTC — Read every submission file with line numbers. Copied the reproduction scripts and JSON into scratch/reproduction; solve.py reproduced the delivered JSON exactly. Started the optional finest-grid tip_check.py rerun with two BLAS threads; its process PID is recorded in scratch/reproduction/tip_check.pid.
+- 19:50:47 UTC — Finest-grid rerun completed successfully; all three archived tip and volume outputs reproduced to roundoff. No process was killed. Computed the initial-intensity error (0.0763%) and short-time-coefficient error (44.51%).
+- 19:52:01 UTC — Saved scratch/audit.py and scratch/evidence.json. Verified that the stated q=p_y convention has the opposite sign to the implemented matrix; using q=-p_y reconciles it without changing displacement. Checked fixed-grid volume divided differences (1.48907, 1.66988) against the asserted Laplace slope 1.2.
+- 19:54:04 UTC — Completed the answer, state, method, error, check, claim, question, source, and challenge assessments. Distinguished the corrected key from its superseded paper values; reconstructed the reported determinant and commutator arithmetic.
+- 19:56:30 UTC — Wrote GRADE.md and validated all nine required sections, the terminal JSON schema, answer letters, and the check-table/profile counts. Final profile: (a) partly, (b) right, (c) partly; one decisive error, two side errors. Finished within the 25-minute limit; the original submission is unchanged.

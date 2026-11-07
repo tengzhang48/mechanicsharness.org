@@ -1,0 +1,15 @@
+K1_0          = 1.0
+K1_inf        = 1.0
+V1_0          = 1.8849555921538759
+V1_inf        = 2.5132741228718345
+V1_short_coeff= 1.1283791670955126
+p_faces_0     = 0.7490636704119851
+K2_0          = 0.0
+K2_inf        = 0.0
+V2_inf        = 0.0
+--- checks ---
+boundary-layer face value   = 0.0 (expect 0)
+int(p-p_und)dy  numeric     = -0.7979468936430866
+int(p-p_und)dy  analytic    = -0.7978845608028655
+relative difference         = 7.81226298680798e-05
+wrote results.json

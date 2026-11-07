@@ -1,0 +1,56 @@
+========================================================================================
+Independent checker: full-width variational strip (PROBLEM.md energy)
+nu=0.3, 1-nu^2=0.91, ell=sqrt(Ebar h/k)
+Natural BCs: v'(0)=v'(L)=-1 (total traction). No author functions.
+========================================================================================
+
+[FEM-conv] full-width P1 energy at L=S/ell=1 (a=0.5), vs tanh(0.5)
+  n_el=  40  gamma=0.462115364026  |err|=1.793e-06  vp(0)=-0.994327 vp(L)=-0.994327
+  n_el=  80  gamma=0.462116708790  |err|=4.485e-07  vp(0)=-0.997138 vp(L)=-0.997138
+  n_el= 160  gamma=0.462117045132  |err|=1.121e-07  vp(0)=-0.998562 vp(L)=-0.998562
+  n_el= 320  gamma=0.462117129228  |err|=2.803e-08  vp(0)=-0.999280 vp(L)=-0.999280
+  n_el= 640  gamma=0.462117150250  |err|=7.010e-09  vp(0)=-0.999639 vp(L)=-0.999639
+  n_el=1280  gamma=0.462117155516  |err|=1.744e-09  vp(0)=-0.999820 vp(L)=-0.999820
+  n_el=2560  gamma=0.462117156791  |err|=4.688e-10  vp(0)=-0.999910 vp(L)=-0.999910
+  observed err(640)/err(1280)=4.020 (expect ~4 for O(h^2))
+
+[MAIN] production full-width P1 (n_el=4000) and lumped-mass (n_el=8000)
+   ell/H    H/ell           gA_fem           gB_fem           gA_ref           gB_ref           dA           dB
+  0.5000 2.000000   0.761594152363   0.559160758923   0.761594155956   0.559160731836   -3.592e-09    2.709e-08
+  1.0000 1.000000   0.462117157072   0.162640161781   0.462117157260   0.162640158564   -1.881e-10    3.216e-09
+  1.5000 0.666667   0.321512737504   0.060242530334   0.321512737532   0.060242529715   -2.799e-11    6.190e-10
+  2.0000 0.500000   0.244918662452   0.027720167832   0.244918662404   0.027720167547    4.821e-11    2.845e-10
+
+[MAIN] max |P1 FEM - ref gamma| = 2.709e-08
+[MAIN] max |lumped FEM - ref gamma| = 1.751e-08
+[MAIN] max |formula - ref gamma| = 0.000e+00
+[MAIN] max |kI formula - ref| = 0.000e+00
+
+[BC] P1 face slopes should approach -1 (total traction) as h->0
+  L=1, n_el=2560: vp(0)=-0.99990977  vp(L)=-0.99990977  (target -1)
+
+[LIMITS] small-H series vs formula; isolated H/ell=20 vs 1
+  H/ell=0.050  gA=2.49947930e-02 series=2.49947930e-02 d=-3.29e-13 ; gB=3.12109790e-05 series=3.12109375e-05 d=4.15e-11
+           lead gA=H/(2ell)=2.50000000e-02 rel=-2.083e-04 ; lead gB=(H/ell)^3/4=3.12500000e-05 rel=-1.249e-03
+  H/ell=0.100  gA=4.99583750e-02 series=4.99583750e-02 d=-4.21e-11 ; gB=2.48755291e-04 series=2.48750000e-04 d=5.29e-09
+           lead gA=H/(2ell)=5.00000000e-02 rel=-8.325e-04 ; lead gB=(H/ell)^3/4=2.50000000e-04 rel=-4.979e-03
+  H/ell=0.200  gA=9.96679946e-02 series=9.96680000e-02 d=-5.38e-09 ; gB=1.96066903e-03 series=1.96000000e-03 d=6.69e-07
+           lead gA=H/(2ell)=1.00000000e-01 rel=-3.320e-03 ; lead gB=(H/ell)^3/4=2.00000000e-03 rel=-1.967e-02
+  H/ell=20: gA=0.9999999959 gB=0.9999999918 (target 1); kI(gamma=1)=0.9539392014 (Eq27 sqrt(1-nu^2))
+
+[CONTROLS] independent reconstructions of author's wrong variants
+  C1 omit foundation (exact-field truncated energy) gamma_A_wrong=['0.932404', '0.496564', '0.332831', '0.249876']
+  C1 omit foundation (FEM truncated energy)          gamma_A_wrong=['0.932404', '0.496564', '0.332831', '0.249876']
+  C1 vs author saved ['0.932404', '0.496564', '0.332831', '0.249876']
+  C2 incremental traction FEM: gamma_A=-0.000e+00 max|v|=0.000e+00 (expect 0)
+  C3 swapped spacings gamma_B_wrong=['1.166461', '1.061071', '0.844053', '0.679316']
+  C3 vs author saved ['1.166461', '1.061071', '0.844053', '0.679316']
+
+[MODE] G=KI^2/E, Ebar=E/(1-nu^2) => kI=sqrt((1-nu^2) gamma); KII=0 by symmetry
+  sqrt(1-nu^2)=0.953939201417  (isolated-crack Eq. 27 target)
+
+[CAL] isolated G_model = sigma0^2 ell/Ebar ; Beuth G = (pi/2)(h sigma0^2/Ebar) g
+      matching => ell = (pi/2) g(alpha,beta) h   (XH2000 Eq. 12)
+      no mismatch: paper states ell=1.98 h (not re-derived from Beuth tables here)
+
+[OUT] wrote <review-runs>/reference_review/check_independent_results.json

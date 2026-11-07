@@ -1,0 +1,28 @@
+Grade the two anonymous poroelastic-crack submissions in directories A and B. Use the same criteria for both. Review each on its own before comparing them. Do not assume either succeeded, and do not assume that one is better. You are the single requested reviewer, Grok 4.6 through the Azure provider on OpenCode.
+
+Inputs:
+- PROBLEM.md is the exact original problem seen by both solvers.
+- A/ and B/ contain their submitted derivations, results.json and retained computational files.
+- REFERENCE.md is the pre-existing corrected reference and rubric. It was not given to the solvers. It preserves older, superseded paper values as well as the corrected values. Use the corrected entries for the numerical comparison and explicitly distinguish them from the historical entries.
+
+The conditions the solvers chose are critical. A list of matching numbers is not sufficient to establish a correct solution. In particular:
+
+1. Check the actual physical boundary conditions and the order of the limits used for loading 1. Does the submission enforce the prescribed total traction and zero face pore pressure at positive time? Does it distinguish an undrained outer field from a locally drained crack-tip field? What order of the crack-tip and time limits does its reported K1_0 represent? The original problem did not explicitly specify that order. Give the existing rubric's partial or conditional credit to a valid undrained-first result, rather than calling that number unconditionally wrong; determine whether the solver recognizes the distinction and establishes the tip-first result. Do not insert that clarification retroactively into what the solver was asked.
+
+2. Check loading 2 as a coupled poroelastic boundary-value problem with zero total traction, prescribed face pressure, initial conditions and far-field conditions. Determine whether the stated long-time intensity and volume follow from that problem. Assess any substitution of an effective face traction, assumed globally drained state or other reduced problem. If a condition is wrong, cite the submission's equation or code and explain the consequence. If the argument is merely unsupported, say that rather than claiming a demonstrated contradiction.
+
+3. Check the leading short-time volume coefficient, including which face and tip contributions are at the retained order. Assess the solver's reasoning about the size of the tip region; geometric smallness alone does not establish the order of its contribution. Identify which terms or boundary conditions its derivation actually retains.
+
+4. Compare each of the nine delivered numerical quantities against the corrected reference, with 1% tolerance on nonzero values and absolute 0.01 on K2_0, and compare the general formulas with the stated normalizations. Report numerical agreement separately from the physical verdict. Treat an omitted quantity separately from a wrong one. If you find a reference defect, explain it with evidence and keep it separate from the candidate's claim.
+
+5. Inspect the verification code and retained checks. Distinguish checks of constitutive identities, arithmetic or the candidate's own assumed formulas from checks that could reject a wrong coupled solution, face condition, singular limit or short-time ordering. State what the checks establish and what remains unverified. You may run your own small calculations with installed scientific libraries in a separate scratch/ directory. Do not edit or execute in place code that would overwrite submitted files.
+
+Use only these supplied inputs, your own reasoning and local computation. Do not read other projects, earlier sessions, coordinator comparisons or metadata outside this workspace. Do not search the web or delegate to another agent. The A/B effort settings, original model-session metadata and earlier coordinator verdicts are deliberately withheld.
+
+Write these final artifacts in this directory:
+
+- GRADING.md: a source-specific review of A and B, with a clear verdict for each, the chosen conditions and order of limits, question-by-question assessment for (a), (b) and (c), numerical comparison, verification coverage, and a short comparison between the submissions. Cite paths and line numbers or exact equations where possible. Address the boundary/limit selection explicitly, rather than reducing the verdict to the numerical agreement count.
+- GRADES.json: valid JSON with a top-level submissions object keyed by A and B. For each include overall_verdict, boundary_and_limit_selection, question_verdicts, numerical_comparisons, verification_coverage, and material_errors_or_unsupported_claims. For each numerical quantity include reported, corrected_reference, agrees and any qualification. Include reference_limitations_and_problem_ambiguities and comparison_of_submissions at top level. Use correct/partial/incorrect/unsupported/missing where useful, explaining each verdict. Do not invent a weighted aggregate score.
+- Retain any independent checking code and its output under scratch/.
+
+Keep the original A/ and B/ files unchanged. Complete the grading without follow-up questions. Do not infer a general model ranking from these two executions.

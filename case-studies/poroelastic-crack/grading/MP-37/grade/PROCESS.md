@@ -1,0 +1,8 @@
+# Grading process
+
+- 19:45:00 UTC — Read TASK.md; began the 25-minute grading window. All work will remain in this folder, with any reruns in scratch/ and no web access.
+- 19:45:39 UTC — Read the problem, corrected key, automatic checks, answer, code, and check transcripts; copied the Python files and results.json into scratch/submission/ and started check_results.py on that copy (PID recorded in scratch/check_results_rerun.pid).
+- 19:46:21 UTC — check_results.py finished successfully: exact stored/stdout/regenerated JSON equality, valid reported schema, energy-coefficient difference 1.458e-09, and weak-coupling deficit 0.749865248. Began checking mathematical reasoning, challenge interpretations, and check-count conventions.
+- 19:47:36 UTC — The copied finite_check.py completed its reported box-64, two-grid, three-Laplace-parameter command with exit 0. Volumes, residuals, extrapolations, and limiting fits match the submission transcript; recorded logs and numerical identity review in scratch/.
+- 19:50:10 UTC — Wrote GRADE.md covering all nine requested profile items. All nine values meet the corrected key; a/c are marked contested for supported limit interpretations. Found no submission errors, identified the key's dimensional opening–K transcription issue, and documented the 16-entry check inventory and its conservative 13-check physical-validation count.
+- 19:50:44 UTC — Validated all nine GRADE.md sections and the required final JSON block, including absence of content after its closing fence; confirmed both copied-submission reruns exited 0 and that original/regenerated results agree. Completed grading within the 25-minute limit, without web access or changes to the submission.

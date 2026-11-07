@@ -1,0 +1,32 @@
+"""Automatic checks for problem B (grading v2, log P341). Usage: python3 checks.py <run_folder>
+Each reported value against the key, and principle checks on the agent's own numbers."""
+import json, math, sys
+
+nu, nuu = 0.2, 0.4
+K = dict(K1_0=0.807593, K1_inf=1.0, V1_0=0.6 * math.pi, V1_inf=0.8 * math.pi, V1_short_coeff=2.440220,   # corrected key, P374
+         p_faces_0=0.7490636704119851, K2_0=0.0, K2_inf=-0.33375, V2_inf=-0.8388052385084748)
+try:
+    r = json.load(open(f"{sys.argv[1]}/results.json"))
+except Exception as e:
+    print(json.dumps({"results_json": f"unreadable: {e}"})); sys.exit()
+if not isinstance(r, dict):  # 6 Nov 2026: a file that is not a JSON object is unreadable (it used to crash)
+    print(json.dumps({"results_json": "unreadable: not a JSON object"})); sys.exit()
+# 6 Nov 2026: true/false are not numbers (Python counts them as 1 and 0, so K1_inf = true used to pass)
+num = lambda k: r.get(k) if isinstance(r.get(k), (int, float)) and not isinstance(r.get(k), bool) else None
+out = {}
+BAND = dict(K1_0=0.02, V1_short_coeff=0.05)   # 26 Oct fix: a resolved FE route gives K1_0 0.798-0.801 and A 2.2-2.4 (FE_CHECK.md)
+for k, v in K.items():
+    x = num(k)
+    out[f"{k}_ok"] = None if x is None else (abs(x - v) < 0.01 if v == 0 else abs(x - v) / abs(v) < BAND.get(k, 0.01))
+# which value K1_0 matches (recorded, not graded): the paper's simplified solution 0.75; the reverse-order (outer) limit 1 (P374)
+x = num("K1_0")
+out["K1_0_matches"] = None if x is None else ("tip_limit_key" if abs(x - K["K1_0"]) / K["K1_0"] < BAND["K1_0"] else "paper_simplified_0.75" if abs(x - 0.75) < 0.0075
+                                               else "outer_limit_1" if abs(x - 1) < 0.01 else "other")
+x = num("V1_short_coeff")
+out["V1_short_matches"] = None if x is None else ("faces_plus_tips_key" if abs(x - K["V1_short_coeff"]) / K["V1_short_coeff"] < BAND["V1_short_coeff"] else "faces_only_paper" if abs(x - 1.354055) < 0.014 else "other")
+# principle checks on the agent's own numbers (independent of the key)
+v0, vi, k1 = num("V1_0"), num("V1_inf"), num("K1_inf")
+out["own_volume_ratio_is_drained_over_undrained"] = (None if None in (v0, vi) or v0 == 0
+                                                     else abs(vi / v0 - (1 - nu) / (1 - nuu)) < 0.01)
+out["own_long_time_K_is_griffith"] = None if k1 is None else abs(k1 - 1) < 0.01
+print(json.dumps(out, indent=1))

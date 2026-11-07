@@ -1,0 +1,19 @@
+Eshelby disk check of smooth-field kernel (smoothed disk r<1, value 1):
+  sigma_yy^sm at disk center = -0.32965   (exact inclusion value -(gamma/2) = -0.33375)
+  sigma_xx^sm (via s=-gamma p)       = -0.33785
+
+FD diffusion: Nx=800 Ny=500, splu done in 6.2 s
+pipeline at t=0+: V = pi*(1-nu)+Vcrack = 2.51327 + (-0.61512) = 1.89816  [undrained exact 1.88496]
+pipeline at t=0+: K/sqrt(pi L) = -0.18009  [exact 1.0]
+t= 0.000500  V=2.05841  K=-0.18629   (V1_0+A*sqrt(t) = 1.91019)
+t= 0.001000  V=2.08855  K=-0.17943   (V1_0+A*sqrt(t) = 1.92064)
+t= 0.001500  V=2.10882  K=-0.17446   (V1_0+A*sqrt(t) = 1.92866)
+t= 0.002000  V=2.12450  K=-0.17043   (V1_0+A*sqrt(t) = 1.93542)
+t= 0.002500  V=2.13743  K=-0.16699   (V1_0+A*sqrt(t) = 1.94137)
+t= 0.003000  V=2.14853  K=-0.16395   (V1_0+A*sqrt(t) = 1.94676)
+t= 0.003500  V=2.15828  K=-0.16121   (V1_0+A*sqrt(t) = 1.95171)
+t= 0.004000  V=2.16702  K=-0.15871   (V1_0+A*sqrt(t) = 1.95632)
+
+fit over ct in [4e-4,4e-3]: A_fit = 2.69359  (analytic 1.12838, diff 138.71%)
+fit intercept = 2.00182 (V1_0 = 1.88496)
+K1(t)/sqrt(pi L): min -0.18629 max -0.15871 over outputs

@@ -1,0 +1,2 @@
+<review-runs>/replays/S02/fem_energy2.py:43: RuntimeWarning: invalid value encountered in sqrt
+  print(f"  G={G:.6f}  G*Ebar/(s0^2 ell)={G*(1/(1-0.3**2)):.6f}  K/(s0 sqrt ell)={np.sqrt(G):.6f}")

@@ -1,0 +1,75 @@
+{
+  "basis": "Numerical comparison with the pre-existing corrected B/KEY.md. This is not a new independent grader review.",
+  "reference_original_path": "<pilot-folder>/KEY.md",
+  "reference_sha256": "3443cba26f571a1967c053df418c47f3fc099f32e13d3949f320d61857db2f48",
+  "tolerance": "Existing key: 1% for nonzero quantities; absolute 0.01 for K2_0.",
+  "agreeing_quantities": 5,
+  "total_quantities": 9,
+  "rows": [
+    {
+      "quantity": "K1_0",
+      "kimi": 1.0,
+      "existing_reference": 0.807593,
+      "agrees": false,
+      "comparison": "Different limit reading; partial under existing rubric"
+    },
+    {
+      "quantity": "K1_inf",
+      "kimi": 1.0,
+      "existing_reference": 1.0,
+      "agrees": true,
+      "comparison": "Within reference tolerance"
+    },
+    {
+      "quantity": "V1_0",
+      "kimi": 1.8849555921538759,
+      "existing_reference": 1.8849555921538759,
+      "agrees": true,
+      "comparison": "Within reference tolerance"
+    },
+    {
+      "quantity": "V1_inf",
+      "kimi": 2.5132741228718345,
+      "existing_reference": 2.5132741228718345,
+      "agrees": true,
+      "comparison": "Within reference tolerance"
+    },
+    {
+      "quantity": "V1_short_coeff",
+      "kimi": 1.1283791670955126,
+      "existing_reference": 2.44022,
+      "agrees": false,
+      "comparison": "Outside reference tolerance"
+    },
+    {
+      "quantity": "p_faces_0",
+      "kimi": 0.7490636704119851,
+      "existing_reference": 0.7490636704119851,
+      "agrees": true,
+      "comparison": "Within reference tolerance"
+    },
+    {
+      "quantity": "K2_0",
+      "kimi": 0.0,
+      "existing_reference": 0.0,
+      "agrees": true,
+      "comparison": "Within reference tolerance"
+    },
+    {
+      "quantity": "K2_inf",
+      "kimi": -0.89,
+      "existing_reference": -0.33375,
+      "agrees": false,
+      "comparison": "Outside reference tolerance"
+    },
+    {
+      "quantity": "V2_inf",
+      "kimi": -2.236813969355933,
+      "existing_reference": -0.8388052385084748,
+      "agrees": false,
+      "comparison": "Outside reference tolerance"
+    }
+  ],
+  "limit_wording": "The original PROBLEM.md is unchanged and does not explicitly order the tip and time limits. The existing rubric treats K1_0=1 as partial: it is the undrained-first reading, while the corrected tip-first result is 0.807593.",
+  "conclusion": "This one unaided run did not solve the full problem against the existing corrected reference. It delivered all files and five agreeing numbers, but missed the corrected short-time volume coefficient and both loading-2 long-time magnitudes. The initial tip intensity needs the stated order-of-limits qualification."
+}

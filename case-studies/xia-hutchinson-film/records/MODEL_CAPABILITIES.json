@@ -1,0 +1,101 @@
+{
+  "checked_at_utc": "2026-10-15T12:13:26.241830+00:00",
+  "distinct_profile_note": "The capitalized custom DeepSeek profile and lowercase catalog profile have different metadata; no profile was changed or substituted.",
+  "models": {
+    "azure/DeepSeek-V4.1-Flash": {
+      "actual_backend_behavior": "Not validated by registry metadata",
+      "id": "DeepSeek-V4.1-Flash",
+      "limits": {
+        "context": 0,
+        "output": 0
+      },
+      "provider_id": "azure",
+      "reasoning_metadata": false,
+      "toolcall_metadata": true,
+      "variant_keys": []
+    },
+    "azure/FW-Kimi-K3": {
+      "actual_backend_behavior": "Not validated by registry metadata",
+      "id": "FW-Kimi-K3",
+      "limits": {
+        "context": 0,
+        "output": 0
+      },
+      "provider_id": "azure",
+      "reasoning_metadata": false,
+      "toolcall_metadata": true,
+      "variant_keys": []
+    },
+    "azure/deepseek-v4.1-flash": {
+      "actual_backend_behavior": "Not validated by registry metadata",
+      "id": "deepseek-v4.1-flash",
+      "limits": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "provider_id": "azure",
+      "reasoning_metadata": true,
+      "toolcall_metadata": true,
+      "variant_keys": [
+        "high",
+        "low",
+        "max",
+        "medium"
+      ]
+    },
+    "azure/gpt-6.1-sol": {
+      "actual_backend_behavior": "Not validated by registry metadata",
+      "id": "gpt-6.1-sol",
+      "limits": {
+        "context": 1050000,
+        "input": 922000,
+        "output": 128000
+      },
+      "provider_id": "azure",
+      "reasoning_metadata": true,
+      "toolcall_metadata": true,
+      "variant_keys": [
+        "high",
+        "low",
+        "medium",
+        "none",
+        "xhigh"
+      ]
+    },
+    "azure/grok-4.6": {
+      "actual_backend_behavior": "Not validated by registry metadata",
+      "id": "grok-4.6",
+      "limits": {
+        "context": 200000,
+        "output": 128000
+      },
+      "provider_id": "azure",
+      "reasoning_metadata": true,
+      "toolcall_metadata": true,
+      "variant_keys": [
+        "high",
+        "low",
+        "medium",
+        "none",
+        "xhigh"
+      ]
+    },
+    "zai-coding-plan/glm-5.3": {
+      "actual_backend_behavior": "Not validated by registry metadata",
+      "id": "glm-5.3",
+      "limits": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "provider_id": "zai-coding-plan",
+      "reasoning_metadata": true,
+      "toolcall_metadata": true,
+      "variant_keys": []
+    }
+  },
+  "source": "Read-only local OpenCode model registry; no model requests or provider options recorded",
+  "versions": {
+    "cline": "3.0.57",
+    "opencode": "1.17.18"
+  }
+}

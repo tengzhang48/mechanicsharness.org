@@ -1,0 +1,9 @@
+# Grading process
+
+- 19:36:59 UTC — Read TASK.md, TASK_PROBLEM.md, KEY.md, and AUTO_CHECKS.json; recorded the corrected key values and grading tolerances. Work is confined to this folder; no network access will be used.
+- 19:37:21 UTC — Inspected every submission file with line numbers and copied the submission into scratch/reproduction. Reran python3 solve.py there: exit 0, two passing kernel checks, and all nine reported values printed. The first rerun launch used a working directory before it existed and did not start a process; corrected by creating the copy first.
+- 19:37:50 UTC — Independently compared all nine values with the corrected key: three pass, six fail. The rerun JSON matches the submission exactly. Saved scratch/numeric_audit.json; verified the correct volume ratio and false beta equality.
+- 19:38:53 UTC — Checked the stated auxiliary equations against the prescribed face data and Sneddon opening. Independently confirmed the odd-Chebyshev mathematical identity without treating it as reproduction of the absent solver check; saved scratch/additional_audit.txt.
+- 19:39:51 UTC — Tested check independence on the copied module: replacing numerical quadrature by a zero-returning function leaves Check 1 passing and makes Check 2 fail. Saved scratch/check_strength.txt.
+- 19:41:38 UTC — Wrote GRADE.md with all nine requested sections, an evidence-linked error inventory, and the required final JSON profile. Distinguished numerical reproduction from unsupported solver/validation claims.
+- 19:42:30 UTC — Validated the nine sections, final JSON fields and closing position, and agreement between error inventory and counts. Final answers: (a) partly, (b) wrong, (c) partly; the requested supporting pressure is wrong. Grading completed within the 25-minute limit; submission files were not edited.

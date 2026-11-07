@@ -1,0 +1,19 @@
+{
+ "run": "MP-37",
+ "checks": {
+  "K1_0_ok": true,
+  "K1_inf_ok": true,
+  "V1_0_ok": true,
+  "V1_inf_ok": true,
+  "V1_short_coeff_ok": true,
+  "p_faces_0_ok": true,
+  "K2_0_ok": true,
+  "K2_inf_ok": true,
+  "V2_inf_ok": true,
+  "K1_0_matches": "tip_limit_key",
+  "V1_short_matches": "faces_plus_tips_key",
+  "own_volume_ratio_is_drained_over_undrained": true,
+  "own_long_time_K_is_griffith": true
+ },
+ "changed_from_saved": {}
+}

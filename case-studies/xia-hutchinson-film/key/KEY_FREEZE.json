@@ -1,0 +1,39 @@
+{
+  "frozen_at_utc": "2026-10-15T13:02:38.487163+00:00",
+  "reference_author": "zai-coding-plan/glm-5.3",
+  "independent_checker": "azure/grok-4.6",
+  "checker_verdict": "valid_within_stated_model",
+  "target_quantities_valid": true,
+  "checker_reviewed_version": "author_initial",
+  "source_corrected_version": "author_source_corrected",
+  "target_json_and_checking_code_unchanged_between_versions": true,
+  "source_correction_record": "reference/frozen/CORRECTION_RECORD.md",
+  "tolerances": {
+    "gamma_absolute": 1e-06,
+    "kI_absolute": 1e-06,
+    "basis": "Reference-author recommendation explicitly used by independent checker before scientific outputs"
+  },
+  "sha256": {
+    "CORRECTION_RECORD.md": "d35fc62da0ccdd44505903fb15523a34c639b01b6398d821c26d5b9e274e642b",
+    "REFERENCE.md": "6d5fccd7511eae789e8d80cbf51728054b8cdd11b867c349e2663d497dd4e3ff",
+    "REPRODUCE.md": "c4c65af820ff5260ec454dfc6d0d85b507e62487c9ee63ed4500cbcae3a83c08",
+    "REVIEW_ANSWER.md": "506663908798dcdc903647215e1465ca8bd38cd1fb11fe64e16a39b9a914d030",
+    "REVIEW_DERIVATION.md": "4bdace7b1a10eaf21cabcb906ee46f67ac5bb9c372ae60b138e94566f3d99df5",
+    "REVIEW_REPRODUCE.md": "4089601950136feeb010d477921ca23cd1c10ecc7feba48615372e0ea5c134f0",
+    "REVIEW_check_independent.py": "6c069fb132676cc4c8135ca9204bb1a7dbc254c68da4455e34a2d03088fafc42",
+    "REVIEW_check_independent_output.txt": "26ed08cc95e58f2618d48d9417c6052ffc61041f66740f4b827bc36d8ad0718b",
+    "REVIEW_check_independent_results.json": "388c7a747ff59518097f35713bbfb4c48be31f56cf3ed9b438e98e0faf9e24eb",
+    "REVIEW_results.json": "b3961b234a244477b853da6f355937f65209d312fc992c6a18060f626faa903f",
+    "paper.pdf": "1f47631d0c139b08fbae19451d02a6f70773fc0245802b24fa182e8f260ff1c1",
+    "paper.txt": "2f05946c75cb26e8609726d19d268d1a4e8e1d455a92c40d678d02f4a0381147",
+    "reference.json": "14932c4a7ea8017f729291595ea7737bc703567967c39a30ffc25585644f7f26",
+    "reproduce.py": "94d5067f4af504281a736e0d508789d645fdefd1cd690418b665e2a6af91fe0e"
+  },
+  "problem_sha256": "ff71c35e326a323596567ae22e39df5df7907eefc3037cea2e5d64e37ec3b2ea",
+  "rubric_sha256": "8f03764996c585305e929645a92cedfd060a3ae0b00e5e8c8c02ca3e13a9dc52",
+  "review_contract_sha256": "5842d09f661aa2c25d8c25f268414ae755ced6560248df84ea662a7bd0c1dbdc",
+  "registered_benchmark_pack": false,
+  "scientific_solver_outputs_observed_before_freeze": false,
+  "scope": "Mathematical validity in stated plane-stress foundation model; shared1D wake/translation assumptions; no real-film validation",
+  "provenance_correction": "Coordinator noticed the calibration-sentence discrepancy; provisional checker independently gave correct source relation but did not explicitly identify the author sentence as wrong. The final review accepts targets, not the original source typo. The original author corrected the sentence in a separate preserved request."
+}

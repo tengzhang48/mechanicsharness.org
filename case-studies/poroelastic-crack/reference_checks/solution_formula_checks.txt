@@ -1,0 +1,9 @@
+# solution_formula_checks.py run 2026-10-25T00:55:28Z with python 3.13.9 numpy 2.5.0 mpmath 1.3.0
+poro: eta_t = (nu_u-nu)/(1-nu_u): 0.33333333333333337  (quoted 0.3333333333333333; difference 5.55e-17)
+poro: K1(0+) = n11/(1+eta_t): 0.8075930030230013  (quoted 0.807593; difference 3.02e-09)
+poro: energy identity n11^2+n21^2-(1+eta_t): 7.238654120556021e-14
+poro: A_faces = 16(nu_u-nu)(1-nu_u)/(sqrt(pi)(1-nu)): 1.354055000514615  (quoted 1.354055; difference 5.15e-10)
+poro: A_tips = 4(nu_u-nu)(1-nu_u) pi sqrt(2/eta_t) n21/(sqrt(pi)(1-nu)): 1.08616457793029  (quoted 1.086165; difference -4.22e-07)
+poro: A = A_faces + A_tips: 2.440219578444905  (quoted 2.44022; difference -4.22e-07)
+poro: paper heuristic (1-nu_u)/(1-nu): 0.7499999999999999  (quoted 0.75; difference -1.11e-16)
+poro: undrained-first outer limit: 1.0  (quoted 1.0; difference 0.00e+00)

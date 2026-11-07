@@ -1,0 +1,24 @@
+Reference-stress symmetry and decay:
+x=0.5, y=0.1: delivered=-1.69739509565, correct_branch=-1.69739509565
+x=-0.5, y=0.1: delivered=-2.30260490435, correct_branch=-1.69739509565
+x=100, y=0.1: delivered=0.000100007200551, correct_branch=0.000100007200551
+x=-100, y=0.1: delivered=-4.0001000072, correct_branch=0.000100007200551
+
+Refined face-integral claims at x endpoints +/-0.9999:
+y=1e-06: delivered=-3.999600000, correct_branch=-3.999317006, correct_analytic=-3.999317182
+y=1e-04: delivered=-3.999599998, correct_branch=-3.973851955, correct_analytic=-3.973858427
+y=1e-02: delivered=-3.999599800, correct_branch=-3.602608707, correct_analytic=-3.602608716
+
+Corrected-key numerical comparison:
+K1_0: submission=1, key=0.807593, relative_error=23.824748%, in_band=False
+K1_inf: submission=1, key=1, relative_error=0.000000%, in_band=True
+V1_0: submission=1.88495559215, key=1.88495559215, relative_error=0.000000%, in_band=True
+V1_inf: submission=2.51327412287, key=2.51327412287, relative_error=0.000000%, in_band=True
+V1_short_coeff: submission=1.80540666735, key=2.44022, relative_error=26.014594%, in_band=False
+p_faces_0: submission=0.749063670412, key=0.749063670412, relative_error=0.000000%, in_band=True
+K2_0: submission=0, key=0, relative_error=n/a, in_band=True
+K2_inf: submission=0, key=-0.33375, relative_error=100.000000%, in_band=False
+V2_inf: submission=0, key=-0.838805238508, relative_error=100.000000%, in_band=False
+Corrected faces contribution: 1.354055000514615
+Corrected tips contribution: 1.086164999485385
+Loading-2 normalized volume/K relation: -0.8388052385084748

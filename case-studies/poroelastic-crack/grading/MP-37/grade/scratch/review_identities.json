@@ -1,0 +1,11 @@
+{
+  "nine_numeric_claims_identical": true,
+  "n11_from_output": 1.07679067033231,
+  "n21_from_output": 0.41695945264731427,
+  "norm_error_from_output": -4.666798059105304e-10,
+  "face_only_A": 1.3540550005146155,
+  "tip_A": 1.0861645789278909,
+  "volume_ratio": 1.3333333333333333,
+  "expected_volume_ratio": 1.3333333333333335,
+  "long_time_K_is_griffith": true
+}

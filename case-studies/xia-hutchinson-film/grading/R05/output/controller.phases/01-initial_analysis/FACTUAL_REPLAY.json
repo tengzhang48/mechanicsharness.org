@@ -1,0 +1,47 @@
+{
+  "scope": "Coordinator replay of unchanged submitted commands; no scientific verdict or expected grades",
+  "runs": [
+    {
+      "command": "timeout 180 python3 compute.py && timeout 180 python3 checks.py",
+      "scripts_modified": false,
+      "exit_code": 0,
+      "output": "factual_replay/CHECKPOINT_REPLAY_OUTPUT.txt"
+    },
+    {
+      "command": [
+        "timeout",
+        "300",
+        "python3",
+        "check_j2d_cases.py"
+      ],
+      "scripts_modified": false,
+      "exit_code": 0,
+      "output": "factual_replay/FINAL_REPLAY_check_j2d_cases_OUTPUT.txt",
+      "integration_warning_present": true
+    },
+    {
+      "command": [
+        "timeout",
+        "600",
+        "python3",
+        "check_B_conv.py"
+      ],
+      "scripts_modified": false,
+      "exit_code": 0,
+      "output": "factual_replay/FINAL_REPLAY_check_B_conv_OUTPUT.txt",
+      "integration_warning_present": true
+    },
+    {
+      "command": [
+        "timeout",
+        "500",
+        "python3",
+        "check_A_H.py"
+      ],
+      "scripts_modified": false,
+      "exit_code": 0,
+      "output": "factual_replay/FINAL_REPLAY_check_A_H_OUTPUT.txt",
+      "integration_warning_present": true
+    }
+  ]
+}

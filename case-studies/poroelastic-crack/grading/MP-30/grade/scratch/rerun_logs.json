@@ -1,0 +1,65 @@
+[
+  {
+    "script": "solve.py",
+    "pid": 1499714,
+    "returncode": 0,
+    "stdout": "K1_0 = 1.0\nK1_inf = 1.0\nV1_0 = 3.7699111843077517\nV1_inf = 5.026548245743669\nV1_short_coeff = np.float64(1.4179630807244128)\np_faces_0 = 1.2484394506866416\nK2_0 = 0.0\nK2_inf = 0.0\nV2_inf = 4.473627938711865\n\nwrote results.json\n",
+    "stderr": ""
+  },
+  {
+    "script": "check_elastic.py",
+    "pid": 1499746,
+    "returncode": 0,
+    "stdout": "V numeric = 5.0265482438620985\nV analytic= 5.026548245743669\nrel err   = 3.7432654836073345e-10\n[tip]  f=1e-04  w/sqrt(2L(L-x)) = 3.1999199990   4(1-nu)P/G=3.2000000000\n[tip]  f=1e-06  w/sqrt(2L(L-x)) = 3.1999992001   4(1-nu)P/G=3.2000000000\n[tip]  f=1e-08  w/sqrt(2L(L-x)) = 3.1999999992   4(1-nu)P/G=3.2000000000\n",
+    "stderr": ""
+  },
+  {
+    "script": "verify_effective_stress.py",
+    "pid": 1499810,
+    "returncode": 0,
+    "stdout": "2-D effective-stress residual (should be 0): 0\nV1_inf = 5.026548245743669\nV2_inf = 4.473627938711865  (= alpha*V1_inf = 4.473627938711865 )\n",
+    "stderr": ""
+  },
+  {
+    "script": "verify_V1_0.py",
+    "pid": 1499847,
+    "returncode": 0,
+    "stdout": "undrained reduction residual (should be 0): 0\nV1_0 numeric = 3.769911182896573  analytic = 3.7699111843077517  rel err = 3.743267839573765e-10\n",
+    "stderr": ""
+  },
+  {
+    "script": "derive.py",
+    "pid": 1499881,
+    "returncode": 1,
+    "stdout": "p_faces_0 (old, wrong sigzz) = 2*(-nu + nu_u)/(alpha*(2*nu*nu_u - 2*nu - nu_u + 1))\nsigma_zz (undrained, plane strain) = 2*nu_u/(nu_u - 1)\np_faces_0 (correct) = 2*(-nu + nu_u)/(alpha*(2*nu*nu_u - 2*nu - nu_u + 1))\n",
+    "stderr": "Traceback (most recent call last):\n  File \"<volume-2>/corpus-runs/multiphysics/grading/MP-30/scratch/submission_rerun/derive.py\", line 137, in <module>\n    print(\"p_faces_0 at (.2,.4,.89) =\", float(val))\n                                        ~~~~~^^^^^\n  File \"<home>/miniconda3/lib/python3.13/site-packages/sympy/core/expr.py\", line 375, in __float__\n    raise TypeError(\"Cannot convert expression to float\")\nTypeError: Cannot convert expression to float\n"
+  },
+  {
+    "script": "mode1_stress.py",
+    "pid": 1499906,
+    "returncode": 0,
+    "stdout": "On crack faces (|x|<L):  expect sigma_yy -> -P, sigma_xy -> 0\n  x=0.00 y=1e-06: sxx=-0.999998 syy=-1.000000 sxy= 0.00e+00\n  x=0.30 y=1e-06: sxx=-0.999998 syy=-1.000000 sxy=-1.14e-12\n  x=0.70 y=1e-06: sxx=-0.999995 syy=-1.000000 sxy=-1.13e-11\n  x=0.95 y=1e-06: sxx=-0.999934 syy=-1.000000 sxy=-9.60e-10\nJust outside tip (x>L): means the K-dominated field\n  x=1.001: sxx= 21.377447 syy= 21.377447\n  x=1.010: sxx= 6.123991 syy= 6.123991\n  x=1.100: sxx= 1.400397 syy= 1.400397\nToward the face interior limit (x<L, y->0+):\n  x=0.5 y=1e-03: sxx=-0.996921\n  x=0.5 y=1e-06: sxx=-0.999997\n  x=0.5 y=1e-09: sxx=-1.000000\n",
+    "stderr": ""
+  },
+  {
+    "script": "diffusion.py",
+    "pid": 1499938,
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "script": "check_A.py",
+    "pid": 1500001,
+    "returncode": 0,
+    "stdout": "=== (R2) numeric slope of V vs sqrt(ct/L^2) ===\n  ct/L^2=1e-06  S=0.9988716208   slope=(V-V0)/sqrt(ct/L^2)=1.4179630955\n  ct/L^2=1e-07  S=0.9996431751   slope=(V-V0)/sqrt(ct/L^2)=1.4179632284\n  ct/L^2=1e-08  S=0.9998871620   slope=(V-V0)/sqrt(ct/L^2)=1.4179645578\n(R1) closed-form  A = (Vinf - V0)*2/sqrt(pi) = 1.4179630807\n     check: slope*sqrt(c)/L should equal A/L; here L=1,c=1 -> 1.4179630807\n",
+    "stderr": ""
+  },
+  {
+    "script": "loading2.py",
+    "pid": 1500067,
+    "returncode": 0,
+    "stdout": "(0.0, 0.0, 4.473627938711865)\n",
+    "stderr": ""
+  }
+]

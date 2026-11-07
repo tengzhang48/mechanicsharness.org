@@ -1,0 +1,107 @@
+# Changes made for this release
+
+Every file here is as saved at the time, except for the changes listed below. Machine paths were replaced by a
+label in angle brackets, for example `<volume-2>`; excerpts are marked inside the file. In the HTML records,
+links to files in this package were re-pointed, and links to files not released were removed, keeping their
+text. The original of every file is kept in the private repository; its SHA-256 is recorded there.
+
+- `audit_2026-10-25/AUDIT.md`
+  - machine path replaced by <documents>
+  - machine path replaced by <home>
+- `grading/MP-30/grade/scratch/rerun_logs.json`
+  - machine path replaced by <volume-2>
+  - machine path replaced by <home>
+- `grading/grok-4.6-kimi-k31-2026-10-24/output/label_mapping_after_review.json`
+  - machine path replaced by <kimi-run-folder>
+  - machine path replaced by <home>
+- `grading/grok-4.6-kimi-k31-2026-10-24/output/workspace/GRADES.json`
+  - machine path replaced by <reviewer-scratch> (2 times)
+- `grading/grok-4.6-kimi-k31-2026-10-24/output/workspace/GRADING.md`
+  - machine path replaced by <reviewer-scratch> (2 times)
+- `grading/grok-4.6-opus-2026-10-24/output/review_metadata.json`
+  - machine path replaced by <opus-workspace>
+  - machine path replaced by <home> (2 times)
+- `grading/grok-4.6-opus-2026-10-24/output/source_run_record.json`
+  - machine path replaced by <opus-workspace>
+  - machine path replaced by <home>
+- `grading/grok-4.6-opus-2026-10-24/output/source_subagent_audit.json`
+  - machine path replaced by <opus-workspace> (3 times)
+- `independent_check_2026-10-29/REPORT.md`
+  - machine path replaced by key/FE_CHECK.md
+  - machine path replaced by audit_2026-10-25/AUDIT.md
+  - machine path replaced by <source paper PDF, not included>
+- `key/KEY_2026-10-08.md`
+  - a notice at the top says it is superseded by KEY.md
+  - machine path replaced by <documents>
+- `key/fe_check_K0.py`
+  - machine path replaced by <home>
+- `key/fe_check_volume.py`
+  - machine path replaced by <home>
+- `key/reproduce_yu2020.py`
+  - machine path replaced by <volume-2>
+- `records/Case_Studies_Review_2026-10-23.html`
+  - excerpt: sections verdict, patterns, diffusion, hydraulic, visco, mr, xh and index, the scripts of the other cases, the reviewed-copies paragraph and the in-page navigation left out; a note says so
+  - navigation link to the case library index now points to the case page, with the text "← Poroelastic crack case"
+  - description tag added to the page head
+  - machine path replaced by <volume>
+- `records/Case_Studies_Review_Response_2026-10-23.html`
+  - excerpt: table rows of the five other cases, the qualifications section and the account of checks left out; a note says so
+  - navigation link to the case library index now points to the case page, with the text "← Poroelastic crack case"
+  - navigation link to the case library index now points to the case page, with the text "← Poroelastic crack case"
+  - navigation link to the case library index now points to the case page, with the text "← Poroelastic crack case"
+- `records/Case_Study_GPT_Challenge_2026-10-08.html`
+  - navigation link to the case library index now points to the case page, with the text "← Poroelastic crack case"
+  - description tag added to the page head
+  - machine path replaced by grading/review_B_K10-codex/output/VERDICT.md
+- `records/Dimensional_Analysis_Crack_Tip_2026-10-08.html`
+  - excerpt: section 4 (the gel problems and a large-deformation problem) left out; a note says so
+  - navigation link to the case library index now points to the case page, with the text "← Poroelastic crack case"
+  - description tag added to the page head
+- `records/Multiphysics_Round_Summary_2026-10-08.html`
+  - excerpt: problem B only (the results of problems A, D and E, the agents' totals over all four problems, two conclusions about the other problems and the gel test left out); a note says so
+  - charset and viewport tags added before the title
+  - description tag added to the page head
+  - private repository name removed from the line above the title
+- `records/Why_Drained_Tip_Missed_2026-10-08.html`
+  - navigation link to the case library index now points to the case page, with the text "← Poroelastic crack case"
+  - description tag added to the page head
+- `records/grok-review-kimi-k31-2026-10-24.html`
+  - navigation link to the case library index now points to the case page, with the text "← Poroelastic crack case"
+  - description tag added to the page head
+  - machine path replaced by <reviewer-scratch> (2 times)
+- `records/grok-review-opus-2026-10-24.html`
+  - navigation link to the case library index now points to the case page, with the text "← Poroelastic crack case"
+  - description tag added to the page head
+- `records/kimi-k31-high-2026-10-24.html`
+  - navigation link to the case library index now points to the case page, with the text "← Poroelastic crack case"
+  - description tag added to the page head
+- `records/kimi-k31-max-2026-10-24.html`
+  - navigation link to the case library index now points to the case page, with the text "← Poroelastic crack case"
+  - description tag added to the page head
+- `reference_checks/solution_formula_checks.txt`
+  - lines of the other cases left out (kept: the header and the poro lines)
+- `reference_checks/tip_factor_curve.py`
+  - path of the factorization code changed to its place in this package
+  - the same, for the recorded source path
+- `runs/kimi-k31-high-2026-10-24/records/comparison.json`
+  - machine path replaced by <pilot-folder>
+- `runs/kimi-k31-high-2026-10-24/records/run_metadata.json`
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home>
+- `runs/kimi-k31-high-2026-10-24/records/tool_audit.json`
+  - machine path replaced by <home> (3 times)
+- `runs/kimi-k31-max-2026-10-24/records/run_metadata.json`
+  - machine path replaced by <kimi-run-folder>
+  - machine path replaced by <pilot-folder>
+  - machine path replaced by <home>
+- `runs/kimi-k31-max-2026-10-24/records/tool_audit.json`
+  - machine path replaced by <kimi-run-folder> (7 times)
+- `runs/opus-5.5-subagent-2026-10-24/records/run_record.json`
+  - machine path replaced by <opus-workspace>
+  - machine path replaced by <home>
+- `runs/opus-5.5-subagent-2026-10-24/workspace/code/simplify_symbols.py`
+  - machine path replaced by <opus-workspace>
+- `runs/opus-5.5-subagent-2026-10-24/workspace/code/symbols.py`
+  - machine path replaced by <opus-workspace>
+- `runs/opus-5.5-subagent-2026-10-24/workspace/code/write_results.py`
+  - machine path replaced by <opus-workspace> (2 times)

@@ -1,0 +1,10 @@
+{
+  "B": {
+    "effort": "high",
+    "source_run": "<home>/poroelastic-kimi-k31-2026-10-24"
+  },
+  "A": {
+    "effort": "max",
+    "source_run": "<kimi-run-folder>"
+  }
+}

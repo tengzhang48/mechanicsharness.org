@@ -1,0 +1,16 @@
+nu = 0.200, nu_u = 0.400, alpha = 0.890, gamma = 0.667500
+
+--- loading 1 (sigma_n = -H(t), p=0 on faces) ---
+K1_0            = 1.000000   [K = K*sigma0*sqrt(pi*L)]
+K1_inf          = 1.000000
+V1_0            = 1.884956   [V = V*sigma0*L^2/G]
+V1_inf          = 2.513274
+V1_short_coeff  = 1.128379   [V ~ V1_0 + A*sqrt(c t/L^2)]
+p_faces_0       = 0.749064   [p = value*sigma0]
+
+--- loading 2 (p = H(t) on faces, sigma_n = 0) ---
+K2_0            = 0.000000   [K = K*p0*sqrt(pi*L)]
+K2_inf          = -0.333750
+V2_inf          = -0.838805   [V = V*p0*L^2/G]
+
+wrote results.json

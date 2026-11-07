@@ -1,0 +1,15 @@
+<solver-runs>/followup_runs/D01_direct_thinking_2026-10-15/work/check_j2d.py:159: IntegrationWarning: The occurrence of roundoff error is detected, which prevents 
+  the requested tolerance from being achieved.  The error may be 
+  underestimated.
+  val,_ = quad(integrand, 0.0, np.pi, limit=400)
+assembled (40902, 40902) nnz 357306
+solver check: max|u2_num - u2_wake| at i=2: 8.401e-04
+solver check: max|u| in far-ahead column i=Nx-2: 1.849e-04
+analytic G_A (H=1,ell=1,sigma0=Ebar=1) = 0.46211716
+analytic gamma_A = 0.46211716
+r0    J_arc      G_num=2*J_arc   rel.err vs analytic
+0.20   2.310002e-01    4.620003e-01   2.528e-04
+0.30   2.311299e-01    4.622599e-01   3.089e-04
+0.40   2.310762e-01    4.621525e-01   7.642e-05
+0.50   2.310367e-01    4.620734e-01   9.471e-05
+0.60   2.310256e-01    4.620512e-01   1.428e-04

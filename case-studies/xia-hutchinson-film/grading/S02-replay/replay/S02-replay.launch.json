@@ -1,0 +1,16 @@
+{
+  "started_at_utc": "2026-10-15T14:03:11.506525+00:00",
+  "source": "<pilot-folder>/submissions/S02",
+  "replay": "<review-runs>/replays/S02",
+  "declared_command": [
+    "python3",
+    "reproduce_all.py"
+  ],
+  "execution_wrapper": [
+    "timeout",
+    "1200s"
+  ],
+  "code_unchanged": true,
+  "scope": "Factual unchanged-copy reproduction; no coordinator mathematical repairs/grades;1200-second replay safety bound separate from solver time",
+  "script_sha256": "9bed4c09b3bdefd596fb4c3c7b2ef5d4e8c1a58115108f644b0ee5ecffc949bd"
+}

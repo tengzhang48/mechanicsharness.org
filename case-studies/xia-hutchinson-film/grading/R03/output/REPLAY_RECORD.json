@@ -1,0 +1,19 @@
+{
+  "started_at_utc": "2026-10-15T13:19:01.783027+00:00",
+  "ended_at_utc": "2026-10-15T13:19:02.765176+00:00",
+  "duration_seconds": 0.9821633370011114,
+  "command": [
+    "timeout",
+    "120s",
+    "python",
+    "check.py"
+  ],
+  "exit_code": 0,
+  "script_unchanged": true,
+  "numeric_rows_equal_original": true,
+  "reported_check_flags_equal_original": true,
+  "original_check_count": 8,
+  "stderr_bytes": 0,
+  "scientific_grade": null,
+  "scope": "Factual unchanged-original replay by coordinator; not a scientific grade"
+}

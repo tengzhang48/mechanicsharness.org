@@ -1,0 +1,87 @@
+{
+  "reference_status": "valid_within_stated_model",
+  "target_quantities_valid": true,
+  "critical_issues": [],
+  "noncritical_issues": [
+    "XH2000 Eq. 6 printed incremental-energy typesetting is ambiguous; PROBLEM.md functional is authoritative. Cosmetic/source-transcription, not a target-quantity error; no erratum claim required.",
+    "paper.txt OCR of Eqs. 28/30 garbles radicals/prefactors; the paper's identity G=2G'(H)-G'(2H) plus independent integration recover the tanh forms used by the reference.",
+    "Author and checker numerical routes are 1D mode-I wake reductions, not 2D tip-field KI extraction.",
+    "Beuth g(alpha,beta) tables and Tada/Eq.29 few-percent comparison were not recomputed; ell=1.98 h at zero mismatch is a paper statement used as a calibration caveat.",
+    "Author collocation initial guess uses tanh(a) (exact opening scale); residuals show it does not pollute the solved field.",
+    "Saved reproduce_output.txt write path names .../reference/reference.json from the author's original folder; not a quantity error."
+  ],
+  "required_reference_changes": [],
+  "numeric_comparison": {
+    "tolerance_gamma_abs": 1e-6,
+    "tolerance_kI_abs": 1e-6,
+    "max_abs_formula_minus_ref_gamma": 0.0,
+    "max_abs_formula_minus_ref_kI": 0.0,
+    "max_abs_P1_FEM_minus_ref_gamma": 2.708680391094731e-08,
+    "max_abs_lumped_FEM_minus_ref_gamma": 1.750820866064373e-08,
+    "author_replay_max_prod_mismatch": 2.144e-10,
+    "author_replay_collocation_max_err": 8.549e-15,
+    "author_replay_energy_residual": 5.551e-16,
+    "samples_nu": 0.3,
+    "ell_over_H": [0.5, 1.0, 1.5, 2.0],
+    "gamma_A": [0.7615941559557649, 0.46211715726000974, 0.32151273753163434, 0.24491866240370913],
+    "gamma_B": [0.5591607318357128, 0.16264015856425462, 0.060242529715358484, 0.027720167547408525],
+    "kI_A": [0.8324966558009383, 0.6484802333969856, 0.5409034952316238, 0.4720974293378172],
+    "kI_B": [0.7133276007351032, 0.38471098800719444, 0.23413821140722893, 0.1588249113588349],
+    "isolated_kI_Eq27": 0.9539392014169457,
+    "limits": {
+      "H_over_ell_to_0": "gamma_A ~ H/(2 ell), gamma_B ~ (H/ell)^3/4; sigma_c,A ~ sqrt(2 Gc Ebar/H), sigma_c,B ~ 2 sqrt(Gc Ebar) ell / H^{3/2}",
+      "H_over_ell_to_inf": "gamma_A, gamma_B -> 1; sigma_c -> sqrt(Gc Ebar/ell); H/ell=20 gives gamma_A=0.9999999959, gamma_B=0.9999999918"
+    }
+  },
+  "independent_checks": [
+    {
+      "name": "independent_derivation",
+      "file": "DERIVATION.md",
+      "outcome": "ell=sqrt(Ebar h/k); total-traction v'=-1 on faces; gamma_A=tanh(H/(2 ell)); gamma_B=2 tanh(H/(2 ell))-tanh(H/ell); kI=sqrt((1-nu^2) gamma); KII=0"
+    },
+    {
+      "name": "fullwidth_variational_P1_natural_tractions",
+      "file": "check_independent.py",
+      "outputs": ["check_independent_output.txt", "check_independent_results.json"],
+      "outcome": "P1 energy on full period with natural BCs v'(0)=v'(L)=-1; n_el=4000 max |gamma-ref|=2.709e-8; lumped-mass 1.751e-8; O(h^2) convergence ratio 4.020; face slopes -> -1",
+      "does_not_call_author_analytics": true
+    },
+    {
+      "name": "author_code_replay_unchanged",
+      "method": "copied reference_submission/reproduce.py to author_replay/; did not edit reference_submission",
+      "outputs": ["author_replay/reproduce_output.txt", "author_replay/reference.json"],
+      "exit_code": 0,
+      "outcome": "symbolic True; colloc 8.549e-15; energy residual 5.551e-16; prod mismatch 2.144e-10; C1/C2/C3 fail as expected; table matches reference.json"
+    },
+    {
+      "name": "wrong_controls_independent_reconstruction",
+      "outcome": "C1 omit foundation gamma_A_wrong=[0.932404, 0.496564, 0.332831, 0.249876]; C2 incremental traction v=0, gamma_A=0; C3 swapped spacings gamma_B_wrong=[1.166461, 1.061071, 0.844053, 0.679316]; match author saved controls"
+    },
+    {
+      "name": "source_anchors",
+      "file": "reference_submission/paper.txt",
+      "outcome": "Eqs 11-12 calibration algebra confirmed; Eq 27 isolated kI recovered; Sec 4.2 identity G=2G'(H)-G'(2H) confirmed; Eq 6 notation ambiguity distinguished from target error; Eq 29 Tada comparison not recomputed"
+    }
+  ],
+  "shared_assumptions": [
+    "plane-stress film on Winkler foundation f=-k u; quasistatic linear elasticity",
+    "u1=0 far from tips (mode I); 1D wake equilibria",
+    "PROBLEM.md incremental energy; total (not incremental) face traction",
+    "steady translating-tip conversion of far-ahead strip to far-behind wake",
+    "Case A one tip per period H; Case B one new tip per period 2H",
+    "G=(KI^2+KII^2)/E with KII=0 by reflection"
+  ],
+  "check_gaps": [
+    "No 2D near-tip discretization or J-integral KI extraction",
+    "No independent Beuth g(alpha,beta) or Tada periodic-edge-crack recompute",
+    "No physical/experimental validation of a real film"
+  ],
+  "uncertainty": "Mathematical consistency within the stated reduced model. Not physical validation. Substrate wavenumber dependence, 3D channeling, debonding, and path stability remain outside scope.",
+  "meta": {
+    "nu": 0.3,
+    "source": "Z.C. Xia & J.W. Hutchinson, JMPS 48 (2000) 1107-1131, Sec. 4.2",
+    "authoritative_energy": "PROBLEM.md Delta_Pi",
+    "checker_command": "python3 check_independent.py",
+    "author_replay_command": "python3 author_replay/reproduce.py"
+  }
+}

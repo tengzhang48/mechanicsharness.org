@@ -1,0 +1,86 @@
+{
+  "as_of": "2026-10-24",
+  "reference": {
+    "K1_0": 0.807593,
+    "K1_inf": 1.0,
+    "V1_0": 1.8849555921538759,
+    "V1_inf": 2.5132741228718345,
+    "V1_short_coeff": 2.44022,
+    "p_faces_0": 0.7490636704119851,
+    "K2_0": 0.0,
+    "K2_inf": -0.33375,
+    "V2_inf": -0.8388052385084748
+  },
+  "trials": [
+    {
+      "id": "trial-k31-high",
+      "label": "Kimi K3.1 Pro \u00b7 high",
+      "results": "runs/kimi-k31-2026-10-24/submission/results.json",
+      "results_sha256": "a181e3cece01d895f1f5ebc83b0621885c818f9367af370fe4f0affe8fdd073f",
+      "results_link": "../runs/kimi-k31-2026-10-24/submission/results.json",
+      "review": "reviews/grok-4.6-2026-10-24/index.html",
+      "review_link": "../reviews/grok-4.6-2026-10-24/index.html",
+      "verdict": "partial",
+      "elapsed": "7m 52s",
+      "matches": 5,
+      "values": {
+        "K1_0": 1.0,
+        "K1_inf": 1.0,
+        "V1_0": 1.8849555921538759,
+        "V1_inf": 2.5132741228718345,
+        "V1_short_coeff": 1.1283791670955126,
+        "p_faces_0": 0.7490636704119851,
+        "K2_0": 0.0,
+        "K2_inf": -0.89,
+        "V2_inf": -2.236813969355933
+      }
+    },
+    {
+      "id": "trial-k31-max",
+      "label": "Kimi K3.1 Pro \u00b7 max",
+      "results": "runs/kimi-k31-max-2026-10-24/submission/results.json",
+      "results_sha256": "51d876dd2f03157c18c18badda2ec1c4b6167ff18b47b4a70d1b95784a190e13",
+      "results_link": "../runs/kimi-k31-max-2026-10-24/submission/results.json",
+      "review": "reviews/grok-4.6-2026-10-24/index.html",
+      "review_link": "../reviews/grok-4.6-2026-10-24/index.html",
+      "verdict": "partial",
+      "elapsed": "28m 46s",
+      "matches": 5,
+      "values": {
+        "K1_0": 1.0,
+        "K1_inf": 1.0,
+        "V1_0": 1.8849555921538759,
+        "V1_inf": 2.5132741228718345,
+        "V1_short_coeff": 1.354055000514615,
+        "p_faces_0": 0.7490636704119851,
+        "K2_0": 0.0,
+        "K2_inf": -0.89,
+        "V2_inf": -2.236813969355933
+      }
+    },
+    {
+      "id": "trial-opus55",
+      "label": "Opus 5.5 \u00b7 sub-agent",
+      "results": "reviews/grok-opus-2026-10-24/C/results.json",
+      "results_sha256": "57a59556f4419beeae87d670fdf36744c58cada0d2caec05f9dfc36803c32fb2",
+      "results_link": "../reviews/grok-opus-2026-10-24/C/results.json",
+      "review": "reviews/grok-opus-2026-10-24/index.html",
+      "review_link": "../reviews/grok-opus-2026-10-24/index.html",
+      "verdict": "correct",
+      "elapsed": "93m 38s",
+      "matches": 9,
+      "values": {
+        "K1_0": 0.80759,
+        "K1_inf": 1.0,
+        "V1_0": 1.884956,
+        "V1_inf": 2.513274,
+        "V1_short_coeff": 2.44,
+        "p_faces_0": 0.749064,
+        "K2_0": 0.0,
+        "K2_inf": -0.33375,
+        "V2_inf": -0.838805
+      }
+    }
+  ],
+  "agreement_definition": "Existing key: 1% nonzero; absolute 0.01 for K2_0. K1_0=1 receives conditional/partial credit under original wording, separate from scalar agreement."
+}

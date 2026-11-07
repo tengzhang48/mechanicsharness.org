@@ -1,0 +1,21 @@
+{
+  "recorded_source_models": [
+    "claude-opus-5-5"
+  ],
+  "tool_counts": {
+    "Bash": 63,
+    "Write": 1,
+    "ToolSearch": 1,
+    "Read": 3,
+    "Monitor": 1,
+    "Edit": 6,
+    "SubagentHandback": 1
+  },
+  "Read_paths": [
+    "<opus-workspace>/ANSWER.md",
+    "<opus-workspace>/ANSWER.md",
+    "<opus-workspace>/ANSWER.md"
+  ],
+  "source_trace_sha256": "83335e9ad86b97175488c5b5c394564cb28ff8a51c946b9f089fd245cfcfa004",
+  "scope": "Direct tool names and Read paths; shell commands are retained in the compressed original trace. No web or delegated-agent tool appears in this solver trace."
+}

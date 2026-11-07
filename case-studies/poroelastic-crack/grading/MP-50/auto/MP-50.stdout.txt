@@ -1,0 +1,17 @@
+nu=0.200 nu_u=0.400 alpha=0.890  (K in units sqrt(pi L), V in units L^2/G)
+  K1_0             = 1
+  K1_inf           = 1
+  V1_0             = 1.884955592
+  V1_inf           = 2.513274123
+  V1_short_coeff   = 1.805406667
+  p_faces_0        = 0.7490636704
+  K2_0             = 0
+  K2_inf           = 0
+  V2_inf           = 0
+
+wrote results.json
+
+[check] Int (sigma_kk)^2 dA = 6.283150   (target 2*pi = 6.283185)  ratio=0.999994
+[check] ct=1e-04  A_num=1.803599   A_formula=1.805407
+[check] ct=1e-05  A_num=1.803601   A_formula=1.805407
+[check] ct=1e-06  A_num=1.803602   A_formula=1.805407

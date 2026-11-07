@@ -1,0 +1,37 @@
+{
+  "item_1_wake": "right",
+  "item_2_energy": "right",
+  "item_3_modes": "right",
+  "item_4_thresholds": "right",
+  "item_5_numerics": "right",
+  "item_6_verification": "partly",
+  "item_7_scope": "partly",
+  "reasons": {
+    "1": "ell, 1D wake, total-traction faces, A/B far states correct; ODE/BC sympy + reviewer energy quadrature",
+    "2": "stated DeltaPi, period/tip/h accounting, GA/GB tanh forms independently recovered from W(S)",
+    "3": "mode I, G=KI^2/E, kI=sqrt((1-nu^2)gamma) nu=0.3",
+    "4": "sigma0c and H/ell 0/inf limits with fixed h,E,nu,k; series (H/ell)^3/4 for B",
+    "5": "16/16 vs reference at 1e-12; solver results.json/ANSWER.md missing but numeric_rows.json complete",
+    "6": "solver sympy+FD+limits; coordinator replay OK; reviewer 1D quadrature independent; no solver REPRODUCE.md; FD uses shared far-field and tanh G_exact; FD not re-run by reviewer",
+    "7": "thin real-film/k-calibration discussion; small-spacing not claimed as substrate-validated; no paper citation"
+  },
+  "evidence_locations": [
+    "submission/PROVISIONAL_REPORT.md",
+    "submission/analytic_checks.py",
+    "submission/numeric_rows.json",
+    "submission/fd_output.txt",
+    "REPLAY_RECORD.json",
+    "replay_output/results.json",
+    "review_independent_check.py"
+  ],
+  "deciding_checks": "Independent trapezoid of PROBLEM.md DeltaPi on 1D wake vs tanh W(S); 16-value compare to reference.json; tanh series for limits. Coordinator replay is not the scientific verdict.",
+  "numerical_agreement_count": "16/16",
+  "source_recognition": "none",
+  "uncertainty": "Missing ANSWER.md/results.json is missing delivery. FD ahead path_spread large when J~0. Model-internal consistency is not real-film validation.",
+  "incomplete_obligations": "none after GRADE",
+  "solver_verification_vs_reviewer_vs_replay": {
+    "solver": "analytic_output.txt 8/8; fd_output.txt rel_err <0.13%; numeric_output.txt",
+    "reviewer": "review_independent_check.py quadrature ~1e-8..1e-10 vs tanh; 16/16",
+    "coordinator_replay": "python3 run_all.py exit 0; max diff 2.22e-16 vs original numeric_rows.json; generated_results not original submission"
+  }
+}

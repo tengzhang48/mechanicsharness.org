@@ -1,0 +1,25 @@
+{
+  "recorded_at_utc": "2026-10-15T19:37:07.195460+00:00",
+  "status": "completed",
+  "model": "kimi-code/k3",
+  "provider": "native Kimi subscription",
+  "started_at_utc": "2026-10-15T19:34:37.785607+00:00",
+  "continuation_checkpoint_written": true,
+  "work_directory": "<solver-runs>/continuations/K01_2026-10-15/work",
+  "controller_logbase": "<solver-runs>/logs/K01-continuation",
+  "schedule_seconds": {
+    "checkpoint_snapshot": 360.0,
+    "final_analysis_end": 900.0,
+    "first_analysis_end": 300.0,
+    "overall_deadline": 1080.0
+  },
+  "scientific_grade": null,
+  "new_scored_attempt": false,
+  "original_trial_and_grades_preserved": true,
+  "opus_summary_editing_scope": "Separate; Kimi instructed to write only to the continuation working directory",
+  "completion_record": "COMPLETION.json",
+  "completion_note": "The completion record is written by the controller when this run ends; this status is only a launch observation.",
+  "ended_at_utc": "2026-10-15T19:44:03.015800+00:00",
+  "elapsed_seconds": 565.2302017399925,
+  "independent_scientific_review": "Not yet performed for the continuation"
+}

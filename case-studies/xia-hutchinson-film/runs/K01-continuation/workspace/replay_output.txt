@@ -1,0 +1,23 @@
+{
+  "problem": "Energy release for periodic cracks in a prestressed elastic film on a Winkler foundation",
+  "generated_by": "run_all.py",
+  "units_note": "normalized (dimensionless) quantities; ell = sqrt(h Ebar/k), Ebar = E/(1-nu^2); gamma = G Ebar/(sigma0^2 ell); kI = KI/(sigma0 sqrt(ell)); nu = 0.3 for kI values",
+  "definitions": {
+    "ell": "sqrt(h Ebar / k)",
+    "gamma_A": "tanh(H/(2 ell))",
+    "gamma_B": "2 tanh(H/(2 ell)) - tanh(H/ell) = 2 tanh^3(H/2ell)/(1+tanh^2(H/2ell))",
+    "kI_A": "sqrt((1-nu^2) gamma_A)  (KII = 0 by symmetry)",
+    "kI_B": "sqrt((1-nu^2) gamma_B)  (KII = 0 by symmetry)"
+  },
+  "sampling": "ell/H in {0.5, 1, 1.5, 2}  =>  H/(2 ell) in {1, 0.5, 1/3, 0.25}",
+  "critical_stress": {
+    "formula": "sigma0c = sqrt(Ebar Gc/(ell gamma))",
+    "small_H": {
+      "
+rows:
+{'ell_over_H': 0.5, 'H_over_2ell': 1.0, 'gamma_A': 0.7615941559557649, 'gamma_B': 0.5591607318357128, 'kI_A': 0.8324966558009383, 'kI_B': 0.7133276007351032}
+{'ell_over_H': 1.0, 'H_over_2ell': 0.5, 'gamma_A': 0.46211715726000974, 'gamma_B': 0.16264015856425462, 'kI_A': 0.6484802333969856, 'kI_B': 0.38471098800719444}
+{'ell_over_H': 1.5, 'H_over_2ell': 0.3333333333333333, 'gamma_A': 0.32151273753163434, 'gamma_B': 0.060242529715358484, 'kI_A': 0.5409034952316238, 'kI_B': 0.23413821140722893}
+{'ell_over_H': 2.0, 'H_over_2ell': 0.25, 'gamma_A': 0.24491866240370913, 'gamma_B': 0.027720167547408525, 'kI_A': 0.4720974293378172, 'kI_B': 0.1588249113588349}
+ALL CHECKS PASS
+wrote results.json

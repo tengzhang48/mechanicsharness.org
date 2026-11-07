@@ -1,0 +1,16 @@
+Finite-difference integral audit: original right sum versus trapezoidal sum
+Ny=1000: original_error=-0.0221068223144, trapezoid_error=0.000253857460624, missing_endpoint_term=0.022360679775
+Ny=2000: original_error=-0.0111168703003, trapezoid_error=6.3469587162e-05, missing_endpoint_term=0.0111803398875
+Ny=4000: original_error=-0.00557430222055, trapezoid_error=1.58677231963e-05, missing_endpoint_term=0.00559016994375
+Ny=8000: original_error=-0.00279111802069, trapezoid_error=3.9669511831e-06, missing_endpoint_term=0.00279508497187
+original error ratios: [np.float64(0.5028705682909804), np.float64(0.5014272965282822), np.float64(0.5007116425084212)]
+trapezoid error ratios: [np.float64(0.2500205706220744), np.float64(0.250005142711744), np.float64(0.250001284622094)]
+
+Exact plane-strain expanding circular pressure patch: p=1 inside r=R, p=0 outside
+inner radial/hoop strain: 0.166875
+inner radial/hoop total stress: -0.33375
+outer radial traction at R: -0.33375
+expected inner total stress -eta: -0.33375
+free swelling strain proposed by solver: 0.267
+traction-free crack correction K2_inf: -0.33375
+traction-free crack correction V2_inf: -0.8388052385084749

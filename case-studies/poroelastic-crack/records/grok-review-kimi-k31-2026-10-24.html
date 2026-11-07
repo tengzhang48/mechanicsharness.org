@@ -1,0 +1,455 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Grok 4.6 review — unaided Kimi K3.1 high and max</title><meta name="description" content="Record of the poroelastic crack case (MechanicsHarness), as written at the time: Grok 4.6 review — unaided Kimi K3.1 high and max"><style>
+    :root{--bg:#f7f5ef;--paper:#fffdf8;--ink:#1c2230;--muted:#5b6474;--rule:#ddd8cc;--accent:#0e6e6a;--wash:#e5efeb;--math:#edf1f3;--warm:#f4ebdc;--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",sans-serif}
+    *{box-sizing:border-box}
+    html{scroll-behavior:auto;scroll-padding-top:88px}
+    body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--serif)}
+    a{color:var(--accent);text-underline-offset:3px}
+    a:hover{text-decoration-thickness:2px}
+    a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #c2943d;outline-offset:4px}
+    .skip{position:absolute;top:-60px;left:15px;background:white;padding:8px;z-index:5}.skip:focus{top:10px}
+    .page{max-width:1160px;margin:auto;padding:22px 38px 56px}
+    .toolbar{position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:27px;padding:10px 0;background:var(--bg);border-bottom:1px solid var(--rule);font:12px/1.4 var(--sans)}
+    .toolbar nav{display:flex;flex-wrap:wrap;gap:8px 22px}
+    .toolbar a{font-weight:600;text-decoration:none}
+    .case-return{display:flex;justify-content:space-between;gap:20px;margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);font:600 12px/1.5 var(--sans)}
+    .case-return a{text-decoration:none}.case-return a:hover{text-decoration:underline}
+    .entry-links{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 20px;font:600 12px/1.5 var(--sans)}
+    .entry-links a{border:1px solid var(--rule);background:var(--paper);padding:8px 12px;text-decoration:none;border-radius:3px}.entry-links a:hover{background:var(--wash);border-color:var(--accent)}
+    button{cursor:pointer;background:transparent;border:1px solid var(--accent);color:var(--accent);border-radius:3px;padding:8px 12px;font:600 12px var(--sans);white-space:nowrap}
+    button:hover{background:var(--wash)}
+    header{border-bottom:1px solid var(--rule);padding-bottom:27px}
+    .kicker{margin:0 0 12px;color:var(--accent);font:650 11px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase}
+    h1,h2,h3{line-height:1.2;text-wrap:balance;margin:0}
+    h1{font-size:clamp(31px,4vw,45px);letter-spacing:-.025em;font-weight:600;max-width:920px}
+    h2{font-size:27px;letter-spacing:-.015em;font-weight:600;margin-bottom:14px}
+    h3{font-size:20px;font-weight:600;margin-bottom:10px}
+    p{margin:0 0 14px}
+    p:last-child{margin-bottom:0}
+    .lede{font-size:20px;line-height:1.5;max-width:83ch;margin:19px 0 16px}
+    .meta,.small,.source,.note{font-family:var(--sans);font-size:12px;line-height:1.6;color:var(--muted)}
+    .meta{margin-bottom:0}
+    .aim{font-size:15px;color:var(--muted);margin-top:12px;max-width:92ch}
+    .toc{display:flex;flex-wrap:wrap;gap:8px 22px;margin:20px 0 0;font:12px/1.5 var(--sans)}
+    .toc a{text-decoration:none}
+    .message{margin:25px 0 28px;background:var(--wash);border-left:3px solid var(--accent);padding:20px 24px}
+    .message .kicker{margin-bottom:8px}
+    .message p{font-size:19px;line-height:1.55}
+    .section{padding:31px 0;border-bottom:1px solid var(--rule)}
+    .section:first-of-type{padding-top:0}
+    .section-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:9px 16px;margin-bottom:16px}
+    .section-head h2{margin:0}
+    .label{color:var(--accent);font:650 10px/1.4 var(--sans);text-transform:uppercase;letter-spacing:.07em}
+    .tablewrap{overflow-x:auto;margin:17px 0 9px}
+    table{width:100%;border-collapse:collapse;font:13px/1.55 var(--sans)}
+    caption{text-align:left;color:var(--muted);font-size:12px;padding-bottom:11px}
+    th,td{vertical-align:top;text-align:left;padding:12px 15px 12px 0;border-bottom:1px solid var(--rule)}
+    thead th{font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding-top:0;border-bottom:2px solid var(--rule)}
+    tbody th{font-size:13px;font-weight:650;width:21%}
+    td:last-child,th:last-child{padding-right:0}
+    .summary-table td:nth-child(2){width:51%}
+    .summary-table td:last-child{color:var(--muted)}
+    .summary-table .reference{display:block;font-size:11px;margin-top:5px;font-weight:400}
+    .columns{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:30px;align-items:start}
+    .columns>*{min-width:0}
+    .math{background:var(--math);border:1px solid #d2dadd;border-radius:3px;padding:19px 21px}
+    .equation{font:21px/1.65 var(--serif);margin:10px 0;overflow-wrap:anywhere}
+    .equation.small-eq{font-size:18px}
+    .source{margin-top:15px}
+    .note{border-left:2px solid var(--rule);padding:2px 0 2px 13px;margin-top:17px}
+    .status-table{font-size:12px}
+    .status-table tbody th{width:20%;font-size:12px}
+    .number{font-variant-numeric:tabular-nums;white-space:nowrap}
+    .numeric-table th,.numeric-table td{font-variant-numeric:tabular-nums}
+    .numeric-table th:not(:first-child),.numeric-table td:not(:first-child){text-align:right}
+    .numeric-table tbody th{width:auto}
+    .subsection{margin-top:27px}
+    .observation{background:var(--paper);border:1px solid var(--rule);padding:18px 21px;margin-top:20px}
+    .limits{margin:0;padding-left:20px;display:grid;gap:10px;font-size:15px}
+    .limits li{padding-left:3px;max-width:98ch}
+    .scope{background:var(--warm);padding:18px 21px;margin-top:21px;font-size:15px}
+    .definition{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px 32px;padding:20px 23px;background:var(--paper);border:1px solid var(--rule);border-top:3px solid var(--accent);margin:19px 0}
+    .definition>div{min-width:0}.definition h3{font:650 12px/1.4 var(--sans);color:var(--accent);text-transform:uppercase;letter-spacing:.05em;margin:0 0 10px}
+    .definition p,.definition li{font-size:15px;line-height:1.55}.definition ul,.definition ol{margin:0;padding-left:20px;display:grid;gap:8px}
+    .definition .span{grid-column:1/-1;border-top:1px solid var(--rule);padding-top:14px}
+    .given{font:12px/1.65 var(--sans);color:var(--muted);margin:12px 0 0}.given strong{color:var(--ink)}
+    .formula{font:18px/1.6 var(--serif);overflow-wrap:anywhere;margin:8px 0}.formula.long{font-size:16px}.definition .formula{font-size:17px}
+    figure.schematic{margin:23px 0 26px;break-inside:avoid}.schematic .drawing{overflow-x:auto;border:1px solid var(--rule);background:var(--paper);border-radius:3px}
+    .schematic svg{display:block;width:100%;height:auto;min-width:650px;color:var(--ink)}
+    .schematic svg text{font-family:var(--sans);font-size:17px;fill:var(--ink)}
+    .schematic svg .minor{font-size:14px;fill:var(--muted)}.schematic svg .panel-title{font-size:16px;fill:var(--accent);font-weight:650}
+    .schematic svg .accent-text{fill:var(--accent)}.schematic svg .material{fill:#e8edf0;stroke:#9dabb8;stroke-width:1.5}
+    .schematic svg .line{fill:none;stroke:var(--ink);stroke-width:2}.schematic svg .guide{fill:none;stroke:#7d8c98;stroke-width:1.3;stroke-dasharray:5 5}
+    .schematic svg .cohesive{fill:#e8bc91;stroke:#a36535;stroke-width:1.5}.schematic svg .fluid{fill:#cce4e0;stroke:var(--accent);stroke-width:1.5}
+    .schematic svg .flow{fill:none;stroke:var(--accent);stroke-width:2}.schematic svg .dim{fill:none;stroke:#5b6474;stroke-width:1.3}
+    figcaption{font:12px/1.6 var(--sans);color:var(--muted);margin-top:9px;max-width:115ch}
+    .boundary-table{font-size:12px;margin-top:10px}.boundary-table tbody th{width:auto;font-size:12px}
+    .task-detail{margin:15px 0 0;padding-top:12px}.task-detail summary{font-size:12px}.task-detail .tablewrap{margin-top:13px}
+    details{margin-top:23px;border-top:1px solid var(--rule);padding-top:17px}
+    summary{cursor:pointer;color:var(--accent);font:600 13px/1.6 var(--sans)}
+    .sources{columns:2;column-gap:35px;padding:15px 0 0 19px;margin:0;font:12px/1.6 var(--sans)}
+    .sources li{break-inside:avoid;margin:0 0 13px;padding-left:3px}
+    .sources span{display:block;color:var(--muted)}
+    footer{display:flex;justify-content:space-between;gap:20px;margin-top:22px;font:11px/1.5 var(--sans);color:var(--muted)}
+    sub,sup{font-size:.74em}
+    @media(max-width:760px){
+      html{scroll-padding-top:115px}
+      .page{padding:16px 20px 35px}.toolbar{margin-bottom:23px;align-items:start}.toolbar a{max-width:230px}
+      .lede{font-size:18px}.message{padding:17px 19px}.message p{font-size:17px}
+      .columns,.definition{grid-template-columns:1fr;gap:22px}.definition{padding:17px 18px}.definition .span{grid-column:auto}.section{padding:26px 0}h2{font-size:25px}.sources{columns:1}
+      .summary-table,.summary-table tbody,.summary-table tr,.summary-table tbody th,.summary-table td{display:block;width:100%!important}
+      .summary-table thead{display:none}.summary-table tr{border-bottom:1px solid var(--rule);padding:13px 0}
+      .summary-table tbody th,.summary-table td{border:0;padding:0 0 8px}.summary-table td:last-child{padding:0;font-size:12px}
+      .summary-table .reference{display:inline;margin-left:7px}.status-table{min-width:570px}.numeric-table{min-width:490px}
+      .equation{font-size:19px}.math{padding:16px}.limits{font-size:14px}footer{display:block}footer span{display:block;margin-bottom:5px}
+    }
+    @media print{
+      @page{size:A4;margin:15mm}
+      html{scroll-behavior:auto}body{background:white;font-size:10pt;line-height:1.45}.page{max-width:none;padding:0}
+      .toolbar,.toc,.skip,.case-return,.entry-links{display:none}header{padding-bottom:12pt}h1{font-size:27pt;max-width:none}h2{font-size:19pt}h3{font-size:13pt}
+      .kicker{font-size:7.5pt;margin-bottom:8pt}.lede{font-size:12pt;margin:12pt 0 9pt}.meta,.small,.source,.note{font-size:8pt}
+      .aim{font-size:9pt;margin-top:8pt}.message{margin:15pt 0;padding:12pt 15pt}.message p{font-size:11pt}
+      .section{padding:20pt 0}.section-head{margin-bottom:10pt}.label{font-size:7pt}.columns{gap:20pt}
+      table{font-size:8pt;line-height:1.4}caption{font-size:8pt}thead th{font-size:7pt}tbody th{font-size:8pt}th,td{padding:8pt 9pt 8pt 0}
+      .summary-table .reference{font-size:7pt}.status-table,.status-table tbody th{font-size:8pt}.tablewrap{overflow:visible;margin:10pt 0 6pt}
+      .math{padding:12pt}.equation{font-size:14pt}.equation.small-eq{font-size:12pt}.subsection{margin-top:18pt}
+      .observation,.scope{padding:12pt 14pt;margin-top:13pt}.scope,.limits{font-size:9pt}.limits{gap:7pt}.source{margin-top:10pt}
+      .sources{font-size:7.5pt;column-gap:22pt}summary{font-size:9pt}details{margin-top:14pt;padding-top:10pt}footer{font-size:7pt}
+      .definition{gap:14pt 18pt;padding:13pt 14pt;margin:12pt 0;break-inside:avoid}.definition h3{font-size:8pt}.definition p,.definition li{font-size:9pt}.definition .formula{font-size:10pt}.given{font-size:8pt}
+      .formula{font-size:12pt}.formula.long{font-size:10pt}figure.schematic{margin:14pt 0 17pt}.schematic svg{min-width:0}.schematic .drawing{overflow:visible}figcaption{font-size:8pt}
+      .boundary-table,.boundary-table tbody th{font-size:8pt}.task-detail{margin-top:10pt;padding-top:8pt}.task-detail summary{font-size:8pt}
+      a{color:inherit;text-decoration:none}h2,h3,.section-head{break-after:avoid}tr,.math,.observation,.scope{break-inside:avoid}
+      p{orphans:3;widows:3}.message,.math,.scope{print-color-adjust:exact}
+    }
+  
+  .agent-performance{margin-top:23px;border:1px solid var(--rule);border-top:4px solid var(--accent);padding:23px 24px!important;background:var(--paper)}
+  .performance-intro{font-size:15px;color:var(--muted)}.performance-table{font-size:13px;line-height:1.55}
+  .performance-table tbody th{width:19%;font-size:13px}.performance-table td:nth-child(2){width:33%}.performance-table td:last-child{width:48%}
+  .agent-performance .key-result{font-size:16px;margin-bottom:13px}.capability-matrix{font-size:12px;line-height:1.5;min-width:790px}
+  .capability-matrix tbody th{width:17%;font-size:12px}.capability-matrix td{width:20.75%}.capability-matrix td:nth-child(2){width:16%}
+  @media(max-width:760px){.agent-performance{padding:18px 16px!important}.performance-table{min-width:620px}.agent-performance .key-result{font-size:15px}}
+  @media print{.agent-performance{padding:13pt!important;margin-top:13pt}.performance-table,.performance-table tbody th,.capability-matrix,.capability-matrix tbody th{font-size:8pt}.capability-matrix{min-width:0}.agent-performance .key-result{font-size:9.5pt}}
+  .case-header{padding-bottom:24px}.case-header h1{max-width:1000px}
+  .case-header .lede{max-width:87ch}.case-header .meta{max-width:110ch}
+  .case-nav-label{font-weight:500;color:var(--muted)}
+  .case-section{padding:30px 0;border-bottom:1px solid var(--rule)}
+  .case-section>p,.record>p{max-width:100ch}
+  .records{margin:0;padding:0;list-style:none;counter-reset:record}
+  .record{counter-increment:record;padding:21px 0;border-bottom:1px solid var(--rule)}
+  .record:first-child{padding-top:0}.record:last-child{border-bottom:0;padding-bottom:0}
+  .record h3{font-size:21px;line-height:1.3;margin-bottom:11px}
+  .record h3:before{content:counter(record,decimal-leading-zero) ' · ';color:var(--accent);font-family:var(--sans);font-size:14px}
+  .record p{font-size:16px;line-height:1.6}.record .source{font-size:12px;margin-top:10px}
+  .record .tablewrap{margin:15px 0}.record .math{margin:15px 0;max-width:100ch}
+  .key-result{border-left:3px solid var(--accent);background:var(--wash);padding:17px 21px;margin:20px 0;font-size:18px}
+  .status-note{border-left:3px solid #b88242;background:var(--warm);padding:15px 19px;margin:20px 0;font:13px/1.6 var(--sans)}
+  .source-list{margin:0;padding-left:22px;display:grid;gap:14px;font:13px/1.55 var(--sans)}
+  .source-list span{display:block;color:var(--muted);margin-top:3px}.source-list li{break-inside:avoid}
+  .claim-table tbody th{width:27%}.run-table tbody th{width:auto}.run-table{font-size:12px}
+  .run-table td:first-child{white-space:nowrap}.equation-block{padding:14px 19px;background:var(--math);margin:15px 0}
+  .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+  .case-card{padding:22px 24px;border:1px solid var(--rule);border-top:3px solid var(--accent);background:var(--paper);min-width:0}
+  .case-card h3{font-size:23px;margin-bottom:12px}.case-card h3 a{text-decoration:none}
+  .case-card p{font-size:15px}.case-card .small{font-size:12px}.case-card .open-case{display:inline-block;font:650 12px/1.5 var(--sans);margin-top:3px}
+  .home-message{font-size:19px;max-width:92ch}.source-ref{white-space:normal}
+  .data-figure{margin:20px 0 32px;break-inside:avoid}.data-figure .plot-frame{overflow-x:auto;background:#fff}
+  .data-figure svg{display:block;width:100%;height:auto;min-width:960px}
+  .data-figure figcaption{font-size:13px;line-height:1.65;max-width:112ch}
+  .data-figure .source{font-size:12px;margin-top:8px;max-width:115ch}
+  .plot-instruction{display:none}
+  @media(max-width:760px){.data-figure .plot-instruction{display:block;font:12px/1.5 var(--sans);color:var(--muted);margin:0 0 7px}}
+  #numerical-results h3{font-size:22px;margin-top:28px}
+  @media print{.data-figure{margin:12pt 0 18pt}.data-figure svg{min-width:0}.data-figure .plot-frame{overflow:visible}.data-figure figcaption{font-size:8pt}.data-figure .source{font-size:7.5pt}}
+  @media(max-width:760px){.case-grid{grid-template-columns:1fr}.record h3{font-size:20px}.case-section{padding:25px 0}.record p{font-size:15px}.case-header .lede{font-size:18px}}
+  @media print{.case-section{padding:18pt 0}.record{padding:12pt 0}.record h3{font-size:12pt}.record h3:before{font-size:9pt}.record p{font-size:9.5pt}.record .source{font-size:8pt}.key-result{font-size:11pt;padding:10pt 13pt}.status-note{font-size:8pt;padding:10pt 12pt}.source-list{font-size:8pt;gap:8pt}.case-grid{gap:12pt}.case-card{padding:13pt;break-inside:avoid}.case-card h3{font-size:15pt}.case-card p{font-size:9pt}.open-case{display:none}.case-header .lede{font-size:12pt}}
+
+pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.7 ui-monospace,monospace;background:var(--paper);border:1px solid var(--rule);padding:22px}.review-text{font-size:14px}.trial-links{display:flex;flex-wrap:wrap;gap:10px 20px;margin:20px 0;font:13px var(--sans)}
+</style></head><body><main class="page" id="main"><div class="toolbar"><nav><a href="../../poroelastic-crack.html">← Poroelastic crack case</a><a href="../../poroelastic-crack.html">Poroelastic case</a></nav><button onclick="window.print()">Print / Save PDF</button></div><header class="case-header"><p class="kicker">Requested reviewer · Azure Grok 4.6 through OpenCode · 24 October 2026</p><h1>Review of the unaided Kimi K3.1 high and max trials</h1><p class="lede">Grok graded the two completed submissions under anonymous A/B labels. Their effort settings and earlier coordinator verdicts were withheld. The task emphasized physical boundary conditions, the order of crack-tip and time limits, short-time volume growth and the scope of verification.</p><p class="meta">The A/B mapping is disclosed below after review. The original problem, corrected reference, submissions and reviewer outputs are retained. Submitted files passed an unchanged-hash check.</p></header><aside class="status-note"><strong>Qualification of the reviewer’s long-time wording.</strong> The two-dimensional pressure limit is nonuniform in time and distance; the phrase “nonuniform harmonic steady field” in the raw Kimi review needs that qualification. <a href="grok-review-opus-2026-10-24.html#two-dimensional-limit">See the explicit limit discussion in the subsequent Opus review.</a> The Kimi numerical comparisons and partial verdicts remain unchanged.</aside><section class="case-section"><h2>Reviewer verdicts</h2><div class="tablewrap"><table><thead><tr><th scope="col">Reasoning effort</th><th scope="col">Blind label</th><th scope="col">Grok’s overall verdict</th></tr></thead><tbody><tr><th scope="row">High</th><td>B</td><td>partial. Same correct loading-1 endpoint volumes, K1_inf, face pressure and K2_0 as an undrained/drained elastic reading. Same conditional K1_0=1 without a drained-tip analysis. The short-time coefficient retains only local uniaxial-strain opening of the face layers (A&#x27;s inner piece) and dismisses tips by geometric smallness of an O(sqrt(ct)) interval, which does not control the order of the volume contribution. Loading 2 is the same effective-traction / globally drained reduction as in A, so K2_inf and V2_inf are wrong for the same reason.</td></tr><tr><th scope="row">Max</th><td>A</td><td>partial. Loading-1 volumes, long-time K, induced face pressure and K2_0 are correct. K1_0=1 is the valid undrained-first outer intensity under the original ambiguous wording, but the write-up never distinguishes a locally drained tip and never produces the tip-first value. The short-time coefficient is the complete face-layer (inner plus outer) term and equals the paper&#x27;s incomplete faces-only formula; the same-order tip contribution is omitted. Loading 2 is replaced by a drained elastic crack loaded by Biot effective face traction alpha, so K2_inf and V2_inf do not follow from the coupled problem.</td></tr></tbody></table></div><p class="source">These are the reviewer’s verdicts, preserved in <a href="../grading/grok-4.6-kimi-k31-2026-10-24/output/workspace/GRADES.json">GRADES.json</a>. Read the qualifications in the full review. Grok was supplied the existing corrected reference; this review does not independently establish that reference from a new experiment or full boundary-value solution.</p></section><section class="case-section"><h2>Boundary conditions and limit selection</h2><details open><summary>High · boundary and limit selection</summary><pre>{
+  &quot;loading_1_face_conditions&quot;: {
+    &quot;verdict&quot;: &quot;correct&quot;,
+    &quot;conditions_used&quot;: &quot;total traction sigma_n=-P and hydraulically open faces p=0 for t&gt;0; instantaneous bulk zeta=0. Face pressure just inside the solid is the Skempton value, with the imposed face value zero (B/ANSWER.md lines 23-46).&quot;,
+    &quot;physical_match&quot;: &quot;matches PROBLEM.md loading 1&quot;
+  },
+  &quot;loading_1_order_of_limits_for_K1_0&quot;: {
+    &quot;verdict&quot;: &quot;partial&quot;,
+    &quot;order_actually_used&quot;: &quot;undrained-first / outer Griffith intensity: K1_0=K1_inf=P sqrt(pi L), with no locally drained tip and no order-of-limits discussion (B/ANSWER.md lines 49-59).&quot;,
+    &quot;tip_first_result_established&quot;: false,
+    &quot;distinction_recognized&quot;: false,
+    &quot;conditional_credit&quot;: &quot;K1_0=1 is admissible as the undrained outer intensity under the original wording. The distinction is not recognized; the tip-first result is not established.&quot;
+  },
+  &quot;loading_2_problem&quot;: {
+    &quot;verdict&quot;: &quot;incorrect&quot;,
+    &quot;stated_problem&quot;: &quot;coupled poroelastic BVP: sigma_n=0, p=H(t) on the faces, zero initial data, fields vanishing at infinity&quot;,
+    &quot;problem_actually_solved&quot;: &quot;drained elastic Griffith crack with Biot effective face traction alpha P, plus an explicit assumption that bulk pore pressure drains to zero at each fixed spatial position (B/ANSWER.md lines 144-149; B/verify.py lines 103-104 set K2_inf=-alpha and V2_inf=-alpha*V1_inf).&quot;,
+    &quot;why_the_reduction_fails&quot;: &quot;two substitutions: (i) replace total face traction by effective traction alpha P; (ii) assume a globally drained bulk p-&gt;0. The coupled problem does not drain to p=0 near the crack while p=1 is held on the faces; the steady field is harmonic with that Dirichlet data, and the back-stress is eta, not alpha.&quot;,
+    &quot;consequence&quot;: &quot;same wrong numbers as A: K2_inf=-0.89 and V2_inf=-2.236814 instead of -0.33375 and -0.838805. This is a stated change of BVP, not an unsupported leap from a correct problem.&quot;
+  }
+}</pre></details><details open><summary>Max · boundary and limit selection</summary><pre>{
+  &quot;loading_1_face_conditions&quot;: {
+    &quot;verdict&quot;: &quot;correct&quot;,
+    &quot;conditions_used&quot;: &quot;total normal traction sigma_n=-1 and face pore pressure p=0 for t&gt;0; instantaneous bulk zeta=0. Induced p just inside the solid is the undrained Skempton value 2(nu_u-nu)/(alpha(1-2*nu)), while the drained face itself is held at p=0 (A/ANSWER.md lines 46-65).&quot;,
+    &quot;physical_match&quot;: &quot;matches PROBLEM.md loading 1&quot;
+  },
+  &quot;loading_1_order_of_limits_for_K1_0&quot;: {
+    &quot;verdict&quot;: &quot;partial&quot;,
+    &quot;order_actually_used&quot;: &quot;undrained-first / outer Griffith intensity: K1_0 = K1_inf = sqrt(pi L), with no drained-tip process zone and no r-&gt;0 versus t-&gt;0+ discussion (A/ANSWER.md lines 51-52).&quot;,
+    &quot;tip_first_result_established&quot;: false,
+    &quot;distinction_recognized&quot;: false,
+    &quot;conditional_credit&quot;: &quot;K1_0=1 is admissible as the undrained outer intensity under the original wording that asked only for t=0+. It is not an unqualified numerical error. It is not the corrected tip-first value 0.807593.&quot;
+  },
+  &quot;loading_2_problem&quot;: {
+    &quot;verdict&quot;: &quot;incorrect&quot;,
+    &quot;stated_problem&quot;: &quot;coupled poroelastic BVP: sigma_n=0, p=1 on the faces, zero initial data, fields vanishing at infinity&quot;,
+    &quot;problem_actually_solved&quot;: &quot;homogeneous drained elastic Griffith crack whose face load is the Biot effective traction. Superposition of loadings 1+2 is taken as bar_sigma_n=-(1-alpha), hence K2_inf=-alpha and V2_inf=-alpha*pi*(1-nu) (A/ANSWER.md lines 197-225; A/verify.py lines 142-148 enforce K1_inf+K2_inf=1-alpha).&quot;,
+    &quot;why_the_reduction_fails&quot;: &quot;equilibrium is on total stress. div(sigma + alpha p I)=alpha grad p, which vanishes only if p is spatially uniform. Loading 2 holds p=1 on a finite crack and p-&gt;0 at infinity, so the long-time back-stress coefficient is eta=alpha(1-2*nu)/(2(1-nu)), not alpha.&quot;,
+    &quot;consequence&quot;: &quot;K2_inf and V2_inf are too large in magnitude by alpha/eta=8/3. Combined hydraulic-fracture intensity would be 1-alpha=0.11 instead of 1-eta=0.66625. This is a wrong reduced BVP, not a mere unsupported formula.&quot;
+  }
+}</pre></details></section><section class="case-section"><h2>Full written review as delivered</h2><p><a href="../grading/grok-4.6-kimi-k31-2026-10-24/output/workspace/GRADING.md">Open the original Markdown review</a>. The text below is preserved as delivered.</p><pre class="review-text"># Grading report: suddenly pressurized poroelastic crack
+
+Reviewer: Grok 4.6 (Azure / OpenCode). The two submissions were read independently from `A/` and `B/` against `PROBLEM.md` and the corrected entries in `REFERENCE.md`. Historical paper numbers are recorded only as superseded literature values. Independent arithmetic is in `scratch/`. `A/` and `B/` were not modified.
+
+Corrected numerical key (`ν = 0.2`, `ν_u = 0.4`, `α = 0.89`; `K` in units of `√(πL)`, `V` in units of `L²/G`):
+
+| Quantity | Corrected key | Historical paper (not the key) |
+|---|---:|---:|
+| `K1_0` (tip first: `r → 0` at fixed `t &gt; 0`, then `t → 0⁺`) | **0.807593** | 0.75 (heuristic, Eq. 29) |
+| `K1_0` (undrained first / outer intensity) | **1** (conditional reading of the original wording) | — |
+| `K1_inf` | 1 | 1 |
+| `V1_0` | `π(1 − ν_u)` = 1.884956 | same |
+| `V1_inf` | `π(1 − ν)` = 2.513274 | same |
+| `V1_short_coeff` | **2.440220** = 1.354055 (faces) + 1.086165 (tips) | 1.354055 (faces only, Eq. 18) |
+| `p_faces_0` | `2(ν_u − ν)/(α(1 − 2ν))` = 0.749064 | same |
+| `K2_0` | 0 | 0 |
+| `K2_inf` | `−η` = **−0.33375**, `η = α(1 − 2ν)/[2(1 − ν)]` | same |
+| `V2_inf` | `−απ(1 − 2ν)/2` = **−0.838805** | same |
+
+Tolerance: 1% on nonzero values; absolute 0.01 on `K2_0`.
+
+The original statement asked for `K` “just after loading (`t = 0⁺`)” without specifying the order of the crack-tip and time limits. An undrained-first value `K1_0 = 1` is therefore scored as **partial / conditional**, not as an unqualified numerical error. It is still a physical miss if the solver never distinguishes an undrained outer field from a locally drained tip.
+
+---
+
+## Submission A
+
+### Overall verdict
+
+**Partial.** Loading 1 volumes, long-time `K`, induced face pressure, and `K2_0` are correct and follow from the stated conditions. `K1_0 = 1` is the valid undrained-first outer intensity, but the write-up never separates that outer field from a drained tip and never produces the tip-first intensity. The short-time volume coefficient retains the complete face-layer (inner + outer) contribution and matches the paper’s incomplete faces-only formula; the tip contribution at the same order is absent. Loading 2 is replaced by a drained elastic crack loaded by the Biot effective face traction `α`, so `K2_inf` and `V2_inf` do not follow from the coupled problem.
+
+### Boundary and limit selection
+
+**Loading 1, face conditions.** The submission imposes the physical conditions of the statement: total normal traction `σ_n = −1` and face pore pressure `p = 0` for `t &gt; 0` (`A/ANSWER.md` lines 46–65; `PROBLEM.md` loading 1). Instantaneous bulk response is taken with `ζ = 0`, which converts the constitutive law to undrained elasticity with `ν_e = ν_u` (lines 33–43). The induced pressure just inside the solid is obtained from `S = σ_xx + σ_yy = −2` on the faces,
+
+```
+p_faces(0⁺) = 2(ν_u − ν)/(α(1 − 2ν)),
+```
+
+while “the imposed boundary value at the drained face itself is zero for `t &gt; 0`” (lines 59–65). That distinction is correct.
+
+**Loading 1, order of limits for `K`.** The boxed result is
+
+```
+K₁(0⁺) = K₁(∞) = √(πL)
+```
+
+(`A/ANSWER.md` lines 51–52). Both endpoints are the ordinary Griffith intensity for unit total face traction. There is no drained-tip process zone, no Rice–Simons / Atkinson–Craster argument, and no discussion of `r → 0` versus `t → 0⁺`. The reported `K1_0` is therefore the **undrained outer intensity** (time limit first at fixed distance from the tip, or equivalently `K` read from the undrained Griffith field). Under the original ambiguous wording that number is conditionally admissible. The submission does **not** recognize the distinction and does **not** establish the tip-first value 0.807593.
+
+**Loading 2.** The statement is a coupled poroelastic BVP: `σ_n = 0`, `p = 1` on the faces, zero initial data, fields vanishing at infinity. The submission does not solve that problem. It introduces the Biot effective stress `σ̄_ij = σ_ij + α p δ_ij` and replaces the pair of loadings by a drained elastic crack whose face effective traction is `σ̄_n = −1 + α` (`A/ANSWER.md` lines 197–214):
+
+```
+K_{1+2}(∞) = (1 − α)√(πL),
+V_{1+2}(∞) = (1 − α) π(1 − ν)L²/G,
+```
+
+hence `K2_inf = −α` and `V2_inf = −α π(1 − ν)` in the requested units. Equilibrium is on **total** stress. The effective-stress divergence is `α ∇p`, which is not a homogeneous drained elasticity problem unless `p` is spatially uniform. Loading 2 holds `p = 1` on a finite crack and `p → 0` at infinity, so the long-time pressure is a nonuniform harmonic field and the back-stress coefficient is the plane-strain modulus `η = α(1 − 2ν)/[2(1 − ν)]`, not `α`. The substitution is a wrong reduced problem, not a mere omission of a formula: it is stated as the governing face condition for the long-time calculation (lines 199–214) and is re-imposed as a verification identity in `A/verify.py` lines 142–148 (`K1_inf + K2_inf = 1 − α`).
+
+**Far-field / initial data.** Instantaneous `ζ = 0` in the bulk and vanishing far-field totals are used consistently for loading 1. For loading 2 at `t = 0⁺` the argument is that there is no total traction and no bulk deformation, so a zero-thickness pressure layer has no integrated effect (`A/ANSWER.md` lines 191–195). That is the right `K2_0 = 0`. At long time the far field of loading 2 is implicitly that of a drained Griffith crack with effective load `α`, which is the reduced problem above, not the coupled steady state.
+
+### Question-by-question assessment
+
+**(a) Loading 1**
+
+- `K1_0`: **partial / conditional.** Numerically 1, which is the undrained-first outer value. The write-up equates it to `K1_inf` and never treats a locally drained tip. Not the paper heuristic 0.75, and not the corrected tip-first 0.807593.
+- `K1_inf`: **correct.** Drained Griffith value 1, independent of material constants.
+- `V1_0`: **correct.** Undrained Sneddon volume `π(1 − ν_u)`.
+- `V1_inf`: **correct.** Drained Sneddon volume `π(1 − ν)`.
+- `p_faces_0`: **correct.** Undrained Skempton evaluation on the solid side of the faces, with the face itself held at `p = 0`.
+- `V1_short_coeff`: **incorrect (incomplete: faces only).** The 1-D face layer is derived carefully: `S + [α(1 − 2ν)/(1 − ν)] p` harmonic across the layer, storage coefficient matching the given diffusivity `c`, `p = p_f erf(y/(2√(ct)))` with drained face `p(0,t) = 0` (`A/ANSWER.md` lines 69–116). Volume change is converted by an undrained Betti identity `V₁ = V₁(0⁺) + Λ ∫_Ω ζ θ_u dA` (lines 117–136). Evaluating `θ_u` at the faces and integrating two layers of length `2L` produces
+
+  ```
+  A = 16(ν_u − ν)(1 − ν_u) / ((1 − ν)√π) = 1.354055.
+  ```
+
+  `A/verify.py` lines 137–139 split this into an inner (layer) piece `8(ν_u − ν)/((1 − ν)√π) = 1.128379` and an outer undrained piece `8(ν_u − ν)(1 − 2ν_u)/((1 − ν)√π) = 0.225676`. The text at line 187 is therefore accurate about what is retained: face-layer displacement **and** the accompanying undrained outer response to that layer. What is **not** retained is the tip region. The integral uses the face value of `θ_u` along the whole length `2L` (lines 137–167). There is no tip-layer analysis, and no claim that geometric smallness of the tips kills their contribution — the tips are simply omitted. Geometric smallness would not have justified the omission: the tip contribution 1.086165 is the same order in `√(ct/L²)`. The delivered coefficient is exactly the historical paper Eq. 18 (faces only), which the corrected key rejects.
+
+**(b) Loading 2**
+
+- `K2_0`: **correct.** Instantaneous pressure has not entered the bulk; zero total traction is compatible with a null elastic field.
+- `K2_inf`: **incorrect.** Reported `−α = −0.89` from the effective-traction reduction. Corrected value `−η = −0.33375`. Consequence: magnitude too large by `α/η = 2(1 − ν)/(1 − 2ν) = 8/3`. Combined hydraulic-fracture intensity would be `1 − α = 0.11` instead of `1 − η = 0.66625`.
+- `V2_inf`: **incorrect.** Reported `−α π(1 − ν) = −2.236814` from the same reduction. Corrected value `−απ(1 − 2ν)/2 = −0.838805` (equivalently `−η π(1 − ν)`). Same 8/3 overestimate of closure. The sign (closure) is right; the constitutive coefficient is not.
+
+The long-time loading-2 intensity and volume do **not** follow from the coupled BVP. They follow from a homogeneous drained Griffith problem with face load `α`.
+
+**(c) Numerical evaluation**
+
+The JSON values match the formulas in `A/results.json` and `A/ANSWER.md` §4 exactly (`scratch/check_output.json`). Arithmetic is not the issue.
+
+### Numerical comparison (corrected key)
+
+| Quantity | Reported | Corrected reference | Agrees (1% / 0.01) | Qualification |
+|---|---:|---:|---|---|
+| `K1_0` | 1.0 | 0.807593 (tip first) | no | agrees with undrained-first value 1; partial/conditional under the original wording |
+| `K1_inf` | 1.0 | 1.0 | yes | |
+| `V1_0` | 1.884956 | 1.884956 | yes | |
+| `V1_inf` | 2.513274 | 2.513274 | yes | |
+| `V1_short_coeff` | 1.354055 | 2.440220 | no | equals paper faces-only 1.354055; missing tips 1.086165 |
+| `p_faces_0` | 0.749064 | 0.749064 | yes | |
+| `K2_0` | 0.0 | 0.0 | yes | |
+| `K2_inf` | −0.89 | −0.33375 | no | used `α` in place of `η` |
+| `V2_inf` | −2.236814 | −0.838805 | no | used `−α π(1 − ν)` in place of `−απ(1 − 2ν)/2` |
+
+General formulas, relative to the stated normalizations: `V1_0`, `V1_inf`, `p_faces_0`, `K1_inf`, and `K2_0` match. `K1_0` matches the undrained-first normalization, not the tip-first key. `V1_short_coeff` matches the paper faces-only formula, not the corrected faces+tips formula. `K2_inf` and `V2_inf` are the effective-traction formulas, not the coupled drained formulas.
+
+### Verification coverage
+
+`A/verify.py` was copied to `<reviewer-scratch>/grade_A_verify/` and run there; it passed. It was not executed inside `A/`.
+
+What the checks establish:
+
+- Constitutive reduction `ζ = 0` ⇒ undrained Hooke law (`check_undrained_constitutive`).
+- Ordinary elastic Griffith volume and a near-tip elastic `K` for total face traction 1 (`check_elastic_crack`). That elastic `K` cannot reject a drained-tip poroelastic intensity.
+- Face Skempton pressure and `ζ = 0` on the undrained faces.
+- 1-D layer diffusivity identical to the given `c`, heat-equation identity for the erf profile, drained-face value, and the `erfc` integral (`check_layer_diffusion`).
+- `∫ S² dA = 2π L²` for the unit Griffith field, and the reciprocal identity reproducing `V1_inf − V1_0` (`check_trace_integral`). This checks the long-time undrained-to-drained volume jump, not the short-time ordering.
+- Reconstruction of **their** short-time coefficient from the layer amplitude, including the inner/outer split (`check_short_time_coefficient`). This confirms arithmetic on the assumed face-layer formula. It cannot reject a missing tip contribution.
+- Superposition `K1_inf + K2_inf = 1 − α` and the analogous volume identity (`check_loading_superposition`). These encode the reduced effective-traction problem; they would pass for a wrong coupled solution of exactly this type.
+- JSON consistency with the same formulas.
+
+Nothing in the suite can fail because of a wrong coupled loading-2 field, a wrong order of the `K` limits, or a wrong short-time tip ordering. The checks are identities, quadratures, and restatements of the candidate’s own reduced model.
+
+### Material errors or unsupported claims
+
+1. **Equating `K1_0` with `K1_inf`** (`A/ANSWER.md` lines 51–52). Supported only if `K` is the outer undrained/drained Griffith intensity. Unsupported as a statement about the physical tip singularity at `t = 0⁺`.
+2. **Loading-2 long-time reduction to effective face traction `α`** (lines 197–225; `A/verify.py` 142–148). Demonstrably the wrong face/bulk problem: total-stress equilibrium plus nonuniform `p` does not yield a homogeneous drained crack with load `α`. Consequence: `K2_inf` and `V2_inf` off by 8/3.
+3. **Short-time volume from face layers only** (lines 137–185). Internally consistent for that truncation and equal to paper Eq. 18. Incomplete at the retained order `√(ct/L²)` because tips contribute at that order. The write-up does not argue geometric smallness; it simply never treats the tips.
+4. Line 261, “There are no unresolved uncertainties,” is overstated relative to the omitted tip limit and the coupled loading-2 field.
+
+---
+
+## Submission B
+
+### Overall verdict
+
+**Partial.** Same loading-1 endpoint volumes, `K1_inf`, face pressure, and `K2_0` as a correct undrained/drained elastic reading. Same conditional `K1_0 = 1` without a drained-tip analysis. The short-time coefficient retains only the local uniaxial-strain opening of the face layers (the “inner” piece of A’s faces formula) and dismisses tips by geometric smallness of an `O(√(ct))` interval — which does not control the order of the volume contribution. Loading 2 is the same effective-traction / globally drained reduction as in A, so `K2_inf` and `V2_inf` are wrong for the same reason.
+
+### Boundary and limit selection
+
+**Loading 1, face conditions.** Total traction `σ_n = −P` and hydraulically open faces `p = 0` for `t &gt; 0` are used (`B/ANSWER.md` lines 23–46). Instantaneous bulk `ζ = 0` gives undrained elasticity. Face pressure just inside the solid is the same Skempton value, with an explicit remark that the imposed face value is zero and that the step creates a surface discontinuity later resolved by diffusion (lines 45–46). That is the correct loading-1 pair.
+
+**Loading 1, order of limits for `K`.**
+
+```
+K₁(0⁺) = P √(πL),    K₁(∞) = P √(πL)
+```
+
+(lines 49–59). Again the undrained (then drained) outer Griffith intensity. No locally drained tip, no order-of-limits discussion. Reported `K1_0 = 1` is **undrained-first / outer**. Conditionally admissible under the original wording; the distinction is not recognized; the tip-first result is not established.
+
+**Loading 2.** After a correct `K2_0 = 0` (lines 139–142), the long-time argument is (`B/ANSWER.md` lines 144–149):
+
+&gt; In the drained long-time limit, the appropriate traction on the solid is expressed through the effective stress `σ_ij + α p δ_ij`. On a crack face, `σ_n = 0` and `p = P`, so the effective normal stress is `+α P`. … equivalent to `P_o = −α P`. The pore pressure in the surrounding bulk drains toward zero at fixed spatial position in the long-time diffusive limit.
+
+Two substitutions are explicit here: (i) replace total face traction by Biot effective traction `αP`; (ii) assume a **globally drained** bulk, `p → 0` at each fixed point. The coupled problem does not drain to `p = 0` near the crack while `p = 1` is held on the faces; the steady field is harmonic with that Dirichlet data. The resulting `K2_inf = −α` and `V2_inf = −α π(1 − ν)` are the same wrong reduced values as in A. This is a stated change of boundary-value problem, not an unsupported leap from a correct BVP.
+
+### Question-by-question assessment
+
+**(a) Loading 1**
+
+- `K1_0`: **partial / conditional.** Value 1, undrained outer; no tip-first analysis.
+- `K1_inf`: **correct.**
+- `V1_0`, `V1_inf`: **correct.** Sneddon with `ν_u` then `ν`.
+- `p_faces_0`: **correct.**
+- `V1_short_coeff`: **incorrect.** The face layer is set up with the right ingredients for 1-D diffusion: `Δσ_yy = 0`, `Δe_xx = 0`, storage matching `c`, erf profile (`B/ANSWER.md` lines 61–93). Opening is then taken as the integral of local `Δe_yy = D Δp` through the layer with the far field unchanged (lines 100–113). That produces
+
+  ```
+  A = 8(ν_u − ν) / ((1 − ν)√π) = 1.128379.
+  ```
+
+  Terms actually retained: local uniaxial-strain extension of the two face layers, integrated over length `2L`. Terms **not** retained: (i) the undrained outer opening induced by the layer fluid-content change (A’s outer piece 0.225676, which together with this inner piece recovers the paper faces-only 1.354055); (ii) the tip contribution 1.086165. Line 134–135:
+
+  &gt; The neglected tip regions occupy only `O(√(ct))` of the crack length and do not change the displayed leading term.
+
+  Geometric smallness of the tip interval does not establish that its volume is `o(√(ct))`. That claim is unsupported as an order argument and is false for this problem: the tip piece is `O(√(ct/L²))` and comparable to the faces. Even if tips were dropped, the faces contribution itself is incomplete relative to the paper faces formula.
+
+**(b) Loading 2**
+
+- `K2_0`: **correct.** Null bulk field at `t = 0⁺`.
+- `K2_inf`, `V2_inf`: **incorrect**, same effective-traction / globally drained reduction as A (`B/ANSWER.md` lines 144–149; `B/verify.py` lines 103–104). Same numerical values `−0.89` and `−2.236814` versus `−0.33375` and `−0.838805`. Sign of closure is right.
+
+**(c) Numerical evaluation**
+
+JSON matches the stated formulas (`B/results.json`; `scratch/check_output.json`).
+
+### Numerical comparison (corrected key)
+
+| Quantity | Reported | Corrected reference | Agrees (1% / 0.01) | Qualification |
+|---|---:|---:|---|---|
+| `K1_0` | 1.0 | 0.807593 (tip first) | no | agrees with undrained-first value 1; partial/conditional under the original wording |
+| `K1_inf` | 1.0 | 1.0 | yes | |
+| `V1_0` | 1.884956 | 1.884956 | yes | |
+| `V1_inf` | 2.513274 | 2.513274 | yes | |
+| `V1_short_coeff` | 1.128379 | 2.440220 | no | inner face-layer only; not paper faces 1.354 nor faces+tips 2.440 |
+| `p_faces_0` | 0.749064 | 0.749064 | yes | |
+| `K2_0` | 0.0 | 0.0 | yes | |
+| `K2_inf` | −0.89 | −0.33375 | no | used `α` in place of `η` |
+| `V2_inf` | −2.236814 | −0.838805 | no | used `−α π(1 − ν)` |
+
+Formulas in `B/results.json` are the normalized strings corresponding to those values. They agree with the requested normalizations where the physics is right (`V1_*` endpoints, `p_faces_0`, `K1_inf`, `K2_0`) and encode the reduced models where it is not.
+
+### Verification coverage
+
+A copy of `B/verify.py` was run in `<reviewer-scratch>/grade_B_verify/` (with a copy of `results.json`). It passed. It was **not** run in `B/`, because lines 106–108 write `results.json` in the current directory and would overwrite the submission.
+
+What the checks establish:
+
+- Face undrained identities: Skempton `p0`, `ζ = 0`, and `ν + α(1 − 2ν)β = ν_u`.
+- Layer relations `Δσ_xx = −α(1 − 2ν)/(1 − ν) Δp`, `Δe_yy = D Δp`, and layer storage reproducing `c`.
+- Riemann-sum `erfc` integral and elliptical crack area.
+- Compact `A` reconstructed from `4 D p0` per unit length on two faces — i.e. a restatement of the local-strain formula.
+- `V1_inf − V1_0 = π(ν_u − ν)` and `V2_inf = −α V1_inf`, `K2_inf = −α`.
+
+These cannot reject a wrong coupled loading-2 solution (they assume `K2_inf = −α`), a drained-tip `K`, or a tip-scale short-time term. There is no check of the geometric-smallness claim in lines 134–135.
+
+### Material errors or unsupported claims
+
+1. **`K1_0 = K1_inf = 1`** without a tip/time-limit distinction (`B/ANSWER.md` lines 49–59). Same conditional status as A.
+2. **Loading-2 effective traction plus globally drained bulk** (lines 144–149). Wrong reduced BVP; `K2_inf` and `V2_inf` do not follow from `σ_n = 0`, `p = 1`, vanishing far field.
+3. **Short-time faces truncated to local `Δe_yy`** (lines 100–132). Misses the outer undrained response already present in a complete face-layer calculation.
+4. **Tip regions negligible because they occupy `O(√(ct))` of the length** (lines 134–135). Unsupported as an order estimate; false for the retained `√t` term.
+5. Line 170, no unresolved uncertainties, is overstated.
+
+---
+
+## Comparison of the two submissions
+
+Do not read this as a model ranking. Both executions share the same physical skeleton and the same two structural reductions:
+
+- Loading 1 is treated as an undrained-then-drained Griffith crack with the correct total-traction / drained-face pair. Both report `K1_0 = 1`, `K1_inf = 1`, `V1_0 = π(1 − ν_u)`, `V1_inf = π(1 − ν)`, `p_faces_0 = 2(ν_u − ν)/(α(1 − 2ν))`, `K2_0 = 0`. Neither analyzes a locally drained tip or the order of limits. Under the original wording, `K1_0 = 1` is partial/conditional for both, not an unqualified miss.
+- Loading 2 is replaced, in both, by a drained elastic crack loaded by Biot effective face traction `α` (A via superposition of loadings 1+2 with `σ̄_n = −(1 − α)`; B via `σ̄_n = αP` and an explicit `p → 0` bulk). Both therefore report `K2_inf = −0.89` and `V2_inf = −2.236814` instead of `−η = −0.33375` and `−0.838805`. The error is in the conditions, not in the arithmetic.
+
+They diverge on the short-time volume:
+
+- A retains face-layer diffusion **and** the undrained outer response to that layer (reciprocal identity). Its `A = 1.354055` is exactly the paper’s faces-only coefficient. Tips are omitted without a geometric-smallness argument.
+- B retains only local uniaxial-strain face opening, `A = 1.128379`, which is A’s inner piece alone, and asserts that tip intervals of length `O(√(ct))` cannot affect the leading term.
+
+Relative to the corrected key, both miss the tip piece 1.086165; B also misses the outer face piece 0.225676. A is therefore closer to the historical faces-only result and farther from a mere local-strain integral, but neither has a complete `O(√t)` coefficient.
+
+Verification in both cases confirms internal identities of the reduced models and cannot catch the coupled loading-2 error, the `K` limit order, or the short-time tip ordering. B’s script additionally overwrites `results.json` if run in place.
+
+Numerical agreement count is not a substitute for the boundary/limit verdict: five quantities agree unconditionally for both (`K1_inf`, `V1_0`, `V1_inf`, `p_faces_0`, `K2_0`); `K1_0` agrees only with the undrained-first reading; `V1_short_coeff`, `K2_inf`, and `V2_inf` disagree for both, with different short-time numbers.
+
+---
+
+## Reference limitations and problem ambiguities
+
+- The original `PROBLEM.md` does not specify whether `t = 0⁺` for `K` is tip-first or time-first. The corrected key takes tip-first `0.807593`. This review follows the supplied rubric: `1` is partial/conditional, `0.75` would have been wrong, and the distinction must be recognized to earn the tip-first value. That clarification is **not** treated as having been in the solver prompt.
+- `REFERENCE.md` keeps Detournay &amp; Cheng’s heuristic `K1_0 = 0.75` and faces-only `V1_short_coeff = 1.354055` on record. Numerical grading uses the corrected column (P374): `K1_0 = 0.807593`, `V1_short_coeff = 2.440220`. No defect was found in those corrected entries; independent evaluation of `η`, `V1_*`, `p_faces_0`, `K2_inf`, and `V2_inf` matches the printed digits (`scratch/check_reference_and_submissions.py`, `scratch/loading2_reduction_note.py`).
+- The paper’s long-time loading-2 coefficient is `η`, not `α`. The identity `η π(1 − ν) = α π(1 − 2ν)/2` holds. Submissions that replace `η` by `α` are not matching a hidden paper formula; they are solving a different reduced elasticity problem.
+</pre></section><section class="case-section"><h2>Inspectable record</h2><div class="trial-links"><a href="../task/PROBLEM.md">Original problem</a><a href="../key/KEY_2026-10-08.md">Existing corrected reference</a><a href="../grading/grok-4.6-kimi-k31-2026-10-24/output/workspace/GRADING_TASK.txt">Grading task</a><a href="../grading/grok-4.6-kimi-k31-2026-10-24/output/workspace/GRADES.json">Structured grades</a><a href="../grading/grok-4.6-kimi-k31-2026-10-24/output/review_metadata.json">Review metadata</a><a href="../grading/grok-4.6-kimi-k31-2026-10-24/output/label_mapping_after_review.json">Labels after review</a>OpenCode session export</div><p><a href="kimi-k31-high-2026-10-24.html">High trial and original provenance</a> · <a href="kimi-k31-max-2026-10-24.html">Max trial and original provenance</a></p></section><footer><span>Azure Grok 4.6 · reviewer output preserved unchanged</span><span>Historical October 23 trial counts remain separate</span></footer></main></body></html>

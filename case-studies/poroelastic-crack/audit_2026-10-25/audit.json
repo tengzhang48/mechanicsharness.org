@@ -1,0 +1,258 @@
+{
+ "id": "B_poroelastic",
+ "title": "Suddenly pressurized crack in a poroelastic solid (multiphysics round, problem B)",
+ "source_paper": "E. Detournay & A. H.-D. Cheng (1991) Plane strain analysis of a stationary hydraulic fracture in a poroelastic medium, Int. J. Solids Struct. 27(13) 1645-1662; cross-check Yu, Bouklas, Landis & Huang (2020) J. Appl. Mech. 87, 031005, Eq. 12",
+ "verdict": "READY AFTER FIXES",
+ "issues": [
+  {
+   "severity": "statement",
+   "where": "B/PROBLEM.md:26,29",
+   "what": "order of limits for K(0+) not stated (tip limit first -> 0.807593; crack first -> 1); promised fix never applied; 24 Oct Kimi trials got the same text",
+   "evidence": "KEY.md:24-28; ROUND_RECORD.md:133-134; 11/15 runs gave the crack-scale value (10 x 1.0, MP-13 sqrt(pi)); runs/kimi-k31-2026-10-24/workspace/PROBLEM.md identical"
+  },
+  {
+   "severity": "statement",
+   "where": "B/PROBLEM.md:23-24",
+   "what": "face shear traction not prescribed (all references assumed sigma_xy = 0)",
+   "evidence": "MP-37 ANSWER Questions; FE_CHECK.md Limits"
+  },
+  {
+   "severity": "statement",
+   "where": "B/PROBLEM.md:40-41",
+   "what": "p_faces_0 'immediately next to the crack faces' conflicts with the face BC p = 0; intended value is Eq. 17 (outer limit)",
+   "evidence": "paper p. 1649 'not in equilibrium with the imposed boundary condition p = 0'; MP-37 GRADE.md:72"
+  },
+  {
+   "severity": "statement",
+   "where": "B/KEY.md:52-64,70-79,91,95",
+   "what": "key body still states the paper's 0.75 (as 'the decisive point') and Eq. 18's 1.354 while the correction block and checker use 0.807593 and 2.440220",
+   "evidence": "KEY.md:11-34 vs 57-64; checks.py:6"
+  },
+  {
+   "severity": "grade",
+   "where": "B/checks.py:16 (K1_0, V1_short_coeff)",
+   "what": "1% bands fail a resolved FE answer (K1_0 = 0.798; FE gave 0.7978-0.8013) and any FE route for A (2.2-2.4); tighter than the evidence for the tip volume term",
+   "evidence": "FE_CHECK.md results table and 'Reading'; mutants_result.json"
+  },
+  {
+   "severity": "minor",
+   "where": "B/KEY.md:61",
+   "what": "Eq. 27 prefactor written sqrt(pi G)/[sqrt8(1-nu)]; must be G sqrt(pi)/[sqrt8(1-nu)] (print ambiguous)",
+   "evidence": "work/pg-06.png; MP-37 GRADE.md:27"
+  },
+  {
+   "severity": "minor",
+   "where": "B/KEY.md:21-22",
+   "what": "form [(1-nu_u)/(1-nu)]^0.743 attributed to Yu et al.; Yu Eq. 12 is nu_u = 1/2, alpha ~ 0.735; 0.743 is ours",
+   "evidence": "work/yu2020.txt:327-331"
+  },
+  {
+   "severity": "minor",
+   "where": "B/checks.py:6-7 (K2_inf, V2_inf)",
+   "what": "at the paper's values eta = 0.33375 and eta_t = 1/3 differ by 0.12%, so a wrong formula with eta_t passes",
+   "evidence": "mutant 'wrong eta' passes"
+  },
+  {
+   "severity": "minor",
+   "where": "B (key provenance)",
+   "what": "V1_short_coeff tip term 1.086165 rests on AI factorizations sharing one kernel; FE only consistent at ~10%",
+   "evidence": "FE_CHECK.md; case page Result status 'tip volume term has not been compared with the literature'"
+  }
+ ],
+ "public_files": [
+  "multiphysics_round/TASK_HEADER.md",
+  "multiphysics_round/B/PROBLEM.md (proposed version)",
+  "multiphysics_round/GRADER_INSTRUCTIONS.md"
+ ],
+ "hidden_files": [
+  "multiphysics_round/B/KEY.md",
+  "multiphysics_round/B/checks.py",
+  "multiphysics_round/reproduce_keys.py",
+  "multiphysics_round/B/CASE_STUDY_GPT_CHALLENGE.md",
+  "multiphysics_round/B/DIMENSIONAL_ANALYSIS.md",
+  "multiphysics_round/B/WHY_DRAINED_TIP_MISSED.md",
+  "multiphysics_round/B/FE_CHECK.md",
+  "multiphysics_round/B/fe_check_*",
+  "multiphysics_round/B/reproduce_yu2020.*",
+  "corpus-runs/multiphysics/review_B_K10/",
+  "corpus-runs/multiphysics/{runs,auto,grading}/MP-06,10,13,21,22,24,27,30,33,37,38,39,41,46,50",
+  "AI_Agents_in_Mechanics/cases/Poroelastic_Crack_Case_Study_2026-10-23.html",
+  "AI_Agents_in_Mechanics/runs/kimi-k31-*/reference/",
+  "multiphysics_round/gel/G2/ (same model; states the limit order; its key)"
+ ],
+ "mutants": [
+  {
+   "name": "seen x10: K1_0 = 1 (undrained crack-scale / outer limit)",
+   "values": {
+    "K1_0": 1.0
+   },
+   "expected": "fail (key: 'partly')",
+   "checker_result": "fails: K1_0_ok"
+  },
+  {
+   "name": "seen MP-13: K1_0 = sqrt(pi) (K in units of sqrt(L))",
+   "values": {
+    "K1_0": 1.7724538509055159
+   },
+   "expected": "fail",
+   "checker_result": "fails: K1_0_ok"
+  },
+  {
+   "name": "seen MP-27: K1_0 = 1.25",
+   "values": {
+    "K1_0": 1.25
+   },
+   "expected": "fail",
+   "checker_result": "fails: K1_0_ok"
+  },
+  {
+   "name": "paper heuristic Eq. 29: K1_0 = 0.75",
+   "values": {
+    "K1_0": 0.75
+   },
+   "expected": "fail (key: wrong)",
+   "checker_result": "fails: K1_0_ok"
+  },
+  {
+   "name": "energy-matching bound: K1_0 = sqrt(0.75)",
+   "values": {
+    "K1_0": 0.8660254037844386
+   },
+   "expected": "fail",
+   "checker_result": "fails: K1_0_ok"
+  },
+  {
+   "name": "Yu 2020 Eq. 12 form with alpha=0.735: K1_0 = 0.75^0.735",
+   "values": {
+    "K1_0": 0.8094127265296116
+   },
+   "expected": "pass (approximation within 0.3%)",
+   "checker_result": "all pass"
+  },
+  {
+   "name": "FE estimate (finest mesh, low end) 0.798",
+   "values": {
+    "K1_0": 0.798
+   },
+   "expected": "pass (right method, ~1% numerics)",
+   "checker_result": "fails: K1_0_ok"
+  },
+  {
+   "name": "FE estimate 0.801",
+   "values": {
+    "K1_0": 0.801
+   },
+   "expected": "pass",
+   "checker_result": "all pass"
+  },
+  {
+   "name": "seen MP-39: V1_short = 1.354055 (paper, faces only)",
+   "values": {
+    "V1_short_coeff": 1.354055
+   },
+   "expected": "fail (key: wrong)",
+   "checker_result": "fails: V1_short_coeff_ok"
+  },
+  {
+   "name": "seen x5: V1_short = 2/sqrt(pi)",
+   "values": {
+    "V1_short_coeff": 1.1283791670955126
+   },
+   "expected": "fail",
+   "checker_result": "fails: V1_short_coeff_ok"
+  },
+  {
+   "name": "FE extrapolation V1_short = 2.3",
+   "values": {
+    "V1_short_coeff": 2.3
+   },
+   "expected": "pass if FE accepted",
+   "checker_result": "fails: V1_short_coeff_ok"
+  },
+  {
+   "name": "seen MP-30: volumes doubled",
+   "values": {
+    "V1_0": 3.7699111843077517,
+    "V1_inf": 5.026548245743669
+   },
+   "expected": "fail",
+   "checker_result": "fails: V1_0_ok, V1_inf_ok"
+  },
+  {
+   "name": "nu and nu_u swapped in volumes",
+   "values": {
+    "V1_0": 2.5132741228718345,
+    "V1_inf": 1.8849555921538759
+   },
+   "expected": "fail",
+   "checker_result": "fails: V1_0_ok, V1_inf_ok, own_volume_ratio_is_drained_over_undrained"
+  },
+  {
+   "name": "literal face trace p_faces_0 = 0",
+   "values": {
+    "p_faces_0": 0.0
+   },
+   "expected": "fail under the key's reading (statement ambiguity)",
+   "checker_result": "fails: p_faces_0_ok"
+  },
+  {
+   "name": "p_faces_0 sign flipped",
+   "values": {
+    "p_faces_0": -0.7490636704119851
+   },
+   "expected": "fail",
+   "checker_result": "fails: p_faces_0_ok"
+  },
+  {
+   "name": "seen x7: K2_inf = 0, V2_inf = 0 (free swelling)",
+   "values": {
+    "K2_inf": 0.0,
+    "V2_inf": 0.0
+   },
+   "expected": "fail",
+   "checker_result": "fails: K2_inf_ok, V2_inf_ok"
+  },
+  {
+   "name": "seen MP-46: effective traction K2_inf = -alpha",
+   "values": {
+    "K2_inf": -0.89,
+    "K2_0": -0.89
+   },
+   "expected": "fail",
+   "checker_result": "fails: K2_0_ok, K2_inf_ok"
+  },
+  {
+   "name": "K2_inf sign flipped (+eta)",
+   "values": {
+    "K2_inf": 0.33375
+   },
+   "expected": "fail",
+   "checker_result": "fails: K2_inf_ok"
+  },
+  {
+   "name": "wrong eta: eta_t=(nu_u-nu)/(1-nu_u) used for K2_inf, V2_inf",
+   "values": {
+    "K2_inf": -0.33333333333333337,
+    "V2_inf": -0.8377580409572783
+   },
+   "expected": "fail (wrong formula)",
+   "checker_result": "all pass"
+  },
+  {
+   "name": "V2_inf with nu_u instead of nu",
+   "values": {
+    "V2_inf": -0.2796017461694915
+   },
+   "expected": "fail",
+   "checker_result": "fails: V2_inf_ok"
+  },
+  {
+   "name": "K2_0 small nonzero 0.005",
+   "values": {
+    "K2_0": 0.005
+   },
+   "expected": "pass (band 0.01 abs)",
+   "checker_result": "all pass"
+  }
+ ]
+}

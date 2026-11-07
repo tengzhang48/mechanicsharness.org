@@ -23,15 +23,16 @@ one, found the drained-tip value; the other eleven gave the crack-scale value, w
 
 Each row is an agent's best saved run, October 2026 (of three runs for GPT, Kimi K3, GLM-5.3 and DeepSeek, two for Kimi K3.1,
 one for Opus 5.5); a filled cell is a value within 1% of the corrected key (0.01 absolute for K₂(0⁺),
-whose key value is 0). Key and checker as corrected on 26 October 2026; the case page, with the task, the key and every saved
-answer, will be linked from the website. Also left out: three DeepSeek runs with reasoning off, which matched two or three of the
+whose key value is 0). Key and checker as corrected on 26 October 2026; the [case page](https://mechanicsharness.org/case-studies/poroelastic-crack.html)
+has the task, the key and every run's saved answer, and [`case-studies/poroelastic-crack/`](case-studies/poroelastic-crack/) holds
+its files. Also left out: three DeepSeek runs with reasoning off, which matched two or three of the
 nine values and missed the drained-tip value.
 
 ## Three levels
 
 | Level | What the agent does | Cases |
 |---|---|---|
-| 1. Classical problems | Analysis problems with known answers, from published papers. The agent derives and computes the asked quantities. | Fracture mechanics |
+| 1. Classical problems | Analysis problems with known answers, from published papers. The agent derives and computes the asked quantities. | Poroelastic crack (Detournay and Cheng 1991); thin-film cracking (Xia and Hutchinson 2000) |
 | 2. Published research models | The agent implements a recent paper's model as working simulation code, checked against an independent reference. | Rock fracture (Anand 2026); battery fatigue (Noii et al. 2024) |
 | 3. Real-world problems | Open questions without a published answer, judged against measurements. This is the aim. | Planned |
 
@@ -51,7 +52,10 @@ separates the agent's errors from errors in our own checks. More on the site:
 
 The battery benchmark is released in the code repository,
 [agent-mechanics-benchmarks-public](https://github.com/tengzhang48/agent-mechanics-benchmarks-public): the task, host, scorer, reference code, the three runs and their results,
-with a practice problem that anyone can rerun. The rock benchmark is in preparation.
+with a practice problem that anyone can rerun. The rock benchmark is in preparation. Two fracture mechanics cases, the
+[poroelastic crack](https://mechanicsharness.org/case-studies/poroelastic-crack.html) and
+[thin-film cracking](https://mechanicsharness.org/case-studies/xia-hutchinson-film.html), are released on this website, each
+with its task, key, checker and the agents' runs (folders under `case-studies/`).
 
 You can already ask for your own element to be scored on the battery benchmark's hidden problem (see the code repository's
 `CONTRIBUTING.md`). We plan to accept proposed cases once the evaluation workflow has been exercised on a contributed
@@ -68,6 +72,8 @@ The website itself: plain HTML and CSS, no build step, served by GitHub Pages.
 | `evaluates.html`, `building.html`, `evaluation.html`, `get-started.html` | The other pages |
 | `404.html` | Page not found |
 | `case-studies/battery-fatigue.html` | The battery benchmark's case study |
+| `case-studies/poroelastic-crack.html`, `case-studies/poroelastic-crack/` | The featured case: its page, and its files (task, key, checker, every run, records) |
+| `case-studies/xia-hutchinson-film.html`, `case-studies/xia-hutchinson-film/` | The thin-film cracking case: its page and its files |
 | `assets/` | Style sheet, site icon and figures |
 | `CNAME`, `.nojekyll` | GitHub Pages settings |
 | `LICENSE`, `LICENSE-CONTENT` | Licences (below) |

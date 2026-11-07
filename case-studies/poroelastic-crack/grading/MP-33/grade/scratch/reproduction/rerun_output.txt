@@ -1,0 +1,27 @@
+[check] undrained reduction coefficient of sigma_kk vs -nu_u: got -0.4, expected -0.4 -> PASS
+[check] 1-D boundary-layer diffusivity vs stated c: got 0.000579799595075, expected 0.000579799595075 -> PASS
+[check] crack volume quadrature vs pi(1-nu)PL^2/G: got 2.51327412287, expected 2.51327412287 -> PASS
+[check] integral_0^inf erfc(s) ds vs 1/sqrt(pi): got 0.564189583548, expected 0.564189583548 -> PASS
+[check] max |sigma_kk + 2P| on faces (Westergaard): got 2.23774607733e-08, expected 0 -> PASS
+[check] p_faces_0 from Westergaard trace: got 0.749063670412, expected 0.749063670412 -> PASS
+[check] FDM slopes at c t/L^2=0.0005, Ny=[1000, 2000, 4000, 8000, 16000]: 1.106272, 1.117262, 1.122805, 1.125588, 1.126983
+[check] successive differences: 0.010990, 0.005543, 0.002783, 0.001395 ; ratios: 0.504, 0.502, 0.501
+[check] FDM growth coefficient (finest grid) vs analytic A: got 1.12698261635, expected 1.1283791671 -> PASS
+[check] Richardson-extrapolated slope: 1.128377 (analytic A = 1.128379)
+[check] Richardson-extrapolated FDM slope vs analytic A: got 1.12837718362, expected 1.1283791671 -> PASS
+[check] erf-profile heave integral at ct=0.0001: got 0.00845227840521, expected 0.00845227840521 -> PASS
+[check] erf-profile heave integral at ct=0.001: got 0.0267284511783, expected 0.0267284511783 -> PASS
+[check] erf-profile heave integral at ct=0.01: got 0.0845227840521, expected 0.0845227840521 -> PASS
+
+==== values (K in units of sqrt(pi L), V in units of L^2/G, per unit load) ====
+K1_0 = 1.0000000000
+K1_inf = 1.0000000000
+V1_0 = 1.8849555922
+V1_inf = 2.5132741229
+V1_short_coeff = 1.1283791671
+p_faces_0 = 0.7490636704
+K2_0 = 0.0000000000
+K2_inf = 0.0000000000
+V2_inf = 0.0000000000
+
+11 checks, 0 failed

@@ -1,0 +1,18 @@
+{
+  "checked_at_utc": "2026-10-16T00:16:44.154969+00:00",
+  "state": "completed; grader delivered final judgments and reviewer code replay passed",
+  "review": "R05",
+  "submission": "D01",
+  "grader": "azure/grok-4.6",
+  "judgment_counts": {
+    "right": 6,
+    "partly": 1
+  },
+  "partial_item": "physical scope and uncertainty",
+  "numeric_values_agree": 16,
+  "numeric_values_total": 16,
+  "replay_passed": true,
+  "coordinator_findings_were_supplied_to_grader": false,
+  "original_grade_replaced": false,
+  "note_for_opus": "../../NOTE_TO_OPUS_REVIEW_2026-10-16.md"
+}

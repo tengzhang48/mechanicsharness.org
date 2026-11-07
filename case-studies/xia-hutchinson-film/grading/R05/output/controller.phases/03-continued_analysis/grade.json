@@ -1,0 +1,95 @@
+{
+  "schema": "independent_scientific_review_grade_v1",
+  "status": "final",
+  "utc": "2026-10-16T00:07:56Z",
+  "numerical_agreement_count": 16,
+  "numerical_agreement_out_of": 16,
+  "tolerance_abs_formula": 1e-12,
+  "tolerance_abs_fem": 1e-6,
+  "fem_max_abs_delta_gamma": 2.7086803799925008e-08,
+  "judgments": [
+    {
+      "id": 1,
+      "name": "wake_formulation_and_fields",
+      "verdict": "right",
+      "reason": "Decay length ell=sqrt(h Ebar/k); ahead/behind fields and total-traction strip edges match PROBLEM.md for both geometries.",
+      "evidence": "submission/ANSWER.md §1-2; compute.py; factual_replay/CHECKPOINT_REPLAY_OUTPUT.txt",
+      "deciding_check": "replay u2'(faces)=-sigma0/Ebar; reviewer FEM natural slopes -> -1"
+    },
+    {
+      "id": 2,
+      "name": "energy_release",
+      "verdict": "right",
+      "reason": "GA, GB, period, moving-tip count and /h are correct. ANSWER.md L88-90 wrongly claims int h sigma0 eps_gg=0; compute.py includes the term and yields tanh.",
+      "evidence": "submission/ANSWER.md §4; compute.py W_dens; review_check_independent_output.txt",
+      "deciding_check": "FEM gamma_A=-I(H), gamma_B=I(2H)-2I(H); int v' != 0 at all four samples"
+    },
+    {
+      "id": 3,
+      "name": "fracture_modes_and_intensities",
+      "verdict": "right",
+      "reason": "Pure mode I by reflection; G=KI^2/E; kI=sqrt((1-nu^2) gamma).",
+      "evidence": "submission/ANSWER.md §3,5; results.json",
+      "deciding_check": "8 intensity samples vs sqrt(0.91*gamma) at 1e-12"
+    },
+    {
+      "id": 4,
+      "name": "propagation_thresholds_and_limits",
+      "verdict": "right",
+      "reason": "sigma_c and small/large H/ell limits at fixed h,E,nu,k; mechanical meaning consistent with the expressions.",
+      "evidence": "submission/ANSWER.md §6; results.json limits",
+      "deciding_check": "FEM H/ell=0.02,0.05 vs H/(2ell) and H^3/(4 ell^3); H/ell=8,16 -> 1"
+    },
+    {
+      "id": 5,
+      "name": "requested_numerical_values",
+      "verdict": "right",
+      "reason": "Sixteen samples at requested normalization and ell/H locations.",
+      "evidence": "submission/results.json rows",
+      "deciding_check": "16/16 vs tanh/sqrt at 1e-12; 16/16 vs P1 FEM at 1e-6"
+    },
+    {
+      "id": 6,
+      "name": "verification_and_reproducibility",
+      "verdict": "right",
+      "reason": "Executed 1D checks share the 1D reduction. 2D J is a separate route (replay exit 0, IntegrationWarning). Reviewer FEM independently recovers the stated energy. Command success is not a scientific verdict.",
+      "evidence": "checks.py; factual_replay/*; review_check_independent_output.txt; REPRODUCE.md",
+      "deciding_check": "C1 omit foundation |d gamma_A| up to 0.17; C2 incremental traction v=0; FEM O(h^2) conv ratio 4.02"
+    },
+    {
+      "id": 7,
+      "name": "physical_scope_and_uncertainty",
+      "verdict": "partly",
+      "reason": "States linear Winkler / bonding / missing Gc. Omits wavenumber-dependent half-space vs k, isolated-crack calibration content, and that dense-array limits are not automatically real-substrate physics.",
+      "evidence": "submission/ANSWER.md §8",
+      "deciding_check": "PROBLEM.md item 5 and rubric item 7 vs submitted scope text"
+    }
+  ],
+  "source_recognition": "Solver claims PROBLEM.md only. Closed forms match Xia & Hutchinson JMPS 48 (2000) §4.2 Eqs. 28, 30 as frozen in reference/. Reference used only to check source claims.",
+  "solver_verification": "1D consistency of the same wake plus 2D FD J-integral; Case A rel.err ~1e-4; Case B ~1% at dx=0.02 with first-order trend. Shared assumption of checks 1-8 is the 1D reduction.",
+  "reviewer_checks": {
+    "code": "review_check_independent.py",
+    "output": "review_check_independent_output.txt",
+    "results": "review_check_independent_results.json",
+    "command": "timeout 60 python3 review_check_independent.py",
+    "method": "full-width P1 FEM of PROBLEM.md energy; natural total-traction BCs; no closed-form field in the discrete solve",
+    "formula_vs_submission_1e12": 16,
+    "fem_vs_submission_1e6": 16,
+    "linear_term_nonzero": true,
+    "controls": {
+      "C1_omit_foundation_gamma_A": [0.932404, 0.496564, 0.332831, 0.249876],
+      "C2_incremental_traction_gamma": 0.0
+    }
+  },
+  "coordinator_replay": {
+    "file": "FACTUAL_REPLAY.json",
+    "exit_codes": [0, 0, 0, 0],
+    "integration_warning": true,
+    "note": "Successful command is not a scientific verdict."
+  },
+  "unresolved": [
+    "Winkler k vs real half-space stiffness; 3D channeling; debonding/yielding. Not required to grade the sixteen samples."
+  ],
+  "incomplete_obligations": [],
+  "uncertainty": "FEM truncation <3e-8 on gamma; 2D J IntegrationWarning; model is not a real-film validation."
+}

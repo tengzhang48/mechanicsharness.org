@@ -1,0 +1,71 @@
+{
+  "reproduced_json_matches": true,
+  "values": {
+    "K1_0": {
+      "reported": 1.25,
+      "key": 0.807593,
+      "absolute_error": 0.442407,
+      "within_band": false
+    },
+    "K1_inf": {
+      "reported": 1.0,
+      "key": 1.0,
+      "absolute_error": 0.0,
+      "within_band": true
+    },
+    "V1_0": {
+      "reported": 1.8849555921538759,
+      "key": 1.8849555921538759,
+      "absolute_error": 0.0,
+      "within_band": true
+    },
+    "V1_inf": {
+      "reported": 2.5132741228718345,
+      "key": 2.5132741228718345,
+      "absolute_error": 0.0,
+      "within_band": true
+    },
+    "V1_short_coeff": {
+      "reported": 0.0,
+      "key": 2.44022,
+      "absolute_error": 2.44022,
+      "within_band": false
+    },
+    "p_faces_0": {
+      "reported": 2.0,
+      "key": 0.7490636704119851,
+      "absolute_error": 1.250936329588015,
+      "within_band": false
+    },
+    "K2_0": {
+      "reported": -1.25,
+      "key": 0.0,
+      "absolute_error": 1.25,
+      "within_band": false
+    },
+    "K2_inf": {
+      "reported": -1.0,
+      "key": -0.33375,
+      "absolute_error": 0.66625,
+      "within_band": false
+    },
+    "V2_inf": {
+      "reported": 2.5132741228718345,
+      "key": -0.8388052385084748,
+      "absolute_error": 3.3520793613803095,
+      "within_band": false
+    }
+  },
+  "beta_claim": {
+    "sqrt_1_minus_S": 0.8660254037844386,
+    "claimed_equal_expression": 0.37499999999999994
+  },
+  "own_volume_ratio": 1.3333333333333333,
+  "expected_volume_ratio": 1.3333333333333335,
+  "elastic_limit_K1_claim": {
+    "nu": 0.2,
+    "nu_u_equal_nu": 0.2,
+    "claimed_K1_0": 1.25,
+    "elastic_K1_0": 1
+  }
+}

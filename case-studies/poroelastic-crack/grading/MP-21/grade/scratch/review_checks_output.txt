@@ -1,0 +1,51 @@
+Reported values against corrected key (1% nonzero, 0.01 for zero):
+K1_0             submitted=1.0000000000 key=0.8075930000 pass=False
+K1_inf           submitted=1.0000000000 key=1.0000000000 pass=True
+V1_0             submitted=1.8849555922 key=1.8849555922 pass=True
+V1_inf           submitted=2.5132741229 key=2.5132741229 pass=True
+V1_short_coeff   submitted=1.1283791671 key=2.4402200000 pass=False
+p_faces_0        submitted=0.7490636704 key=0.7490636704 pass=True
+K2_0             submitted=0.0000000000 key=0.0000000000 pass=True
+K2_inf           submitted=0.0000000000 key=-0.3337500000 pass=False
+V2_inf           submitted=0.0000000000 key=-0.8388052385 pass=False
+
+Exact swelling-disk counterexample to p -> 1 implies sigma -> 0:
+p=1 for r<R, p=0 for r>R; u=a*r inside, u=a*R^2/r outside.
+R=   2.0  p(r=1)=1  sigma_rr(r=1)=-0.33375000 traction_jump=0.000e+00 displacement_jump=0.000e+00
+R=  20.0  p(r=1)=1  sigma_rr(r=1)=-0.33375000 traction_jump=0.000e+00 displacement_jump=0.000e+00
+R= 200.0  p(r=1)=1  sigma_rr(r=1)=-0.33375000 traction_jump=0.000e+00 displacement_jump=0.000e+00
+strain inside=0.16687500; free swelling strain claimed=0.26700000
+Every finite disk solution has decaying stresses and displacement at infinity.
+Taking R to infinity pointwise leaves compressive stress -eta, not zero.
+A traction-free crack in this prestress requires face stress +eta: K2_inf=-0.33375000, V2_inf=-0.83880524
+
+Crack-volume reciprocity check for expanding pressure plateaus:
+Use the unit-pressure drained Griffith stress trace S_aux.
+For zero mechanical face traction, V = beta*integral(p*S_aux dA).
+In elliptic coordinates z=L*cosh(mu+i*theta), integral_0^(2*pi)(S_aux*Jacobian)dtheta = -2*pi*L^2*exp(-2*mu).
+For p=1 inside mu<M and p=0 outside, the exact finite-domain integral is:
+M=1.0, V=-0.7252852940
+M=2.0, V=-0.8234419847
+M=4.0, V=-0.8385238507
+M=8.0, V=-0.8388051441
+The uniform pointwise pressure limit leaves V=-0.8388052385, not zero.
+
+Coupled pressure equation from compatibility and mass balance:
+h = sigma_kk + 0.66750000*p is harmonic; p_t = c*laplacian(p) - 0.49937578*h_t.
+The submission check 3b sets h_t=0 without solving the mechanical crack problem.
+
+Westergaard branch audit using the submitted formula:
+x=   2.0, y=0.5: sigma_xx, sigma_yy, tau_xy=[0.05073551 0.17982616 0.04682429]
+x=  -2.0, y=0.5: sigma_xx, sigma_yy, tau_xy=[-2.05073551 -2.17982616  0.04682429]
+x= 100.0, y=0.5: sigma_xx, sigma_yy, tau_xy=[4.99924983e-05 5.00075008e-05 4.99999986e-07]
+x=-100.0, y=0.5: sigma_xx, sigma_yy, tau_xy=[-2.00004999e+00 -2.00005001e+00  4.99999986e-07]
+
+Source of the DD-volume quadrature discrepancy:
+801-point trapezoid of the exact opening=2.51315653; exact volume=2.51327412
+
+Short-time coefficients:
+submitted local coefficient=1.128379167; key face contribution=1.354055001; corrected full coefficient=2.440220000
+Independent face-only reciprocal calculation: A_faces = 32*eta_u^2*kappa*G/(c*sqrt(pi)) = 1.354055001.
+
+Hydraulic loading 1+2 endpoint values using the key:
+K(0+)=0.80759300; K(inf)=0.66625000; V(inf)=1.67446888

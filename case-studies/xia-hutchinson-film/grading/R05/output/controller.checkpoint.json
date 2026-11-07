@@ -1,0 +1,39 @@
+{
+  "at_utc": "2026-10-16T00:02:40.661542+00:00",
+  "authored_by": "harness",
+  "concurrent_file_writes_possible": true,
+  "delivery_audit": {
+    "files": {
+      "ANSWER.md": {
+        "is_symlink": false,
+        "present": false
+      },
+      "PROVISIONAL_REPORT.md": {
+        "bytes": 1922,
+        "is_symlink": false,
+        "present": true,
+        "sha256": "f9744c5add0fddab113a9a3c8397bf44e741c88307bb0635c58b9f3c01d221bd"
+      },
+      "STATUS.md": {
+        "bytes": 691,
+        "is_symlink": false,
+        "present": true,
+        "sha256": "a28b6b75bf6b4ecc3bb54db1725ba06432ce1e2d0a37f4d437be9d0a1b234190"
+      },
+      "results.json": {
+        "is_symlink": false,
+        "present": false
+      }
+    },
+    "missing_or_invalid_final_files": [
+      "ANSWER.md",
+      "results.json"
+    ],
+    "required_final_files_present": false,
+    "scope": "File delivery and JSON parsing only; no scientific grading"
+  },
+  "elapsed_seconds": 600.0330820629606,
+  "kind": "artifact checkpoint",
+  "not_a_model_report": true,
+  "scheduled_seconds": 600.0
+}

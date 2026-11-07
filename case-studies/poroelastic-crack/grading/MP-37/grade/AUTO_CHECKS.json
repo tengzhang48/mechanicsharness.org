@@ -1,0 +1,36 @@
+{
+ "answer_md": true,
+ "results_json": "ok",
+ "reproduce_command": "OPENBLAS_NUM_THREADS=1 python3 solve.py",
+ "rerun_exit": 0,
+ "claims_total": 9,
+ "claims_printed_by_rerun": 9,
+ "checks": {
+  "K1_0_ok": true,
+  "K1_inf_ok": true,
+  "V1_0_ok": true,
+  "V1_inf_ok": true,
+  "V1_short_coeff_ok": true,
+  "p_faces_0_ok": true,
+  "K2_0_ok": true,
+  "K2_inf_ok": true,
+  "V2_inf_ok": true,
+  "K1_0_matches": "tip_limit_key",
+  "V1_short_matches": "faces_plus_tips_key",
+  "own_volume_ratio_is_drained_over_undrained": true,
+  "own_long_time_K_is_griffith": true
+ },
+ "checks_before_P374_key_correction": {
+  "K1_0_ok": false,
+  "K1_inf_ok": true,
+  "V1_0_ok": true,
+  "V1_inf_ok": true,
+  "V1_short_coeff_ok": false,
+  "p_faces_0_ok": true,
+  "K2_0_ok": true,
+  "K2_inf_ok": true,
+  "V2_inf_ok": true,
+  "own_volume_ratio_is_drained_over_undrained": true,
+  "own_long_time_K_is_griffith": true
+ }
+}

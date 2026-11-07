@@ -1,0 +1,14 @@
+<pilot-folder>/followup_runs/D01_direct_thinking_2026-10-15/final_replay/j2d.py:96: IntegrationWarning: The occurrence of roundoff error is detected, which prevents 
+  the requested tolerance from being achieved.  The error may be 
+  underestimated.
+  val,_=quad(integrand,0.0,np.pi,limit=400)
+CASE A: analytic G_A = 0.46211715726000974
+  r0=0.2  G_num=2*J_arc=4.620003e-01  rel.err=2.53e-04
+  r0=0.3  G_num=2*J_arc=4.622599e-01  rel.err=3.09e-04
+  r0=0.4  G_num=2*J_arc=4.621525e-01  rel.err=7.64e-05
+  r0=0.5  G_num=2*J_arc=4.620734e-01  rel.err=9.47e-05
+CASE B: analytic G_B = 0.16264015856425462
+  r0=0.15  G_num=2*J_arc=1.607060e-01  rel.err=1.19e-02
+  r0=0.20  G_num=2*J_arc=1.609604e-01  rel.err=1.03e-02
+  r0=0.25  G_num=2*J_arc=1.610707e-01  rel.err=9.65e-03
+  r0=0.30  G_num=2*J_arc=1.611151e-01  rel.err=9.38e-03

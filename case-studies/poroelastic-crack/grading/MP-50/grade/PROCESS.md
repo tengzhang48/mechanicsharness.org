@@ -1,0 +1,8 @@
+# Grading process
+
+- 22:41:11 UTC — Read `TASK.md`, `TASK_PROBLEM.md`, `KEY.md`, `AUTO_CHECKS.json`, the submission answer, and reported results. The corrected key supersedes the paper's initial stress intensity and face-only short-time coefficient. Began auditing the submission's derivations, checks, and reproducibility.
+- 22:41:36 UTC — Copied the submission into `scratch/submission/` and started the declared reproduction command there, recording its PID.
+- 22:42:28 UTC — Reproduction exited successfully; all nine numerical claims, the formulas, and the main printed checks agree with the delivered `results.json` and answer. Started the auxiliary identity script. Identified a likely incorrect complex square-root branch in the short-time validation.
+- 22:43:16 UTC — Completed `scratch/audit.py`: verified the four key discrepancies, the wrong reference-stress branch, and the spurious constant face integrals. The auxiliary identity script's larger-domain values are finite but badly contaminated, rather than floating-point overflow.
+- 22:44:36 UTC — Checked the refinement claims, error magnitudes, and corrected face/tip contributions. Reviewed the loading-2 steady-state assumption against two-dimensional harmonic compatibility and the key's long-time limit. Preparing the nine-part grade and its required JSON profile.
+- 22:48:14 UTC — Completed `GRADE.md` with all nine requested sections, error classifications, challenge review, and the final JSON profile. Validated the JSON, answer letters, section count, and end-of-file format. Reconfirmed that all nine original numerical claims reproduce exactly. No web access or submission edits were used.

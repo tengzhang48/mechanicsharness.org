@@ -1,0 +1,9 @@
+# Grading process
+
+- 19:10:51 UTC — Read TASK.md and local instructions; began reviewing the problem, corrected key, and automatic checks. All grading work will stay in this folder; no web access.
+- 19:11:17 UTC — Copied the delivered files to scratch/submission and reran both python3 solve.py and python3 check2.py. Both exited successfully; captured output in scratch/solve_output.txt and scratch/check2_output.txt.
+- 19:12:10 UTC — Confirmed that the regenerated results.json is identical to the submitted JSON, including formulas and the reproduction command. Began auditing the scopes of the reported checks.
+- 19:14:05 UTC — Ran scratch/grade_diagnostics.py: confirmed all nine automatic comparisons; found the loading-2 pressure has the wrong sign on the left half and zero center-face limit, and its proposed stress-free displacement has a nonzero circulation (1.068i for the supplied constants). Also detected the Westergaard code's far-left square-root branch error and the inconsistent tip-order ratio estimate.
+- 19:17:32 UTC — Checked the constrained strain derivatives, the distinction between the in-plane trace multiplier and conventional Skempton B, and the key's face-only loading-2 reciprocity coefficient. Audited the eight distinct reported check groups; six can detect errors in their limited subclaims.
+- 19:19:00 UTC — Wrote GRADE.md covering all nine required items, with partial credit for (a), (b), and (c), a classified error inventory, and the required terminal JSON. Identified a dimensional typo in the key's historical opening–K relation without changing the governing corrected benchmarks.
+- 19:19:44 UTC — Validated the nine required sections, JSON syntax and profile fields, error counts, and the terminal code-block format. Confirmed that the copied submission files remain identical and the rerun JSON matches the original. Grading complete; no web access or files outside this folder used for the grading investigation.

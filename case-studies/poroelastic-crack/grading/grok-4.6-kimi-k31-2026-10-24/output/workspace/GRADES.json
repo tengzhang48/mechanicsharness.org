@@ -1,0 +1,312 @@
+{
+  "submissions": {
+    "A": {
+      "overall_verdict": "partial. Loading-1 volumes, long-time K, induced face pressure and K2_0 are correct. K1_0=1 is the valid undrained-first outer intensity under the original ambiguous wording, but the write-up never distinguishes a locally drained tip and never produces the tip-first value. The short-time coefficient is the complete face-layer (inner plus outer) term and equals the paper's incomplete faces-only formula; the same-order tip contribution is omitted. Loading 2 is replaced by a drained elastic crack loaded by Biot effective face traction alpha, so K2_inf and V2_inf do not follow from the coupled problem.",
+      "boundary_and_limit_selection": {
+        "loading_1_face_conditions": {
+          "verdict": "correct",
+          "conditions_used": "total normal traction sigma_n=-1 and face pore pressure p=0 for t>0; instantaneous bulk zeta=0. Induced p just inside the solid is the undrained Skempton value 2(nu_u-nu)/(alpha(1-2*nu)), while the drained face itself is held at p=0 (A/ANSWER.md lines 46-65).",
+          "physical_match": "matches PROBLEM.md loading 1"
+        },
+        "loading_1_order_of_limits_for_K1_0": {
+          "verdict": "partial",
+          "order_actually_used": "undrained-first / outer Griffith intensity: K1_0 = K1_inf = sqrt(pi L), with no drained-tip process zone and no r->0 versus t->0+ discussion (A/ANSWER.md lines 51-52).",
+          "tip_first_result_established": false,
+          "distinction_recognized": false,
+          "conditional_credit": "K1_0=1 is admissible as the undrained outer intensity under the original wording that asked only for t=0+. It is not an unqualified numerical error. It is not the corrected tip-first value 0.807593."
+        },
+        "loading_2_problem": {
+          "verdict": "incorrect",
+          "stated_problem": "coupled poroelastic BVP: sigma_n=0, p=1 on the faces, zero initial data, fields vanishing at infinity",
+          "problem_actually_solved": "homogeneous drained elastic Griffith crack whose face load is the Biot effective traction. Superposition of loadings 1+2 is taken as bar_sigma_n=-(1-alpha), hence K2_inf=-alpha and V2_inf=-alpha*pi*(1-nu) (A/ANSWER.md lines 197-225; A/verify.py lines 142-148 enforce K1_inf+K2_inf=1-alpha).",
+          "why_the_reduction_fails": "equilibrium is on total stress. div(sigma + alpha p I)=alpha grad p, which vanishes only if p is spatially uniform. Loading 2 holds p=1 on a finite crack and p->0 at infinity, so the long-time back-stress coefficient is eta=alpha(1-2*nu)/(2(1-nu)), not alpha.",
+          "consequence": "K2_inf and V2_inf are too large in magnitude by alpha/eta=8/3. Combined hydraulic-fracture intensity would be 1-alpha=0.11 instead of 1-eta=0.66625. This is a wrong reduced BVP, not a mere unsupported formula."
+        }
+      },
+      "question_verdicts": {
+        "a": {
+          "verdict": "partial",
+          "K1_0": "partial/conditional: reported 1 is the undrained-first outer value; no locally drained tip; not the paper heuristic 0.75 and not the tip-first 0.807593",
+          "K1_inf": "correct: drained Griffith value 1",
+          "V1_0": "correct: undrained Sneddon pi(1-nu_u)",
+          "V1_inf": "correct: drained Sneddon pi(1-nu)",
+          "p_faces_0": "correct: undrained Skempton evaluation on the solid side of the faces",
+          "V1_short_coeff": "incorrect (incomplete: faces only). Face-layer diffusion plus undrained Betti identity retaining inner layer opening and outer undrained response, A=16(nu_u-nu)(1-nu_u)/((1-nu)*sqrt(pi))=1.354055, equal to paper Eq. 18. Tips are omitted without a geometric-smallness argument; the tip piece 1.086165 is the same order in sqrt(ct/L^2). A/verify.py lines 137-139 split the faces coefficient into inner 1.128379 plus outer 0.225676."
+        },
+        "b": {
+          "verdict": "partial",
+          "K2_0": "correct: null bulk field at t=0+; zero-thickness pressure layer has no integrated mechanical effect (A/ANSWER.md lines 191-195)",
+          "K2_inf": "incorrect: -alpha from the effective-traction reduction; does not follow from the coupled BVP. Corrected -eta=-0.33375.",
+          "V2_inf": "incorrect: -alpha*pi*(1-nu) from the same reduction. Sign of closure is right; coefficient is not. Corrected -alpha*pi*(1-2*nu)/2=-0.838805."
+        },
+        "c": {
+          "verdict": "partial",
+          "note": "JSON values match the stated formulas exactly. Arithmetic is not the issue; the numerical misses are the physical reductions in (a) short-time tips and (b) loading 2, plus the undrained-first reading of K1_0."
+        }
+      },
+      "numerical_comparisons": {
+        "K1_0": {
+          "reported": 1.0,
+          "corrected_reference": 0.807593,
+          "agrees": false,
+          "qualification": "agrees with the undrained-first outer intensity 1.0, which is partial/conditional under the original ambiguous wording; does not agree with the tip-first key; not the paper heuristic 0.75"
+        },
+        "K1_inf": {
+          "reported": 1.0,
+          "corrected_reference": 1.0,
+          "agrees": true,
+          "qualification": null
+        },
+        "V1_0": {
+          "reported": 1.8849555921538759,
+          "corrected_reference": 1.8849555921538759,
+          "agrees": true,
+          "qualification": "formula pi*(1-nu_u) in units of L^2/G"
+        },
+        "V1_inf": {
+          "reported": 2.5132741228718345,
+          "corrected_reference": 2.5132741228718345,
+          "agrees": true,
+          "qualification": "formula pi*(1-nu) in units of L^2/G"
+        },
+        "V1_short_coeff": {
+          "reported": 1.354055000514615,
+          "corrected_reference": 2.44022,
+          "agrees": false,
+          "qualification": "equals historical paper faces-only 1.354055 (Eq. 18); missing tip contribution 1.086165. Formula retained: 16*(nu_u-nu)*(1-nu_u)/((1-nu)*sqrt(pi))"
+        },
+        "p_faces_0": {
+          "reported": 0.7490636704119851,
+          "corrected_reference": 0.7490636704119851,
+          "agrees": true,
+          "qualification": "formula 2*(nu_u-nu)/(alpha*(1-2*nu))"
+        },
+        "K2_0": {
+          "reported": 0.0,
+          "corrected_reference": 0.0,
+          "agrees": true,
+          "qualification": "within absolute 0.01"
+        },
+        "K2_inf": {
+          "reported": -0.89,
+          "corrected_reference": -0.33375,
+          "agrees": false,
+          "qualification": "used -alpha instead of -eta, eta=alpha*(1-2*nu)/(2*(1-nu))=0.33375"
+        },
+        "V2_inf": {
+          "reported": -2.236813969355933,
+          "corrected_reference": -0.8388052385084748,
+          "agrees": false,
+          "qualification": "used -alpha*pi*(1-nu) instead of -alpha*pi*(1-2*nu)/2"
+        }
+      },
+      "verification_coverage": {
+        "what_the_checks_establish": [
+          "constitutive identity zeta=0 implies undrained Hooke law",
+          "ordinary elastic Griffith volume quadrature and a near-tip elastic K for total face traction 1",
+          "face Skempton pressure and undrained fluid content on the faces",
+          "1-D layer diffusivity identical to given c, erf heat-equation identity, drained-face value, erfc integral",
+          "integral of S^2 for the unit Griffith field and reciprocal identity reproducing V1_inf-V1_0",
+          "arithmetic reconstruction of the candidate's own faces-only short-time coefficient, including inner/outer split",
+          "superposition identities of the reduced effective-traction model, and JSON consistency with those formulas"
+        ],
+        "what_remains_unverified": [
+          "coupled loading-2 field with zero total traction, prescribed face pressure, and vanishing far field",
+          "order of the crack-tip and time limits for K1_0; a drained-tip intensity",
+          "short-time tip contribution at order sqrt(ct/L^2)"
+        ],
+        "could_reject_wrong_coupled_solution_face_condition_singular_limit_or_short_time_ordering": false,
+        "note": "A/verify.py was copied to <reviewer-scratch>/grade_A_verify/ and passed there. It was not executed inside A/. Superposition checks encode K1_inf+K2_inf=1-alpha and would pass for this wrong reduced loading-2 model."
+      },
+      "material_errors_or_unsupported_claims": [
+        {
+          "claim": "K1_0 = K1_inf = sqrt(pi L)",
+          "location": "A/ANSWER.md lines 51-52",
+          "verdict": "unsupported as a statement about the physical tip singularity at t=0+; supported only as the outer undrained/drained Griffith intensity",
+          "classification": "partial/conditional under the original wording, not an unqualified error"
+        },
+        {
+          "claim": "long-time loading 2 is a drained elastic crack with effective face traction alpha",
+          "location": "A/ANSWER.md lines 197-225; A/verify.py lines 142-148",
+          "verdict": "incorrect reduced BVP",
+          "classification": "material error; K2_inf and V2_inf off by 8/3"
+        },
+        {
+          "claim": "leading short-time volume from face layers only, A=16(nu_u-nu)(1-nu_u)/((1-nu)*sqrt(pi))",
+          "location": "A/ANSWER.md lines 137-185",
+          "verdict": "internally consistent for that truncation and equal to paper Eq. 18; incomplete at retained order because tips contribute at the same order",
+          "classification": "incorrect (incomplete). Tips are omitted, not argued away by geometric smallness."
+        },
+        {
+          "claim": "There are no unresolved uncertainties",
+          "location": "A/ANSWER.md line 261",
+          "verdict": "overstated relative to the omitted tip limit and the coupled loading-2 field",
+          "classification": "unsupported"
+        }
+      ]
+    },
+    "B": {
+      "overall_verdict": "partial. Same correct loading-1 endpoint volumes, K1_inf, face pressure and K2_0 as an undrained/drained elastic reading. Same conditional K1_0=1 without a drained-tip analysis. The short-time coefficient retains only local uniaxial-strain opening of the face layers (A's inner piece) and dismisses tips by geometric smallness of an O(sqrt(ct)) interval, which does not control the order of the volume contribution. Loading 2 is the same effective-traction / globally drained reduction as in A, so K2_inf and V2_inf are wrong for the same reason.",
+      "boundary_and_limit_selection": {
+        "loading_1_face_conditions": {
+          "verdict": "correct",
+          "conditions_used": "total traction sigma_n=-P and hydraulically open faces p=0 for t>0; instantaneous bulk zeta=0. Face pressure just inside the solid is the Skempton value, with the imposed face value zero (B/ANSWER.md lines 23-46).",
+          "physical_match": "matches PROBLEM.md loading 1"
+        },
+        "loading_1_order_of_limits_for_K1_0": {
+          "verdict": "partial",
+          "order_actually_used": "undrained-first / outer Griffith intensity: K1_0=K1_inf=P sqrt(pi L), with no locally drained tip and no order-of-limits discussion (B/ANSWER.md lines 49-59).",
+          "tip_first_result_established": false,
+          "distinction_recognized": false,
+          "conditional_credit": "K1_0=1 is admissible as the undrained outer intensity under the original wording. The distinction is not recognized; the tip-first result is not established."
+        },
+        "loading_2_problem": {
+          "verdict": "incorrect",
+          "stated_problem": "coupled poroelastic BVP: sigma_n=0, p=H(t) on the faces, zero initial data, fields vanishing at infinity",
+          "problem_actually_solved": "drained elastic Griffith crack with Biot effective face traction alpha P, plus an explicit assumption that bulk pore pressure drains to zero at each fixed spatial position (B/ANSWER.md lines 144-149; B/verify.py lines 103-104 set K2_inf=-alpha and V2_inf=-alpha*V1_inf).",
+          "why_the_reduction_fails": "two substitutions: (i) replace total face traction by effective traction alpha P; (ii) assume a globally drained bulk p->0. The coupled problem does not drain to p=0 near the crack while p=1 is held on the faces; the steady field is harmonic with that Dirichlet data, and the back-stress is eta, not alpha.",
+          "consequence": "same wrong numbers as A: K2_inf=-0.89 and V2_inf=-2.236814 instead of -0.33375 and -0.838805. This is a stated change of BVP, not an unsupported leap from a correct problem."
+        }
+      },
+      "question_verdicts": {
+        "a": {
+          "verdict": "partial",
+          "K1_0": "partial/conditional: value 1, undrained outer; no tip-first analysis",
+          "K1_inf": "correct",
+          "V1_0": "correct: pi(1-nu_u)",
+          "V1_inf": "correct: pi(1-nu)",
+          "p_faces_0": "correct",
+          "V1_short_coeff": "incorrect. Face-layer 1-D diffusion is set up correctly, but opening is taken as the integral of local Delta e_yy=D Delta p with the far field unchanged (B/ANSWER.md lines 100-132), giving A=8(nu_u-nu)/((1-nu)*sqrt(pi))=1.128379. Retained: local uniaxial-strain extension of two face layers over length 2L. Not retained: (i) undrained outer opening induced by the layer (A's outer piece 0.225676); (ii) tip contribution 1.086165. Lines 134-135 claim neglected tip regions occupy only O(sqrt(ct)) of the length and do not change the leading term. Geometric smallness of the interval does not establish that the volume is o(sqrt(ct)); the claim is unsupported as an order argument and false here."
+        },
+        "b": {
+          "verdict": "partial",
+          "K2_0": "correct: pore pressure has not entered the solid; zero-stress, zero-displacement state satisfies bulk equations and total-traction condition (B/ANSWER.md lines 139-142)",
+          "K2_inf": "incorrect: -alpha from effective traction plus globally drained bulk. Corrected -eta.",
+          "V2_inf": "incorrect: -alpha*pi*(1-nu). Sign of closure is right."
+        },
+        "c": {
+          "verdict": "partial",
+          "note": "JSON matches the stated formulas. Numerical misses track the physical reductions, not arithmetic."
+        }
+      },
+      "numerical_comparisons": {
+        "K1_0": {
+          "reported": 1.0,
+          "corrected_reference": 0.807593,
+          "agrees": false,
+          "qualification": "agrees with the undrained-first outer intensity 1.0, which is partial/conditional under the original ambiguous wording; does not agree with the tip-first key; not the paper heuristic 0.75"
+        },
+        "K1_inf": {
+          "reported": 1.0,
+          "corrected_reference": 1.0,
+          "agrees": true,
+          "qualification": null
+        },
+        "V1_0": {
+          "reported": 1.8849555921538759,
+          "corrected_reference": 1.8849555921538759,
+          "agrees": true,
+          "qualification": "formula pi*(1-nu_u)"
+        },
+        "V1_inf": {
+          "reported": 2.5132741228718345,
+          "corrected_reference": 2.5132741228718345,
+          "agrees": true,
+          "qualification": "formula pi*(1-nu)"
+        },
+        "V1_short_coeff": {
+          "reported": 1.1283791670955126,
+          "corrected_reference": 2.44022,
+          "agrees": false,
+          "qualification": "inner face-layer only; equals neither paper faces-only 1.354055 nor faces+tips 2.440220. Formula retained: 8*(nu_u-nu)/((1-nu)*sqrt(pi))"
+        },
+        "p_faces_0": {
+          "reported": 0.7490636704119851,
+          "corrected_reference": 0.7490636704119851,
+          "agrees": true,
+          "qualification": "formula 2*(nu_u-nu)/(alpha*(1-2*nu))"
+        },
+        "K2_0": {
+          "reported": 0.0,
+          "corrected_reference": 0.0,
+          "agrees": true,
+          "qualification": "within absolute 0.01"
+        },
+        "K2_inf": {
+          "reported": -0.89,
+          "corrected_reference": -0.33375,
+          "agrees": false,
+          "qualification": "used -alpha instead of -eta"
+        },
+        "V2_inf": {
+          "reported": -2.236813969355933,
+          "corrected_reference": -0.8388052385084748,
+          "agrees": false,
+          "qualification": "used -alpha*pi*(1-nu) instead of -alpha*pi*(1-2*nu)/2"
+        }
+      },
+      "verification_coverage": {
+        "what_the_checks_establish": [
+          "face undrained identities: Skempton p0, zeta=0, and nu+alpha*(1-2*nu)*beta=nu_u",
+          "layer relations Delta sigma_xx and Delta e_yy=D Delta p, and layer storage reproducing c",
+          "Riemann-sum erfc integral and elliptical crack area",
+          "compact A reconstructed from 4*D*p0 per unit length on two faces (restatement of the local-strain formula)",
+          "V1_inf-V1_0=pi*(nu_u-nu) and the reduced-model identities K2_inf=-alpha, V2_inf=-alpha*V1_inf"
+        ],
+        "what_remains_unverified": [
+          "coupled loading-2 field",
+          "drained-tip K and the order of limits",
+          "tip-scale short-time volume; the geometric-smallness claim in B/ANSWER.md lines 134-135 is unchecked"
+        ],
+        "could_reject_wrong_coupled_solution_face_condition_singular_limit_or_short_time_ordering": false,
+        "note": "A copy of B/verify.py was run in <reviewer-scratch>/grade_B_verify/ and passed. It was not run in B/, because lines 106-108 write results.json in the current directory and would overwrite the submission."
+      },
+      "material_errors_or_unsupported_claims": [
+        {
+          "claim": "K1_0 = K1_inf = 1",
+          "location": "B/ANSWER.md lines 49-59",
+          "verdict": "same conditional status as A: valid undrained-first outer intensity, no tip/time-limit distinction",
+          "classification": "partial/conditional under the original wording, not an unqualified error"
+        },
+        {
+          "claim": "long-time loading 2 uses effective face traction alpha and a globally drained bulk p->0 at fixed position",
+          "location": "B/ANSWER.md lines 144-149; B/verify.py lines 103-104",
+          "verdict": "incorrect reduced BVP; K2_inf and V2_inf do not follow from sigma_n=0, p=1, vanishing far field",
+          "classification": "material error"
+        },
+        {
+          "claim": "short-time faces truncated to local Delta e_yy, A=8(nu_u-nu)/((1-nu)*sqrt(pi))",
+          "location": "B/ANSWER.md lines 100-132",
+          "verdict": "misses the outer undrained response already present in a complete face-layer calculation, and misses tips",
+          "classification": "incorrect (incomplete)"
+        },
+        {
+          "claim": "neglected tip regions occupy only O(sqrt(ct)) of the crack length and do not change the displayed leading term",
+          "location": "B/ANSWER.md lines 134-135",
+          "verdict": "unsupported as an order estimate; false for this problem, where the tip piece is O(sqrt(ct/L^2)) and comparable to the faces",
+          "classification": "unsupported, and incorrect as a statement about the retained order"
+        },
+        {
+          "claim": "No unresolved uncertainties remain for the stated ideal boundary-value problem",
+          "location": "B/ANSWER.md line 170",
+          "verdict": "overstated",
+          "classification": "unsupported"
+        }
+      ]
+    }
+  },
+  "reference_limitations_and_problem_ambiguities": {
+    "order_of_limits_in_original_problem": "PROBLEM.md asks for K just after loading (t=0+) without specifying whether the crack-tip limit or the time limit is taken first. The corrected key uses tip-first K1_0=0.807593. An undrained-first answer of 1 is partial/conditional, not an unqualified error. A paper-heuristic 0.75 would have been wrong. This clarification is not treated as having been in the solver prompt.",
+    "historical_versus_corrected_key": "REFERENCE.md keeps Detournay & Cheng heuristic K1_0=0.75 and faces-only V1_short_coeff=1.354055 on record. Numerical grading uses the corrected column (P374): K1_0=0.807593, V1_short_coeff=2.440220=1.354055 (faces)+1.086165 (tips).",
+    "loading_2_coefficient": "The paper's long-time loading-2 coefficient is eta=alpha(1-2*nu)/(2(1-nu)), not alpha. The identity eta*pi*(1-nu)=alpha*pi*(1-2*nu)/2 holds. Submissions that replace eta by alpha are not matching a hidden paper formula; they are solving a different reduced elasticity problem.",
+    "reference_defects_found": "none in the corrected entries. Independent evaluation of eta, V1_0, V1_inf, p_faces_0, K2_inf and V2_inf matches the printed digits (scratch/check_reference_and_submissions.py, scratch/loading2_reduction_note.py).",
+    "grading_policy_applied": "1% relative tolerance on nonzero values; absolute 0.01 on K2_0. Numerical agreement is reported separately from the physical verdict. Omitted quantities are distinguished from wrong ones; here every requested quantity is present."
+  },
+  "comparison_of_submissions": {
+    "do_not_infer_model_ranking": true,
+    "shared_structure": "Both treat loading 1 as an undrained-then-drained Griffith crack with the correct total-traction / drained-face pair, report K1_0=1 without a drained-tip analysis, and replace loading 2 by a drained elastic crack loaded by Biot effective face traction alpha. Both therefore share the same five unconditional numerical agreements (K1_inf, V1_0, V1_inf, p_faces_0, K2_0), the same conditional K1_0, and the same wrong K2_inf and V2_inf.",
+    "divergence_short_time": "A retains face-layer diffusion and the undrained outer response to that layer (reciprocal identity), delivering the paper faces-only coefficient 1.354055; tips are omitted without a geometric-smallness argument. B retains only local uniaxial-strain face opening, 1.128379 (A's inner piece), and asserts that tip intervals of length O(sqrt(ct)) cannot affect the leading term. Relative to the corrected key both miss the tip piece 1.086165; B also misses the outer face piece 0.225676.",
+    "verification": "Both suites confirm internal identities of the reduced models and cannot catch the coupled loading-2 error, the K limit order, or the short-time tip ordering. B/verify.py would overwrite results.json if run in place.",
+    "numerical_agreement_is_not_the_verdict": "A matching-number count is not a substitute for the boundary/limit verdict. The physical conditions and the order of limits, not the agreement tally, determine the assessments above."
+  }
+}

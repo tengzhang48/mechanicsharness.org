@@ -1,0 +1,44 @@
+{
+  "printed_equals_delivered": true,
+  "K1_0_relative_error_to_corrected_key": 0.0007628363930215487,
+  "V1_short_relative_error_to_corrected_key": 0.4451094571331212,
+  "V1_short_missing_coefficient": 1.086164999485385,
+  "claimed_laplace_volume_slope": 1.2,
+  "corrected_key_laplace_volume_slope": 2.162588668028329,
+  "fixed_grid_volume_slopes_n2048": [
+    1.489067950034233,
+    1.6698773130148226
+  ],
+  "volume_ratio": 1.3333333333333333,
+  "finest_rerun_matches": [
+    {
+      "n": 2048,
+      "ell": 0.025,
+      "max_tip_difference": 3.3306690738754696e-16,
+      "volume_difference": 0.0,
+      "relative_residual": 1.038870055051345e-12
+    },
+    {
+      "n": 2048,
+      "ell": 0.0125,
+      "max_tip_difference": 2.220446049250313e-16,
+      "volume_difference": 4.440892098500626e-16,
+      "relative_residual": 1.0728824315289432e-12
+    },
+    {
+      "n": 4096,
+      "ell": 0.0125,
+      "max_tip_difference": 3.3306690738754696e-16,
+      "volume_difference": 2.220446049250313e-16,
+      "relative_residual": 2.0650211744414535e-12
+    }
+  ],
+  "matrix_flux_sign_audit": {
+    "T_direct_from_stated_surface_relations": -0.348574205873445,
+    "T_matrix_if_q_equals_py_as_written": -0.5049791847198287,
+    "p0_direct_from_stated_surface_relations": -0.1731448777130263,
+    "p0_matrix_if_q_equals_py_as_written": 0.3925405472362117,
+    "T_matrix_if_q_equals_minus_py": -0.34857420587344506,
+    "p0_matrix_if_q_equals_minus_py": -0.1731448777130263
+  }
+}

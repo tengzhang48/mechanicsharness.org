@@ -1,0 +1,19 @@
+{
+ "run": "MP-10",
+ "checks": {
+  "K1_0_ok": false,
+  "K1_inf_ok": true,
+  "V1_0_ok": true,
+  "V1_inf_ok": true,
+  "V1_short_coeff_ok": false,
+  "p_faces_0_ok": true,
+  "K2_0_ok": true,
+  "K2_inf_ok": false,
+  "V2_inf_ok": false,
+  "K1_0_matches": "outer_limit_1",
+  "V1_short_matches": "other",
+  "own_volume_ratio_is_drained_over_undrained": true,
+  "own_long_time_K_is_griffith": true
+ },
+ "changed_from_saved": {}
+}

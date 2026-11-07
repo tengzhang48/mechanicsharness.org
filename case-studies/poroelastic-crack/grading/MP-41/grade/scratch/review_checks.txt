@@ -1,0 +1,27 @@
+Original JSON equals rerun JSON: True
+K1_0: submission=1, key=0.807593, pass=False
+K1_inf: submission=1, key=1, pass=True
+V1_0: submission=1.88495559215, key=1.88495559215, pass=True
+V1_inf: submission=2.51327412287, key=2.51327412287, pass=True
+V1_short_coeff: submission=1.1283791671, key=2.44022, pass=False
+p_faces_0: submission=0.749063670412, key=0.749063670412, pass=True
+K2_0: submission=0, key=0, pass=True
+K2_inf: submission=0, key=-0.33375, pass=False
+V2_inf: submission=0, key=-0.838805238508, pass=False
+Face-only reference A: 1.35405500051
+Submitted A / face-only reference A: 0.833333333333
+Combined-loading K_inf: 0.66625
+Combined-loading V_inf: 1.67446888436
+Alternative effective-stress loading is alpha*loading_1 + loading_2:
+K_0: 0.71875777
+K_inf: 0.55625
+V_inf: 1.39800873085
+Harmonic pressure with p=1 on slit and p=0 on a confocal outer ellipse:
+xi_R=2, p_at_x_2L=0.341521052
+xi_R=4, p_at_x_2L=0.670760526
+xi_R=8, p_at_x_2L=0.835380263
+xi_R=16, p_at_x_2L=0.917690131
+xi_R=32, p_at_x_2L=0.958845066
+Key COD-to-K dimensional typo; L=1 and unit opening traction:
+G=1, printed_key_K=1.77245385091, corrected_K=1.77245385091, expected=1.77245385091
+G=4, printed_key_K=0.886226925453, corrected_K=1.77245385091, expected=1.77245385091

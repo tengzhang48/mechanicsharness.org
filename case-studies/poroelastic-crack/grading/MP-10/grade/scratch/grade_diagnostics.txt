@@ -1,0 +1,35 @@
+Reproduced JSON identical: True
+K1_0: delivered=1, key=0.807593, within band=False
+K1_inf: delivered=1, key=1, within band=True
+V1_0: delivered=1.88495559215, key=1.88495559215, within band=True
+V1_inf: delivered=2.51327412287, key=2.51327412287, within band=True
+V1_short_coeff: delivered=1.1283791671, key=2.44022, within band=False
+p_faces_0: delivered=0.749063670412, key=0.749063670412, within band=True
+K2_0: delivered=0, key=0, within band=True
+K2_inf: delivered=0, key=-0.33375, within band=False
+V2_inf: delivered=0.339954958444, key=-0.838805238508, within band=False
+
+Loading-2 pressure on both halves and the crack center (upper/lower):
+x=-0.9: p_up=-0.999999998, p_down=-0.999999998, prescribed=+1
+x=-0.6: p_up=-0.999999999, p_down=-0.999999999, prescribed=+1
+x=-0.3: p_up=-0.999999998, p_down=-0.999999998, prescribed=+1
+x=+0.0: p_up=+0.000000000, p_down=-0.000000000, prescribed=+1
+x=+0.3: p_up=+0.999999998, p_down=+0.999999998, prescribed=+1
+x=+0.6: p_up=+0.999999999, p_down=+0.999999999, prescribed=+1
+x=+0.9: p_up=+0.999999998, p_down=+0.999999998, prescribed=+1
+
+Integral of f'(z) dz around the slit: (1.5665451816177745e-17+4.000000000000001j)
+Expected residue value 4iL: 4j
+Displacement change after one circuit: (4.182675634919458e-18+1.0680000000000003j)
+Thus no single-valued stress-free displacement u=swelling_factor*f exists.
+Upper-face u_y(L)-u_y(-L): -0.5340000000000001
+This cannot be zero at both tips by adding a constant to f.
+
+Westergaard code's principal-square-root branch at far left/right:
+x=-100: Re Z=-2.000050004, required far-field=0
+x=+100: Re Z=+0.000050004, required far-field=0
+
+Key face-only coefficient: 1.354055000514615
+Key tip coefficient: 1.086164999485385
+Delivered coefficient / key face-only coefficient: 0.8333333333333335
+Claimed (ct/L^2)^(3/4) divided by the leading (ct/L^2)^(1/2) scales as (ct/L^2)^(1/4), not (ct/L^2)^(1/2).

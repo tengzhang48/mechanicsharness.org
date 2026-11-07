@@ -1,0 +1,23 @@
+{
+  "schema": "independent_scientific_review_grade_v1",
+  "status": "provisional",
+  "utc": "2026-10-16",
+  "numerical_agreement_count": 16,
+  "numerical_agreement_out_of": 16,
+  "tolerance_abs": 1e-12,
+  "judgments": [
+    {"id": 1, "name": "wake_formulation_and_fields", "verdict": "right", "reason": "Decay length, ahead/behind fields, total-traction strip edges correct.", "evidence": "submission/ANSWER.md §1-2; compute.py", "deciding_check": "replay u2'(faces)=-sigma0/Ebar; ell=sqrt(h Ebar/k)"},
+    {"id": 2, "name": "energy_release", "verdict": "right", "reason": "GA, GB, period, tip count, h-normalization correct. Prose error: linear prestress integral does not vanish; code includes it.", "evidence": "submission/ANSWER.md §4; compute.py", "deciding_check": "GA=(sigma0^2 ell/Ebar) tanh(H/(2ell)); GB=2G'(H)-G'(2H)"},
+    {"id": 3, "name": "fracture_modes_and_intensities", "verdict": "right", "reason": "Pure mode I; kI=sqrt((1-nu^2)gamma).", "evidence": "submission/ANSWER.md §3,5; results.json", "deciding_check": "kI vs sqrt(0.91*gamma) at four samples"},
+    {"id": 4, "name": "propagation_thresholds_and_limits", "verdict": "right", "reason": "sigma_c and small/large H limits at fixed ell; mechanical meaning consistent.", "evidence": "submission/ANSWER.md §6; results.json limits", "deciding_check": "gamma_A~H/(2ell); gamma_B~H^3/(4 ell^3)"},
+    {"id": 5, "name": "requested_numerical_values", "verdict": "right", "reason": "Sixteen samples at requested normalization and ell/H.", "evidence": "submission/results.json rows", "deciding_check": "16/16 vs tanh formulas and reference.json"},
+    {"id": 6, "name": "verification_and_reproducibility", "verdict": "partly", "reason": "Executed 1D checks share the 1D reduction. 2D J is independent-ish; coordinator replay exit 0 with IntegrationWarning. Reviewer FEM not yet executed.", "evidence": "checks.py; factual_replay/*", "deciding_check": "pending reviewer P1 FEM"},
+    {"id": 7, "name": "physical_scope_and_uncertainty", "verdict": "partly", "reason": "Model assumptions listed; omits Winkler calibration vs half-space wavenumber dependence.", "evidence": "submission/ANSWER.md §8", "deciding_check": "PROBLEM.md item 5 vs submitted scope text"}
+  ],
+  "source_recognition": "Solver claims no external source. Formulas match Xia-Hutchinson 2000 §4.2 as frozen in reference/.",
+  "solver_verification": "1D consistency plus 2D J scripts; command success is not a scientific verdict.",
+  "reviewer_checks": "Algebraic re-derivation and 16-value comparison this session; independent FEM incomplete.",
+  "coordinator_replay": "FACTUAL_REPLAY.json exit 0; IntegrationWarning on j2d routes.",
+  "unresolved": ["reviewer independent FEM", "real-film substrate stiffness"],
+  "incomplete_obligations": ["REPRODUCE.md for reviewer checks", "final GRADE after minute-20 analysis"]
+}

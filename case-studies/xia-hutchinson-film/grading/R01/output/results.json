@@ -1,0 +1,73 @@
+{
+  "judgments": {
+    "1_wake_formulation_and_fields": {
+      "grade": "wrong",
+      "reason": "ell correct, but far-ahead/far-behind claimed as u=0 only; missing 1D cracked wakes and Case B ahead/behind spacing states",
+      "evidence": "submission/ANSWER.md L30-42; submission/derive8.py",
+      "deciding_check": "independent 1D ODE v''=v, v'(0)=v'(L)=-1; gamma=tanh(H/(2ell))"
+    },
+    "2_energy_release": {
+      "grade": "partly",
+      "reason": "Pi functional, period/tip/h stated; no translating-tip closed form; Case B half-domain factor by hand",
+      "evidence": "submission/ANSWER.md §4; femb2.py",
+      "deciding_check": "gamma_A=tanh(H/(2ell)), gamma_B=2tanh(H/(2ell))-tanh(H/ell) vs FEM table"
+    },
+    "3_fracture_modes_and_intensities": {
+      "grade": "partly",
+      "reason": "KII=0 by symmetry and G=KI^2/E used; isolated kI=sqrt(1-nu^2) correct; samples miss 1e-6",
+      "evidence": "submission/ANSWER.md §3; results.json",
+      "deciding_check": "kI=sqrt((1-nu^2)*gamma)"
+    },
+    "4_propagation_thresholds_and_limits": {
+      "grade": "partly",
+      "reason": "sigma_c formula and isolated A limit OK; Case B limits missing; small-H B cubic and shielding incomplete; spacing vs sigma_c interpretation mixed",
+      "evidence": "submission/ANSWER.md §6; results.json limits",
+      "deciding_check": "series gamma_A~H/(2ell), gamma_B~(H/ell)^3/4"
+    },
+    "5_requested_numerical_values": {
+      "grade": "partly",
+      "reason": "16 samples delivered; 0/16 at 1e-6 vs exact; 3/16 at 1e-3; replay 11/16 display-rounding vs own JSON",
+      "evidence": "submission/results.json; independent_check_output.json; REPLAY_RECORD.json",
+      "deciding_check": "absdiff vs tanh/kI exact"
+    },
+    "6_verification_and_reproducibility": {
+      "grade": "partly",
+      "reason": "internal FEM checks only; rejected bad J/Finf; reproduce command split; replay exit 0 with nanKI import side effect",
+      "evidence": "REPLAY_RECORD.json; REPLAY_STDERR.txt; ANSWER.md §7-8",
+      "deciding_check": "reviewer FD vs tanh, not rerun of fem scripts"
+    },
+    "7_physical_scope_and_uncertainty": {
+      "grade": "partly",
+      "reason": "some model limits stated; overclaims u=0 wake; no k-calibration vs real substrate caveats",
+      "evidence": "submission/ANSWER.md §10",
+      "deciding_check": "scope vs PROBLEM.md foundation reduction"
+    }
+  },
+  "numerical_agreement_count_out_of_sixteen": 0,
+  "agreement_tolerance": "1e-6 absolute on gamma and kI vs independent exact 1D reduction",
+  "agreement_at_1e-3": 3,
+  "coordinator_replay_display_rounding_11_of_16": true,
+  "source_recognition": "submission does not cite Xia-Hutchinson 2000; FEM-original numbers",
+  "solver_verification_vs_reviewer_vs_replay": {
+    "solver": "mesh, face traction, Pi sign, isolated gamma_A in same FEM",
+    "reviewer": "independent_check.py FD+tanh",
+    "coordinator": "python3 reproduce_all.py exit 0; 11/16 rounding; nanKI import"
+  },
+  "independent_check_files": [
+    "independent_check.py",
+    "independent_check_output.json"
+  ],
+  "independent_fd_max_abs_err": 6.999568258336808e-08,
+  "unresolved_checks": [
+    "no reviewer 2D KI extraction",
+    "Case B FEM energy not re-integrated",
+    "FEM not extrapolated to tanh"
+  ],
+  "errors": [
+    "derive8 linear-only x1-independent fields => false unique u=0 wake",
+    "missing closed-form GA, GB",
+    "Case B limits not computed"
+  ],
+  "uncertainty": "FEM table is O(0.5%) approximation of 1D-wake G; not real-film validation",
+  "incomplete_obligations": "none after final reporting files"
+}

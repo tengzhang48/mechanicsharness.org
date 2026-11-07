@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kimi K3.1 Pro — unaided poroelastic crack trial</title><meta name="description" content="Record of the poroelastic crack case (MechanicsHarness), as written at the time: Kimi K3.1 Pro — unaided poroelastic crack trial"><style>
+    :root{--bg:#f7f5ef;--paper:#fffdf8;--ink:#1c2230;--muted:#5b6474;--rule:#ddd8cc;--accent:#0e6e6a;--wash:#e5efeb;--math:#edf1f3;--warm:#f4ebdc;--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",sans-serif}
+    *{box-sizing:border-box}
+    html{scroll-behavior:auto;scroll-padding-top:88px}
+    body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--serif)}
+    a{color:var(--accent);text-underline-offset:3px}
+    a:hover{text-decoration-thickness:2px}
+    a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #c2943d;outline-offset:4px}
+    .skip{position:absolute;top:-60px;left:15px;background:white;padding:8px;z-index:5}.skip:focus{top:10px}
+    .page{max-width:1160px;margin:auto;padding:22px 38px 56px}
+    .toolbar{position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:27px;padding:10px 0;background:var(--bg);border-bottom:1px solid var(--rule);font:12px/1.4 var(--sans)}
+    .toolbar nav{display:flex;flex-wrap:wrap;gap:8px 22px}
+    .toolbar a{font-weight:600;text-decoration:none}
+    .case-return{display:flex;justify-content:space-between;gap:20px;margin-top:24px;padding-top:14px;border-top:1px solid var(--rule);font:600 12px/1.5 var(--sans)}
+    .case-return a{text-decoration:none}.case-return a:hover{text-decoration:underline}
+    .entry-links{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 20px;font:600 12px/1.5 var(--sans)}
+    .entry-links a{border:1px solid var(--rule);background:var(--paper);padding:8px 12px;text-decoration:none;border-radius:3px}.entry-links a:hover{background:var(--wash);border-color:var(--accent)}
+    button{cursor:pointer;background:transparent;border:1px solid var(--accent);color:var(--accent);border-radius:3px;padding:8px 12px;font:600 12px var(--sans);white-space:nowrap}
+    button:hover{background:var(--wash)}
+    header{border-bottom:1px solid var(--rule);padding-bottom:27px}
+    .kicker{margin:0 0 12px;color:var(--accent);font:650 11px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase}
+    h1,h2,h3{line-height:1.2;text-wrap:balance;margin:0}
+    h1{font-size:clamp(31px,4vw,45px);letter-spacing:-.025em;font-weight:600;max-width:920px}
+    h2{font-size:27px;letter-spacing:-.015em;font-weight:600;margin-bottom:14px}
+    h3{font-size:20px;font-weight:600;margin-bottom:10px}
+    p{margin:0 0 14px}
+    p:last-child{margin-bottom:0}
+    .lede{font-size:20px;line-height:1.5;max-width:83ch;margin:19px 0 16px}
+    .meta,.small,.source,.note{font-family:var(--sans);font-size:12px;line-height:1.6;color:var(--muted)}
+    .meta{margin-bottom:0}
+    .aim{font-size:15px;color:var(--muted);margin-top:12px;max-width:92ch}
+    .toc{display:flex;flex-wrap:wrap;gap:8px 22px;margin:20px 0 0;font:12px/1.5 var(--sans)}
+    .toc a{text-decoration:none}
+    .message{margin:25px 0 28px;background:var(--wash);border-left:3px solid var(--accent);padding:20px 24px}
+    .message .kicker{margin-bottom:8px}
+    .message p{font-size:19px;line-height:1.55}
+    .section{padding:31px 0;border-bottom:1px solid var(--rule)}
+    .section:first-of-type{padding-top:0}
+    .section-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:9px 16px;margin-bottom:16px}
+    .section-head h2{margin:0}
+    .label{color:var(--accent);font:650 10px/1.4 var(--sans);text-transform:uppercase;letter-spacing:.07em}
+    .tablewrap{overflow-x:auto;margin:17px 0 9px}
+    table{width:100%;border-collapse:collapse;font:13px/1.55 var(--sans)}
+    caption{text-align:left;color:var(--muted);font-size:12px;padding-bottom:11px}
+    th,td{vertical-align:top;text-align:left;padding:12px 15px 12px 0;border-bottom:1px solid var(--rule)}
+    thead th{font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding-top:0;border-bottom:2px solid var(--rule)}
+    tbody th{font-size:13px;font-weight:650;width:21%}
+    td:last-child,th:last-child{padding-right:0}
+    .summary-table td:nth-child(2){width:51%}
+    .summary-table td:last-child{color:var(--muted)}
+    .summary-table .reference{display:block;font-size:11px;margin-top:5px;font-weight:400}
+    .columns{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:30px;align-items:start}
+    .columns>*{min-width:0}
+    .math{background:var(--math);border:1px solid #d2dadd;border-radius:3px;padding:19px 21px}
+    .equation{font:21px/1.65 var(--serif);margin:10px 0;overflow-wrap:anywhere}
+    .equation.small-eq{font-size:18px}
+    .source{margin-top:15px}
+    .note{border-left:2px solid var(--rule);padding:2px 0 2px 13px;margin-top:17px}
+    .status-table{font-size:12px}
+    .status-table tbody th{width:20%;font-size:12px}
+    .number{font-variant-numeric:tabular-nums;white-space:nowrap}
+    .numeric-table th,.numeric-table td{font-variant-numeric:tabular-nums}
+    .numeric-table th:not(:first-child),.numeric-table td:not(:first-child){text-align:right}
+    .numeric-table tbody th{width:auto}
+    .subsection{margin-top:27px}
+    .observation{background:var(--paper);border:1px solid var(--rule);padding:18px 21px;margin-top:20px}
+    .limits{margin:0;padding-left:20px;display:grid;gap:10px;font-size:15px}
+    .limits li{padding-left:3px;max-width:98ch}
+    .scope{background:var(--warm);padding:18px 21px;margin-top:21px;font-size:15px}
+    .definition{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px 32px;padding:20px 23px;background:var(--paper);border:1px solid var(--rule);border-top:3px solid var(--accent);margin:19px 0}
+    .definition>div{min-width:0}.definition h3{font:650 12px/1.4 var(--sans);color:var(--accent);text-transform:uppercase;letter-spacing:.05em;margin:0 0 10px}
+    .definition p,.definition li{font-size:15px;line-height:1.55}.definition ul,.definition ol{margin:0;padding-left:20px;display:grid;gap:8px}
+    .definition .span{grid-column:1/-1;border-top:1px solid var(--rule);padding-top:14px}
+    .given{font:12px/1.65 var(--sans);color:var(--muted);margin:12px 0 0}.given strong{color:var(--ink)}
+    .formula{font:18px/1.6 var(--serif);overflow-wrap:anywhere;margin:8px 0}.formula.long{font-size:16px}.definition .formula{font-size:17px}
+    figure.schematic{margin:23px 0 26px;break-inside:avoid}.schematic .drawing{overflow-x:auto;border:1px solid var(--rule);background:var(--paper);border-radius:3px}
+    .schematic svg{display:block;width:100%;height:auto;min-width:650px;color:var(--ink)}
+    .schematic svg text{font-family:var(--sans);font-size:17px;fill:var(--ink)}
+    .schematic svg .minor{font-size:14px;fill:var(--muted)}.schematic svg .panel-title{font-size:16px;fill:var(--accent);font-weight:650}
+    .schematic svg .accent-text{fill:var(--accent)}.schematic svg .material{fill:#e8edf0;stroke:#9dabb8;stroke-width:1.5}
+    .schematic svg .line{fill:none;stroke:var(--ink);stroke-width:2}.schematic svg .guide{fill:none;stroke:#7d8c98;stroke-width:1.3;stroke-dasharray:5 5}
+    .schematic svg .cohesive{fill:#e8bc91;stroke:#a36535;stroke-width:1.5}.schematic svg .fluid{fill:#cce4e0;stroke:var(--accent);stroke-width:1.5}
+    .schematic svg .flow{fill:none;stroke:var(--accent);stroke-width:2}.schematic svg .dim{fill:none;stroke:#5b6474;stroke-width:1.3}
+    figcaption{font:12px/1.6 var(--sans);color:var(--muted);margin-top:9px;max-width:115ch}
+    .boundary-table{font-size:12px;margin-top:10px}.boundary-table tbody th{width:auto;font-size:12px}
+    .task-detail{margin:15px 0 0;padding-top:12px}.task-detail summary{font-size:12px}.task-detail .tablewrap{margin-top:13px}
+    details{margin-top:23px;border-top:1px solid var(--rule);padding-top:17px}
+    summary{cursor:pointer;color:var(--accent);font:600 13px/1.6 var(--sans)}
+    .sources{columns:2;column-gap:35px;padding:15px 0 0 19px;margin:0;font:12px/1.6 var(--sans)}
+    .sources li{break-inside:avoid;margin:0 0 13px;padding-left:3px}
+    .sources span{display:block;color:var(--muted)}
+    footer{display:flex;justify-content:space-between;gap:20px;margin-top:22px;font:11px/1.5 var(--sans);color:var(--muted)}
+    sub,sup{font-size:.74em}
+    @media(max-width:760px){
+      html{scroll-padding-top:115px}
+      .page{padding:16px 20px 35px}.toolbar{margin-bottom:23px;align-items:start}.toolbar a{max-width:230px}
+      .lede{font-size:18px}.message{padding:17px 19px}.message p{font-size:17px}
+      .columns,.definition{grid-template-columns:1fr;gap:22px}.definition{padding:17px 18px}.definition .span{grid-column:auto}.section{padding:26px 0}h2{font-size:25px}.sources{columns:1}
+      .summary-table,.summary-table tbody,.summary-table tr,.summary-table tbody th,.summary-table td{display:block;width:100%!important}
+      .summary-table thead{display:none}.summary-table tr{border-bottom:1px solid var(--rule);padding:13px 0}
+      .summary-table tbody th,.summary-table td{border:0;padding:0 0 8px}.summary-table td:last-child{padding:0;font-size:12px}
+      .summary-table .reference{display:inline;margin-left:7px}.status-table{min-width:570px}.numeric-table{min-width:490px}
+      .equation{font-size:19px}.math{padding:16px}.limits{font-size:14px}footer{display:block}footer span{display:block;margin-bottom:5px}
+    }
+    @media print{
+      @page{size:A4;margin:15mm}
+      html{scroll-behavior:auto}body{background:white;font-size:10pt;line-height:1.45}.page{max-width:none;padding:0}
+      .toolbar,.toc,.skip,.case-return,.entry-links{display:none}header{padding-bottom:12pt}h1{font-size:27pt;max-width:none}h2{font-size:19pt}h3{font-size:13pt}
+      .kicker{font-size:7.5pt;margin-bottom:8pt}.lede{font-size:12pt;margin:12pt 0 9pt}.meta,.small,.source,.note{font-size:8pt}
+      .aim{font-size:9pt;margin-top:8pt}.message{margin:15pt 0;padding:12pt 15pt}.message p{font-size:11pt}
+      .section{padding:20pt 0}.section-head{margin-bottom:10pt}.label{font-size:7pt}.columns{gap:20pt}
+      table{font-size:8pt;line-height:1.4}caption{font-size:8pt}thead th{font-size:7pt}tbody th{font-size:8pt}th,td{padding:8pt 9pt 8pt 0}
+      .summary-table .reference{font-size:7pt}.status-table,.status-table tbody th{font-size:8pt}.tablewrap{overflow:visible;margin:10pt 0 6pt}
+      .math{padding:12pt}.equation{font-size:14pt}.equation.small-eq{font-size:12pt}.subsection{margin-top:18pt}
+      .observation,.scope{padding:12pt 14pt;margin-top:13pt}.scope,.limits{font-size:9pt}.limits{gap:7pt}.source{margin-top:10pt}
+      .sources{font-size:7.5pt;column-gap:22pt}summary{font-size:9pt}details{margin-top:14pt;padding-top:10pt}footer{font-size:7pt}
+      .definition{gap:14pt 18pt;padding:13pt 14pt;margin:12pt 0;break-inside:avoid}.definition h3{font-size:8pt}.definition p,.definition li{font-size:9pt}.definition .formula{font-size:10pt}.given{font-size:8pt}
+      .formula{font-size:12pt}.formula.long{font-size:10pt}figure.schematic{margin:14pt 0 17pt}.schematic svg{min-width:0}.schematic .drawing{overflow:visible}figcaption{font-size:8pt}
+      .boundary-table,.boundary-table tbody th{font-size:8pt}.task-detail{margin-top:10pt;padding-top:8pt}.task-detail summary{font-size:8pt}
+      a{color:inherit;text-decoration:none}h2,h3,.section-head{break-after:avoid}tr,.math,.observation,.scope{break-inside:avoid}
+      p{orphans:3;widows:3}.message,.math,.scope{print-color-adjust:exact}
+    }
+  
+  .agent-performance{margin-top:23px;border:1px solid var(--rule);border-top:4px solid var(--accent);padding:23px 24px!important;background:var(--paper)}
+  .performance-intro{font-size:15px;color:var(--muted)}.performance-table{font-size:13px;line-height:1.55}
+  .performance-table tbody th{width:19%;font-size:13px}.performance-table td:nth-child(2){width:33%}.performance-table td:last-child{width:48%}
+  .agent-performance .key-result{font-size:16px;margin-bottom:13px}.capability-matrix{font-size:12px;line-height:1.5;min-width:790px}
+  .capability-matrix tbody th{width:17%;font-size:12px}.capability-matrix td{width:20.75%}.capability-matrix td:nth-child(2){width:16%}
+  @media(max-width:760px){.agent-performance{padding:18px 16px!important}.performance-table{min-width:620px}.agent-performance .key-result{font-size:15px}}
+  @media print{.agent-performance{padding:13pt!important;margin-top:13pt}.performance-table,.performance-table tbody th,.capability-matrix,.capability-matrix tbody th{font-size:8pt}.capability-matrix{min-width:0}.agent-performance .key-result{font-size:9.5pt}}
+  .case-header{padding-bottom:24px}.case-header h1{max-width:1000px}
+  .case-header .lede{max-width:87ch}.case-header .meta{max-width:110ch}
+  .case-nav-label{font-weight:500;color:var(--muted)}
+  .case-section{padding:30px 0;border-bottom:1px solid var(--rule)}
+  .case-section>p,.record>p{max-width:100ch}
+  .records{margin:0;padding:0;list-style:none;counter-reset:record}
+  .record{counter-increment:record;padding:21px 0;border-bottom:1px solid var(--rule)}
+  .record:first-child{padding-top:0}.record:last-child{border-bottom:0;padding-bottom:0}
+  .record h3{font-size:21px;line-height:1.3;margin-bottom:11px}
+  .record h3:before{content:counter(record,decimal-leading-zero) ' · ';color:var(--accent);font-family:var(--sans);font-size:14px}
+  .record p{font-size:16px;line-height:1.6}.record .source{font-size:12px;margin-top:10px}
+  .record .tablewrap{margin:15px 0}.record .math{margin:15px 0;max-width:100ch}
+  .key-result{border-left:3px solid var(--accent);background:var(--wash);padding:17px 21px;margin:20px 0;font-size:18px}
+  .status-note{border-left:3px solid #b88242;background:var(--warm);padding:15px 19px;margin:20px 0;font:13px/1.6 var(--sans)}
+  .source-list{margin:0;padding-left:22px;display:grid;gap:14px;font:13px/1.55 var(--sans)}
+  .source-list span{display:block;color:var(--muted);margin-top:3px}.source-list li{break-inside:avoid}
+  .claim-table tbody th{width:27%}.run-table tbody th{width:auto}.run-table{font-size:12px}
+  .run-table td:first-child{white-space:nowrap}.equation-block{padding:14px 19px;background:var(--math);margin:15px 0}
+  .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+  .case-card{padding:22px 24px;border:1px solid var(--rule);border-top:3px solid var(--accent);background:var(--paper);min-width:0}
+  .case-card h3{font-size:23px;margin-bottom:12px}.case-card h3 a{text-decoration:none}
+  .case-card p{font-size:15px}.case-card .small{font-size:12px}.case-card .open-case{display:inline-block;font:650 12px/1.5 var(--sans);margin-top:3px}
+  .home-message{font-size:19px;max-width:92ch}.source-ref{white-space:normal}
+  .data-figure{margin:20px 0 32px;break-inside:avoid}.data-figure .plot-frame{overflow-x:auto;background:#fff}
+  .data-figure svg{display:block;width:100%;height:auto;min-width:960px}
+  .data-figure figcaption{font-size:13px;line-height:1.65;max-width:112ch}
+  .data-figure .source{font-size:12px;margin-top:8px;max-width:115ch}
+  .plot-instruction{display:none}
+  @media(max-width:760px){.data-figure .plot-instruction{display:block;font:12px/1.5 var(--sans);color:var(--muted);margin:0 0 7px}}
+  #numerical-results h3{font-size:22px;margin-top:28px}
+  @media print{.data-figure{margin:12pt 0 18pt}.data-figure svg{min-width:0}.data-figure .plot-frame{overflow:visible}.data-figure figcaption{font-size:8pt}.data-figure .source{font-size:7.5pt}}
+  @media(max-width:760px){.case-grid{grid-template-columns:1fr}.record h3{font-size:20px}.case-section{padding:25px 0}.record p{font-size:15px}.case-header .lede{font-size:18px}}
+  @media print{.case-section{padding:18pt 0}.record{padding:12pt 0}.record h3{font-size:12pt}.record h3:before{font-size:9pt}.record p{font-size:9.5pt}.record .source{font-size:8pt}.key-result{font-size:11pt;padding:10pt 13pt}.status-note{font-size:8pt;padding:10pt 12pt}.source-list{font-size:8pt;gap:8pt}.case-grid{gap:12pt}.case-card{padding:13pt;break-inside:avoid}.case-card h3{font-size:15pt}.case-card p{font-size:9pt}.open-case{display:none}.case-header .lede{font-size:12pt}}
+
+pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.65 ui-monospace,monospace;background:var(--paper);border:1px solid var(--rule);padding:20px}code{font-size:.9em}.trial-links{display:flex;flex-wrap:wrap;gap:10px 20px;margin:20px 0;font:13px var(--sans)}
+</style></head><body><main class="page" id="main"><div class="toolbar"><nav><a href="../../poroelastic-crack.html">← Poroelastic crack case</a><a href="../../poroelastic-crack.html">Poroelastic case</a></nav><button onclick="window.print()">Print / Save PDF</button></div>
+<header class="case-header"><p class="kicker">Additional independent solver trial · 24 October 2026</p><h1>Kimi K3.1 Pro on the poroelastic crack problem</h1><p class="lede">The single fresh CLI run delivered a derivation, numerical results and verification code. Five of nine requested numbers agree with the existing corrected reference. The short-time volume coefficient and both long-time loading-2 magnitudes differ; the initial tip intensity also requires the original problem’s order-of-limits qualification.</p><p class="meta">Model: <strong>kimi-code/k3.1-pro</strong> · CLI 2.3.1 · configured thinking effort: high · elapsed 7.86 minutes. The October 23 case-study counts remain the historical results of their original trials.</p></header><aside class="status-note"><strong>Review completed.</strong> <a href="grok-review-kimi-k31-2026-10-24.html">Grok 4.6 graded both anonymous submissions through Azure on OpenCode.</a> Read its boundary-condition findings and full verdicts.</aside>
+<section class="case-section"><h2>What the solver received</h2><p>The original <a href="../runs/kimi-k31-high-2026-10-24/workspace/PROBLEM.md">PROBLEM.md</a> was copied unchanged into a fresh workspace. The <a href="../runs/kimi-k31-high-2026-10-24/records/prompt.txt">instruction</a> allowed its own derivation and local computation, and prohibited web research, prior sessions, other projects, answer keys and help from other agents. No physics hints, solution feedback or retry were supplied.</p><p>The <a href="../runs/kimi-k31-high-2026-10-24/records/tool_audit.json">recorded tool audit</a> contains reads of the supplied problem and the solver’s own code, writes and edits inside its workspace, and executions of <code>python verify.py</code>. It contains no web or other-agent call and no outside file read. No additional AGENTS.md file was loaded.</p><p class="source">Saved inputs and output hashes: <a href="../runs/kimi-k31-high-2026-10-24/records/run_metadata.json">run metadata</a> · original retained session: CLI session export.</p></section>
+<section class="case-section"><h2>Comparison with the existing corrected reference</h2><p>This table uses the pre-existing <a href="../key/KEY_2026-10-08.md">corrected reference and rubric</a>, consulted after Kimi finished. It is a numerical comparison, not a new independent grader review. The reference tolerance is 1% for nonzero quantities and 0.01 for the zero quantity.</p><div class="tablewrap"><table><thead><tr><th scope="col">Quantity</th><th scope="col">Kimi</th><th scope="col">Existing reference</th><th scope="col">Comparison</th></tr></thead><tbody><tr><th scope="row"><code>K1_0</code></th><td>1</td><td>0.807593</td><td>Different limit reading; partial under existing rubric</td></tr><tr><th scope="row"><code>K1_inf</code></th><td>1</td><td>1</td><td>Within reference tolerance</td></tr><tr><th scope="row"><code>V1_0</code></th><td>1.88495559</td><td>1.88495559</td><td>Within reference tolerance</td></tr><tr><th scope="row"><code>V1_inf</code></th><td>2.51327412</td><td>2.51327412</td><td>Within reference tolerance</td></tr><tr><th scope="row"><code>V1_short_coeff</code></th><td>1.12837917</td><td>2.44022</td><td>Outside reference tolerance</td></tr><tr><th scope="row"><code>p_faces_0</code></th><td>0.74906367</td><td>0.74906367</td><td>Within reference tolerance</td></tr><tr><th scope="row"><code>K2_0</code></th><td>0</td><td>0</td><td>Within reference tolerance</td></tr><tr><th scope="row"><code>K2_inf</code></th><td>-0.89</td><td>-0.33375</td><td>Outside reference tolerance</td></tr><tr><th scope="row"><code>V2_inf</code></th><td>-2.23681397</td><td>-0.838805239</td><td>Outside reference tolerance</td></tr></tbody></table></div>
+<div class="status-note"><strong>Original wording matters.</strong> The unchanged task says “t = 0⁺” without explicitly ordering the time and crack-tip limits. Kimi’s K₁(0⁺) = 1 is the undrained-first limit. The existing rubric gives this partial credit; the corrected tip-first value is 0.807593. This discrepancy alone should not be treated as an unambiguous wrong answer.</div></section>
+<section class="case-section"><h2>What remained unsolved</h2><ol class="limits"><li><strong>Short-time volume growth.</strong> Kimi reports A = 1.128379 and argues that the small tip regions cannot change the leading term. The existing corrected record gives A = 2.440220, including a tip contribution at the same √t order.</li><li><strong>Loading-2 long-time response.</strong> The final answer gets closure signs but substitutes −α for the existing coupled back-stress factor −α(1 − 2ν)/[2(1 − ν)]. Both the intensity and the volume magnitudes consequently differ.</li><li><strong>Verification coverage.</strong> Kimi’s checks passed its constitutive identities, quadratures and internal numerical relations. Its script explicitly checks its own −α assumption; those passing checks do not establish the coupled crack solution.</li></ol><p class="note">This is one completed unaided run. The retained reference’s limits and review history are documented in the poroelastic case. No corrected answer was sent back to Kimi.</p></section>
+<section class="case-section"><h2>Retained submission</h2><div class="trial-links"><a href="../runs/kimi-k31-high-2026-10-24/workspace/ANSWER.md">Original answer</a><a href="../runs/kimi-k31-high-2026-10-24/workspace/results.json">Original results.json</a><a href="../runs/kimi-k31-high-2026-10-24/workspace/verify.py">Original verification code</a><a href="../runs/kimi-k31-high-2026-10-24/records/comparison.json">Comparison data</a></div><details><summary>Read the original answer as submitted</summary><pre># Suddenly pressurized crack: derivation and results
+
+Let the common loading magnitude be \(P\). The numerical request uses \(P=1\), and reports \(K/(P\sqrt{\pi L})\) and \(GV/(P L^2)\). Tension and opening are positive.
+
+## 1. Elastic crack result
+
+For a Griffith crack of length \(2L\) in a plane-strain elastic solid with Poisson ratio \(\nu_e\), a uniform opening traction \(P\) gives
+
+\[
+K=P\sqrt{\pi L},\qquad
+\Delta u(x)=\frac{2(1-\nu_e)}{G}P\sqrt{L^2-x^2},
+\]
+
+where \(\Delta u=u_y(x,0^+)-u_y(x,0^-)\). Consequently,
+
+\[
+V=\int_{-L}^{L}\Delta u(x)\,dx
+=\frac{\pi(1-\nu_e)}{G}P L^2.
+\]
+
+The instantaneous poroelastic response uses \(\nu_e=\nu_u\), whereas the fully drained response uses \(\nu_e=\nu\).
+
+## 2. Loading 1: instantaneous response and face pore pressure
+
+At \(t=0^+\), diffusion has not yet acted in the solid, so \(\zeta=0\). The fluid-content constitutive equation therefore gives
+
+\[
+p=-\beta\,\sigma_{kk},\qquad
+\beta=\frac{\nu_u-\nu}{\alpha(1-2\nu)}.
+\]
+
+Substitution into the strain law eliminates \(p\):
+
+\[
+2G e_{ij}=\sigma_{ij}-\nu_u\sigma_{kk}\delta_{ij}.
+\]
+
+Thus the instantaneous solid is elastic with Poisson ratio \(\nu_u\). For the uniformly loaded Griffith crack, the stresses on the solid side of the crack faces are \(\sigma_{yy}=\sigma_{xx}=-P\), so \(\sigma_{kk}=-2P\). Hence
+
+\[
+\boxed{\frac{p_{\rm faces}(0^+)}{P}
+=\frac{2(\nu_u-\nu)}{\alpha(1-2\nu)}}.
+\]
+
+This is the undrained pressure immediately inside the solid before drainage. The imposed value exactly on the hydraulically open face is \(p=0\) for \(t&gt;0\); the ideal step loading creates the initial surface discontinuity that the diffusion layer subsequently resolves.
+
+It follows that
+
+\[
+\boxed{K_1(0^+)=P\sqrt{\pi L}},\qquad
+\boxed{V_1(0^+)=\frac{\pi(1-\nu_u)}{G}P L^2}.
+\]
+
+At long times the load-induced pore pressure has drained away, so the drained elastic constants apply:
+
+\[
+\boxed{K_1(\infty)=P\sqrt{\pi L}},\qquad
+\boxed{V_1(\infty)=\frac{\pi(1-\nu)}{G}P L^2}.
+\]
+
+## 3. Loading 1: leading early-time growth
+
+Away from the crack tips, the early diffusion field is one-dimensional in the coordinate \(y\ge0\) normal to either face. Write changes from the instantaneous state as \(\Delta(\cdot)\). The normal traction is fixed, so equilibrium gives \(\Delta\sigma_{yy}=0\). Uniformity along the face gives \(\Delta e_{xx}=0\). The \(xx\) strain equation therefore yields
+
+\[
+(1-\nu)\Delta\sigma_{xx}+\alpha(1-2\nu)\Delta p=0,
+\]
+
+and the \(yy\) strain equation then reduces to
+
+\[
+\Delta e_{yy}=D\,\Delta p,\qquad
+D=\frac{\alpha(1-2\nu)}{2G(1-\nu)}.
+\]
+
+The stress term in the mass balance cannot be omitted. Using the above relation for \(\Delta\sigma_{xx}\), it becomes
+
+\[
+\frac{\alpha^2(1-2\nu)^2(1-\nu_u)}
+{(\nu_u-\nu)(1-\nu)}\,\frac{\partial p}{\partial t}
+=2G\kappa\,\frac{\partial^2p}{\partial y^2},
+\]
+
+which is exactly \(p_t=c p_{yy}\) for the diffusivity \(c\) given in the question.
+
+Initially \(p=p_{\rm faces}(0^+)\equiv p_0\) in the solid, while \(p(0,t)=0\). Thus
+
+\[
+p(y,t)=p_0\,\operatorname{erf}\!\left(\frac{y}{2\sqrt{ct}}\right),
+\qquad
+\Delta p=-p_0\,\operatorname{erfc}\!\left(\frac{y}{2\sqrt{ct}}\right).
+\]
+
+Using \(\int_0^\infty\operatorname{erfc}(\eta)\,d\eta=1/\sqrt{\pi}\),
+
+\[
+\int_0^\infty\Delta p\,dy=-2p_0\sqrt{\frac{ct}{\pi}}.
+\]
+
+Since the far field is unchanged, the upper-face displacement change is
+
+\[
+\Delta u_y(0^+)=-\int_0^\infty\Delta e_{yy}\,dy
+=2D p_0\sqrt{\frac{ct}{\pi}}.
+\]
+
+The lower face contributes equally, and integration over crack length \(2L\) gives
+
+\[
+V_1(t)-V_1(0^+)
+=8L D p_0\sqrt{\frac{ct}{\pi}}+o(\sqrt{ct}).
+\]
+
+But
+
+\[
+D p_0=\frac{\nu_u-\nu}{G(1-\nu)}P,
+\]
+
+so
+
+\[
+\boxed{V_1(t)=\frac{\pi(1-\nu_u)}{G}P L^2
++\frac{8(\nu_u-\nu)}{G(1-\nu)}P L\sqrt{\frac{ct}{\pi}}
++o(\sqrt{ct})}.
+\]
+
+Equivalently, \(V_1\simeq V_1(0^+)+A\sqrt{ct/L^2}\) in normalized units, with
+
+\[
+\boxed{A=\frac{8(\nu_u-\nu)}{(1-\nu)\sqrt{\pi}}}.
+\]
+
+The neglected tip regions occupy only \(O(\sqrt{ct})\) of the crack length and do not change the displayed leading term.
+
+## 4. Loading 2
+
+At \(t=0^+\), the pore pressure has not entered the solid and the zero-stress, zero-displacement state satisfies all bulk equations and the total-traction condition. Therefore
+
+\[
+\boxed{K_2(0^+)=0}.
+\]
+
+In the drained long-time limit, the appropriate traction on the solid is expressed through the effective stress \(\sigma_{ij}+\alpha p\,\delta_{ij}\). On a crack face, \(\sigma_n=0\) and \(p=P\), so the effective normal stress is \(+\alpha P\). Since an opening load \(P_o\) corresponds to face normal stress \(\sigma_n=-P_o\), this is equivalent to \(P_o=-\alpha P\). The pore pressure in the surrounding bulk drains toward zero at fixed spatial position in the long-time diffusive limit. Hence
+
+\[
+\boxed{K_2(\infty)=-\alpha P\sqrt{\pi L}},
+\qquad
+\boxed{V_2(\infty)=-\frac{\alpha\pi(1-\nu)}{G}P L^2}.
+\]
+
+The negative signs denote crack closure relative to the unloaded configuration.
+
+## 5. Numerical evaluation for \(\nu=0.2\), \(\nu_u=0.4\), \(\alpha=0.89\)
+
+The following values are per unit loading magnitude. \(K\) is in units of \(\sqrt{\pi L}\), and \(V\) is in units of \(L^2/G\).
+
+| Quantity | Value |
+|---|---:|
+| \(K_1(0^+)\) | 1 |
+| \(K_1(\infty)\) | 1 |
+| \(V_1(0^+)\) | 1.884955592154 |
+| \(V_1(\infty)\) | 2.513274122872 |
+| \(A\) | 1.128379167096 |
+| \(p_{\rm faces}(0^+)\) | 0.749063670412 |
+| \(K_2(0^+)\) | 0 |
+| \(K_2(\infty)\) | -0.89 |
+| \(V_2(\infty)\) | -2.236813969356 |
+
+The retained script `verify.py` independently checks the undrained elimination, zero fluid content at the faces, the stress-coupled diffusion coefficient, the normal-strain relation, the erfc integral, the elliptical crack area, and all numerical relations. It also writes `results.json`. No unresolved uncertainties remain for the stated ideal boundary-value problem.
+</pre></details></section><footer><span>Unaided solver output preserved unchanged</span><span>Additional trial, 24 October 2026</span></footer></main></body></html>

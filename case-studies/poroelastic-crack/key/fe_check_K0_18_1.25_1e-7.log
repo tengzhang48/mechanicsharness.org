@@ -1,0 +1,21 @@
+cells 5482, hmin 2.70e-06, c check 1.000000
+t=1.000e-07 K_inner/sqrt(piL)=nan (n=1) K_outer/sqrt(piL)=1.0093 (n=25) ratio=None
+t=2.250e-07 K_inner/sqrt(piL)=0.8097 (n=5) K_outer/sqrt(piL)=1.0113 (n=22) ratio=0.8006416010136691
+t=3.812e-07 K_inner/sqrt(piL)=0.8108 (n=7) K_outer/sqrt(piL)=1.0121 (n=19) ratio=0.8011575735548003
+t=5.766e-07 K_inner/sqrt(piL)=0.8116 (n=8) K_outer/sqrt(piL)=1.0138 (n=18) ratio=0.8005892894345484
+t=8.207e-07 K_inner/sqrt(piL)=0.8125 (n=10) K_outer/sqrt(piL)=1.0147 (n=16) ratio=0.8007186985222853
+t=1.126e-06 K_inner/sqrt(piL)=0.8133 (n=11) K_outer/sqrt(piL)=1.0162 (n=15) ratio=0.8002830548910619
+t=1.507e-06 K_inner/sqrt(piL)=0.8141 (n=13) K_outer/sqrt(piL)=1.0160 (n=13) ratio=0.8013266312753886
+t=1.984e-06 K_inner/sqrt(piL)=0.8148 (n=14) K_outer/sqrt(piL)=1.0170 (n=12) ratio=0.8011179770912673
+t=2.580e-06 K_inner/sqrt(piL)=0.8154 (n=15) K_outer/sqrt(piL)=1.0180 (n=11) ratio=0.8010001961513971
+t=3.325e-06 K_inner/sqrt(piL)=0.8161 (n=16) K_outer/sqrt(piL)=1.0189 (n=10) ratio=0.8009091008681101
+t=4.257e-06 K_inner/sqrt(piL)=0.8167 (n=17) K_outer/sqrt(piL)=1.0199 (n=9) ratio=0.8008375734328619
+t=5.421e-06 K_inner/sqrt(piL)=0.8174 (n=18) K_outer/sqrt(piL)=1.0211 (n=8) ratio=0.8005111229276504
+t=6.876e-06 K_inner/sqrt(piL)=0.8181 (n=19) K_outer/sqrt(piL)=1.0224 (n=7) ratio=0.8001789692094828
+t=8.695e-06 K_inner/sqrt(piL)=0.8188 (n=20) K_outer/sqrt(piL)=1.0239 (n=6) ratio=0.7996886198891215
+t=1.097e-05 K_inner/sqrt(piL)=0.8195 (n=21) K_outer/sqrt(piL)=1.0254 (n=5) ratio=0.799185375588492
+t=1.381e-05 K_inner/sqrt(piL)=0.8204 (n=23) K_outer/sqrt(piL)=1.0271 (n=4) ratio=0.7987110301464816
+t=1.736e-05 K_inner/sqrt(piL)=0.8211 (n=23) K_outer/sqrt(piL)=1.0289 (n=3) ratio=0.7980437145433228
+t=2.180e-05 K_inner/sqrt(piL)=0.8220 (n=24) K_outer/sqrt(piL)=nan (n=2) ratio=None
+t=2.736e-05 K_inner/sqrt(piL)=0.8229 (n=25) K_outer/sqrt(piL)=nan (n=1) ratio=None
+t=3.429e-05 K_inner/sqrt(piL)=0.8237 (n=26) K_outer/sqrt(piL)=nan (n=0) ratio=None

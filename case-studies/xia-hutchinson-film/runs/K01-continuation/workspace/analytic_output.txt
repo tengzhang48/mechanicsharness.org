@@ -1,0 +1,10 @@
+=== SYMBOLIC CHECKS (sympy) ===
+[PASS] ODE residual h*Eb*u2"" - k*u2 (must be 0): 0
+[PASS] C - (-ell*s0/(Eb cosh(S/2ell))) (must be 0): 0
+[PASS] sigma22(S) after fix (must be 0): 0
+[PASS] sigma12 on faces (u1=0, x1-independent) : 0
+[PASS] W_direct - W_target (0 by simplify; numeric True): 0
+[PASS] W_linear - (-2 h s0^2 ell/Eb tanh) (must be 0): 0
+[PASS] W_quad   - (+1 h s0^2 ell/Eb tanh) (must be 0): 0
+[PASS] 2tanh(x)-tanh(2x) - 2t^3/(1+t^2) (must be 0): 0
+ALL SYMBOLIC CHECKS PASS

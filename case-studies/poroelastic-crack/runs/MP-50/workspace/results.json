@@ -1,0 +1,23 @@
+{
+  "K1_0": 1.0,
+  "K1_inf": 1.0,
+  "V1_0": 1.8849555921538759,
+  "V1_inf": 2.5132741228718345,
+  "V1_short_coeff": 1.8054066673528204,
+  "p_faces_0": 0.7490636704119851,
+  "K2_0": 0.0,
+  "K2_inf": 0.0,
+  "V2_inf": 0.0,
+  "formulas": {
+    "K1_0": "K = -sigma_n*sqrt(pi*L)  (Michel/weight-function, modulus- & time-independent); sigma_n=-H(t) => K1 = +sqrt(pi*L) => K1/sqrt(pi*L) = 1",
+    "K1_inf": "same as K1_0:  K1_inf = sqrt(pi*L) => 1  (time independent)",
+    "V1_0": "V = pi(1-nu_u)*(-sigma_n)*L^2/G = pi(1-nu_u) L^2/G  (undrained instantaneous)",
+    "V1_inf": "V = pi(1-nu)*L^2/G  (drained long time)",
+    "V1_short_coeff": "V(t)=V1_0 + [16(nu_u-nu)/sqrt(pi)] sqrt(ct/L^2); A = 16(nu_u-nu)/sqrt(pi)",
+    "p_faces_0": "undrained p from zeta=0: p = -(nu_u-nu)*sigma_kk/[alpha(1-2nu)]; sigma_kk=-2 (sigma_xx=sigma_yy=-1 on the faces) => p_faces_0 = 2(nu_u-nu)/[alpha(1-2nu)]",
+    "K2_0": "sigma_n=0 on faces => K2 = -sigma_n*sqrt(pi*L) = 0 (and p=1 is a measure-zero initial layer, no stress at t=0+)",
+    "K2_inf": "at t->inf p is harmonic (p=1 on faces, 0 at infinity) => eigenstrain compatible => no stress => K2_inf = 0",
+    "V2_inf": "harmonic p => no stress => no opening => V2_inf = 0"
+  },
+  "reproduce_command": "python3 solve.py"
+}

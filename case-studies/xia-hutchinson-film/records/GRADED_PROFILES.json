@@ -1,0 +1,121 @@
+{
+  "updated_at_utc": "2026-10-16T00:13:32.848358+00:00",
+  "judgments_authored_by": "azure/grok-4.6",
+  "coordinator_scientific_judgments_authored": false,
+  "profiles": [
+    {
+      "solver": "S01",
+      "review": "R03",
+      "selected_model": "azure/gpt-6.1-sol",
+      "rubric_judgments": {
+        "item1_wake": "right",
+        "item2_energy": "right",
+        "item3_modes": "right",
+        "item4_thresholds": "right",
+        "item5_numerics": "right",
+        "item6_verification": "right",
+        "item7_scope": "right"
+      },
+      "numeric_agreement_count": 16,
+      "numeric_agreement_of": 16,
+      "grade_file": "reviews/R03/grade.json",
+      "review_replay_exit_code": 0
+    },
+    {
+      "solver": "S02",
+      "review": "R01",
+      "selected_model": "azure/DeepSeek-V4.1-Flash",
+      "rubric_judgments": {
+        "1_wake_formulation_and_fields": "wrong",
+        "2_energy_release": "partly",
+        "3_fracture_modes_and_intensities": "partly",
+        "4_propagation_thresholds_and_limits": "partly",
+        "5_requested_numerical_values": "partly",
+        "6_verification_and_reproducibility": "partly",
+        "7_physical_scope_and_uncertainty": "partly"
+      },
+      "numeric_values_delivered": 16,
+      "numeric_agreement_count": 0,
+      "numeric_agreement_of": 16,
+      "grade_file": "reviews/R01/grade.json",
+      "review_replay_exit_code": 0
+    },
+    {
+      "solver": "S03",
+      "review": "R02",
+      "selected_model": "azure/FW-Kimi-K3",
+      "rubric_judgments": {
+        "1_wake_formulation_and_fields": "missing",
+        "2_energy_release": "missing",
+        "3_fracture_modes_and_intensities": "missing",
+        "4_propagation_thresholds_and_limits": "missing",
+        "5_requested_numerical_values": "missing",
+        "6_verification_and_reproducibility": "missing",
+        "7_physical_scope_and_uncertainty": "missing"
+      },
+      "numeric_values_delivered": 0,
+      "numeric_agreement_count": null,
+      "numeric_agreement_of": 16,
+      "reviewer_raw_agreement_count": 0,
+      "mathematical_correctness_assessable": false,
+      "grade_file": "reviews/R02/grade.json",
+      "review_replay_exit_code": 0,
+      "interpretation": "All scientific deliverables missing; no claim of sixteen incorrect numerical answers"
+    },
+    {
+      "solver": "S04",
+      "review": "R04",
+      "selected_model": "kimi-code/k3",
+      "rubric_judgments": {
+        "item_1_wake": "right",
+        "item_2_energy": "right",
+        "item_3_modes": "right",
+        "item_4_thresholds": "right",
+        "item_5_numerics": "right",
+        "item_6_verification": "partly",
+        "item_7_scope": "partly"
+      },
+      "numeric_values_delivered": 16,
+      "numeric_agreement_count": 16,
+      "numeric_agreement_of": 16,
+      "grade_file": "reviews/R04/grade.json",
+      "review_replay_exit_code": 0,
+      "original_final_delivery_complete": false,
+      "interpretation": "Five right; verification and physical scope partly. Partial original table contains all16 values. Replayed results.json is not original final delivery."
+    }
+  ],
+  "pending": [],
+  "followup_profiles": [
+    {
+      "solver": "D01",
+      "review": "R05",
+      "selected_model": "deepseek/deepseek-flash",
+      "attempt_kind": "Fresh direct-API thinking-enabled follow-up",
+      "grader": "azure/grok-4.6",
+      "rubric_judgments": {
+        "1_wake_formulation_and_fields": "right",
+        "2_energy_release": "right",
+        "3_fracture_modes_and_intensities": "right",
+        "4_propagation_thresholds_and_limits": "right",
+        "5_requested_numerical_values": "right",
+        "6_verification_and_reproducibility": "right",
+        "7_physical_scope_and_uncertainty": "partly"
+      },
+      "verdict_counts": {
+        "right": 6,
+        "partly": 1
+      },
+      "numeric_values_delivered": 16,
+      "numeric_agreement_count": 16,
+      "numeric_agreement_of": 16,
+      "grade_file": "reviews/R05/grade.json",
+      "review_replay_exit_code": 0,
+      "reviewer_FEM_agreement_count": 16,
+      "reviewer_FEM_tolerance_abs": 1e-06,
+      "interpretation": "Grok rates six right and physical scope partly. Its report acknowledges the nonzero-prestress prose error, but does not explicitly discuss the reversed displayed Case B balance. Retain the separate coordinator observations; this is not a declaration of an error-free proof.",
+      "original_S02_grade_replaced": false,
+      "historical_thinking_mode": "unverified",
+      "controlled_off_on_comparison": false
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "status": "complete",
+  "generated_utc": "2026-10-15T13:08:24.791358+00:00",
+  "nu": 0.3,
+  "units": {
+    "ell": "m",
+    "G": "J/m^2",
+    "KI": "Pa*sqrt(m)",
+    "ell_over_H": "dimensionless",
+    "gamma_A": "GA*Ebar/(sigma0^2*ell), dimensionless",
+    "gamma_B": "GB*Ebar/(sigma0^2*ell), dimensionless",
+    "kI_A": "KI_A/(sigma0*sqrt(ell)), dimensionless",
+    "kI_B": "KI_B/(sigma0*sqrt(ell)), dimensionless"
+  },
+  "formulas": {
+    "Ebar": "E/(1-nu^2)",
+    "ell": "sqrt(h*Ebar/k)",
+    "gamma_A": "tanh(H/(2*ell))",
+    "gamma_B": "2*tanh(H/(2*ell))-tanh(H/ell)",
+    "gamma_B_stable": "2*T^3/(1+T^2), T=tanh(H/(2*ell))",
+    "kI": "sqrt((1-nu^2)*gamma)",
+    "KII": "0 by reflection symmetry",
+    "sigma_c_A": "sqrt(Gc*Ebar/(ell*gamma_A))",
+    "sigma_c_B": "sqrt(Gc*Ebar/(ell*gamma_B))"
+  },
+  "rows": [
+    {
+      "ell_over_H": 0.5,
+      "gamma_A": 0.7615941559557649,
+      "gamma_B": 0.5591607318357128,
+      "kI_A": 0.8324966558009383,
+      "kI_B": 0.7133276007351032
+    },
+    {
+      "ell_over_H": 1.0,
+      "gamma_A": 0.46211715726000974,
+      "gamma_B": 0.1626401585642546,
+      "kI_A": 0.6484802333969856,
+      "kI_B": 0.3847109880071944
+    },
+    {
+      "ell_over_H": 1.5,
+      "gamma_A": 0.32151273753163434,
+      "gamma_B": 0.06024252971535856,
+      "kI_A": 0.5409034952316238,
+      "kI_B": 0.23413821140722907
+    },
+    {
+      "ell_over_H": 2.0,
+      "gamma_A": 0.24491866240370913,
+      "gamma_B": 0.0277201675474085,
+      "kI_A": 0.4720974293378172,
+      "kI_B": 0.1588249113588348
+    }
+  ],
+  "checks": [
+    {
+      "name": "symbolic_equilibrium_faces_and_B_identity",
+      "outputs": {
+        "v_second_minus_v": "0",
+        "sigma22_plus_face": "0",
+        "sigma22_minus_face": "0",
+        "B_positive_identity_residual": "0"
+      },
+      "tolerance": "exact zero",
+      "pass": true,
+      "detects": "Wrong decay length, displacement sign, face loading, or B subtraction"
+    },
+    {
+      "name": "symbolic_small_spacing_series",
+      "outputs": {
+        "gamma_A": "w/2 - w**3/24 + w**5/240 - 17*w**7/40320 + O(w**8)",
+        "gamma_B": "w**3/4 - w**5/8 + 17*w**7/320 + O(w**8)"
+      },
+      "tolerance": "exact requested coefficients",
+      "pass": true,
+      "detects": "Wrong power or coefficient in dense-array shielding limits"
+    },
+    {
+      "name": "direct_full_energy_quadrature",
+      "outputs": {
+        "widths_H_over_ell": [
+          0.5,
+          0.6666666666666666,
+          1.0,
+          1.3333333333333333,
+          2.0,
+          4.0
+        ],
+        "max_abs_energy_error": 1.1102230246251565e-16
+      },
+      "tolerance": {
+        "max_abs_energy_error": 1e-11
+      },
+      "pass": true,
+      "detects": "Missing foundation energy, wrong prestress term, or factor of two"
+    },
+    {
+      "name": "numerical_strip_boundary_value_problem",
+      "outputs": {
+        "max_abs_field_error": 1.5587531265737198e-13,
+        "max_abs_face_residual": 0.0
+      },
+      "tolerance": {
+        "field_error": 2e-09,
+        "face_residual": 1e-12
+      },
+      "pass": true,
+      "detects": "Wrong strip centering, relaxation sign, or natural face conditions"
+    },
+    {
+      "name": "variational_finite_element_energy_release",
+      "outputs": {
+        "mesh_convergence": [
+          {
+            "elements_per_strip": 128,
+            "max_relative_gamma_A_error": 4.562768022759346e-06,
+            "max_relative_gamma_B_error": 4.743628567283227e-05
+          },
+          {
+            "elements_per_strip": 256,
+            "max_relative_gamma_A_error": 1.1407311495881127e-06,
+            "max_relative_gamma_B_error": 1.1859749658087852e-05
+          },
+          {
+            "elements_per_strip": 512,
+            "max_relative_gamma_A_error": 2.851852338132268e-07,
+            "max_relative_gamma_B_error": 2.9649798079363637e-06
+          },
+          {
+            "elements_per_strip": 1024,
+            "max_relative_gamma_A_error": 7.129646137254114e-08,
+            "max_relative_gamma_B_error": 7.41247601656255e-07
+          },
+          {
+            "elements_per_strip": 2048,
+            "max_relative_gamma_A_error": 1.7824124855032374e-08,
+            "max_relative_gamma_B_error": 1.8531206615507827e-07
+          }
+        ],
+        "gamma_B_error_reduction_ratios": [
+          3.999771246476751,
+          3.999942807820428,
+          3.9999857015542006,
+          3.9999964224452738
+        ]
+      },
+      "tolerance": {
+        "final_relative_A_and_B_error": 2e-06,
+        "successive_B_error_ratio": [
+          3.5,
+          4.5
+        ]
+      },
+      "pass": true,
+      "detects": "Energy-release signs, B old/new strip accounting, and analytic energy"
+    },
+    {
+      "name": "numerical_spacing_limits",
+      "outputs": {
+        "small_H_over_ell": 0.001,
+        "gamma_A_over_H_over_2ell": 0.999999916666675,
+        "gamma_B_over_H_cubed_over_4ell_cubed": 0.9999995000002124,
+        "large_H_over_ell": 40.0,
+        "large_gamma_A": 1.0,
+        "large_gamma_B": 1.0
+      },
+      "tolerance": {
+        "small_relative_error": 1e-06,
+        "large_abs_error": 1e-12
+      },
+      "pass": true,
+      "detects": "Wrong dense-array scaling or isolated-crack normalization"
+    },
+    {
+      "name": "plane_stress_intensity_normalization",
+      "outputs": {
+        "max_abs_gamma_from_kI_error": 5.551115123125783e-17
+      },
+      "tolerance": {
+        "max_abs_error": 1e-14
+      },
+      "pass": true,
+      "detects": "E versus Ebar conversion only; not an independent crack-tip extraction"
+    },
+    {
+      "name": "shielding_and_critical_stress_ordering",
+      "outputs": {
+        "all_0_less_B_less_A_less_1": true,
+        "sigma_c_B_over_sigma_c_A_at_sampling_rows": [
+          1.1670607655487162,
+          1.6856296118707648,
+          2.310188892196019,
+          2.972439432194629
+        ]
+      },
+      "tolerance": "strict inequalities",
+      "pass": true,
+      "detects": "Interchanged geometries or incorrect signs in the split-strip release"
+    }
+  ],
+  "missing_work": [],
+  "verification_scope": "Symbolic equilibrium, numerical BVP, direct energy quadrature, and variational 1D finite elements share the given elastic functional and translation-invariant far-field assumption. No independent 2D crack-tip extraction or experimental validation."
+}

@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "task": "Energy release for periodic cracks in an elastic film (PROBLEM.md)",
+    "source": "Z.C. Xia & J.W. Hutchinson, Crack patterns in thin films, JMPS 48 (2000) 1107-1131; Sec. 4.2; Eqs. 28, 30 (see also Eqs. 4-12, 27); Eq. 6 notation ambiguity noted in REFERENCE.md Sec. 7",
+    "nu": 0.3,
+    "fixed_variables": "h, E, nu, k, sigma0 fixed during each increment of crack advance (PROBLEM.md); nu = 0.3 for the tabulated values; ell/H values are normalized sampling locations, not material data",
+    "definitions": {
+      "ell": "sqrt(Ebar*h/k) wake decay (interaction) length; Ebar = E/(1-nu^2)",
+      "gamma_A": "G_A*Ebar/(sigma0^2*ell) = tanh(H/(2*ell))  [dimensionless]",
+      "gamma_B": "G_B*Ebar/(sigma0^2*ell) = 2*tanh(H/(2*ell)) - tanh(H/ell) = 2*G'(H) - G'(2H)  [dimensionless]",
+      "kI_A": "KI_A/(sigma0*sqrt(ell)) = sqrt((1-nu^2)*gamma_A)  [dimensionless]",
+      "kI_B": "KI_B/(sigma0*sqrt(ell)) = sqrt((1-nu^2)*gamma_B)  [dimensionless]"
+    },
+    "units": {
+      "G": "J/m^2 (energy per advancing crack area; release per unit in-plane advance per tip divided by h)",
+      "KI": "Pa*sqrt(m)",
+      "sigma_c": "sigma_c = sqrt(Gc*Ebar/(ell*gamma(H))) [Pa]",
+      "ell": "m; k in Pa/m"
+    },
+    "assumptions": [
+      "plane-stress film on Winkler foundation f = -k u; linear elasticity; quasistatic",
+      "u1 = 0 far from tips (mode-I symmetry); 1D wake states exactly solve the model there",
+      "total traction sigma.n = 0 on crack faces (Delta_sigma.n = -sigma0 n), NOT incremental traction",
+      "steady simultaneous advance (Case A, one moving tip per period H) vs steady sequential midway advance (Case B, one moving new tip per period 2H; old cracks fixed)",
+      "pure mode I by reflection symmetry: KII = 0; G = KI^2/E",
+      "energy from the problem's stated incremental functional h*sigma0*eps_gg + (h/2)*Delta_sigma*eps + (k/2)u^2"
+    ],
+    "limits": {
+      "H/ell->0": "gamma_A ~ (H/2*ell)(1-(H/ell)^2/12), gamma_B ~ (H/ell)^3/4; sigma_c,A ~ sqrt(2*Gc*Ebar/H), sigma_c,B ~ 2*sqrt(Gc*Ebar)*ell/H^(3/2) (shielding; sequential cracking arrests at spacing of order ell)",
+      "H/ell->inf": "gamma_A, gamma_B -> 1; sigma_c -> sqrt(Gc*Ebar/ell) (isolated semi-infinite crack, XH2000 Eqs. 10-12, 27); interaction negligible beyond H ~ 3*ell"
+    },
+    "numerical_validation": {
+      "routes": "analytic; scipy.solve_bvp collocation strip BVP; independent 2nd-order finite-difference BVP; Simpson quadrature of the stated functional using only numerical v",
+      "max_bvp_vs_exact": 8.548717289613705e-15,
+      "max_energy_residual": 5.551115123125783e-16,
+      "max_prod_mismatch": 2.1435553332338486e-10,
+      "recommended_comparison_tolerances": {
+        "gamma": "1e-6 absolute (observed route agreement <= 2.1e-10)",
+        "kI": "1e-6 absolute (sqrt roughly halves relative error)",
+        "G_dimensional": "1e-6 relative, plus any physical-input uncertainty (substrate wavelength dependence, k calibration) which dominates in practice"
+      }
+    },
+    "controls_deliberately_wrong": {
+      "C1_omit_foundation_energy_gamma_A_wrong": [
+        0.9324040631266322,
+        0.49656380264853245,
+        0.3328308463632991,
+        0.24987613750476642
+      ],
+      "C2_incremental_traction_gamma_A_wrong": -0.0,
+      "C3_swapped_spacings_gamma_B_wrong": [
+        1.1664610041958683,
+        1.0610711546515204,
+        0.8440531531641858,
+        0.6793156521163104
+      ]
+    },
+    "grade": "none (reference preparation only; no experimental grading or physical validation implied)"
+  },
+  "rows": [
+    {
+      "ell_over_H": 0.5,
+      "H_over_ell": 2.0,
+      "gamma_A": 0.7615941559557649,
+      "gamma_B": 0.5591607318357128,
+      "kI_A": 0.8324966558009383,
+      "kI_B": 0.7133276007351032,
+      "gamma_A_numerical_bvp": 0.7615941559557651,
+      "gamma_B_numerical_bvp": 0.5591607318357135,
+      "gamma_A_numerical_fd": 0.7615941558326897,
+      "gamma_B_numerical_fd": 0.5591607320500683
+    },
+    {
+      "ell_over_H": 1.0,
+      "H_over_ell": 1.0,
+      "gamma_A": 0.46211715726000974,
+      "gamma_B": 0.16264015856425462,
+      "kI_A": 0.6484802333969856,
+      "kI_B": 0.38471098800719444,
+      "gamma_A_numerical_bvp": 0.4621171572600098,
+      "gamma_B_numerical_bvp": 0.1626401585642545,
+      "gamma_A_numerical_fd": 0.46211715723773017,
+      "gamma_B_numerical_fd": 0.1626401586427706
+    },
+    {
+      "ell_over_H": 1.5,
+      "H_over_ell": 0.6666666666666666,
+      "gamma_A": 0.32151273753163434,
+      "gamma_B": 0.060242529715358484,
+      "kI_A": 0.5409034952316238,
+      "kI_B": 0.23413821140722893,
+      "gamma_A_numerical_bvp": 0.32151273753163434,
+      "gamma_B_numerical_bvp": 0.060242529715358595,
+      "gamma_A_numerical_fd": 0.3215127375244573,
+      "gamma_B_numerical_fd": 0.06024252974836597
+    },
+    {
+      "ell_over_H": 2.0,
+      "H_over_ell": 0.5,
+      "gamma_A": 0.24491866240370913,
+      "gamma_B": 0.027720167547408525,
+      "kI_A": 0.4720974293378172,
+      "kI_B": 0.1588249113588349,
+      "gamma_A_numerical_bvp": 0.24491866240370913,
+      "gamma_B_numerical_bvp": 0.02772016754740847,
+      "gamma_A_numerical_fd": 0.24491866240058813,
+      "gamma_B_numerical_fd": 0.027720167563446085
+    }
+  ]
+}

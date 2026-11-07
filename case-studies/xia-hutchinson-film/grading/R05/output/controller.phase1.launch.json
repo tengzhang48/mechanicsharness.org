@@ -1,0 +1,51 @@
+{
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=2.000000s",
+    "477.994468s",
+    "<pilot-folder>/reviews/R05/public_opencode.py",
+    "run",
+    "--auto",
+    "-m",
+    "azure/grok-4.6",
+    "--dir",
+    "<review-runs>/reviews/R05/work",
+    "--format",
+    "json",
+    "--variant",
+    "high",
+    "Independent scientific review: initial_analysis. FIRST write STATUS.md with UTC time and incomplete obligations. Read TASK.md, PROBLEM.md and RUBRIC.md. Review the neutral submission and frozen reference under TASK.md. Derive deciding quantities independently; preserve your executed checking code and outputs. Save GRADE.md and grade.json incrementally, with partial judgments and incomplete checks explicit, plus the delivery aliases ANSWER.md and results.json. Do not edit submission/ or reference/. Provisional reporting starts at minute 8 and ends at minute 10; total review budget is 25 minutes including reporting. Finish and exit earlier when done. Work only here; no web, peer reviews, identity lookup, delegation or unowned process signals. Bound any calculation with a timeout or record its owned PID. No desired grade or coordinator interpretation is supplied."
+  ],
+  "identity": {
+    "command": [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=2.000000s",
+      "477.994468s",
+      "<pilot-folder>/reviews/R05/public_opencode.py",
+      "run",
+      "--auto",
+      "-m",
+      "azure/grok-4.6",
+      "--dir",
+      "<review-runs>/reviews/R05/work",
+      "--format",
+      "json",
+      "--variant",
+      "high",
+      "Independent scientific review: initial_analysis. FIRST write STATUS.md with UTC time and incomplete obligations. Read TASK.md, PROBLEM.md and RUBRIC.md. Review the neutral submission and frozen reference under TASK.md. Derive deciding quantities independently; preserve your executed checking code and outputs. Save GRADE.md and grade.json incrementally, with partial judgments and incomplete checks explicit, plus the delivery aliases ANSWER.md and results.json. Do not edit submission/ or reference/. Provisional reporting starts at minute 8 and ends at minute 10; total review budget is 25 minutes including reporting. Finish and exit earlier when done. Work only here; no web, peer reviews, identity lookup, delegation or unowned process signals. Bound any calculation with a timeout or record its owned PID. No desired grade or coordinator interpretation is supplied."
+    ],
+    "cwd": "<review-runs>/reviews/R05/work",
+    "pid": 521286,
+    "start_ticks": "34084537"
+  },
+  "number": 1,
+  "original_end_offset_seconds": 480.0,
+  "output_cap_requested": 16384,
+  "phase": "initial_analysis",
+  "resumed_session_id": null,
+  "selected_variant": "high",
+  "started_at_utc": "2026-10-15T23:52:40.635418+00:00",
+  "termination_grace_seconds_inside_phase": 2.0
+}

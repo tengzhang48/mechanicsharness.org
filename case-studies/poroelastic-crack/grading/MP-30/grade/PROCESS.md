@@ -1,0 +1,8 @@
+# Grading process
+
+- 19:38:11 UTC — Read `TASK.md`, `TASK_PROBLEM.md`, `KEY.md`, and `AUTO_CHECKS.json`; began reviewing the submission under the corrected P374 key. All work is confined to this folder; no web access is used.
+- 19:38:21 UTC — Read every delivered Python file, `ANSWER.md`, `results.json`, and the solver's process log, with line numbers. Identified the doubled opening, wrong pressure trace, ad hoc small-time averaging, and omitted poroelastic stress coupling.
+- 19:39:00 UTC — Reran all nine Python entry points in `scratch/submission_rerun/`, recording each child PID and its output in `scratch/rerun_logs.json`. `solve.py` exactly regenerates the submitted JSON; `derive.py` fails, and `diffusion.py` produces no output.
+- 19:40:41 UTC — Independently compared all nine values against the stated bands (`scratch/key_comparison.json`). The submitted opening implies face traction −2 instead of −1; its pressure gives a nonzero undrained mass-law residual of 0.712.
+- 19:42:02 UTC — Exercised the delivered stress and FD helper functions without editing the submission. Confirmed a wrong square-root branch on the left half-plane and an FD comparison between different spatial coordinates; distinguished actual pressure from the computed pressure deficit.
+- 19:45:16 UTC — Completed `GRADE.md` and validated its nine required sections, final JSON syntax and permitted classifications, answer keys, and consistency of the listed error counts. Rechecked source/challenge mentions and confirmed the submitted JSON still matches the rerun. Final profile: all three parts partly right; requested supporting pressure wrong; six decisive, nine side, and three presentation issues; seven reported check groups, two counted as capable of failing.

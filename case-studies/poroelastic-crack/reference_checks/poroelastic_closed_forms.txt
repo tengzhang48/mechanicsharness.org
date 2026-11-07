@@ -1,0 +1,12 @@
+# poroelastic_closed_forms.py rerun 2026-10-25T00:51:22Z with python 3.13.9 numpy 2.5.0 scipy 1.18.0
+# command: python -I poroelastic_closed_forms.py (from assets/case_studies_review_checks_2026-10-23)
+K1_0 heuristic 0.7499999999999999
+V1_0 1.8849555921538759 V1_inf 2.5132741228718345
+A faces 1.354055000514615 A total 2.440220000514615
+p_faces_0 0.7490636704119851
+eta DC 0.33375 V2_inf -0.8388052385084748
+eta_t 0.33333333333333337
+0.75*1.07679067 = 0.8075930025
+exponent B 0.7428236956756953  energy-matching (1+eta_t)^-1/2 = 0.8660254037844386
+Wilson eta_t=1 exponent 0.7325241282035077
+interior stress/p -0.33375 (should equal -eta)
