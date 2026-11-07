@@ -6,7 +6,7 @@
 <title>MechanicsHarness</title>
 <meta name="description" content="MechanicsHarness shows how AI agents and mechanics can work together, with every result checked against an independent reference or a measurement.">
 <link rel="icon" href="assets/favicon.svg?v=crack-tip" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css?v=4ea5439e">
+<link rel="stylesheet" href="assets/style.css?v=724c7623">
 </head>
 <body class="page-index">
 <header class="site">
@@ -186,10 +186,12 @@ the key and what every agent did.</p>
   <article class="card" id="viscoelastic-crack">
     <div class="illustration">
       <svg viewBox="0 0 64 60" aria-hidden="true" focusable="false">
-        <path class="g-edge" d="M4 12H60M4 48H60"/>
-        <path class="g-edge" d="M4 30H30"/>
-        <path class="g-new" d="M30 30H42"/>
-        <path class="g-hidden" d="M42 30H60"/>
+        <rect class="g-body" x="4" y="14" width="56" height="32"/>
+        <path class="g-crack" d="M4 30H26"/>
+        <path class="g-zone" d="M26 30H41"/>
+        <path class="g-hidden" d="M41 30H60"/>
+        <path class="g-arrow" d="M42 39.5H53"/>
+        <path class="g-arrowhead" d="M52 36.3L58 39.5L52 42.7Z"/>
       </svg>
     </div>
     <div class="cardbody">
@@ -213,9 +215,12 @@ the key and what every agent did.</p>
   <article class="card" id="grain-boundary-wedge">
     <div class="illustration">
       <svg viewBox="0 0 64 60" aria-hidden="true" focusable="false">
-        <path class="g-edge" d="M4 14H60M4 40H60"/>
-        <path class="g-hidden" d="M4 52H60"/>
-        <path class="g-new" d="M28 14C28.4 28 30 36 32 40C34 36 35.6 28 36 14Z"/>
+        <rect class="g-sub" x="12" y="40" width="40" height="12"/>
+        <rect class="g-body" x="12" y="12" width="40" height="28"/>
+        <path class="g-hidden" d="M32 12V40"/>
+        <path class="g-wedge" d="M26.5 12C27 26 29.5 36 32 40C34.5 36 37 26 37.5 12Z"/>
+        <path class="g-arrow" d="M10 26H4.5M54 26H59.5"/>
+        <path class="g-arrowhead" d="M5.5 23L0.5 26L5.5 29Z"/><path class="g-arrowhead" d="M58.5 23L63.5 26L58.5 29Z"/>
       </svg>
     </div>
     <div class="cardbody">
