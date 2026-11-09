@@ -1,0 +1,51 @@
+{
+  "slip_0.02_mm": {
+    "reported": 0.001318,
+    "reference": 0.001318126777760562,
+    "relative_error_percent": 0.009618024813784544,
+    "within_2_percent": true,
+    "reference_rerun_relative_error": 0.0
+  },
+  "slip_0.08_mm": {
+    "reported": 0.001794,
+    "reference": 0.0017936937381386464,
+    "relative_error_percent": 0.01707436753787335,
+    "within_2_percent": true,
+    "reference_rerun_relative_error": 0.0
+  },
+  "tau_rz_0.02mm_60deg_MPa": {
+    "reported": 38.59,
+    "reference": 38.586596862313044,
+    "relative_error_percent": 0.00881948128025513,
+    "within_2_percent": true,
+    "reference_rerun_relative_error": 0.0
+  },
+  "tau_thetaz_0.02mm_60deg_MPa": {
+    "reported": 138.01,
+    "reference": 138.01061663235828,
+    "relative_error_percent": 0.0004468006689152667,
+    "within_2_percent": true,
+    "reference_rerun_relative_error": 0.0
+  },
+  "gamma_contour_0deg_mm": {
+    "reported": 0.0469,
+    "reference": 0.046894423054945324,
+    "relative_error_percent": 0.011892555001986476,
+    "within_2_percent": true,
+    "reference_rerun_relative_error": 0.0
+  },
+  "gamma_contour_90deg_mm": {
+    "reported": 0.0251,
+    "reference": 0.025066123488862637,
+    "relative_error_percent": 0.13514858471201469,
+    "within_2_percent": true,
+    "reference_rerun_relative_error": 0.0
+  },
+  "gamma_contour_180deg_mm": {
+    "reported": 0.0134,
+    "reference": 0.013398406587127234,
+    "relative_error_percent": 0.011892555002006823,
+    "within_2_percent": true,
+    "reference_rerun_relative_error": 0.0
+  }
+}

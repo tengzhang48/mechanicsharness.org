@@ -1,0 +1,39 @@
+=== amplitude ===
+J(A=1) at R=0.05      = 2.84661855e-10 N/mm (units with A=1)
+A (tau = A r^(-1/(n+1)) S)  = 82.53416679 MPa mm^(1/(n+1))
+D = c A^n (w = D r^(1/(n+1)) F) = 2.23065929e-03 mm^(n/(n+1))
+
+=== verification 1: J on several circles ===
+  R =  0.005 mm:  J = 0.12000000 N/mm
+  R =  0.020 mm:  J = 0.12000000 N/mm
+  R =  0.080 mm:  J = 0.12000000 N/mm
+  R =  0.200 mm:  J = 0.12000000 N/mm
+  R =  0.300 mm:  J = 0.12000000 N/mm
+
+=== answers ===
+1) dw(r=0.0200) = 1.318127e-03 mm
+1) dw(r=0.0800) = 1.793694e-03 mm
+2) r=0.02, th=60deg: tau_rz = 38.5866 MPa, tau_thz = 138.0106 MPa
+3) |gamma|=0.01 at theta=  0.0 deg: r = 0.046894 mm  (T=0.777778)
+3) |gamma|=0.01 at theta= 90.0 deg: r = 0.025066 mm  (T=0.676711)
+3) |gamma|=0.01 at theta=180.0 deg: r = 0.013398 mm  (T=0.588778)
+
+=== verification 2: n=1 regression (exact LEFM) ===
+  max|F(theta) - sin(theta/2)| = 4.5035859286279845e-07
+  max|S_r - 0.5 sin(th/2)| = 7.167030524612983e-09   max|S_th - 0.5 cos(th/2)| = 1.6002346896964584e-08
+  I_J(n=1) = 0.7853981633972231   pi/4 = 0.7853981633974483
+
+=== verification 3: nonlinear-oscillator ODE vs closed form ===
+  g(pi) from ODE = 1.595e-16  (should be 0: traction-free + J consistency)
+  max|g_ODE - g_closed| = 1.554e-15
+  g'(pi) ODE = 0.588778, closed = 0.588778  (= T(pi) = a n^(-1/(n+1)) = 0.588778)
+
+=== verification 4: PDE/BC residuals of the full field ===
+  max FD equilibrium residual / scale = 1.713e-07
+  tau_thz on faces (theta=+-pi): 3.282e-06 MPa at r=0.05 (exact 0 by construction)
+  constitutive check: |tau| = 134.742882 MPa vs tau0(|g|/g0)^(1/n) = 134.742882 MPa
+  grad-w check at (r=0.03,45deg): FD (-6.946773e-03,1.027363e-02) vs analytic (-6.946773e-03,1.027363e-02)
+  contour spot checks (should be 0.01):
+    theta=  0.0 r=0.046894: |gamma| = 0.010000
+    theta= 90.0 r=0.025066: |gamma| = 0.010000
+    theta=180.0 r=0.013398: |gamma| = 0.010000

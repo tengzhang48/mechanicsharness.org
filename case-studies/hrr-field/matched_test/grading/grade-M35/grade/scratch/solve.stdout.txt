@@ -1,0 +1,38 @@
+1) T = 4816.472187 MPa
+   E_t = 4816.4722 MPa, nu_t = 0.48623865, K_t = 62.073970 MPa*mm^0.5, P = 5.14150818e-03 mm^0.5
+   residual Czz_pred-Czz_meas = -8.674e-19
+   uniqueness: dg/dT < 0 on (0,E): g(100)=3.5662e-02, g(4818.55)=4.998861e-03, g(69000)=8.2281e-04
+2) angular stress coefs at 60deg: srr=1.082532, stt=0.649519, srt=0.375000
+   C_rr = 3.942048e-03, C_tt = 6.331781e-04, C_gamma_rt = 5.731131e-03  mm^0.5
+3) C_y(90) = 9.139019e-03 mm^0.5 ; cross-check 2*C_yy(90) = 9.139019e-03
+   max-principal check: 2*nu_t = 0.97248 > 1-nu_t = 0.51376 -> |e_zz| governs
+4) r interval = [0.01000000, 0.06132523] mm, nonempty = True
+   sig_e at r_hi = 100.0000 MPa ; |e_zz| at r_lo = 0.050000
+
+V2 full-law limits (leading stress field fed through the COMPLETE law):
+   r=1e-02 th=0 : sqrt(r)e_zz = -0.00480666
+   r=1e-04 th=0 : sqrt(r)e_zz = -0.00498067
+   r=1e-06 th=0 : sqrt(r)e_zz = -0.00499807
+   r=1e-08 th=0 : sqrt(r)e_zz = -0.00499981
+   r=1e-02 th=60: C_rr=3.814169e-03 C_tt=6.149097e-04 C_g=5.541280e-03
+   r=1e-04 th=60: C_rr=3.929260e-03 C_tt=6.313513e-04 C_g=5.712146e-03
+   r=1e-06 th=60: C_rr=3.940769e-03 C_tt=6.329955e-04 C_g=5.729233e-03
+   r=1e-08 th=60: C_rr=3.941920e-03 C_tt=6.331599e-04 C_g=5.730941e-03
+
+V1 J contour integral on the leading field (expect J = 0.800 N/mm):
+   rho=1e-01 mm: J(tangent W)=0.08853210, J(full-law W)=0.088368 (err -7.12e-01)
+   rho=1e-02 mm: J(tangent W)=0.08853210, J(full-law W)=0.088527 (err -7.11e-01)
+   rho=1e-03 mm: J(tangent W)=0.08853210, J(full-law W)=0.088532 (err -7.11e-01)
+   rho=1e-04 mm: J(tangent W)=0.08853210, J(full-law W)=0.088532 (err -7.11e-01)
+   rho=1e-05 mm: J(tangent W)=0.08853210, J(full-law W)=0.088532 (err -7.11e-01)
+   rho=1e-06 mm: J(tangent W)=0.08853210, J(full-law W)=0.088532 (err -7.11e-01)
+   K_t^2/E_t = 0.800000 (by construction = J)
+
+V3 compatibility (numeric sym-grad u vs tangent-law strains):
+   th=60, r=0.005: e_xx num/law = -1.444275e-02/-1.444275e-02, e_yy = 7.914623e-02/7.914623e-02, e_xy = -5.421011e-12/2.865336e-18
+   y=1e-03: u_y formula=2.89001154e-04, int e_yy dy=2.89994050e-04, u_y/sqrt(y)=9.139019e-03
+   y=1e-02: u_y formula=9.13901894e-04, int e_yy dy=9.24853724e-04, u_y/sqrt(y)=9.139019e-03
+   y=1e-01: u_y formula=2.89001154e-03, int e_yy dy=3.00275710e-03, u_y/sqrt(y)=9.139019e-03
+
+face check theta->pi: sig_theta_theta=0.000e+00, sig_r_theta~-0.0e+00 (both ~0)
+face opening u_y(r,pi) = 6.5036e-04 > 0

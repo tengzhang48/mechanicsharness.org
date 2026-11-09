@@ -1,0 +1,41 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      {
+        "location": "submission/ANSWER.md:145",
+        "quote": "finite energy, crack exponent fixed by J, crack faces open."
+      },
+      {
+        "location": "submission/PROCESS.md:6",
+        "quote": "ran check_field (all PASS) and direct J (0.8 in 3 form)"
+      }
+    ]
+  },
+  "B2": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      {
+        "location": "submission/ANSWER.md:157",
+        "quote": "still small-strain (`max|principal strain| ≤ 0.05`)"
+      },
+      {
+        "location": "submission/ANSWER.md:164",
+        "quote": "a process-zone/damage model — explicitly excluded"
+      }
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "The original-law small-r convergence check and uniaxial tangent identity verify the constitutive reduction, rather than benchmark the crack-field method against an independent known limiting case such as T = E. Timing follows the step log: the field checks follow the initial numerical solve, and the applicability discussion is documented in the final answer after the numerical work."
+}

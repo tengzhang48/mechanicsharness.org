@@ -1,0 +1,14 @@
+{
+ "note": "Excerpt for the crack-bridging case, made on 8 November 2026: the labels of this case's eight runs (T1 and T2) only; the other problems of the probe pilot are left out.",
+ "seed_source": "sha256('probe-labels-2026-10-06')[:12]",
+ "map": {
+  "P038-T1-with-glm": "R24",
+  "P038-T1-with-dsaz": "R08",
+  "P038-T1-without-glm": "R30",
+  "P038-T1-without-dsaz": "R03",
+  "P038-T2-with-glm": "R26",
+  "P038-T2-with-dsaz": "R36",
+  "P038-T2-without-glm": "R15",
+  "P038-T2-without-dsaz": "R21"
+ }
+}

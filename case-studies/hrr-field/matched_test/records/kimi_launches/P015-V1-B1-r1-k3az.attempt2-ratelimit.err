@@ -1,0 +1,2 @@
+{"ts":"2026-10-07T03:05:57.639Z","type":"error","message":"hook dispatch failed: session.hook requires a valid hook event payload"}
+{"ts":"2026-10-07T03:05:57.741Z","type":"error","message":"Your requests to FW-Kimi-K3 for FW-Kimi-K3 in eastus have exceeded token rate limit."}

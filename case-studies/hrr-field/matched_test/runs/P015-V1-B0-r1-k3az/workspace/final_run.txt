@@ -1,0 +1,25 @@
+[check n=1] max|h-2sin(t/2)|/max = 1.487e-12; |I-pi/4|/(pi/4) = 1.200e-13; |a - K-field a|/a = 6.013e-14
+
+n = 3.5, p = 1/(n+1) = 0.222222, beta = 0.172840
+I_J = 2.01959528;  h(pi) = 1.69843323;  a = 9.256091e-04 mm^(n/(n+1))
+[check equilibrium] max |ODE residual|/scale (interior) = 3.568e-09
+[check faces] h'(pi) = 0.000e+00 (traction-free face, should be ~0)
+[check J cartesian FD] J(R=0.02) = 0.120000 N/mm vs applied 0.120000; rel = 2.216e-11
+[check J cartesian FD] J(R=0.05) = 0.120000 N/mm vs applied 0.120000; rel = 8.321e-12
+[check J cartesian FD] J(R=0.1) = 0.120000 N/mm vs applied 0.120000; rel = 7.489e-12
+
+=== Requested numbers ===
+1) Delta w(r=0.02 mm) = 1.318127e-03 mm
+1) Delta w(r=0.08 mm) = 1.793694e-03 mm
+2) tau_rz(0.02, 60deg) = 38.586597 MPa ; tau_theta_z = 138.010617 MPa
+3) |gamma|=0.0100 at theta=0 deg: r = 4.689442e-02 mm
+3) |gamma|=0.0100 at theta=90 deg: r = 2.506612e-02 mm
+3) |gamma|=0.0100 at theta=180 deg (upper face): r = 1.339841e-02 mm
+shooting 2nd-order ODE: h'(pi) = -3.472e-14  (must be ~0 => exponent consistent)
+max |h_shoot - h_first_integral| / max = 2.922e-12
+theta=   0.0 deg: h=0.000000, h'=1.000000, q=1.000000
+theta=  60.0 deg: h=0.960852, h'=0.763695, q=0.792983
+theta=  90.0 deg: h=1.303240, h'=0.541808, q=0.614353
+theta= 120.0 deg: h=1.530815, h'=0.332891, q=0.475962
+theta= 180.0 deg: h=1.698433, h'=0.000000, q=0.377430
+shooting check passed

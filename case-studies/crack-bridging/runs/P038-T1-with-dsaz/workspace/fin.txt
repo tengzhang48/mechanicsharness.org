@@ -1,0 +1,4 @@
+E'=1.410590e+11  ell=7.9346 mm  alpha=0.30247  K0n=0.12360
+N=  300: L=4.132229 mm  Sigma=133.82971 MPa  delta(root)/dc=1.000000
+N=  600: L=4.051940 mm  Sigma=133.60406 MPa  delta(root)/dc=1.000000
+N= 1000: L=4.117758 mm  Sigma=133.89042 MPa  delta(root)/dc=1.000000

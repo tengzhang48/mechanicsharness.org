@@ -1,0 +1,144 @@
+{
+  "tolerance_comparison": [
+    {
+      "quantity": "T",
+      "submitted": 4816.47,
+      "reference": 4816.472187302739,
+      "relative_error": 4.5412963138645724e-07,
+      "relative_error_percent": 4.5412963138645727e-05,
+      "relative_tolerance": 0.01,
+      "within_tolerance": true
+    },
+    {
+      "quantity": "C_rr at 60 degrees",
+      "submitted": 0.0039421,
+      "reference": 0.003942048237733179,
+      "relative_error": 1.3130805028061712e-05,
+      "relative_error_percent": 0.0013130805028061712,
+      "relative_tolerance": 0.02,
+      "within_tolerance": true
+    },
+    {
+      "quantity": "C_thetatheta at 60 degrees",
+      "submitted": 0.00063318,
+      "reference": 0.0006331781350710297,
+      "relative_error": 2.9453464466978295e-06,
+      "relative_error_percent": 0.00029453464466978294,
+      "relative_tolerance": 0.02,
+      "within_tolerance": true
+    },
+    {
+      "quantity": "C_engineering_rtheta at 60 degrees",
+      "submitted": 0.0057311,
+      "reference": 0.005731131133456488,
+      "relative_error": 5.432340625674498e-06,
+      "relative_error_percent": 0.0005432340625674498,
+      "relative_tolerance": 0.02,
+      "within_tolerance": true
+    },
+    {
+      "quantity": "C_y at 90 degrees",
+      "submitted": 0.009139,
+      "reference": 0.009139018941480233,
+      "relative_error": 2.0725944824645e-06,
+      "relative_error_percent": 0.00020725944824645002,
+      "relative_tolerance": 0.02,
+      "within_tolerance": true
+    },
+    {
+      "quantity": "Lower radius endpoint",
+      "submitted": 0.01,
+      "reference": 0.009999999999999998,
+      "relative_error": 1.7347234759768073e-16,
+      "relative_error_percent": 1.7347234759768074e-14,
+      "relative_tolerance": 0.02,
+      "within_tolerance": true
+    },
+    {
+      "quantity": "Upper radius endpoint",
+      "submitted": 0.06133,
+      "reference": 0.06132522854990914,
+      "relative_error": 7.78056634061761e-05,
+      "relative_error_percent": 0.00778056634061761,
+      "relative_tolerance": 0.02,
+      "within_tolerance": true
+    }
+  ],
+  "submission_J_check": [
+    {
+      "r_mm": 0.01,
+      "J_N_per_mm_printed": 0.102752
+    },
+    {
+      "r_mm": 0.05,
+      "J_N_per_mm_printed": 0.102752
+    },
+    {
+      "r_mm": 0.15,
+      "J_N_per_mm_printed": 0.102752
+    }
+  ],
+  "submission_compatibility_check": [
+    {
+      "angle_deg": 10,
+      "stress_law_strains": [
+        0.008504254492133705,
+        0.00813853734728799,
+        0.0020900830468015535
+      ],
+      "displacement_strains": [
+        0.008504254490161706,
+        0.00813853734688375,
+        0.002090083047207884
+      ],
+      "maximum_absolute_difference": 1.9719989530209148e-12
+    },
+    {
+      "angle_deg": 60,
+      "stress_law_strains": [
+        0.012465851077489754,
+        0.0020022850714421967,
+        0.009061713975412469
+      ],
+      "displacement_strains": [
+        0.012465851071883846,
+        0.002002285068215467,
+        0.009061713976604643
+      ],
+      "maximum_absolute_difference": 5.605908098837986e-12
+    },
+    {
+      "angle_deg": 90,
+      "stress_law_strains": [
+        0.014450057717249309,
+        -0.002636874019249532,
+        0.008543465868249419
+      ],
+      "displacement_strains": [
+        0.014450057715057611,
+        -0.0026368740177473695,
+        0.008543465867486695
+      ],
+      "maximum_absolute_difference": 2.1916982118064254e-12
+    },
+    {
+      "angle_deg": 150,
+      "stress_law_strains": [
+        0.007997258372717048,
+        -0.0036733330396769336,
+        0.0015635627720722795
+      ],
+      "displacement_strains": [
+        0.007997258373611541,
+        -0.003673333042328937,
+        0.0015635627737379575
+      ],
+      "maximum_absolute_difference": 2.6520036167099192e-12
+    }
+  ],
+  "compatibility_maximum_absolute_difference": 5.605908098837986e-12,
+  "copies_identical": {
+    "solve.py": true,
+    "final.py": true
+  }
+}

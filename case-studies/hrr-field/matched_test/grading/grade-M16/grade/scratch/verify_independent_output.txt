@@ -1,0 +1,9 @@
+
+independent J on circles (physical units):
+  r = 0.005:  J = 0.800000   (target 0.800)
+  r = 0.020:  J = 0.800000   (target 0.800)
+  r = 0.050:  J = 0.800000   (target 0.800)
+  r = 0.100:  J = 0.800000   (target 0.800)
+
+C_y(90°) kinematic = 0.009139;  via closed-form u_r (Sun&Jin-type) = 0.009139
+C_zz(60°) predicted = -0.004330 (consistency of angular form, not used in the fit)

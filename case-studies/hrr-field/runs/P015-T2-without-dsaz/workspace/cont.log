@@ -1,0 +1,59 @@
+crack alpha=pi, continuation in n from 1 to 4 (expect s->0.2):
+   n=1.0001: success=True s=-0.31693682 rms=9.99e-09
+   n=1.1250958333333334: success=True s=-0.27008807 rms=7.46e-09
+   n=1.2500916666666666: success=False s=-0.10122859 rms=3.19e+00
+   n=1.3750875: success=False s=1.03450716 rms=1.99e+02
+   n=1.5000833333333334: success=False s=-0.62431008 rms=3.24e-01
+   n=1.6250791666666666: success=True s=-0.60179039 rms=9.94e-09
+   n=1.750075: success=True s=-0.57718116 rms=9.96e-09
+   n=1.8750708333333335: success=True s=-0.55082748 rms=9.79e-09
+   n=2.0000666666666667: success=True s=-0.52197813 rms=9.52e-09
+   n=2.1250625000000003: success=True s=-0.48962173 rms=8.97e-09
+   n=2.2500583333333335: success=True s=-0.45232937 rms=8.38e-09
+   n=2.3750541666666667: success=False s=-0.40806847 rms=1.13e-07
+   n=2.50005: success=False s=-0.35426329 rms=9.22e-07
+   n=2.6250458333333335: success=False s=-0.28943576 rms=6.24e-07
+   n=2.750041666666667: success=True s=-0.21897455 rms=9.97e-09
+   n=2.8750375000000004: success=False s=-0.15741988 rms=6.89e-07
+   n=3.0000333333333336: success=False s=-0.11300190 rms=1.11e-06
+   n=3.1250291666666667: success=False s=-0.08281905 rms=3.68e-07
+   n=3.250025: success=False s=-0.06204118 rms=6.35e-08
+   n=3.375020833333334: success=True s=-0.04731663 rms=9.63e-09
+   n=3.500016666666667: success=True s=-0.03659465 rms=9.80e-09
+   n=3.6250125000000004: success=True s=-0.02861211 rms=9.64e-09
+   n=3.7500083333333336: success=True s=-0.02256360 rms=9.62e-09
+   n=3.875004166666667: success=True s=-0.01791615 rms=9.82e-09
+   n=4.0: success=True s=-0.01430516 rms=9.84e-09
+   crack s = -0.014305155041887221
+target alpha=2pi/3 continuation in alpha:
+   alpha=3.14159: success=True s=-0.01430516
+   alpha=3.10548: success=True s=-0.01422882
+   alpha=3.06937: success=True s=-0.01416616
+   alpha=3.03326: success=True s=-0.01411676
+   alpha=2.99715: success=True s=-0.01408038
+   alpha=2.96104: success=True s=-0.01405683
+   alpha=2.92493: success=False s=-0.01404602
+   alpha=2.88882: success=False s=-0.01404794
+   alpha=2.85271: success=False s=-0.01406256
+   alpha=2.81660: success=False s=-0.01408987
+   alpha=2.78049: success=False s=-0.01412978
+   alpha=2.74438: success=False s=-0.01418204
+   alpha=2.70827: success=False s=-0.01424609
+   alpha=2.67216: success=False s=-0.01432089
+   alpha=2.63605: success=False s=-0.01440453
+   alpha=2.59994: success=False s=-0.01449365
+   alpha=2.56383: success=False s=-0.01458234
+   alpha=2.52772: success=False s=-0.01465999
+   alpha=2.49161: success=False s=-0.01470678
+   alpha=2.45550: success=False s=-0.01468494
+   alpha=2.41939: success=True s=-0.01453577
+   alpha=2.38328: success=True s=-0.01418034
+   alpha=2.34717: success=True s=-0.01351232
+   alpha=2.31106: success=True s=-0.01239004
+   alpha=2.27495: success=True s=-0.01062701
+   alpha=2.23884: success=True s=-0.00798054
+   alpha=2.20273: success=True s=-0.00413751
+   alpha=2.16662: success=True s=0.00130396
+   alpha=2.13051: success=True s=0.00885949
+   alpha=2.09440: success=True s=0.01919409
+FINAL s (target) = 0.019194085219829595

@@ -1,0 +1,51 @@
+<probe-runs>/runs/P015-T1-without-dsaz/final2.py:19: RuntimeWarning: invalid value encountered in scalar divide
+  sep=(0.75*2.0*(A-B)*(Ap-Bp)+3.0*2.0*C*Cp)/(2.0*se)
+<probe-runs>/runs/P015-T1-without-dsaz/final2.py:20: RuntimeWarning: divide by zero encountered in scalar power
+  q=se**(nn-1.0); qp=(nn-1.0)*se**(nn-2.0)*sep
+<probe-runs>/runs/P015-T1-without-dsaz/final2.py:20: RuntimeWarning: invalid value encountered in scalar multiply
+  q=se**(nn-1.0); qp=(nn-1.0)*se**(nn-2.0)*sep
+<probe-runs>/runs/P015-T1-without-dsaz/final2.py:29: RuntimeWarning: invalid value encountered in scalar divide
+  sepp_noD3=(se2pp-2.0*sep*sep)/(2.0*se); sepp_d3=se2pp_d3/(2.0*se)
+<probe-runs>/runs/P015-T1-without-dsaz/final2.py:30: RuntimeWarning: divide by zero encountered in scalar power
+  qpp_noD3=(nn-1.0)*((nn-2.0)*se**(nn-3.0)*sep*sep+se**(nn-2.0)*sepp_noD3)
+<probe-runs>/runs/P015-T1-without-dsaz/final2.py:31: RuntimeWarning: divide by zero encountered in scalar power
+  qpp_d3=(nn-1.0)*se**(nn-2.0)*sepp_d3
+<probe-runs>/runs/P015-T1-without-dsaz/final2.py:31: RuntimeWarning: invalid value encountered in scalar multiply
+  qpp_d3=(nn-1.0)*se**(nn-2.0)*sepp_d3
+Traceback (most recent call last):
+  File "<probe-runs>/runs/P015-T1-without-dsaz/final2.py", line 49, in <module>
+    u,info,ier,msg=fsolve(lambda x:endres(x),u,xtol=1e-10,full_output=True)
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<home>/.local/lib/python3.13/site-packages/scipy/optimize/_minpack_py.py", line 171, in fsolve
+    res = _root_hybr(_wrapped_func, x0, args, jac=fprime, **options)
+  File "<home>/.local/lib/python3.13/site-packages/scipy/optimize/_minpack_py.py", line 239, in _root_hybr
+    shape, dtype = _check_func('fsolve', 'func', func, x0, args, n, (n,))
+                   ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<home>/.local/lib/python3.13/site-packages/scipy/optimize/_minpack_py.py", line 24, in _check_func
+    res = atleast_1d(thefunc(*((x0[:numinputs],) + args)))
+                     ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<home>/.local/lib/python3.13/site-packages/scipy/optimize/_minpack_py.py", line 159, in _wrapped_func
+    return func(*fargs)
+  File "<probe-runs>/runs/P015-T1-without-dsaz/final2.py", line 49, in <lambda>
+    u,info,ier,msg=fsolve(lambda x:endres(x),u,xtol=1e-10,full_output=True)
+                                   ~~~~~~^^^
+  File "<probe-runs>/runs/P015-T1-without-dsaz/final2.py", line 38, in endres
+    s=solve_ivp(rhs,[0.0,np.pi],[1.0,0.0,u[0],u[1]],rtol=rtol,atol=1e-12,
+                method='Radau',max_step=0.03)
+  File "<home>/.local/lib/python3.13/site-packages/scipy/integrate/_ivp/ivp.py", line 660, in solve_ivp
+    message = solver.step()
+  File "<home>/.local/lib/python3.13/site-packages/scipy/integrate/_ivp/base.py", line 201, in step
+    success, message = self._step_impl()
+                       ~~~~~~~~~~~~~~~^^
+  File "<home>/.local/lib/python3.13/site-packages/scipy/integrate/_ivp/radau.py", line 461, in _step_impl
+    LU_real = self.lu(MU_REAL / h * self.I - J)
+  File "<home>/.local/lib/python3.13/site-packages/scipy/integrate/_ivp/radau.py", line 333, in lu
+    return lu_factor(A, overwrite_a=True)
+  File "<home>/.local/lib/python3.13/site-packages/scipy/_lib/_util.py", line 1136, in wrapper
+    return f(*arrays, *other_args, **kwargs)
+  File "<home>/.local/lib/python3.13/site-packages/scipy/linalg/_decomp_lu.py", line 107, in lu_factor
+    a1 = asarray_chkfinite(a)
+  File "<home>/miniconda3/lib/python3.13/site-packages/numpy/lib/_function_base_impl.py", line 673, in asarray_chkfinite
+    raise ValueError(
+        "array must not contain infs or NaNs")
+ValueError: array must not contain infs or NaNs

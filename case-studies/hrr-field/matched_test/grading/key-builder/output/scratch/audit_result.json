@@ -1,0 +1,23 @@
+{
+  "V1": {
+    "required_files": 5,
+    "rubric_points": 100,
+    "tables": "well formed",
+    "statement_source_cues": "none found",
+    "reference_json": "valid"
+  },
+  "V2": {
+    "required_files": 5,
+    "rubric_points": 100,
+    "tables": "well formed",
+    "statement_source_cues": "none found",
+    "reference_json": "valid"
+  },
+  "A1": {
+    "required_files": 5,
+    "rubric_points": 100,
+    "tables": "well formed",
+    "statement_source_cues": "none found",
+    "reference_json": "valid"
+  }
+}

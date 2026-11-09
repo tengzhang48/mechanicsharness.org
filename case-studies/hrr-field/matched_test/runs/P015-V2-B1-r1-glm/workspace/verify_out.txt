@@ -1,0 +1,33 @@
+PASS  faces traction-free: 2.55e-23 (tol 0.001)
+        applies: always (faces at theta = +-beta are traction-free)
+PASS  mode I symmetry: 1.43e-16 (tol 0.001)
+        applies: declared mode I
+PASS  equilibrium (angular ODEs, declared p): 9.99e-11 (tol 1e-05)
+        applies: always; uses the declared p and spline derivatives of the given functions; tight, so it also tests the exponent
+PASS  equilibrium (Cartesian, finite differences): 1.08e-08 (tol 0.001)
+        applies: always; samples away from the faces; residual / field scale at r = 1
+PASS  compatibility (Saint-Venant, strains from the declared law): 4.06e-07 (tol 0.01)
+        applies: law=linear, n=1.0, plane stress; second differences, so tolerance is 10x; residual / strain scale at r = 1
+PASS  finite energy near the tip: 1 (tol > 0)
+        applies: always; requires p*(n+1) < 2 for the power law (p < 1 linear) | W*r ~ r^(+0.0000)
+PASS  crack exponent fixed by J: 0 (tol 1e-06)
+        applies: leading term of a crack (beta = pi), flanks parallel to x: finite nonzero J needs p = 1/2
+PASS  crack faces open (no interpenetration): -1 (tol <= 0.001 (U_theta(pi)/max|U|))
+        applies: crack, mode I, amplitude sign as given; if the faces would interpenetrate, traction-free faces are not admissible and contact is the missing physics | U_theta(pi) = -1.4273
+PASS  compatibility (displacements from strains, shear relation): 2.57e-12 (tol 0.01)
+        applies: mode I; integration constant fixed by symmetry (u_theta(0) = 0)
+n/a   J of the field (report): 0.8 (tol None)
+        applies: crack: J = I in the field's normalization, with all material constants = 1 | J at r = 0.5, 1, 2: 0.8, 0.8, 0.8
+PASS  reported J (or I) matches the field's own J: 8.3e-14 (tol 0.01)
+        applies: crack, mode I; same normalization and material constants = 1 | field J = 0.8, reported = 0.8
+n/a   normalization (report only): 0.412 (tol None)
+        applies: state your convention; I, K and the field must share it | max effective stress of the given angular field = 0.412026 at theta = -1.2315
+
+independent J on circles (physical units):
+  r = 0.005:  J = 0.800000   (target 0.800)
+  r = 0.020:  J = 0.800000   (target 0.800)
+  r = 0.050:  J = 0.800000   (target 0.800)
+  r = 0.100:  J = 0.800000   (target 0.800)
+
+C_y(90°) kinematic = 0.009139;  via closed-form u_r (Sun&Jin-type) = 0.009139
+C_zz(60°) predicted = -0.004330 (consistency of angular form, not used in the fit)

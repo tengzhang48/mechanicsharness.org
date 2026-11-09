@@ -1,0 +1,50 @@
+{
+ "P038-T1-with-glm": {
+  "label": "R24",
+  "total": 100.0
+ },
+ "P038-T1-with-dsaz": {
+  "label": "R08",
+  "total": 100.0
+ },
+ "P038-T1-without-glm": {
+  "label": "R30",
+  "total": 100.0
+ },
+ "P038-T1-without-dsaz": {
+  "label": "R03",
+  "total": 47.0
+ },
+ "P038-T2-with-glm": {
+  "label": "R26",
+  "total": 100.0
+ },
+ "P038-T2-with-dsaz": {
+  "label": "R36",
+  "total": 100.0
+ },
+ "P038-T2-without-glm": {
+  "label": "R15",
+  "total": 100.0
+ },
+ "P038-T2-without-dsaz": {
+  "label": "R21",
+  "total": 94.0
+ },
+ "P038-T3-with-glm": {
+  "label": "R16",
+  "total": 96.0
+ },
+ "P038-T3-with-dsaz": {
+  "label": "R34",
+  "total": 89.5
+ },
+ "P038-T3-without-glm": {
+  "label": "R18",
+  "total": 88.5
+ },
+ "P038-T3-without-dsaz": {
+  "label": "R33",
+  "total": 60.5
+ }
+}

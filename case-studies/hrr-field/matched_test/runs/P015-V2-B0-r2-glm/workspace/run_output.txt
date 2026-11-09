@@ -1,0 +1,67 @@
+T               = 4816.472187 MPa
+nu_eq           = 0.48623865
+K_I = sqrt(J T) = 62.073970 MPa sqrt(mm)
+K/sqrt(2pi)     = 24.763931 MPa
+check C_zz      = -0.00500000 mm^(1/2) (measured -0.005)
+
+theta=60deg: f_rr=1.08253175 (5sqrt3/8=1.08253175), f_tt=0.64951905 (3sqrt3/8=0.64951905), f_rt=0.37500000 (3/8=0.37500000)
+C_rr(60deg)  = 3.942048e-03 mm^(1/2)
+C_tt(60deg)  = 6.331781e-04 mm^(1/2)
+C_grt(60deg) = 5.731131e-03 mm^(1/2)
+
+compatibility of integrated displacement (shear relation residual): 7.78e-13
+C_y(90deg) by integrating strains from the stress field      = 9.139019e-03
+C_y(90deg) closed form K(1+nu_eq)kappa/(2 sqrt(pi) E_eq)     = 9.139019e-03
+C_y(90deg) line integral 2*C_eyy(90deg)                      = 9.139019e-03
+FD strains vs law at (r=0.05, th=0.600): dUx/dx-exx=-1.89e-12, dUy/dy-eyy=-1.83e-12, 1/2(dUx/dy+dUy/dx)-exy=1.32e-02
+FD strains vs law at (r=0.137, th=2.100): dUx/dx-exx=-4.85e-13, dUy/dy-eyy=-4.75e-13, 1/2(dUx/dy+dUy/dx)-exy=1.82e-02
+FD strains vs law at (r=0.02, th=1.571): dUx/dx-exx=2.58e-11, dUy/dy-eyy=1.00e-11, 1/2(dUx/dy+dUy/dx)-exy=5.14e-02
+
+screening: C_in=2.641508e-03, |C_zz|=5.000000e-03 -> binding 5.000000e-03
+r from strain screen  >= 0.010000 mm
+r from sigma_e screen <= 0.061325 mm (K^2/(2 pi (10 sig_y)^2))
+interval on theta=0: [0.010000, 0.061325] mm, nonempty=True
+  r=0.010000: sigma_e=247.639 MPa (24.8 sig_y), eps_max=0.05000, bracket <1-sig_y/sig_e>=0.9596
+  r=0.061325: sigma_e=100.000 MPa (10.0 sig_y), eps_max=0.02019, bracket <1-sig_y/sig_e>=0.9000
+
+J on circles (true deformation-theory W, leading-field u):
+  R= 0.00001 mm:  J = 0.800000 N/mm   (target 0.800)
+  R= 0.00010 mm:  J = 0.800000 N/mm   (target 0.800)
+  R= 0.00100 mm:  J = 0.800000 N/mm   (target 0.800)
+  R= 0.00610 mm:  J = 0.799998 N/mm   (target 0.800)
+  R= 0.06130 mm:  J = 0.799921 N/mm   (target 0.800)
+  R= 0.20000 mm:  J = 0.799535 N/mm   (target 0.800)
+
+sqrt(r)*eps_zz(r,0) from the FULL law (should -> -0.005):
+  r=1e-08: sqrt(r)*eps_zz = -0.00499981
+  r=1e-06: sqrt(r)*eps_zz = -0.00499807
+  r=1e-04: sqrt(r)*eps_zz = -0.00498067
+  r=1e-02: sqrt(r)*eps_zz = -0.00480666
+
+=== knowledge/checks/crack_tip_checks.py on my leading field ===
+PASS  faces traction-free: 3.15e-24 (tol 0.001)
+        applies: always (faces at theta = +-beta are traction-free)
+PASS  mode I symmetry: 1.32e-16 (tol 0.001)
+        applies: declared mode I
+PASS  equilibrium (angular ODEs, declared p): 9.99e-11 (tol 1e-05)
+        applies: always; uses the declared p and spline derivatives of the given functions; tight, so it also tests the exponent
+PASS  equilibrium (Cartesian, finite differences): 1.08e-08 (tol 0.001)
+        applies: always; samples away from the faces; residual / field scale at r = 1
+PASS  compatibility (Saint-Venant, strains from the declared law): 4.06e-07 (tol 0.01)
+        applies: law=linear, n=1.0, plane stress; second differences, so tolerance is 10x; residual / strain scale at r = 1
+PASS  finite energy near the tip: 1 (tol > 0)
+        applies: always; requires p*(n+1) < 2 for the power law (p < 1 linear) | W*r ~ r^(+0.0000)
+PASS  crack exponent fixed by J: 0 (tol 1e-06)
+        applies: leading term of a crack (beta = pi), flanks parallel to x: finite nonzero J needs p = 1/2
+PASS  crack faces open (no interpenetration): -1 (tol <= 0.001 (U_theta(pi)/max|U|))
+        applies: crack, mode I, amplitude sign as given; if the faces would interpenetrate, traction-free faces are not admissible and contact is the missing physics | U_theta(pi) = -99.0557
+PASS  compatibility (displacements from strains, shear relation): 2.78e-12 (tol 0.01)
+        applies: mode I; integration constant fixed by symmetry (u_theta(0) = 0)
+n/a   J of the field (report): 3.85e+03 (tol None)
+        applies: crack: J = I in the field's normalization, with all material constants = 1 | J at r = 0.5, 1, 2: 3853.18, 3853.18, 3853.18
+PASS  reported J (or I) matches the field's own J: 1.27e-13 (tol 0.01)
+        applies: crack, mode I; same normalization and material constants = 1 | field J = 3853.18, reported = 3853.18
+n/a   normalization (report only): 28.6 (tol None)
+        applies: state your convention; I, K and the field must share it | max effective stress of the given angular field = 28.5949 at theta = -1.2315
+
+(expected field J in E=1 units = J*T = 3853.1777)

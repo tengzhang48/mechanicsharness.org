@@ -1,0 +1,12 @@
+T        = 4816.472187 MPa
+nu*      = 0.48623865
+K        = 62.07396999 N/mm^1.5
+K^2/T    = 0.8000000000 (=J)
+theta=60 Crr=0.00394205 (chk 0.00394205)
+theta=60 Ctt=0.00063318 (chk 0.00063318)
+theta=60 C_grthet=0.00573113 (chk 0.00573113)
+Cy(90)   = 0.00913902
+strain screen  r >= 0.01000000 mm
+sigma_e screen r <= 0.06132523 mm
+r<=0.2 cap active? False
+INTERVAL = [0.010000, 0.061325] mm

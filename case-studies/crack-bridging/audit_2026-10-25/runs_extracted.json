@@ -1,0 +1,10 @@
+{
+ "P038-T1-with-dsaz (R08)": {"source": "runs/P038-T1-with-dsaz/ANSWER.md:6-7", "values": {"T1": {"Sigma_MPa": 133.73, "L_mm_per_end": 4.086}}, "grader_numeric_points": "50/50 (R08/GRADE.md rows Remote stress, Zone length)"},
+ "P038-T1-with-glm (R24)": {"source": "runs/P038-T1-with-glm/ANSWER.md:5-6", "values": {"T1": {"Sigma_MPa": 133.73, "L_mm_per_end": 4.086}}, "grader_numeric_points": "50/50 (R24)"},
+ "P038-T1-without-glm (R30)": {"source": "runs/P038-T1-without-glm/ANSWER.md:5-6 (bold values)", "values": {"T1": {"Sigma_MPa": 133.7, "L_mm_per_end": 4.09}}, "grader_numeric_points": "50/50 (R30)"},
+ "P038-T1-without-dsaz (R03)": {"source": "runs/P038-T1-without-dsaz/ANSWER.md:7-8", "values": {"T1": {"Sigma_MPa": 158.525, "L_mm_per_end": 34.324}}, "grader_numeric_points": "0/50 (R03)"},
+ "P038-T2-with-dsaz (R36)": {"source": "runs/P038-T2-with-dsaz/ANSWER.md:7-9", "values": {"T2": {"M_Nm_each_strip": 0.2126, "L_mm": 10.80, "delta_mid_um": 38.22}}, "grader_numeric_points": "40/40 (R36)"},
+ "P038-T2-with-glm (R26)": {"source": "runs/P038-T2-with-glm/ANSWER.md:7-9", "values": {"T2": {"M_Nm_each_strip": 0.2126, "L_mm": 10.80, "delta_mid_um": 38.2}}, "grader_numeric_points": "40/40 (R26)"},
+ "P038-T2-without-dsaz (R21)": {"source": "runs/P038-T2-without-dsaz/ANSWER.md:7-9", "values": {"T2": {"M_Nm_each_strip": 0.2126, "L_mm": 10.80, "delta_mid_um": 38.22}}, "grader_numeric_points": "40/40 (R21)"},
+ "P038-T2-without-glm (R15)": {"source": "runs/P038-T2-without-glm/ANSWER.md:66", "values": {"T2": {"M_Nm_each_strip": 0.2126, "L_mm": 10.80, "delta_mid_um": 38.2}}, "grader_numeric_points": "40/40 (R15)"}
+}

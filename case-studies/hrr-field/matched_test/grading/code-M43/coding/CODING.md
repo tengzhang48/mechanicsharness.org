@@ -1,0 +1,8 @@
+# Boundary-check coding
+
+- **B1 existence: present_right; before.** The solver imposes the finite, nonzero-J requirement before the first numerical run, then verifies angular eigen-consistency numerically. Evidence: “finite nonzero J for separable field requires w ~ r^(1/(n+1))” (submission/PROCESS.md:2); “returns g(π) = 1.6 × 10⁻¹⁶ — confirming the eigen-consistency” (submission/ANSWER.md:59).
+- **B2 limiting cases: present_right; before.** The log records an analytical n = 1 check before the first run; the final answer also verifies the linear energy-flux relation through the same J calculation. Evidence: “verified n=1 limit reproduces LEFM w ~ sqrt(r) sin(theta/2).” (submission/PROCESS.md:3); “J = K²/(2G) exactly (I_J = π/4 to 3 × 10⁻¹³)” (submission/ANSWER.md:64).
+- **B3 applicability: present_right; after.** The final write-up states the constitutive scope, excluding an additional elastic contribution, and identifies the inner limit of the small-strain model. Evidence: “pure power law with no elastic term” (submission/ANSWER.md:45); “points much closer to the tip would leave small strain.” (submission/ANSWER.md:76).
+- **B4 degenerate cases: absent; unclear.** Neither supplied solver file checks coinciding exponents or a parameter threshold where a singularity appears or disappears. Evidence: none.
+
+Timing follows the earliest explicit qualifying check: the first numerical run is submission/PROCESS.md:4, and the applicability discussion is recorded with the final write-up at submission/PROCESS.md:7. The n = 1 regression checks a smooth limit and does not demonstrate a degenerate-parameter check.

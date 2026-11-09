@@ -1,0 +1,19 @@
+[n=1] p*=0.500000000000 (err 1.1e-16), T err 1.22e-15, I_1=3.141592653590 (err 3.6e-15)
+[n=1] dw(0.05): numeric 0.000874039, closed form 0.000874039, rel 9.99e-16
+----------------------------------------------------------------------
+n=3.5: eigenvalue p* = 0.222222222222, 1/(n+1) = 0.222222222222, |diff| = 2.78e-17
+face residual |T_theta(pi)| = 1.27e-16 (normalization T_theta(0)=1)
+compatibility residual max|F' - Gamma_theta|/max|Gamma_theta| = 2.31e-05 (finite diff)
+I_n = 2.019595277,  A_T = 64.193241 MPa mm^0.2222
+Dw(r=0.02) = 0.00131813 mm
+Dw(r=0.08) = 0.00179369 mm
+   (F(pi) = 0.00157209 mm^(1-s); check ratio Dw.08/Dw.02 = 1.360790 = (4)^s)
+tau_rz(0.02,60deg) = 38.5866 MPa, tau_thz(0.02,60deg) = 138.011 MPa
+|gamma|=0.01 at theta=0 deg: r = 0.0468944 mm  (m=1)
+|gamma|=0.01 at theta=90 deg: r = 0.0250661 mm  (m=0.870058)
+|gamma|=0.01 at theta=180 deg (face): r = 0.0133984 mm  (m=0.757)
+J on circle R=0.005: 0.120000 N/mm  (target 0.120)
+J on circle R=0.02: 0.120000 N/mm  (target 0.120)
+J on circle R=0.05: 0.120000 N/mm  (target 0.120)
+J on circle R=0.15: 0.120000 N/mm  (target 0.120)
+equilibrium residual d(tx)/dx + d(ty)/dy at (0.03,0.02): -1.736e-02 MPa/mm (terms ~1583.268)

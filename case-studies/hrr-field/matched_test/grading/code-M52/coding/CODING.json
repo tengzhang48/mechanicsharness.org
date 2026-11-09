@@ -1,0 +1,50 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      {
+        "source": "submission/ANSWER.md:30",
+        "quote": "shooting eigenvalue reproduces s* = 0.2222222222 with face residual Φ(π) = 1.5×10⁻¹⁶,"
+      },
+      {
+        "source": "submission/PROCESS.md:5",
+        "quote": "Verified: Phi(pi)=1.5e-16, J_direct=0.120000000 at r=0.02/0.08/0.20"
+      }
+    ]
+  },
+  "B2": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      {
+        "source": "submission/ANSWER.md:50",
+        "quote": "setting n = 1 (μ = τ₀/γ₀ = 40 000 MPa) the whole pipeline reproduces the exact LEFM K-field"
+      },
+      {
+        "source": "submission/PROCESS.md:5",
+        "quote": "elastic limit matches LEFM to ~1e-16"
+      }
+    ]
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      {
+        "source": "submission/ANSWER.md:56",
+        "quote": "truncation to the leading (separable) field, assumed negligible for r ≪ 0.30 mm"
+      },
+      {
+        "source": "submission/ANSWER.md:58",
+        "quote": "without an additional growth criterion (e.g., a critical J, CTOD, or cohesive strength)"
+      }
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "Timing follows the step log: results appear at line 4, explicit numerical verifications at line 5, and the answer with caveats at line 6; the earlier solver-writing entry does not establish that a check had been performed. The n = 1 comparison is a regular limiting-case check, with no examination of coinciding exponents or a parameter threshold where the field changes structure; no overall grade is assigned."
+}

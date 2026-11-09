@@ -1,0 +1,15 @@
+f(pi) = 1.6984332340231802  f'(pi) = 1.0842021724855044e-16
+I_J = 2.019595277307725
+A = 0.0009256090617515118
+Q1 r=0.02: Delta w = 0.0013181268 mm
+Q1 r=0.08: Delta w = 0.0017936937 mm
+Q2 r=0.02 theta=60: tau_rz=38.586597 MPa, tau_thz=138.01062 MPa, |tau|=143.30337, |gamma|=0.01538553
+   f=0.96085162 f'=0.7636948 gamma_r=0.0041427862 gamma_th=0.014817282 g=0.79298275
+max |div sigma| on unit circle (Cartesian FD) = 1.4210854715202004e-08
+face shear |sigma_yz| at theta=pi = 1.0786872425607405e-11
+Q3 theta=0.0: r(|gamma|=0.01) = 0.046894423 mm, g(theta)=1
+Q3 theta=90.0: r(|gamma|=0.01) = 0.025066123 mm, g(theta)=0.614353
+Q3 theta=180.0: r(|gamma|=0.01) = 0.013398407 mm, g(theta)=0.37742961
+J (R=0.5) = 0.12
+J (R=1.0) = 0.12
+J (R=2.0) = 0.12

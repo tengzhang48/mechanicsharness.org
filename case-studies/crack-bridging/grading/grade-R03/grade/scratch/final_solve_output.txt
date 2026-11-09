@@ -1,0 +1,7 @@
+Sigma_i = 20.287626 MPa
+L* = 34.324304 mm
+Sigma* = 158.524900 MPa
+residual delta(a)=9.0000000000e-06 (target 9.0000000000e-06)
+G=2.2000000000e+01
+dc x0.997 -> L=34.0007 mm Sigma=158.4886 MPa
+dc x1.003 -> L=34.6498 mm Sigma=158.5607 MPa

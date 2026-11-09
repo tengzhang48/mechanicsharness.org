@@ -1,0 +1,56 @@
+V1 parity check: J(A=1) correct 2.8466185508e-10, wrong parity 1.8626022616e-10, ratio 0.654321 (M20 grade: 624.1363418/953.8687488 = 0.654321)
+V1 V1_parity_error_lower_half_fprime_odd: f' extended with the wrong parity in J (computed); M20's error class
+    slip_0.02=0.00183329, slip_0.08=0.00249472, tau_rz=42.4006, tau_tz=151.652, r_0=0.0716688, r_90=0.0383086, r_180=0.0204768
+V1 V1_J_term_dropped_traction: J with the t_z w_,x term dropped (J1 ratio 0.4321)
+    slip_0.02=0.00253159, slip_0.08=0.00344496, tau_rz=46.4963, tau_tz=166.301, r_0=0.108527, r_90=0.0580102, r_180=0.0310077
+V1 V1_J_term_dropped_W: J with the W N_x term dropped (J1 ratio 0.5679)
+    slip_0.02=0.00204681, slip_0.08=0.00278528, tau_rz=43.7565, tau_tz=156.502, r_0=0.082575, r_90=0.0441382, r_180=0.0235928
+V1 V1_complementary_energy_in_J: W replaced by complementary work tau*gamma/(n+1) (J1 ratio 0.6914)
+    slip_0.02=0.00175644, slip_0.08=0.00239014, tau_rz=41.885, tau_tz=149.808, r_0=0.0678294, r_90=0.0362564, r_180=0.0193798
+V1 V1_linear_W_half_tau_gamma: W = tau.gamma/2 (linear-elastic habit) (J1 ratio 0.8457)
+    slip_0.02=0.00150167, slip_0.08=0.00204346, tau_rz=40.051, tau_tz=143.248, r_0=0.0554518, r_90=0.0296402, r_180=0.0158434
+V1 V1_law_applied_to_tensor_shear: law read as eps = (gamma0/tau0)(tau/tau0)^(n-1) tau with eps = gamma/2: compliance doubled
+    slip_0.02=0.00153763, slip_0.08=0.0020924, tau_rz=33.0781, tau_tz=118.309, r_0=0.0571649, r_90=0.0305559, r_180=0.0163328
+V1 V1_contour_on_tensor_shear: contour |eps_tensor| = 0.01, i.e. |gamma| = 0.02
+    r_0=0.0192346, r_90=0.0102813, r_180=0.00549559
+V1 V1_tau_thetaz_sign_flipped: sign of tau_theta z reversed
+    tau_tz=-138.011
+V1 V1_tau_rz_sign_flipped: sign of tau_rz reversed
+    tau_rz=-38.5866
+V1 V1_cartesian_components_reported: tau_xz, tau_yz reported instead of polar components
+    tau_rz=-100.227, tau_tz=102.422
+V1 V1_slip_one_face_only: w(r, pi) reported instead of w(r, pi) - w(r, -pi)
+    slip_0.02=0.000659063, slip_0.08=0.000896847
+V1 V1_wrong_branch_linear_KIII_G_tau0_over_gamma0: linear mode III field (n = 1 branch) with G = tau0/gamma0, J = K^2/(2G)
+    slip_0.02=0.000552791, slip_0.08=0.00110558, tau_rz=138.198, tau_tz=239.365, r_0=0.0095493, r_90=0.0095493, r_180=0.0095493
+V1 V1_M20_as_reported: M20 ANSWER.md:15,16,20,30-32
+    slip_0.02=0.00183, slip_0.08=0.00249, tau_rz=42.4, tau_tz=151.7, r_0=0.07167, r_90=0.03831, r_180=0.02048
+V2 closed-form base (should equal key): T=4816.472187, C_rr=0.003942048238, C_tt=0.0006331781351, C_g=0.005731131133, C_y=0.009139018941, r_min=0.01, r_max=0.06132522855
+V2 V2_nu_held_at_0.30_E_replaced_by_T: builder's named pitfall
+    T=1833.46, C_rr=0.0073973, C_tt=0.00270633, C_g=0.008125, C_y=0.0159099, r_min=0.0136111, r_max=0.0233444
+V2 V2_incompressible_nu_t_half_paper_eq48: nu_t = 1/2, i.e. eps_zz = -sigma/T as in the paper's Eq. 48 (elastic volume term dropped)
+    T=5092.96, C_rr=0.00378886, C_tt=0.000541266, C_g=0.005625, C_y=0.00883883, r_min=0.01, r_max=0.0648456
+V2 V2_plane_strain_J_K_relation: J = (1 - nu_t^2) K^2 / T (plane strain) with the plane-stress C_zz
+    T=6176.91, C_rr=0.0039869, C_tt=0.000660089, C_g=0.00576221, C_y=0.00922691, r_min=0.01, r_max=0.102493
+V2 V2_plane_strain_field_T_correct: T right, then plane-strain compliance, kappa = 3 - 4 nu_t, sigma_zz = 2 nu_t sigma in the screens (interval empty: r_max < r_min)
+    C_rr=0.00183657, C_tt=-0.0014723, C_g=0.00573113, C_y=0.00570079, r_min=1.76929e-05, r_max=4.64538e-05
+V2 V2_elastic_E_in_J_K_relation: J = K^2/E (elastic E, not T)
+    T=17042.6, C_rr=0.00437285, C_tt=0.000891661, C_g=0.0060296, C_y=0.00998322, r_min=0.01, r_max=0.2
+V2 V2_tensor_shear_reported: eps_r_theta coefficient reported instead of 2 eps_r_theta
+    C_g=0.00286557
+V2 V2_C_g_sign_flipped: shear sign reversed
+    C_g=-0.00573113
+V2 V2_C_rr_C_tt_swapped: polar components swapped
+    C_rr=0.000633178, C_tt=0.00394205
+V2 V2_C_y_plane_strain_kappa_only: kappa = 3 - 4 nu_t in the displacement only
+    C_y=0.00570079
+V2 V2_lower_screen_trace_term_dropped_M08: in-plane strains (1 + nu_t) sigma / T (M08's error)
+    r_min=0.0233571
+V2 V2_lower_screen_in_plane_only: eps_zz left out of the principal strains
+    r_min=0.00279103
+V2 V2_lower_screen_full_law_at_leading_stress: complete law (with the sigma_y term) evaluated at leading-field stresses (alternative reading; M22 ANSWER.md:79-80 mentions it)
+    r_min=0.00926931
+V2 V2_upper_screen_sigma_y_not_10sigma_y: sigma_e >= sigma_y (factor 10 dropped): the 0.200 mm cap binds
+    r_max=0.2
+V2 V2_M08_as_reported: M08 ANSWER.md:9-14
+    T=4816.47, C_rr=0.003942, C_tt=0.000633, C_g=0.005731, C_y=0.009139, r_min=0.02336, r_max=0.06133

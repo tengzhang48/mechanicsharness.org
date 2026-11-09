@@ -1,0 +1,88 @@
+{
+  "extraction": "Unmodified supplied A/B definitions and root statements; no spectral code",
+  "reported_answer_errors": {
+    "stress_133.73_MPa": {
+      "value": 133.73,
+      "target": 133.73028605381103,
+      "absolute_relative_error_percent": 0.00021390353635020176,
+      "within_0.3_percent": true
+    },
+    "stress_133.730_MPa": {
+      "value": 133.73,
+      "target": 133.73028605381103,
+      "absolute_relative_error_percent": 0.00021390353635020176,
+      "within_0.3_percent": true
+    },
+    "length_4.086_mm": {
+      "value": 4.086,
+      "target": 4.085609138245525,
+      "absolute_relative_error_percent": 0.009566792643389554,
+      "within_0.3_percent": true
+    },
+    "length_4.0856_mm": {
+      "value": 4.0856,
+      "target": 4.085609138245525,
+      "absolute_relative_error_percent": 0.00022366910821247643,
+      "within_0.3_percent": true
+    }
+  },
+  "route_A": {
+    "Sigma_MPa": 133.73028605381106,
+    "L_mm_per_end": 4.085609138245525,
+    "opening_um": 9.0
+  },
+  "route_B": {
+    "Sigma_MPa": 133.73028605381106,
+    "L_mm_per_end": 4.085609138245524,
+    "opening_um": 8.999999999999993
+  },
+  "A_B_relative_L_difference": 2.220446049250313e-16,
+  "A_B_relative_stress_difference": 0.0,
+  "A_B_along_branch": [
+    {
+      "L_mm": 0.5,
+      "opening_A_um": 2.1638228267602773,
+      "opening_B_um": 2.16382282676025,
+      "relative_opening_difference": 1.2434497875801753e-14
+    },
+    {
+      "L_mm": 2.0,
+      "opening_A_um": 5.768740525190713,
+      "opening_B_um": 5.768740525190783,
+      "relative_opening_difference": 1.199040866595169e-14
+    },
+    {
+      "L_mm": 4.085609138245525,
+      "opening_A_um": 9.0,
+      "opening_B_um": 8.999999999999993,
+      "relative_opening_difference": 6.661338147750939e-16
+    },
+    {
+      "L_mm": 8.0,
+      "opening_A_um": 12.961520012072704,
+      "opening_B_um": 12.961520012072803,
+      "relative_opening_difference": 7.66053886991358e-15
+    }
+  ],
+  "tip_residual_relative": 1.1102230246251565e-15,
+  "minimum_sampled_load_slope_before_event": 0.21501593212626705,
+  "event_load_slope": 0.21501593212626705,
+  "zero_tip_limit": {
+    "Sigma_MPa": 131.83512907997343,
+    "L_mm_per_end": 6.391275144131293
+  },
+  "decomposition": {
+    "K_part_stress_MPa": 12.341315676741747,
+    "bridging_part_stress_MPa": 121.3889703770693,
+    "K_part_opening_um": 2.1085921102489165,
+    "bridging_part_opening_um": 6.8914078897510835,
+    "K_applied_MPa_sqrt_m": 19.088864531290252,
+    "K_bridging_MPa_sqrt_m": 17.327246351572775
+  },
+  "small_zone_check_as_supplied": {
+    "L_over_a": 0.0041666666666666675,
+    "bridge_K_ratio": 1.000346104690363,
+    "printed_opening_ratio_claimed_to_approach_1": 1.7052057463900614,
+    "zero_tip_correct_opening_ratio_to_8tL_over_piEp": 0.997922435679286
+  }
+}

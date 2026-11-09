@@ -1,0 +1,28 @@
+T = 4816.472187 MPa   (nu* = 0.486239, E* = T, K* = 62.073970 MPa*mm^0.5)
+check C_zz(0): -0.00500000  (target -0.005)
+linear-law identity: a-(1+nu*)/T = 0.000e+00,  b+nu*/T = -1.355e-20
+
+theta=60deg: C_rr = 0.003942, C_tt = 0.000633, C_gamma_rt = 0.005731 mm^0.5
+
+C_y(90deg) = 0.009139 mm^0.5   (kappa = 1.691358)
+cross-check via u_r(90deg) = 2*C_rr(90deg): 0.009139  (should match C_y)
+displacement-gradient check at (r=1, 60deg): max diff = 7.502401477843534e-13
+
+largest |principal strain|/p = 3.085741e-04 (component xx)
+sigma_e screen:  r <= 0.061325 mm
+strain screen:   r >= 0.023357 mm
+r <= 0.200 mm
+interval = [0.023357, 0.061325] mm
+
+verification A: sqrt(r)*eps_zz(r,0) with the EXACT law at finite r
+  r=  1.0e-02: -0.0048067
+  r=  1.0e-03: -0.0049389
+  r=  1.0e-04: -0.0049807
+  r=  1.0e-06: -0.0049981
+  r=  1.0e-08: -0.0049998
+
+verification B: sqrt(r)*eps_polar(60deg) exact law, r=1e-8: ['+0.003942', '+0.000633', '+0.005731'] vs ['+0.003942', '+0.000633', '+0.005731']
+Traceback (most recent call last):
+  File "<matched-runs>/grading/M08/scratch/submission_solve.py", line 161, in <module>
+    from crack_tip_checks import check_field, format_report
+ModuleNotFoundError: No module named 'crack_tip_checks'

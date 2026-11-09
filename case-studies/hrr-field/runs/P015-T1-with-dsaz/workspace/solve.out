@@ -1,0 +1,15 @@
+[eigenvalue] s = 1.866666666667, formula (2n+1)/(n+1) = 1.866666666667, diff = 2.22e-16
+[eigenvalue] f''(0) = -0.689256761930
+[I] I = 4.8183790787
+[field] st~(0) = 2.335257434213, f(0) = 1.443497040379, se_max_raw=0.692762071571
+[p] p = 0.133333333333
+[H] H = st0 * I^(-p) = 1.893569725217
+[check] J_from_Kdim(Kdim_from_J(J)) / J = 1.000000000000
+[check] H via dimensional chain = 1.893569725217
+[shape2] int se_tilde^(n+1) dtheta over [-pi,pi] = 2.542468409869
+[C] C = (n/(n+1)) shape2 / I = 0.457305783939
+
+==== RESULTS ====
+p = 0.1333333333
+H = 1.8935697252
+C = 0.4573057839

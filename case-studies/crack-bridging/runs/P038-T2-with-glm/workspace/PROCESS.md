@@ -1,0 +1,4 @@
+16:33:24 read TASK.md (unequal-strip separation, couples, connectors, first inactivation event)
+16:38:10 read knowledge/ (ENTRY, EXTRACT, REPORT: Bao&Suo 1992 crack bridging; J = J_tip + int sigma ddelta, eqs 15/22/51 splitting beam)
+16:56:59 derived model: Euler-Bernoulli arms, clamped front (bonded part straight), moment-only/shear-free outer field -> J_far = M^2 C_M/(2b); linear zone BVP delta'''' = mu^4(delta-delta_c); fixed ODE sign error (softening connector = negative-stiffness foundation); solve.py gives event candidate M*=0.2126, L*=10.80 mm, d(L/2)=38.22 um; checks: energy identity -dPi/dL = b(J - int t dd) to 3e-6, solve_ivp independent ODE match to 6 digits, branch trace shows main quasistatic path rises stably to peak M* exactly at delta_t = delta_c; wrote ANSWER.md
+16:57:40 final rerun of solve.py reproduces M*=0.212626 N m, L*=10.8001 mm, d(L*/2)=38.219 um; ANSWER.md and PROCESS.md complete

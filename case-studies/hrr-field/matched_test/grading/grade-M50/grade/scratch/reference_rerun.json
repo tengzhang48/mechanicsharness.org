@@ -1,0 +1,41 @@
+{
+  "route_A_closed_reduction": {
+    "T_MPa": 4816.472187302739,
+    "nu_effective": 0.4862386508934207,
+    "C_rr_60deg_sqrtmm": 0.003942048237733179,
+    "C_thetatheta_60deg_sqrtmm": 0.0006331781350710297,
+    "C_engineering_rtheta_60deg_sqrtmm": 0.005731131133456488,
+    "C_y_90deg_sqrtmm": 0.009139018941480233,
+    "r_min_mm": 0.009999999999999998,
+    "r_max_mm": 0.06132522854990914
+  },
+  "route_B_full_tensor_and_roots": {
+    "T_MPa": 4816.47218730274,
+    "nu_effective": 0.4862386508934206,
+    "C_rr_60deg_sqrtmm": 0.003942048237733178,
+    "C_thetatheta_60deg_sqrtmm": 0.0006331781350710297,
+    "C_engineering_rtheta_60deg_sqrtmm": 0.0057311311334564885,
+    "C_y_90deg_sqrtmm": 0.009139018941480233,
+    "r_min_mm": 0.009999999999999993,
+    "r_max_mm": 0.06132522854990829
+  },
+  "relative_errors_A_vs_B": {
+    "T_MPa": 1.8883005369999908e-16,
+    "nu_effective": 2.2832883041798906e-16,
+    "C_rr_60deg_sqrtmm": 2.2002818983442175e-16,
+    "C_thetatheta_60deg_sqrtmm": 0.0,
+    "C_engineering_rtheta_60deg_sqrtmm": 1.513421552902579e-16,
+    "C_y_90deg_sqrtmm": 0.0,
+    "r_min_mm": 5.204170427930422e-16,
+    "r_max_mm": 1.3917338269452786e-14
+  },
+  "J_circle_N_per_mm": {
+    "0.015": 0.8000000000000634,
+    "0.04": 0.7999999999993109,
+    "0.1": 0.8000000000000975
+  },
+  "strain_displacement_max_absolute_error": 2.2022884866414926e-12,
+  "uniaxial_full_law_strain": 0.0042952739371914525,
+  "uniaxial_bilinear_curve_strain": 0.004295273937191452,
+  "T_equals_E_elastic_tensor_error": 0.0
+}

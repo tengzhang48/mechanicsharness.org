@@ -1,0 +1,73 @@
+{
+  "numeric_comparison": {
+    "M_each_arm_N_m": {
+      "reference": 0.21262578737672128,
+      "displayed_value": 0.2126,
+      "displayed_relative_error_percent": 0.012128057014826332,
+      "extra_digits_value": 0.21262579,
+      "extra_digits_relative_error_percent": 1.233753810225835e-06,
+      "rerun_value": 0.21262578737672133,
+      "rerun_relative_error_percent": 2.220446049250313e-14
+    },
+    "L_mm": {
+      "reference": 10.800102370897305,
+      "displayed_value": 10.8,
+      "displayed_relative_error_percent": 0.0009478696940901088,
+      "extra_digits_value": 10.8001,
+      "extra_digits_relative_error_percent": 2.1952544737580126e-05,
+      "rerun_value": 10.800102370798145,
+      "rerun_relative_error_percent": 9.18132236904512e-10
+    },
+    "delta_at_L_over_2_um": {
+      "reference": 38.218897926093284,
+      "displayed_value": 38.22,
+      "displayed_relative_error_percent": 0.0028835836890062083,
+      "extra_digits_value": 38.2189,
+      "extra_digits_relative_error_percent": 5.426390670137948e-06,
+      "rerun_value": 38.21889792745295,
+      "rerun_relative_error_percent": 3.557576455648359e-09
+    }
+  },
+  "coordinate_equivalence": {
+    "submission_coordinate": "s = L - x, from starter-cut root toward bonded front",
+    "actual_front_curvature_inverse_m": 1.2871375907225786,
+    "required_front_curvature_inverse_m": 1.2871375906215363,
+    "implied_intrinsic_work_J_m2": 1.400000000219804,
+    "maximum_mirrored_profile_error_um": 4.296666104505742e-09,
+    "minimum_gap_um": 1.0990286371942437e-09,
+    "maximum_gap_um": 199.99999999999997,
+    "minimum_slope_in_problem_coordinate": 3.698974301000615e-18,
+    "maximum_slope_in_problem_coordinate": 0.04338362267197286,
+    "maximum_local_energy_residual_J_m2": 3.410292881422805e-14
+  },
+  "scalar_equation_roots_in_scan": [
+    {
+      "L_mm": 10.800102370897175,
+      "minimum_gap_um": 2.1684043449710089e-13,
+      "maximum_gap_um": 200.0,
+      "bonded_front_curvature_inverse_m": 1.2871375906215483
+    },
+    {
+      "L_mm": 13.244636974559189,
+      "minimum_gap_um": -1.1242449111968167,
+      "maximum_gap_um": 200.0,
+      "bonded_front_curvature_inverse_m": -1.2871375906216058
+    },
+    {
+      "L_mm": 48.70565317588091,
+      "minimum_gap_um": 1.3877787807814457e-11,
+      "maximum_gap_um": 346.5533121913009,
+      "bonded_front_curvature_inverse_m": 1.287137590620808
+    },
+    {
+      "L_mm": 52.01992357543384,
+      "minimum_gap_um": -1.8748180921485114,
+      "maximum_gap_um": 346.50870844693713,
+      "bonded_front_curvature_inverse_m": -1.2871375906275593
+    }
+  ],
+  "claimed_scalar_residuals_actual": {
+    "at_8mm": 5.768575410016437e-05,
+    "at_12mm": -6.879200459719543e-06
+  }
+}

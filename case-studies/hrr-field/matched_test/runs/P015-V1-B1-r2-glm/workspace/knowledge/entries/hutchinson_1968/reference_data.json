@@ -1,0 +1,94 @@
+{
+ "source": "Hutchinson J.W. (1968) J. Mech. Phys. Solids 16, 13-31, Table 1 (p. 21), transcribed from the page image (frozen v1 EXTRACT.md); computed values: independent solver, Codex verification round 3 (P015-verify-codex.round3/VERIFY.md)",
+ "conventions": {
+  "normalization": "max effective stress of the angular field = 1",
+  "exponent": "phi ~ r^s, s=(2n+1)/(n+1); stress ~ r^(s-2)",
+  "I": "eq. (24)",
+  "E_n": "eq. (34): E_n = n/(n+1) * pi/I * integral over (-pi,pi) of se^(n+1)"
+ },
+ "n": [
+  3,
+  5,
+  9,
+  13
+ ],
+ "printed": {
+  "plane_stress": {
+   "I": [
+    3.86,
+    3.41,
+    3.03,
+    2.87
+   ],
+   "pi_over_I_pow": [
+    0.949,
+    0.987,
+    1.004,
+    1.006
+   ],
+   "E_n": [
+    2.16,
+    2.45,
+    2.67,
+    2.76
+   ]
+  },
+  "plane_strain": {
+   "I": [
+    5.51,
+    5.01,
+    4.6,
+    4.4
+   ],
+   "pi_over_I_pow": [
+    0.869,
+    0.925,
+    0.963,
+    0.976
+   ],
+   "E_n": [
+    1.23,
+    1.37,
+    1.48,
+    1.52
+   ]
+  }
+ },
+ "transcription_notes": [
+  "plane-stress I(13) = 2.87 on the page; the OCR text layer says 2.37 (wrong)",
+  "plane-strain E_n(9) = 1.48 on the page; the OCR says 1.43; the computed 1.485 supports 1.48"
+ ],
+ "computed_independent": {
+  "plane_stress": {
+   "I": [
+    3.854966316645,
+    3.407592760129,
+    3.029655495495,
+    2.871001227836
+   ],
+   "E_n": [
+    2.162447225662,
+    2.446868478822,
+    2.671218496617,
+    2.755239790729
+   ]
+  },
+  "plane_strain": {
+   "I": [
+    5.507323186158,
+    5.023503244817,
+    4.601825910797,
+    4.400966000062
+   ],
+   "E_n": [
+    1.227162152549,
+    1.381641514476,
+    1.484963866338,
+    1.518411835599
+   ]
+  }
+ },
+ "computed_notes": [
+  "printed vs computed: I within 0.27%, E_n within 0.85%; the cause of the E_n gap is not established (it is not the computed values' convergence: n=5 plane-strain E_n changes by 1e-8 from 4001 to 16001 points)"
+ ]
+}

@@ -1,0 +1,28 @@
+========================================================================
+1) eigen-structure checks
+   face residual g(pi) with m = n/(n+1) = 0.7777777778:  +2.244e-17  (need ~0)
+   eigenvalue from shooting g(pi)=0:           m = 0.777777777778  vs n/(n+1) = 0.777777777778
+   n=1 limit: max|g + cos(th/2)| = 1.665e-15;  integral I(n=1) = 0.785398163397 = pi/4 = 0.785398163397
+   n=1 amplitude check: C_J a^2 = 0.000012500000  vs  K^2/(2 mu) = 0.000012500000   (rel diff 1.33e-15)
+========================================================================
+2) amplitude from J
+   C_J = 2.84661855e-10 (units: with this normalization J = C_J a^(n+1))
+   a = 82.53416679 MPa*mm^p   [tau = a r^-p rho]
+========================================================================
+3) answers
+   Delta_w(r = 0.0200 mm) = 1.318127e-03 mm
+   Delta_w(r = 0.0800 mm) = 1.793694e-03 mm
+   tau_rz(r=0.02, 60deg)  = 38.586597 MPa
+   tau_thz(r=0.02, 60deg) = 138.010617 MPa
+   |gamma|=0.01 level: tau* = 126.705569 MPa
+   r(|gamma|=0.01, theta=0 deg               ) = 0.046894 mm
+   r(|gamma|=0.01, theta=90 deg              ) = 0.025066 mm
+   r(|gamma|=0.01, theta=180 deg (upper face)) = 0.013398 mm
+========================================================================
+4) verifications
+   J on circle r=0.020 (Cartesian FD): 0.120000 N/mm   (given 0.120)
+   J on circle r=0.080 (Cartesian FD): 0.120000 N/mm   (given 0.120)
+   J on circle r=0.150 (Cartesian FD): 0.120000 N/mm   (given 0.120)
+   equilibrium residual (rel): 7.573e-07;  compatibility residual (rel): 1.535e-07
+   max |tau x gamma| / |tau||gamma| = 8.408e-17
+   face traction tau_thz(pi) = -3.201e-15 MPa;  w(0.03, pi) = 7.212e-04 mm (upper face +z: positive)

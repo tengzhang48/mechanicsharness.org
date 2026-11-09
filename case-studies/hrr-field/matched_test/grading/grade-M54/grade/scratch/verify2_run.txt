@@ -1,0 +1,17 @@
+I_J=953.868749  A=9.256090617515e-04
+constitutive residual rel = 2.550e-16
+max equilibrium residual / max terms = 2.571e-10
+tau_theta(pi)=-6.266e-13 MPa
+J direct r=0.02: 0.1200000000
+J direct r=0.08: 0.1200000000
+J direct r=0.20: 0.1200000000
+J direct r=0.30: 0.1200000000
+
+RESULTS
+  slip dw(0.0200)=0.0013181268 mm
+  slip dw(0.0800)=0.0017936937 mm
+  tau_rz(0.02,60)=38.5865968623  tau_thz=138.0106166324 MPa
+  |gamma| there=0.01538553
+  r(|gamma|=0.01,0deg)=0.0468944231 mm
+  r(|gamma|=0.01,90deg)=0.0250661235 mm
+  r(|gamma|=0.01,180deg)=0.0133984066 mm

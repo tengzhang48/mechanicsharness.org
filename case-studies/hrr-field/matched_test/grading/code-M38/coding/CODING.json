@@ -1,0 +1,32 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "unclear",
+    "evidence": [
+      "submission/ANSWER.md:38: \"s* = 0.22222222222220 in (0.03, 0.6), matching the known exponent 1/(n+1)\"",
+      "submission/PROCESS.md:3: \"Ran solve.py: s*=1/(n+1) to 2e-14, all J paths = 0.120, n=1 limit exact; got 7 numbers.\""
+    ]
+  },
+  "B2": {
+    "status": "present_right",
+    "timing": "unclear",
+    "evidence": [
+      "submission/ANSWER.md:66: \"the same pipeline returns s = 0.5, I_ang = π, f(π) = 2 exactly\"",
+      "submission/PROCESS.md:3: \"Ran solve.py: s*=1/(n+1) to 2e-14, all J paths = 0.120, n=1 limit exact; got 7 numbers.\""
+    ]
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:54: \"proportional loading ⇒ deformation theory is exact here\"",
+      "submission/ANSWER.md:88: \"initiation requires an additional fracture criterion\""
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "The eigenvalue and n = 1 checks share the main numerical-run entry, so their timing is unclear; applicability is documented in the later final answer (submission/PROCESS.md:5). The n = 1 check does not examine coalescing exponents or a singularity threshold, so it does not establish B4."
+}

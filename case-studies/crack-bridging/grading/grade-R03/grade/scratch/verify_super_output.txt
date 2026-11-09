@@ -1,0 +1,11 @@
+<probe-runs>/grading/R03/scratch/submission/verify_super.py:34: IntegrationWarning: The algorithm does not converge.  Roundoff error is detected
+  in the extrapolation table.  It is assumed that the requested tolerance
+  cannot be achieved, and that the returned result (if full_output = 1) is 
+  the best which can be obtained.
+  val,_ = quad(inner, b, c, limit=400, points=[b+1e-12])
+K superposition = 1.7616181425e+06
+K closed        = 1.7616181425e+06
+delta(a) super = 9.0003134704e-06 m
+delta(a) closed= 8.9999998929e-06 m
+delta(a) target= 9.0000000000e-06
+G from super = 2.1999999070e+01 J/m2

@@ -1,0 +1,51 @@
+[
+  {
+    "quantity": "slip_0.02_mm",
+    "submitted": 0.0013181,
+    "reference": 0.001318126777760562,
+    "relative_error_percent": 0.002031501143429093,
+    "within_2_percent": true
+  },
+  {
+    "quantity": "slip_0.08_mm",
+    "submitted": 0.0017937,
+    "reference": 0.0017936937381386464,
+    "relative_error_percent": 0.0003491042657177701,
+    "within_2_percent": true
+  },
+  {
+    "quantity": "tau_rz_0.02mm_60deg_MPa",
+    "submitted": 38.59,
+    "reference": 38.586596862313044,
+    "relative_error_percent": 0.00881948128026444,
+    "within_2_percent": true
+  },
+  {
+    "quantity": "tau_thetaz_0.02mm_60deg_MPa",
+    "submitted": 138.0,
+    "reference": 138.01061663235828,
+    "relative_error_percent": 0.007692620044263965,
+    "within_2_percent": true
+  },
+  {
+    "quantity": "gamma_contour_0deg_mm",
+    "submitted": 0.04689,
+    "reference": 0.046894423054945324,
+    "relative_error_percent": 0.009431942344484412,
+    "within_2_percent": true
+  },
+  {
+    "quantity": "gamma_contour_90deg_mm",
+    "submitted": 0.02507,
+    "reference": 0.025066123488862637,
+    "relative_error_percent": 0.015465140188442028,
+    "within_2_percent": true
+  },
+  {
+    "quantity": "gamma_contour_180deg_mm",
+    "submitted": 0.0134,
+    "reference": 0.013398406587127234,
+    "relative_error_percent": 0.011892555002002148,
+    "within_2_percent": true
+  }
+]

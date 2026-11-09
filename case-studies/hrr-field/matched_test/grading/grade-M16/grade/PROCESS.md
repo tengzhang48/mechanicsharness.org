@@ -1,0 +1,8 @@
+# Grading process
+
+- 03:37:20 UTC — Read TASK.md, TASK_PROBLEM.md, RUBRIC.md, REFERENCE.md, the recorded reference results, and all submitted answer/code files. Began grading within the 25-minute limit; no web access used.
+- 03:37:30 UTC — Copied submitted code and reference code into scratch/. Reran solve.py successfully and reproduced all requested values. Reran the reference successfully; its two routes and assertions agree. The complete submitted verify.py stopped at an unavailable crack_tip_checks import.
+- 03:37:44 UTC — Extracted the self-contained physical-unit contour-integral and displacement checks into scratch/verify_independent.py, removing only the unavailable import and its associated check block. Left the independent mechanical calculations unchanged; all four contour results print J = 0.800000 N/mm.
+- 03:38:00 UTC — Checked each reported number against its individual relative tolerance; all seven pass. Saved comparisons and unrounded contour results in scratch/grading_checks.json. The independent J check has maximum relative error 8.13e-9. Confirmed that the screens include epsilon_zz and that the answer distinguishes screening from full-solution accuracy and fracture initiation.
+- 03:38:41 UTC — Wrote GRADE.md with every rubric subitem, individual numerical tolerance comparisons, total 100/100, and the requested error/claim/presentation lists.
+- 03:38:48 UTC — Validated the 20 table rows and their awarded/max sums (100/100), and checked that all required report sections are present. Completed within the time limit, working inside this folder without web access.

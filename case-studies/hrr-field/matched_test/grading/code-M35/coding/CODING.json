@@ -1,0 +1,32 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "before",
+    "evidence": [
+      "submission/ANSWER.md:31: \"Because the operator is asymptotically the isotropic linear one, the dominant Williams eigenfield is the r^(−1/2) plane-stress **mode I** K-field\"",
+      "submission/PROCESS.md:2: \"leading field = plane-stress mode-I K-field; J=K_t^2/E_t. Wrote solve.py; ran it\""
+    ]
+  },
+  "B2": {
+    "status": "present_right",
+    "timing": "unclear",
+    "evidence": [
+      "submission/ANSWER.md:26: \"E_t = T\"",
+      "submission/ANSWER.md:27: \"ν_t = ν when T = E\""
+    ]
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:64: \"below 0.0100 mm the model strains exceed 5% and small-strain theory loses meaning (the formal r → 0 limit is not physically accessible)\"",
+      "submission/ANSWER.md:66: \"The constitutive law is damage-free and contains no failure criterion\""
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "The T = E observation checks the elastic material limit; its timing is not stated in the step log. Neither that ordinary limit nor the finite-radius screens examines proximity to a structural degeneracy."
+}

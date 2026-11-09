@@ -1,0 +1,34 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:61: \"physical root 0 < T < E; the other root is 6.36×10⁶ MPa > E\"",
+      "submission/PROCESS.md:7: \"Confirmed T via brentq on the scalar equation (one physical root < E, other ~6.36e6 > E).\""
+    ]
+  },
+  "B2": {
+    "status": "present_right",
+    "timing": "before",
+    "evidence": [
+      "submission/ANSWER.md:23: \"verified by direct substitution: (3/2)s_xx = σ\"",
+      "submission/PROCESS.md:4: \"uniaxial: eps=sig/E for sig<=sy, eps=sy/E+(sig-sy)/T above\""
+    ]
+  },
+  "B3": {
+    "status": "present_wrong",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:127–128: \"it presumes small-scale yielding\"",
+      "submission/ANSWER.md:129–130: \"δ_t ~ d_n J/σ_y with d_n ≈ 0.3–0.8, i.e. δ_t ≈ 0.02–0.06 mm\""
+    ]
+  },
+  "B4": {
+    "status": "present_right",
+    "timing": "unclear",
+    "evidence": [
+      "submission/ANSWER.md:41–42: \"the singular terms of elastic and plastic branches scale alike\""
+    ]
+  },
+  "notes": "The uniaxial substitution counts as the allowed closed-form special-case check; B3 contains correct scope statements but adds an unnecessary small-scale-yielding requirement and a blunting estimate not determined by this model. Timing follows step-log order rather than timestamps; the log does not establish when the exponent-coincidence check was made."
+}

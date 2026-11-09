@@ -1,0 +1,41 @@
+eigen: s=1.866666666667 (formula 1.866666666667), f''(0)=-0.689256761930, f(pi)=1.990e-15, f'(pi)=8.251e-17
+A=1.0, R=0.001: J_numeric=7.70940655e+04, U_numeric=3.52555620e+01
+U/(J R) = 0.4573057834
+  R=3e-04: J=7.70940655e+04  U/(JR)=0.45730578
+  R=1e-03: J=7.70940655e+04  U/(JR)=0.45730578
+  R=3e-03: J=7.70940655e+04  U/(JR)=0.45730578
+  R=1e-02: J=7.70940655e+04  U/(JR)=0.45730578
+st~(0) = 2.335257435097
+H = A*st0*(alpha eps0 sig0/J)^p = 1.8935697252
+  A=0.5 R=0.001: H=1.8935697252
+  A=0.5 R=0.01: H=1.8935697252
+  A=1.0 R=0.001: H=1.8935697252
+  A=1.0 R=0.01: H=1.8935697252
+  A=2.0 R=0.001: H=1.8935697252
+  A=2.0 R=0.01: H=1.8935697252
+
+Constitutive consistency eps_e(u) vs alpha eps0 (se/sig0)^n:
+  (x,y)=(1e-03,1e-04): eps_e(u)=3.360673e-04  eps_e(stress)=3.369212e-04  ratio=0.997466
+  (x,y)=(5e-04,3e-04): eps_e(u)=1.728794e-03  eps_e(stress)=1.800196e-03  ratio=0.960337
+  (x,y)=(2e-03,1e-03): eps_e(u)=3.665380e-04  eps_e(stress)=3.831996e-04  ratio=0.956520
+  (x,y)=(1e-03,5e-04): eps_e(u)=6.683618e-04  eps_e(stress)=6.987434e-04  ratio=0.956520
+
+==== CLOSED-FORM vs NUMERIC J ====
+eq.(24) I (this field)   = 4.81837909
+J_closed = a e0/s0^n A^(n+1) I = 2.352724e-60
+J_numeric                      = 7.709407e+04
+ratio J_closed/J_numeric       = 0.00000000
+
+==== FINAL RESULTS ====
+p = 0.133333333333
+H = 1.8935697252
+C = 0.4573057834
+
+[verify] sigma_tt(r,0) vs H sig0 [J/(alpha eps0 sig0 r)]^p:
+  r=1e-04: sigma_tt=3.189540e+09  H-formula=3.189540e+09  ratio=1.00000000
+  r=1e-03: sigma_tt=2.346361e+09  H-formula=2.346361e+09  ratio=1.00000000
+  r=1e-02: sigma_tt=1.726082e+09  H-formula=1.726082e+09  ratio=1.00000000
+
+[verify] measured exponent from sigma_tt(r,0): p = 0.133333333333 (expect 0.133333333333)
+
+[verify] U numeric=3.525556e+01  U closed-form=1.075914e-63  ratio=32767999958490516528143584585875485834946812373600804545161592832.00000000

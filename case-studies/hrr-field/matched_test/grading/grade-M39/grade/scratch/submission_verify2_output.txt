@@ -1,0 +1,5 @@
+numeric at theta=60: C_rr=0.003942048 C_tt=0.000633178 C_grth=0.005731131
+analytic             C_rr=0.003942048 C_tt=0.000633178 C_grth=0.005731131
+C_y(90) closed=0.009139019  num=0.009139019
+full law at sig=1e7: eps_xx=1.066674660479e+03 eps_zz=-2.019063606673e+03 ratio ezz/exx=-1.8928579458
+effective:          eps_xx=1.066675627155e+03 eps_zz=-2.019065540024e+03 ratio=-1.8928580429

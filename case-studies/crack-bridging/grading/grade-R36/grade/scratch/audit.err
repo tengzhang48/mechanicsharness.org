@@ -1,0 +1,3 @@
+<probe-runs>/grading/R36/scratch/verify.py:41: RuntimeWarning: The iteration is not making good progress, as measured by the 
+ improvement from the last ten iterations.
+  v = fsolve(residuals, v0, xtol=1e-13)

@@ -1,0 +1,22 @@
+Reported numbers versus independently rerun reference:
+slip_0.02_mm: answer=0.0013181, key=0.00131812677776, error=0.002031501%
+slip_0.08_mm: answer=0.0017937, key=0.00179369373814, error=0.000349104%
+tau_rz_0.02mm_60deg_MPa: answer=38.59, key=38.5865968623, error=0.008819481%
+tau_thetaz_0.02mm_60deg_MPa: answer=138.01, key=138.010616632, error=0.000446801%
+gamma_contour_0deg_mm: answer=0.04689, key=0.0468944230549, error=0.009431942%
+gamma_contour_90deg_mm: answer=0.02507, key=0.0250661234889, error=0.015465140%
+gamma_contour_180deg_mm: answer=0.0134, key=0.0133984065871, error=0.011892555%
+
+Actual stress implementation versus displacement compatibility:
+theta=+60 deg: w=+0.000372850745637 mm
+  grad w=[-0.01076075  0.0109964 ]; stress implied by grad w=[-100.22740712  102.42228031] MPa
+  tau_cart=[-100.22740156  102.42228144] MPa; relative vector mismatch=3.95872839e-08
+theta=-60 deg: w=-0.000372850745637 mm
+  grad w=[0.01076075 0.0109964 ]; stress implied by grad w=[100.22740712 102.42228031] MPa
+  tau_cart=[-100.22740156 -102.42228144] MPa; relative vector mismatch=1.99999998
+theta=0: tau_cart=(np.float64(0.0), np.float64(0.0)) MPa; expected tau_yz=153.122211095 MPa
+
+Engineering shear at requested stress point: 0.0153855296119 (1.53855296%)
+F(pi)=0.70476272391
+Submission's numerical flux=0.1199999999999998 N/mm
+The lower-half sign error reverses both stress and assumed gradient, preserving W and tau_r*w_x in this integral.

@@ -1,0 +1,9 @@
+(II) residual for a cos3t/2+b cos t/2: 0
+--- phi= cos(t/2)
+   t=0.3: d4_fd=-7.77156 rhs=0.06180 diff=-7.83e+00
+   t=1.0: d4_fd=5.55112 rhs=0.05485 diff=5.50e+00
+   t=2.0: d4_fd=4.44089 rhs=0.03377 diff=4.41e+00
+--- phi= cos(t/2)
+   t=0.3: d4_fd=4.44089 rhs=4.55851 diff=-1.18e-01
+   t=1.0: d4_fd=-0.13878 rhs=0.35811 diff=-4.97e-01
+   t=2.0: d4_fd=-4.44089 rhs=-5.01184 diff=5.71e-01

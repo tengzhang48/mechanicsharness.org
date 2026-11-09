@@ -1,0 +1,26 @@
+{
+ "key_model": {
+  "L_mm": 10.800102370897198,
+  "rear_rotation_mrad": 43.383622672068206,
+  "delta_at_5mm_um": 31.770083688047087,
+  "delta_mid_um": 38.21889792610178
+ },
+ "averaged_equal_arms": {
+  "L_mm": 12.070264945748555,
+  "rear_rotation_mrad": 38.81833316705673,
+  "delta_at_5mm_um": 24.34145196181926,
+  "delta_mid_um": 38.21889792610176
+ },
+ "only_upper_arm": {
+  "L_mm": 11.236140180886178,
+  "rear_rotation_mrad": 41.70004632691933,
+  "delta_at_5mm_um": 28.893525755248685,
+  "delta_mid_um": 38.21889792610175
+ },
+ "Gamma0_omitted": {
+  "L_mm": 12.022710703450791,
+  "rear_rotation_mrad": 42.491337816026885,
+  "delta_at_5mm_um": 18.46012852647488,
+  "delta_mid_um": 31.01346659467022
+ }
+}

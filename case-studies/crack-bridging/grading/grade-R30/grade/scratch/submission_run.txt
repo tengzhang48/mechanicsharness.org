@@ -1,0 +1,47 @@
+Ep [GPa]      = 141.05902777777777
+K0  [MPa sqrtm] = 1.7616181797174753
+Sigma_init [MPa] = 20.28762582315771
+Sigma_ss (SSB) [MPa] = 165.38403069167478
+c* [mm] = 6.4856091382455245
+L* [mm] = 4.085609138245525
+Sigma* [MPa] = 133.73028605381106
+delta_a(c*) [um] = 9.0
+
+branch (monotone increase of delta(a) with c):
+  c=  2.5200 mm  Sigma=  51.359 MPa  delta(a)=  0.7696 um
+  c=  2.6000 mm  Sigma=  59.705 MPa  delta(a)=  1.1076 um
+  c=  3.5000 mm  Sigma=  99.837 MPa  delta(a)=  3.8291 um
+  c=  4.5000 mm  Sigma= 117.517 MPa  delta(a)=  5.9569 um
+  c=  5.5000 mm  Sigma= 127.407 MPa  delta(a)=  7.6294 um
+  c=  6.4856 mm  Sigma= 133.730 MPa  delta(a)=  9.0000 um
+  c=  8.0000 mm  Sigma= 140.076 MPa  delta(a)= 10.7509 um
+
+CHECK1 Dugdale CTOD: semi-analytic SIE integration = 6.891407889351402 um
+      literature formula (8 t a/piE')lnsec        = 6.891407889751084 um
+      rel. diff = 5.7997120460504015e-11
+CHECK1b delta_a at solution (Sigma*,c*) via SIE integration = 8.999999999600321 um  vs target 9.0
+
+CHECK2 spectral SIE at (Sigma*, c*):
+  K_tip spectral [MPa sqrtm] = 1.7523420695302923  vs K0 = 1.7616181797174753
+  delta(a) spectral [um]     = 8.969137509789364  vs target 9.0
+
+  (anchor) pure-remote K vs Sigma*sqrt(pi c):
+
+CHECK3 delta(x)/delta(a) along zone (xi from ~0 to a/c):
+  [1.52806849 1.52430285 1.51292689 1.4936935  1.46615476 1.42959479
+ 1.38289024 1.32420665 1.25034326 1.15431899 1.00313648]
+
+SSB limits: Sigma_ss = 165.38403069167478 MPa ; L_ssb = 2.4349740568973632 mm  (large-scale answer differs as expected since L~a)
+M= 1024: K_tip=1.78432 (target 1.76162), delta(a)=9.08001 um (target 9.0)
+M= 4096: K_tip=1.75987 (target 1.76162), delta(a)=8.97575 um (target 9.0)
+M= 8192: K_tip=1.76302 (target 1.76162), delta(a)=9.01641 um (target 9.0)
+
+spectral-only 2x2 solve: c = 6.4787563882487635 mm, L = 4.078756388248764 mm, Sigma = 133.69987475043186 MPa
+closed-form solution   : c = 6.4856091382455245 mm, L = 4.085609138245525 mm, Sigma = 133.73028605381106 MPa
+relative differences: dL/L = 0.0016772896684149135 , dSigma/Sigma = 0.0002274077494080578
+
+profile delta(x)/delta(a), xi=0(center)..1(tip):
+[1.5272e+00 1.5203e+00 1.4994e+00 1.4635e+00 1.4110e+00 1.3387e+00
+ 1.2401e+00 1.0964e+00 8.7100e-01 7.3290e-01 6.2700e-01 5.3900e-01
+ 4.6300e-01 3.9580e-01 3.3560e-01 2.8080e-01 2.3010e-01 1.8240e-01
+ 1.3610e-01 8.7800e-02 1.1000e-03]

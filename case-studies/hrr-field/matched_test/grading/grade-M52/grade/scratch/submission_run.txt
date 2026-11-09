@@ -1,0 +1,25 @@
+
+=== power law n=3.5: n=3.5, s=0.222222222222, eigen-s*=0.222222222222, Phi(pi) residual=1.478e-16, I=0.65179982, B=82.53416679
+-- requested quantities --
+  Dw(r=0.0200) = 1.318127e-03 mm   (w(r,pi)=6.5906e-04)
+  Dw(r=0.0800) = 1.793694e-03 mm   (w(r,pi)=8.9685e-04)
+  tau_rz(0.02,60deg) = 38.586597 MPa,  tau_thz(0.02,60deg) = 138.010617 MPa
+  r*(|gamma|=0.01, theta=  0.0 deg) = 0.046894 mm  (T=0.777778)
+  r*(|gamma|=0.01, theta= 90.0 deg) = 0.025066 mm  (T=0.676711)
+  r*(|gamma|=0.01, theta=180.0 deg) = 0.013398 mm  (T=0.588778)
+-- verifications --
+  J_direct(r=0.020) = 0.120000000 N/mm  (target 0.12)
+  J_direct(r=0.080) = 0.120000000 N/mm  (target 0.12)
+  J_direct(r=0.200) = 0.120000000 N/mm  (target 0.12)
+  face traction residual tau_thz(r=0.02, theta=pi) = -2.263e-14 MPa
+  check w(r,-pi)=-w(r,pi): -6.5906e-04
+
+=== elastic limit check (n=1), mu=40000.0 MPa, K=97.979590 MPa*sqrt(mm)
+  max |Phi + cos(th/2)| = 2.7755575615628914e-16
+  Dw(0.02): num=5.52790639e-04 exact=5.52790639e-04 rel=0.00e+00
+  Dw(0.08): num=1.10558128e-03 exact=1.10558128e-03 rel=0.00e+00
+  tau_rz: num=138.197660 exact=138.197660 rel=2.22e-16
+  tau_thz: num=239.365368 exact=239.365368 rel=0.00e+00
+  r*(theta=  0.0): num=9.54929659e-03 exact=9.54929659e-03 rel=3.33e-16
+  r*(theta= 90.0): num=9.54929659e-03 exact=9.54929659e-03 rel=3.33e-16
+  r*(theta=180.0): num=9.54929659e-03 exact=9.54929659e-03 rel=0.00e+00

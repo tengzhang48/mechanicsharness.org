@@ -1,0 +1,31 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:93: \"\\(F'(\\pi)\\approx-3\\times10^{-17}\\), confirming the closed form and eigenvalue.\"",
+      "submission/PROCESS.md:4: \"face traction 0; ODE shape matches closed form.\""
+    ]
+  },
+  "B2": {
+    "status": "present_right",
+    "timing": "unclear",
+    "evidence": [
+      "submission/ANSWER.md:50–51: \"(For \\(n=1\\) it reduces to the classic linear Mode-III field \\(F\\propto\\sin(\\theta/2)\\).)\""
+    ]
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "unclear",
+    "evidence": [
+      "submission/ANSWER.md:72: \"**No elastic term**: used the specified pure power law exactly\"",
+      "submission/ANSWER.md:100–101: \"The model returns the *local* field for a *given* \\(J\\); it does not know the far-field load, and the small-strain, stationary, monotonic assumptions are taken as given.\""
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "B1's explicit face-condition and ODE verification follows the solve.py run; B2 and B3 have no check-specific chronology in the step log. The n = 1 limit and the eigenvalue scan at fixed n do not examine coinciding exponents or thresholds where the singularity changes structure."
+}

@@ -1,0 +1,12 @@
+{
+  "submission": {
+    "pid": 832211,
+    "exit_code": 0,
+    "elapsed_seconds": 26.384559619007632
+  },
+  "reference": {
+    "pid": 832212,
+    "exit_code": 0,
+    "elapsed_seconds": 26.383844640979078
+  }
+}

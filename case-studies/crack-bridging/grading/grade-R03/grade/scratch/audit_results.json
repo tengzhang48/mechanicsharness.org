@@ -1,0 +1,56 @@
+{
+  "reported_number_errors_percent": {
+    "stress_precise": 18.540836692902896,
+    "length_precise": 740.1195229052096,
+    "stress_bold": 18.522142348683857,
+    "length_bold": 739.5320952001134
+  },
+  "acceptable_intervals": {
+    "Sigma_MPa": [
+      133.32909519564956,
+      134.1314769119724
+    ],
+    "L_mm_per_end": [
+      4.073352310830794,
+      4.097865965660267
+    ]
+  },
+  "submission_code_root": {
+    "Sigma_MPa": 158.5249001005734,
+    "L_mm_per_end": 34.32430391859259,
+    "submitted_opening_um": 9.0,
+    "actual_opening_formula_um": 24.30024269520159,
+    "actual_opening_Green_um": 24.30024269520156,
+    "tip_K_Pa_sqrt_m": 1761618.1797174737,
+    "tip_G_J_per_m2": 21.99999999999996,
+    "load_branch_slope_at_submitted_root": 0.025486109593841445,
+    "minimum_load_branch_slope_up_to_submitted_root": 0.025486109593841445
+  },
+  "opening_at_reference_event": {
+    "actual_um": 8.999999999999993,
+    "submitted_formula_um": 4.311819472106047
+  },
+  "valid_K_quadrature_check": {
+    "closed": 2048805.3747444868,
+    "quadrature": 2048805.374744999,
+    "relative_difference": 2.5002222514558525e-13
+  },
+  "finite_opening_crosscheck_example": {
+    "c_mm": 3.4,
+    "Sigma_MPa": 100.0,
+    "submitted_delta_a_um": 2.292143731578449,
+    "actual_delta_a_um": 3.768343435621513,
+    "Green_delta_a_um": 3.768343435621514,
+    "submitted_full_field_center_gap_um": -5.784812307692308,
+    "Green_center_gap_um": 8.03810514081002
+  },
+  "branch_claim_audit": {
+    "stress_maximum_L_mm": 239.62024774592714,
+    "stress_maximum_MPa": 161.01017179186124,
+    "reference_event_u": 0.9941170063418836,
+    "submitted_event_u": 2.727970030641937,
+    "claimed_saturation_um": 10.88905846153846,
+    "submitted_formula_zero_Gamma_asymptote_um": 3.9568685424565597,
+    "submitted_formula_nonzero_Gamma_asymptote": "diverges as 4*K0*sqrt(c)/(sqrt(pi)*E_prime)"
+  }
+}

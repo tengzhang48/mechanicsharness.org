@@ -1,0 +1,50 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      {
+        "quote": "checked that the mode-I displacement field reproduces the stress-law strains",
+        "source": "submission/PROCESS.md:3"
+      },
+      {
+        "quote": "interval is non-empty: **[0.01000, 0.06133] mm**.",
+        "source": "submission/ANSWER.md:70"
+      }
+    ]
+  },
+  "B2": {
+    "status": "present_right",
+    "timing": "unclear",
+    "evidence": [
+      {
+        "quote": "so the uniaxial compliance is A+B = 1/T",
+        "source": "submission/ANSWER.md:23"
+      },
+      {
+        "quote": "This reproduces the bilinear uniaxial law ε = σ_y/E + (σ−σ_y)/T, whose tangent is T",
+        "source": "submission/ANSWER.md:28"
+      }
+    ]
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      {
+        "quote": "(ii) all principal strains ≤ 5% (infinitesimal kinematics are defensible)",
+        "source": "submission/ANSWER.md:104"
+      },
+      {
+        "quote": "(crack growth, damage and inertia are explicitly excluded).",
+        "source": "submission/ANSWER.md:111"
+      }
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "B1 credits the compatibility check and explicit nonempty leading-field screening range; B2 credits the stated comparison with the closed-form uniaxial tangent law, whose timing is not logged. No T = E recovery test or parameter-driven change of field structure is recorded, and numerical consistency checks alone are not treated as such tests."
+}

@@ -1,0 +1,38 @@
+{
+  "refinement": [
+    {
+      "steps": 1000,
+      "s": 1.8438247397108878,
+      "curvature": -1.2630789963458302,
+      "endpoint_residual": 4.799140448377096e-16,
+      "solver_status": 5,
+      "message": "The iteration is not making good progress, as measured by the \n improvement from the last ten iterations.",
+      "warnings": []
+    },
+    {
+      "steps": 8000,
+      "s": 1.8438247397139165,
+      "curvature": -1.2630789963434363,
+      "endpoint_residual": 4.748065023402152e-16,
+      "solver_status": 3,
+      "message": "xtol=0.000000 is too small, no further improvement in the approximate\n solution is possible.",
+      "warnings": []
+    }
+  ],
+  "absolute_refinement_change_s": 3.028688411177427e-12,
+  "IVP_success": true,
+  "minimum_f_excluding_face": 9.591475183339306e-08,
+  "radial_energy_power": 1.2191236985695824,
+  "rounded_answer_absolute_errors": {
+    "p": 4.739714000001616e-06,
+    "R": 3.768668800002706e-05
+  },
+  "rerun_requested_values": {
+    "p": 0.15617526028608353,
+    "R": 0.37326231331156995
+  },
+  "rerun_absolute_errors_against_printed_key": {
+    "p": 8.35165270274274e-14,
+    "R": 4.300448885885544e-13
+  }
+}

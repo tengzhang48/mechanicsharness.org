@@ -1,0 +1,29 @@
+n = 3.5, q = 1/(n+1) = 0.2222222222, stress exponent s = -0.2222222222
+traction-free check: f'(pi) = -3.413e-14  (should be ~0)
+f(pi) = 1.6984332340,  G(0) = 1.0000000000,  G(pi) = 0.3774296076
+I (normalization f'(0)=1) = 2.0195952773
+Amplitude A = 9.2560906175e-04 mm^(n/(n+1))  [w = A r^q f]
+
+[n=1 sanity check vs exact elastic Mode III field]
+max|f - 2 sin(th/2)| = 2.400e-12, max|f' - cos(th/2)| = 1.919e-12
+I1 = 3.141592653589 vs pi, rel err = 1.508e-13
+A1 rel err vs sqrt(gam0 J/(pi tau0)) = 7.545e-14
+
+[J on circles from the computed n=3.5 field]
+  r =  0.005 mm:  J = 0.1200000000 N/mm, rel dev = -1.16e-16
+  r =  0.020 mm:  J = 0.1200000000 N/mm, rel dev = +0.00e+00
+  r =  0.100 mm:  J = 0.1200000000 N/mm, rel dev = +0.00e+00
+  r =  0.300 mm:  J = 0.1200000000 N/mm, rel dev = +0.00e+00
+
+================ REQUESTED NUMBERS (n = 3.5) ================
+1) r = 0.0200 mm:  Delta w = 2 A r^q f(pi) = 1.318127e-03 mm
+1) r = 0.0800 mm:  Delta w = 2 A r^q f(pi) = 1.793694e-03 mm
+2) r = 0.0200 mm, theta = 60 deg:  tau_rz = 38.586597 MPa, tau_tz = 138.010617 MPa  (|tau| = 143.303370, |gamma| = 1.539e-02)
+3) theta =   0.0 deg:  r(|gamma|=0.01) = 4.689442e-02 mm  (G = 1.00000000)
+3) theta =  90.0 deg:  r(|gamma|=0.01) = 2.506612e-02 mm  (G = 0.61435300)
+3) theta = 180.0 deg:  r(|gamma|=0.01) = 1.339841e-02 mm  (G = 0.37742961)
+
+[Cartesian FD checks of the n=3.5 field]
+  max |div tau|/(|tau|/r) over 300 pts = 6.986e-10
+  max constitutive residual            = 1.686e-15
+  max face traction |t_z|/|tau|        = 1.135e-07

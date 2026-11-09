@@ -1,0 +1,14 @@
+V1 slip_0.02  value 0.0013181267777583516  key 0.001318126778  rel err  1.677e-12  tol 2%  PASS
+V1 slip_0.08  value 0.0017936937381356653  key 0.001793693738  rel err  1.662e-12  tol 2%  PASS
+V1 tau_rz     value 38.58659686229677  key 38.58659686  rel err  4.217e-13  tol 2%  PASS
+V1 tau_tz     value 138.01061663229552  key 138.0106166  rel err  4.547e-13  tol 2%  PASS
+V1 r_0        value 0.046894423054845376  key 0.04689442305  rel err  2.131e-12  tol 2%  PASS
+V1 r_90       value 0.025066123488801603  key 0.02506612349  rel err  2.435e-12  tol 2%  PASS
+V1 r_180      value 0.013398406587099138  key 0.01339840659  rel err  2.097e-12  tol 2%  PASS
+V2 T          value 4816.472187234531  key 4816.472187  rel err  1.416e-11  tol 1%  PASS
+V2 C_rr       value 0.003942048237717002  key 0.003942048238  rel err  4.104e-12  tol 2%  PASS
+V2 C_tt       value 0.0006331781350674517  key 0.0006331781351  rel err  5.651e-12  tol 2%  PASS
+V2 C_g        value 0.005731131133434671  key 0.005731131133  rel err  3.807e-12  tol 2%  PASS
+V2 C_y        value 0.009139018941443533  key 0.009139018941  rel err  4.016e-12  tol 2%  PASS
+V2 r_min      value 0.009999999999929246  key 0.01  rel err  7.075e-12  tol 2%  PASS
+V2 r_max      value 0.061325228547689174  key 0.06132522855  rel err  3.620e-11  tol 2%  PASS

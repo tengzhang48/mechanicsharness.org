@@ -1,0 +1,50 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "unclear",
+    "evidence": [
+      {
+        "quote": "finite nonzero J requires **p = 1/(n+1) = 2/9**",
+        "source": "submission/ANSWER.md:36"
+      },
+      {
+        "quote": "n=3.5 eigen p*=1/(n+1)=2/9, face residual 1e-16",
+        "source": "submission/PROCESS.md:3"
+      }
+    ]
+  },
+  "B2": {
+    "status": "present_right",
+    "timing": "unclear",
+    "evidence": [
+      {
+        "quote": "**n = 1 regression against the exact mode III elastic field** (whole pipeline, same code)",
+        "source": "submission/ANSWER.md:60"
+      },
+      {
+        "quote": "mode3.py: n=1 regression exact vs closed form",
+        "source": "submission/PROCESS.md:3"
+      }
+    ]
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      {
+        "quote": "Only the **leading term** is used; valid for r ≪ 0.30 mm",
+        "source": "submission/ANSWER.md:75"
+      },
+      {
+        "quote": "Small strain fails as r → 0",
+        "source": "submission/ANSWER.md:78"
+      }
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "Existence and n = 1 checks are reported together with the main n = 3.5 run in submission/PROCESS.md:3, so their relative timing is unclear; the applicability limits appear only in the final answer, written at submission/PROCESS.md:4. The n = 1 regression is a limiting-case check, and the small-r caveat is an applicability limit; neither examines a parameter-driven change of structure."
+}

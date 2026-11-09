@@ -1,0 +1,30 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "unclear",
+    "evidence": [
+      "submission/ANSWER.md:35: \"Finite energy + finite non-zero J for a crack ⇒ p = 1/2\""
+    ]
+  },
+  "B2": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": [
+      "submission/ANSWER.md:35: \"Williams; HRR n→1 limit\""
+    ]
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "unclear",
+    "evidence": [
+      "submission/ANSWER.md:18–19: \"Loading is quasistatic, monotonic and proportional at the material points\"",
+      "submission/ANSWER.md:91: \"large-strain/blunting physics near the tip\""
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "The step log records an analytic reduction followed by a bundled final write-up (submission/PROCESS.md:2–3), without locating the existence or applicability checks relative to numerical work. Naming the HRR n→1 limit does not demonstrate a limiting-case test, and the radius screens do not analyze parameter degeneracies."
+}

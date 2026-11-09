@@ -1,0 +1,7 @@
+Reported-curvature field: original strain-check ratio vs correct tensor check
+x=1.0e-03,y=1.0e-04: original=0.997465548, correct=1.000000001, tensor_relative_error=4.861e-09
+x=5.0e-04,y=3.0e-04: original=0.960336960, correct=0.999999995, tensor_relative_error=1.251e-08
+x=2.0e-03,y=1.0e-03: original=0.956519623, correct=0.999999995, tensor_relative_error=1.626e-08
+x=1.0e-03,y=5.0e-04: original=0.956519632, correct=1.000000004, tensor_relative_error=5.670e-09
+Maximum tensor constitutive error: 1.6260988729202212e-08
+Original Cartesian J=7.7094065476e+04, correct amplitude formula J=7.7094065478e+04, ratio=1.0000000000

@@ -1,0 +1,9 @@
+f(alpha)         = 7.022e-13   (target 0)
+f'(alpha)        = 4.278e-13   (target 0)
+sigma_tt(alpha)  = 1.092e-12   (= K r^(s-2) s(s-1) f(alpha))
+sigma_rt(alpha)  = -3.610e-13   (= K r^(s-2) (1-s) f(alpha))
+se_tilde(0)      = 0.844478
+sigma_tt(0)      = 1.5558649311
+sigma_rr(0)      = 0.5807457434
+R                = 0.373262313312
+1/R              = 2.679081076060

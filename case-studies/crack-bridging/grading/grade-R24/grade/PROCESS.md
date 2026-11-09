@@ -1,0 +1,11 @@
+# Grading process
+
+- 17:06:41 UTC — Read TASK_PROBLEM.md, RUBRIC.md, REFERENCE.md, and submission/ANSWER.md; recorded grading start using `date -u +%H:%M:%S`.
+- Read submission/solve.py, reference.py, and reference_results.json. The submitted script unconditionally imports `knowledge/crack_bridging.py`, which is not included in submission/. No external files or network resources will be used.
+- 17:06:57 UTC — Copied the submitted script to scratch/solve.py for execution. Ran the unmodified copy: it exited with ModuleNotFoundError before producing results. Independently reran reference.py; all assertions passed and outputs matched reference_results.json.
+- 17:07:31 UTC — Completed scratch/audit_submission.py. Extracted the supplied A/B imports, constants, functions, and root statements without changing their mechanics or replacing the absent spectral solver. Both routes reproduced the key, including the reported independent opening comparison at four branch locations. Checked all main and alternate numerical answer roundings against the ±0.3% tolerance. Recorded results in scratch/audit_results.json.
+- 17:08:02 UTC — Checked the supplementary physical claims. Confirmed initiation at 20.2876258 MPa and positive pre-event load slope; identified the incorrectly normalized short-zone opening diagnostic, the omitted remote pressure in the prose description of the zone kernel, inaccurate supplementary K rounding, and the distinction between the 160 MPa asymptote and a strict ceiling. The spectral refinement sequence is not supported by the supplied code.
+- Applied the rubric criterion by criterion. Awarded full verification credit solely for the supported independent A/B elasticity comparison, with no credit inferred from spectral claims. All required criteria receive full credit; supplemental flaws are documented without inventing extra penalties.
+- 17:08:50 UTC — Wrote and reviewed GRADE.md: seven rubric rows, total 100/100, separate scientific-error / unsupported-claim / presentation-problem lists, and an explicit tolerance statement for both requested quantities. No correction to the reference was needed.
+
+- 17:09:06 UTC — Final artifact check passed: all seven rubric scores sum to 100/100 and both required Markdown deliverables are present.

@@ -1,0 +1,39 @@
+T               = 4816.472187 MPa
+nu_eq           = 0.48623865
+K_I = sqrt(J T) = 62.073970 MPa sqrt(mm)
+K/sqrt(2pi)     = 24.763931 MPa
+check C_zz      = -0.00500000 mm^(1/2) (measured -0.005)
+
+theta=60deg: f_rr=1.08253175 (5sqrt3/8=1.08253175), f_tt=0.64951905 (3sqrt3/8=0.64951905), f_rt=0.37500000 (3/8=0.37500000)
+C_rr(60deg)  = 3.942048e-03 mm^(1/2)
+C_tt(60deg)  = 6.331781e-04 mm^(1/2)
+C_grt(60deg) = 5.731131e-03 mm^(1/2)
+
+compatibility of integrated displacement (shear relation residual): 7.78e-13
+C_y(90deg) by integrating strains from the stress field      = 9.139019e-03
+C_y(90deg) closed form K(1+nu_eq)kappa/(2 sqrt(pi) E_eq)     = 9.139019e-03
+C_y(90deg) line integral 2*C_eyy(90deg)                      = 9.139019e-03
+FD strains vs law at (r=0.05, th=0.600): dUx/dx-exx=-1.89e-12, dUy/dy-eyy=-1.83e-12, 1/2(dUx/dy+dUy/dx)-exy=1.32e-02
+FD strains vs law at (r=0.137, th=2.100): dUx/dx-exx=-4.85e-13, dUy/dy-eyy=-4.75e-13, 1/2(dUx/dy+dUy/dx)-exy=1.82e-02
+FD strains vs law at (r=0.02, th=1.571): dUx/dx-exx=2.58e-11, dUy/dy-eyy=1.00e-11, 1/2(dUx/dy+dUy/dx)-exy=5.14e-02
+
+screening: C_in=2.641508e-03, |C_zz|=5.000000e-03 -> binding 5.000000e-03
+r from strain screen  >= 0.010000 mm
+r from sigma_e screen <= 0.061325 mm (K^2/(2 pi (10 sig_y)^2))
+interval on theta=0: [0.010000, 0.061325] mm, nonempty=True
+  r=0.010000: sigma_e=247.639 MPa (24.8 sig_y), eps_max=0.05000, bracket <1-sig_y/sig_e>=0.9596
+  r=0.061325: sigma_e=100.000 MPa (10.0 sig_y), eps_max=0.02019, bracket <1-sig_y/sig_e>=0.9000
+
+J on circles (true deformation-theory W, leading-field u):
+  R= 0.00001 mm:  J = 0.800000 N/mm   (target 0.800)
+  R= 0.00010 mm:  J = 0.800000 N/mm   (target 0.800)
+  R= 0.00100 mm:  J = 0.800000 N/mm   (target 0.800)
+  R= 0.00610 mm:  J = 0.799998 N/mm   (target 0.800)
+  R= 0.06130 mm:  J = 0.799921 N/mm   (target 0.800)
+  R= 0.20000 mm:  J = 0.799535 N/mm   (target 0.800)
+
+sqrt(r)*eps_zz(r,0) from the FULL law (should -> -0.005):
+  r=1e-08: sqrt(r)*eps_zz = -0.00499981
+  r=1e-06: sqrt(r)*eps_zz = -0.00499807
+  r=1e-04: sqrt(r)*eps_zz = -0.00498067
+  r=1e-02: sqrt(r)*eps_zz = -0.00480666

@@ -1,0 +1,10 @@
+phi''(0),phi'''(0) = [-0.91422447  0.03284634]
+A(pi)= 1.9095836023552692e-14  C(pi)= -9.188593534774821e-15
+bvp success True The algorithm converged to the desired accuracy. nodes 2723
+bvp phi''(0)= -0.9142244740063484  phi'''(0)= 0.03284634011707655
+bvp A(pi)= 0.0  C(pi)= -0.0
+Traceback (most recent call last):
+  File "<probe-runs>/runs/P015-T1-without-dsaz/final_solve.py", line 49, in <module>
+    print("max |shoot - bvp| phi:",np.max(np.abs(ys[0]-sol.y[0])))
+                                                 ~~~~~^~~~~~~~~
+ValueError: operands could not be broadcast together with shapes (200,) (2723,) 

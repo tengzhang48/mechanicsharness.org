@@ -1,0 +1,88 @@
+{
+  "reference": {
+    "M_each_arm_N_m": 0.21262578737672128,
+    "L_mm": 10.800102370897305,
+    "delta_at_L_over_2_um": 38.218897926093284
+  },
+  "reported_and_rerun": {
+    "main_bold_results": {
+      "M_each_arm_N_m": 0.2126,
+      "L_mm": 10.8,
+      "delta_at_L_over_2_um": 38.2
+    },
+    "parenthetical_results": {
+      "M_each_arm_N_m": 0.212626,
+      "L_mm": 10.8001,
+      "delta_at_L_over_2_um": 38.219
+    },
+    "unrounded_code_results": {
+      "M_each_arm_N_m": 0.21262578737672133,
+      "L_mm": 10.800102370897187,
+      "delta_at_L_over_2_um": 38.218897926093824
+    }
+  },
+  "absolute_relative_errors_percent": {
+    "main_bold_results": {
+      "M_each_arm_N_m": 0.012128057014826332,
+      "L_mm": 0.0009478696940901088,
+      "delta_at_L_over_2_um": 0.04944654900783663
+    },
+    "parenthetical_results": {
+      "M_each_arm_N_m": 9.999882015776507e-05,
+      "L_mm": 2.1952544737580126e-05,
+      "delta_at_L_over_2_um": 0.000267077054161291
+    },
+    "unrounded_code_results": {
+      "M_each_arm_N_m": 2.220446049250313e-14,
+      "L_mm": 1.0880185641326534e-12,
+      "delta_at_L_over_2_um": 1.4210854715202004e-12
+    }
+  },
+  "event_checks": {
+    "actual_tip_curvature_per_m": 1.2871375906215312,
+    "expected_positive_tip_curvature_per_m": 1.2871375906215363,
+    "rear_curvature_per_m": 5.032315285935754,
+    "expected_rear_curvature_per_m": 5.032315285935753,
+    "max_first_integral_residual_J_m2": 8.881784197001252e-14,
+    "profile_nondecreasing": true,
+    "delta_rear_um": 200.00000000000003,
+    "delta_min_um": 0.0
+  },
+  "supplementary_M_of_L_roots_at_event_length": [
+    {
+      "M_N_m": 0.18480559089752402,
+      "delta_rear_um": 97.6902266661373,
+      "tip_curvature_per_m": -1.287137590621563,
+      "minimum_gap_um": -1.2445646934917183
+    },
+    {
+      "M_N_m": 0.2126257873767217,
+      "delta_rear_um": 200.00000000000128,
+      "tip_curvature_per_m": 1.2871375906215654,
+      "minimum_gap_um": 0.0
+    }
+  ],
+  "pre_event_continuation": {
+    "M_increases": true,
+    "rear_gap_increases": true,
+    "minimum_partial_F_partial_M": 51.48550400565262,
+    "maximum_partial_F_partial_L_before_event": -16.673647786738606,
+    "endpoint": [
+      0.010800102370897187,
+      0.2126257873767217,
+      0.00020000000000000128,
+      201.2926114374352,
+      5.587197625706431e-11
+    ]
+  },
+  "supplementary_off_event_energy_sample": {
+    "L_mm": 14.040133082166342,
+    "M_N_m": 0.23388836611439348,
+    "minimum_gap_um": -8.085588920247273,
+    "maximum_gap_um": 182.11351145109026,
+    "traction_min_MPa": 0.01788648854890973,
+    "traction_max_MPa": 0.20808558892024726
+  },
+  "bending_only_same_M_and_L_midpoint_um": 73.37254781463851,
+  "bending_only_same_rear_opening_midpoint_um": 50.0
+}

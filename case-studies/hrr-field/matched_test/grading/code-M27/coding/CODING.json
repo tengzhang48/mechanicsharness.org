@@ -1,0 +1,32 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "before",
+    "evidence": [
+      "submission/ANSWER.md:49: \"A finite, non-zero J therefore requires `s = 1/(n+1) = 0.222222`\"",
+      "submission/PROCESS.md:3: \"eigenvalue scan recovers s=1/(n+1)\""
+    ]
+  },
+  "B2": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:87-88: \"For `n = 1` the same code gives `s = 1/2`, `I = π`\"",
+      "submission/PROCESS.md:6: \"n=1 limit reproduces I=pi and G=K^2/(2mu)=0.120 exactly\""
+    ]
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:76-77: \"small strain and continuum are taken as valid in the requested range\"",
+      "submission/ANSWER.md:110-111: \"advance requires comparing it with a separately measured critical value (toughness / cohesive criterion), which these results do not contain\""
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "Timing follows the step log: finite-J exponent selection begins in the initial derivation (line 2), the n = 1 verification follows the numerical calculations (line 6), and applicability is explicit in the final answer written at line 7. Neither the n = 1 comparison nor the statement that the specified pure power law has no elastic–plastic transition checks a parameter degeneracy or structural threshold."
+}

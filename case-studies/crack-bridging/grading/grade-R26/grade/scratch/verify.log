@@ -1,0 +1,18 @@
+continuation reached L = 12.0 mm; M = 0.205813 ; delta_t = 251.949 um; monotone M: False ; monotone dt: True
+peak of path:  M = 0.21262578 N m at L = 10.79908 mm, delta_t = 199.9558 um
+M* from J-identity: 0.21262579  -> agreement: 2.29e-08
+   L=  0.100 mm  M=0.054409  dt=   0.006 um  G_M=   51.49
+   L=  1.589 mm  M=0.060668  dt=   1.718 um  G_M=   51.51
+   L=  3.077 mm  M=0.077635  dt=   7.402 um  G_M=   51.83
+   L=  4.566 mm  M=0.104080  dt=  19.599 um  G_M=   53.18
+   L=  6.055 mm  M=0.137089  dt=  41.860 um  G_M=   56.96
+   L=  7.544 mm  M=0.171293  dt=  77.433 um  G_M=   66.11
+   L=  9.032 mm  M=0.199031  dt= 127.212 um  G_M=   88.84
+   L= 10.521 mm  M=0.212265  dt= 187.947 um  G_M=  165.20
+   L= 10.799 mm  M=0.212626  dt= 199.956 um  G_M=  201.13
+
+================ FINAL ================
+M*   = 0.212626 N m   (on each strip)
+L*   = 10.8001 mm
+d(L*/2) = 38.219 um
+J* = 21.4000 J/m^2 = Gamma0 + sigma_b delta_c/2 = 21.4000

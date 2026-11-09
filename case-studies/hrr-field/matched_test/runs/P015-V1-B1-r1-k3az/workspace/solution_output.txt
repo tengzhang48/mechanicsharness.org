@@ -1,0 +1,44 @@
+=== n=1 check vs exact elastic solution ===
+lam = 0.500000000000  (exact 0.5)
+max|f - (-cos(th/2))|   = 7.316e-14
+max|fp - 0.5 sin(th/2)| = 2.698e-14
+I_1 = 0.785398163397  (exact pi/4 = 0.785398163397)
+
+=== n = 3.5 eigenvalue / amplitude ===
+lam (shot)      = 0.777777777778
+n/(n+1)         = 0.777777777778
+p = 1 - lam     = 0.222222222222   (1/(n+1) = 0.222222222222)
+I_n             = 0.6517998168
+c = gam0/tau0^n = 4.3673202686e-10 MPa^-n
+A               = 82.5341667891 MPa mm^p
+f(pi) residual  = -1.917e-16   f'(pi) = 0.5887779278
+
+=== (1) relative face slip  Delta w = w(r,+pi) - w(r,-pi) ===
+r = 0.0200 mm :  w(r,+pi) = 6.59063389e-04 mm, Delta w = 1.31812678e-03 mm
+r = 0.0800 mm :  w(r,+pi) = 8.96846869e-04 mm, Delta w = 1.79369374e-03 mm
+
+=== (2) signed stresses at r = 0.0200 mm, theta = 60 deg ===
+tau_rz = 38.58659686 MPa
+tau_tz = 138.01061663 MPa
+
+=== (3) radii where |gamma| = 0.0100 ===
+tau_* (=tau0*(0.01/gam0)^(1/n)) = 126.705569 MPa
+theta =   0 deg :  T = 0.77777778,  r = 0.04689442 mm
+theta =  90 deg :  T = 0.67671145,  r = 0.02506612 mm
+theta = 180 deg :  T = 0.58877793,  r = 0.01339841 mm
+
+=== verification ===
+J on circle r =  0.0010 mm : 0.1200000000 N/mm  (rel. err 4.97e-14)
+J on circle r =  0.0200 mm : 0.1200000000 N/mm  (rel. err 2.80e-14)
+J on circle r =  0.0800 mm : 0.1200000000 N/mm  (rel. err 1.78e-14)
+J on circle r =  0.2500 mm : 0.1200000000 N/mm  (rel. err 8.79e-15)
+compat (1/r)w_,th vs gamma_tz: max rel diff = 1.98e-07
+equilibrium FD at (0.02,0.01): div = 8.098e-04 MPa/mm (scale 8.589e+03, rel 9.43e-08)
+equilibrium FD at (0.01,0.03): div = -1.836e-04 MPa/mm (scale 5.623e+03, rel 3.26e-08)
+equilibrium FD at (0.05,0.02): div = 5.613e-05 MPa/mm (scale 2.934e+03, rel 1.91e-08)
+equilibrium FD at (-0.03,0.04): div = 2.446e-05 MPa/mm (scale 3.212e+03, rel 7.62e-09)
+face traction tau_tz(r=0.02, +pi) = 2.935e-14 MPa
+face traction tau_tz(r=0.02, -pi) = 2.935e-14 MPa
+|gamma| at r=0.02, th=60deg: 0.015386 vs gam0*(tau/tau0)^n = 0.015386
+w_,r vs gamma_rz at r=0.02, th=1.047: 4.14278624e-03 vs 4.14278624e-03
+w_,r vs gamma_rz at r=0.08, th=2.500: 2.40125331e-03 vs 2.40125331e-03

@@ -1,0 +1,40 @@
+a=-2.00 done, best so far: 0.87905 at (-2.000,-0.133)
+a=-1.90 done, best so far: 0.81253 at (-1.900,-0.133)
+a=-1.80 done, best so far: 0.74585 at (-1.800,-0.133)
+a=-1.70 done, best so far: 0.67900 at (-1.700,-0.133)
+a=-1.60 done, best so far: 0.61199 at (-1.600,-0.133)
+a=-1.50 done, best so far: 0.54486 at (-1.500,-0.133)
+a=-1.40 done, best so far: 0.47405 at (-1.400,-0.200)
+a=-1.30 done, best so far: 0.37172 at (-1.300,-0.200)
+a=-1.20 done, best so far: 0.30487 at (-1.200,-0.200)
+a=-1.10 done, best so far: 0.24443 at (-1.100,-0.200)
+a=-1.00 done, best so far: 0.16703 at (-1.000,-0.267)
+a=-0.90 done, best so far: 0.09991 at (-0.900,-0.400)
+a=-0.80 done, best so far: 0.04828 at (-0.800,-0.800)
+a=-0.70 done, best so far: 0.04828 at (-0.800,-0.800)
+a=-0.60 done, best so far: 0.04828 at (-0.800,-0.800)
+a=-0.50 done, best so far: 0.04828 at (-0.800,-0.800)
+a=-0.40 done, best so far: 0.04828 at (-0.800,-0.800)
+a=-0.30 done, best so far: 0.04828 at (-0.800,-0.800)
+a=-0.20 done, best so far: 0.04828 at (-0.800,-0.800)
+a=-0.10 done, best so far: 0.04828 at (-0.800,-0.800)
+a=0.00 done, best so far: 0.04828 at (-0.800,-0.800)
+a=0.10 done, best so far: 0.04828 at (-0.800,-0.800)
+a=0.20 done, best so far: 0.04828 at (-0.800,-0.800)
+a=0.30 done, best so far: 0.04828 at (-0.800,-0.800)
+a=0.40 done, best so far: 0.04828 at (-0.800,-0.800)
+a=0.50 done, best so far: 0.04828 at (-0.800,-0.800)
+a=0.60 done, best so far: 0.04828 at (-0.800,-0.800)
+a=0.70 done, best so far: 0.04828 at (-0.800,-0.800)
+a=0.80 done, best so far: 0.04828 at (-0.800,-0.800)
+a=0.90 done, best so far: 0.04828 at (-0.800,-0.800)
+a=1.00 done, best so far: 0.04828 at (-0.800,-0.800)
+top:
+  m=0.04828  a=-0.800 b=-0.800
+  m=0.04925  a=-0.800 b=-0.733
+  m=0.04942  a=-0.800 b=-0.867
+  m=0.05034  a=-0.800 b=-0.667
+  m=0.05160  a=-0.800 b=-0.600
+  m=0.05183  a=0.300 b=-1.000
+  m=0.05720  a=0.300 b=-0.933
+  m=0.05722  a=-0.800 b=-0.533

@@ -1,0 +1,72 @@
+{
+  "tolerance_checks": {
+    "slip_0.02_mm": {
+      "main_answer_value": 0.0013181,
+      "rerun_value": 0.001318126778,
+      "reference": 0.0013181267777605623,
+      "main_answer_relative_error_percent": 0.002031501143448729,
+      "rerun_relative_error_percent": 1.8164989669906553e-08,
+      "within_2_percent": true
+    },
+    "slip_0.08_mm": {
+      "main_answer_value": 0.0017937,
+      "rerun_value": 0.001793693738,
+      "reference": 0.0017936937381386466,
+      "main_answer_relative_error_percent": 0.0003491042657003543,
+      "rerun_relative_error_percent": 7.72967461876465e-09,
+      "within_2_percent": true
+    },
+    "tau_rz_0.02mm_60deg_MPa": {
+      "main_answer_value": 38.59,
+      "rerun_value": 38.58659686,
+      "reference": 38.586596862313044,
+      "main_answer_relative_error_percent": 0.00881948128025513,
+      "rerun_relative_error_percent": 5.994423366300242e-09,
+      "within_2_percent": true
+    },
+    "tau_thetaz_0.02mm_60deg_MPa": {
+      "main_answer_value": 138.01,
+      "rerun_value": 138.0106166,
+      "reference": 138.01061663235822,
+      "main_answer_relative_error_percent": 0.00044680066887407913,
+      "rerun_relative_error_percent": 2.34461888968663e-08,
+      "within_2_percent": true
+    },
+    "gamma_contour_0deg_mm": {
+      "main_answer_value": 0.046894,
+      "rerun_value": 0.04689442305,
+      "reference": 0.046894423054945324,
+      "main_answer_relative_error_percent": 0.0009021434059009048,
+      "rerun_relative_error_percent": 1.0545650436822143e-08,
+      "within_2_percent": true
+    },
+    "gamma_contour_90deg_mm": {
+      "main_answer_value": 0.025066,
+      "rerun_value": 0.02506612349,
+      "reference": 0.025066123488862634,
+      "main_answer_relative_error_percent": 0.0004926524146702543,
+      "rerun_relative_error_percent": 4.537470574907988e-09,
+      "within_2_percent": true
+    },
+    "gamma_contour_180deg_mm": {
+      "main_answer_value": 0.013398,
+      "rerun_value": 0.01339840659,
+      "reference": 0.013398406587127234,
+      "main_answer_relative_error_percent": 0.0030345931405327715,
+      "rerun_relative_error_percent": 2.1441103778312466e-08,
+      "within_2_percent": true
+    }
+  },
+  "dimensional_circle_flux_N_per_mm": {
+    "0.005": 0.11999999999999994,
+    "0.02": 0.12,
+    "0.1": 0.12,
+    "0.3": 0.12
+  },
+  "angular_ODE_face_derivative": -2.835188681049594e-17,
+  "stored_work_absolute_difference": 5.551115123125783e-17,
+  "auxiliary_debug_flux_missing_A_N_per_mm": {
+    "1.0": 16.41300641223822,
+    "0.02": 16.413006412238218
+  }
+}

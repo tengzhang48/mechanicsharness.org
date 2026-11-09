@@ -1,0 +1,32 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:36: \"independently shooting m to enforce g(π) = 0 recovers m = 0.777777777778 = n/(n+1) to 12 digits.\"",
+      "submission/PROCESS.md:2: \"First run: eigen-checks pass\""
+    ]
+  },
+  "B2": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:38: \"the amplitude relation reduces to J = K²/(2μ), μ = τ₀/γ₀ = 40 000 MPa\"",
+      "submission/PROCESS.md:2: \"n=1 gives -cos(th/2)\""
+    ]
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:43: \"Higher-order (non-singular) terms from the outer geometry are neglected per the problem\"",
+      "submission/ANSWER.md:44: \"Small strain fails at the very tip (γ → ∞ as r → 0)\""
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "B1 and B2 are first recorded as checks in the first numerical run (submission/PROCESS.md:2) and repeated in final verification; B3 is documented in the final answer written at submission/PROCESS.md:6, so these are coded after. The n = 1 comparison checks a known limit but does not explicitly examine a structural degeneracy or a singularity threshold."
+}

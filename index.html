@@ -6,7 +6,7 @@
 <title>MechanicsHarness</title>
 <meta name="description" content="MechanicsHarness shows how AI agents and mechanics can work together, with every result checked against an independent reference or a measurement.">
 <link rel="icon" href="assets/favicon.svg?v=crack-tip" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css?v=c011ab77">
+<link rel="stylesheet" href="assets/style.css?v=6df76f75">
 </head>
 <body class="page-index">
 <header class="site">
@@ -80,6 +80,8 @@ a measurement.</p>
       <li><a href="#xia-hutchinson-film">Thin-film cracking (Xia and Hutchinson 2000)</a></li>
       <li><a href="#viscoelastic-crack">Viscoelastic crack (Hui and Long 2026)</a></li>
       <li><a href="#grain-boundary-wedge">Grain-boundary diffusion wedge (Gao et al. 1999)</a></li>
+      <li><a href="#hrr-field">HRR field and notch (Hutchinson 1968)</a></li>
+      <li><a href="#crack-bridging">Crack bridging (Bao and Suo 1992)</a></li>
     </ul>
   </div>
   <div class="rung rung-2">
@@ -244,6 +246,72 @@ the key and what every agent did.</p>
       <dd>Released on 7 Nov 2026: the task, the key and its checker, the twelve runs, the grading and the records.</dd>
       <dt>Source paper</dt>
       <dd class="refs">H. Gao, L. Zhang, W. D. Nix, C. V. Thompson and E. Arzt (1999), <a href="https://doi.org/10.1016/S1359-6454(99)00178-0"><i>Acta Mater.</i> 47, 2865&ndash;2878</a>.</dd>
+    </dl>
+    </div>
+  </article>
+  <article class="card" id="hrr-field">
+    <div class="illustration">
+      <svg viewBox="0 0 118 60" aria-hidden="true" focusable="false">
+        <rect class="g-body" x="4" y="8" width="56" height="44"/>
+        <ellipse class="sc-dr" cx="36" cy="30" rx="8" ry="6.5"/>
+        <path class="g-contour" d="M17.2 32.6A15 15 0 1 0 17.2 27.4"/>
+        <path class="g-crack" d="M4 30H31"/>
+        <circle class="g-tip" cx="31" cy="30" r="3.2"/>
+        <path class="g-body" d="M76.3 8L89 30L76.3 52H114V8Z"/>
+        <path class="g-ss" d="M76.3 8L89 30L76.3 52"/>
+        <path class="g-hidden" d="M89 30H112"/>
+        <circle class="g-tip" cx="89" cy="30" r="3.2"/>
+      </svg>
+    </div>
+    <div class="cardbody">
+    <h3>HRR field and notch: power-law hardening at a sharp tip</h3>
+    <div class="card-cta">
+      <a class="button" href="case-studies/hrr-field.html">Read the case study</a>
+      <a class="button ghost" href="https://github.com/tengzhang48/mechanicsharness.org/tree/main/case-studies/hrr-field">Get the files</a>
+    </div>
+    <p>Hutchinson found the singular field at a tensile crack in a power-law hardening material, its amplitude fixed by
+    Rice&rsquo;s J integral. Without the paper, the agents were asked to find the stress exponent, solve the angular
+    eigenproblem and fix the amplitude by J, and to adapt the analysis to a 120&deg; notch, to antiplane shear and to a
+    material with a finite tangent slope. Of 30 graded answers, 26 had every requested number within tolerance; two lost a
+    term of the J integral and one wrote wrong equilibrium equations for the notch.</p>
+    <dl class="cardfooter">
+      <dt>Status</dt>
+      <dd>Released on 9 Nov 2026: the four problems, the keys and their checkers, the saved runs, the grading and the records.</dd>
+      <dt>Source paper</dt>
+      <dd class="refs">J. W. Hutchinson (1968), Singular behaviour at the end of a tensile crack in a hardening material, <a href="https://doi.org/10.1016/0022-5096(68)90014-8"><i>J. Mech. Phys. Solids</i> 16, 13&ndash;31</a>.</dd>
+    </dl>
+    </div>
+  </article>
+  <article class="card" id="crack-bridging">
+    <div class="illustration">
+      <svg viewBox="0 0 118 60" aria-hidden="true" focusable="false">
+        <rect class="g-body" x="4" y="15" width="56" height="30"/>
+        <path class="g-edge" d="M14 30Q32 21 50 30Q32 39 14 30Z"/>
+        <path class="g-new" d="M18 28.2V31.8M21 27.2V32.8M24 26.4V33.6M40 26.4V33.6M43 27.2V32.8M46 28.2V31.8"/>
+        <path class="g-arrow" d="M20 13V7M32 13V7M44 13V7M20 47V53M32 47V53M44 47V53"/>
+        <path class="g-arrowhead" d="M17 8L20 3L23 8ZM29 8L32 3L35 8ZM41 8L44 3L47 8ZM17 52L20 57L23 52ZM29 52L32 57L35 52ZM41 52L44 57L47 52Z"/>
+        <path class="g-body" d="M70 13Q86 23 96 25H116V30H96Q84 28 70 18Z"/>
+        <path class="g-sub" d="M70 38Q84 32 96 30H116V41H96Q86 41 70 49Z"/>
+        <path class="g-new" d="M86 27.4V31.3M89 28.2V30.8M92 28.8V30.4"/>
+        <circle class="g-front" cx="96" cy="30" r="1.8"/>
+      </svg>
+    </div>
+    <div class="cardbody">
+    <h3>Crack bridging: a finite slit and unequal strips</h3>
+    <div class="card-cta">
+      <a class="button" href="case-studies/crack-bridging.html">Read the case study</a>
+      <a class="button ghost" href="https://github.com/tengzhang48/mechanicsharness.org/tree/main/case-studies/crack-bridging">Get the files</a>
+    </div>
+    <p>Fibres or ligaments that bridge a crack act as a traction law; once the bridged zone is comparable to the crack or the
+    component, the load has to be computed from the body and the law together. For a finite bridged slit and for two
+    unequal bridged strips, GLM and DeepSeek, with and without a knowledge unit about the paper, were asked for the load and
+    the bridged length at which the first connector fails. Seven of the eight runs had every number within tolerance;
+    DeepSeek without the unit wrote a wrong opening for the slit.</p>
+    <dl class="cardfooter">
+      <dt>Status</dt>
+      <dd>Released on 9 Nov 2026: the task, the key and its checker, the eight runs, the grading and the records.</dd>
+      <dt>Source paper</dt>
+      <dd class="refs">G. Bao and Z. Suo (1992), Remarks on crack-bridging concepts, <a href="https://doi.org/10.1115/1.3119764"><i>Appl. Mech. Rev.</i> 45, 355&ndash;366</a>.</dd>
     </dl>
     </div>
   </article>

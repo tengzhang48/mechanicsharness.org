@@ -1,0 +1,11 @@
+# Process log (UTC)
+
+Times below were pasted from `date -u +%H:%M:%S` output.
+
+- 18:25:12 — Read the task, problem, rubric, reference narrative, and submitted answer. Began grading against the supplied tolerances; no web access was used.
+- 18:25:28 — Inspected the reference code/results and submitted mechanics and verification scripts. Identified conflicting shear equations, crack-face boundary conditions, and normalization data.
+- 18:26:19 — Copied Python inputs into scratch and ran unmodified reference.py (PID 693859), ANSWER.py (PID 693858), validate.py (PID 693860), and robust_j.py (PID 693861). Started validate3.py (PID 694529), indep_bvp.py (PID 694530), and clean_final.py (PID 694531). PIDs and individual output logs were recorded in scratch. The reference reproduced its stored results and passed all internal assertions; validate3.py demonstrated the n=1 limiting angular equation to 4.44e-16.
+- 18:26:44 — Inspected completed reruns: ANSWER.py reproduced H=2.150921 and C=0.291775; validate.py demonstrated upper-half equilibrium residuals below 7.25e-5. robust_j.py reproduced approximately 7.7687 with incorrect shear parity. indep_bvp.py reported failure and H=NaN. clean_final.py produced different coefficients and exited on a shape mismatch. Retained independently correct scaling, constitutive factors, radial integration, and limiting-check evidence for rubric credit.
+- 18:27:55 — Completed the local diagnostic audit (PID 695591): normalized sigma_theta_theta(pi)=0.718389735, correct shear-equation residual=0.702766104, and omitted shear-work integral=0.473357120. Confirmed the corrected angular setup in redo.py agrees with the reference RHS at a diagnostic state to 8.88e-16. Saved scratch/audit_results.json. No reference error was found. All recorded child processes finished; none was killed.
+- 18:29:11 — Finalized rubric allocations totaling 55/100 and drafted GRADE.md with scientific errors, unsupported claims, presentation problems, and all requested tolerance comparisons.
+- 18:29:51 — Verified all 11 rubric rows sum to 55 awarded out of 100 available, required output sections are present, and the submitted Python inputs and reference.py remain unchanged. Completed GRADE.md and PROCESS.md within the 25-minute limit.

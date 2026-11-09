@@ -1,0 +1,58 @@
+[
+  {
+    "quantity": "T_MPa",
+    "reported": 4816.0,
+    "reference": 4816.472187302739,
+    "relative_error_percent": 0.009803592429829559,
+    "tolerance_percent": 1.0,
+    "within_tolerance": true
+  },
+  {
+    "quantity": "C_rr_60deg_sqrtmm",
+    "reported": 0.003942,
+    "reference": 0.003942048237733179,
+    "relative_error_percent": 0.0012236718139769882,
+    "tolerance_percent": 2.0,
+    "within_tolerance": true
+  },
+  {
+    "quantity": "C_thetatheta_60deg_sqrtmm",
+    "reported": 0.0006332,
+    "reference": 0.0006331781350710297,
+    "relative_error_percent": 0.003453203412937665,
+    "tolerance_percent": 2.0,
+    "within_tolerance": true
+  },
+  {
+    "quantity": "C_engineering_rtheta_60deg_sqrtmm",
+    "reported": 0.005731,
+    "reference": 0.005731131133456488,
+    "relative_error_percent": 0.002288090316449094,
+    "tolerance_percent": 2.0,
+    "within_tolerance": true
+  },
+  {
+    "quantity": "C_y_90deg_sqrtmm",
+    "reported": 0.009139,
+    "reference": 0.009139018941480233,
+    "relative_error_percent": 0.00020725944824645002,
+    "tolerance_percent": 2.0,
+    "within_tolerance": true
+  },
+  {
+    "quantity": "r_min_mm",
+    "reported": 0.01,
+    "reference": 0.009999999999999998,
+    "relative_error_percent": 1.7347234759768074e-14,
+    "tolerance_percent": 2.0,
+    "within_tolerance": true
+  },
+  {
+    "quantity": "r_max_mm",
+    "reported": 0.0613,
+    "reference": 0.06132522854990914,
+    "relative_error_percent": 0.04113894151834934,
+    "tolerance_percent": 2.0,
+    "within_tolerance": true
+  }
+]

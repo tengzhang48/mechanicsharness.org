@@ -1,0 +1,12 @@
+Solving 2-param system for p=1/(n+1)= 0.13333333333333333
+  guess (-1, 0) -> u=[-0.91422447  0.03284634] |resid|=1.45e-11 nfev=12 id=<built-in function id>
+  guess (-0.5, 0) -> u=[-0.91422447  0.03284634] |resid|=9.88e-15 nfev=43 id=<built-in function id>
+  guess (0, 0) -> u=[-0.91422447  0.03284634] |resid|=4.73e-14 nfev=26 id=<built-in function id>
+  guess (0.5, 0) -> u=[-0.91422447  0.03284634] |resid|=3.04e-12 nfev=44 id=<built-in function id>
+  guess (1, 0) -> u=[-0.91422447  0.03284634] |resid|=2.17e-15 nfev=19 id=<built-in function id>
+  guess (-1, -1) -> u=[-0.91422447  0.03284634] |resid|=3.50e-15 nfev=32 id=<built-in function id>
+  guess (0, 1) -> u=[-0.91422447  0.03284634] |resid|=5.22e-13 nfev=96 id=<built-in function id>
+  guess (1, 1) -> u=[-0.91422447  0.03284634] |resid|=1.79e-13 nfev=27 id=<built-in function id>
+  guess (-0.7, 0.3) -> u=[-0.91422447  0.03284634] |resid|=1.07e-14 nfev=25 id=<built-in function id>
+  guess (-0.6, -0.3) -> u=[-0.91422447  0.03284634] |resid|=6.88e-13 nfev=46 id=<built-in function id>
+unique solutions: {(np.float64(-0.914224), np.float64(0.032846))}

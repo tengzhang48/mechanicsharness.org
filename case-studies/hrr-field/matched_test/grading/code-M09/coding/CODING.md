@@ -1,0 +1,9 @@
+- **B1 existence — present_right; after.** The verification reports finite energy and the admissible crack exponent p = 1/2, after the numerical runs. Evidence: “finite energy, crack exponent p = 1/2” (submission/ANSWER.md:112); “all applicable checks PASS” (submission/PROCESS.md:4).
+
+- **B2 limiting cases — absent; unclear.** No recovery check against a separate known material limit, such as T = E, is reported. The high-stress constitutive reduction, modulus identities, contour integral, and displacement cross-check verify the chosen field rather than testing a parameter limit. Evidence: none.
+
+- **B3 applicability — present_right; after.** The final write-up identifies high-stress, small-strain, and outer-matching screens, and excludes blunting/process-zone physics and an initiation prediction without additional data. Evidence: “strains remain within the small-strain assumption” (submission/ANSWER.md:129); “any crack-tip blunting/process zone are outside the model; no initiation threshold is inferred.” (submission/ANSWER.md:147).
+
+- **B4 degenerate cases — present_right; before.** The solver recognizes coinciding linear stress scaling: the extra strain term does not supersede the elastic term or change the crack exponent, so both contribute to the effective compliance. The log places this constitutive reduction before solving for T. Evidence: “linear in stress, so it does not dominate the elastic term or change the exponent” (submission/ANSWER.md:51); “reduced the law to its sigma_e->infinity linear limit (plane stress), solved T” (submission/PROCESS.md:2).
+
+Notes: Timing follows submission/PROCESS.md:2–5: constitutive reduction precedes the solve, numerical validation follows it, and applicability limitations are recorded in the final write-up. The equal stress scaling counts as B4; the high-stress reduction and same-field cross-checks are not an independent B2 limit test.

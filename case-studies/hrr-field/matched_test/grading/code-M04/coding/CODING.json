@@ -1,0 +1,32 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "before",
+    "evidence": [
+      "submission/PROCESS.md:2: \"shooting F(0)=0,F'(0)=1 gives F'(pi)=0 exactly at q=1/(n+1)=0.2222222\"",
+      "submission/ANSWER.md:53: \"F′(π) = 0 (residual −6×10⁻¹⁷) **exactly at q = 1/(n+1)**\""
+    ]
+  },
+  "B2": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/PROCESS.md:4: \"n=1 limit equals K^2/(2mu)\"",
+      "submission/ANSWER.md:58: \"the closed-form Δw(0.02) = 5.5279×10⁻⁴ mm matches the code.\""
+    ]
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:49: \"the **leading local field only**, which the task authorizes for r ≲ 0.30 mm, and used **deformation theory under proportional loading**\"",
+      "submission/ANSWER.md:67: \"Finite-strain blunting, the fracture process zone, and any elastic term are omitted\""
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "Timing follows step-log order: the angular solve and amplitude calculation at submission/PROCESS.md:3 begin the main numerical work, and applicability is documented only in the final answer. The n = 1 comparison and n sweep do not analyze a degeneracy or singularity threshold."
+}

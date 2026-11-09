@@ -1,0 +1,10 @@
+Exit code: 0
+Check G formula: G/(M^2)=4.733495e+02 ; M^2 R/(2b)=4.733495e+02
+cohesive work per area = 20.0000 J/m2  (sigma_b*dc/2)
+steady-state moment M = 0.212626 N.m
+process zone length L = 10.8001 mm
+delta(L/2) = 38.2189 um   delta(0)=200.0 um  delta(L)=-8.132e-14 um
+ODE residual at L/2 = 4.151e+04 (should be ~0)
+
+SUMMARY: M=0.212626 N.m ; L=10.8001 mm ; delta(L/2)=38.2189 um
+

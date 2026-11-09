@@ -1,0 +1,13 @@
+Spectral-only reported solution:
+K_tip (MPa sqrt(m)) = 1.761618179717457
+K relative residual = -1.0325074129013956e-14
+delta(a) (micrometres) = 9.000000074950066
+delta(a) relative residual = 8.327785128159348e-09
+Stress disagreement (%) = 0.022740774940810393
+Length disagreement (%) = 0.16772896684149607
+At c_spec -1e-10 m: delta(a) (micrometres) = 8.999999480234289
+At c_spec +1e-10 m: delta(a) (micrometres) = 9.000000669665527
+Reference rerun Sigma_MPa = 133.73028605381103 recorded difference = 0.0
+Reference rerun L_mm_per_end = 4.085609138245525 recorded difference = 0.0
+Grader analytic load derivative d(Sigma/t)/du at event = 0.21501593212626705
+Slope positive throughout preceding branch because sqrt(2*sinh(u)) is increasing and stays below 10.04150652882644

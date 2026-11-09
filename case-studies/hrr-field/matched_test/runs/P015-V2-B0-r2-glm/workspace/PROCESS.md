@@ -1,0 +1,6 @@
+03:37:30 read TASK.md, listed folder, starting PROCESS.md
+03:42:17 read knowledge (TOPIC.md, checks, hutchinson entry): J fixes p=1/2 for crack; piecewise-linear plane-stress amplitude sqrt(E_tan/E) in entry supports J = K_tip^2/T
+03:42:20 derived leading-order linear law: eps = (1+nu)/E sig - nu/E tr(sig) del + (3/2)(1/T-1/E)s becomes Hooke with E_eq=T (exact identity 1/E_eq = 1/(9K)+2A/3 = 1/T), nu_eq = 1/2 - (1-2nu)T/(2E); plane stress; J = K^2/T; C_zz = -sqrt(2/pi)*sqrt(J)*nu_eq/sqrt(T)
+03:43:21 ran solve.py: T=4816.47 MPa, K=62.07 MPa sqrt(mm), knowledge checks all PASS (field J=K^2=J*T), C_y=9.139e-3 three ways; but my FD-strain residual ~1e-2 and nonlinear-W J(R)=1.2067 const != 0.8 -> debugging diagnostics
+03:50:06 fixed prefactor bug sqrt(r/sqrt(2pi)) -> sqrt(r)/sqrt(2pi) in u_closed (was 1.5832x too large); now: J(nonlinear W, small circles)=0.800000, FD strains match law to 1e-12 (incl. corrected shear diagnostic), all knowledge checks PASS; final numbers: T=4816.47, C_rr=3.9420e-3, C_tt=6.3318e-4, C_grt=5.7311e-3, C_y=9.1390e-3, interval [0.0100, 0.0613] mm
+03:51:30 wrote ANSWER.md with all seven numbers, model justification, verification summary, screening explanation and caveats; final check of files

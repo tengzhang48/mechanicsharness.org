@@ -1,0 +1,52 @@
+{
+ "P015-T1-with-glm": {
+  "label": "R11",
+  "total": 97.0
+ },
+ "P015-T1-with-dsaz": {
+  "label": "R35",
+  "total": 100.0
+ },
+ "P015-T1-without-glm": {
+  "label": "R05",
+  "total": 0.0,
+  "note": "no ANSWER.md within the 50-min budget (timeout); not graded"
+ },
+ "P015-T1-without-dsaz": {
+  "label": "R31",
+  "total": 55.0
+ },
+ "P015-T2-with-glm": {
+  "label": "R22",
+  "total": 0.0,
+  "note": "no ANSWER.md within the 50-min budget (timeout); not graded"
+ },
+ "P015-T2-with-dsaz": {
+  "label": "R32",
+  "total": 88.0
+ },
+ "P015-T2-without-glm": {
+  "label": "R09",
+  "total": 98.0
+ },
+ "P015-T2-without-dsaz": {
+  "label": "R23",
+  "total": 76.0
+ },
+ "P015-T3-with-glm": {
+  "label": "R19",
+  "total": 94.0
+ },
+ "P015-T3-with-dsaz": {
+  "label": "R27",
+  "total": 83.0
+ },
+ "P015-T3-without-glm": {
+  "label": "R06",
+  "total": 88.0
+ },
+ "P015-T3-without-dsaz": {
+  "label": "R10",
+  "total": 70.0
+ }
+}

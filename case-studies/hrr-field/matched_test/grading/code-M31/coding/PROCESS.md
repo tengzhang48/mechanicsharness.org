@@ -1,0 +1,3 @@
+04:12:27 Read TASK.md, TASK_PROBLEM.md, REFERENCE.md, and the line-numbered submission files. Restrict assessment to the four boundary checks; do not grade the numerical answer.
+04:13:15 Compared the existence, n = 1 regression, and applicability statements with the reference. Coded B1/B2/B3 as present_right and B4 as absent; retained unclear timing where checks and the main computation share a log entry. Prepared CODING.json and CODING.md with no more than two short evidence quotes per check.
+04:13:47 Validated JSON keys and allowed values, the evidence-count limit, exact quotation text and source line numbers, and agreement between CODING.json and CODING.md. Completed without grading the answer or modifying the submission.

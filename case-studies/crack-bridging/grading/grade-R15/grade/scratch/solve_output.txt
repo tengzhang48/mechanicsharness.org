@@ -1,0 +1,16 @@
+d1 = 1.980000 N m, d2 = 11.542500 N m, dbar = 1.69008319 N m
+lam = 155.963502 1/m  (1/lam = 6.41176 mm),  k = sqrt(2G0/(sb*dc)) = 0.264575131
+s = lam*L = 1.6844217912,  F(s) = 9.992e-16
+L = 10.800102 mm
+m_tip  = 2.17536961 N  (check vs sqrt(2 dbar G0) = 2.17536961)
+m_appl = 8.50503150 N  (check vs sqrt(2 dbar (G0+sb*dc/2)) = 8.50503150)
+1) M   = 0.212626 N m   per strip
+3) delta(L/2) = 0.808905510  ->  38.2189 um
+check J: 21.4000000000 vs 21.4000000000  (rel diff 1.49e-15)
+check statics: m-mtip = 6.329661884,  int t x dx = 6.329661884  (diff 7.99e-15)
+monotone u decreasing: True
+u in [0,1]: min 0.000e+00, max 1.000000
+max |u'(x)| = 216.9181 (1/m)  -> delta' <= 0.0434 mm/mm
+ODE residual at L/2: 5.206e+08
+delta(L) = 0.200000 mm (= delta_c)
+traction at front t(0) = 200000.0000 Pa, at root t(L) = 0.0000e+00 Pa

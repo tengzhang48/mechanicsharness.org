@@ -1,0 +1,63 @@
+{
+  "primary": {
+    "s": 1.8438247397139427,
+    "p": 0.15617526028605733,
+    "R": 0.3732623133116022,
+    "curvature": -1.263078996343386,
+    "maximum_BVP_residual": 9.991319353108918e-10,
+    "endpoint_residual": 0.0
+  },
+  "explicit_shooting": {
+    "s": 1.843824739713917,
+    "p": 0.15617526028608308,
+    "R": 0.3732623133115709,
+    "curvature": -1.2630789963434348,
+    "endpoint_residual": 1.7210896336578019e-15
+  },
+  "absolute_differences": {
+    "p": 2.5757174171303632e-14,
+    "R": 3.1308289294429414e-14
+  },
+  "maximum_shape_difference": 1.249905994676892e-12,
+  "linear_wedge_check": {
+    "computed": {
+      "s": 1.6157310594911098,
+      "p": 0.38426894050889016,
+      "R": 0.44427201078727263,
+      "curvature": -1.1737444740642737,
+      "maximum_BVP_residual": 9.988116079236074e-10,
+      "endpoint_residual": 0.0
+    },
+    "analytic": {
+      "p": 0.38426894050921667,
+      "R": 0.44427201078790857
+    },
+    "absolute_errors": {
+      "p": 3.2651659154225854e-13,
+      "R": 6.359357485052897e-13
+    }
+  },
+  "zero_opening_angle_check": {
+    "computed": {
+      "s": 1.7999999999999023,
+      "p": 0.20000000000009766,
+      "R": 0.7931184777325545,
+      "curvature": -0.6579093920652253,
+      "maximum_BVP_residual": 9.985250096462888e-10,
+      "endpoint_residual": 0.0
+    },
+    "exact_p": 0.2
+  },
+  "rounded_90_degree_n3_check": {
+    "computed": {
+      "s": 1.7749838169812466,
+      "p": 0.22501618301875337,
+      "R": 0.5294058176181651,
+      "curvature": -1.0467417858115124,
+      "maximum_BVP_residual": 9.983832203175039e-10,
+      "endpoint_residual": 0.0
+    },
+    "reported_p": 0.225
+  },
+  "radial_energy_power": 1.2191236985697134
+}

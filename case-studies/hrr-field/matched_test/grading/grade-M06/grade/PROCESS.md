@@ -1,0 +1,7 @@
+# Grading process
+
+- 03:56:34 UTC — Started grading; read TASK.md, TASK_PROBLEM.md, RUBRIC.md, REFERENCE.md, and submission/ANSWER.md. All work after reading the task is confined to this folder; no web access is used.
+- 03:56:51 UTC — Copied submission/solve.py to scratch/solve.py and started both the submitted solver (PID 828966) and reference solver (PID 828967); outputs saved in scratch/submission_output.txt and scratch/reference_rerun.json. Both exited successfully. No processes were stopped or killed.
+- 03:56:57 UTC — Reviewed rerun outputs and source code. The submitted values, flux, equilibrium residual, and face-traction residual reproduce the reported results; the written derivative at 90 degrees is actually the code's derivative at 60 degrees. The submitted code contains no linear-limit run or parameter-refinement sweep.
+- 03:57:25 UTC — Completed the numerical audit (PID 829833, exited successfully), saved as scratch/audit.py and scratch/audit_output.json. Checked all seven answer values against the recorded key; maximum relative error is 0.00104476%. Confirmed the correct 90-degree derivative and retained full verification credit for the reproducible flux/boundary checks.
+- 03:58:07 UTC — Finished GRADE.md and validated its 17 rubric rows sum to 100/100. Confirmed all seven tolerance checks and all required error/claim/presentation lists are present. Grading completed within the 25-minute limit; no web access and no process termination.

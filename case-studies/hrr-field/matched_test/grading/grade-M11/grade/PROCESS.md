@@ -1,0 +1,7 @@
+# Grading process
+
+- 03:35:19 UTC — Read `TASK.md`, `TASK_PROBLEM.md`, `RUBRIC.md`, the reference results, and both submission files. Started grading against the stated leading-field targets and numerical tolerances; no web access used.
+- 03:35:54 UTC — Copied both calculation scripts into `scratch/` and reran them successfully. Submission outputs match the reference; the reference's tensor, energy, compatibility, and limiting assertions pass. Inspected the submission's finite-difference strains, numerical J integral, and inclusion of all three principal strains in the lower radius screen.
+- 03:36:18 UTC — Completed an explicit relative-tolerance audit of all seven rounded reported numbers and all seven code outputs (`scratch/grading_audit.json`). Confirmed the claimed <10⁻⁶ kinematic discrepancy, reproduced the three numerical contour integrals at higher precision, and checked that T is admissible and the interval is nonempty.
+- 03:36:37 UTC — Completed rubric allocation: 30 + 40 + 10 + 15 + 5 = 100 points. Checked the optional sensitivity wording and identified a minor presentation issue without affecting rubric credit.
+- 03:37:09 UTC — Wrote and validated `GRADE.md`: 20 rubric subitems sum to 100/100, every requested number is checked, and all required lists and the tolerance verdict are present. Completed grading within the 25-minute limit; all generated files are inside this task folder.

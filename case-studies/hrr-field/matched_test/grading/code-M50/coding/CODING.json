@@ -1,0 +1,32 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "before",
+    "evidence": [
+      "submission/ANSWER.md:43-44: \"energy admissibility p < 1 satisfied\"",
+      "submission/PROCESS.md:3: \"p = 1/2 (J fixes p)\""
+    ]
+  },
+  "B2": {
+    "status": "present_right",
+    "timing": "before",
+    "evidence": [
+      "submission/ANSWER.md:38: \"check: uniaxially ε = σ/T + σ_y(1/E − 1/T), a bilinear curve with tangent modulus T\"",
+      "submission/PROCESS.md:3: \"derived: uniaxial eps = sigma/T + sigma_y(1/E-1/T)\""
+    ]
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:60-61: \"deformation theory is used as given (proportional loading is assumed), not flow theory.\"",
+      "submission/ANSWER.md:106-107: \"real 3D fronts, thickness, and possible face contact are outside the 2D idealization\""
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "B2 counts the closed-form uniaxial check; the initial exponent and uniaxial arguments occur in submission/PROCESS.md:3 before the numerical confirmation at line 4, while the applicability discussion appears in the answer drafted at line 5. The crack-face yield transition and ν* → 1/2 observation do not assess a structural degeneration of the leading singular field or proximity to one, so B4 is absent."
+}

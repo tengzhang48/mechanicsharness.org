@@ -1,0 +1,15 @@
+# Rubric — 100 points
+
+The model choice and geometry adaptation are part of the task. Accept equivalent variables, finite-element or other numerical approaches, and independently justified conventions that are converted to the requested p and R.
+
+| Item | Points | Full credit and explicit partial credit |
+| --- | ---: | --- |
+| Constitutive model and inner limit | 20 | 15 for selecting the hardening-dominated inner field and explaining dominance over elasticity at n = 4 (8 for the correct choice with little reasoning; 4 for a correct full-law setup that never selects its leading limit); 5 for the plastic plane-strain closure and effective stress (3 for correct constraint with one constitutive factor error). (26 Oct: was 30; 10 points moved to the next row.) |
+| Governing equations | 10 | 10 for equilibrium and compatibility written correctly for the separable field (26 Oct, new: R23 used a wrong radial exponent in equilibrium and still scored 76). |
+| Geometry, boundary conditions, branch | 20 | 10 for placing free-face conditions at θ = ±2π/3 (5 for identifying free tractions but using the wrong angular interval); 5 for symmetry and amplitude normalization (2–4 for a correct subset); 5 for the leading tensile branch with finite tip energy, only if p is within the 0.003 band below (26 Oct) (2 for identifying the branch without checking energy or excluding higher modes). |
+| Numerical exponent p | 15 | 15 within 0.0003 of 0.156175260286; 8 instead within 0.003; 4 for a sound nonlinear eigenvalue procedure with a larger numerical error. An unsupported crack or elastic-wedge exponent earns 0 here. |
+| Numerical stress ratio R | 15 | 15 within 0.002 of 0.373262313312; 8 instead within 0.02; 4 for the correct stress-ratio expression evaluated on an imperfect nonlinear solution. A number with no coherent stress convention earns 0. |
+| Quantitative verification | 15 | 10 for a successful independent numerical method or relevant analytic/limiting check with agreement stated; 5 for a relevant check proposed but not run. Another 5 for quantified face/equation residuals or refinement (2 if described without numerical results). |
+| Justification and scope | 5 | 5 for a concise explanation connecting the chosen limit to loading/history and recognizing that global matching fixes the unrequested amplitude; 3 for one of these, 1 for a generic caveat. |
+
+Report beside the total whether both numbers are at full credit (26 Oct: the total alone does not separate right from wrong answers; `key/check_P015.py` applies the bands). Choose only one numerical score level per row. A solver cannot earn constitutive/adaptation points by inserting p = 1/(n+1) solely because a crack has that exponent. A justified attempt at the requested asymptote earns method credit even if unsuccessful; refusing the dimensionless calculation because the remote-load magnitude is unspecified earns no scope credit. No fracture load, full elastic-plastic zone, or physical singular stress at a rounded tip is required.

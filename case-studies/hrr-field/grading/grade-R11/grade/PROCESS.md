@@ -1,0 +1,7 @@
+# Grading process
+
+- 18:25:12 UTC — Read the task, problem, rubric, reference description, and submission answer; recorded the start time with `date -u +%H:%M:%S`.
+- 18:26:00 UTC — Inspected all submitted scripts and the reference implementation. Copied the submission into `scratch/`; both `compute.py` and `verify3.py` stopped at `import hrr` because that module is absent. Independently checked all three reported quantities and the supporting normalization constants against the recorded key; all requested quantities pass their tolerances. Found the arithmetic typo `13/7.5` in the stated Airy exponent.
+- 18:26:49 UTC — Completed the standalone reference rerun inside `scratch/`; it reproduced the recorded key exactly and passed its independent numerical and analytic checks. Found no basis for correcting the reference.
+- 18:27:47 UTC — Completed a clearly labeled diagnostic of the submission's final displacement/J reconstruction using reference-generated angular fields, with original eigenvalue shooting omitted. Obtained shear-compatibility residual 1.517×10⁻⁹, maximum gradient difference 4.294×10⁻¹⁷, and the correct H and C. Kept this diagnostic distinct from the failed unmodified submission reruns; it does not validate the absent solver implementation.
+- 18:28:21 UTC — Wrote `GRADE.md` and checked the 11 rubric subitems sum to 97/100 with maxima totaling 100. Verified the required error/claim/presentation lists and tolerance verdict are present. Completed within the 25-minute limit, with all work confined to this folder and no web access.

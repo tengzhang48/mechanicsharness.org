@@ -1,0 +1,11 @@
+DIAGNOSTIC: supplied reference angular solver replaces absent hrr; original eigenvalue check omitted.
+[n=6.5] shear-compat residual: max=1.517e-09 (scale |ut|max=2.22)
+[n=6.5] analytic-vs-FD gradient max diff = 4.294e-17 (grad scale 2.248e-09)
+[n=6.5] J(analytic)/J = 0.9999999999   I_direct = 4.81837907 vs I_code 4.81837907 (rel -1.46e-10)
+[n=6.5] J(FD)/J = 0.9999999999   I_direct = 4.81837907 vs I_code 4.81837907 (rel -7.67e-11)
+[n=6.5] I=4.81837907 En=1.436668 H=1.89356973 C=0.45730578 En/pi=0.45730578
+[n=3  ] shear-compat residual: max=1.532e-09 (scale |ut|max=2.71)
+[n=3  ] analytic-vs-FD gradient max diff = 1.553e-16 (grad scale 8.584e-09)
+[n=3  ] J(analytic)/J = 0.9999999994   I_direct = 5.50732319 vs I_code 5.50732319 (rel -6.30e-10)
+[n=3  ] J(FD)/J = 0.9999999993   I_direct = 5.50732319 vs I_code 5.50732319 (rel -7.46e-10)
+[n=3  ] I=5.50732319 En=1.227162 H=1.26686722 C=0.39061784 En/pi=0.39061785

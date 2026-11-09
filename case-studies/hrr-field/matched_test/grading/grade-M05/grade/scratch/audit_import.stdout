@@ -1,0 +1,44 @@
+a=0.2222222222  c=0.1728395062
+theta=90: u=1.870828693 F=0.289608781 Fp=0.120401871 H=0.136522889
+F(pi)=0.377429607561  n^{-an}=0.377429607561  H(0)=0.222222222222
+J (A=1) = 137.92530716834435
+A = 0.004165240777881803
+
+1) face slip
+   Delta w(r=0.0200) = 0.001318126778 mm
+   Delta w(r=0.0800) = 0.001793693738 mm
+
+2) stresses at r=0.02, theta=60 deg
+   tau_rz  = 38.58659686 MPa
+   tau_thz = 138.0106166 MPa
+
+3) radii where |gamma|=0.0100
+   theta=0 : r = 0.04689442305 mm  (H=0.2222222222)
+   theta=90 : r = 0.02506612349 mm  (H=0.1365228887)
+   theta=180 : r = 0.01339840659 mm  (H=0.08387324612)
+
+Verification: path independence of J on circles
+   r=0.005  J=0.12
+   r=0.020  J=0.12
+   r=0.100  J=0.12
+   r=0.300  J=0.12
+
+Verification: equilibrium residual div(tau) (should be ~0)
+   (0.02,0.02) div=-1.847e-07  tau_mag=136.5
+   (0.02,-0.03) div=1.222e-06  tau_mag=126.7
+   (-0.05,0.04) div=5.329e-09  tau_mag=92.04
+   (0.10,0.10) div=3.553e-09  tau_mag=95.47
+   (0.01,0.00) div=0.000e+00  tau_mag=178.6
+
+Verification: traction tau_thz on face theta=pi (limit)
+   Fp at theta=pi = 0.0
+
+Verification: integrate angular ODE directly (scipy) and compare to closed form
+   IVP F(pi)=1.6984332340 F'(pi)=-2.835e-17
+   closed form F(pi)=0.3774296076  F(0+)=0 F'(0+)=0.2222222222
+   th=60.0 deg  F_closed=0.213522582 F_ivp=0.960851621  Fp_closed=0.169709955 Fp_ivp=0.763694797
+   th=90.0 deg  F_closed=0.289608781 F_ivp=1.303239515  Fp_closed=0.120401871 Fp_ivp=0.541808418
+   th=120.0 deg  F_closed=0.340181170 F_ivp=1.530815264  Fp_closed=0.073975819 Fp_ivp=0.332891186
+
+Verification: stored-work law W = n/(n+1) tau*gamma  (integrate dW=tau dgamma)
+   W numeric=0.303398953935  W formula=0.303398953935

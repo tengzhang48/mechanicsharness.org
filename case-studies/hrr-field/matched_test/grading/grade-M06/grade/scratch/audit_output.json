@@ -1,0 +1,59 @@
+{
+  "requested_numbers": {
+    "slip_0.02_mm": {
+      "submitted": 0.00131813,
+      "reference": 0.001318126777760562,
+      "absolute_relative_error_percent": 0.0002444559576764149,
+      "within_2_percent": true
+    },
+    "slip_0.08_mm": {
+      "submitted": 0.00179369,
+      "reference": 0.0017936937381386464,
+      "absolute_relative_error_percent": 0.00020840451003811822,
+      "within_2_percent": true
+    },
+    "tau_rz_0.02mm_60deg_MPa": {
+      "submitted": 38.587,
+      "reference": 38.586596862313044,
+      "absolute_relative_error_percent": 0.001044760926705024,
+      "within_2_percent": true
+    },
+    "tau_thetaz_0.02mm_60deg_MPa": {
+      "submitted": 138.011,
+      "reference": 138.01061663235828,
+      "absolute_relative_error_percent": 0.0002777812686316494,
+      "within_2_percent": true
+    },
+    "gamma_contour_0deg_mm": {
+      "submitted": 0.0468944,
+      "reference": 0.046894423054945324,
+      "absolute_relative_error_percent": 4.9163512028105316e-05,
+      "within_2_percent": true
+    },
+    "gamma_contour_90deg_mm": {
+      "submitted": 0.0250661,
+      "reference": 0.025066123488862637,
+      "absolute_relative_error_percent": 9.370759961324637e-05,
+      "within_2_percent": true
+    },
+    "gamma_contour_180deg_mm": {
+      "submitted": 0.0133984,
+      "reference": 0.013398406587127234,
+      "absolute_relative_error_percent": 4.9163512028105316e-05,
+      "within_2_percent": true
+    }
+  },
+  "largest_relative_error_percent": 0.001044760926705024,
+  "reference_rerun_max_change": 0.0,
+  "angular_value_at_90_degrees": {
+    "f": 1.303239515217054,
+    "fprime": 0.5418084176497308,
+    "g": 0.6143529991468314
+  },
+  "face_fprime": 1.0842021724855044e-16,
+  "J_from_submitted_cartesian_check": {
+    "0.5": 0.12000000000081978,
+    "1.0": 0.12000000000084159,
+    "2.0": 0.12000000000088049
+  }
+}

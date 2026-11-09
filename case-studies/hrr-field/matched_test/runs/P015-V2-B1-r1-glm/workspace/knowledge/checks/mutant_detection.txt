@@ -1,0 +1,11 @@
+Planted error -> checks that FAIL
+- wrong p (HRR n=3, p=0.26): compatibility (displacements from strains, shear relation); crack exponent fixed by J; equilibrium (Cartesian, finite differences); equilibrium (angular ODEs, declared p)
+- notch, p off by 0.02 (R23 type): compatibility (displacements from strains, shear relation); equilibrium (Cartesian, finite differences); equilibrium (angular ODEs, declared p); linear notch exponent (Williams, mode I)
+- S_rt scaled by 1.05: compatibility (displacements from strains, shear relation); equilibrium (Cartesian, finite differences); equilibrium (angular ODEs, declared p)
+- declared n=5 for an n=3 field: compatibility (Saint-Venant, strains from the declared law); compatibility (displacements from strains, shear relation); crack exponent fixed by J; crack faces open (no interpenetration)
+- plane stress field declared plane strain: compatibility (Saint-Venant, strains from the declared law); compatibility (displacements from strains, shear relation)
+- reported I = 5.6476 (dropped basis derivatives): reported J (or I) matches the field's own J
+- faces at 0.9 pi not traction-free: faces traction-free; linear notch exponent (Williams, mode I)
+- closing crack (negative K_I): crack faces open (no interpenetration)
+- broken symmetry: compatibility (displacements from strains, shear relation); equilibrium (Cartesian, finite differences); equilibrium (angular ODEs, declared p); mode I symmetry
+- infinite-energy exponent p=0.6, n=3: compatibility (Saint-Venant, strains from the declared law); compatibility (displacements from strains, shear relation); crack exponent fixed by J; crack faces open (no interpenetration); equilibrium (Cartesian, finite differences); equilibrium (angular ODEs, declared p); finite energy near the tip

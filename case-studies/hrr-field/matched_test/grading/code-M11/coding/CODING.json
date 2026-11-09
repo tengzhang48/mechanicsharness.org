@@ -1,0 +1,45 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "before",
+    "evidence": [
+      {
+        "file": "submission/PROCESS.md",
+        "line": 2,
+        "quote": "near-tip fully yielded -> effective moduli G_eff, nu_eff; proved E_eff=T."
+      },
+      {
+        "file": "submission/ANSWER.md",
+        "line": 41,
+        "quote": "leading field is the standard `r^(−1/2)` field; only the strain↔stress map changes."
+      }
+    ]
+  },
+  "B2": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      {
+        "file": "submission/ANSWER.md",
+        "line": 97,
+        "quote": "theory evaluated under the stated monotonic proportional loading"
+      },
+      {
+        "file": "submission/ANSWER.md",
+        "line": 127,
+        "quote": "the model has no damage, cohesive, or crack-growth criterion"
+      }
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "B1 credits the constitutive reduction and justification of the effective linear Mode-I field, logged before numerical inversion; B3 is after because the complete scope discussion is logged with the final write-up. The kinematic, J-integral, and algebraic verifications do not test a known material limit or a structural degeneracy."
+}

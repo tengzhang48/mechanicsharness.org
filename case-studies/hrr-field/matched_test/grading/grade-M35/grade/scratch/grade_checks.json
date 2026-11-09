@@ -1,0 +1,65 @@
+{
+  "tolerance_checks": {
+    "T_MPa": {
+      "reported": 4816.5,
+      "reference": 4816.472187302739,
+      "relative_error_percent": 0.0005774495560062135,
+      "tolerance_percent": 1.0,
+      "passes": true
+    },
+    "C_rr_60deg_sqrtmm": {
+      "reported": 0.003942,
+      "reference": 0.003942048237733179,
+      "relative_error_percent": 0.0012236718139769882,
+      "tolerance_percent": 2.0,
+      "passes": true
+    },
+    "C_thetatheta_60deg_sqrtmm": {
+      "reported": 0.00063318,
+      "reference": 0.0006331781350710297,
+      "relative_error_percent": 0.00029453464466978294,
+      "tolerance_percent": 2.0,
+      "passes": true
+    },
+    "C_engineering_rtheta_60deg_sqrtmm": {
+      "reported": 0.0057311,
+      "reference": 0.005731131133456488,
+      "relative_error_percent": 0.0005432340625674498,
+      "tolerance_percent": 2.0,
+      "passes": true
+    },
+    "C_y_90deg_sqrtmm": {
+      "reported": 0.009139,
+      "reference": 0.009139018941480233,
+      "relative_error_percent": 0.00020725944824645002,
+      "tolerance_percent": 2.0,
+      "passes": true
+    },
+    "r_min_mm": {
+      "reported": 0.01,
+      "reference": 0.009999999999999998,
+      "relative_error_percent": 1.7347234759768074e-14,
+      "tolerance_percent": 2.0,
+      "passes": true
+    },
+    "r_max_mm": {
+      "reported": 0.06133,
+      "reference": 0.06132522854990914,
+      "relative_error_percent": 0.00778056634061761,
+      "tolerance_percent": 2.0,
+      "passes": true
+    }
+  },
+  "max_abs_old_vs_reconstructed_displacement": 4.336808689942018e-19,
+  "max_abs_verify3_strain_error": 2.846193766781191e-11,
+  "solve_original_J_N_per_mm": 0.0885321011827028,
+  "solve_J_with_only_derivative_corrected_N_per_mm": 0.7999999999962559,
+  "verify3_leading_J_N_per_mm": 0.7999999999916344,
+  "verify3_full_energy_with_leading_field_J_N_per_mm": {
+    "0.1": 0.799835461881026,
+    "0.01": 0.7999947954002536,
+    "0.001": 0.7999998354035229
+  },
+  "full_energy_J_error_ratio_for_tenfold_radius_decrease": 31.613981284112544,
+  "inferred_error_power": 1.499879191848535
+}

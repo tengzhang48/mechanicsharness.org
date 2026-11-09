@@ -1,0 +1,32 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:43: \"finite energy, exponent p = 1/2 fixed by J\"",
+      "submission/PROCESS.md:6: \"wrote ANSWER.md (numbers, model, verifications, screens, initiation discussion)\""
+    ]
+  },
+  "B2": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:42: \"−0.004998 (10⁻⁶), −0.005000 (10⁻⁸) → the measured −0.005000\"",
+      "submission/ANSWER.md:42: \"Same check at θ = 60° reproduces C_rr, C_θθ, C_γrθ to 6 digits at r = 10⁻⁸.\""
+    ]
+  },
+  "B3": {
+    "status": "present_wrong",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:34: \"principal strains are ε_xx = ε_yy = a·p = 3.0857e−4·p (largest in magnitude; |ε_zz| = 2.019e−4·p)\"",
+      "submission/ANSWER.md:50: \"no toughness (J_IC), critical CTOD, or critical-strain/damage criterion is supplied, and damage is explicitly excluded.\""
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "Present checks are treated as after the main run at submission/PROCESS.md:4; B2 is the reported full-law r→0 check, not a T=E benchmark. B3's applicability screen incorrectly uses a·p instead of (a+2b)·p: ε_zz is the largest principal strain and sets the correct lower bound 0.0100 mm; no structural-degeneracy check is shown."
+}

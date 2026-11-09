@@ -1,0 +1,491 @@
+[
+ {
+  "name": "key",
+  "values": {
+   "T1": {
+    "p": 0.13333333333333333,
+    "H": 1.893569725213,
+    "C": 0.457305783974
+   },
+   "T2": {
+    "p": 0.156175260286,
+    "R": 0.373262313312
+   }
+  },
+  "expected": "all full",
+  "checker_result": {
+   "T1": {
+    "p": "full",
+    "H": "full",
+    "C": "full",
+    "all_full": true
+   },
+   "T2": {
+    "p": "full",
+    "R": "full",
+    "all_full": true
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "run T1 with-glm (R11)",
+  "values": {
+   "T1": {
+    "p": 0.133333,
+    "H": 1.8936,
+    "C": 0.4573
+   }
+  },
+  "expected": "pass",
+  "checker_result": {
+   "T1": {
+    "p": "full",
+    "H": "full",
+    "C": "full",
+    "all_full": true
+   }
+  },
+  "grader_numeric_rows": "p 10/10, H 20/20, C 15/15"
+ },
+ {
+  "name": "run T1 with-dsaz (R35)",
+  "values": {
+   "T1": {
+    "p": 0.1333333333,
+    "H": 1.8935697252,
+    "C": 0.4573057839
+   }
+  },
+  "expected": "pass",
+  "checker_result": {
+   "T1": {
+    "p": "full",
+    "H": "full",
+    "C": "full",
+    "all_full": true
+   }
+  },
+  "grader_numeric_rows": "10, 20, 15"
+ },
+ {
+  "name": "run T1 without-dsaz graded copy (R31)",
+  "values": {
+   "T1": {
+    "p": 0.1333333,
+    "H": 2.15092,
+    "C": 0.29178
+   }
+  },
+  "expected": "fail H, C",
+  "checker_result": {
+   "T1": {
+    "p": "full",
+    "H": "fail",
+    "C": "fail",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": "p 10/10, H 0/20, C 0/15"
+ },
+ {
+  "name": "run T1 without-dsaz post-deadline overwrite (runs/ folder, not graded)",
+  "values": {
+   "T1": {
+    "p": 0.1333333,
+    "H": 1.4706,
+    "C": 1.6978
+   }
+  },
+  "expected": "fail H, C",
+  "checker_result": {
+   "T1": {
+    "p": "full",
+    "H": "fail",
+    "C": "fail",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "run T2 with-dsaz (R32)",
+  "values": {
+   "T2": {
+    "p": 0.15618,
+    "R": 0.3733
+   }
+  },
+  "expected": "pass",
+  "checker_result": {
+   "T2": {
+    "p": "full",
+    "R": "full",
+    "all_full": true
+   }
+  },
+  "grader_numeric_rows": "p 15/15, R 15/15"
+ },
+ {
+  "name": "run T2 without-glm (R09)",
+  "values": {
+   "T2": {
+    "p": 0.1562,
+    "R": 0.3733
+   }
+  },
+  "expected": "pass",
+  "checker_result": {
+   "T2": {
+    "p": "full",
+    "R": "full",
+    "all_full": true
+   }
+  },
+  "grader_numeric_rows": "p 15/15, R 15/15"
+ },
+ {
+  "name": "run T2 without-dsaz (R23)",
+  "values": {
+   "T2": {
+    "p": 0.08764,
+    "R": 0.333
+   }
+  },
+  "expected": "fail both",
+  "checker_result": {
+   "T2": {
+    "p": "fail",
+    "R": "fail",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": "p 4/15 (procedure), R 4/15 (procedure)"
+ },
+ {
+  "name": "mutant T1 neighbour_n6",
+  "values": {
+   "T1": {
+    "p": 0.1428571428571428,
+    "H": 1.8347305369053493,
+    "C": 0.4524850515999365
+   }
+  },
+  "expected": "fail",
+  "checker_result": {
+   "T1": {
+    "p": "fail",
+    "H": "fail",
+    "C": "partial",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "mutant T1 neighbour_n7",
+  "values": {
+   "T1": {
+    "p": 0.125,
+    "H": 1.946352174227226,
+    "C": 0.4613831371501932
+   }
+  },
+  "expected": "fail",
+  "checker_result": {
+   "T1": {
+    "p": "fail",
+    "H": "fail",
+    "C": "partial",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "mutant T1 plane_stress_approx",
+  "values": {
+   "T1": {
+    "p": 0.13333333333333333,
+    "H": 0.9758325862788693,
+    "C": 0.8147152009385406
+   }
+  },
+  "expected": "fail",
+  "checker_result": {
+   "T1": {
+    "p": "full",
+    "H": "fail",
+    "C": "fail",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "mutant T1 C_as_En",
+  "values": {
+   "T1": {
+    "p": 0.13333333333333333,
+    "H": 1.89356972635164,
+    "C": 1.4366684978519855
+   }
+  },
+  "expected": "fail",
+  "checker_result": {
+   "T1": {
+    "p": "full",
+    "H": "full",
+    "C": "fail",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "mutant T1 C_without_n_over_n1",
+  "values": {
+   "T1": {
+    "p": 0.13333333333333333,
+    "H": 1.89356972635164,
+    "C": 0.5276605223481958
+   }
+  },
+  "expected": "fail",
+  "checker_result": {
+   "T1": {
+    "p": "full",
+    "H": "full",
+    "C": "fail",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "mutant T1 table_interpolation",
+  "values": {
+   "T1": {
+    "p": 0.13333333333333333,
+    "H": 1.8915941344385192,
+    "C": 0.44921482687687464
+   }
+  },
+  "expected": "fail",
+  "checker_result": {
+   "T1": {
+    "p": "full",
+    "H": "full",
+    "C": "partial",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "mutant T1 table_n5_values",
+  "values": {
+   "T1": {
+    "p": 0.13333333333333333,
+    "H": 1.8837491384656022,
+    "C": 0.43608454407179326
+   }
+  },
+  "expected": "fail",
+  "checker_result": {
+   "T1": {
+    "p": "full",
+    "H": "partial",
+    "C": "fail",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "mutant T1 mixed_normalisation",
+  "values": {
+   "T1": {
+    "p": 0.13333333333333333,
+    "H": 2.733362296774601,
+    "C": 0.4573057860351031
+   }
+  },
+  "expected": "fail",
+  "checker_result": {
+   "T1": {
+    "p": "full",
+    "H": "fail",
+    "C": "full",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "mutant T1 H_with_I_power_1",
+  "values": {
+   "T1": {
+    "p": 0.13333333333333333,
+    "H": 0.48465622999698393,
+    "C": 0.4573057860351031
+   }
+  },
+  "expected": "fail",
+  "checker_result": {
+   "T1": {
+    "p": "full",
+    "H": "fail",
+    "C": "full",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "mutant T1 elastic_K_field",
+  "values": {
+   "T1": {
+    "p": 0.5,
+    "H": 0.46065886668327455,
+    "C": 0.25
+   }
+  },
+  "expected": "fail",
+  "checker_result": {
+   "T1": {
+    "p": "fail",
+    "H": "fail",
+    "C": "fail",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "mutant T2 crack_exponent_n4",
+  "values": {
+   "T2": {
+    "p": 0.2,
+    "R": 0.793118477733468
+   }
+  },
+  "expected": "fail",
+  "checker_result": {
+   "T2": {
+    "p": "fail",
+    "R": "fail",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "mutant T2 elastic_wedge",
+  "values": {
+   "T2": {
+    "p": 0.384268940509217,
+    "R": 0.4442720107879095
+   }
+  },
+  "expected": "fail",
+  "checker_result": {
+   "T2": {
+    "p": "fail",
+    "R": "fail",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "mutant T2 paper_90deg_n3",
+  "values": {
+   "T2": {
+    "p": 0.2250161830187296,
+    "R": 0.5294058176182735
+   }
+  },
+  "expected": "fail",
+  "checker_result": {
+   "T2": {
+    "p": "fail",
+    "R": "fail",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "mutant T2 opening_60deg_faces_150",
+  "values": {
+   "T2": {
+    "p": 0.19305735109831756,
+    "R": 0.6208003035093277
+   }
+  },
+  "expected": "fail",
+  "checker_result": {
+   "T2": {
+    "p": "fail",
+    "R": "fail",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "mutant T2 opening_90deg_n4",
+  "values": {
+   "T2": {
+    "p": 0.18096576027870626,
+    "R": 0.5108677603308358
+   }
+  },
+  "expected": "fail",
+  "checker_result": {
+   "T2": {
+    "p": "fail",
+    "R": "fail",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "mutant T2 n3_right_geometry",
+  "values": {
+   "T2": {
+    "p": 0.19240263533173985,
+    "R": 0.38006987477955523
+   }
+  },
+  "expected": "fail",
+  "checker_result": {
+   "T2": {
+    "p": "fail",
+    "R": "partial",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ },
+ {
+  "name": "mutant T2 R_inverted",
+  "values": {
+   "T2": {
+    "p": 0.15617526028608286,
+    "R": 2.679081076061588
+   }
+  },
+  "expected": "fail",
+  "checker_result": {
+   "T2": {
+    "p": "full",
+    "R": "fail",
+    "all_full": false
+   }
+  },
+  "grader_numeric_rows": null
+ }
+]

@@ -1,0 +1,481 @@
+[
+ {
+  "name": "key",
+  "expected": "all pass",
+  "pass_flags": {
+   "T1": {
+    "Sigma_MPa": true,
+    "L_mm_per_end": true
+   },
+   "T2": {
+    "M_Nm_each_strip": true,
+    "L_mm": true,
+    "delta_mid_um": true
+   }
+  },
+  "rel_err": {
+   "T1": {
+    "Sigma_MPa": 0.0,
+    "L_mm_per_end": 0.0
+   },
+   "T2": {
+    "M_Nm_each_strip": 0.0,
+    "L_mm": 0.0,
+    "delta_mid_um": 0.0
+   }
+  },
+  "points": {
+   "T1": 50,
+   "T2": 40.0
+  }
+ },
+ {
+  "name": "independent_recompute",
+  "expected": "all pass",
+  "pass_flags": {
+   "T1": {
+    "Sigma_MPa": true,
+    "L_mm_per_end": true
+   },
+   "T2": {
+    "M_Nm_each_strip": true,
+    "L_mm": true,
+    "delta_mid_um": true
+   }
+  },
+  "rel_err": {
+   "T1": {
+    "Sigma_MPa": 0.0,
+    "L_mm_per_end": 0.0
+   },
+   "T2": {
+    "M_Nm_each_strip": 0.0,
+    "L_mm": 0.0,
+    "delta_mid_um": 0.0
+   }
+  },
+  "points": {
+   "T1": 50,
+   "T2": 40.0
+  }
+ },
+ {
+  "name": "run:P038-T1-with-dsaz (R08)",
+  "expected": "grader numeric points 50/50 (R08/GRADE.md rows Remote stress, Zone length)",
+  "pass_flags": {
+   "T1": {
+    "Sigma_MPa": true,
+    "L_mm_per_end": true
+   }
+  },
+  "rel_err": {
+   "T1": {
+    "Sigma_MPa": 2e-06,
+    "L_mm_per_end": 9.6e-05
+   }
+  },
+  "points": {
+   "T1": 50
+  }
+ },
+ {
+  "name": "run:P038-T1-with-glm (R24)",
+  "expected": "grader numeric points 50/50 (R24)",
+  "pass_flags": {
+   "T1": {
+    "Sigma_MPa": true,
+    "L_mm_per_end": true
+   }
+  },
+  "rel_err": {
+   "T1": {
+    "Sigma_MPa": 2e-06,
+    "L_mm_per_end": 9.6e-05
+   }
+  },
+  "points": {
+   "T1": 50
+  }
+ },
+ {
+  "name": "run:P038-T1-without-glm (R30)",
+  "expected": "grader numeric points 50/50 (R30)",
+  "pass_flags": {
+   "T1": {
+    "Sigma_MPa": true,
+    "L_mm_per_end": true
+   }
+  },
+  "rel_err": {
+   "T1": {
+    "Sigma_MPa": 0.000226,
+    "L_mm_per_end": 0.001075
+   }
+  },
+  "points": {
+   "T1": 50
+  }
+ },
+ {
+  "name": "run:P038-T1-without-dsaz (R03)",
+  "expected": "grader numeric points 0/50 (R03)",
+  "pass_flags": {
+   "T1": {
+    "Sigma_MPa": false,
+    "L_mm_per_end": false
+   }
+  },
+  "rel_err": {
+   "T1": {
+    "Sigma_MPa": 0.185408,
+    "L_mm_per_end": 7.401195
+   }
+  },
+  "points": {
+   "T1": 0
+  }
+ },
+ {
+  "name": "run:P038-T2-with-dsaz (R36)",
+  "expected": "grader numeric points 40/40 (R36)",
+  "pass_flags": {
+   "T2": {
+    "M_Nm_each_strip": true,
+    "L_mm": true,
+    "delta_mid_um": true
+   }
+  },
+  "rel_err": {
+   "T2": {
+    "M_Nm_each_strip": 0.000121,
+    "L_mm": 9e-06,
+    "delta_mid_um": 2.9e-05
+   }
+  },
+  "points": {
+   "T2": 40.0
+  }
+ },
+ {
+  "name": "run:P038-T2-with-glm (R26)",
+  "expected": "grader numeric points 40/40 (R26)",
+  "pass_flags": {
+   "T2": {
+    "M_Nm_each_strip": true,
+    "L_mm": true,
+    "delta_mid_um": true
+   }
+  },
+  "rel_err": {
+   "T2": {
+    "M_Nm_each_strip": 0.000121,
+    "L_mm": 9e-06,
+    "delta_mid_um": 0.000494
+   }
+  },
+  "points": {
+   "T2": 40.0
+  }
+ },
+ {
+  "name": "run:P038-T2-without-dsaz (R21)",
+  "expected": "grader numeric points 40/40 (R21)",
+  "pass_flags": {
+   "T2": {
+    "M_Nm_each_strip": true,
+    "L_mm": true,
+    "delta_mid_um": true
+   }
+  },
+  "rel_err": {
+   "T2": {
+    "M_Nm_each_strip": 0.000121,
+    "L_mm": 9e-06,
+    "delta_mid_um": 2.9e-05
+   }
+  },
+  "points": {
+   "T2": 40.0
+  }
+ },
+ {
+  "name": "run:P038-T2-without-glm (R15)",
+  "expected": "grader numeric points 40/40 (R15)",
+  "pass_flags": {
+   "T2": {
+    "M_Nm_each_strip": true,
+    "L_mm": true,
+    "delta_mid_um": true
+   }
+  },
+  "rel_err": {
+   "T2": {
+    "M_Nm_each_strip": 0.000121,
+    "L_mm": 9e-06,
+    "delta_mid_um": 0.000494
+   }
+  },
+  "points": {
+   "T2": 40.0
+  }
+ },
+ {
+  "name": "T1 mutant:Gamma0_omitted",
+  "expected": "fail",
+  "pass_flags": {
+   "T1": {
+    "Sigma_MPa": false,
+    "L_mm_per_end": false
+   }
+  },
+  "rel_err": {
+   "T1": {
+    "Sigma_MPa": 0.014171,
+    "L_mm_per_end": 0.564338
+   }
+  },
+  "points": {
+   "T1": 12
+  }
+ },
+ {
+  "name": "T1 mutant:half_gap_as_full_gap(one-face disp = delta_c)",
+  "expected": "fail",
+  "pass_flags": {
+   "T1": {
+    "Sigma_MPa": false,
+    "L_mm_per_end": false
+   }
+  },
+  "rel_err": {
+   "T1": {
+    "Sigma_MPa": 0.152323,
+    "L_mm_per_end": 2.961768
+   }
+  },
+  "points": {
+   "T1": 0
+  }
+ },
+ {
+  "name": "T1 mutant:total_L_reported(2L)",
+  "expected": "fail",
+  "pass_flags": {
+   "T1": {
+    "Sigma_MPa": true,
+    "L_mm_per_end": false
+   }
+  },
+  "rel_err": {
+   "T1": {
+    "Sigma_MPa": 0.0,
+    "L_mm_per_end": 1.0
+   }
+  },
+  "points": {
+   "T1": 25
+  }
+ },
+ {
+  "name": "T1 mutant:plane_stress_E",
+  "expected": "fail",
+  "pass_flags": {
+   "T1": {
+    "Sigma_MPa": false,
+    "L_mm_per_end": false
+   }
+  },
+  "rel_err": {
+   "T1": {
+    "Sigma_MPa": 0.024144,
+    "L_mm_per_end": 0.114995
+   }
+  },
+  "points": {
+   "T1": 17
+  }
+ },
+ {
+  "name": "T1 mutant:Gamma0_doubled",
+  "expected": "fail",
+  "pass_flags": {
+   "T1": {
+    "Sigma_MPa": false,
+    "L_mm_per_end": false
+   }
+  },
+  "rel_err": {
+   "T1": {
+    "Sigma_MPa": 0.013204,
+    "L_mm_per_end": 0.148554
+   }
+  },
+  "points": {
+   "T1": 17
+  }
+ },
+ {
+  "name": "T1 mutant:SSB_LEFM_plateau_no_zone",
+  "expected": "fail",
+  "pass_flags": {
+   "T1": {
+    "Sigma_MPa": false,
+    "L_mm_per_end": false
+   }
+  },
+  "rel_err": {
+   "T1": {
+    "Sigma_MPa": 0.236698,
+    "L_mm_per_end": null
+   }
+  },
+  "points": {
+   "T1": 0
+  }
+ },
+ {
+  "name": "T1 mutant:seen_R03_without_dsaz",
+  "expected": "fail",
+  "pass_flags": {
+   "T1": {
+    "Sigma_MPa": false,
+    "L_mm_per_end": false
+   }
+  },
+  "rel_err": {
+   "T1": {
+    "Sigma_MPa": 0.185408,
+    "L_mm_per_end": 7.40127
+   }
+  },
+  "points": {
+   "T1": 0
+  }
+ },
+ {
+  "name": "T2 mutant:Gamma0_omitted",
+  "expected": "fail",
+  "pass_flags": {
+   "T2": {
+    "M_Nm_each_strip": false,
+    "L_mm": false,
+    "delta_mid_um": false
+   }
+  },
+  "rel_err": {
+   "T2": {
+    "M_Nm_each_strip": 0.033264,
+    "L_mm": 0.113203,
+    "delta_mid_um": 0.188531
+   }
+  },
+  "points": {
+   "T2": 10.5
+  }
+ },
+ {
+  "name": "T2 mutant:averaged_equal_arms",
+  "expected": "fail",
+  "pass_flags": {
+   "T2": {
+    "M_Nm_each_strip": false,
+    "L_mm": false,
+    "delta_mid_um": true
+   }
+  },
+  "rel_err": {
+   "T2": {
+    "M_Nm_each_strip": 0.249044,
+    "L_mm": 0.117607,
+    "delta_mid_um": 0.0
+   }
+  },
+  "points": {
+   "T2": 13.0
+  }
+ },
+ {
+  "name": "T2 mutant:only_upper_arm_compliance",
+  "expected": "fail",
+  "pass_flags": {
+   "T2": {
+    "M_Nm_each_strip": false,
+    "L_mm": false,
+    "delta_mid_um": true
+   }
+  },
+  "rel_err": {
+   "T2": {
+    "M_Nm_each_strip": 0.082377,
+    "L_mm": 0.040373,
+    "delta_mid_um": 0.0
+   }
+  },
+  "points": {
+   "T2": 20.5
+  }
+ },
+ {
+  "name": "T2 mutant:moment_per_width_reported_as_M(N)",
+  "expected": "fail",
+  "pass_flags": {
+   "T2": {
+    "M_Nm_each_strip": false,
+    "L_mm": true,
+    "delta_mid_um": true
+   }
+  },
+  "rel_err": {
+   "T2": {
+    "M_Nm_each_strip": 39.0,
+    "L_mm": 0.0,
+    "delta_mid_um": 0.0
+   }
+  },
+  "points": {
+   "T2": 25.0
+  }
+ },
+ {
+  "name": "T2 mutant:sum_of_two_moments",
+  "expected": "fail",
+  "pass_flags": {
+   "T2": {
+    "M_Nm_each_strip": false,
+    "L_mm": true,
+    "delta_mid_um": true
+   }
+  },
+  "rel_err": {
+   "T2": {
+    "M_Nm_each_strip": 1.0,
+    "L_mm": 0.0,
+    "delta_mid_um": 0.0
+   }
+  },
+  "points": {
+   "T2": 25.0
+  }
+ },
+ {
+  "name": "T2 mutant:delta_half_gap(one arm share)",
+  "expected": "fail",
+  "pass_flags": {
+   "T2": {
+    "M_Nm_each_strip": true,
+    "L_mm": true,
+    "delta_mid_um": false
+   }
+  },
+  "rel_err": {
+   "T2": {
+    "M_Nm_each_strip": 0.0,
+    "L_mm": 0.0,
+    "delta_mid_um": 0.5
+   }
+  },
+  "points": {
+   "T2": 30.0
+  }
+ }
+]

@@ -1,0 +1,70 @@
+{
+  "displayed_answer_tolerances": {
+    "T_MPa": {
+      "submitted": 4816.47,
+      "reference": 4816.472187302739,
+      "relative_error_percent": 4.5412963138645727e-05,
+      "tolerance_percent": 1.0,
+      "within_tolerance": true
+    },
+    "C_rr_60deg_sqrtmm": {
+      "submitted": 0.003942,
+      "reference": 0.003942048237733179,
+      "relative_error_percent": 0.0012236718139769882,
+      "tolerance_percent": 2.0,
+      "within_tolerance": true
+    },
+    "C_thetatheta_60deg_sqrtmm": {
+      "submitted": 0.000633,
+      "reference": 0.0006331781350710297,
+      "relative_error_percent": 0.028133484269758282,
+      "tolerance_percent": 2.0,
+      "within_tolerance": true
+    },
+    "C_engineering_rtheta_60deg_sqrtmm": {
+      "submitted": 0.005731,
+      "reference": 0.005731131133456488,
+      "relative_error_percent": 0.002288090316449094,
+      "tolerance_percent": 2.0,
+      "within_tolerance": true
+    },
+    "C_y_90deg_sqrtmm": {
+      "submitted": 0.009139,
+      "reference": 0.009139018941480233,
+      "relative_error_percent": 0.00020725944824645002,
+      "tolerance_percent": 2.0,
+      "within_tolerance": true
+    },
+    "r_min_mm": {
+      "submitted": 0.02336,
+      "reference": 0.009999999999999998,
+      "relative_error_percent": 133.60000000000002,
+      "tolerance_percent": 2.0,
+      "within_tolerance": false
+    },
+    "r_max_mm": {
+      "submitted": 0.06133,
+      "reference": 0.06132522854990914,
+      "relative_error_percent": 0.00778056634061761,
+      "tolerance_percent": 2.0,
+      "within_tolerance": true
+    }
+  },
+  "leading_principal_strain_coefficients_theta0": [
+    0.0026415081779419844,
+    0.0026415081779419844,
+    -0.005000000000000001
+  ],
+  "strain_per_p": {
+    "a": 0.00030857411671793034,
+    "2b": -0.00020190655400242977,
+    "correct_in_plane_a_plus_2b": 0.00010666756271550057
+  },
+  "lower_endpoint_from_original_leading_tensor": 0.010000000000000004,
+  "lower_endpoint_reproducing_submitted_single_omission": 0.02335705889342169,
+  "correct_interval_mm": [
+    0.010000000000000004,
+    0.061325228549909135
+  ],
+  "logarithmic_T_sensitivity_to_abs_Czz": -1.8928580428986337
+}

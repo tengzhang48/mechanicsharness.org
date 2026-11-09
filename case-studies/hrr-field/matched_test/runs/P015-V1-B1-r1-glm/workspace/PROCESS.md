@@ -1,0 +1,8 @@
+03:05:20 Read TASK.md; listed folder; problem is anti-plane (mode III) slit in a pure power-law shear material, J = 0.120 N/mm given; 7 numbers at 2% tolerance.
+03:07:13 Read knowledge/README.md, TOPIC.md, checks/crack_tip_checks.py, entries/hutchinson_1968/ENTRY.md. Topic is in-plane mode I/II; mode III needs own solver; adopts same framework (J fixes crack exponent p = 1/(n+1)).
+03:07:30 Derived governing model on paper: anti-plane shear, tau = c^-1 law gamma = (gamma0/tau0)(tau/tau0)^(n-1) tau => p-harmonic equation for w with p=(n+1)/n; finite nonzero J for separable field requires w ~ r^(1/(n+1)); stress exponent also 1/(n+1).
+03:08:00 Solved the separable BVP in closed form via stress-function angle psi: theta = psi + atan(n tan psi); tau_r ~ a t/sqrt(1+n^2 t^2), tau_theta ~ a/sqrt(1+n^2 t^2), T = a sqrt((1+t^2)/(1+n^2 t^2)), a = n/(n+1), t = tan psi; verified n=1 limit reproduces LEFM w ~ sqrt(r) sin(theta/2).
+03:08:47 Wrote solve.py (closed-form field + J quadrature + ODE cross-check + LEFM regression); first run: J r-independent OK, but ODE cross-check FAILED (g' mismatch) => found partial-fraction bug in closed-form T (alpha-an != alpha(1-n)); also fixed W in J (must use |tau|, not |tau_r|).
+03:11:09 Re-ran solve.py after fixes: ODE vs closed form 1.6e-15, g(pi)=1.6e-16, I_J(n=1)=pi/4 to 3e-13, FD equilibrium 1.7e-7, constitutive + grad-w exact, J = 0.12000000 at R=0.005..0.30 mm.
+03:12:29 Wrote and ran refine.py (2x denser grid, t to 1e9): all seven numbers stable to <=2e-7 relative.
+03:13:19 Wrote ANSWER.md (numbers, model, assumptions, verifications, initiation answer); corrected F(pi)=0.70476 by direct evaluation.

@@ -1,0 +1,60 @@
+{
+  "inputs_SI": {
+    "width": 0.025,
+    "E1": 110000000000.0,
+    "h1": 0.0006,
+    "E2": 190000000000.0,
+    "h2": 0.0009,
+    "sigma_b": 200000.0,
+    "delta_c": 0.0002,
+    "Gamma_0": 1.4
+  },
+  "derived": {
+    "D1_per_width_N_m": 1.9799999999999995,
+    "D2_per_width_N_m": 11.542499999999999,
+    "C_per_width_inverse_N_m": 0.5916868489967907,
+    "ell_m": 0.006411756501445471,
+    "gamma": 0.034999999999999996
+  },
+  "answer": {
+    "M_each_arm_N_m": 0.21262578737672128,
+    "L_mm": 10.800102370897305,
+    "delta_at_L_over_2_um": 38.218897926093284
+  },
+  "BVP": {
+    "lambda": 1.6844217911991077,
+    "L_m": 0.010800102370897305,
+    "M_each_arm_N_m": 0.21262578737672128,
+    "delta_mid_m": 3.821889792609328e-05,
+    "rear_dimensionless_curvature": 1.0344080432788598,
+    "boundary_max_abs_residual": 1.1497810514487085e-22,
+    "max_RMS_ODE_residual": 9.991784136599174e-11,
+    "mesh_nodes": 1212
+  },
+  "independent_exact_and_energy_route": {
+    "lambda": 1.6844217911990889,
+    "L_m": 0.010800102370897183,
+    "M_each_arm_N_m": 0.21262578737672133,
+    "delta_mid_m": 3.82188979260938e-05,
+    "dimensionless_tip_third_derivative": 1.1854311637245727,
+    "characteristic_residual": 3.3306690738754696e-16,
+    "full_connector_work_J_m2": 20.0,
+    "zero_intrinsic_energy_root": 1.8751040687119611
+  },
+  "checks": {
+    "relative_differences": {
+      "L_m": 1.1324274851176597e-14,
+      "M_each_arm_N_m": 2.220446049250313e-16,
+      "delta_mid_m": 1.3655743202889425e-14
+    },
+    "maximum_dimensionless_profile_difference": 5.905692601615442e-14,
+    "energy_balance_relative_error": 3.3306690738754696e-16,
+    "zero_front_work_cantilever_root_relative_error": 5.773159728050814e-15,
+    "constant_traction_length_relative_error": 2.220446049250313e-16,
+    "maximum_first_integral_abs_error": 6.447446743162999e-14
+  },
+  "geometry_diagnostics": {
+    "L_over_thicker_arm": 12.00011374544145,
+    "relative_rotation_at_rear_rad": 0.04338362267206821
+  }
+}

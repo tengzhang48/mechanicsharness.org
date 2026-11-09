@@ -1,0 +1,34 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:49: \"|τ_θz(r,±π)|/|τ| = |f′(π)|/(αf(π)) = 6.4 × 10⁻¹⁶\"",
+      "submission/PROCESS.md:7: \"perturbing exponent 1e-3 breaks face condition -> confirms p=1/(n+1) eigenvalue\""
+    ]
+  },
+  "B2": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:58: \"with n = 1 the solver returns f = 2 sin(θ/2) (err 3.7 × 10⁻¹³)\"",
+      "submission/PROCESS.md:6: \"n=1 limit K=sqrt(2GJ) to 9e-14\""
+    ]
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:71: \"continuum/small-strain breakdown, outer by r ≈ 0.30 mm per the problem\"",
+      "submission/ANSWER.md:78-79: \"but advance requires a fracture criterion\""
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": [
+      "submission/ANSWER.md:74: \"n = 3.5 gives a smooth field (no sectoring), so the separable form is appropriate\""
+    ]
+  },
+  "notes": "Timing follows the step log: numerical answers first appear at submission/PROCESS.md:4, later verifications at lines 6-7, and the final answer is written at line 8. The no-sectoring assertion and exponent perturbation do not examine proximity to coinciding exponents or a structural threshold; the perturbation checks eigenvalue admissibility instead."
+}

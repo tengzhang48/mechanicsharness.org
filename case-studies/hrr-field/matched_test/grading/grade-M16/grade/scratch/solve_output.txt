@@ -1,0 +1,18 @@
+T   = 4816.472187 MPa   (E* = T, nu* = 0.48623865)
+K   = 62.073970 MPa*mm^1/2   from J = K^2/T = 0.800000
+check: sigma_y/E + (sigma-sigma_y)/T bilinear;  T < E: True
+
+theta = 60 deg: C_rr = 0.003942, C_tt = 0.000633, C_gamma_rt = 0.005731 mm^1/2
+C_y(90°) = 0.009139 mm^1/2   [kinematics: u_y(90°) = u_r(90°), U_r = 2 e_rr^ang]
+
+screens: r >= 0.010000 (strain), r <= 0.061325 (sigma_e), r <= 0.200
+interval = [0.010000, 0.061325] mm, nonempty = True
+  at r_lo: max|princ strain| = 0.05000, sigma_e = 247.64
+  at r_hi: max|princ strain| = 0.02019, sigma_e = 100.00
+
+full-law vs effective-linear-law relative gap at theta=60° (should be ~ sigma_y/sigma_e):
+  r = 0.010: sigma_e =   283.71 MPa, sigma_y/sigma_e = 0.0352, max strain gap = 0.0326
+  r = 0.030: sigma_e =   163.80 MPa, sigma_y/sigma_e = 0.0611, max strain gap = 0.0565
+  r = 0.061: sigma_e =   114.87 MPa, sigma_y/sigma_e = 0.0871, max strain gap = 0.0806
+
+uniaxial at 2*sigma_y: eps = 0.002219 vs sigma_y/E + sigma_y/T = 0.002219 (bilinear check)

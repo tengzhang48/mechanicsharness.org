@@ -1,0 +1,62 @@
+{
+  "route_A_angular_ODE": {
+    "slip_0.02_mm": 0.001318126777760562,
+    "slip_0.08_mm": 0.0017936937381386464,
+    "tau_rz_0.02mm_60deg_MPa": 38.586596862313044,
+    "tau_thetaz_0.02mm_60deg_MPa": 138.01061663235828,
+    "gamma_contour_0deg_mm": 0.046894423054945324,
+    "gamma_contour_90deg_mm": 0.025066123488862637,
+    "gamma_contour_180deg_mm": 0.013398406587127234
+  },
+  "route_B_phase_formula": {
+    "slip_0.02_mm": 0.0013181267777605623,
+    "slip_0.08_mm": 0.0017936937381386466,
+    "tau_rz_0.02mm_60deg_MPa": 38.586596862313044,
+    "tau_thetaz_0.02mm_60deg_MPa": 138.01061663235822,
+    "gamma_contour_0deg_mm": 0.046894423054945324,
+    "gamma_contour_90deg_mm": 0.025066123488862634,
+    "gamma_contour_180deg_mm": 0.013398406587127234
+  },
+  "route_A_diagnostics": {
+    "lambda": 0.2222222222222222,
+    "a": 0.0009256090617515132,
+    "I": 2.019595277307724,
+    "face_fprime": 2.355971320811001e-16,
+    "J_by_circle": {
+      "0.005": 0.12000000000000019,
+      "0.02": 0.1200000000000002,
+      "0.08": 0.1200000000000002
+    },
+    "gamma_max_at_r1": 0.01940209881901328
+  },
+  "route_B_diagnostics": {
+    "lambda": 0.2222222222222222,
+    "a": 0.0009256090617515132,
+    "I": 2.019595277307724,
+    "face_fprime": 2.3110898040133058e-17,
+    "J_by_circle": {
+      "0.005": 0.12000000000000015,
+      "0.02": 0.12000000000000019,
+      "0.08": 0.12000000000000019
+    },
+    "gamma_max_at_r1": 0.01940209881901328
+  },
+  "relative_errors_A_vs_B": {
+    "slip_0.02_mm": 1.6450650890007938e-16,
+    "slip_0.08_mm": 1.208904451671447e-16,
+    "tau_rz_0.02mm_60deg_MPa": 0.0,
+    "tau_thetaz_0.02mm_60deg_MPa": 4.118771457432964e-16,
+    "gamma_contour_0deg_mm": 0.0,
+    "gamma_contour_90deg_mm": 1.384117872671918e-16,
+    "gamma_contour_180deg_mm": 0.0
+  },
+  "max_angular_absolute_error": 5.384581669432009e-15,
+  "linear_limit": {
+    "max_f_absolute_error": 1.3322676295501878e-15,
+    "I_numerical": 3.141592653589796,
+    "I_exact": 3.141592653589793,
+    "slip_ODE_mm": 0.00037207062250759203,
+    "slip_known_modeIII_mm": 0.00037207062250759203,
+    "relative_slip_error": 0.0
+  }
+}

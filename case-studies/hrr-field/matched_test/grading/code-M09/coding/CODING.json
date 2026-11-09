@@ -1,0 +1,32 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:112: \"finite energy, crack exponent p = 1/2\"",
+      "submission/PROCESS.md:4: \"all applicable checks PASS\""
+    ]
+  },
+  "B2": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:129: \"strains remain within the small-strain assumption\"",
+      "submission/ANSWER.md:147: \"any crack-tip blunting/process zone are outside the model; no initiation threshold is inferred.\""
+    ]
+  },
+  "B4": {
+    "status": "present_right",
+    "timing": "before",
+    "evidence": [
+      "submission/ANSWER.md:51: \"linear in stress, so it does not dominate the elastic term or change the exponent\"",
+      "submission/PROCESS.md:2: \"reduced the law to its sigma_e->infinity linear limit (plane stress), solved T\""
+    ]
+  },
+  "notes": "Timing follows submission/PROCESS.md:2–5: constitutive reduction precedes the solve, numerical validation follows it, and applicability limitations are recorded in the final write-up. The equal stress scaling counts as B4; the high-stress reduction and same-field cross-checks are not an independent B2 limit test."
+}

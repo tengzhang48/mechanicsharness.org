@@ -1,0 +1,58 @@
+{
+  "comparisons": {
+    "M_each_arm_N_m": {
+      "reference": 0.21262578737672128,
+      "computed": 0.2126257873767215,
+      "computed_relative_error_percent": 1.1102230246251565e-13,
+      "reported": 0.2126,
+      "reported_relative_error_percent": 0.012128057014826332,
+      "parenthetical": 0.21263,
+      "parenthetical_relative_error_percent": 0.0019812381793826717
+    },
+    "L_mm": {
+      "reference": 10.800102370897305,
+      "computed": 10.800102370897184,
+      "computed_relative_error_percent": 1.1213252548714081e-12,
+      "reported": 10.8,
+      "reported_relative_error_percent": 0.0009478696940901088,
+      "parenthetical": 10.8,
+      "parenthetical_relative_error_percent": 0.0009478696940901088
+    },
+    "delta_at_L_over_2_um": {
+      "reference": 38.218897926093284,
+      "computed": 38.21889792609383,
+      "computed_relative_error_percent": 1.4210854715202004e-12,
+      "reported": 38.2,
+      "reported_relative_error_percent": 0.04944654900783663,
+      "parenthetical": 38.22,
+      "parenthetical_relative_error_percent": 0.0028835836890062083
+    }
+  },
+  "energy_relative_error": 1.5543122344752192e-15,
+  "statics_absolute_error_N": 7.993605777301127e-15,
+  "correct_zero_front_root": 1.8751040687118612,
+  "characteristic_residual_at_claimed_pi_over_2": 1.0000000000000002,
+  "finite_difference_checks": [
+    {
+      "step_m": 1e-06,
+      "absolute_residual_m_minus_4": 520581969.5959528,
+      "relative_residual": 1.087675664198756
+    },
+    {
+      "step_m": 2e-05,
+      "absolute_residual_m_minus_4": -218.87200278043747,
+      "relative_residual": 4.572992629450743e-07
+    },
+    {
+      "step_m": 0.0001,
+      "absolute_residual_m_minus_4": -22008.109084010124,
+      "relative_residual": 4.598254658010631e-05
+    },
+    {
+      "step_m": 0.0002,
+      "absolute_residual_m_minus_4": -88032.37846904993,
+      "relative_residual": 0.00018393006541628126
+    }
+  ],
+  "starter_cut_full_relative_end_rotation_rad": 0.14402992839078335
+}

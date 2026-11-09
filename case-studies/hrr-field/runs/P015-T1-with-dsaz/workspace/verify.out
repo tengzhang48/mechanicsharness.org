@@ -1,0 +1,8 @@
+s = 1.8667666666666667  f''(0) = -0.68925676193
+I = 4.818379070968103  shape2 = 2.542468405948565
+Dimensionless J (numeric) D = 0.03399830
+eq.(24) I (solve.py)        = 4.81837907
+ratio I/D                   = 141.72411371
+R=1e-04: J_numeric=8.301406e-16  J_closed=2.352724e-15  ratio=0.35284230
+R=1e-03: J_numeric=8.300442e-16  J_closed=2.352724e-15  ratio=0.35280132
+R=1e-02: J_numeric=8.297074e-16  J_closed=2.352724e-15  ratio=0.35265819

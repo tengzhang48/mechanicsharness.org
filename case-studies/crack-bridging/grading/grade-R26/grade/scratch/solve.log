@@ -1,0 +1,24 @@
+sign changes at L(mm): [10.79393232 12.02208701 13.24025671 30.09493249 48.69698283 50.35449242
+ 52.012002  ]
+D1 = 4.950000e-02, D2 = 2.885625e-01 N m^2; C_M = 23.66747396 1/(N m^2)
+mu = 155.963502 1/m (1/mu = 6.4118 mm)
+plateau bridging work sigma_b*delta_c/2 = 20.000 J/m^2
+J* = 21.400000 J/m^2
+M* = 0.21262579 N m
+L* = 10.800102 mm
+delta(L*/2) = 38.218898 um
+
+--- checks ---
+profile monotone: True ; max interior (um): 199.99999999999955 ; <= delta_c: True
+bending-only comparison: delta(L/2)_beam =  73.37254781463827 um (springs must reduce this)
+ind. solve_ivp: d(L/2)=38.21890 um (vs 38.21890); d(L)=200.00000 um
+sigma_b->0 check (M=0.1): delta_t exact vs CM*M*L^2/2: 20.86488628611223 vs 29.584342449839536
+L= 10.800 mm, M=0.21263: -dPi/dL=    0.035000, M^2CM/2-b*int tdd=    0.035000, rel.diff=2.69e-06
+L=  7.560 mm, M=0.18073: -dPi/dL=    0.051665, M^2CM/2-b*int tdd=    0.051665, rel.diff=1.89e-06
+L= 14.040 mm, M=0.23389: -dPi/dL=    0.151349, M^2CM/2-b*int tdd=    0.151349, rel.diff=1.61e-06
+M_init(LEFM) = 0.054384 N m; M(L) along R-curve:
+  L=  0.0010 mm: M=0.054384 N m, delta_t=   0.0000 um, J= 1.4000 J/m^2, R=Gamma0+int tdd=1.4000
+  L=  0.1000 mm: M=0.054409 N m, delta_t=   0.0064 um, J= 1.4013 J/m^2, R=Gamma0+int tdd=1.4013
+  L=  1.0000 mm: M=0.056880 N m, delta_t=   0.6583 um, J= 1.5315 J/m^2, R=Gamma0+int tdd=1.5315
+  L=  3.0000 mm: M=0.076502 N m, delta_t=   6.9732 um, J= 2.7703 J/m^2, R=Gamma0+int tdd=2.7703
+  L= 10.8001 mm: M=0.184806 N m, delta_t=  97.6902 um, J=16.1664 J/m^2, R=Gamma0+int tdd=16.1664

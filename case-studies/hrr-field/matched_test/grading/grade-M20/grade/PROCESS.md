@@ -1,0 +1,6 @@
+# Grading process
+
+- 03:56:37 UTC — Read TASK.md, TASK_PROBLEM.md, RUBRIC.md, the reference solution/code and recorded output, and the submission answer/code. Began rubric-based mechanics review; no web access.
+- 03:57:01 UTC — Reran copied submission code in scratch/ and reran the reference. Submission outputs reproduce the answer; reference assertions pass and all recorded numbers reproduce exactly. The submission's independent angular check agrees with its ODE.
+- 03:57:39 UTC — Diagnosed the lower-half-plane derivative-parity error. Correcting only uval's sign extension in a diagnostic copy changes the flux coefficient from 624.1363418 to 953.8687488, restores all seven reference values within 3.6e-15 relative error, and demonstrates that the original amplitude actually gives J = 0.1833962264 N/mm. Computed individual relative errors against the key and applied the rubric's consequential-error rule.
+- 03:58:17 UTC — Completed GRADE.md with itemized scoring, all seven tolerance comparisons, scientific errors, unsupported claims, presentation problems, and reference assessment. Verified the 17 rubric rows sum to 76/100. Preserved original submission files and saved rerun/diagnostic evidence under scratch/. Completed within the 25-minute limit.

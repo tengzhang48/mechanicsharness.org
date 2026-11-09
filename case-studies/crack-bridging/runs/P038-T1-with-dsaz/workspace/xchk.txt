@@ -1,0 +1,7 @@
+E' = 1.410590e+11 Pa
+K0 = sqrt(E'Gamma0) = 1.761618e+06 Pa.sqrt(m)
+ell = E'delta_c/sigma0 = 7.9346 mm
+alpha = a/ell = 0.30247
+alpha=0.302474 eta=2.702337 Ln=0.514912 c=0.817386 K0n=0.123603
+spectral N=2000: Sigma=133.83012 MPa  delta_t/dc=0.99533
+closed form (45): Sigma=133.83012 MPa  delta_t/dc=1.00190

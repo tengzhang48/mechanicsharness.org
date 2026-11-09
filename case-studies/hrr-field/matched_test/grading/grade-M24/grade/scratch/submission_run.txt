@@ -1,0 +1,32 @@
+t = T/E = 0.06880675
+1) T = 4816.47 MPa   nu* = 0.48623865   K = 62.07397 MPa sqrt(mm)
+   C_zz reproduced = -0.00500000 (measured -0.005)
+
+2) theta=60deg:  (polar-transform of cartesian strains)
+   C_rr    = 3.942048e-03 mm^1/2   (direct (srr-nu*stt)/T: 3.942048e-03)
+   C_thth  = 6.331781e-04 mm^1/2   (direct:               6.331781e-04)
+   C_grth  = 5.731131e-03 mm^1/2 (sigma_rth at 60deg = 9.286e+00)
+
+3) C_y(90deg) = 9.139019e-03 mm^1/2   (kappa* = 1.691358)
+
+4) screens on theta=0:
+   sigma_e >= 100 MPa  -> r <= 0.061325 mm
+   |eps_zz| <= 0.05    -> r >= 0.010000 mm  (eps_zz(r,0)=-0.005/sqrt(r): 0.005000)
+   r <= 0.200 mm       -> r <= 0.200000 mm
+   interval = [0.010000, 0.061325] mm, empty? False
+
+verif A: J from contour integral on leading field vs K^2/T:
+   R= 0.0010 mm -> J = 0.80000000  (K^2/T = 0.80000000, given J = 0.8)
+   R= 0.0100 mm -> J = 0.80000000  (K^2/T = 0.80000000, given J = 0.8)
+   R= 0.1000 mm -> J = 0.80000000  (K^2/T = 0.80000000, given J = 0.8)
+
+verif B: FD strains from displacement field vs stress-derived:
+   r= 0.005 th=+0.60: FD +1.178904e-02 +5.958714e-02 +1.896512e-02 | analytic +1.178904e-02 +5.958714e-02 +1.896512e-02
+   r= 0.020 th=+1.10: FD -8.078404e-03 +3.992579e-02 -1.905040e-03 | analytic -8.078404e-03 +3.992579e-02 -1.905040e-03
+   r= 0.050 th=+2.00: FD +4.190094e-03 +8.575286e-03 -1.538162e-02 | analytic +4.190094e-03 +8.575287e-03 -1.538162e-02
+   r= 0.100 th=-1.30: FD -4.165102e-03 +1.746477e-02 +4.309640e-03 | analytic -4.165102e-03 +1.746477e-02 +4.309640e-03
+
+verif C: true vs leading eps_zz on theta=0 (plastic-reduction error):
+   r=0.010000: sigma_e= 247.639 MPa, rel.diff = 3.87% (sigma_y/sigma_e=0.040)
+   r=0.035663: sigma_e= 131.133 MPa, rel.diff = 7.30% (sigma_y/sigma_e=0.076)
+   r=0.061325: sigma_e= 100.000 MPa, rel.diff = 9.58% (sigma_y/sigma_e=0.100)

@@ -1,0 +1,32 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "before",
+    "evidence": [
+      "\"finite nonzero J for separable field requires w ~ r^(1/(n+1))\" (submission/PROCESS.md:2)",
+      "\"returns g(π) = 1.6 × 10⁻¹⁶ — confirming the eigen-consistency\" (submission/ANSWER.md:59)"
+    ]
+  },
+  "B2": {
+    "status": "present_right",
+    "timing": "before",
+    "evidence": [
+      "\"verified n=1 limit reproduces LEFM w ~ sqrt(r) sin(theta/2).\" (submission/PROCESS.md:3)",
+      "\"J = K²/(2G) exactly (I_J = π/4 to 3 × 10⁻¹³)\" (submission/ANSWER.md:64)"
+    ]
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "\"pure power law with no elastic term\" (submission/ANSWER.md:45)",
+      "\"points much closer to the tip would leave small strain.\" (submission/ANSWER.md:76)"
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "Timing follows the earliest explicit qualifying check: the first numerical run is submission/PROCESS.md:4, and the applicability discussion is recorded with the final write-up at submission/PROCESS.md:7. The n = 1 regression checks a smooth limit and does not demonstrate a degenerate-parameter check."
+}

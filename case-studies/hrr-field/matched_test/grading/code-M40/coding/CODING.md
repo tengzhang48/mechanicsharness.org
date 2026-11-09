@@ -1,0 +1,9 @@
+- **B1 existence: present_right; after.** The independently satisfied face condition and subsequent exponent perturbation check that the selected field is admissible, consistent with the reference's angular boundary-condition check. Evidence: “|τ_θz(r,±π)|/|τ| = |f′(π)|/(αf(π)) = 6.4 × 10⁻¹⁶” (`submission/ANSWER.md:49`); “perturbing exponent 1e-3 breaks face condition -> confirms p=1/(n+1) eigenvalue” (`submission/PROCESS.md:7`).
+
+- **B2 limiting cases: present_right; after.** The same solver recovers the known linear mode III angular field and the correct relation between J and K. Evidence: “with n = 1 the solver returns f = 2 sin(θ/2) (err 3.7 × 10⁻¹³)” (`submission/ANSWER.md:58`); “n=1 limit K=sqrt(2GJ) to 9e-14” (`submission/PROCESS.md:6`).
+
+- **B3 applicability: present_right; after.** The final answer identifies inner and outer limits of the leading small-strain field and explains that fracture initiation requires additional physics. Evidence: “continuum/small-strain breakdown, outer by r ≈ 0.30 mm per the problem” (`submission/ANSWER.md:71`); “but advance requires a fracture criterion” (`submission/ANSWER.md:78-79`).
+
+- **B4 degenerate cases: absent; unclear.** No check of proximity to a structural transition or coinciding exponents is shown. The nearest statement is “n = 3.5 gives a smooth field (no sectoring), so the separable form is appropriate” (`submission/ANSWER.md:74`), which asserts regularity without examining a transition.
+
+Timing follows the step log: numerical answers first appear at `submission/PROCESS.md:4`, later verifications at lines 6-7, and the final answer is written at line 8. The no-sectoring assertion and exponent perturbation do not examine proximity to coinciding exponents or a structural threshold; the perturbation checks eigenvalue admissibility instead.

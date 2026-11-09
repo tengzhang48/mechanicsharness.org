@@ -1,0 +1,47 @@
+# bridging_check.py run 2026-10-25T17:42:30Z with python 3.13.9
+# command: python3 -I bridging_check.py (from assets/solution-evidence-2026-10-25)
+
+## 1. T1: finite slit with constant bridging traction (Eqs. 45-46, K_tip = K0, delta(a) = delta_c)
+E' = 141.0590278 GPa, K0 = sqrt(E' Gamma0) = 1.7616182 MPa m^1/2
+material length E' delta_c / sigma_b = 7.934570 mm; a / (E' delta_c / sigma_b) = 0.302474; Gamma0 / (sigma_b delta_c) = 0.0152778
+Sigma = 133.7302861 MPa (key 133.7302861), L = 4.0856091 mm per end (key 4.0856091), c = 6.485609 mm, L/a = 1.702337
+  relative to the key: Sigma 1.1e-14, L 6.2e-14
+initiation (L -> 0): Sigma = K0/sqrt(pi a) = 20.2876 MPa
+Sigma increasing up to the event: True; root opening increasing up to the event: True
+Gamma0 = 0 (the paper's Eq. 47): Sigma = 131.8351 MPa, L = 6.3913 mm; closed form (2/pi) acos(exp(-pi E' dc/(8 sb a))) sigma_b = 131.8351 MPa
+  dropping Gamma0 changes Sigma by -1.42% and L by +56.4%
+toughness replacement, Gamma0 + sigma_b delta_c = 1462 J/m^2 on the original slit: 165.3840 MPa, +23.67% relative to the key
+small-scale estimate of the bridged length, Eq. 20: L0 = (pi/8) ell [sqrt(1+g)+sqrt(g)]^-2 = 2.4350 mm = 1.015 a (Gamma0 = 0: (pi/8) ell = 3.1159 mm)
+P038-T1-without-dsaz root Sigma = 158.524900 MPa, L = 34.324304 mm: its formula (4/E')[Sigma sqrt(c^2-a^2) - t (c-a)] = 9.000000 um; Eq. 45 = 24.300243 um
+  its K_tip at that root, Eq. 46: 1.761618 MPa m^1/2 (K0 = 1.761618)
+  relative errors: Sigma +18.54%, L +740.1%
+
+## 2. T2: unequal strips, linear softening connectors, front work
+D1 = 1.980000 N m, D2 = 11.542500 N m (per width); C = 1/D1 + 1/D2 = 0.5916868 (N m)^-1
+gamma = Gamma0/(sigma_b delta_c) = 0.0350, kappa = sqrt(2 gamma) = 0.264575, ell = (delta_c/(C sigma_b))^1/4 = 6.411757 mm
+lambda (smallest root of 1 + cosh cos - kappa sinh sin = 0) = 1.684421791199, A = 1.185431163725; u(lambda) - 1 = -1.1e-16, u'''(lambda) = 0.0e+00
+energy: C m^2/2 = Gamma0 + sigma_b delta_c/2 = 21.40 J/m^2 -> m = 8.5050315 N, M = 0.2126257874 N m (key 0.2126257874)
+L = 10.80010237 mm (key 10.80010237), delta(L/2) = 38.21889793 um (key 38.21889793)
+delta(x = 5 mm) = 31.770084 um; rear relative rotation = 0.04338 rad; L / h2 = 12.0001
+profile on [0, L]: min 0.000e+00, max 1.000000, increasing: True
+Gamma0 = 0: first cantilever root 1 + cosh cos = 0 at 1.875104068712
+averaged equal arms: M = 0.26558 N m, L = 12.0703 mm, delta(L/2) = 38.218898 um, delta(5 mm) = 24.3415 um
+upper-arm compliance only: M = 0.23014 N m, L = 11.2361 mm, delta(L/2) = 38.218898 um, delta(5 mm) = 28.8935 um
+  delta(L/2) = delta_c u(lambda/2) depends on gamma only; L and delta at a fixed x scale with ell ~ C^(-1/4)
+equal arms, D = E h^3/12 with E = 150 GPa, h = 1 mm, m = 1 N: C m^2/2 = 8.000000e-02 J/m^2; 12 m^2/(E h^3) = 8.000000e-02 J/m^2 (the form of the paper's Eq. 51 left side, which has the plane-strain E' where T2 has E)
+
+## 3. Runs: minutes from start/exit stamps, grader totals, verification rows
+P038-T1-with-dsaz        R08  exit 0   26.2 min  total 100.0  verification 15/15
+P038-T1-with-glm         R24  exit 0   18.7 min  total 100.0  verification 15/15
+P038-T1-without-dsaz     R03  exit 0   22.7 min  total  47.0  verification 15/15
+P038-T1-without-glm      R30  exit 0   32.5 min  total 100.0  verification 15/15
+P038-T2-with-dsaz        R36  exit 0   25.6 min  total 100.0  verification 12/12
+P038-T2-with-glm         R26  exit 0   30.8 min  total 100.0  verification 12/12
+P038-T2-without-dsaz     R21  exit 0   27.1 min  total  94.0  verification 6/12
+P038-T2-without-glm      R15  exit 0    9.1 min  total 100.0  verification 12/12
+
+## 4. Reasoning events in the DeepSeek session logs (original path; logs not bundled)
+P038-T1-with-dsaz: 0 reasoning events, 2921 text events
+P038-T1-without-dsaz: 0 reasoning events, 9535 text events
+P038-T2-with-dsaz: 0 reasoning events, 9394 text events
+P038-T2-without-dsaz: 0 reasoning events, 15636 text events

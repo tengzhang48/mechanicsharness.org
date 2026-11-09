@@ -1,0 +1,23 @@
+Verification 1: J = R * int (W cos - tau_r * w_,x) dtheta (analytic)
+  n=1.0 R=0.010 J=0.12000000
+  n=1.0 R=0.020 J=0.12000000
+  n=1.0 R=0.050 J=0.12000000
+  n=1.0 R=0.200 J=0.12000000
+  n=2.0 R=0.010 J=0.12000000
+  n=2.0 R=0.020 J=0.12000000
+  n=2.0 R=0.050 J=0.12000000
+  n=2.0 R=0.200 J=0.12000000
+  n=3.5 R=0.010 J=0.12000000
+  n=3.5 R=0.020 J=0.12000000
+  n=3.5 R=0.050 J=0.12000000
+  n=3.5 R=0.200 J=0.12000000
+  n=6.0 R=0.010 J=0.12000000
+  n=6.0 R=0.020 J=0.12000000
+  n=6.0 R=0.050 J=0.12000000
+  n=6.0 R=0.200 J=0.12000000
+Verification 2: polar equilibrium residual (max over r,theta), n=3.5
+  R=0.020 max|res|/scale = 1.698e-08
+  R=0.050 max|res|/scale = 6.718e-09
+Verification 3: gamma = (g0/t0)(tau/t0)^(n-1) tau, n=3.5
+  max rel err in |gamma| = 1.438e-15
+  max angle err (rad) = 4.441e-16

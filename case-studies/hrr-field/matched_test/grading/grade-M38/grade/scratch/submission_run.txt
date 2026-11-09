@@ -1,0 +1,31 @@
+=== n = 3.5 main case ===
+theory exponent 1/(n+1) = 0.2222222222222222
+eigenvalue roots found  = [0.22222222222220214]
+s* = 0.222222222222202  (theory 0.222222222222222, diff 2.01e-14)
+f(pi) = 1.698433234023   fprime(pi) = 2.828e-16   I_ang = 2.019595277308
+A = 9.256090617515e-04 mm^(1-s)
+
+1) face slip Dw(r): 1.318127e-03 mm at r=0.02 ; 1.793694e-03 mm at r=0.08
+   ratio Dw(0.08)/Dw(0.02) = 1.360790 (theory (4)^s = 1.360790)
+
+2) at r=0.02, theta=60deg: tau_rz = 38.586597 MPa ; tau_thz = 138.010617 MPa
+   (gamma there = 1.538553e-02, tau = 143.303370 MPa)
+
+3) |gamma|=0.01 radii: theta=0: 0.046894 ; 90deg: 0.025066 ; 180deg(face): 0.013398 mm
+   G(0)=1, G(90)=0.614352999, G(180)=0.377429608
+
+=== verification: J path checks (input J = 0.120) ===
+J on circle r=0.02 : 0.120000000
+J on circle r=0.15 : 0.120000000
+J on square a=0.10 : 0.120000000
+J on square a=0.25 : 0.120000000
+
+=== verification: linear limit n=1 vs closed-form K-field ===
+n=1 roots: [0.5000000000000364]
+s1 = 0.500000000000036 (theory 0.5) ; I_ang = 3.141592653589 (theory pi = 3.141592653590) ; f(pi) = 2.000000000000 (theory 2)
+with K=40 MPa sqrt(mm): J = K^2/(2 mu) = 0.020000000 N/mm
+n=1 pipeline Dw(0.02) = 2.256758334e-04 ; closed form K sqrt(8r/pi)/mu = 2.256758334e-04
+n=1 J_rect check: 0.020000000 vs 0.020000000
+
+=== face residual ===
+|sigma_thz/sigma_rz| on face ~ |fprime(pi)|/(s f(pi)) = 7.492e-16

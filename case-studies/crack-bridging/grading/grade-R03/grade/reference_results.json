@@ -1,0 +1,44 @@
+{
+  "inputs_SI": {
+    "E": 130000000000.0,
+    "nu": 0.28,
+    "E_prime": 141059027777.77777,
+    "a": 0.0024,
+    "sigma_b": 160000000.0,
+    "delta_c": 9e-06,
+    "Gamma_0": 22.0
+  },
+  "answer": {
+    "Sigma_MPa": 133.73028605381103,
+    "L_mm_per_end": 4.085609138245525
+  },
+  "analytic": {
+    "sigma_Pa": 133730286.05381103,
+    "L_m": 0.004085609138245525,
+    "c_m": 0.006485609138245525,
+    "log_eta": 0.9941170063418836,
+    "tip_K_Pa_sqrt_m": 1761618.1797174753,
+    "positive_load_branch_slope": 0.21501593212626705
+  },
+  "independent_Green_integrals": {
+    "sigma_Pa": 133730286.053811,
+    "L_m": 0.004085609138245527,
+    "c_m": 0.006485609138245526,
+    "opening_m": 8.999999999999982e-06,
+    "tip_K_Pa_sqrt_m": 1761618.179717468
+  },
+  "checks": {
+    "relative_sigma_difference": 2.220446049250313e-16,
+    "relative_L_difference": 4.440892098500626e-16,
+    "uniform_pressure_Green_relative_error": 1.5543122344752192e-15,
+    "zero_tip_special_solution_relative_error": 0.0,
+    "large_crack_LEFM_relative_error": 6.544992794399462e-07
+  },
+  "diagnostics": {
+    "material_length_mm": 7.9345703125,
+    "a_over_material_length": 0.30247384615384615,
+    "L_over_a": 1.7023371409356356,
+    "unbridged_LEFM_prediction_MPa": 165.38403069167478,
+    "LEFM_overprediction_percent": 23.66983992326672
+  }
+}

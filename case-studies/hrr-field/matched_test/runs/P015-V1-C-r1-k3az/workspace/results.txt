@@ -1,0 +1,17 @@
+[check n=1] max|U-cos(th/2)| = 1.665e-15, max|V-sin(th/2)| = 1.554e-15, U(pi) = -2.542e-16
+[check n=3.5] U(pi) = -5.063e-17  (traction-free face residual, normalized U(0)=1)
+I_n = 2.0195952773,  C = 0.8024155104 mm^(1/(n+1))
+[check J] r = 0.02 mm : J = 0.12000000 N/mm (input 0.120)
+[check J] r = 0.08 mm : J = 0.12000000 N/mm (input 0.120)
+[check J] r = 0.29 mm : J = 0.12000000 N/mm (input 0.120)
+[check compat] max rel. residual of dg/dtheta vs gamma_theta*r... = 1.153e-05
+slip  Dw(0.0200 mm) = 1.31812678e-03 mm
+slip  Dw(0.0800 mm) = 1.79369374e-03 mm
+tau_rz(0.02, 60deg)  = 3.85865969e+01 MPa
+tau_thz(0.02, 60deg) = 1.38010617e+02 MPa
+r(|gamma|=0.01) at theta=0 deg: r = 4.68944231e-02 mm  (check gamma=0.010000, S=1.000000)
+r(|gamma|=0.01) at theta=90 deg: r = 2.50661235e-02 mm  (check gamma=0.010000, S=0.870058)
+r(|gamma|=0.01) at theta=180 deg (upper face): r = 1.33984066e-02 mm  (check gamma=0.010000, S=0.757000)
+[data] C^n = 0.46280453 mm^(n/(n+1));  U(60deg) = 0.901310, V(60deg) = 0.251999, S(60deg) = 0.935876
+[data] V(pi) = 0.757000, S(90deg) = 0.870058, S(pi) = 0.757000, max S = 1.000000 at theta = 0.00 deg
+[data] r^t at 0.02 mm = 2.385332; w(r,pi) amplitude 2*g(pi) = 3.14417038e-03 mm^(1-1/(n+1))

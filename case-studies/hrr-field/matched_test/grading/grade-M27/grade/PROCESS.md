@@ -1,0 +1,8 @@
+# Grading process
+
+- 03:58:34 UTC — Started grading; read `TASK.md`, the problem, rubric, reference narrative, and submitted answer. Confirmed the seven outputs and their 2% relative tolerance. All work is confined to this folder; no web access is used.
+- 03:58:40 UTC — Read both supplied Python programs and the recorded reference output. Checked the constitutive inversion, angular equation, work-density coefficient, flux normalization, symmetry, signs, and face-limit convention.
+- 03:59:22 UTC — Checked each of the seven answer-table numbers against the recorded key; all pass 2%, with maximum relative error 0.00303459314%. Saved the individual comparisons in `scratch/tolerance_checks.json`. The copied submission and reference are rerunning, with their child PIDs recorded in `scratch/submission.pid` and `scratch/reference.pid`.
+- 03:59:56 UTC — Both reruns completed with exit code 0. The submission reproduced all seven values, f′(π) = 1.443 × 10^−16, and J = 0.120000000 N/mm at all four tested radii. The reference's two routes and assertions agreed. No processes were stopped or killed. Identified the minor stress-scale wording error and unsupported ancillary verification claims; none changes the rubric score.
+- 04:00:28 UTC — Wrote `GRADE.md` with item-by-item awards, seven numerical comparisons, total 100/100, the three requested issue lists, and the tolerance conclusion.
+- 04:00:40 UTC — Final audit passed: all 19 rubric rows sum to 100/100, all seven tolerance checks pass, the rerun submission copy is byte-identical to the original, and rerun reference numbers agree with the recorded key. Completed within the 25-minute limit.

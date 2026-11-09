@@ -1,0 +1,23 @@
+T=4816.472187 MPa, E_t=4816.4722, nu_t=0.48623865, K_t=62.073970, phi0=5.14150818e-03
+rotation-ODE cross-check max|residual| = 4.219e-15 (should be ~0)
+F_y(pi/2) = -0.1081203869, expected (3-nu_t)/sqrt2 = 1.7774976962
+C_y = phi0*F_y(pi/2) = -5.55901854e-04 mm^0.5
+2*C_yy(90) = 9.13901894e-03
+
+strain check (reconstructed u vs tangent law), r=0.003:
+  th=  0.0: e_xx 4.82271205e-02 vs 4.82271205e-02 | e_yy 0.00000000e+00 vs 4.82271205e-02 | e_xy +6.35068881e-14 vs +0.00000000e+00
+  th= 30.0: e_xx 5.36683907e-02 vs 2.19209596e-02 | e_yy 2.69956260e-02 vs 7.12466828e-02 | e_xy -4.49498378e-03 vs +2.46628616e-02
+  th= 45.0: e_xx 5.36188444e-02 vs -1.01497654e-03 | e_yy 8.36178433e-03 vs 9.01270756e-02 | e_xy +5.31040189e-03 vs +1.88761371e-02
+  th= 60.0: e_xx 4.39349296e-02 vs -1.86455150e-02 | e_yy -6.21517167e-03 vs 1.02177338e-01 | e_xy +2.29060325e-02 vs +3.69913300e-18
+  th= 90.0: e_xx -1.52239992e-02 vs -1.52239992e-02 | e_yy -5.07466642e-03 vs 8.34274471e-02 | e_xy +5.75057782e-02 vs -4.93257232e-02
+  th= 30.0: old formula G=(+1.184844,+0.317478)  reconstructed F=(+0.930617,+0.225011)
+  th= 60.0: old formula G=(+1.533421,+0.885321)  reconstructed F=(+0.735986,+0.218654)
+  th= 90.0: old formula G=(+1.777498,+1.777498)  reconstructed F=(+0.672928,-0.108120)
+
+J contour (expect 0.800 N/mm):
+  rho=1e-01: J(tangent W)=-0.09549925, J(full-law W)=-0.095664 (err -8.96e-01)
+  rho=1e-02: J(tangent W)=-0.09549925, J(full-law W)=-0.095504 (err -8.96e-01)
+  rho=1e-03: J(tangent W)=-0.09549925, J(full-law W)=-0.095499 (err -8.95e-01)
+  rho=1e-04: J(tangent W)=-0.09549925, J(full-law W)=-0.095499 (err -8.95e-01)
+  rho=1e-05: J(tangent W)=-0.09549925, J(full-law W)=-0.095499 (err -8.95e-01)
+  rho=1e-06: J(tangent W)=-0.09549925, J(full-law W)=-0.095499 (err -8.95e-01)

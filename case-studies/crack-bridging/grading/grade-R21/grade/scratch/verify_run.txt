@@ -1,0 +1,10 @@
+Exit code: 0
+BC tip  delta(0)=dc?  199.99999999999997 dc_um= 200.0
+BC tip  delta''(0)=M R?  5.032315285935753 5.032315285935753
+BC tip  delta'''(0)=0?  0.0
+BC root delta(L)=0?  1.0990286371942437e-09
+BC root delta'(L)=0?  -3.698974301000615e-18
+cohesive work per area = 20.0000 J/m2
+total G supply = 21.4000 J/m2
+ANSWER: M=0.212626 N.m  L=10.8001 mm  d(L/2)=38.2189 um
+

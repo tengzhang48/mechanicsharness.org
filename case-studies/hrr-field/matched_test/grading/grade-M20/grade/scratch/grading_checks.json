@@ -1,0 +1,79 @@
+{
+  "requested_values": {
+    "slip_0.02_mm": {
+      "answer": 0.00183,
+      "code": 0.0018332891391855653,
+      "reference": 0.001318126777760562,
+      "answer_relative_error_percent": 38.83338316736782,
+      "code_relative_error_percent": 39.082914490231424,
+      "within_two_percent": false,
+      "corrected_parity_relative_error": 1.9984014443252818e-15
+    },
+    "slip_0.08_mm": {
+      "answer": 0.00249,
+      "code": 0.002494721528032009,
+      "reference": 0.0017936937381386464,
+      "answer_relative_error_percent": 38.81968515895724,
+      "code_relative_error_percent": 39.0829144902314,
+      "within_two_percent": false,
+      "corrected_parity_relative_error": 2.220446049250313e-15
+    },
+    "tau_rz_0.02mm_60deg_MPa": {
+      "answer": 42.4,
+      "code": 42.400584576270546,
+      "reference": 38.586596862313044,
+      "answer_relative_error_percent": 9.882714330300146,
+      "code_relative_error_percent": 9.884229302643078,
+      "within_two_percent": false,
+      "corrected_parity_relative_error": 3.3306690738754696e-16
+    },
+    "tau_thetaz_0.02mm_60deg_MPa": {
+      "answer": 151.7,
+      "code": 151.6519024422922,
+      "reference": 138.01061663235828,
+      "answer_relative_error_percent": 9.919079924197716,
+      "code_relative_error_percent": 9.884229302643055,
+      "within_two_percent": false,
+      "corrected_parity_relative_error": 6.661338147750939e-16
+    },
+    "gamma_contour_0deg_mm": {
+      "answer": 0.07167,
+      "code": 0.07166883523491623,
+      "reference": 0.046894423054945324,
+      "answer_relative_error_percent": 52.83267248223864,
+      "code_relative_error_percent": 52.83018867924483,
+      "within_two_percent": false,
+      "corrected_parity_relative_error": 2.7755575615628914e-15
+    },
+    "gamma_contour_90deg_mm": {
+      "answer": 0.03831,
+      "code": 0.038308603822601255,
+      "reference": 0.025066123488862637,
+      "answer_relative_error_percent": 52.83575865658632,
+      "code_relative_error_percent": 52.83018867924474,
+      "within_two_percent": false,
+      "corrected_parity_relative_error": 3.552713678800501e-15
+    },
+    "gamma_contour_180deg_mm": {
+      "answer": 0.02048,
+      "code": 0.020476810067118927,
+      "reference": 0.013398406587127234,
+      "answer_relative_error_percent": 52.85399697958517,
+      "code_relative_error_percent": 52.83018867924489,
+      "within_two_percent": false,
+      "corrected_parity_relative_error": 2.6645352591003757e-15
+    }
+  },
+  "negative_sixty_degree_derivative": {
+    "finite_difference_of_fval": 0.7636947971234598,
+    "submitted_uval": -0.7636947971856083,
+    "correct_even_uval": 0.7636947971856083
+  },
+  "flux_coefficient_submitted": 624.1363417887213,
+  "flux_coefficient_corrected": 953.8687487714419,
+  "amplitude_submitted": 0.0012873640598696902,
+  "amplitude_corrected": 0.0009256090617515111,
+  "physical_flux_using_submitted_amplitude": 0.1833962264150941,
+  "face_derivative_residual": 1.4159680372660688e-16,
+  "max_corrected_parity_relative_error": 3.552713678800501e-15
+}

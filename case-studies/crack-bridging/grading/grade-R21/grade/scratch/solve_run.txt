@@ -1,0 +1,23 @@
+Exit code: 1
+EI1=4.950000e-02  EI2=2.885625e-01  R=23.667474
+cohesive work=20.0000 J/m2, total G=21.4000 J/m2
+M = 0.212626 N.m
+beta = 155.9635 1/m ; 2pi/beta = 40.286 mm
+sign changes at ell ~ [0.0107975  0.01322466 0.0487032  0.05199935]
+L = ell = 10.800102 mm
+delta(0)       = 200.000000 um
+delta(L/2)     = 38.218898 um
+delta(L)       = 0.000000 um
+max delta in zone = 200.0000 um at x=0.0000 mm
+Traceback (most recent call last):
+  File "<probe-runs>/grading/R21/scratch/submission/solve.py", line 87, in <module>
+    sol = fsolve(lambda v: resid2(v), [1e-4, -1e-4, 0.012], full_output=False)
+  File "<home>/.local/lib/python3.13/site-packages/scipy/optimize/_minpack_py.py", line 171, in fsolve
+    res = _root_hybr(_wrapped_func, x0, args, jac=fprime, **options)
+  File "<home>/.local/lib/python3.13/site-packages/scipy/optimize/_minpack_py.py", line 239, in _root_hybr
+    shape, dtype = _check_func('fsolve', 'func', func, x0, args, n, (n,))
+                   ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<home>/.local/lib/python3.13/site-packages/scipy/optimize/_minpack_py.py", line 38, in _check_func
+    raise TypeError(msg)
+TypeError: fsolve: there is a mismatch between the input and output shape of the 'func' argument '_wrapped_func'. Shape should be (3,) but it is (4,).
+

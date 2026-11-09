@@ -1,0 +1,23 @@
+key | expected: all pass | pass: {'T1': {'Sigma_MPa': True, 'L_mm_per_end': True}, 'T2': {'M_Nm_each_strip': True, 'L_mm': True, 'delta_mid_um': True}} | pts: {'T1': 50, 'T2': 40.0}
+independent_recompute | expected: all pass | pass: {'T1': {'Sigma_MPa': True, 'L_mm_per_end': True}, 'T2': {'M_Nm_each_strip': True, 'L_mm': True, 'delta_mid_um': True}} | pts: {'T1': 50, 'T2': 40.0}
+run:P038-T1-with-dsaz (R08) | expected: grader numeric points 50/50 (R08/GRADE.md rows Remote stress, Zone length) | pass: {'T1': {'Sigma_MPa': True, 'L_mm_per_end': True}} | pts: {'T1': 50}
+run:P038-T1-with-glm (R24) | expected: grader numeric points 50/50 (R24) | pass: {'T1': {'Sigma_MPa': True, 'L_mm_per_end': True}} | pts: {'T1': 50}
+run:P038-T1-without-glm (R30) | expected: grader numeric points 50/50 (R30) | pass: {'T1': {'Sigma_MPa': True, 'L_mm_per_end': True}} | pts: {'T1': 50}
+run:P038-T1-without-dsaz (R03) | expected: grader numeric points 0/50 (R03) | pass: {'T1': {'Sigma_MPa': False, 'L_mm_per_end': False}} | pts: {'T1': 0}
+run:P038-T2-with-dsaz (R36) | expected: grader numeric points 40/40 (R36) | pass: {'T2': {'M_Nm_each_strip': True, 'L_mm': True, 'delta_mid_um': True}} | pts: {'T2': 40.0}
+run:P038-T2-with-glm (R26) | expected: grader numeric points 40/40 (R26) | pass: {'T2': {'M_Nm_each_strip': True, 'L_mm': True, 'delta_mid_um': True}} | pts: {'T2': 40.0}
+run:P038-T2-without-dsaz (R21) | expected: grader numeric points 40/40 (R21) | pass: {'T2': {'M_Nm_each_strip': True, 'L_mm': True, 'delta_mid_um': True}} | pts: {'T2': 40.0}
+run:P038-T2-without-glm (R15) | expected: grader numeric points 40/40 (R15) | pass: {'T2': {'M_Nm_each_strip': True, 'L_mm': True, 'delta_mid_um': True}} | pts: {'T2': 40.0}
+T1 mutant:Gamma0_omitted | expected: fail | pass: {'T1': {'Sigma_MPa': False, 'L_mm_per_end': False}} | pts: {'T1': 12}
+T1 mutant:half_gap_as_full_gap(one-face disp = delta_c) | expected: fail | pass: {'T1': {'Sigma_MPa': False, 'L_mm_per_end': False}} | pts: {'T1': 0}
+T1 mutant:total_L_reported(2L) | expected: fail | pass: {'T1': {'Sigma_MPa': True, 'L_mm_per_end': False}} | pts: {'T1': 25}
+T1 mutant:plane_stress_E | expected: fail | pass: {'T1': {'Sigma_MPa': False, 'L_mm_per_end': False}} | pts: {'T1': 17}
+T1 mutant:Gamma0_doubled | expected: fail | pass: {'T1': {'Sigma_MPa': False, 'L_mm_per_end': False}} | pts: {'T1': 17}
+T1 mutant:SSB_LEFM_plateau_no_zone | expected: fail | pass: {'T1': {'Sigma_MPa': False, 'L_mm_per_end': False}} | pts: {'T1': 0}
+T1 mutant:seen_R03_without_dsaz | expected: fail | pass: {'T1': {'Sigma_MPa': False, 'L_mm_per_end': False}} | pts: {'T1': 0}
+T2 mutant:Gamma0_omitted | expected: fail | pass: {'T2': {'M_Nm_each_strip': False, 'L_mm': False, 'delta_mid_um': False}} | pts: {'T2': 10.5}
+T2 mutant:averaged_equal_arms | expected: fail | pass: {'T2': {'M_Nm_each_strip': False, 'L_mm': False, 'delta_mid_um': True}} | pts: {'T2': 13.0}
+T2 mutant:only_upper_arm_compliance | expected: fail | pass: {'T2': {'M_Nm_each_strip': False, 'L_mm': False, 'delta_mid_um': True}} | pts: {'T2': 20.5}
+T2 mutant:moment_per_width_reported_as_M(N) | expected: fail | pass: {'T2': {'M_Nm_each_strip': False, 'L_mm': True, 'delta_mid_um': True}} | pts: {'T2': 25.0}
+T2 mutant:sum_of_two_moments | expected: fail | pass: {'T2': {'M_Nm_each_strip': False, 'L_mm': True, 'delta_mid_um': True}} | pts: {'T2': 25.0}
+T2 mutant:delta_half_gap(one arm share) | expected: fail | pass: {'T2': {'M_Nm_each_strip': True, 'L_mm': True, 'delta_mid_um': False}} | pts: {'T2': 30.0}

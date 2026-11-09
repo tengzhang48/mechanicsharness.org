@@ -1,0 +1,9 @@
+- **B1 existence: present_right; timing unclear.** The finite, nonzero-J condition selects an admissible exponent, and the shooting solution agrees with it and satisfies the face condition. Evidence: “finite nonzero J requires **p = 1/(n+1) = 2/9**” ([submission/ANSWER.md:36](<matched-runs>/coding/M31/submission/ANSWER.md:36)); “n=3.5 eigen p*=1/(n+1)=2/9, face residual 1e-16” ([submission/PROCESS.md:3](<matched-runs>/coding/M31/submission/PROCESS.md:3)).
+
+- **B2 limiting cases: present_right; timing unclear.** The same numerical pipeline is checked against the known n = 1 elastic mode III solution. Evidence: “**n = 1 regression against the exact mode III elastic field** (whole pipeline, same code)” ([submission/ANSWER.md:60](<matched-runs>/coding/M31/submission/ANSWER.md:60)); “mode3.py: n=1 regression exact vs closed form” ([submission/PROCESS.md:3](<matched-runs>/coding/M31/submission/PROCESS.md:3)).
+
+- **B3 applicability: present_right; timing after.** The answer identifies the outer limit of the leading field and the inner breakdown of small-strain physics. Evidence: “Only the **leading term** is used; valid for r ≪ 0.30 mm” ([submission/ANSWER.md:75](<matched-runs>/coding/M31/submission/ANSWER.md:75)); “Small strain fails as r → 0” ([submission/ANSWER.md:78](<matched-runs>/coding/M31/submission/ANSWER.md:78)).
+
+- **B4 degenerate cases: absent; timing unclear.** No check of coinciding exponents or a parameter threshold that changes the field's structure is shown. Evidence: none.
+
+Existence and n = 1 checks are reported together with the main n = 3.5 run in submission/PROCESS.md:3, so their relative timing is unclear; the applicability limits appear only in the final answer, written at submission/PROCESS.md:4. The n = 1 regression is a limiting-case check, and the small-r caveat is an applicability limit; neither examines a parameter-driven change of structure.

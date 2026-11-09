@@ -1,0 +1,78 @@
+# Changes made for this release
+
+Every file here is as saved at the time, except for the changes listed below. Machine paths were replaced by a
+label in angle brackets, for example `<volume-2>`; excerpts are marked inside the file. In the HTML records,
+links to files in this package were re-pointed, and links to files not released were removed, keeping their
+text. The original of every file is kept in the private repository; its SHA-256 is recorded there.
+
+- `audit_2026-10-25/AUDIT.md`
+  - excerpt: two paragraphs on the draft restatement of T3 left out (a problem not yet run); a note says so (2 times)
+  - machine path replaced by <library-pilot-folder>
+  - machine path replaced by <corpus-pilot-folder> (2 times)
+  - machine path replaced by <matched-runs>
+  - machine path replaced by <probe-runs> (5 times)
+  - machine path replaced by <runs>
+- `grading/grade-R31/session/grade-R31.err`
+  - machine path replaced by <probe-runs>
+- `key/T1/RUBRIC_2026-10-06.md`
+  - a notice at the top says it is superseded
+- `key/T2/RUBRIC_2026-10-06.md`
+  - a notice at the top says it is superseded
+- `matched_test/audit_2026-11-07/AUDIT.md`
+  - machine path replaced by <library-pilot-folder>
+  - private repository name in a relative path replaced by a label
+  - machine path replaced by <matched-runs> (2 times)
+  - machine path replaced by <runs> (2 times)
+- `matched_test/audit_2026-11-07/answers_extracted.json`
+  - machine path replaced by <matched-runs>
+- `matched_test/audit_2026-11-07/audit.json`
+  - machine path replaced by <library-pilot-folder> (2 times)
+  - machine path replaced by <matched-runs> (3 times)
+  - machine path replaced by <runs> (25 times)
+  - machine path replaced by <documents>
+- `matched_test/grading/code-M31/coding/CODING.md`
+  - machine path replaced by <matched-runs> (6 times)
+- `matched_test/grading/grade-M08/grade/scratch/submission_run.txt`
+  - machine path replaced by <matched-runs>
+- `matched_test/grading/grade-M16/grade/scratch/verify_rerun.txt`
+  - machine path replaced by <matched-runs>
+- `matched_test/grading/grade-M26/grade/scratch/submission_raw_run.txt`
+  - machine path replaced by <matched-runs>
+- `matched_test/grading/grade-M43/grade/GRADE.md`
+  - machine path replaced by <matched-runs>
+- `matched_test/grading/grade-M50/grade/scratch/submission_original.stderr`
+  - machine path replaced by <matched-runs>
+- `matched_test/grading/key-P015-recheck-grok/output/PREVIOUS_REVIEW.md`
+  - machine path replaced by <probe-runs>
+- `matched_test/grading/key-P015-recheck-grok/output/RECHECK.md`
+  - machine path replaced by <probe-runs>
+- `matched_test/grading/key-P015-recheck-grok/output/library/crack_tip_asymptotics/checks/test_checks.py`
+  - machine path replaced by <probe-runs>
+- `matched_test/grading/key-P015-recheck-grok/output/scratch/crack_tip_asymptotics/checks/test_checks.py`
+  - machine path replaced by <probe-runs>
+- `matched_test/grading/key-P015-review-grok/output/REVIEW.md`
+  - machine path replaced by <probe-runs>
+- `matched_test/grading/key-P015-review-grok/output/library/crack_tip_asymptotics/checks/test_checks.py`
+  - machine path replaced by <probe-runs>
+- `matched_test/records/queue_matched.sh`
+  - machine path replaced by <library-pilot-folder>
+  - machine path replaced by <matched-runs> (2 times)
+- `matched_test/runs/P015-V1-C-r1-k3az/workspace/solve_hrr3.py`
+  - machine path replaced by <matched-runs>
+- `records/PROBE_PILOT_SUMMARY.md`
+  - excerpt: the title, the design and the rows of the HRR problems (P015) in the score tables, with their headers kept, the rest left out; a note says so
+- `records/PROCESS_LOG.md`
+  - excerpt: the title and entries P232, P235, P253-P258 and P394, with the table's header kept, the rest left out; a note says so
+  - machine path replaced by <volume>
+- `records/launch_run.sh`
+  - machine path replaced by <probe-runs> (2 times)
+- `reference_checks/hrr_check.py`
+  - machine path replaced by <matched-runs>
+  - machine path replaced by <probe-runs>
+- `runs/P015-T1-without-dsaz/workspace/final2.log`
+  - machine path replaced by <probe-runs> (10 times)
+  - machine path replaced by <home> (11 times)
+- `runs/P015-T1-without-dsaz/workspace/final_solve.out`
+  - machine path replaced by <probe-runs>
+- `runs/P015-T2-with-dsaz/workspace/vtest.log`
+  - machine path replaced by <probe-runs> (16 times)

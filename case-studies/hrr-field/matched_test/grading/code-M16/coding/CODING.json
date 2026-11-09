@@ -1,0 +1,32 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:41: \"0 < T < E ✓\"",
+      "submission/ANSWER.md:83: \"finite energy, exponent p = 1/2 fixed by J (exact)\""
+    ]
+  },
+  "B2": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:20: \"checked: at σ = 2σ_y it returns σ_y/E + σ_y/T exactly\"",
+      "submission/ANSWER.md:93: \"C_y(90°) computed two independent ways (kinematic integration identity 2C_rr(90°) and the closed-form u_r) agree to 6 digits\""
+    ]
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:113: \"theory is legitimate only under the stated proportional monotonic loading\"",
+      "submission/ANSWER.md:110: \"initiation requires a failure criterion — a critical K, J, CTOD or a damage model\""
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "B2 counts the explicitly verified uniaxial and plane-stress closed forms as the allowed special-case checks; no separate T = E test is claimed. Timing follows submission/PROCESS.md:1–5 (solve, verification, then final discussion); no check of proximity to a structural change is recorded."
+}

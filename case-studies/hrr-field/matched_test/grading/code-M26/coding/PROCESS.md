@@ -1,0 +1,3 @@
+04:11:18 Read TASK.md, TASK_PROBLEM.md, REFERENCE.md, and both numbered submission files. Restricted the review to the four requested boundary checks; no web access or overall grading.
+04:12:04 Classified B1 and B3 as present_right and B2 and B4 as absent. Used unclear timing because submission/PROCESS.md bundles the final answer and checks without recording the numerical-work sequence. Wrote CODING.json and CODING.md with short, line-numbered evidence.
+04:12:29 Verified JSON keys and allowed values, agreement with the Markdown classifications, the two-quote limit, and every quotation against its cited submission lines. Review complete; original submission files unchanged.

@@ -1,0 +1,58 @@
+{
+  "slip_0.02_mm": {
+    "submitted_answer": 0.0013181,
+    "reference": 0.001318126777760562,
+    "relative_error": 2.0315011434322786e-05,
+    "within_2_percent": true,
+    "code_printed_value": 0.00131813,
+    "code_relative_error": 2.444559576750459e-06
+  },
+  "slip_0.08_mm": {
+    "submitted_answer": 0.0017937,
+    "reference": 0.0017936937381386464,
+    "relative_error": 3.4910426571244335e-06,
+    "within_2_percent": true,
+    "code_printed_value": 0.00179369,
+    "code_relative_error": 2.0840451003511887e-06
+  },
+  "tau_rz_0.02mm_60deg_MPa": {
+    "submitted_answer": 38.59,
+    "reference": 38.586596862313044,
+    "relative_error": 8.81948128025513e-05,
+    "within_2_percent": true,
+    "code_printed_value": 38.5866,
+    "code_relative_error": 8.131546205335124e-08
+  },
+  "tau_thetaz_0.02mm_60deg_MPa": {
+    "submitted_answer": 138.0,
+    "reference": 138.01061663235828,
+    "relative_error": 7.692620044267788e-05,
+    "within_2_percent": true,
+    "code_printed_value": 138.011,
+    "code_relative_error": 2.777812686241042e-06
+  },
+  "gamma_contour_0deg_mm": {
+    "submitted_answer": 0.04689,
+    "reference": 0.046894423054945324,
+    "relative_error": 9.431942344487559e-05,
+    "within_2_percent": true,
+    "code_printed_value": 0.0468944,
+    "code_relative_error": 4.916351203188153e-07
+  },
+  "gamma_contour_90deg_mm": {
+    "submitted_answer": 0.02507,
+    "reference": 0.025066123488862637,
+    "relative_error": 0.00015465140188445538,
+    "within_2_percent": true,
+    "code_printed_value": 0.0250661,
+    "code_relative_error": 9.370759960793079e-07
+  },
+  "gamma_contour_180deg_mm": {
+    "submitted_answer": 0.0134,
+    "reference": 0.013398406587127234,
+    "relative_error": 0.00011892555002006822,
+    "within_2_percent": true,
+    "code_printed_value": 0.0133984,
+    "code_relative_error": 4.916351203003192e-07
+  }
+}

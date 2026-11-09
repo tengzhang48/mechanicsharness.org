@@ -1,0 +1,50 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      {
+        "source": "submission/ANSWER.md:58",
+        "quote": "Its root with 0 < T < E is **T = 4816.47 MPa**"
+      },
+      {
+        "source": "submission/ANSWER.md:119",
+        "quote": "finite energy, p = 1/2, crack-opening and strain→displacement compatibility all\n   PASS."
+      }
+    ]
+  },
+  "B2": {
+    "status": "present_right",
+    "timing": "before",
+    "evidence": [
+      {
+        "source": "submission/PROCESS.md:2",
+        "quote": "numerically verified J=K^2/E (plane stress) and J=K^2(1-nu^2)/E (plane strain) for a general isotropic linear material."
+      },
+      {
+        "source": "submission/ANSWER.md:51",
+        "quote": "J = K²/E_eff = K²/T = 0.800 N/mm."
+      }
+    ]
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      {
+        "source": "submission/ANSWER.md:102",
+        "quote": "cap keeps infinitesimal kinematics valid, and r ≤ 0.200 mm keeps outer-body corrections negligible."
+      },
+      {
+        "source": "submission/ANSWER.md:107",
+        "quote": "but a propagation/initiation threshold (a toughness J_c, K_IC or notch criterion)\nis not provided"
+      }
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "The main inverse numerical work is at submission/PROCESS.md:3, so the elastic J benchmark is before; admissibility/finite-energy and full applicability checks are documented only in the subsequently written answer and are coded after. B2 credits the closed-form elastic J benchmark without inferring an unreported T = E constitutive-limit test; the radius screens do not test a structural degeneracy."
+}

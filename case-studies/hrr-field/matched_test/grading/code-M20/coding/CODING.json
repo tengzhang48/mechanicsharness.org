@@ -1,0 +1,32 @@
+{
+  "B1": {
+    "status": "present_right",
+    "timing": "before",
+    "evidence": [
+      "submission/ANSWER.md:40-41: \"Path-independence/finiteness of $J$ for a single power\nlaw forces the HRR exponent $\\beta=1/(n+1)$\"",
+      "submission/PROCESS.md:2: \"derived HRR mode-III power-law model: w=A r^beta f(theta), beta=1/(n+1)=0.2222\""
+    ]
+  },
+  "B2": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/PROCESS.md:7: \"cross-checked f(pi) against closed form (n+1)n^{-n/(n+1)}=1.69843; agree\"",
+      "submission/ANSWER.md:57: \"$n=1$ the model reduces to the classical linear mode-III field ($f\\propto\\sin(\\theta/2)$).\""
+    ]
+  },
+  "B3": {
+    "status": "present_right",
+    "timing": "after",
+    "evidence": [
+      "submission/ANSWER.md:62: \"geometry outside $r=0.30$ mm is negligible; no far-field/loaded-boundary condition was imposed.\"",
+      "submission/ANSWER.md:68-69: \"include no fracture/toughness\ncriterion (e.g. a critical $J_c$, crack-tip slip, or critical strain)\""
+    ]
+  },
+  "B4": {
+    "status": "absent",
+    "timing": "unclear",
+    "evidence": []
+  },
+  "notes": "These codes assess only the boundary checks, not the requested numerical answers; timing follows the step log, with final-answer-only checks counted as after. The correct n=1 limiting form is stated without a separately logged numerical n=1 run, and no parameter threshold or change of solution structure is examined."
+}

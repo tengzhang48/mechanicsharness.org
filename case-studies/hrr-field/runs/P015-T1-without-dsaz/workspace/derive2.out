@@ -1,0 +1,5 @@
+se^2 = 27*a**2/16 - 9*a*b*cos(2*t)/8 + 3*b**2/16
+compat residual (II): 0
+check A matches srr: 4*cos(t/2)/3 + 4*cos(5*t/2)/3
+check C matches srt: 2*sin(t/2)/3 - 2*sin(5*t/2)/3
+compat residual for K-field: -16*cos(5*t/2)

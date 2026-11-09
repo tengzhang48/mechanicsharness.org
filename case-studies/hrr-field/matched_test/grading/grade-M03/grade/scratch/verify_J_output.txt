@@ -1,0 +1,4 @@
+0.0 plane stress J*E/K^2= 0.9999997657246262  plane strain J*E/((1-nu^2)K^2)= 0.9999997657246262
+0.2 plane stress J*E/K^2= 0.9999997187253307  plane strain J*E/((1-nu^2)K^2)= 0.9999997070075852
+0.3 plane stress J*E/K^2= 0.9999996953610889  plane strain J*E/((1-nu^2)K^2)= 0.9999996652237448
+0.45 plane stress J*E/K^2= 0.999999660175681  plane strain J*E/((1-nu^2)K^2)= 0.9999995738798275

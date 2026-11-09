@@ -179,6 +179,9 @@ ol.steps li::before {
 .g-dash { fill: #ffffff; stroke: #2c3a44; stroke-width: 1.9; }
 .g-sub { fill: #e3e9ee; stroke: #2c3a44; stroke-width: 1.5; }
 .g-wedge { fill: #c0562f; fill-opacity: .28; stroke: #c0562f; stroke-width: 1.8; stroke-linejoin: round; }
+.g-contour { fill: none; stroke: #2c3a44; stroke-width: 1.4; stroke-dasharray: 3 2.4; }
+.g-tip { fill: #c0562f; fill-opacity: .55; stroke: #c0562f; stroke-width: 1.2; }
+.g-front { fill: #2c3a44; }
 .g-node circle { fill: #ffffff; stroke: var(--ink); stroke-width: 1.4; }
 .cardbody { display: flex; flex-direction: column; flex: 1; padding: 18px 22px 21px; }
 .card h3 { font-size: 24px; line-height: 1.2; margin: 0 0 12px; }

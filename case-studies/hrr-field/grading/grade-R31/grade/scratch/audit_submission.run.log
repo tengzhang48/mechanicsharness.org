@@ -1,0 +1,35 @@
+I_n (angular) = 7.768663855
+Wbar = 2.266704186  B(0) = 2.827074839  A(0) = 2.029990018
+p = 0.1333333333
+H = 2.150921
+C = 0.291775
+U(R)/(J R) = C (from formulas) = 0.291775
+{
+  "number_errors": {
+    "p": 3.333299999908057e-08,
+    "H": 0.25735027478700023,
+    "C": 0.16552578397400003
+  },
+  "normalized_face_stresses": {
+    "rr": 7.852519745554787e-10,
+    "tt": 0.7183897347664319,
+    "rt": -1.8812711045387837e-10
+  },
+  "normalized_phi_third_at_zero": 0.16296672211980975,
+  "normalized_u_theta_at_zero": 0.6846531165688868,
+  "max_correct_physical_shear_residual": 0.7027661037019834,
+  "max_hoop_strain_residual": 3.03594123819207e-11,
+  "contour_decomposition_using_upper_half_and_mode_I_parity": {
+    "energy_cos": 0.045531083812589745,
+    "rr_work": -7.723132084114903,
+    "rt_work": 0.47335712011380693,
+    "J_omitting_rt": 7.7686631679274925,
+    "J_including_rt": 7.2953060478136855,
+    "note": "Neither integral makes the submitted incompatible, asymmetric angular solution valid."
+  },
+  "corrected_angular_setup_in_redo_max_rhs_difference_at_probe": 8.881784197001252e-16,
+  "energy_identity_check": {
+    "max_W_minus_n_over_n_plus_1_Q_power": 0.0,
+    "max_W_minus_Q_power": 0.13333333274287917
+  }
+}

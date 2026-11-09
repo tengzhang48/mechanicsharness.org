@@ -1,0 +1,4 @@
+Mb=200 Mf=400 tol=1e-10 -> p=0.08763859  R=0.33301436  status=1 rms=6.2e-09 nodes=35562
+Mb=400 Mf=800 tol=1e-11 -> p=0.08763859  R=0.33301436  status=1 rms=5.4e-09 nodes=38109
+Mb=500 Mf=1000 tol=1e-12 -> p=0.08763859  R=0.33301436  status=1 rms=4.8e-09 nodes=26962
+Mb=600 Mf=1500 tol=1e-12 -> p=0.08763859  R=0.33301436  status=1 rms=5.8e-09 nodes=40461
