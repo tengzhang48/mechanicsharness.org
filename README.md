@@ -80,7 +80,6 @@ The website itself: plain HTML and CSS, no build step, served by GitHub Pages.
 | `case-studies/grain-boundary-wedge.html`, `case-studies/grain-boundary-wedge/` | The grain-boundary diffusion wedge case: its page and its files |
 | `case-studies/hrr-field.html`, `case-studies/hrr-field/` | The HRR field and notch case: its page and its files |
 | `case-studies/crack-bridging.html`, `case-studies/crack-bridging/` | The crack bridging case: its page and its files |
-| `case-studies/crack-bridging-study.html` | A study page for students on the crack bridging case: the problem, hints, a calculator and the agents' deciding step |
 | `assets/` | Style sheet, site icon and figures |
 | `CNAME`, `.nojekyll` | GitHub Pages settings |
 | `LICENSE`, `LICENSE-CONTENT` | Licences (below) |
