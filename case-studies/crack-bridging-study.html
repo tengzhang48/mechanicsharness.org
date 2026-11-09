@@ -1,0 +1,1224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study: a finite bridged crack | MechanicsHarness</title>
+<meta name="description" content="A study page for students: solve the finite bridged crack of the crack-bridging case, open hints one at a time, explore the solution with a calculator, and find the error in one AI agent's derivation.">
+<link rel="icon" href="../assets/favicon.svg?v=crack-tip" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400&amp;display=swap">
+<style>
+.case-navigation{position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;gap:18px;background:var(--bg);border-bottom:1px solid var(--rule);padding:13px 0;margin-bottom:20px;font:600 13px/1.4 var(--sans)}
+.case-navigation a{color:var(--accent);text-decoration:none}.case-navigation a:hover{text-decoration:underline}.case-navigation span{color:var(--muted);font-weight:400}
+@media print{.case-navigation{display:none}}
+
+:root{
+  --serif:"Source Serif 4","Source Serif Pro",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans","Helvetica Neue",Arial,system-ui,sans-serif;
+  --bg:#f7f5ef; --surface:#fffdf8; --fg:#1c2230; --muted:#5b6474; --rule:#ddd8cc;
+  --accent:#0e6e6a; --accent-weak:#d6ebe8;
+  --math-bg:#edf1f3; --math-border:#c8d3d9; --math-fg:#1c2230;
+  --stiff:#3d5a80; --soft:#eadfc8; --stiff-edge:#2b4060;
+  --c1:#3768b0; --c2:#6f757e; --c3:#c0562f; --c4:#7b4fa0;
+  --fan:#cfe6e2; --tongue:#ebbba7; --plotbg:#fffdf8; --grid:#e8e3d7;
+  --proved-bg:#d6eedf; --proved-fg:#17603a;
+  --pend-bg:#f7e5bf; --pend-fg:#734d02;
+  --fpc-bg:#dee4f4; --fpc-fg:#2f3f78;
+  --trial-bg:#ece0f4; --trial-fg:#5d2f7d;
+  --open-bg:#e9e9e9; --open-fg:#474747;
+  --quote-bg:#f1ede3;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14171c; --surface:#1b1f26; --fg:#e6e8ec; --muted:#a3aab6; --rule:#2f353f;
+    --accent:#5cc6bd; --accent-weak:#1d3432;
+    --math-bg:#19222a; --math-border:#2c3b45; --math-fg:#e6e8ec;
+    --stiff:#7f9cc6; --soft:#3b3529; --stiff-edge:#a9bfdc;
+    --c1:#7aa7e8; --c2:#a8aeb7; --c3:#f08a5d; --c4:#bb92dc;
+    --fan:#1e3c39; --tongue:#5b3427; --plotbg:#1b1f26; --grid:#2a3039;
+    --proved-bg:#173a27; --proved-fg:#8fdcb0;
+    --pend-bg:#3d3010; --pend-fg:#f0c66b;
+    --fpc-bg:#222b4a; --fpc-fg:#aebcf2;
+    --trial-bg:#33224a; --trial-fg:#d3b0f0;
+    --open-bg:#2b2b2b; --open-fg:#c6c6c6;
+    --quote-bg:#20242b;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14171c; --surface:#1b1f26; --fg:#e6e8ec; --muted:#a3aab6; --rule:#2f353f;
+  --accent:#5cc6bd; --accent-weak:#1d3432;
+  --math-bg:#19222a; --math-border:#2c3b45; --math-fg:#e6e8ec;
+  --stiff:#7f9cc6; --soft:#3b3529; --stiff-edge:#a9bfdc;
+  --c1:#7aa7e8; --c2:#a8aeb7; --c3:#f08a5d; --c4:#bb92dc;
+  --fan:#1e3c39; --tongue:#5b3427; --plotbg:#1b1f26; --grid:#2a3039;
+  --proved-bg:#173a27; --proved-fg:#8fdcb0;
+  --pend-bg:#3d3010; --pend-fg:#f0c66b;
+  --fpc-bg:#222b4a; --fpc-fg:#aebcf2;
+  --trial-bg:#33224a; --trial-fg:#d3b0f0;
+  --open-bg:#2b2b2b; --open-fg:#c6c6c6;
+  --quote-bg:#20242b;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--serif);font-size:17px;line-height:1.55;margin:0}
+.page{max-width:1200px;margin:0 auto;padding-inline:clamp(16px,4vw,40px);padding-block:28px 64px}
+h1,h2,h3{font-family:var(--serif);text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:clamp(1.7rem,3.6vw,2.45rem);font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.45rem;font-weight:700}
+h3{font-size:1.06rem;font-weight:600}
+p{margin:0}
+.kicker{font-family:var(--sans);font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.lede{font-size:1.08rem;color:var(--muted);max-width:62ch}
+header{display:grid;gap:.7rem;padding-bottom:1.4rem;border-bottom:1px solid var(--rule)}
+.meta{font-family:var(--sans);font-size:.85rem;color:var(--muted)}
+nav.toc{display:flex;flex-wrap:wrap;gap:.35rem .9rem;font-family:var(--sans);font-size:.86rem}
+nav.toc a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+nav.toc a:hover{border-bottom-color:var(--accent)}
+.top{display:grid;gap:1.4rem;grid-template-columns:minmax(0,1fr);padding-block:1.6rem;border-bottom:1px solid var(--rule)}
+@media (min-width:980px){.top{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}}
+.quote{align-self:start;background:var(--quote-bg);border-left:3px solid var(--accent);padding:1rem 1.1rem;border-radius:2px;display:grid;gap:.5rem}
+.quote blockquote{margin:0;font-style:italic}
+.quote .who{font-family:var(--sans);font-size:.82rem;color:var(--muted)}
+.answer{display:grid;gap:.6rem}
+.answer ol{margin:0;padding-left:1.3rem;display:grid;gap:.55rem}
+.answer li::marker{font-family:var(--sans);font-weight:600;color:var(--accent)}
+.legend{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;font-family:var(--sans);font-size:.82rem;color:var(--muted);padding-top:1rem}
+.chip{display:inline-block;font-family:var(--sans);font-size:.74rem;font-weight:600;letter-spacing:.02em;padding:.12rem .5rem;border-radius:99px;white-space:nowrap;vertical-align:.1em}
+.proved{background:var(--proved-bg);color:var(--proved-fg)}
+.pend{background:var(--pend-bg);color:var(--pend-fg)}
+.fpc{background:var(--fpc-bg);color:var(--fpc-fg)}
+.trial{background:var(--trial-bg);color:var(--trial-fg)}
+.open{background:var(--open-bg);color:var(--open-fg)}
+.gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.3rem 1.2rem;font-family:var(--sans);font-size:.84rem;color:var(--muted);padding-top:.9rem}
+.gloss b{color:var(--fg);font-family:var(--serif);font-style:italic;font-weight:600}
+section.block{display:grid;gap:1.4rem 2rem;grid-template-columns:minmax(0,1fr);padding-block:2rem;border-bottom:1px solid var(--rule)}
+@media (min-width:1060px){section.block{grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr)}}
+.phys{display:grid;grid-template-columns:minmax(0,1fr);gap:.85rem;align-content:start;min-width:0}
+.phys .head{display:grid;gap:.35rem}
+.phys ul{margin:0;padding-left:1.15rem;display:grid;gap:.45rem}
+.phys li{max-width:68ch}
+.phys p{max-width:68ch}
+.status{font-family:var(--sans);font-size:.84rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;min-width:0}
+.status .chip,.legend .chip{max-width:100%;white-space:normal}
+.findings{display:grid;gap:.75rem}
+.finding{display:grid;gap:.3rem;padding:.8rem .95rem;background:var(--surface);border:1px solid var(--rule);border-radius:4px}
+.finding h3 .chip{margin-left:.4rem}
+.conclusion{border-left:3px solid var(--accent);padding:.7rem .95rem;background:var(--accent-weak);border-radius:2px}
+.notsaid{font-size:.95rem;color:var(--muted)}
+figure{margin:0;display:grid;grid-template-columns:minmax(0,1fr);gap:.45rem;min-width:0}
+.laminate-overview{margin-top:1.5rem}
+.laminate-overview .fig{max-width:900px;margin-inline:auto}
+figcaption{font-family:var(--sans);font-size:.83rem;color:var(--muted);max-width:72ch}
+.figwrap{overflow-x:auto;min-width:0;max-width:100%}
+.fig{display:block;width:100%;height:auto;min-width:420px}
+aside.math{align-self:start;background:var(--math-bg);border:1px solid var(--math-border);border-radius:5px;padding:1rem 1.1rem;display:grid;gap:.6rem;align-content:start;color:var(--math-fg);font-size:14.5px;min-width:0}
+aside.math .mh{font-family:var(--sans);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
+aside.math p{font-size:.93rem;line-height:1.45;color:var(--muted)}
+aside.math p strong{color:var(--math-fg)}
+.eq{overflow-x:auto;overflow-y:hidden;padding:.15rem 0;font-size:14.5px}
+.eq svg{display:block;fill:currentColor;max-width:none}
+table{border-collapse:collapse;font-family:var(--sans);font-size:.86rem;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:.38rem .6rem;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:.78rem;letter-spacing:.03em}
+.tablewrap{overflow-x:auto;min-width:0;max-width:100%}
+td.num{text-align:right}
+.qs{display:grid;gap:.8rem;counter-reset:q;grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr))}
+.q{display:grid;gap:.25rem;padding:.8rem .95rem;border:1px solid var(--rule);border-radius:4px;background:var(--surface)}
+.q h3::before{counter-increment:q;content:counter(q) ". ";color:var(--accent);font-family:var(--sans)}
+.wide{grid-column:1/-1}
+.newbox{display:grid;gap:.9rem;padding:1.1rem 1.2rem;background:var(--surface);border:1px solid var(--rule);border-top:3px solid var(--accent);border-radius:4px}
+.newgrid{display:grid;gap:.9rem 1.6rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.newgrid div{display:grid;gap:.3rem;align-content:start}
+.newgrid h3{font-size:1rem}
+.newgrid p{font-size:.97rem}
+.preds{margin:0;padding-left:1.3rem;display:grid;gap:.5rem}
+.preds li{max-width:68ch}
+.preds li::marker{font-family:var(--sans);font-weight:600;color:var(--accent)}
+.care{display:grid;gap:.4rem;font-size:.96rem}
+.care li{max-width:80ch}
+footer{padding-top:1.6rem;font-family:var(--sans);font-size:.8rem;color:var(--muted);display:grid;gap:.4rem}
+footer code{font-size:.78rem;overflow-wrap:anywhere}
+
+.fig .plotbg{fill:var(--plotbg)}
+.fig .grid{stroke:var(--grid);stroke-width:1}
+.fig .axisbox{fill:none;stroke:var(--muted);stroke-width:1}
+.fig .tick{fill:var(--muted);font:11px var(--sans)}
+.fig .axlabel{fill:var(--fg);font:12.5px var(--sans)}
+.fig .small{fill:var(--fg);font:11.5px var(--sans)}
+.fig .cap{fill:var(--fg);font:600 13px var(--sans)}
+.fig .sub{font-size:.75em}
+.fig .muted{fill:var(--muted)}
+.fig .strong{font-weight:600}
+.fig .curve{fill:none;stroke-width:2.2}
+.fig .c1{stroke:var(--c1)} .fig .c2{stroke:var(--c2)} .fig .c3{stroke:var(--c3)} .fig .c4{stroke:var(--c4)}
+.fig .c1t{fill:var(--c1)} .fig .c2t{fill:var(--c2)} .fig .c3t{fill:var(--c3)}
+.fig .c1f{fill:var(--c1)} .fig .c2f{fill:var(--c2)} .fig .c3f{fill:var(--c3)} .fig .c4f{fill:var(--c4)}
+.fig .ink{fill:var(--fg)}
+.fig .envelope{stroke:var(--c3);stroke-width:2;stroke-dasharray:5 4}
+.fig .band{fill:var(--accent-weak)}
+.fig .refline{stroke:var(--muted);stroke-width:1.3;stroke-dasharray:6 4}
+.fig .floorline{stroke:var(--accent);stroke-width:2}
+.fig .marker{stroke:var(--muted);stroke-width:1;stroke-dasharray:2 3}
+.fig .fan{fill:var(--fan)}
+.fig .fanedge{fill:none;stroke:var(--accent);stroke-width:2}
+.fig .tongue{fill:var(--tongue)}
+.fig .zero{stroke:var(--fg);stroke-width:1}
+.fig .stiff{fill:var(--stiff);stroke:var(--stiff-edge);stroke-width:.6}
+.fig .soft{fill:var(--soft);stroke:var(--stiff-edge);stroke-width:.6}
+.fig .wall{stroke:var(--c3);stroke-width:1.6;stroke-dasharray:5 3}
+.fig .arrow{fill:none;stroke:var(--fg);stroke-width:1.6}
+.fig .dashed{stroke-dasharray:6 4}
+.fig .big .small{font-size:13.5px}
+.fig .big .cap{font-size:15px}
+
+@media print{
+  @page{size:Letter;margin:.6in .65in .65in}
+  :root{--bg:#fff;--surface:#fff;--fg:#17202a;--muted:#46505c;--math-bg:#f1f4f5;--math-fg:#17202a;--rule:#c9d0d4}
+  body{font-size:10.5pt;line-height:1.38;background:white;color:#17202a}
+  .page{max-width:none;margin:0;padding:0}
+  header{gap:7px}.lede{font-size:11pt}h1{font-size:20pt}h2{font-size:14pt}h3{font-size:11pt}
+  nav.toc{display:none}.top{display:block;padding-block:14px}
+  .top>.quote{margin-bottom:12px}.answer{margin-bottom:14px}
+  section.block{display:block;padding-block:16px}
+  section.block .phys{gap:9px}aside.math{margin-top:12px;padding:12px;font-size:10pt}
+  .newgrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;break-inside:avoid}
+  .newgrid p,.notsaid{font-size:10pt}.newgrid h3{font-size:10.5pt}
+  .newbox{padding:12px;break-inside:avoid}.legend,.meta{font-size:9pt}.gloss{font-size:9pt}
+  .phys p,.phys li,figcaption{max-width:none}
+  .finding{break-inside:avoid}.finding h3,h2,h3{break-after:avoid}
+  figure{break-inside:avoid;max-width:550px;margin-top:6px;margin-bottom:6px}
+  .fig{min-width:0}.figwrap,.eq{overflow:visible}
+  .eq{font-size:10pt;break-inside:avoid;padding-block:3px}
+  .eq svg{max-width:100%;height:auto}
+  .qs{grid-template-columns:1fr}.q{break-inside:avoid}
+  table{width:100%;font-size:9pt}.tablewrap{overflow:visible}
+  tr{break-inside:avoid}thead{display:table-header-group}
+  footer{font-size:8pt;line-height:1.4}footer code{font-size:7.7pt}
+  #scaling{margin-top:18px}
+}
+
+
+
+:root{
+  --s1:#3768b0; --s2:#c0562f; --s3:#0b8a72;
+  --r1:#9dbbe3; --r2:#5b86c4; --r3:#234a80;
+  --wrong-bg:#f6dad3; --wrong-fg:#8f2d12; --code-bg:#f3f1ea;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --s1:#5b8fd6; --s2:#d9714a; --s3:#2fa08c;
+    --r1:#3b5f94; --r2:#6f9ad8; --r3:#b5cdf0;
+    --wrong-bg:#47201a; --wrong-fg:#f3a58c; --code-bg:#161a20;
+  }
+}
+:root[data-theme="dark"]{
+  --s1:#5b8fd6; --s2:#d9714a; --s3:#2fa08c;
+  --r1:#3b5f94; --r2:#6f9ad8; --r3:#b5cdf0;
+  --wrong-bg:#47201a; --wrong-fg:#f3a58c; --code-bg:#161a20;
+}
+.wrong{background:var(--wrong-bg);color:var(--wrong-fg)}
+.fig .s1{stroke:var(--s1)} .fig .s2{stroke:var(--s2)}
+.fig .s1f{fill:var(--s1)} .fig .s2f{fill:var(--s2)}
+.fig .crack{stroke-width:2.6;stroke-linecap:round}
+.fig .oldcrack{stroke:var(--fg);stroke-width:2.8}
+.fig .adv{fill:none;stroke-width:1.8}
+.fig .sheet-edge{fill:none;stroke:var(--rule)}
+.fig .dim{stroke:var(--muted);fill:none}
+.fig .axis{stroke:var(--muted)}
+.fig .r1{stroke:var(--r1)} .fig .r2{stroke:var(--r2)} .fig .r3{stroke:var(--r3)}
+.fig .face{stroke-width:2.4}
+.fig .mk circle,.fig .mk rect{fill:none;stroke:var(--fg);stroke-width:1.5}
+.fig .mk.x path{stroke:var(--fg);stroke-width:1.8}
+.fig .mk.d path{fill:none;stroke:var(--fg);stroke-width:1.4}
+.fig .dot{stroke:var(--surface);stroke-width:2}
+.fig .k1{fill:var(--s1)} .fig .k2{fill:var(--s2)} .fig .k3{fill:var(--s3)}
+.fig .runbar{stroke:var(--rule);stroke-width:12;stroke-linecap:round}
+.fig .lead{stroke:var(--muted);fill:none;stroke-width:1}
+pre.code{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;font-size:12.3px;line-height:1.5;background:var(--code-bg);border:1px solid var(--math-border);border-radius:4px;padding:.6rem .75rem;overflow-x:auto;white-space:pre-wrap;margin:0;color:var(--fg)}
+.src{font-family:var(--sans);font-size:.78rem;color:var(--muted)}
+.agents{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.agent{display:grid;gap:.35rem;align-content:start;padding:.85rem .95rem;background:var(--surface);border:1px solid var(--rule);border-top:3px solid var(--accent);border-radius:4px}
+.agent.stop{border-top-color:var(--rule)}
+.agent .name{font-family:var(--sans);font-weight:600;font-size:.98rem}
+.agent .how{font-family:var(--sans);font-size:.78rem;color:var(--muted)}
+.agent p{font-size:.95rem;line-height:1.45}
+.agent .time{font-family:var(--sans);font-size:.8rem;color:var(--muted)}
+table.side td:not(:first-child),table.side th:not(:first-child){text-align:center}
+.yes{color:var(--proved-fg);font-weight:600}.no{color:var(--wrong-fg);font-weight:600}.part{color:var(--pend-fg);font-weight:600}
+td.num{white-space:nowrap}
+figure.mid .fig{max-width:720px}
+#separated .findings{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.agent.later{border-top-style:dashed}
+.ledes{display:grid;gap:.6rem 2.4rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));align-items:start}
+.ledes .lede{max-width:none;margin:0}
+.ledes .aim{border-left:3px solid var(--accent);padding-left:1rem}
+.ledes .aim .kicker{margin-bottom:.25rem}
+.appx{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));margin-top:.6rem}
+.appx h3{font-family:var(--sans);font-size:.98rem;margin:0 0 .45rem}
+.oprec p{margin-bottom:.7rem}
+#lessons .q{align-content:start}
+#lessons .q .kicker{margin-bottom:.2rem}
+#lessons .q p.src{margin-top:.45rem}
+@media print{ pre.code{font-size:8.6pt} .agents{grid-template-columns:repeat(4,minmax(0,1fr));break-inside:avoid} }
+
+.agent-performance{margin:1.5rem 0;padding:1.3rem 1.4rem;background:var(--surface);border:1px solid var(--rule);border-top:3px solid var(--accent)}
+.agent-performance h2{margin:0 0 .8rem}.agent-performance p{margin:.7rem 0}.agent-performance .performance-intro{font-family:var(--sans);font-size:.9rem;color:var(--muted)}
+.agent-performance table{width:100%;font-size:.82rem;line-height:1.5}.agent-performance th,.agent-performance td{vertical-align:top;padding:.7rem .8rem .7rem 0}
+.agent-performance tbody th{width:19%;font-size:.82rem;color:var(--fg)}.agent-performance td:nth-child(2){width:33%}.agent-performance td:last-child{width:48%}
+.agent-performance .key-result{margin:1rem 0;padding:.9rem 1.1rem;background:var(--accent-weak);border-left:3px solid var(--accent)}
+.agent-performance .source,.agent-performance .note{font-family:var(--sans);font-size:.8rem;color:var(--muted)}
+@media(max-width:760px){.agent-performance{padding:1rem}.agent-performance table{min-width:650px}}
+@media print{.agent-performance{padding:10pt;margin:12pt 0}.agent-performance table{min-width:0;font-size:8pt}.agent-performance tbody th{font-size:8pt}.agent-performance .source,.agent-performance .note{font-size:7.5pt}}
+
+
+.evidence{font-family:var(--sans);font-size:.8rem;color:var(--muted);line-height:1.55}
+.evidence strong{color:var(--accent);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;margin-right:.35rem}
+.evidence a,.src a{color:var(--accent)}
+aside.math table{font-size:.8rem}
+aside.math td.num{font-weight:600}
+table.answers td.num{white-space:nowrap;font-weight:600}
+table.answers th{color:var(--muted)}
+.steps{margin:0;padding-left:1.3rem;display:grid;gap:.55rem}
+.steps li{max-width:68ch}
+.steps li::marker{font-family:var(--sans);font-weight:600;color:var(--accent)}
+.fig .lbl{fill:var(--fg);font:12.5px var(--sans)}
+.fig .lbl.muted{fill:var(--muted)}
+.fig .solid{fill:var(--plotbg);stroke:var(--muted);stroke-width:1}
+.fig .crackfill{fill:var(--surface);stroke:var(--fg);stroke-width:2}
+.fig .outer{fill:var(--accent-weak);stroke:var(--muted);stroke-width:1.2;stroke-dasharray:5 4}
+.fig .inner{fill:var(--fan);stroke:var(--accent);stroke-width:1.6}
+.fig .load{fill:none;stroke:var(--c3);stroke-width:1.6}
+.fig .loadf{fill:var(--c3)}
+.fig .ref{stroke:var(--muted);stroke-width:1.2;stroke-dasharray:5 4}
+.fig .refsolid{stroke:var(--accent);stroke-width:1.6}
+.fig .gpt{fill:var(--s3)} .fig .opus{fill:var(--c4)} .fig .kimi{fill:var(--s2)} .fig .glm{fill:var(--c1)} .fig .ds{fill:var(--c2)}
+.fig .dotring{fill:none;stroke:var(--fg);stroke-width:1.4}
+.keyrow{display:flex;flex-wrap:wrap;gap:.35rem 1rem;font-family:var(--sans);font-size:.8rem;color:var(--muted)}
+.keyrow i{display:inline-block;width:.7rem;height:.7rem;border-radius:50%;margin-right:.3rem;vertical-align:-.05rem}
+.case-return{display:flex;justify-content:space-between;gap:1rem;padding-top:1.2rem;font:600 .85rem/1.4 var(--sans)}
+.case-return a{color:var(--accent);text-decoration:none}
+@media print{.case-return{display:none}}
+.alias{position:absolute}
+.page a{color:var(--accent)}
+.agents.six{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px){.agents.six{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.agents.six{grid-template-columns:1fr}}
+figure .fig.wide-fig{max-width:900px;margin-inline:auto}
+.paths{display:flex;flex-wrap:wrap;gap:.5rem;margin:0}
+.paths a{font:600 .82rem/1.4 var(--sans);padding:.35rem .8rem;border:1px solid var(--accent);border-radius:999px;color:var(--accent);text-decoration:none;background:var(--surface)}
+.paths a:hover{background:var(--accent-weak)}
+@media print{.paths{display:none}}
+
+
+[id]{scroll-margin-top:4.5rem}
+
+details.steps{grid-column:1/-1;border-top:1px solid var(--rule);padding-top:1rem}
+details.steps>summary{cursor:pointer;font-family:var(--sans);font-weight:600;font-size:.95rem;color:var(--accent)}
+details.steps[open]>summary{margin-bottom:.4rem}
+.step{display:grid;gap:.8rem 2rem;grid-template-columns:minmax(0,1fr);padding-block:1.1rem;border-top:1px solid var(--rule)}
+details.steps>.step:first-of-type{border-top:0}
+@media (min-width:1060px){.step{grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr)}}
+.step-text{display:grid;gap:.6rem;align-content:start;min-width:0}
+.step-text h3{font-size:1.05rem}
+.step-text p{max-width:68ch}
+.step-math{align-self:start;background:var(--math-bg);border:1px solid var(--math-border);border-radius:5px;padding:.8rem 1rem;display:grid;gap:.55rem;color:var(--math-fg);font-size:14.5px;min-width:0}
+.step-math p{font-size:.93rem;line-height:1.45}
+.step-math p.src{font-size:.78rem;color:var(--muted)}
+@media (max-width:560px){.step-math{padding:.7rem .6rem}}
+.step-math ol{margin:0;padding-left:1.3rem;display:grid;gap:.2rem;font-family:var(--sans);font-size:.88rem}
+.step-math ol a{color:var(--accent)}
+@media print{details.steps .step{break-inside:avoid}}
+.side-col{display:grid;gap:1rem;align-content:start;min-width:0}
+.side-col>p{margin-bottom:.55rem}
+.fill>table{width:100%}.fill th.num{text-align:right}
+@media (min-width:1060px) and (min-height:820px){section.block>aside.math{position:sticky;top:60px}}
+@media (min-width:1060px){
+figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2rem;align-items:center}
+.pair{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:2rem}
+.pair>.head{grid-column:1/-1}
+}
+.fig-stack{display:none}
+@media (max-width:600px){.fig-wide{display:none}.fig-stack{display:grid;gap:.75rem}.fig-stack .fig{min-width:0;max-width:440px}}
+/* Study page additions; colours from the case style's variables, so light and dark both work. */
+.case-navigation a + span + a{margin-left:auto}
+.task{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:16px 20px;margin:6px 0 10px}
+.task h3{margin:0 0 8px;font:600 17px/1.3 var(--serif)}
+.task p,.task li{font-size:15.5px;line-height:1.6}
+.eqline{font-family:var(--serif);font-size:16.5px;background:var(--math-bg);border:1px solid var(--math-border);border-radius:6px;padding:8px 12px;margin:8px 0}
+details.hint{border:1px solid var(--rule);border-radius:8px;background:var(--surface);margin:10px 0;padding:0 16px}
+details.hint > summary{cursor:pointer;list-style:none;padding:12px 0;font:600 15px/1.4 var(--sans)}
+details.hint > summary::-webkit-details-marker{display:none}
+details.hint > summary::before{content:"+";display:inline-block;width:1.2em;color:var(--accent);font-weight:600}
+details.hint[open] > summary::before{content:"\2212"}
+details.hint[open]{padding-bottom:10px}
+details.hint .hn{display:inline-block;min-width:4.6em;color:var(--accent)}
+details.hint.answer{border-color:var(--accent);background:var(--accent-weak)}
+details.hint.answer .eqline{background:var(--surface)}
+.ask{font-style:italic;color:var(--fg)}
+.calc{display:grid;grid-template-columns:minmax(220px,300px) minmax(0,1fr);gap:22px;align-items:start;margin:12px 0}
+.calc-grid{display:grid;gap:10px}
+.calc-grid label{display:grid;gap:3px;font:500 13px/1.3 var(--sans);color:var(--muted)}
+.calc-grid label i{font-style:normal}
+.calc-grid input{font:15px/1.3 var(--sans);padding:7px 9px;border:1px solid var(--rule);border-radius:6px;background:var(--surface);color:var(--fg);width:100%;box-sizing:border-box}
+.calc-grid input[aria-invalid="true"]{border-color:var(--c3);outline:1px solid var(--c3)}
+.calc-btn{display:inline-block;margin-top:12px;font:600 13.5px/1 var(--sans);padding:10px 14px;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:var(--bg);text-decoration:none;cursor:pointer}
+.calc-btn:hover{filter:brightness(1.08)}
+.calc-table{width:100%;border-collapse:collapse;font:14px/1.4 var(--sans)}
+.calc-table th,.calc-table td{padding:7px 8px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+.calc-table thead th{font-weight:600;color:var(--muted);font-size:12.5px}
+.calc-table .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.calc-table td:last-child{color:var(--muted);font-size:13px}
+.calc-extra{font:13px/1.55 var(--sans);color:var(--muted);margin:10px 0 6px}
+.calc-status{font:13.5px/1.5 var(--sans);padding:8px 12px;border-radius:6px;background:var(--proved-bg);color:var(--proved-fg);margin:6px 0}
+.calc-status.warn{background:var(--pend-bg);color:var(--pend-fg)}
+.calc-plots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:8px 0 6px}
+.calc-plots figure{margin:0}
+.calc-plots svg{width:100%;height:auto;display:block;background:var(--plotbg);border:1px solid var(--rule);border-radius:6px}
+.calc-plots figcaption{font:13px/1.5 var(--sans);color:var(--muted);margin-top:6px}
+.pl-grid{stroke:var(--grid);stroke-width:1}
+.pl-tick{fill:var(--muted);font:12px var(--sans)}
+.pl-lbl{fill:var(--fg);font:500 12.5px var(--sans)}
+.pl-key{fill:none;stroke:var(--c1);stroke-width:2.4}
+.pl-key0{fill:none;stroke:var(--c1);stroke-width:1.8;stroke-dasharray:6 4}
+.pl-ds{fill:none;stroke:var(--c3);stroke-width:2.2;stroke-dasharray:7 4}
+.pl-ref{fill:none;stroke:var(--c2);stroke-width:1.4;stroke-dasharray:2 3}
+.pl-dot-key{fill:var(--c1);stroke:var(--plotbg);stroke-width:1.5}
+.pl-dot-key0{fill:var(--plotbg);stroke:var(--c1);stroke-width:2}
+.pl-dot-ds{fill:var(--c3);stroke:var(--plotbg);stroke-width:1.5}
+.key-line,.ds-line,.ref-line,.key0-line{display:inline-block;width:22px;height:0;vertical-align:middle;border-top:2.4px solid var(--c1)}
+.ds-line{border-top:2.2px dashed var(--c3)}
+.key0-line{border-top:1.8px dashed var(--c1)}
+.ref-line{border-top:1.6px dotted var(--c2)}
+.try,.exercise{border-left:3px solid var(--accent);background:var(--surface);padding:10px 16px;margin:14px 0;border-radius:0 8px 8px 0}
+.try ul{margin:6px 0 0;padding-left:20px}
+.try li{margin:6px 0;line-height:1.55}
+.exercise p{margin:6px 0 0}
+.lessons2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.lessons2 h3{font:600 16px/1.35 var(--serif);margin:0 0 6px}
+.fb textarea{width:100%;box-sizing:border-box;font:15px/1.5 var(--sans);padding:10px 12px;border:1px solid var(--rule);border-radius:6px;background:var(--surface);color:var(--fg)}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.study-foot{border-top:1px solid var(--rule);margin-top:28px;padding:14px 0 30px;font:13px/1.6 var(--sans);color:var(--muted)}
+@media (max-width:860px){
+  .calc{grid-template-columns:minmax(0,1fr)}
+  .calc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .calc-plots,.lessons2{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:480px){.calc-grid{grid-template-columns:minmax(0,1fr)}.case-navigation span{display:none}}
+/* added 9 Nov 2026 after the Kimi K3.1 Pro and gpt-6.1-sol reviews */
+.eqline{white-space:normal;overflow-x:visible}
+.eqline .t{display:inline-block;white-space:nowrap;margin-right:.25em}
+.rng{font:12px/1.3 var(--sans);color:var(--muted)}
+.calc-status.err{background:var(--open-bg);color:var(--open-fg)}
+.pl-band{fill:var(--grid);opacity:.55}
+.pl-band-lbl{fill:var(--muted);font:italic 11.5px var(--sans)}
+.pl-key-cont{fill:none;stroke:var(--c1);stroke-width:1.6;stroke-dasharray:1.5 3.5;opacity:.8}
+.pl-dot-peak{fill:var(--plotbg);stroke:var(--c3);stroke-width:2}
+.cont-line{display:inline-block;width:22px;height:0;vertical-align:middle;border-top:1.6px dotted var(--c1)}
+.band-sw{display:inline-block;width:14px;height:10px;vertical-align:middle;background:var(--grid)}
+details.hint figure{margin:10px 0}
+details.hint figure svg{max-width:100%;height:auto;display:block}
+.fb-count{font:12.5px/1.4 var(--sans);color:var(--muted);margin:4px 0 0}
+details.hint figure svg.fig{min-width:0;width:100%!important;max-width:440px}
+.fb-count.warn{color:var(--pend-fg);font-weight:600}
+.plot-note{font:13px/1.5 var(--sans);color:var(--pend-fg);margin:4px 0 0}
+.plot-note:empty{display:none}
+</style>
+</head>
+<body>
+<div class="page">
+<nav class="case-navigation" aria-label="Study page navigation"><a href="../index.html#crack-bridging">&larr; MechanicsHarness</a><span>Study &middot; crack bridging</span><a href="crack-bridging.html">The full case study &rarr;</a></nav>
+<header>
+  <div class="kicker">Fracture mechanics &middot; study page &middot; from the crack-bridging case</div>
+  <h1>A finite bridged crack: solve it, then see where two AI agents split</h1>
+  <p class="lede">This page turns problem T1 of the <a href="crack-bridging.html">crack-bridging case</a> into an exercise.
+  Try the problem first, open the hints one at a time, explore the solution with the calculator, and then work out why
+  one agent&rsquo;s root opening is wrong before you read the answer.</p>
+  <nav class="toc" aria-label="Sections">
+    <a href="#problem">1 The problem</a><a href="#hints">2 Hints</a><a href="#calculator">3 Calculator</a><a href="#agents">4 Two agents</a><a href="#lessons">5 What to take away</a><a href="#feedback">6 Feedback</a>
+  </nav>
+</header>
+
+<section class="block" id="problem">
+  <div class="phys">
+    <div class="head"><div class="kicker">1 &middot; The problem</div><h2>T1, as the agents received it</h2></div>
+    <div class="task">
+      <h3>A finite flaw under opening tension</h3>
+      <p>An infinite isotropic plate in <b>plane strain</b> contains a straight, traction-free slit on <i>y</i>&nbsp;=&nbsp;0,
+      from <i>x</i>&nbsp;=&nbsp;&minus;<i>a</i> to <i>x</i>&nbsp;=&nbsp;<i>a</i>, with <i>a</i>&nbsp;=&nbsp;2.40&nbsp;mm.
+      A uniform remote tensile stress &Sigma; acts normal to the slit. The solid has</p>
+      <p class="eqline"><span class="t"><i>E</i> = 130 GPa,</span> <span class="t"><i>&nu;</i> = 0.28.</span></p>
+      <p>As the two crack fronts advance along the slit line, intact connectors remain between the separated faces on
+      <i>a</i>&nbsp;&lt;&nbsp;|<i>x</i>|&nbsp;&lt;&nbsp;<i>a</i>&nbsp;+&nbsp;<i>L</i>. Their closing normal traction under
+      monotonic opening is</p>
+      <p class="eqline"><span class="t"><i>t</i>(<i>&delta;</i>) = 160 MPa</span> <span class="t">(0 &lt; <i>&delta;</i> &lt; 9.00 &micro;m),</span></p>
+      <p>and becomes zero irreversibly when the opening first reaches <i>&delta;</i><sub>c</sub>&nbsp;=&nbsp;9.00&nbsp;&micro;m.
+      Here <i>&delta;</i> is the <b>full face-to-face gap</b>, and <i>L</i> is the added crack length <b>at each end</b>.
+      Advancing either outer crack front also consumes an intrinsic work &Gamma;<sub>0</sub>&nbsp;=&nbsp;22.0&nbsp;J/m&sup2;,
+      separate from connector work. Area means area of the crack plane, counting a pair of new faces once. Treat the
+      intrinsic front process as spatially negligible. The bulk outside the separated region is linear elastic; assume
+      symmetric, quasistatic growth and no other damage.</p>
+      <p>Following the monotonic branch from crack initiation, find:</p>
+      <ol>
+        <li>The remote stress &Sigma;, in MPa, when a connector adjacent to the original slit first fails.</li>
+        <li>The corresponding <i>L</i>, in mm per end.</li>
+      </ol>
+      <p>Give a brief method and one physical or numerical check. Each numerical answer must be within <b>&plusmn;0.3%</b> of
+      the reference. Budget: 45 minutes; Python with NumPy and SciPy is available.</p>
+    </div>
+    <p class="src">The task file <a href="crack-bridging/task/T1/TASK_PROBLEM.md">task/T1/TASK_PROBLEM.md</a>, with its
+    formulas set as text here; each run also received a short header with file conventions (<a href="crack-bridging/runs/P038-T1-without-glm/workspace/TASK.md">a full task file</a>).</p>
+  </div>
+  <aside class="math" aria-label="Try it first">
+    <div class="mh">Try it before reading on</div>
+    <p>Work out &Sigma; and <i>L</i> with the hints closed. To check your numbers, write them to a file and run the
+    case&rsquo;s checker from the <a href="https://github.com/tengzhang48/mechanicsharness.org/tree/main/case-studies/crack-bridging">case files</a>:</p>
+<pre class="code">{"T1": {"Sigma_MPa": ..., "L_mm_per_end": ...}}
+
+python3 key/check_P038.py my_answer.json</pre>
+    <p>It prints each number&rsquo;s relative error and whether it is inside the &plusmn;0.3% band. The checker holds the key,
+    so reading its source gives the answer away. Python 3, standard library only.</p>
+  </aside>
+</section>
+
+<section class="block" id="hints">
+  <div class="phys wide">
+    <div class="head"><div class="kicker">2 &middot; Hints, one at a time</div><h2>From the picture to the deciding relation</h2></div>
+    <details class="hint">
+      <summary><span class="hn">Hint 1</span> The picture: small-scale or large-scale bridging?</summary>
+      <figure role="img" aria-label="A slit of length 2a in a plate under remote tension, with bridged zones of length L at both ends">
+        <svg class="fig" viewBox="12 0 350 285" aria-hidden="true" style="width:99.43%;max-width:437.5px" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="br-arr-p1" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7Z" class="loadf"/></marker>
+<marker id="br-dim-p1" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse"><path d="M6 3 L0 0 L0 6Z" fill="currentColor"/></marker></defs>
+<text class="cap" x="20" y="20">A · T1: a finite slit, bridged at both ends</text>
+<rect class="solid" x="30" y="56" width="320" height="152" rx="2"/>
+<g class="load" marker-end="url(#br-arr-p1)"><path d="M80 52V32"/><path d="M150 52V32"/><path d="M230 52V32"/><path d="M300 52V32"/>
+<path d="M80 212V232"/><path d="M150 212V232"/><path d="M230 212V232"/><path d="M300 212V232"/></g>
+<text class="lbl" x="312" y="44">Σ</text>
+<polygon class="crackfill" points="82.0,132.0 83.8,130.0 85.6,129.2 87.4,128.6 89.2,128.1 91.0,127.6 92.8,127.2 94.6,126.8 96.4,126.5 98.2,126.2 100.0,125.9 101.8,125.7 103.6,125.4 105.4,125.2 107.2,124.9 109.0,124.7 110.8,124.5 112.6,124.3 114.4,124.1 116.2,124.0 118.0,123.8 119.8,123.6 121.6,123.5 123.4,123.3 125.2,123.2 127.0,123.1 128.8,122.9 130.6,122.8 132.4,122.7 134.2,122.6 136.0,122.5 137.8,122.4 139.6,122.3 141.4,122.2 143.2,122.1 145.0,122.0 146.8,121.9 148.6,121.8 150.4,121.8 152.2,121.7 154.0,121.6 155.8,121.6 157.6,121.5 159.4,121.5 161.2,121.4 163.0,121.3 164.8,121.3 166.6,121.3 168.4,121.2 170.2,121.2 172.0,121.2 173.8,121.1 175.6,121.1 177.4,121.1 179.2,121.1 181.0,121.0 182.8,121.0 184.6,121.0 186.4,121.0 188.2,121.0 190.0,121.0 191.8,121.0 193.6,121.0 195.4,121.0 197.2,121.0 199.0,121.0 200.8,121.1 202.6,121.1 204.4,121.1 206.2,121.1 208.0,121.2 209.8,121.2 211.6,121.2 213.4,121.3 215.2,121.3 217.0,121.3 218.8,121.4 220.6,121.5 222.4,121.5 224.2,121.6 226.0,121.6 227.8,121.7 229.6,121.8 231.4,121.8 233.2,121.9 235.0,122.0 236.8,122.1 238.6,122.2 240.4,122.3 242.2,122.4 244.0,122.5 245.8,122.6 247.6,122.7 249.4,122.8 251.2,122.9 253.0,123.1 254.8,123.2 256.6,123.3 258.4,123.5 260.2,123.6 262.0,123.8 263.8,124.0 265.6,124.1 267.4,124.3 269.2,124.5 271.0,124.7 272.8,124.9 274.6,125.2 276.4,125.4 278.2,125.7 280.0,125.9 281.8,126.2 283.6,126.5 285.4,126.8 287.2,127.2 289.0,127.6 290.8,128.1 292.6,128.6 294.4,129.2 296.2,130.0 298.0,132.0 298.0,132.0 296.2,134.0 294.4,134.8 292.6,135.4 290.8,135.9 289.0,136.4 287.2,136.8 285.4,137.2 283.6,137.5 281.8,137.8 280.0,138.1 278.2,138.3 276.4,138.6 274.6,138.8 272.8,139.1 271.0,139.3 269.2,139.5 267.4,139.7 265.6,139.9 263.8,140.0 262.0,140.2 260.2,140.4 258.4,140.5 256.6,140.7 254.8,140.8 253.0,140.9 251.2,141.1 249.4,141.2 247.6,141.3 245.8,141.4 244.0,141.5 242.2,141.6 240.4,141.7 238.6,141.8 236.8,141.9 235.0,142.0 233.2,142.1 231.4,142.2 229.6,142.2 227.8,142.3 226.0,142.4 224.2,142.4 222.4,142.5 220.6,142.5 218.8,142.6 217.0,142.7 215.2,142.7 213.4,142.7 211.6,142.8 209.8,142.8 208.0,142.8 206.2,142.9 204.4,142.9 202.6,142.9 200.8,142.9 199.0,143.0 197.2,143.0 195.4,143.0 193.6,143.0 191.8,143.0 190.0,143.0 188.2,143.0 186.4,143.0 184.6,143.0 182.8,143.0 181.0,143.0 179.2,142.9 177.4,142.9 175.6,142.9 173.8,142.9 172.0,142.8 170.2,142.8 168.4,142.8 166.6,142.7 164.8,142.7 163.0,142.7 161.2,142.6 159.4,142.5 157.6,142.5 155.8,142.4 154.0,142.4 152.2,142.3 150.4,142.2 148.6,142.2 146.8,142.1 145.0,142.0 143.2,141.9 141.4,141.8 139.6,141.7 137.8,141.6 136.0,141.5 134.2,141.4 132.4,141.3 130.6,141.2 128.8,141.1 127.0,140.9 125.2,140.8 123.4,140.7 121.6,140.5 119.8,140.4 118.0,140.2 116.2,140.0 114.4,139.9 112.6,139.7 110.8,139.5 109.0,139.3 107.2,139.1 105.4,138.8 103.6,138.6 101.8,138.3 100.0,138.1 98.2,137.8 96.4,137.5 94.6,137.2 92.8,136.8 91.0,136.4 89.2,135.9 87.4,135.4 85.6,134.8 83.8,134.0 82.0,132.0"/>
+<line x1="90.0" y1="128.8" x2="90.0" y2="135.2" class="curve c1" style="stroke-width:1.4"/><line x1="99.0" y1="127.1" x2="99.0" y2="136.9" class="curve c1" style="stroke-width:1.4"/><line x1="108.0" y1="125.8" x2="108.0" y2="138.2" class="curve c1" style="stroke-width:1.4"/><line x1="117.0" y1="124.9" x2="117.0" y2="139.1" class="curve c1" style="stroke-width:1.4"/><line x1="126.0" y1="124.1" x2="126.0" y2="139.9" class="curve c1" style="stroke-width:1.4"/><line x1="135.0" y1="123.5" x2="135.0" y2="140.5" class="curve c1" style="stroke-width:1.4"/><line x1="144.0" y1="123.0" x2="144.0" y2="141.0" class="curve c1" style="stroke-width:1.4"/><line x1="153.0" y1="122.7" x2="153.0" y2="141.3" class="curve c1" style="stroke-width:1.4"/><line x1="234.0" y1="123.0" x2="234.0" y2="141.0" class="curve c1" style="stroke-width:1.4"/><line x1="243.0" y1="123.4" x2="243.0" y2="140.6" class="curve c1" style="stroke-width:1.4"/><line x1="252.0" y1="124.0" x2="252.0" y2="140.0" class="curve c1" style="stroke-width:1.4"/><line x1="261.0" y1="124.7" x2="261.0" y2="139.3" class="curve c1" style="stroke-width:1.4"/><line x1="270.0" y1="125.6" x2="270.0" y2="138.4" class="curve c1" style="stroke-width:1.4"/><line x1="279.0" y1="126.8" x2="279.0" y2="137.2" class="curve c1" style="stroke-width:1.4"/><line x1="288.0" y1="128.4" x2="288.0" y2="135.6" class="curve c1" style="stroke-width:1.4"/><line x1="297.0" y1="131.5" x2="297.0" y2="132.5" class="curve c1" style="stroke-width:1.4"/>
+<circle cx="298" cy="132" r="3" class="ink"/><circle cx="82" cy="132" r="3" class="ink"/>
+<path class="dim" d="M150 160H230" marker-start="url(#br-dim-p1)" marker-end="url(#br-dim-p1)" style="color:var(--muted)"/>
+<text class="lbl" x="190" y="176" text-anchor="middle">2a, traction-free</text>
+<path class="dim" d="M230 104H298" marker-start="url(#br-dim-p1)" marker-end="url(#br-dim-p1)" style="color:var(--muted)"/>
+<text class="lbl" x="264" y="98" text-anchor="middle">L</text>
+<path class="dim" d="M82 104H150" marker-start="url(#br-dim-p1)" marker-end="url(#br-dim-p1)" style="color:var(--muted)"/>
+<text class="lbl" x="116" y="98" text-anchor="middle">L</text>
+<path class="lead" d="M298 132L302 182"/><text class="lbl" x="224" y="196">front: K<tspan class="sub" dy="3">tip</tspan><tspan dy="-3">² = E′Γ</tspan><tspan class="sub" dy="3">0</tspan></text>
+<text class="lbl muted" x="30" y="256">connectors close the faces with t = σ<tspan class="sub" dy="3">b</tspan><tspan dy="-3"> until δ = δ</tspan><tspan class="sub" dy="3">c</tspan></text>
+<text class="lbl muted" x="30" y="274">the one at the slit root, x = a, opens most</text>
+<text class="cap" x="408" y="20">B · T2: unequal strips under end couples</text>
+<path class="solid" d="M420.0 94.0 L424.0 95.6 L428.0 97.1 L432.0 98.7 L436.0 100.1 L440.0 101.6 L444.0 103.0 L448.0 104.4 L452.0 105.8 L456.0 107.1 L460.0 108.4 L464.0 109.7 L468.0 110.9 L472.0 112.1 L476.0 113.3 L480.0 114.4 L484.0 115.5 L488.0 116.6 L492.0 117.6 L496.0 118.6 L500.0 119.6 L504.0 120.5 L508.0 121.5 L512.0 122.3 L516.0 123.2 L520.0 124.0 L524.0 124.8 L528.0 125.5 L532.0 126.3 L536.0 126.9 L540.0 127.6 L544.0 128.2 L548.0 128.8 L552.0 129.4 L556.0 129.9 L560.0 130.4 L564.0 130.9 L568.0 131.3 L572.0 131.7 L576.0 132.1 L580.0 132.4 L584.0 132.7 L588.0 133.0 L592.0 133.2 L596.0 133.4 L600.0 133.6 L604.0 133.7 L608.0 133.9 L612.0 133.9 L616.0 134.0 L620.0 134.0 L624.0 134.0 L628.0 134.0 L632.0 134.0 L636.0 134.0 L640.0 134.0 L644.0 134.0 L648.0 134.0 L652.0 134.0 L656.0 134.0 L660.0 134.0 L664.0 134.0 L668.0 134.0 L672.0 134.0 L676.0 134.0 L680.0 134.0 L684.0 134.0 L688.0 134.0 L692.0 134.0 L696.0 134.0 L700.0 134.0 L704.0 134.0 L708.0 134.0 L712.0 134.0 L716.0 134.0 L720.0 134.0 L724.0 134.0 L728.0 134.0 L732.0 134.0 L736.0 134.0 L740.0 134.0 L740.0 120.0 L736.0 120.0 L732.0 120.0 L728.0 120.0 L724.0 120.0 L720.0 120.0 L716.0 120.0 L712.0 120.0 L708.0 120.0 L704.0 120.0 L700.0 120.0 L696.0 120.0 L692.0 120.0 L688.0 120.0 L684.0 120.0 L680.0 120.0 L676.0 120.0 L672.0 120.0 L668.0 120.0 L664.0 120.0 L660.0 120.0 L656.0 120.0 L652.0 120.0 L648.0 120.0 L644.0 120.0 L640.0 120.0 L636.0 120.0 L632.0 120.0 L628.0 120.0 L624.0 120.0 L620.0 120.0 L616.0 120.0 L612.0 119.9 L608.0 119.9 L604.0 119.7 L600.0 119.6 L596.0 119.4 L592.0 119.2 L588.0 119.0 L584.0 118.7 L580.0 118.4 L576.0 118.1 L572.0 117.7 L568.0 117.3 L564.0 116.9 L560.0 116.4 L556.0 115.9 L552.0 115.4 L548.0 114.8 L544.0 114.2 L540.0 113.6 L536.0 112.9 L532.0 112.3 L528.0 111.5 L524.0 110.8 L520.0 110.0 L516.0 109.2 L512.0 108.3 L508.0 107.5 L504.0 106.5 L500.0 105.6 L496.0 104.6 L492.0 103.6 L488.0 102.6 L484.0 101.5 L480.0 100.4 L476.0 99.3 L472.0 98.1 L468.0 96.9 L464.0 95.7 L460.0 94.4 L456.0 93.1 L452.0 91.8 L448.0 90.4 L444.0 89.0 L440.0 87.6 L436.0 86.1 L432.0 84.7 L428.0 83.1 L424.0 81.6 L420.0 80.0Z"/><path class="solid" d="M420.0 148.0 L424.0 147.4 L428.0 146.9 L432.0 146.4 L436.0 145.8 L440.0 145.3 L444.0 144.8 L448.0 144.4 L452.0 143.9 L456.0 143.4 L460.0 143.0 L464.0 142.5 L468.0 142.1 L472.0 141.7 L476.0 141.3 L480.0 140.9 L484.0 140.5 L488.0 140.1 L492.0 139.7 L496.0 139.4 L500.0 139.0 L504.0 138.7 L508.0 138.4 L512.0 138.1 L516.0 137.8 L520.0 137.5 L524.0 137.2 L528.0 137.0 L532.0 136.7 L536.0 136.5 L540.0 136.2 L544.0 136.0 L548.0 135.8 L552.0 135.6 L556.0 135.4 L560.0 135.3 L564.0 135.1 L568.0 134.9 L572.0 134.8 L576.0 134.7 L580.0 134.6 L584.0 134.5 L588.0 134.4 L592.0 134.3 L596.0 134.2 L600.0 134.1 L604.0 134.1 L608.0 134.1 L612.0 134.0 L616.0 134.0 L620.0 134.0 L624.0 134.0 L628.0 134.0 L632.0 134.0 L636.0 134.0 L640.0 134.0 L644.0 134.0 L648.0 134.0 L652.0 134.0 L656.0 134.0 L660.0 134.0 L664.0 134.0 L668.0 134.0 L672.0 134.0 L676.0 134.0 L680.0 134.0 L684.0 134.0 L688.0 134.0 L692.0 134.0 L696.0 134.0 L700.0 134.0 L704.0 134.0 L708.0 134.0 L712.0 134.0 L716.0 134.0 L720.0 134.0 L724.0 134.0 L728.0 134.0 L732.0 134.0 L736.0 134.0 L740.0 134.0 L740.0 156.0 L736.0 156.0 L732.0 156.0 L728.0 156.0 L724.0 156.0 L720.0 156.0 L716.0 156.0 L712.0 156.0 L708.0 156.0 L704.0 156.0 L700.0 156.0 L696.0 156.0 L692.0 156.0 L688.0 156.0 L684.0 156.0 L680.0 156.0 L676.0 156.0 L672.0 156.0 L668.0 156.0 L664.0 156.0 L660.0 156.0 L656.0 156.0 L652.0 156.0 L648.0 156.0 L644.0 156.0 L640.0 156.0 L636.0 156.0 L632.0 156.0 L628.0 156.0 L624.0 156.0 L620.0 156.0 L616.0 156.0 L612.0 156.0 L608.0 156.1 L604.0 156.1 L600.0 156.1 L596.0 156.2 L592.0 156.3 L588.0 156.4 L584.0 156.5 L580.0 156.6 L576.0 156.7 L572.0 156.8 L568.0 156.9 L564.0 157.1 L560.0 157.3 L556.0 157.4 L552.0 157.6 L548.0 157.8 L544.0 158.0 L540.0 158.2 L536.0 158.5 L532.0 158.7 L528.0 159.0 L524.0 159.2 L520.0 159.5 L516.0 159.8 L512.0 160.1 L508.0 160.4 L504.0 160.7 L500.0 161.0 L496.0 161.4 L492.0 161.7 L488.0 162.1 L484.0 162.5 L480.0 162.9 L476.0 163.3 L472.0 163.7 L468.0 164.1 L464.0 164.5 L460.0 165.0 L456.0 165.4 L452.0 165.9 L448.0 166.4 L444.0 166.8 L440.0 167.3 L436.0 167.8 L432.0 168.4 L428.0 168.9 L424.0 169.4 L420.0 170.0Z" style="fill:var(--accent-weak)"/>
+<line x1="506.0" y1="121.8" x2="506.0" y2="137.7" class="curve c1" style="stroke-width:1.4"/><line x1="517.0" y1="124.2" x2="517.0" y2="136.9" class="curve c1" style="stroke-width:1.4"/><line x1="528.0" y1="126.3" x2="528.0" y2="136.2" class="curve c1" style="stroke-width:1.4"/><line x1="539.0" y1="128.2" x2="539.0" y2="135.5" class="curve c1" style="stroke-width:1.4"/><line x1="550.0" y1="129.9" x2="550.0" y2="134.9" class="curve c1" style="stroke-width:1.4"/><line x1="561.0" y1="131.3" x2="561.0" y2="134.4" class="curve c1" style="stroke-width:1.4"/><line x1="572.0" y1="132.5" x2="572.0" y2="134.0" class="curve c1" style="stroke-width:1.4"/><line x1="583.0" y1="133.4" x2="583.0" y2="133.7" class="curve c1" style="stroke-width:1.4"/><line x1="594.0" y1="134.1" x2="594.0" y2="133.4" class="curve c1" style="stroke-width:1.4"/><line x1="605.0" y1="134.6" x2="605.0" y2="133.3" class="curve c1" style="stroke-width:1.4"/>
+<circle cx="620" cy="134" r="3" class="ink"/>
+<path class="arrow" d="M436 64.0 A 15 15 0 1 0 414 82.0" marker-end="url(#br-arr-p1)"/>
+<path class="arrow" d="M436 194.0 A 15 15 0 1 1 414 176.0" marker-end="url(#br-arr-p1)"/>
+<text class="lbl" x="442" y="70.0">M</text><text class="lbl" x="442" y="198.0">M</text>
+<text class="lbl" x="486" y="62">upper: 110 GPa, 0.60 mm</text>
+<text class="lbl" x="478" y="214">lower: 190 GPa, 0.90 mm</text>
+<path class="dim" d="M500 230H620" marker-start="url(#br-dim-p1)" marker-end="url(#br-dim-p1)" style="color:var(--muted)"/>
+<text class="lbl" x="560.0" y="246" text-anchor="middle">bridged, L</text>
+<path class="dim" d="M420 230H500" marker-start="url(#br-dim-p1)" marker-end="url(#br-dim-p1)" style="color:var(--muted)"/>
+<text class="lbl" x="460.0" y="246" text-anchor="middle">starter cut</text>
+<text class="lbl" x="628" y="246">front, x = 0</text>
+<path class="lead" d="M620 134L634 228"/>
+<text class="lbl" x="640" y="110">bonded, straight</text>
+<text class="lbl muted" x="408" y="274">no end forces; x runs from the front to the cut root</text>
+</svg>
+        <figcaption>T1: an infinite plane-strain plate with a traction-free slit of length 2a under remote tension &Sigma;; as
+        both fronts advance, connectors bridge the new crack over a length L at each end. Schematic, not to scale.</figcaption>
+      </figure>
+      <p>Bridging replaces the details of a fracture process by a law. Behind the crack tip, connectors such as fibres or
+      ductile ligaments pull the faces together with a traction <i>t</i>(<i>&delta;</i>) that falls to zero at a limiting gap
+      <i>&delta;</i><sub>c</sub>. The law has a strength scale <i>&sigma;</i><sub>b</sub> and a gap scale
+      <i>&delta;</i><sub>c</sub>, and with the elastic modulus they define one material length,
+      <i>E</i>&prime;<i>&delta;</i><sub>c</sub>/<i>&sigma;</i><sub>b</sub>. Advancing the tip itself costs a separate intrinsic
+      work &Gamma;<sub>0</sub>, such as the matrix fracture energy.</p>
+      <p>When the bridged zone is much shorter than the crack and the body, bridging is small-scale: the zone sits in the
+      square-root field and the body enters only through <i>K</i>. [&hellip;] When the crack or the component is comparable
+      to the zone, bridging is large-scale: the zone feels the geometry, toughness and R-curves stop being material
+      properties, and the load has to be computed from the body and the law together.</p>
+      <p class="ask">For T1, <i>E</i>&prime; = <i>E</i>/(1 &minus; <i>&nu;</i>&sup2;) gives a material length of 7.93 mm, so
+      <i>a</i>/(<i>E</i>&prime;<i>&delta;</i><sub>c</sub>/<i>&sigma;</i><sub>b</sub>) = 0.30. Which regime is it, and what does
+      that mean for using a toughness?</p>
+      <p class="src">Case page, <a href="crack-bridging.html#model">Section 1</a> (text) and its opening figure, panel A.</p>
+    </details>
+    <details class="hint">
+      <summary><span class="hn">Hint 2</span> Two conditions hold at once</summary>
+      <p>In both problems the state at first failure is fixed by two conditions that hold together. At the front the crack
+      advances quasistatically, so the energy reaching the tip equals &Gamma;<sub>0</sub>. At the other end of the bridged
+      zone, the oldest connector, which has opened most, reaches <i>&delta;</i><sub>c</sub>. The load and the bridged length
+      are the two unknowns.</p>
+      <p class="src">Case page, <a href="crack-bridging.html#solution">Section 2</a>.</p>
+    </details>
+    <details class="hint">
+      <summary><span class="hn">Hint 3</span> Superposition, and the condition at the front</summary>
+      <p>By linearity the crack of half-length <i>c</i> = <i>a</i> + <i>L</i> carries a pressure &Sigma; on the slit and
+      &Sigma; &minus; <i>&sigma;</i><sub>b</sub> on the bridged zones.</p>
+      <p>Its tip intensity is</p>
+      <p class="eqline"><span class="t"><i>K</i><sub>tip</sub> = &Sigma;&radic;(&pi;<i>c</i>)</span> <span class="t">&minus; 2<i>&sigma;</i><sub>b</sub>&radic;(<i>c</i>/&pi;)&thinsp;arccos(<i>a</i>/<i>c</i>),</span></p>
+      <p>and the front condition, for an opening crack the positive root <i>K</i><sub>tip</sub> = +&radic;(<i>E</i>&prime;&Gamma;<sub>0</sub>),
+      gives the load for any bridged length:</p>
+      <p class="eqline"><span class="t">&Sigma; = (2<i>&sigma;</i><sub>b</sub>/&pi;)&thinsp;arccos(<i>a</i>/<i>c</i>)</span> <span class="t">+ <i>K</i><sub>0</sub>/&radic;(&pi;<i>c</i>),</span> <span class="t"><i>K</i><sub>0</sub> = &radic;(<i>E</i>&prime;&Gamma;<sub>0</sub>).</span></p>
+      <p class="src">The key&rsquo;s script, <a href="crack-bridging/key/T1/reference.py">key/T1/reference.py</a> (paper&rsquo;s Eq. 46).</p>
+    </details>
+    <details class="hint">
+      <summary><span class="hn">Hint 4</span> The deciding relation: the opening at the slit root</summary>
+      <p class="ask">The oldest connector sits at <i>x</i> = <i>a</i>. What is the full opening there, for a crack of
+      half-length <i>c</i> under these pressures?</p>
+      <p>One way, as GLM built it: the opening of a strip-yield crack under the stress that gives zero tip intensity, plus
+      the opening of an open crack under the remaining stress <i>K</i><sub>0</sub>/&radic;(&pi;<i>c</i>). With
+      <i>u</i> = ln(<i>c</i>/<i>a</i>),</p>
+      <p class="eqline"><span class="t"><i>&delta;</i>(<i>a</i>) = (8<i>&sigma;</i><sub>b</sub><i>a</i>/&pi;<i>E</i>&prime;)&thinsp;<i>u</i></span> <span class="t">+ 4<i>K</i><sub>0</sub>&radic;(<i>c</i>&sup2; &minus; <i>a</i>&sup2;)/(<i>E</i>&prime;&radic;(&pi;<i>c</i>)).</span></p>
+      <p>Setting <i>&delta;</i>(<i>a</i>) = <i>&delta;</i><sub>c</sub> and using hint 3 leaves one equation for <i>u</i>:</p>
+      <p class="eqline"><span class="t">4<i>k</i>&radic;(2&thinsp;sinh&thinsp;<i>u</i>) + 8<i>u</i>/&pi;</span> <span class="t">= <i>E</i>&prime;<i>&delta;</i><sub>c</sub>/(<i>&sigma;</i><sub>b</sub><i>a</i>),</span> <span class="t"><i>k</i> = <i>K</i><sub>0</sub>/(<i>&sigma;</i><sub>b</sub>&radic;(&pi;<i>a</i>)).</span></p>
+      <p class="src">Case page, <a href="crack-bridging.html#without-unit">Section 6</a> (GLM&rsquo;s construction, &ldquo;Eq. 45 in
+      another form&rdquo;); the equation for <i>u</i> is the key&rsquo;s, <a href="crack-bridging/key/T1/reference.py">reference.py</a>, <code>analytic_solution</code>.</p>
+    </details>
+    <details class="hint">
+      <summary><span class="hn">Hint 5</span> An independent route: the crack-opening Green function</summary>
+      <p>To test an opening formula without trusting hint 4, build the opening from a kernel. For a crack |<i>s</i>| &lt; <i>c</i>
+      with symmetric face pressure <i>p</i>(<i>s</i>), the full opening at <i>x</i> is</p>
+      <p class="eqline"><span class="t"><i>&delta;</i>(<i>x</i>) = (4<i>c</i>/&pi;<i>E</i>&prime;)</span> <span class="t">&int;<sub>0</sub><sup>1</sup> <i>p</i>(<i>ct</i>)&thinsp;[<i>G</i>(<i>r</i>, <i>t</i>) + <i>G</i>(<i>r</i>, &minus;<i>t</i>)]&thinsp;d<i>t</i>,</span> <span class="t"><i>r</i> = <i>x</i>/<i>c</i>,</span></p>
+      <p class="eqline"><span class="t"><i>G</i>(<i>r</i>, <i>t</i>) = ln{[1 &minus; <i>rt</i></span> <span class="t">+ &radic;((1 &minus; <i>r</i>&sup2;)(1 &minus; <i>t</i>&sup2;))] / |<i>r</i> &minus; <i>t</i>|}.</span></p>
+      <p>A uniform pressure gives the ellipse 4<i>p</i>&radic;(<i>c</i>&sup2; &minus; <i>x</i>&sup2;)/<i>E</i>&prime;. For the
+      closing traction on the bridged wings, the integral at <i>r</i> = <i>a</i>/<i>c</i> has a closed form:</p>
+      <p class="eqline"><span class="t">&int;<sub><i>r</i></sub><sup>1</sup> [<i>G</i>(<i>r</i>, <i>t</i>) + <i>G</i>(<i>r</i>, &minus;<i>t</i>)]&thinsp;d<i>t</i></span> <span class="t">= 2&radic;(1 &minus; <i>r</i>&sup2;)&thinsp;arccos&thinsp;<i>r</i> + 2<i>r</i>&thinsp;ln&thinsp;<i>r</i>.</span></p>
+      <p class="ask">Use it to derive the root opening for the pressures of hint 3. Which term of hint 4 comes from the
+      connectors?</p>
+      <p class="src">The key&rsquo;s independent route, <a href="crack-bridging/key/T1/reference.py">reference.py</a>,
+      <code>green_kernel</code> and <code>opening_by_green</code>; the closed form for the wings is checked numerically
+      against that kernel by this page&rsquo;s tests.</p>
+    </details>
+    <details class="hint">
+      <summary><span class="hn">Hint 6</span> Checks before you trust it</summary>
+      <ul>
+        <li>No front work, &Gamma;<sub>0</sub> = 0: ln(<i>c</i>/<i>a</i>) = &pi;<i>E</i>&prime;<i>&delta;</i><sub>c</sub>/(8<i>&sigma;</i><sub>b</sub><i>a</i>), the paper&rsquo;s strength formula (Eq. 47).</li>
+        <li>No connectors: a uniformly pressurized crack opens as an ellipse, 4<i>p</i>&radic;(<i>c</i>&sup2; &minus; <i>x</i>&sup2;)/<i>E</i>&prime;.</li>
+        <li>A long crack, <i>a</i>/(<i>E</i>&prime;<i>&delta;</i><sub>c</sub>/<i>&sigma;</i><sub>b</sub>) &rarr; &infin; with the
+        material fixed: <i>L</i> tends to the small-scale zone of Eq. 20 and &Sigma; to the toughness estimate
+        &radic;(<i>E</i>&prime;(&Gamma;<sub>0</sub> + <i>&sigma;</i><sub>b</sub><i>&delta;</i><sub>c</sub>)/(&pi;<i>a</i>)).</li>
+        <li>The branch, for the T1 inputs: from initiation at 20.29 MPa, &Sigma; and the root opening should both rise up to
+        the failure.</li>
+      </ul>
+      <p class="src">The key&rsquo;s checks, <a href="crack-bridging/key/T1/reference.py">reference.py</a>, <code>main</code>: the
+      first two, and the long-crack stress with &Gamma;<sub>0</sub> = 0. The long-crack limits with &Gamma;<sub>0</sub> &gt; 0
+      are checked by this page&rsquo;s tests; the branch, by the case page, <a href="crack-bridging.html#solution">Section 2</a>.</p>
+    </details>
+    <details class="hint answer">
+      <summary><span class="hn">Answer</span> The key</summary>
+      <p>&Sigma; = 133.7303 MPa and <i>L</i> = 4.0856 mm per end, recomputed by three routes. At first failure the bridged
+      zone is 1.70 times the original half-slit. Replacing the connectors by the plateau toughness
+      &Gamma;<sub>0</sub> + <i>&sigma;</i><sub>b</sub><i>&delta;</i><sub>c</sub> = 1462 J/m&sup2; on the original slit gives
+      165.4 MPa, 24% above the coupled answer.</p>
+      <p class="src">Case page, <a href="crack-bridging.html#predictions">Section 3</a> and <a href="crack-bridging.html#status">Section 8</a>.</p>
+    </details>
+  </div>
+</section>
+
+<section class="block" id="calculator">
+  <div class="phys wide">
+    <div class="head"><div class="kicker">3 &middot; Calculator</div><h2>Change the inputs and watch the two conditions meet</h2></div>
+    <p>The calculator solves hints 3 and 4 as the key does, for inputs in the ranges shown under each field, and lists four
+    answers worth comparing: the toughness estimate, the answer without front work, the answer with one face&rsquo;s
+    displacement taken as the gap, and the answer from DeepSeek&rsquo;s root opening (Section 4). It runs in your browser.</p>
+    <div class="calc">
+      <div class="calc-in">
+        <div id="calc-inputs" class="calc-grid"></div>
+        <button type="button" id="calc-reset" class="calc-btn">Task values</button>
+      </div>
+      <div class="calc-out">
+        <div class="tablewrap"><table class="calc-table" aria-label="Answers for these inputs">
+          <thead><tr><th scope="col"></th><th scope="col" class="num">&Sigma; (MPa)</th><th scope="col" class="num"><i>L</i> (mm)</th><th scope="col"></th></tr></thead>
+          <tbody id="calc-rows"></tbody>
+        </table></div>
+        <p id="calc-extra" class="calc-extra"></p>
+        <p id="calc-status" class="calc-status" role="status"></p>
+      </div>
+    </div>
+    <div class="calc-plots">
+      <figure>
+        <svg id="plot-open" role="img" aria-label="Opening at the slit root against bridged length" aria-describedby="plot-open-desc"></svg>
+        <p id="plot-open-desc" class="visually-hidden"></p>
+        <p id="plot-open-note" class="plot-note"></p>
+        <figcaption><span class="key-line"></span> correct root opening (hint 4) up to the first failure (filled dot);
+        <span class="ds-line"></span> DeepSeek&rsquo;s opening, with the failure it predicts (orange dot);
+        <span class="ref-line"></span> <i>&delta;</i><sub>c</sub>. <span class="band-sw"></span> After the first failure the
+        connectors near the root are broken, and both curves (<span class="cont-line"></span> for the correct one) only
+        continue the intact-zone equations, for comparison.</figcaption>
+      </figure>
+      <figure>
+        <svg id="plot-load" role="img" aria-label="Remote stress against bridged length" aria-describedby="plot-load-desc"></svg>
+        <p id="plot-load-desc" class="visually-hidden"></p>
+        <figcaption><span class="key-line"></span> load along the growth path, rising; <span class="cont-line"></span> past a
+        load maximum (open orange dot), equilibrium states not reached on a rising load; <span class="key0-line"></span>
+        without front work; <span class="ref-line"></span> toughness estimate on the original slit. Dots: first connector failure.</figcaption>
+      </figure>
+    </div>
+    <div class="try">
+      <div class="kicker">Things to try</div>
+      <ul>
+        <li>Set <i>a</i> = 100 mm. <i>L</i> falls to 2.46 mm, close to the small-scale zone of Eq. 20 (2.43 mm), and &Sigma;
+        comes to about 0.5% below the toughness estimate: for a long crack the bridging law condenses into a toughness.</li>
+        <li>Set &Gamma;<sub>0</sub> = 0. The load moves by 1.4%, the bridged length by 56%.</li>
+        <li>Look at the left plot at <i>L</i> = <i>a</i>: DeepSeek&rsquo;s opening is about half the correct one, so its
+        connector reaches <i>&delta;</i><sub>c</sub> only at a much longer zone.</li>
+        <li>Set <i>&delta;</i><sub>c</sub> = 50 &micro;m. The zone grows to hundreds of millimetres and the load passes a shallow
+        maximum, 161.0 MPa at <i>L</i> = 240 mm, before the root connector fails: the monotonic branch ends at that maximum.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="agents">
+  <div class="phys">
+    <div class="head"><div class="kicker">4 &middot; Two agents at the deciding step</div><h2>One run derived the opening; the other wrote a wrong one</h2></div>
+    <p>Every run set up the coupled problem and kept the front work apart from the connector work. On the slit the runs
+    differed in one relation, the opening at the root of the partly bridged crack.</p>
+    <p>Without the knowledge unit about the paper, GLM-5.3 and DeepSeek V4.1 Flash (reasoning off) each wrote a root
+    opening. Their two answers are on the right, as they wrote them.</p>
+    <div class="exercise">
+      <div class="kicker">Your turn</div>
+      <p>One of the two openings is wrong. Test both on two cases whose answer you know: a crack with no connectors
+      (<i>t</i> = 0), and a strip-yield crack loaded so that the tip intensity is zero (&Sigma; = &Sigma;<sub>D</sub>), taking
+      <i>c</i> = 2<i>a</i>. Which test catches the error, and which does not? In GLM&rsquo;s form, <i>K</i><sub>0</sub>/&radic;(&pi;<i>c</i>)
+      is the stress beyond &Sigma;<sub>D</sub>: for the first test it equals &Sigma;, for the second <i>K</i><sub>0</sub> = 0.</p>
+    </div>
+    <details class="hint answer">
+      <summary><span class="hn">Answer</span> What went wrong, and how a check could have caught it</summary>
+      <p><strong>DeepSeek on the slit</strong>, with reasoning off, wrote the tip intensity correctly but took the root
+      opening as (4/<i>E</i>&prime;)[&Sigma;&radic;(<i>c</i>&sup2; &minus; <i>a</i>&sup2;) &minus; <i>t</i>(<i>c</i> &minus; <i>a</i>)],
+      which is not the opening of a crack under that pressure. With it, the root connector reaches <i>&delta;</i><sub>c</sub>
+      only at <i>L</i> = 34.3 mm and &Sigma; = 158.5 MPa, 740% and 18.5% above the key. Eq. 45 gives an opening of 24.3 &micro;m
+      at that state, so on the actual path the root connector had failed long before. Its opening &ldquo;check&rdquo;
+      evaluated a double integral that, at <i>x</i> = <i>a</i>, reproduces the same <i>t</i>(<i>c</i> &minus; <i>a</i>) term.
+      It scored 47: no points for the numbers, and full verification credit for a correct, independent check of the tip
+      intensity.</p>
+      <p>The two tests: with <i>t</i> = 0 both formulas give the ellipse, so that test passes the wrong one. At the
+      strip-yield state with <i>c</i> = 2<i>a</i>, &Sigma;<sub>D</sub> = 2<i>t</i>/3 and &radic;(<i>c</i>&sup2; &minus; <i>a</i>&sup2;) = &radic;3&thinsp;<i>a</i>;
+      the correct root opening is (8<i>ta</i>/&pi;<i>E</i>&prime;)&thinsp;ln&thinsp;2 = 1.765&thinsp;<i>ta</i>/<i>E</i>&prime;, while
+      DeepSeek&rsquo;s formula gives 0.619&thinsp;<i>ta</i>/<i>E</i>&prime;. Only a test that involves the connectors can see an
+      error in the connectors&rsquo; term.</p>
+      <p><strong>GLM on the slit</strong> built the root opening itself (hint 4). It checked the first part against a
+      dislocation-density integration, to 6 &times; 10&#8315;&sup1;&sup1;, and solved the whole problem again by a separate
+      spectral method, 133.70 MPa and 4.079 mm. Graded 100.</p>
+      <p class="src">Case page, <a href="crack-bridging.html#without-unit">Section 6</a>; grades <a href="crack-bridging/grading/grade-R30/grade/GRADE.md">R30</a> (GLM) and <a href="crack-bridging/grading/grade-R03/grade/GRADE.md">R03</a> (DeepSeek).</p>
+    </details>
+    <p class="status"><span class="chip proved">GLM, T1: 100</span><span class="chip wrong">DeepSeek, T1: 47</span> GLM 33 minutes; DeepSeek 23 minutes.</p>
+    <p class="src">Grades are rubric totals out of 100 from Codex graders, as reported in the case study, not measures of
+    accuracy. No expert has reviewed the case.</p>
+  </div>
+  <aside class="math" aria-label="The two root openings as written">
+    <div class="mh">From GLM&rsquo;s T1 answer</div>
+<pre class="code">By superposition (linearity in the loads) it is the
+classical Dugdale CTOD at the zero-K stress
+&Sigma;_D = (2t/&pi;)arccos(a/c) for the same (a, c), plus the
+Griffith opening produced by the extra remote stress
+K&#8320;/&radic;(&pi;c):
+
+  &delta;(a) = (8ta/&pi;E&prime;)&middot;ln sec &theta; + 4K&#8320;&radic;(c&sup2; &minus; a&sup2;)/(E&prime;&radic;(&pi;c)),
+  &theta; = arccos(a/c).</pre>
+    <p class="src">From <a href="crack-bridging/runs/P038-T1-without-glm/workspace/ANSWER.md">P038-T1-without-glm ANSWER.md</a>, lines 24 to 28, rewrapped.</p>
+    <div class="mh">From DeepSeek&rsquo;s T1 answer</div>
+<pre class="code">**Connector failure.** The connector adjacent to the
+original slit sits at x = a&#8314; and has the largest gap.
+Using the same superposition for the opening (full
+gap) at x:
+
+  &delta;(x) = (4/E&prime;)&middot;[ (&Sigma; &minus; t) &radic;(c&sup2; &minus; x&sup2;)
+                  + t ( x &minus; c + &radic;(c&sup2; &minus; x&sup2;) ) ],
+
+so at the slit edge
+
+  &delta;(a) = (4/E&prime;)&middot;[ &Sigma; &radic;(c&sup2; &minus; a&sup2;) &minus; t (c &minus; a) ].</pre>
+    <p class="src">From <a href="crack-bridging/runs/P038-T1-without-dsaz/workspace/ANSWER.md">P038-T1-without-dsaz ANSWER.md</a>, lines 43 to 50, rewrapped. Every file of both runs is in the <a href="https://github.com/tengzhang48/mechanicsharness.org/tree/main/case-studies/crack-bridging/runs">case files</a>.</p>
+  </aside>
+</section>
+
+<section class="block" id="lessons">
+  <div class="phys wide">
+    <div class="head"><div class="kicker">5 &middot; What to take away</div><h2>Two lessons from this case</h2></div>
+    <div class="lessons2">
+      <div><h3>At a/(E&prime;&delta;<sub>c</sub>/&sigma;<sub>b</sub>) &asymp; 0.3 a toughness does not apply</h3>
+      <p>The zone at first failure is 1.7 times the half-slit, and the toughness on the original slit overestimates the load
+      by 24%. The finite geometry has to be solved with the law.</p></div>
+      <div><h3>A check that reuses the formula cannot test it</h3>
+      <p>DeepSeek&rsquo;s opening check without the unit integrated an expression that reduces to its own wrong term at
+      <i>x</i> = <i>a</i>, so it confirmed the error.</p></div>
+    </div>
+    <p class="src">Case page, <a href="crack-bridging.html#lessons">Section 9</a>. Each lesson rests on eight runs of two agents
+    on two problems: observations to test on new problems, not measured rates.</p>
+  </div>
+</section>
+
+<section class="block" id="feedback">
+  <div class="phys wide">
+    <div class="head"><div class="kicker">6 &middot; Feedback</div><h2>Studied this case? Tell us how it went</h2></div>
+    <p>What helped, where you got stuck, or an error you found on this page. The button opens a pre-filled issue in the
+    website&rsquo;s public GitHub repository, in a new tab. Your text is sent to GitHub when that tab opens and becomes
+    public only if you submit the issue there (a GitHub account is needed). Please do not include private information.
+    Nothing is stored on this page.</p>
+    <label class="fb"><span class="visually-hidden">Your feedback</span>
+      <textarea id="fb-text" rows="5" placeholder="What helped? Where did you get stuck? Did you find an error?"></textarea></label>
+    <p id="fb-count" class="fb-count" aria-live="polite"></p>
+    <p><a id="fb-send" class="calc-btn" href="https://github.com/tengzhang48/mechanicsharness.org/issues/new" target="_blank" rel="noopener">Post on GitHub (new tab)</a></p>
+  </div>
+</section>
+
+<footer class="study-foot">
+  <p>Problem from G. Bao and Z. Suo (1992), Remarks on crack-bridging concepts,
+  <a href="https://doi.org/10.1115/1.3119764"><i>Appl. Mech. Rev.</i> 45, 355-366</a>, given to the agents without the
+  paper. Quoted text is from the <a href="crack-bridging.html">case page</a>; the questions, the calculator and its notes
+  were written for this page, and the calculator follows the key&rsquo;s script and is tested against it. MechanicsHarness
+  &middot; study page, 9 November 2026.</p>
+</footer>
+</div>
+<script>
+/* Shared helpers for MechanicsHarness study pages: input fields with per-field ranges, an SVG line chart, and the
+ * feedback box (a pre-filled GitHub issue; nothing is stored by the page). Case pages add their own calculator and
+ * driver. No dependencies; colours come from CSS classes (study.css). */
+(function (root) {
+  'use strict';
+  var NS = 'http://www.w3.org/2000/svg';
+  function $(id) { return document.getElementById(id); }
+
+  // fields: [{id, label, unit, scale, value, min, max, minOpen, maxOpen}]; builds labelled inputs in container.
+  function buildFields(container, fields, onInput) {
+    fields.forEach(function (f) {
+      var lab = document.createElement('label');
+      var range = (f.minOpen ? '>' : '≥') + ' ' + f.min + ', ' + (f.maxOpen ? '<' : '≤') + ' ' + f.max;
+      lab.innerHTML = '<span>' + f.label + (f.unit ? ' <i>(' + f.unit + ')</i>' : '') + '</span>';
+      var inp = document.createElement('input');
+      inp.type = 'number'; inp.id = 'in-' + f.id; inp.step = 'any'; inp.inputMode = 'decimal';
+      inp.setAttribute('aria-describedby', 'rng-' + f.id);
+      inp.addEventListener('input', onInput);
+      lab.appendChild(inp);
+      var small = document.createElement('small'); small.id = 'rng-' + f.id; small.className = 'rng';
+      small.textContent = 'range ' + range;
+      lab.appendChild(small);
+      container.appendChild(lab);
+    });
+  }
+  function setFields(fields) { fields.forEach(function (f) { $('in-' + f.id).value = f.value; }); }
+  // Returns {values (SI), bad: [labels]}.
+  function readFields(fields) {
+    var v = {}, bad = [];
+    fields.forEach(function (f) {
+      var el = $('in-' + f.id), x = parseFloat(el.value), si = x * f.scale;
+      var ok = isFinite(x) && isFinite(si) && (f.minOpen ? x > f.min : x >= f.min) && (f.maxOpen ? x < f.max : x <= f.max);
+      el.setAttribute('aria-invalid', ok ? 'false' : 'true');
+      if (!ok) bad.push(f.label);
+      v[f.id] = si;
+    });
+    return { values: v, bad: bad };
+  }
+
+  function sig(x, n) {
+    if (!isFinite(x)) return 'n/a';
+    if (x === 0) return '0';
+    var e = Math.floor(Math.log10(Math.abs(x)));
+    if (e >= 6 || e < -4) return x.toPrecision(n).replace('e+', 'e');  // very large or small: n significant figures
+    return x.toFixed(Math.max(0, n - 1 - e));
+  }
+
+  function el(name, attrs, text) {
+    var e = document.createElementNS(NS, name);
+    for (var a in attrs) e.setAttribute(a, attrs[a]);
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function niceTicks(lo, hi, n) {
+    var span = hi - lo, step = Math.pow(10, Math.floor(Math.log10(span / n)));
+    var err = span / n / step;
+    if (err >= 7.5) step *= 10; else if (err >= 3) step *= 5; else if (err >= 1.5) step *= 2;
+    var out = [];
+    for (var v = Math.ceil(lo / step) * step; v <= hi + 1e-9 * step; v += step) out.push(+v.toPrecision(12));
+    return out;
+  }
+  function clearSvg(svg) { while (svg.firstChild) svg.removeChild(svg.firstChild); }
+  /* opts: {x0,x1,y0,y1,xl,yl, bands:[{x0,x1,cls,label}], lines:[{pts:[[x,y]],cls}], dots:[[x,y,cls]]} */
+  function chart(svgId, opts) {
+    var svg = $(svgId);
+    clearSvg(svg);
+    var W = 520, H = 300, m = { l: 58, r: 14, t: 14, b: 44 };
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    var xs = function (x) { return m.l + (x - opts.x0) / (opts.x1 - opts.x0) * (W - m.l - m.r); };
+    var ys = function (y) { return H - m.b - (y - opts.y0) / (opts.y1 - opts.y0) * (H - m.t - m.b); };
+    (opts.bands || []).forEach(function (b) {
+      var x0 = Math.max(opts.x0, b.x0), x1 = Math.min(opts.x1, b.x1);
+      if (x1 <= x0) return;
+      svg.appendChild(el('rect', { x: xs(x0), y: m.t, width: xs(x1) - xs(x0), height: H - m.t - m.b, 'class': b.cls }));
+      if (b.label && xs(x1) - xs(x0) > 90)
+        svg.appendChild(el('text', { x: xs(x0) + 6, y: m.t + 14, 'class': 'pl-band-lbl' }, b.label));
+    });
+    niceTicks(opts.x0, opts.x1, 5).forEach(function (t) {
+      svg.appendChild(el('line', { x1: xs(t), x2: xs(t), y1: m.t, y2: H - m.b, 'class': 'pl-grid' }));
+      svg.appendChild(el('text', { x: xs(t), y: H - m.b + 16, 'class': 'pl-tick', 'text-anchor': 'middle' }, String(t)));
+    });
+    niceTicks(opts.y0, opts.y1, 5).forEach(function (t) {
+      svg.appendChild(el('line', { x1: m.l, x2: W - m.r, y1: ys(t), y2: ys(t), 'class': 'pl-grid' }));
+      svg.appendChild(el('text', { x: m.l - 6, y: ys(t) + 4, 'class': 'pl-tick', 'text-anchor': 'end' }, String(t)));
+    });
+    svg.appendChild(el('text', { x: (m.l + W - m.r) / 2, y: H - 8, 'class': 'pl-lbl', 'text-anchor': 'middle' }, opts.xl));
+    svg.appendChild(el('text', { x: 14, y: (m.t + H - m.b) / 2, 'class': 'pl-lbl', 'text-anchor': 'middle',
+                                 transform: 'rotate(-90 14 ' + (m.t + H - m.b) / 2 + ')' }, opts.yl));
+    var clip = 'clip-' + svgId, cp = el('clipPath', { id: clip });
+    cp.appendChild(el('rect', { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b }));
+    svg.appendChild(cp);
+    opts.lines.forEach(function (ln) {
+      if (!ln.pts.length) return;
+      var d = ln.pts.map(function (q, i) { return (i ? 'L' : 'M') + xs(q[0]).toFixed(1) + ' ' + ys(q[1]).toFixed(1); }).join('');
+      svg.appendChild(el('path', { d: d, 'class': ln.cls, 'clip-path': 'url(#' + clip + ')' }));
+    });
+    (opts.dots || []).forEach(function (q) {
+      if (q[0] >= opts.x0 && q[0] <= opts.x1 && q[1] >= opts.y0 && q[1] <= opts.y1)
+        svg.appendChild(el('circle', { cx: xs(q[0]), cy: ys(q[1]), r: 4.5, 'class': q[2] }));
+    });
+  }
+
+  // Feedback: text box + link that opens a pre-filled public GitHub issue. Text is limited to LIMIT characters, counted
+  // as Unicode code points (no native maxlength, which counts UTF-16 units); longer text is shortened with a visible notice.
+  var LIMIT = 3000;
+  function setupFeedback(cfg) {
+    var box = $('fb-text'), send = $('fb-send'), count = $('fb-count');
+    function update() {
+      var chars = Array.from(box.value), cut = chars.length > LIMIT;
+      if (cut) { box.value = chars.slice(0, LIMIT).join(''); chars = chars.slice(0, LIMIT); }
+      count.textContent = chars.length + ' of ' + LIMIT + ' characters' +
+        (cut ? '. Your text was shortened to ' + LIMIT + ' characters; please check its end.' : '');
+      count.className = cut ? 'fb-count warn' : 'fb-count';
+      var body = 'Page: ' + cfg.pageName + ' (' + cfg.pagePath + ')\n\n' + (box.value.trim() || '(write here)');
+      send.href = cfg.repo + '/issues/new?title=' + encodeURIComponent(cfg.title) + '&body=' + encodeURIComponent(body);
+    }
+    box.addEventListener('input', update);
+    update();
+  }
+
+  root.StudyCommon = { $: $, buildFields: buildFields, setFields: setFields, readFields: readFields, sig: sig,
+                       chart: chart, clearSvg: clearSvg, setupFeedback: setupFeedback, FEEDBACK_LIMIT: LIMIT };
+})(this);
+</script>
+<script>
+/* Crack bridging, problem T1: a finite slit bridged at both ends by a constant traction.
+ *
+ * A port of the key's analytic route (package key/T1/reference.py, analytic_solution): with u = ln(c/a), the tip
+ * condition K_tip = +sqrt(E' Gamma_0) (Bao and Suo 1992, Eq. 46) and the opening at the slit root delta(a) = delta_c
+ * (Eq. 45) reduce to one equation for u. SI units throughout; delta is the full face-to-face gap.
+ *
+ * Also computed, for comparison only: the toughness estimate on the original slit, the answer with Gamma_0 dropped,
+ * the answer with one face's displacement taken as the gap (all three listed on the case page as wrong answers worth
+ * knowing), and the answer from the root opening written by DeepSeek without the knowledge unit (case page,
+ * Section 6): delta(a) = (4/E') [Sigma sqrt(c^2 - a^2) - t (c - a)], with its correct tip condition.
+ *
+ * Numerics: theta = arccos(a/c) = arccos(exp(-u)) is evaluated as atan2(sqrt(-expm1(-2u)), exp(-u)), which keeps its
+ * accuracy for u -> 0 (long cracks). Gamma_0 = 0 uses the closed form u = pi E' delta_c / (8 sigma_b a) (Eq. 47). The
+ * load maximum, when there is one, is at e^u = r with r^2 - B r - 1 = 0, B = 16/(pi^2 k^2), from d Sigma/du = 0; there
+ * is none when Gamma_0 = 0. Results with u > U_MAX (c/a > e^40) are reported as outside the supported range.
+ * Runs in a browser (window.BridgingCalc) and in Node (module.exports). No dependencies.
+ */
+(function (root) {
+  'use strict';
+  var PI = Math.PI;
+  var U_MAX = 40.0;   // c/a up to e^40 (about 2e17)
+  var U_MIN = 1e-300; // root searches start here
+
+  function ePrime(E, nu) { return E / (1.0 - nu * nu); }
+
+  // Bisection for f(lo) < 0 <= f(hi); a NaN value stops it with NaN.
+  function bisect(f, lo, hi) {
+    for (var i = 0; i < 400; i++) {
+      var mid = 0.5 * (lo + hi);
+      if (mid === lo || mid === hi) break;
+      var v = f(mid);
+      if (v !== v) return NaN;
+      if (v < 0) lo = mid; else hi = mid;
+    }
+    return 0.5 * (lo + hi);
+  }
+
+  function valid(p) {
+    return p && [p.a, p.Ep, p.sb, p.dc].every(function (x) { return isFinite(x) && x > 0; }) &&
+           isFinite(p.G0) && p.G0 >= 0;
+  }
+
+  function context(p) {
+    var k0 = Math.sqrt(p.Ep * p.G0);
+    return { a: p.a, Ep: p.Ep, sb: p.sb, dc: p.dc, G0: p.G0, k0: k0, k: k0 / (p.sb * Math.sqrt(PI * p.a)) };
+  }
+
+  function theta(u) { return Math.atan2(Math.sqrt(-Math.expm1(-2.0 * u)), Math.exp(-u)); }  // arccos(exp(-u))
+
+  // Remote stress on the quasistatic branch (tip condition, Eq. 46), as a function of u = ln(c/a).
+  function sigmaAt(q, u) { return q.sb * (2.0 * theta(u) / PI + q.k * Math.exp(-u / 2.0)); }
+
+  // sqrt(c^2 - a^2) / a = sqrt(e^{2u} - 1), written to avoid overflow; and 2 sinh u = e^u (1 - e^{-2u}).
+  function sOverA(u) { return Math.exp(u) * Math.sqrt(-Math.expm1(-2.0 * u)); }
+
+  // Full opening at the slit root on that branch (Eq. 45 with Eq. 46 eliminated).
+  function rootOpening(q, u) {
+    var root2sinh = Math.exp(u / 2.0) * Math.sqrt(-Math.expm1(-2.0 * u));
+    return (q.sb * q.a / q.Ep) * ((q.k > 0 ? 4.0 * q.k * root2sinh : 0.0) + 8.0 * u / PI);
+  }
+
+  // DeepSeek's root opening (case page, Section 6), on the same branch. For u >= 1 the two large terms nearly cancel,
+  // so it is rewritten with r = e^-u, h = sqrt(1 - r^2) (round-2 review, gpt-6.1-sol; derivation in the commit):
+  // (4 sigma_b a / E') [1 - r/(1+h) - (2h/pi) asin(r)/r + k e^{u/2} h].
+  function rootOpeningDeepSeek(q, u) {
+    if (u < 1.0) return (4.0 * q.a / q.Ep) * (sigmaAt(q, u) * sOverA(u) - q.sb * Math.expm1(u));
+    var r = Math.exp(-u), h = Math.sqrt(-Math.expm1(-2.0 * u));
+    return (4.0 * q.sb * q.a / q.Ep) * (1.0 - r / (1.0 + h) - (2.0 * h / PI) * Math.asin(r) / r + q.k * Math.exp(u / 2.0) * h);
+  }
+
+  // (1/sigma_b) d Sigma/du; it changes sign at most once.
+  function slopeAt(q, u) {
+    return 2.0 * Math.exp(-u) / (PI * Math.sqrt(-Math.expm1(-2.0 * u))) - 0.5 * q.k * Math.exp(-u / 2.0);
+  }
+
+  // u of the load maximum, or Infinity when there is none (Gamma_0 = 0).
+  function peakU(q) {
+    if (!(q.k > 0)) return Infinity;
+    var B = 16.0 / (PI * PI * q.k * q.k);
+    return Math.asinh(B / 2.0);  // = ln((B + sqrt(B^2 + 4))/2), the root of r^2 - B r - 1 = 0, without cancellation
+  }
+
+  // First u in (U_MIN, uMax] where g changes sign from negative: scan log-spaced points, then bisect.
+  // Returns {u} or {u: NaN, why: 'none' | 'nan'}.
+  function firstCrossing(g, uMax) {
+    var prev = U_MIN, gp = g(prev);
+    if (gp !== gp) return { u: NaN, why: 'nan' };
+    if (gp >= 0) return { u: prev, why: 'below' };
+    var lg = Math.log10(U_MIN), lgMax = Math.log10(uMax), step = 0.02;
+    for (var x = lg + step; x <= lgMax + 1e-12; x += step) {
+      var u = Math.pow(10, Math.min(x, lgMax)), v = g(u);
+      if (v !== v) return { u: NaN, why: 'nan' };
+      if (v >= 0) return { u: bisect(g, prev, u) };
+      prev = u;
+    }
+    if (prev < uMax) {  // the grid can stop short of uMax: test the last interval explicitly
+      var vm = g(uMax);
+      if (vm !== vm) return { u: NaN, why: 'nan' };
+      if (vm >= 0) return { u: bisect(g, prev, uMax) };
+    }
+    return { u: NaN, why: 'none' };
+  }
+
+  function stateAt(q, u) {
+    return { u: u, c: q.a * Math.exp(u), L: q.a * Math.expm1(u), sigma: sigmaAt(q, u), rootOpening: rootOpening(q, u) };
+  }
+
+  // The key: Eqs. 45-46 with K_tip = +sqrt(E' Gamma_0) and delta(a) = delta_c.
+  function keySolution(p) {
+    if (!valid(p)) return { error: 'invalid input' };
+    var q = context(p), target = q.Ep * q.dc / (q.sb * q.a), u;
+    if (q.k === 0) {
+      u = PI * target / 8.0;  // Eq. 47
+    } else {
+      var res = function (v) { return rootOpening(q, v) * q.Ep / (q.sb * q.a) - target; };
+      var hi = 1.0;
+      while (res(hi) < 0.0 && hi < 4.0 * U_MAX) hi *= 2.0;
+      u = res(hi) < 0.0 ? Infinity : bisect(res, 0.0, hi);
+    }
+    if (!(u <= U_MAX)) return { error: 'outside the supported range: the bridged zone exceeds e^40 times the slit' };
+    var s = stateAt(q, u);
+    s.slope = slopeAt(q, u);
+    s.sigmaInit = q.k0 / Math.sqrt(PI * q.a);
+    s.k0 = q.k0;
+    var up = peakU(q);
+    if (up < u) s.peak = stateAt(q, up);  // the load passes a maximum before the root connector fails
+    return s;
+  }
+
+  function deepSeekSolution(p) {
+    if (!valid(p)) return { error: 'invalid input' };
+    var q = context(p);
+    var r = firstCrossing(function (v) { return rootOpeningDeepSeek(q, v) - q.dc; }, U_MAX);
+    if (r.why === 'below') return { error: 'crossing below the supported search range' };
+    if (!isFinite(r.u)) return { error: r.why === 'none' ? 'not reached for c/a up to e^40' : 'numerical failure' };
+    var s = stateAt(q, r.u);
+    s.openingDeepSeek = rootOpeningDeepSeek(q, r.u);
+    if (!(Math.abs(s.openingDeepSeek / q.dc - 1.0) < 1e-6)) return { error: 'numerical failure' };
+    s.pastPeak = peakU(q) < r.u;
+    return s;  // s.rootOpening is the correct (Eq. 45) opening at this state
+  }
+
+  function solveAll(p) {
+    if (!valid(p)) return { error: 'invalid input' };
+    var q = context(p);
+    var g = q.G0 / (q.sb * q.dc);
+    var ell = q.Ep * q.dc / q.sb;
+    return {
+      key: keySolution(p),
+      noFrontWork: keySolution({ a: p.a, Ep: p.Ep, sb: p.sb, dc: p.dc, G0: 0.0 }),
+      oneFace: keySolution({ a: p.a, Ep: p.Ep, sb: p.sb, dc: 2.0 * p.dc, G0: p.G0 }),
+      deepSeek: deepSeekSolution(p),
+      toughnessSigma: Math.sqrt(q.Ep * (q.G0 + q.sb * q.dc) / (PI * q.a)),
+      materialLength: ell,
+      g: g,
+      smallScaleZone: (PI / 8.0) * ell / Math.pow(Math.sqrt(1.0 + g) + Math.sqrt(g), 2)  // Eq. 20
+    };
+  }
+
+  // Points along the quasistatic branch up to u_end, for plots.
+  function path(p, uEnd, n) {
+    var q = context(p), out = [];
+    for (var i = 1; i <= n; i++) {
+      var u = uEnd * Math.pow(i / n, 2);
+      var s = stateAt(q, u);
+      s.rootOpeningDeepSeek = rootOpeningDeepSeek(q, u);
+      out.push(s);
+    }
+    return out;
+  }
+
+  // Both root openings at one state (for tests and the exercise).
+  function openingsAt(p, u) {
+    var q = context(p);
+    return { sigma: sigmaAt(q, u), correct: rootOpening(q, u), deepSeek: rootOpeningDeepSeek(q, u) };
+  }
+
+  var api = { ePrime: ePrime, keySolution: keySolution, deepSeekSolution: deepSeekSolution, solveAll: solveAll,
+              path: path, openingsAt: openingsAt, peakU: function (p) { return peakU(context(p)); },
+              slopeAt: function (p, u) { return slopeAt(context(p), u); }, U_MAX: U_MAX,
+              TASK: { E: 130e9, nu: 0.28, a: 2.40e-3, sb: 160e6, dc: 9.00e-6, G0: 22.0 } };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  else root.BridgingCalc = api;
+})(this);
+</script>
+<script>
+/* Crack-bridging study page driver: the T1 calculator (inputs, table, two plots, text summaries) and the feedback box.
+ * Uses BridgingCalc (bridging_calc.js) and StudyCommon (release_fracture/study_common/study_common.js). */
+(function () {
+  'use strict';
+  var C = window.BridgingCalc, S = window.StudyCommon, $ = S.$;
+  // task values come from BridgingCalc.TASK (one source), shown in each field's unit
+  function task(id) { var f = FIELDS_SCALE[id]; return +(C.TASK[id] / f).toPrecision(12); }
+  var FIELDS_SCALE = { a: 1e-3, E: 1e9, nu: 1, sb: 1e6, dc: 1e-6, G0: 1 };
+  var FIELDS = [  // supported ranges, in the shown unit
+    { id: 'a', label: 'Half-length of the slit, a', unit: 'mm', scale: 1e-3, value: task('a'), min: 0.01, max: 10000 },
+    { id: 'E', label: "Young's modulus, E", unit: 'GPa', scale: 1e9, value: task('E'), min: 0.1, max: 1000 },
+    { id: 'nu', label: "Poisson's ratio, ν", unit: '', scale: 1, value: task('nu'), min: -1, max: 0.5, minOpen: true, maxOpen: true },
+    { id: 'sb', label: 'Bridging traction, σb', unit: 'MPa', scale: 1e6, value: task('sb'), min: 0.01, max: 10000 },
+    { id: 'dc', label: 'Limiting gap, δc', unit: 'µm', scale: 1e-6, value: task('dc'), min: 0.001, max: 10000 },
+    { id: 'G0', label: 'Front work, Γ₀', unit: 'J/m²', scale: 1, value: task('G0'), min: 0, max: 100000 }
+  ];
+  var mm = function (x) { return S.sig(x * 1e3, 4); }, mpa = function (x) { return S.sig(x / 1e6, 4); };
+
+  function row(label, r, note) {
+    if (!r || r.error) return '<tr><th scope="row">' + label + '</th><td class="num">n/a</td><td class="num">n/a</td><td>' +
+                              (r && r.error ? r.error : '') + '</td></tr>';
+    return '<tr><th scope="row">' + label + '</th><td class="num">' + mpa(r.sigma) + '</td><td class="num">' + mm(r.L) +
+           '</td><td>' + (note || '') + '</td></tr>';
+  }
+
+  function clearOutputs(message) {
+    $('calc-rows').innerHTML = '';
+    $('calc-extra').textContent = '';
+    S.clearSvg($('plot-open')); S.clearSvg($('plot-load'));
+    $('plot-open-desc').textContent = ''; $('plot-load-desc').textContent = ''; $('plot-open-note').textContent = '';
+    var st = $('calc-status'); st.className = 'calc-status err'; st.textContent = message;
+  }
+
+  function render() {
+    var read = S.readFields(FIELDS);
+    if (read.bad.length) { clearOutputs('Outside the supported range: ' + read.bad.join(', ') + '. Results cleared.'); return; }
+    var v = read.values, p = { a: v.a, Ep: C.ePrime(v.E, v.nu), sb: v.sb, dc: v.dc, G0: v.G0 };
+    var r = C.solveAll(p), k = r.key;
+    if (r.error || k.error) { clearOutputs('No result: ' + (r.error || k.error) + '. Results cleared.'); return; }
+    var html = '';
+    html += row('<b>Coupled solution</b> (key’s method)', k, 'L/a = ' + S.sig(k.L / p.a, 3) +
+                (k.peak ? '; reached only past the load maximum' : ''));
+    html += '<tr><th scope="row">Toughness on the original slit</th><td class="num">' + mpa(r.toughnessSigma) +
+            '</td><td class="num"></td><td>connectors replaced by Γ₀ + σbδc</td></tr>';
+    html += row('Front work dropped (Γ₀ = 0)', r.noFrontWork, '');
+    html += row('One face’s displacement taken as the gap', r.oneFace, r.oneFace.peak ? 'reached only past the load maximum' : '');
+    html += row('DeepSeek’s root opening (Section 4)', r.deepSeek,
+                r.deepSeek && !r.deepSeek.error ? 'correct opening there: ' + S.sig(r.deepSeek.rootOpening * 1e6, 3) + ' µm' +
+                (r.deepSeek.pastPeak ? '; reached only past the load maximum' : '') : '');
+    $('calc-rows').innerHTML = html;
+    $('calc-extra').textContent =
+      'Load at initiation K₀/√(πa) = ' + mpa(k.sigmaInit) + ' MPa · material length E′δc/σb = ' +
+      mm(r.materialLength) + ' mm, a/(E′δc/σb) = ' + S.sig(p.a / r.materialLength, 3) +
+      ' · g = Γ₀/(σbδc) = ' + S.sig(r.g, 3) + ' · small-scale zone (Eq. 20) = ' + mm(r.smallScaleZone) + ' mm';
+    var st = $('calc-status');
+    if (k.peak) {
+      st.className = 'calc-status warn';
+      st.textContent = 'The load passes a maximum, ' + mpa(k.peak.sigma) + ' MPa at L = ' + mm(k.peak.L) +
+        ' mm, before the root connector fails. Under load control the crack would grow unstably at that maximum, ' +
+        'so the coupled solution listed above is an equilibrium state not reached on a rising load.';
+    } else {
+      st.className = 'calc-status';
+      st.textContent = 'Σ and the root opening both rise from initiation to the first failure: the event lies on ' +
+        'the monotonic branch.';
+    }
+    plots(p, r);
+  }
+
+  function plots(p, r) {
+    var k = r.key, ds = r.deepSeek && !r.deepSeek.error ? r.deepSeek : null;
+    // (a) root opening against bridged length; beyond the first failure the curves continue the intact-zone equations
+    var Lmax = 1.15 * Math.max(k.L, ds ? Math.min(ds.L, 12 * k.L) : 0);
+    var pts = C.path(p, Math.log1p(Lmax / p.a), 500), dcu = p.dc * 1e6;
+    var before = pts.filter(function (s) { return s.L <= k.L; }), after = pts.filter(function (s) { return s.L >= k.L; });
+    var key0 = [[0, 0]];
+    S.chart('plot-open', {
+      x0: 0, x1: Lmax * 1e3, y0: 0, y1: 1.6 * dcu, xl: 'bridged length at each end, L (mm)',
+      yl: 'opening at the slit root (µm)',
+      bands: [{ x0: k.L * 1e3, x1: Lmax * 1e3, cls: 'pl-band', label: 'after the first failure' }],
+      lines: [
+        { cls: 'pl-ref', pts: [[0, dcu], [Lmax * 1e3, dcu]] },
+        { cls: 'pl-ds', pts: key0.concat(pts.map(function (s) { return [s.L * 1e3, s.rootOpeningDeepSeek * 1e6]; })) },
+        { cls: 'pl-key-cont', pts: after.map(function (s) { return [s.L * 1e3, s.rootOpening * 1e6]; }) },
+        { cls: 'pl-key', pts: key0.concat(before.map(function (s) { return [s.L * 1e3, s.rootOpening * 1e6]; })).concat([[k.L * 1e3, dcu]]) }
+      ],
+      dots: [[k.L * 1e3, dcu, 'pl-dot-key']].concat(ds ? [[ds.L * 1e3, dcu, 'pl-dot-ds']] : [])
+    });
+    $('plot-open-note').textContent = ds && ds.L > Lmax ? 'DeepSeek’s predicted failure, at L = ' + mm(ds.L) +
+      ' mm, lies beyond the plotted range.' : (ds ? '' : 'DeepSeek’s formula: ' + r.deepSeek.error + '.');
+    $('plot-open-desc').textContent = 'The correct root opening reaches the limiting gap ' + S.sig(dcu, 3) +
+      ' micrometres at L = ' + mm(k.L) + ' mm, the first connector failure. ' +
+      (ds ? 'DeepSeek’s formula reaches it only at L = ' + mm(ds.L) + ' mm' +
+            (ds.L * 1e3 > Lmax * 1e3 ? ', beyond the plotted range.' : '.') : 'DeepSeek’s formula: ' + r.deepSeek.error + '.') +
+      ' Beyond the first failure both curves continue the intact-zone equations, for comparison only.';
+    // (b) remote stress against bridged length, with and without front work
+    var k0 = r.noFrontWork.error ? null : r.noFrontWork;
+    var Lb = 1.15 * Math.max(k.L, k0 ? k0.L : 0);
+    var pa = C.path(p, k.u, 400);
+    var rising = k.peak ? pa.filter(function (s) { return s.u <= k.peak.u; }) : pa;
+    var falling = k.peak ? pa.filter(function (s) { return s.u >= k.peak.u; }) : [];
+    var pb = k0 ? C.path({ a: p.a, Ep: p.Ep, sb: p.sb, dc: p.dc, G0: 0 }, k0.u, 300) : [];
+    var smax = Math.max(r.toughnessSigma, k.peak ? k.peak.sigma : k.sigma, k0 ? k0.sigma : 0) / 1e6 * 1.12;
+    var dots = [[k.L * 1e3, k.sigma / 1e6, 'pl-dot-key']];
+    if (k0) dots.push([k0.L * 1e3, k0.sigma / 1e6, 'pl-dot-key0']);
+    if (k.peak) dots.push([k.peak.L * 1e3, k.peak.sigma / 1e6, 'pl-dot-peak']);
+    S.chart('plot-load', {
+      x0: 0, x1: Lb * 1e3, y0: 0, y1: smax, xl: 'bridged length at each end, L (mm)', yl: 'remote stress Σ (MPa)',
+      lines: [
+        { cls: 'pl-ref', pts: [[0, r.toughnessSigma / 1e6], [Lb * 1e3, r.toughnessSigma / 1e6]] },
+        { cls: 'pl-key0', pts: pb.map(function (s) { return [s.L * 1e3, s.sigma / 1e6]; }) },
+        { cls: 'pl-key-cont', pts: falling.map(function (s) { return [s.L * 1e3, s.sigma / 1e6]; }) },
+        { cls: 'pl-key', pts: [[0, k.sigmaInit / 1e6]].concat(rising.map(function (s) { return [s.L * 1e3, s.sigma / 1e6]; })) }
+      ],
+      dots: dots
+    });
+    var g0 = p.G0 > 0;
+    $('plot-load-desc').textContent = (g0 ? 'With front work the load rises from ' + mpa(k.sigmaInit) + ' MPa at initiation'
+                                          : 'Without front work the load rises from zero') +
+      (k.peak ? ' to a maximum of ' + mpa(k.peak.sigma) + ' MPa at L = ' + mm(k.peak.L) + ' mm, then falls to ' : ' to ') +
+      mpa(k.sigma) + ' MPa at the first failure, L = ' + mm(k.L) + ' mm. ' +
+      (k0 && g0 ? 'Without front work the first failure comes at ' + mpa(k0.sigma) + ' MPa and L = ' + mm(k0.L) + ' mm. ' : '') +
+      'The toughness estimate on the original slit is ' + mpa(r.toughnessSigma) + ' MPa.';
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    S.buildFields($('calc-inputs'), FIELDS, render);
+    $('calc-reset').addEventListener('click', function () { S.setFields(FIELDS); render(); });
+    S.setFields(FIELDS);
+    render();
+    S.setupFeedback({ repo: 'https://github.com/tengzhang48/mechanicsharness.org', title: 'Study feedback: crack bridging',
+                      pageName: 'Study, crack bridging', pagePath: 'case-studies/crack-bridging-study.html' });
+  });
+})();
+</script>
+</body>
+</html>
