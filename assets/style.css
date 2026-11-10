@@ -322,6 +322,8 @@ footer.site a:focus-visible { outline-color: #ffffff; }
 .button:hover { background: #333333; }
 .button.ghost { background: transparent; color: var(--ink); }
 .button.ghost:hover { background: #f0f0f0; }
+.button.study { background: #0e6e6a; border-color: #0e6e6a; color: #ffffff; }
+.button.study:hover { background: #0b5956; }
 .feature-fig { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 14px 12px; }
 .feature-fig img { display: block; width: 100%; height: auto; border-radius: 6px; }
 .feature-fig p.finding { margin: 12px 0 0; font-size: 18px; padding-left: 14px; }
