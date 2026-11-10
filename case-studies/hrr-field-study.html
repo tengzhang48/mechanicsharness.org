@@ -493,6 +493,12 @@ body.study .lede,body.study header p{max-width:none}
 .pl-key0{fill:none;stroke:var(--c1);stroke-width:1.8;stroke-dasharray:6 4}
 .pl-ref2{fill:none;stroke:var(--c2);stroke-width:1.6}
 @media (max-width:820px){.x-big4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* poroelastic picture */
+.w-drained{fill:var(--c1);fill-opacity:.18;stroke:var(--c1);stroke-width:1.4;stroke-dasharray:5 4}
+.w-pore{fill:var(--c1);fill-opacity:.35}
+.w-lens{fill:var(--plotbg);stroke:var(--muted);stroke-width:1.4}
+.w-line{fill:none;stroke:var(--c1);stroke-width:2.2}
+.s-fig-wide{max-width:520px;margin:14px auto}.s-fig figcaption{font:13.5px/1.5 var(--sans);color:var(--muted);margin-top:6px}
 </style>
 </head>
 <body class="study">
@@ -526,7 +532,7 @@ body.study .lede,body.study header p{max-width:none}
   Rice and Rosengren in 1968. A body contains a stationary sharp crack along the negative <i>x</i> axis,
   with its tip at the origin. Symmetric opening loads pull the faces apart.
   The faces are <b>traction-free</b>: no force per unit area acts on them.
-  The body is in <b>plane strain</b>: displacement along <i>z</i>, out of the picture, is zero,
+  The body is in <a href="fracture-101.html#plane"><b>plane strain</b></a>: displacement along <i>z</i>, out of the picture, is zero,
   and the in-plane displacements do not vary along <i>z</i>.</p>
   <div class="s-two">
     <figure class="s-fig" role="img" aria-label="A stationary sharp crack along the negative x axis, opened symmetrically in plane strain, with polar coordinates centred at its tip">
@@ -2968,7 +2974,7 @@ body.study .lede,body.study header p{max-width:none}
         <b>Finite strain</b> means deformation large enough that geometry changes must be included.
         Both are outside this model, as is unloading.</li>
         <li>J fixes the amplitude even when the plastic zone is not small.
-        Computing J from a remote elastic field requires <b>small-scale yielding</b>:
+        Computing J from a remote elastic field requires <a href="fracture-101.html#ssy"><b>small-scale yielding</b></a>:
         the plastic zone must be small compared with the body&rsquo;s relevant dimensions.
         Otherwise J must come from a solution for the whole body.</li>
       </ul>

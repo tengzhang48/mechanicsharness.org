@@ -493,6 +493,12 @@ body.study .lede,body.study header p{max-width:none}
 .pl-key0{fill:none;stroke:var(--c1);stroke-width:1.8;stroke-dasharray:6 4}
 .pl-ref2{fill:none;stroke:var(--c2);stroke-width:1.6}
 @media (max-width:820px){.x-big4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* poroelastic picture */
+.w-drained{fill:var(--c1);fill-opacity:.18;stroke:var(--c1);stroke-width:1.4;stroke-dasharray:5 4}
+.w-pore{fill:var(--c1);fill-opacity:.35}
+.w-lens{fill:var(--plotbg);stroke:var(--muted);stroke-width:1.4}
+.w-line{fill:none;stroke:var(--c1);stroke-width:2.2}
+.s-fig-wide{max-width:520px;margin:14px auto}.s-fig figcaption{font:13.5px/1.5 var(--sans);color:var(--muted);margin-top:6px}
 </style>
 </head>
 <body class="study">
@@ -523,7 +529,7 @@ body.study .lede,body.study header p{max-width:none}
   <h2><span class="s-num">1</span> The problem</h2>
   <p>This is an extra exercise to the <a href="hrr-field-study.html">HRR study page</a>. The HRR field proper is the tensile (mode I) crack-tip field in a hardening material, found by Hutchinson and by Rice and Rosengren in 1968. Here the same method is applied to a crack in antiplane shear (mode III), where every step has a closed form, so you can do the whole calculation yourself.</p>
   <p>A body contains a straight slit along the negative <i>x</i> axis, with its tip at the origin.
-      It is loaded in <b>antiplane shear</b>, also called tearing or mode III: the only displacement,
+      It is loaded in <a href="fracture-101.html#modes"><b>antiplane shear</b></a>, also called tearing or mode III: the only displacement,
       <i>w</i>(<i>x</i>, <i>y</i>), is along <i>z</i>, out of the plane of the picture, and the two faces
       slide past each other along the crack front. The displacement is an <b>odd function</b> of <i>y</i>,
       meaning that reversing <i>y</i> reverses the sign of <i>w</i>. The faces are <b>traction-free</b>,
