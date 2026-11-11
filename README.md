@@ -83,6 +83,7 @@ The website itself: plain HTML and CSS, no build step, served by GitHub Pages.
 | `case-studies/crack-bridging-study.html` | A guided exercise for students on the crack bridging case |
 | `case-studies/poroelastic-crack-study.html` | A guided exercise for students on the poroelastic crack (drained tip, undrained crack) |
 | `case-studies/viscoelastic-crack-study.html` | A guided exercise for students on the viscoelastic crack (the speed-toughening curve and the strip's terminal speed) |
+| `case-studies/xia-hutchinson-film-study.html` | A guided exercise for students on thin-film cracking (channel cracks, simultaneous and sequential) |
 | `case-studies/hrr-field-study.html`, `case-studies/hrr-antiplane-study.html` | A guided exercise for students on the HRR field (mode I, plane strain), and an extra exercise in antiplane shear |
 | `case-studies/fracture-101.html` | Fracture Mechanics 101: the background the study pages use |
 | `assets/` | Style sheet, site icon and figures |
