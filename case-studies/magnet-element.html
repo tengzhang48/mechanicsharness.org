@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Magnetic elastomer element case study | MechanicsHarness</title>
+<meta name="description" content="Case study: AI coding agents wrote an Abaqus/Standard user element for a 3D magneto-viscoelastic elastomer model (Rambausek, Mukherjee and Danas 2022). What they were given, how it was judged, and how each obtained the stiffness matrix.">
+<link rel="icon" href="../assets/favicon.svg?v=crack-tip" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css?v=9f52a9da">
+<style>
+.case { display: grid; grid-template-columns: minmax(0, 1fr); gap: 36px; padding: 40px 0 64px; }
+@media (min-width: 1000px) { .case { grid-template-columns: 180px minmax(0, 1fr); gap: 48px; } }
+.rail { display: none; }
+@media (min-width: 1000px) {
+  .rail { display: block; position: sticky; top: 24px; align-self: start; font-size: 13.5px; }
+}
+.rail p { font: 700 11px/1.2 var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+.rail ol { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--line); }
+.rail li { margin: 0; }
+.rail a { display: block; padding: 5px 0 5px 12px; color: var(--muted); text-decoration: none; line-height: 1.35; }
+.rail a:hover { color: var(--ink); }
+.article { min-width: 0; }
+.article .col { max-width: 720px; }
+.eyebrow { margin: 0 0 14px; font: 700 11.5px/1.5 var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.article h1 { font-size: 40px; line-height: 1.15; letter-spacing: -1px; margin: 0 0 20px; max-width: 920px; }
+.article .lede { font-size: 18px; line-height: 1.62; color: var(--ink-soft); margin: 0 0 18px; }
+.article p, .article li { font-size: 16px; line-height: 1.65; }
+.article ul { padding-left: 20px; }
+.article li { margin-bottom: 8px; }
+.article li::marker { color: #8a8a8a; }
+.note { font-size: 14.5px; color: var(--ink-soft); }
+.article p.note { font-size: 14.5px; line-height: 1.6; }
+.jump { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 4px 0 0; font-size: 14px; }
+@media (min-width: 1000px) { .jump { display: none; } }
+.figs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 26px 0 22px; }
+@media (max-width: 860px) { .figs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.figs > div { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--ink); border-radius: 0 0 10px 10px; padding: 14px 16px 15px; min-width: 0; }
+.figs .n { font: 400 30px/1.1 var(--f-serif); margin: 0 0 6px; }
+.figs .l { font-size: 13.5px; line-height: 1.45; color: var(--muted); margin: 0; }
+.article section { border-top: 1px solid var(--line); padding-top: 30px; margin-top: 36px; }
+.article section:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
+.article sup, .article sub { line-height: 0; }
+.nowrap { white-space: nowrap; }
+.cta-line { margin: 4px 0 18px; }
+.small-note { font-size: 12px; color: var(--muted); white-space: nowrap; }
+.article h2 { font-size: 28px; line-height: 1.2; letter-spacing: -.3px; margin: 0 0 16px; max-width: 760px; }
+.article h2 .num, .step-title .num { color: var(--muted); margin-right: 10px; }
+.article h3 { font-size: 20px; line-height: 1.3; margin: 26px 0 10px; }
+blockquote.prompt { margin: 14px 0 18px; padding: 12px 18px; background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink); font: 14.5px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.table-wrap { overflow-x: auto; margin: 18px 0 8px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table.data { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.45; }
+table.data th, table.data td { text-align: left; vertical-align: top; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+table.data thead th { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 650; background: var(--paper); }
+table.data tbody tr:last-child td { border-bottom: 0; }
+table.data td.num, table.data th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+table.data td.nowrap { white-space: nowrap; }
+table.results { min-width: 860px; }
+table.tokens { min-width: 640px; }
+table.choices { min-width: 760px; }
+.table-cap { font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 0 0 18px; max-width: 900px; }
+.callout { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin: 18px 0; max-width: 720px; }
+.callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+.callout h3 { margin-top: 0; font-size: 18px; }
+.two { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; max-width: 980px; }
+@media (min-width: 900px) { .two { grid-template-columns: repeat(2, minmax(0, 1fr)); } .two .callout { margin: 0; } }
+.steps-fig { margin: 22px 0 10px; }
+.steps-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 1100px) { .steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .steps-grid { grid-template-columns: minmax(0, 1fr); } }
+.step-panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px 14px; min-width: 0; }
+.step-panel svg { display: block; width: 100%; height: auto; max-width: 300px; margin: 4px auto 8px; background: var(--panel); border-radius: 6px; }
+.step-title { font: 400 18px/1.25 var(--f-serif); margin: 0 0 4px; }
+.article p.step-cap { font-size: 13.5px; line-height: 1.5; color: var(--ink-soft); margin: 0; }
+.steps-fig figcaption { font-size: 13.5px; line-height: 1.55; color: var(--muted); margin-top: 10px; max-width: 900px; }
+.f-solid { fill: #ffffff; stroke: #2c3a44; stroke-width: 1.5; stroke-linejoin: round; }
+.f-solid-top { fill: #eef2f5; stroke: #2c3a44; stroke-width: 1.5; stroke-linejoin: round; }
+.f-solid-side { fill: #e3e9ee; stroke: #2c3a44; stroke-width: 1.5; stroke-linejoin: round; }
+.f-hidden { fill: none; stroke: #9aa5ad; stroke-width: 1.1; stroke-dasharray: 3 3; }
+.f-field { fill: none; stroke: #1f7a72; stroke-width: 2; }
+.f-field-h { fill: #1f7a72; }
+.f-load { fill: none; stroke: #2c3a44; stroke-width: 1.4; }
+.f-load-h { fill: #2c3a44; }
+.f-node circle { fill: #ffffff; stroke: #151515; stroke-width: 1.3; }
+.f-node-fixed circle { fill: #151515; }
+.f-air { fill: #ffffff; stroke: #9aa5ad; stroke-width: .6; }
+.f-part { fill: #c0562f; fill-opacity: .35; stroke: #c0562f; stroke-width: .7; }
+.f-matrix { fill: #e3e9ee; stroke: #7f8c96; stroke-width: .8; }
+.f-frame { fill: none; stroke: #2c3a44; stroke-width: 1; }
+.f-lab { font: 500 12.5px var(--f-ui); fill: #151515; }
+.f-sub { font: 500 10px var(--f-ui); }
+.f-fieldlab { fill: #1f7a72; font-style: italic; }
+@media (max-width: 700px) {
+  .case { padding-top: 28px; }
+  .article h1 { font-size: 30px; letter-spacing: -.5px; }
+  .eyebrow { font-size: 10.5px; letter-spacing: .1em; }
+  .article .lede { font-size: 16.5px; }
+  .article h2 { font-size: 24px; }
+  .figs .n { font-size: 25px; }
+}
+</style>
+</head>
+<body class="page-case">
+<header class="site">
+  <a class="brand" href="../index.html">MechanicsHarness</a>
+  <nav class="main" aria-label="Site">
+      <a href="../index.html">Home</a>
+      <a href="../evaluates.html">What it evaluates</a>
+      <a href="../building.html">How a benchmark is built</a>
+      <a href="../evaluation.html">Evaluation policy</a>
+      <a href="../get-started.html">Get started and contribute</a>
+  </nav>
+</header>
+<main class="frame">
+<div class="case">
+<nav class="rail" aria-label="Contents">
+<p>Contents</p>
+<ol>
+  <li><a href="#summary">Summary</a></li>
+  <li><a href="#problem">1 &middot; The problem</a></li>
+  <li><a href="#given">2 &middot; What the agents were given</a></li>
+  <li><a href="#judged">3 &middot; How it was judged</a></li>
+  <li><a href="#results">4 &middot; Results</a></li>
+  <li><a href="#stiffness">5 &middot; The stiffness</a></li>
+  <li><a href="#glm">6 &middot; The GLM run</a></li>
+  <li><a href="#departures">7 &middot; Where this case departs from our procedure</a></li>
+  <li><a href="#shows">8 &middot; What this shows</a></li>
+  <li><a href="#reference">For reference</a></li>
+</ol>
+</nav>
+<div class="article">
+
+<section id="summary">
+<p class="eyebrow">Multiphysics modeling case study &middot; Level 2 &middot; Agent runs of 11 November 2026</p>
+<h1>Four AI agents wrote a 3D magneto-viscoelastic user element that solves all four steps; how they obtained the stiffness set them apart</h1>
+<div class="col">
+<p class="lede">We gave four AI coding agents a task text with the complete equations of a published model for magnetic
+elastomers, the exact contract of an Abaqus/Standard user element, and public test problems with the program that runs
+them. Three wrote a correct 3D coupled element in 47 to 91 minutes: it passed all 181 checks, on the public problems and on
+hidden ones they never saw. The fourth, GLM-5.3, was cut off by its plan's usage limit after 94 minutes; resumed in the same session, it finished with an element that also solves all four steps and passes 179 of 181 checks, after 148 minutes in all. What separated them was how they obtained the stiffness matrix: one derived it
+analytically, two by finite differences, one combined the two. Agents fully solving the case is a good result. It shows
+what a guide at this level of detail lets current agents do, and guides like it can be prepared for similar problems.</p>
+</div>
+<nav class="jump" aria-label="Sections"><a href="#problem">1 The problem</a><a href="#given">2 What was given</a><a href="#judged">3 How it was judged</a><a href="#results">4 Results</a><a href="#stiffness">5 The stiffness</a><a href="#glm">6 The GLM run</a><a href="#departures">7 Departures from our procedure</a><a href="#shows">8 What this shows</a><a href="#reference">For reference</a></nav>
+<div class="figs">
+  <div><p class="n">181</p><p class="l">checks, on 12 public and 14 hidden problems in four steps</p></div>
+  <div><p class="n">3 of 4</p><p class="l">runs passed every check, in 47 to 91 minutes; the fourth passed 179</p></div>
+  <div><p class="n">1 of 4</p><p class="l">runs derived the whole stiffness analytically; two used finite differences, one a mix</p></div>
+  <div><p class="n">7 of 7</p><p class="l">deliberately wrong elements failed the checks before any agent ran</p></div>
+</div>
+<div class="col">
+<p class="note"><b>Reference work.</b> The model is from M. Rambausek, D. Mukherjee and K. Danas (2022), <i>Comput. Methods
+Appl. Mech. Engrg.</i> 391, 114500 (full reference at the end), as implemented in the authors' published FEniCS code. The
+task text, the problems, the reference solutions and the scoring are ours, written from the equations; no file of the
+authors is copied, and the task did not name the paper. The benchmark tests how agents implement a published model. It does
+not test or reproduce the authors' results, and an agent's error would not be an error in the paper.</p>
+<p class="note"><b>Status.</b> A case study of the first four runs, 11 November 2026. The <a href="magnet-element-task.html">task text</a>
+is released; the host, problems, reference and scorer are not. No expert has reviewed the benchmark. Section 7 lists where
+this case departs from our stated procedure, among them that it has not yet been sent to the source-paper authors.</p>
+</div>
+</section>
+
+<section id="problem">
+<h2><span class="num">1</span>The problem: a hard magnet in a soft, creeping matrix</h2>
+<div class="col">
+<p>The element carries a coupled problem: a soft elastomer that creeps, hard-magnetic particles that keep or switch their
+magnetization, and the air around them, which carries the magnetic field. Each of the eight nodes of the brick has three
+displacements and one magnetic scalar potential &phi;. The same element serves as particle, matrix or air, selected by a
+material flag.</p>
+<p>The field comes from the potential on the reference configuration, H = &minus;Grad &phi;. The stress P = &part;&psi;/&part;F
+and the magnetic flux B = &minus;&part;&psi;/&part;H both follow from one energy density &psi;, so the stress includes the
+magnetic (Maxwell) part, and the element solves two balance laws, Div P = 0 and Div B = 0. Every material has an elastic
+energy, a hyperelastic solid with a volumetric penalty; air and matrix add the magnetic energy of free space, the particle
+its own magnetic energy.</p>
+<p>Two internal variables give the model its memory. In the matrix, a viscous tensor C<sub>v</sub> relaxes toward the
+current deformation with the time scale &eta;/g = 0.067 s; the time increments of some problems are not small compared with
+it. In the particle, the remanent field H<sub>r</sub> behaves like a plastic strain of magnetism: it stays fixed while its
+driving force b<sub>r</sub> lies inside the switching surface |b<sub>r</sub>| = b<sub>c</sub>, changes only while the field
+holds b<sub>r</sub> on that surface, and saturates as |H<sub>r</sub>| approaches m<sub>s</sub>. This makes the particle a
+hard magnet: it keeps its magnetization when the field is removed, and only a large enough reversed field switches it.</p>
+<p>The element returns the residual and the full 32 by 32 stiffness matrix, including how the updated internal variables
+depend on the nodal values. The quadrature is prescribed, so that results on a given mesh are comparable: 2 &times; 2
+&times; 2 Gauss points for every term except the volumetric one, which is evaluated at the centroid.</p>
+<p>A host program runs the element in four steps of growing scope (Figure 1). In steps 1 and 2 every nodal value is
+prescribed and nothing is solved, so the stress, flux, internal variables and stiffness are compared directly. In steps 3
+and 4 the host solves by Newton's method with the element's own stiffness, so an inconsistent stiffness shows up as a solve
+that fails.</p>
+</div>
+<figure class="steps-fig" id="fig-steps">
+<div class="steps-grid">
+<div class="step-panel">
+<p class="step-title"><span class="num">1</span>A material point</p>
+<svg viewBox="0 0 240 200" role="img" aria-label="One cube element with a uniform field H and stretch F" xmlns="http://www.w3.org/2000/svg"><path class="f-solid" d="M70.0 70.0L150.0 70.0L150.0 150.0L70.0 150.0Z"/><path class="f-solid-top" d="M70.0 70.0L104.0 44.0L184.0 44.0L150.0 70.0Z"/><path class="f-solid-side" d="M150.0 70.0L184.0 44.0L184.0 124.0L150.0 150.0Z"/><path class="f-hidden" d="M104.0 124.0L104.0 44.0M104.0 124.0L184.0 124.0M104.0 124.0L70.0 150.0"/><path class="f-field" d="M14.0 118.0L220.0 118.0"/><path class="f-field-h" d="M226.0 118.0L220.0 121.0L220.0 115.0Z"/><text class="f-lab f-fieldlab" x="18" y="108">H</text><path class="f-load" d="M60.0 160.0L39.0 160.0"/><path class="f-load-h" d="M34.0 160.0L39.0 157.5L39.0 162.5Z"/><path class="f-load" d="M160.0 160.0L195.0 160.0"/><path class="f-load-h" d="M200.0 160.0L195.0 162.5L195.0 157.5Z"/><text class="f-lab" x="110" y="182" text-anchor="middle">F and H uniform, prescribed</text><g class="f-node"><circle cx="70.0" cy="70.0" r="3"/><circle cx="150.0" cy="70.0" r="3"/><circle cx="150.0" cy="150.0" r="3"/><circle cx="70.0" cy="150.0" r="3"/><circle cx="104.0" cy="44.0" r="3"/><circle cx="184.0" cy="44.0" r="3"/><circle cx="184.0" cy="124.0" r="3"/><circle cx="104.0" cy="124.0" r="3"/></g></svg>
+<p class="step-cap">One cube element in a uniform deformation and field. A field of up to &plusmn;3 T is cycled on the particle; a stretched matrix relaxes; a transverse field and a rigid rotation follow. Nothing is solved.</p>
+</div>
+<div class="step-panel">
+<p class="step-title"><span class="num">2</span>One distorted element</p>
+<svg viewBox="0 0 240 200" role="img" aria-label="A distorted brick element with prescribed values at its eight nodes" xmlns="http://www.w3.org/2000/svg"><path class="f-solid" d="M58.0 78.0L146.0 66.0L156.0 152.0L66.0 160.0Z"/><path class="f-solid-top" d="M58.0 78.0L96.0 42.0L186.0 34.0L146.0 66.0Z"/><path class="f-solid-side" d="M146.0 66.0L186.0 34.0L194.0 118.0L156.0 152.0Z"/><path class="f-hidden" d="M102.0 126.0L96.0 42.0M102.0 126.0L194.0 118.0M102.0 126.0L66.0 160.0"/><path class="f-load" d="M58.0 78.0L47.9 83.8"/><path class="f-load-h" d="M44.0 86.0L46.8 81.8L49.0 85.7Z"/><path class="f-load" d="M146.0 66.0L155.7 63.2"/><path class="f-load-h" d="M160.0 62.0L156.3 65.4L155.1 61.1Z"/><path class="f-load" d="M156.0 152.0L164.8 160.8"/><path class="f-load-h" d="M168.0 164.0L163.2 162.4L166.4 159.2Z"/><path class="f-load" d="M66.0 160.0L57.2 168.8"/><path class="f-load-h" d="M54.0 172.0L55.6 167.2L58.8 170.4Z"/><path class="f-load" d="M96.0 42.0L88.9 33.5"/><path class="f-load-h" d="M86.0 30.0L90.6 32.0L87.2 34.9Z"/><path class="f-load" d="M186.0 34.0L196.3 26.6"/><path class="f-load-h" d="M200.0 24.0L197.6 28.4L195.0 24.8Z"/><path class="f-load" d="M194.0 118.0L203.9 122.2"/><path class="f-load-h" d="M208.0 124.0L203.0 124.3L204.8 120.2Z"/><path class="f-load" d="M102.0 126.0L99.2 135.7"/><path class="f-load-h" d="M98.0 140.0L97.1 135.1L101.4 136.3Z"/><g class="f-node"><circle cx="58.0" cy="78.0" r="3.2"/><circle cx="146.0" cy="66.0" r="3.2"/><circle cx="156.0" cy="152.0" r="3.2"/><circle cx="66.0" cy="160.0" r="3.2"/><circle cx="96.0" cy="42.0" r="3.2"/><circle cx="186.0" cy="34.0" r="3.2"/><circle cx="194.0" cy="118.0" r="3.2"/><circle cx="102.0" cy="126.0" r="3.2"/></g><text class="f-lab" x="120" y="182" text-anchor="middle">u and &#966; prescribed at 8 nodes</text></svg>
+<p class="step-cap">All nodal displacements and potentials prescribed. Nodal forces and fluxes, the stiffness against the element&rsquo;s own residual, and two objectivity tests, for air, matrix and particle.</p>
+</div>
+<div class="step-panel">
+<p class="step-title"><span class="num">3</span>A magnetized sphere in air</p>
+<svg viewBox="0 0 240 200" role="img" aria-label="Mid-plane of the supplied sphere mesh: air elements around the faceted particle, and the applied field" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="clip-sphere"><rect x="30.0" y="8.0" width="160.0" height="160.0"/></clipPath></defs><g clip-path="url(#clip-sphere)"><path class="f-air" d="M69.3 115.2L72.1 125.9L86.4 111.6L82.3 106.5ZM67.2 105.7L69.3 115.2L82.3 106.5L79.2 100.8ZM66.0 96.8L67.2 105.7L79.2 100.8L77.3 94.5ZM65.6 88.0L66.0 96.8L77.3 94.5L76.7 88.0ZM66.0 79.2L65.6 88.0L76.7 88.0L77.3 81.5ZM67.2 70.3L66.0 79.2L77.3 81.5L79.2 75.2ZM69.3 60.8L67.2 70.3L79.2 75.2L82.3 69.5ZM72.1 50.1L69.3 60.8L82.3 69.5L86.4 64.4ZM137.7 106.5L133.6 111.6L147.9 125.9L150.7 115.2ZM140.8 100.8L137.7 106.5L150.7 115.2L152.8 105.7ZM142.7 94.5L140.8 100.8L152.8 105.7L154.0 96.8ZM143.3 88.0L142.7 94.5L154.0 96.8L154.4 88.0ZM142.7 81.5L143.3 88.0L154.4 88.0L154.0 79.2ZM140.8 75.2L142.7 81.5L154.0 79.2L152.8 70.3ZM137.7 69.5L140.8 75.2L152.8 70.3L150.7 60.8ZM133.6 64.4L137.7 69.5L150.7 60.8L147.9 50.1ZM72.1 125.9L82.8 128.7L91.5 115.7L86.4 111.6ZM82.8 128.7L92.3 130.8L97.2 118.8L91.5 115.7ZM92.3 130.8L101.2 132.0L103.5 120.7L97.2 118.8ZM101.2 132.0L110.0 132.4L110.0 121.3L103.5 120.7ZM110.0 132.4L118.8 132.0L116.5 120.7L110.0 121.3ZM118.8 132.0L127.7 130.8L122.8 118.8L116.5 120.7ZM127.7 130.8L137.2 128.7L128.5 115.7L122.8 118.8ZM137.2 128.7L147.9 125.9L133.6 111.6L128.5 115.7ZM86.4 64.4L91.5 60.3L82.8 47.3L72.1 50.1ZM91.5 60.3L97.2 57.2L92.3 45.2L82.8 47.3ZM97.2 57.2L103.5 55.3L101.2 44.0L92.3 45.2ZM103.5 55.3L110.0 54.7L110.0 43.6L101.2 44.0ZM110.0 54.7L116.5 55.3L118.8 44.0L110.0 43.6ZM116.5 55.3L122.8 57.2L127.7 45.2L118.8 44.0ZM122.8 57.2L128.5 60.3L137.2 47.3L127.7 45.2ZM128.5 60.3L133.6 64.4L147.9 50.1L137.2 47.3ZM56.3 123.9L57.7 140.3L72.1 125.9L69.3 115.2ZM55.3 110.7L56.3 123.9L69.3 115.2L67.2 105.7ZM54.7 99.0L55.3 110.7L67.2 105.7L66.0 96.8ZM54.4 88.0L54.7 99.0L66.0 96.8L65.6 88.0ZM54.7 77.0L54.4 88.0L65.6 88.0L66.0 79.2ZM55.3 65.3L54.7 77.0L66.0 79.2L67.2 70.3ZM56.3 52.1L55.3 65.3L67.2 70.3L69.3 60.8ZM57.7 35.7L56.3 52.1L69.3 60.8L72.1 50.1ZM150.7 115.2L147.9 125.9L162.3 140.3L163.7 123.9ZM152.8 105.7L150.7 115.2L163.7 123.9L164.7 110.7ZM154.0 96.8L152.8 105.7L164.7 110.7L165.3 99.0ZM154.4 88.0L154.0 96.8L165.3 99.0L165.6 88.0ZM154.0 79.2L154.4 88.0L165.6 88.0L165.3 77.0ZM152.8 70.3L154.0 79.2L165.3 77.0L164.7 65.3ZM150.7 60.8L152.8 70.3L164.7 65.3L163.7 52.1ZM147.9 50.1L150.7 60.8L163.7 52.1L162.3 35.7ZM57.7 140.3L74.1 141.7L82.8 128.7L72.1 125.9ZM74.1 141.7L87.3 142.7L92.3 130.8L82.8 128.7ZM87.3 142.7L99.0 143.3L101.2 132.0L92.3 130.8ZM99.0 143.3L110.0 143.6L110.0 132.4L101.2 132.0ZM110.0 143.6L121.0 143.3L118.8 132.0L110.0 132.4ZM121.0 143.3L132.7 142.7L127.7 130.8L118.8 132.0ZM132.7 142.7L145.9 141.7L137.2 128.7L127.7 130.8ZM145.9 141.7L162.3 140.3L147.9 125.9L137.2 128.7ZM72.1 50.1L82.8 47.3L74.1 34.3L57.7 35.7ZM82.8 47.3L92.3 45.2L87.3 33.3L74.1 34.3ZM92.3 45.2L101.2 44.0L99.0 32.7L87.3 33.3ZM101.2 44.0L110.0 43.6L110.0 32.4L99.0 32.7ZM110.0 43.6L118.8 44.0L121.0 32.7L110.0 32.4ZM118.8 44.0L127.7 45.2L132.7 33.3L121.0 32.7ZM127.7 45.2L137.2 47.3L145.9 34.3L132.7 33.3ZM137.2 47.3L147.9 50.1L162.3 35.7L145.9 34.3ZM43.3 132.5L43.3 154.7L57.7 140.3L56.3 123.9ZM43.3 115.6L43.3 132.5L56.3 123.9L55.3 110.7ZM43.3 101.3L43.3 115.6L55.3 110.7L54.7 99.0ZM43.3 88.0L43.3 101.3L54.7 99.0L54.4 88.0ZM43.3 74.7L43.3 88.0L54.4 88.0L54.7 77.0ZM43.3 60.4L43.3 74.7L54.7 77.0L55.3 65.3ZM43.3 43.5L43.3 60.4L55.3 65.3L56.3 52.1ZM43.3 21.3L43.3 43.5L56.3 52.1L57.7 35.7ZM163.7 123.9L162.3 140.3L176.7 154.7L176.7 132.5ZM164.7 110.7L163.7 123.9L176.7 132.5L176.7 115.6ZM165.3 99.0L164.7 110.7L176.7 115.6L176.7 101.3ZM165.6 88.0L165.3 99.0L176.7 101.3L176.7 88.0ZM165.3 77.0L165.6 88.0L176.7 88.0L176.7 74.7ZM164.7 65.3L165.3 77.0L176.7 74.7L176.7 60.4ZM163.7 52.1L164.7 65.3L176.7 60.4L176.7 43.5ZM162.3 35.7L163.7 52.1L176.7 43.5L176.7 21.3ZM43.3 154.7L65.5 154.7L74.1 141.7L57.7 140.3ZM65.5 154.7L82.4 154.7L87.3 142.7L74.1 141.7ZM82.4 154.7L96.7 154.7L99.0 143.3L87.3 142.7ZM96.7 154.7L110.0 154.7L110.0 143.6L99.0 143.3ZM110.0 154.7L123.3 154.7L121.0 143.3L110.0 143.6ZM123.3 154.7L137.6 154.7L132.7 142.7L121.0 143.3ZM137.6 154.7L154.5 154.7L145.9 141.7L132.7 142.7ZM154.5 154.7L176.7 154.7L162.3 140.3L145.9 141.7ZM57.7 35.7L74.1 34.3L65.5 21.3L43.3 21.3ZM74.1 34.3L87.3 33.3L82.4 21.3L65.5 21.3ZM87.3 33.3L99.0 32.7L96.7 21.3L82.4 21.3ZM99.0 32.7L110.0 32.4L110.0 21.3L96.7 21.3ZM110.0 32.4L121.0 32.7L123.3 21.3L110.0 21.3ZM121.0 32.7L132.7 33.3L137.6 21.3L123.3 21.3ZM132.7 33.3L145.9 34.3L154.5 21.3L137.6 21.3ZM145.9 34.3L162.3 35.7L176.7 21.3L154.5 21.3ZM30.7 141.0L30.7 167.3L43.3 154.7L43.3 132.5ZM30.7 120.9L30.7 141.0L43.3 132.5L43.3 115.6ZM30.7 103.8L30.7 120.9L43.3 115.6L43.3 101.3ZM30.7 88.0L30.7 103.8L43.3 101.3L43.3 88.0ZM30.7 72.2L30.7 88.0L43.3 88.0L43.3 74.7ZM30.7 55.1L30.7 72.2L43.3 74.7L43.3 60.4ZM30.7 35.0L30.7 55.1L43.3 60.4L43.3 43.5ZM30.7 8.7L30.7 35.0L43.3 43.5L43.3 21.3ZM176.7 132.5L176.7 154.7L189.3 167.3L189.3 141.0ZM176.7 115.6L176.7 132.5L189.3 141.0L189.3 120.9ZM176.7 101.3L176.7 115.6L189.3 120.9L189.3 103.8ZM176.7 88.0L176.7 101.3L189.3 103.8L189.3 88.0ZM176.7 74.7L176.7 88.0L189.3 88.0L189.3 72.2ZM176.7 60.4L176.7 74.7L189.3 72.2L189.3 55.1ZM176.7 43.5L176.7 60.4L189.3 55.1L189.3 35.0ZM176.7 21.3L176.7 43.5L189.3 35.0L189.3 8.7ZM30.7 167.3L57.0 167.3L65.5 154.7L43.3 154.7ZM57.0 167.3L77.1 167.3L82.4 154.7L65.5 154.7ZM77.1 167.3L94.2 167.3L96.7 154.7L82.4 154.7ZM94.2 167.3L110.0 167.3L110.0 154.7L96.7 154.7ZM110.0 167.3L125.8 167.3L123.3 154.7L110.0 154.7ZM125.8 167.3L142.9 167.3L137.6 154.7L123.3 154.7ZM142.9 167.3L163.0 167.3L154.5 154.7L137.6 154.7ZM163.0 167.3L189.3 167.3L176.7 154.7L154.5 154.7ZM43.3 21.3L65.5 21.3L57.0 8.7L30.7 8.7ZM65.5 21.3L82.4 21.3L77.1 8.7L57.0 8.7ZM82.4 21.3L96.7 21.3L94.2 8.7L77.1 8.7ZM96.7 21.3L110.0 21.3L110.0 8.7L94.2 8.7ZM110.0 21.3L123.3 21.3L125.8 8.7L110.0 8.7ZM123.3 21.3L137.6 21.3L142.9 8.7L125.8 8.7ZM137.6 21.3L154.5 21.3L163.0 8.7L142.9 8.7ZM154.5 21.3L176.7 21.3L189.3 8.7L163.0 8.7ZM10.4 154.6L10.4 187.6L30.7 167.3L30.7 141.0ZM10.4 129.3L10.4 154.6L30.7 141.0L30.7 120.9ZM10.4 107.8L10.4 129.3L30.7 120.9L30.7 103.8ZM10.4 88.0L10.4 107.8L30.7 103.8L30.7 88.0ZM10.4 68.2L10.4 88.0L30.7 88.0L30.7 72.2ZM10.4 46.7L10.4 68.2L30.7 72.2L30.7 55.1ZM10.4 21.4L10.4 46.7L30.7 55.1L30.7 35.0ZM10.4 -11.6L10.4 21.4L30.7 35.0L30.7 8.7ZM189.3 141.0L189.3 167.3L209.6 187.6L209.6 154.6ZM189.3 120.9L189.3 141.0L209.6 154.6L209.6 129.3ZM189.3 103.8L189.3 120.9L209.6 129.3L209.6 107.8ZM189.3 88.0L189.3 103.8L209.6 107.8L209.6 88.0ZM189.3 72.2L189.3 88.0L209.6 88.0L209.6 68.2ZM189.3 55.1L189.3 72.2L209.6 68.2L209.6 46.7ZM189.3 35.0L189.3 55.1L209.6 46.7L209.6 21.4ZM189.3 8.7L189.3 35.0L209.6 21.4L209.6 -11.6ZM10.4 187.6L43.4 187.6L57.0 167.3L30.7 167.3ZM43.4 187.6L68.7 187.6L77.1 167.3L57.0 167.3ZM68.7 187.6L90.2 187.6L94.2 167.3L77.1 167.3ZM90.2 187.6L110.0 187.6L110.0 167.3L94.2 167.3ZM110.0 187.6L129.8 187.6L125.8 167.3L110.0 167.3ZM129.8 187.6L151.3 187.6L142.9 167.3L125.8 167.3ZM151.3 187.6L176.6 187.6L163.0 167.3L142.9 167.3ZM176.6 187.6L209.6 187.6L189.3 167.3L163.0 167.3ZM30.7 8.7L57.0 8.7L43.4 -11.6L10.4 -11.6ZM57.0 8.7L77.1 8.7L68.7 -11.6L43.4 -11.6ZM77.1 8.7L94.2 8.7L90.2 -11.6L68.7 -11.6ZM94.2 8.7L110.0 8.7L110.0 -11.6L90.2 -11.6ZM110.0 8.7L125.8 8.7L129.8 -11.6L110.0 -11.6ZM125.8 8.7L142.9 8.7L151.3 -11.6L129.8 -11.6ZM142.9 8.7L163.0 8.7L176.6 -11.6L151.3 -11.6ZM163.0 8.7L189.3 8.7L209.6 -11.6L176.6 -11.6ZM-22.1 176.3L-22.1 220.1L10.4 187.6L10.4 154.6ZM-22.1 142.7L-22.1 176.3L10.4 154.6L10.4 129.3ZM-22.1 114.3L-22.1 142.7L10.4 129.3L10.4 107.8ZM-22.1 88.0L-22.1 114.3L10.4 107.8L10.4 88.0ZM-22.1 61.7L-22.1 88.0L10.4 88.0L10.4 68.2ZM-22.1 33.3L-22.1 61.7L10.4 68.2L10.4 46.7ZM-22.1 -0.3L-22.1 33.3L10.4 46.7L10.4 21.4ZM-22.1 -44.1L-22.1 -0.3L10.4 21.4L10.4 -11.6ZM209.6 154.6L209.6 187.6L242.1 220.1L242.1 176.3ZM209.6 129.3L209.6 154.6L242.1 176.3L242.1 142.7ZM209.6 107.8L209.6 129.3L242.1 142.7L242.1 114.3ZM209.6 88.0L209.6 107.8L242.1 114.3L242.1 88.0ZM209.6 68.2L209.6 88.0L242.1 88.0L242.1 61.7ZM209.6 46.7L209.6 68.2L242.1 61.7L242.1 33.3ZM209.6 21.4L209.6 46.7L242.1 33.3L242.1 -0.3ZM209.6 -11.6L209.6 21.4L242.1 -0.3L242.1 -44.1ZM-22.1 220.1L21.7 220.1L43.4 187.6L10.4 187.6ZM21.7 220.1L55.3 220.1L68.7 187.6L43.4 187.6ZM55.3 220.1L83.7 220.1L90.2 187.6L68.7 187.6ZM83.7 220.1L110.0 220.1L110.0 187.6L90.2 187.6ZM110.0 220.1L136.3 220.1L129.8 187.6L110.0 187.6ZM136.3 220.1L164.7 220.1L151.3 187.6L129.8 187.6ZM164.7 220.1L198.3 220.1L176.6 187.6L151.3 187.6ZM198.3 220.1L242.1 220.1L209.6 187.6L176.6 187.6ZM10.4 -11.6L43.4 -11.6L21.7 -44.1L-22.1 -44.1ZM43.4 -11.6L68.7 -11.6L55.3 -44.1L21.7 -44.1ZM68.7 -11.6L90.2 -11.6L83.7 -44.1L55.3 -44.1ZM90.2 -11.6L110.0 -11.6L110.0 -44.1L83.7 -44.1ZM110.0 -11.6L129.8 -11.6L136.3 -44.1L110.0 -44.1ZM129.8 -11.6L151.3 -11.6L164.7 -44.1L136.3 -44.1ZM151.3 -11.6L176.6 -11.6L198.3 -44.1L164.7 -44.1ZM176.6 -11.6L209.6 -11.6L242.1 -44.1L198.3 -44.1ZM-74.0 210.9L-74.0 272.0L-22.1 220.1L-22.1 176.3ZM-74.0 164.2L-74.0 210.9L-22.1 176.3L-22.1 142.7ZM-74.0 124.6L-74.0 164.2L-22.1 142.7L-22.1 114.3ZM-74.0 88.0L-74.0 124.6L-22.1 114.3L-22.1 88.0ZM-74.0 51.4L-74.0 88.0L-22.1 88.0L-22.1 61.7ZM-74.0 11.8L-74.0 51.4L-22.1 61.7L-22.1 33.3ZM-74.0 -34.9L-74.0 11.8L-22.1 33.3L-22.1 -0.3ZM-74.0 -96.0L-74.0 -34.9L-22.1 -0.3L-22.1 -44.1ZM242.1 176.3L242.1 220.1L294.0 272.0L294.0 210.9ZM242.1 142.7L242.1 176.3L294.0 210.9L294.0 164.2ZM242.1 114.3L242.1 142.7L294.0 164.2L294.0 124.6ZM242.1 88.0L242.1 114.3L294.0 124.6L294.0 88.0ZM242.1 61.7L242.1 88.0L294.0 88.0L294.0 51.4ZM242.1 33.3L242.1 61.7L294.0 51.4L294.0 11.8ZM242.1 -0.3L242.1 33.3L294.0 11.8L294.0 -34.9ZM242.1 -44.1L242.1 -0.3L294.0 -34.9L294.0 -96.0ZM-74.0 272.0L-12.9 272.0L21.7 220.1L-22.1 220.1ZM-12.9 272.0L33.8 272.0L55.3 220.1L21.7 220.1ZM33.8 272.0L73.4 272.0L83.7 220.1L55.3 220.1ZM73.4 272.0L110.0 272.0L110.0 220.1L83.7 220.1ZM110.0 272.0L146.6 272.0L136.3 220.1L110.0 220.1ZM146.6 272.0L186.2 272.0L164.7 220.1L136.3 220.1ZM186.2 272.0L232.9 272.0L198.3 220.1L164.7 220.1ZM232.9 272.0L294.0 272.0L242.1 220.1L198.3 220.1ZM-22.1 -44.1L21.7 -44.1L-12.9 -96.0L-74.0 -96.0ZM21.7 -44.1L55.3 -44.1L33.8 -96.0L-12.9 -96.0ZM55.3 -44.1L83.7 -44.1L73.4 -96.0L33.8 -96.0ZM83.7 -44.1L110.0 -44.1L110.0 -96.0L73.4 -96.0ZM110.0 -44.1L136.3 -44.1L146.6 -96.0L110.0 -96.0ZM136.3 -44.1L164.7 -44.1L186.2 -96.0L146.6 -96.0ZM164.7 -44.1L198.3 -44.1L232.9 -96.0L186.2 -96.0ZM198.3 -44.1L242.1 -44.1L294.0 -96.0L232.9 -96.0ZM-157.1 266.5L-157.1 355.1L-74.0 272.0L-74.0 210.9ZM-157.1 198.6L-157.1 266.5L-74.0 210.9L-74.0 164.2ZM-157.1 141.1L-157.1 198.6L-74.0 164.2L-74.0 124.6ZM-157.1 88.0L-157.1 141.1L-74.0 124.6L-74.0 88.0ZM-157.1 34.9L-157.1 88.0L-74.0 88.0L-74.0 51.4ZM-157.1 -22.6L-157.1 34.9L-74.0 51.4L-74.0 11.8ZM-157.1 -90.5L-157.1 -22.6L-74.0 11.8L-74.0 -34.9ZM-157.1 -179.1L-157.1 -90.5L-74.0 -34.9L-74.0 -96.0ZM294.0 210.9L294.0 272.0L377.1 355.1L377.1 266.5ZM294.0 164.2L294.0 210.9L377.1 266.5L377.1 198.6ZM294.0 124.6L294.0 164.2L377.1 198.6L377.1 141.1ZM294.0 88.0L294.0 124.6L377.1 141.1L377.1 88.0ZM294.0 51.4L294.0 88.0L377.1 88.0L377.1 34.9ZM294.0 11.8L294.0 51.4L377.1 34.9L377.1 -22.6ZM294.0 -34.9L294.0 11.8L377.1 -22.6L377.1 -90.5ZM294.0 -96.0L294.0 -34.9L377.1 -90.5L377.1 -179.1ZM-157.1 355.1L-68.5 355.1L-12.9 272.0L-74.0 272.0ZM-68.5 355.1L-0.6 355.1L33.8 272.0L-12.9 272.0ZM-0.6 355.1L56.9 355.1L73.4 272.0L33.8 272.0ZM56.9 355.1L110.0 355.1L110.0 272.0L73.4 272.0ZM110.0 355.1L163.1 355.1L146.6 272.0L110.0 272.0ZM163.1 355.1L220.6 355.1L186.2 272.0L146.6 272.0ZM220.6 355.1L288.5 355.1L232.9 272.0L186.2 272.0ZM288.5 355.1L377.1 355.1L294.0 272.0L232.9 272.0ZM-74.0 -96.0L-12.9 -96.0L-68.5 -179.1L-157.1 -179.1ZM-12.9 -96.0L33.8 -96.0L-0.6 -179.1L-68.5 -179.1ZM33.8 -96.0L73.4 -96.0L56.9 -179.1L-0.6 -179.1ZM73.4 -96.0L110.0 -96.0L110.0 -179.1L56.9 -179.1ZM110.0 -96.0L146.6 -96.0L163.1 -179.1L110.0 -179.1ZM146.6 -96.0L186.2 -96.0L220.6 -179.1L163.1 -179.1ZM186.2 -96.0L232.9 -96.0L288.5 -179.1L220.6 -179.1ZM232.9 -96.0L294.0 -96.0L377.1 -179.1L288.5 -179.1ZM-290.0 355.3L-290.0 488.0L-157.1 355.1L-157.1 266.5ZM-290.0 253.7L-290.0 355.3L-157.1 266.5L-157.1 198.6ZM-290.0 167.6L-290.0 253.7L-157.1 198.6L-157.1 141.1ZM-290.0 88.0L-290.0 167.6L-157.1 141.1L-157.1 88.0ZM-290.0 8.4L-290.0 88.0L-157.1 88.0L-157.1 34.9ZM-290.0 -77.7L-290.0 8.4L-157.1 34.9L-157.1 -22.6ZM-290.0 -179.3L-290.0 -77.7L-157.1 -22.6L-157.1 -90.5ZM-290.0 -312.0L-290.0 -179.3L-157.1 -90.5L-157.1 -179.1ZM377.1 266.5L377.1 355.1L510.0 488.0L510.0 355.3ZM377.1 198.6L377.1 266.5L510.0 355.3L510.0 253.7ZM377.1 141.1L377.1 198.6L510.0 253.7L510.0 167.6ZM377.1 88.0L377.1 141.1L510.0 167.6L510.0 88.0ZM377.1 34.9L377.1 88.0L510.0 88.0L510.0 8.4ZM377.1 -22.6L377.1 34.9L510.0 8.4L510.0 -77.7ZM377.1 -90.5L377.1 -22.6L510.0 -77.7L510.0 -179.3ZM377.1 -179.1L377.1 -90.5L510.0 -179.3L510.0 -312.0ZM-290.0 488.0L-157.3 488.0L-68.5 355.1L-157.1 355.1ZM-157.3 488.0L-55.7 488.0L-0.6 355.1L-68.5 355.1ZM-55.7 488.0L30.4 488.0L56.9 355.1L-0.6 355.1ZM30.4 488.0L110.0 488.0L110.0 355.1L56.9 355.1ZM110.0 488.0L189.6 488.0L163.1 355.1L110.0 355.1ZM189.6 488.0L275.7 488.0L220.6 355.1L163.1 355.1ZM275.7 488.0L377.3 488.0L288.5 355.1L220.6 355.1ZM377.3 488.0L510.0 488.0L377.1 355.1L288.5 355.1ZM-157.1 -179.1L-68.5 -179.1L-157.3 -312.0L-290.0 -312.0ZM-68.5 -179.1L-0.6 -179.1L-55.7 -312.0L-157.3 -312.0ZM-0.6 -179.1L56.9 -179.1L30.4 -312.0L-55.7 -312.0ZM56.9 -179.1L110.0 -179.1L110.0 -312.0L30.4 -312.0ZM110.0 -179.1L163.1 -179.1L189.6 -312.0L110.0 -312.0ZM163.1 -179.1L220.6 -179.1L275.7 -312.0L189.6 -312.0ZM220.6 -179.1L288.5 -179.1L377.3 -312.0L275.7 -312.0ZM288.5 -179.1L377.1 -179.1L510.0 -312.0L377.3 -312.0Z"/><path class="f-part" d="M95.0 103.0L100.0 103.0L100.0 98.0L95.0 98.0ZM95.0 98.0L100.0 98.0L100.0 94.2L95.0 94.2ZM95.0 94.2L100.0 94.2L100.0 91.0L95.0 91.0ZM95.0 91.0L100.0 91.0L100.0 88.0L95.0 88.0ZM95.0 88.0L100.0 88.0L100.0 85.0L95.0 85.0ZM95.0 85.0L100.0 85.0L100.0 81.8L95.0 81.8ZM95.0 81.8L100.0 81.8L100.0 78.0L95.0 78.0ZM95.0 78.0L100.0 78.0L100.0 73.0L95.0 73.0ZM100.0 103.0L103.8 103.0L103.8 98.0L100.0 98.0ZM100.0 98.0L103.8 98.0L103.8 94.2L100.0 94.2ZM100.0 94.2L103.8 94.2L103.8 91.0L100.0 91.0ZM100.0 91.0L103.8 91.0L103.8 88.0L100.0 88.0ZM100.0 88.0L103.8 88.0L103.8 85.0L100.0 85.0ZM100.0 85.0L103.8 85.0L103.8 81.8L100.0 81.8ZM100.0 81.8L103.8 81.8L103.8 78.0L100.0 78.0ZM100.0 78.0L103.8 78.0L103.8 73.0L100.0 73.0ZM103.8 103.0L107.0 103.0L107.0 98.0L103.8 98.0ZM103.8 98.0L107.0 98.0L107.0 94.2L103.8 94.2ZM103.8 94.2L107.0 94.2L107.0 91.0L103.8 91.0ZM103.8 91.0L107.0 91.0L107.0 88.0L103.8 88.0ZM103.8 88.0L107.0 88.0L107.0 85.0L103.8 85.0ZM103.8 85.0L107.0 85.0L107.0 81.8L103.8 81.8ZM103.8 81.8L107.0 81.8L107.0 78.0L103.8 78.0ZM103.8 78.0L107.0 78.0L107.0 73.0L103.8 73.0ZM107.0 103.0L110.0 103.0L110.0 98.0L107.0 98.0ZM107.0 98.0L110.0 98.0L110.0 94.2L107.0 94.2ZM107.0 94.2L110.0 94.2L110.0 91.0L107.0 91.0ZM107.0 91.0L110.0 91.0L110.0 88.0L107.0 88.0ZM107.0 88.0L110.0 88.0L110.0 85.0L107.0 85.0ZM107.0 85.0L110.0 85.0L110.0 81.8L107.0 81.8ZM107.0 81.8L110.0 81.8L110.0 78.0L107.0 78.0ZM107.0 78.0L110.0 78.0L110.0 73.0L107.0 73.0ZM110.0 103.0L113.0 103.0L113.0 98.0L110.0 98.0ZM110.0 98.0L113.0 98.0L113.0 94.2L110.0 94.2ZM110.0 94.2L113.0 94.2L113.0 91.0L110.0 91.0ZM110.0 91.0L113.0 91.0L113.0 88.0L110.0 88.0ZM110.0 88.0L113.0 88.0L113.0 85.0L110.0 85.0ZM110.0 85.0L113.0 85.0L113.0 81.8L110.0 81.8ZM110.0 81.8L113.0 81.8L113.0 78.0L110.0 78.0ZM110.0 78.0L113.0 78.0L113.0 73.0L110.0 73.0ZM113.0 103.0L116.2 103.0L116.2 98.0L113.0 98.0ZM113.0 98.0L116.2 98.0L116.2 94.2L113.0 94.2ZM113.0 94.2L116.2 94.2L116.2 91.0L113.0 91.0ZM113.0 91.0L116.2 91.0L116.2 88.0L113.0 88.0ZM113.0 88.0L116.2 88.0L116.2 85.0L113.0 85.0ZM113.0 85.0L116.2 85.0L116.2 81.8L113.0 81.8ZM113.0 81.8L116.2 81.8L116.2 78.0L113.0 78.0ZM113.0 78.0L116.2 78.0L116.2 73.0L113.0 73.0ZM116.2 103.0L120.0 103.0L120.0 98.0L116.2 98.0ZM116.2 98.0L120.0 98.0L120.0 94.2L116.2 94.2ZM116.2 94.2L120.0 94.2L120.0 91.0L116.2 91.0ZM116.2 91.0L120.0 91.0L120.0 88.0L116.2 88.0ZM116.2 88.0L120.0 88.0L120.0 85.0L116.2 85.0ZM116.2 85.0L120.0 85.0L120.0 81.8L116.2 81.8ZM116.2 81.8L120.0 81.8L120.0 78.0L116.2 78.0ZM116.2 78.0L120.0 78.0L120.0 73.0L116.2 73.0ZM120.0 103.0L125.0 103.0L125.0 98.0L120.0 98.0ZM120.0 98.0L125.0 98.0L125.0 94.2L120.0 94.2ZM120.0 94.2L125.0 94.2L125.0 91.0L120.0 91.0ZM120.0 91.0L125.0 91.0L125.0 88.0L120.0 88.0ZM120.0 88.0L125.0 88.0L125.0 85.0L120.0 85.0ZM120.0 85.0L125.0 85.0L125.0 81.8L120.0 81.8ZM120.0 81.8L125.0 81.8L125.0 78.0L120.0 78.0ZM120.0 78.0L125.0 78.0L125.0 73.0L120.0 73.0ZM90.8 100.9L92.1 105.9L95.0 103.0L95.0 98.0ZM89.7 96.4L90.8 100.9L95.0 98.0L95.0 94.2ZM89.1 92.2L89.7 96.4L95.0 94.2L95.0 91.0ZM88.9 88.0L89.1 92.2L95.0 91.0L95.0 88.0ZM89.1 83.8L88.9 88.0L95.0 88.0L95.0 85.0ZM89.7 79.6L89.1 83.8L95.0 85.0L95.0 81.8ZM90.8 75.1L89.7 79.6L95.0 81.8L95.0 78.0ZM92.1 70.1L90.8 75.1L95.0 78.0L95.0 73.0ZM125.0 98.0L125.0 103.0L127.9 105.9L129.2 100.9ZM125.0 94.2L125.0 98.0L129.2 100.9L130.3 96.4ZM125.0 91.0L125.0 94.2L130.3 96.4L130.9 92.2ZM125.0 88.0L125.0 91.0L130.9 92.2L131.1 88.0ZM125.0 85.0L125.0 88.0L131.1 88.0L130.9 83.8ZM125.0 81.8L125.0 85.0L130.9 83.8L130.3 79.6ZM125.0 78.0L125.0 81.8L130.3 79.6L129.2 75.1ZM125.0 73.0L125.0 78.0L129.2 75.1L127.9 70.1ZM92.1 105.9L97.1 107.2L100.0 103.0L95.0 103.0ZM97.1 107.2L101.6 108.3L103.8 103.0L100.0 103.0ZM101.6 108.3L105.8 108.9L107.0 103.0L103.8 103.0ZM105.8 108.9L110.0 109.1L110.0 103.0L107.0 103.0ZM110.0 109.1L114.2 108.9L113.0 103.0L110.0 103.0ZM114.2 108.9L118.4 108.3L116.2 103.0L113.0 103.0ZM118.4 108.3L122.9 107.2L120.0 103.0L116.2 103.0ZM122.9 107.2L127.9 105.9L125.0 103.0L120.0 103.0ZM95.0 73.0L100.0 73.0L97.1 68.8L92.1 70.1ZM100.0 73.0L103.8 73.0L101.6 67.7L97.1 68.8ZM103.8 73.0L107.0 73.0L105.8 67.1L101.6 67.7ZM107.0 73.0L110.0 73.0L110.0 66.9L105.8 67.1ZM110.0 73.0L113.0 73.0L114.2 67.1L110.0 66.9ZM113.0 73.0L116.2 73.0L118.4 67.7L114.2 67.1ZM116.2 73.0L120.0 73.0L122.9 68.8L118.4 67.7ZM120.0 73.0L125.0 73.0L127.9 70.1L122.9 68.8ZM86.5 103.7L89.3 108.7L92.1 105.9L90.8 100.9ZM84.5 98.6L86.5 103.7L90.8 100.9L89.7 96.4ZM83.2 93.3L84.5 98.6L89.7 96.4L89.1 92.2ZM82.8 88.0L83.2 93.3L89.1 92.2L88.9 88.0ZM83.2 82.7L82.8 88.0L88.9 88.0L89.1 83.8ZM84.5 77.4L83.2 82.7L89.1 83.8L89.7 79.6ZM86.5 72.3L84.5 77.4L89.7 79.6L90.8 75.1ZM89.3 67.3L86.5 72.3L90.8 75.1L92.1 70.1ZM129.2 100.9L127.9 105.9L130.7 108.7L133.5 103.7ZM130.3 96.4L129.2 100.9L133.5 103.7L135.5 98.6ZM130.9 92.2L130.3 96.4L135.5 98.6L136.8 93.3ZM131.1 88.0L130.9 92.2L136.8 93.3L137.2 88.0ZM130.9 83.8L131.1 88.0L137.2 88.0L136.8 82.7ZM130.3 79.6L130.9 83.8L136.8 82.7L135.5 77.4ZM129.2 75.1L130.3 79.6L135.5 77.4L133.5 72.3ZM127.9 70.1L129.2 75.1L133.5 72.3L130.7 67.3ZM89.3 108.7L94.3 111.5L97.1 107.2L92.1 105.9ZM94.3 111.5L99.4 113.5L101.6 108.3L97.1 107.2ZM99.4 113.5L104.7 114.8L105.8 108.9L101.6 108.3ZM104.7 114.8L110.0 115.2L110.0 109.1L105.8 108.9ZM110.0 115.2L115.3 114.8L114.2 108.9L110.0 109.1ZM115.3 114.8L120.6 113.5L118.4 108.3L114.2 108.9ZM120.6 113.5L125.7 111.5L122.9 107.2L118.4 108.3ZM125.7 111.5L130.7 108.7L127.9 105.9L122.9 107.2ZM92.1 70.1L97.1 68.8L94.3 64.5L89.3 67.3ZM97.1 68.8L101.6 67.7L99.4 62.5L94.3 64.5ZM101.6 67.7L105.8 67.1L104.7 61.2L99.4 62.5ZM105.8 67.1L110.0 66.9L110.0 60.8L104.7 61.2ZM110.0 66.9L114.2 67.1L115.3 61.2L110.0 60.8ZM114.2 67.1L118.4 67.7L120.6 62.5L115.3 61.2ZM118.4 67.7L122.9 68.8L125.7 64.5L120.6 62.5ZM122.9 68.8L127.9 70.1L130.7 67.3L125.7 64.5ZM82.3 106.5L86.4 111.6L89.3 108.7L86.5 103.7ZM79.2 100.8L82.3 106.5L86.5 103.7L84.5 98.6ZM77.3 94.5L79.2 100.8L84.5 98.6L83.2 93.3ZM76.7 88.0L77.3 94.5L83.2 93.3L82.8 88.0ZM77.3 81.5L76.7 88.0L82.8 88.0L83.2 82.7ZM79.2 75.2L77.3 81.5L83.2 82.7L84.5 77.4ZM82.3 69.5L79.2 75.2L84.5 77.4L86.5 72.3ZM86.4 64.4L82.3 69.5L86.5 72.3L89.3 67.3ZM133.5 103.7L130.7 108.7L133.6 111.6L137.7 106.5ZM135.5 98.6L133.5 103.7L137.7 106.5L140.8 100.8ZM136.8 93.3L135.5 98.6L140.8 100.8L142.7 94.5ZM137.2 88.0L136.8 93.3L142.7 94.5L143.3 88.0ZM136.8 82.7L137.2 88.0L143.3 88.0L142.7 81.5ZM135.5 77.4L136.8 82.7L142.7 81.5L140.8 75.2ZM133.5 72.3L135.5 77.4L140.8 75.2L137.7 69.5ZM130.7 67.3L133.5 72.3L137.7 69.5L133.6 64.4ZM86.4 111.6L91.5 115.7L94.3 111.5L89.3 108.7ZM91.5 115.7L97.2 118.8L99.4 113.5L94.3 111.5ZM97.2 118.8L103.5 120.7L104.7 114.8L99.4 113.5ZM103.5 120.7L110.0 121.3L110.0 115.2L104.7 114.8ZM110.0 121.3L116.5 120.7L115.3 114.8L110.0 115.2ZM116.5 120.7L122.8 118.8L120.6 113.5L115.3 114.8ZM122.8 118.8L128.5 115.7L125.7 111.5L120.6 113.5ZM128.5 115.7L133.6 111.6L130.7 108.7L125.7 111.5ZM89.3 67.3L94.3 64.5L91.5 60.3L86.4 64.4ZM94.3 64.5L99.4 62.5L97.2 57.2L91.5 60.3ZM99.4 62.5L104.7 61.2L103.5 55.3L97.2 57.2ZM104.7 61.2L110.0 60.8L110.0 54.7L103.5 55.3ZM110.0 60.8L115.3 61.2L116.5 55.3L110.0 54.7ZM115.3 61.2L120.6 62.5L122.8 57.2L116.5 55.3ZM120.6 62.5L125.7 64.5L128.5 60.3L122.8 57.2ZM125.7 64.5L130.7 67.3L133.6 64.4L128.5 60.3Z"/></g><rect class="f-frame" x="30.0" y="8.0" width="160.0" height="160.0"/><path class="f-field" d="M212.0 150.0L212.0 36.0"/><path class="f-field-h" d="M212.0 30.0L215.0 36.0L209.0 36.0Z"/><text class="f-lab f-fieldlab" x="219" y="96">h</text><text class="f-sub f-fieldlab" x="227" y="100">&#8734;</text><text class="f-lab" x="110" y="190" text-anchor="middle">air around a rigid particle</text></svg>
+<p class="step-cap">A rigid sphere of radius 0.25 m in a 6 m cube of air, 5,120 elements. The applied field rises to 2.5 T, is removed, and 0.3 T is applied across. The host solves for the potentials.</p>
+</div>
+<div class="step-panel">
+<p class="step-title"><span class="num">4</span>A particle in a block</p>
+<svg viewBox="0 0 240 200" role="img" aria-label="Mid-plane of the supplied block mesh: six by six elements with the central two by two particle; boundary nodes prescribed, interior nodes free" xmlns="http://www.w3.org/2000/svg"><path class="f-matrix" d="M60.0 166.0L35.0 166.0L35.0 141.0L60.0 141.0ZM85.0 166.0L60.0 166.0L60.0 141.0L85.0 141.0ZM110.0 166.0L85.0 166.0L85.0 141.0L110.0 141.0ZM135.0 166.0L110.0 166.0L110.0 141.0L135.0 141.0ZM160.0 166.0L135.0 166.0L135.0 141.0L160.0 141.0ZM185.0 166.0L160.0 166.0L160.0 141.0L185.0 141.0ZM60.0 141.0L35.0 141.0L35.0 116.0L60.0 116.0ZM85.0 141.0L60.0 141.0L60.0 116.0L85.0 116.0ZM110.0 141.0L85.0 141.0L85.0 116.0L110.0 116.0ZM135.0 141.0L110.0 141.0L110.0 116.0L135.0 116.0ZM160.0 141.0L135.0 141.0L135.0 116.0L160.0 116.0ZM185.0 141.0L160.0 141.0L160.0 116.0L185.0 116.0ZM60.0 116.0L35.0 116.0L35.0 91.0L60.0 91.0ZM85.0 116.0L60.0 116.0L60.0 91.0L85.0 91.0ZM160.0 116.0L135.0 116.0L135.0 91.0L160.0 91.0ZM185.0 116.0L160.0 116.0L160.0 91.0L185.0 91.0ZM60.0 91.0L35.0 91.0L35.0 66.0L60.0 66.0ZM85.0 91.0L60.0 91.0L60.0 66.0L85.0 66.0ZM160.0 91.0L135.0 91.0L135.0 66.0L160.0 66.0ZM185.0 91.0L160.0 91.0L160.0 66.0L185.0 66.0ZM60.0 66.0L35.0 66.0L35.0 41.0L60.0 41.0ZM85.0 66.0L60.0 66.0L60.0 41.0L85.0 41.0ZM110.0 66.0L85.0 66.0L85.0 41.0L110.0 41.0ZM135.0 66.0L110.0 66.0L110.0 41.0L135.0 41.0ZM160.0 66.0L135.0 66.0L135.0 41.0L160.0 41.0ZM185.0 66.0L160.0 66.0L160.0 41.0L185.0 41.0ZM60.0 41.0L35.0 41.0L35.0 16.0L60.0 16.0ZM85.0 41.0L60.0 41.0L60.0 16.0L85.0 16.0ZM110.0 41.0L85.0 41.0L85.0 16.0L110.0 16.0ZM135.0 41.0L110.0 41.0L110.0 16.0L135.0 16.0ZM160.0 41.0L135.0 41.0L135.0 16.0L160.0 16.0ZM185.0 41.0L160.0 41.0L160.0 16.0L185.0 16.0Z"/><path class="f-part" d="M110.0 116.0L85.0 116.0L85.0 91.0L110.0 91.0ZM135.0 116.0L110.0 116.0L110.0 91.0L135.0 91.0ZM110.0 91.0L85.0 91.0L85.0 66.0L110.0 66.0ZM135.0 91.0L110.0 91.0L110.0 66.0L135.0 66.0Z"/><path class="f-load" d="M110.0 14.0L110.0 7.0"/><path class="f-load-h" d="M110.0 2.0L112.5 7.0L107.5 7.0Z"/><path class="f-load" d="M110.0 168.0L110.0 175.0"/><path class="f-load-h" d="M110.0 180.0L107.5 175.0L112.5 175.0Z"/><path class="f-field" d="M208.0 150.0L208.0 36.0"/><path class="f-field-h" d="M208.0 30.0L211.0 36.0L205.0 36.0Z"/><text class="f-lab f-fieldlab" x="215" y="96">H</text><g class="f-node-fixed"><circle cx="35.0" cy="166.0" r="2.4"/><circle cx="60.0" cy="166.0" r="2.4"/><circle cx="85.0" cy="166.0" r="2.4"/><circle cx="110.0" cy="166.0" r="2.4"/><circle cx="135.0" cy="166.0" r="2.4"/><circle cx="160.0" cy="166.0" r="2.4"/><circle cx="185.0" cy="166.0" r="2.4"/><circle cx="35.0" cy="141.0" r="2.4"/><circle cx="185.0" cy="141.0" r="2.4"/><circle cx="35.0" cy="116.0" r="2.4"/><circle cx="185.0" cy="116.0" r="2.4"/><circle cx="35.0" cy="91.0" r="2.4"/><circle cx="185.0" cy="91.0" r="2.4"/><circle cx="35.0" cy="66.0" r="2.4"/><circle cx="185.0" cy="66.0" r="2.4"/><circle cx="35.0" cy="41.0" r="2.4"/><circle cx="185.0" cy="41.0" r="2.4"/><circle cx="35.0" cy="16.0" r="2.4"/><circle cx="60.0" cy="16.0" r="2.4"/><circle cx="85.0" cy="16.0" r="2.4"/><circle cx="110.0" cy="16.0" r="2.4"/><circle cx="135.0" cy="16.0" r="2.4"/><circle cx="160.0" cy="16.0" r="2.4"/><circle cx="185.0" cy="16.0" r="2.4"/></g><g class="f-node"><circle cx="60.0" cy="141.0" r="2.4"/><circle cx="85.0" cy="141.0" r="2.4"/><circle cx="110.0" cy="141.0" r="2.4"/><circle cx="135.0" cy="141.0" r="2.4"/><circle cx="160.0" cy="141.0" r="2.4"/><circle cx="60.0" cy="116.0" r="2.4"/><circle cx="85.0" cy="116.0" r="2.4"/><circle cx="110.0" cy="116.0" r="2.4"/><circle cx="135.0" cy="116.0" r="2.4"/><circle cx="160.0" cy="116.0" r="2.4"/><circle cx="60.0" cy="91.0" r="2.4"/><circle cx="85.0" cy="91.0" r="2.4"/><circle cx="110.0" cy="91.0" r="2.4"/><circle cx="135.0" cy="91.0" r="2.4"/><circle cx="160.0" cy="91.0" r="2.4"/><circle cx="60.0" cy="66.0" r="2.4"/><circle cx="85.0" cy="66.0" r="2.4"/><circle cx="110.0" cy="66.0" r="2.4"/><circle cx="135.0" cy="66.0" r="2.4"/><circle cx="160.0" cy="66.0" r="2.4"/><circle cx="60.0" cy="41.0" r="2.4"/><circle cx="85.0" cy="41.0" r="2.4"/><circle cx="110.0" cy="41.0" r="2.4"/><circle cx="135.0" cy="41.0" r="2.4"/><circle cx="160.0" cy="41.0" r="2.4"/></g><text class="f-lab" x="110" y="196" text-anchor="middle">particle in matrix</text></svg>
+<p class="step-cap">A 0.6 m cube of matrix, 6 &times; 6 &times; 6 elements, the central 2 &times; 2 &times; 2 particle. Stretch and shear, a hold, a 2 T field and its removal, more shear with a transverse field, a hold. Displacements and potentials are solved together.</p>
+</div>
+</div>
+<figcaption><b>Figure 1.</b> The four steps. Panels 3 and 4 are the mid-planes of the meshes supplied with the task (panel 3 shows the central 1.2 m of the 6 m cube), with the particle elements shaded; H and h&#8734; mark the applied field. In panel 4, filled nodes are prescribed and open nodes are free. Panels 1 and 2 are schematic.</figcaption>
+</figure>
+
+</section>
+
+<section id="given">
+<h2><span class="num">2</span>What the agents were given</h2>
+<div class="col">
+<p>Every agent received the same twenty files: the task text, the source of the host program, and the twelve public
+problems with their two meshes. The task text is released on its own page, word for word.</p>
+<p class="cta-line"><a class="button" href="magnet-element-task.html">Read the task text</a></p>
+<p>The text fixes everything except the numerical method. It gives:</p>
+<ul>
+<li><b>The model, complete.</b> Units; kinematics and fields; the four energy terms and which material uses which; the
+evolution laws of both internal variables, the viscous one in closed form; the weak form; the published parameters.</li>
+<li><b>The element contract, exact.</b> The Fortran UEL interface with its full argument list; the node and
+degree-of-freedom order; what the residual and the stiffness must contain, and which quantities are held fixed in the
+derivative; the straight-line path of the nodal values inside an increment; how the state variables start and where they
+are stored; how the element asks for a smaller increment; the quadrature.</li>
+<li><b>A runner and practice problems.</b> The host builds the element with gfortran and calls it as Abaqus/Standard does.
+The agent can run every public problem of all four steps and read the host's source.</li>
+<li><b>How the work would be judged.</b> The kinds of hidden problems, the tolerances, the stiffness test, the objectivity
+and robustness checks, and that a person reads the design.</li>
+<li><b>Practical warnings.</b> That one consistent step per increment may not be accurate enough; a closed-form estimate for
+the sphere; and how long our own check element, whose stiffness comes from finite differences, takes on steps 3 and 4.</li>
+</ul>
+<p>Four decisions were left to the agent: how to integrate C<sub>v</sub> in time; how to integrate H<sub>r</sub>, including
+the first switching from zero, saturation, and a field that turns or reverses within one increment; how to compute the
+stiffness, including its coupling blocks and the contribution of the internal variables; and whether to substep or ask the
+host for smaller increments.</p>
+<p>Not given: the source paper (the text does not name it), the authors' code, the reference solutions, the hidden problems,
+our reference implementation, our check element and the scorer. Abaqus itself was not available.</p>
+<h3>Conditions of the runs</h3>
+<p>Each agent ran in a Docker container (Ubuntu with Python 3, NumPy, SciPy and gfortran) that saw only its workspace and a
+fresh home folder, with the model's thinking at its maximum and a limit of nine hours, against the eight-hour budget in the
+text. The four workspaces were identical, checked by file hashes. Codex ran through the Codex CLI 0.167.0, the other three
+through opencode 2.2.6. The prompt was the same for all four:</p>
+<blockquote class="prompt">Read PUBLIC_TASK.md in this folder, then carry out the challenge. Work only inside this folder. End with a short summary of what you reached and what remains unverified.</blockquote>
+<p>The text told the agents to work offline, but the network stayed on, because the model is reached through it; section 7
+says how the logs were searched instead. The host and problem files were unchanged after every run.</p>
+<p class="note">The agents ran version 0.5 of the text. Version 0.6 adds only the stiffness points described below and a
+field in which the agent declares its stiffness method.</p>
+</div>
+</section>
+
+<section id="judged">
+<h2><span class="num">3</span>How the work was judged</h2>
+<div class="col">
+<p>The scorer runs the submitted element through the same host, in a container without network, on the twelve public
+problems and on fourteen hidden problems of the same kinds: other field amplitudes and directions, a partial field reversal,
+other rates and hold times, much larger increments, a rotated and translated element, and other load paths for the sphere
+and the block. That makes 181 checks, 86 on public problems and 95 on hidden ones; by step, 59, 92, 14 and 16. A problem
+that does not complete fails all of its checks, so every submission is judged on the same number of checks.</p>
+<ul>
+<li><b>Accuracy.</b> Over each problem, the largest difference in stress, flux, nodal forces and fluxes, probe fields and
+internal variables must be below 1 percent of the largest reference value (5 percent in the problems with much larger
+increments). In step 4 each stage is judged against its own largest value.</li>
+<li><b>Stiffness.</b> The stiffness matrix against the central difference of the element's own residual, block by block,
+to 10<sup>&minus;4</sup>, on every accepted increment of step 2.</li>
+<li><b>Objectivity,</b> to 10<sup>&minus;6</sup>: rotating the element, its displacements and the field together, and
+superposing a rigid rotation on the whole motion.</li>
+<li><b>Robustness.</b> Every problem completes (a sphere or block run is stopped after 90 minutes), and the constraints
+hold where checked: |H<sub>r</sub>| &lt; m<sub>s</sub>, the switching function at most 10<sup>&minus;6</sup>
+b<sub>c</sub><sup>2</sup>, and <span class="nowrap">|det C<sub>v</sub> &minus; 1| &le; 10<sup>&minus;3</sup></span>.</li>
+</ul>
+<p>On top of the checks come up to 10 points for how the stiffness is obtained: 10 for an analytic or complex-step
+stiffness, 6 if any part of it comes from finite differences, 0 if a stiffness check of step 2 fails. The method is read in
+the source. Teng Zhang set this rubric after the runs, while the GLM run was paused at its usage limit; no agent was told,
+and the resumed GLM session kept the version 0.5 text. The rubric is in the text from version 0.6.
+A finite-difference stiffness that passes the checks is a correct element. The points reward an exact derivative, and they
+cannot be read off the checks, because a careful central difference is accurate far below the 10<sup>&minus;4</sup>
+tolerance.</p>
+
+<h3>How we know the reference is right</h3>
+<p>Two independent implementations agree. The reference is written in JAX: stresses and fluxes by automatic differentiation
+of the energies, the stiffness by automatic differentiation through the local updates, and its own sparse solver. A second
+element, written by hand in Fortran from the task text, derives the stresses on paper, takes its stiffness by central
+differences and runs through the public host. On one distorted element in five states the two agree to
+2&nbsp;&times;&nbsp;10<sup>&minus;13</sup> in the residual and the internal variables and to 8&nbsp;&times;&nbsp;10<sup>&minus;7</sup> in the
+stiffness; on the sphere, at equal increments, to 8&nbsp;&times;&nbsp;10<sup>&minus;9</sup> T; on the block, to
+7&nbsp;&times;&nbsp;10<sup>&minus;8</sup> relative.</p>
+<p>The sphere has a closed form in unbounded air with a uniform remanent field, <span class="nowrap">h<sub>in</sub> = [3h<sub>&infin;</sub> + (1 + &chi;)H<sub>r</sub>]/(3 + &chi;)</span>. With a uniform H<sub>r</sub> set by hand, the reference differs from it by 2.6, 1.0 and
+0.7 percent on meshes with n = 8, 12 and 16, falling with refinement. The supplied mesh (n = 8) is coarse, so the reference is
+the solution on that mesh, not the closed form. The references are converged in the increment, to 2&nbsp;&times;&nbsp;10<sup>&minus;4</sup> of the largest value for the sphere and to 0.4 percent of a stage's largest value for the block.</p>
+<p>The test was tested before any agent ran. The hand-written element passes all 181 checks. The same element with one
+backward-Euler step per increment, a plain but correct element, fails two: its particle internal variables are off by
+3.2 percent, which shows what the 1 percent tolerance asks for. Seven deliberately wrong elements all fail: the magnetic
+energy without the pull-back by the deformation, no viscous branch, the volumetric coefficient halved, one explicit Euler
+step for C<sub>v</sub>, the volumetric term at all eight Gauss points, &chi; dropped from the switching driving force, and a
+stiffness at frozen internal variables. The last passes step 1 and everything but the stiffness test in step 2, then fails
+every check of steps 3 and 4: Newton's method does not converge at the first switching increment, even after ten
+halvings.</p>
+
+<h3>Limits</h3>
+<ul>
+<li>One run per model. A second run of the same model could do better or worse.</li>
+<li>The host is meant to call the element as Abaqus/Standard does, but it has not been compared with Abaqus itself.</li>
+<li>AI models reviewed two drafts, each in a single request without tools to an Azure deployment: draft 0.1 by
+gpt-6.1-sol and Kimi K3.1 Pro, draft 0.3 by gpt-6.1-sol, with the reference model and the problem generator among the files
+in the request. Step 4 was added after the last review, and no expert has reviewed the benchmark.</li>
+<li>The Codex run used the same model name, gpt-6.1-sol, through another service and account: the Codex CLI with its own
+login and a fresh home folder. Nothing carried over from the review request, and the run saw only its workspace.</li>
+</ul>
+</div>
+</section>
+
+<section id="results">
+<h2><span class="num">4</span>Results: every element solves all four steps; three pass every check</h2>
+<div class="col">
+<p>Three runs ended by themselves with elements that passed all 181 checks: Kimi in 47 minutes, Codex in 59 and DeepSeek in
+91, timed from launch to the agent's final message. The GLM run passed 179 of 181 checks after two sessions, 148 minutes in all (section 6).</p>
+</div>
+<div class="table-wrap"><table class="data results">
+<thead><tr><th>Run</th><th>Model</th><th class="num">Time</th><th class="num">Checks by step</th><th class="num">Checks</th><th>Stiffness, as read in the source</th><th class="num">Stiffness points</th><th class="num">Score</th></tr></thead>
+<tbody>
+<tr><td>Codex</td><td>gpt-6.1-sol (effort max)</td><td class="num">59 min</td><td class="num">59 &middot; 92 &middot; 14 &middot; 16</td><td class="num">181/181</td><td>analytic: forward sensitivities through the local updates</td><td class="num">10/10</td><td class="num">191/191</td></tr>
+<tr><td>Kimi</td><td>Kimi K3.1 Pro on Azure (variant max)</td><td class="num">47 min</td><td class="num">59 &middot; 92 &middot; 14 &middot; 16</td><td class="num">181/181</td><td>central differences of the whole element residual</td><td class="num">6/10</td><td class="num">187/191</td></tr>
+<tr><td>DeepSeek</td><td>DeepSeek V4.1 Flash 1017, DeepSeek API (variant max)</td><td class="num">91 min</td><td class="num">59 &middot; 92 &middot; 14 &middot; 16</td><td class="num">181/181</td><td>central differences at each Gauss point of (P, B) with respect to (F, H), then the exact chain rule; volumetric part analytic</td><td class="num">6/10</td><td class="num">187/191</td></tr>
+<tr><td>GLM</td><td>GLM-5.3, Z.AI coding plan (variant max)</td><td class="num">148 min<br><span class="small-note">two sessions, 94 + 54</span></td><td class="num">59 &middot; 90 &middot; 14 &middot; 16</td><td class="num">179/181</td><td>mixed: central differences of the analytic stress and flux formulas (no time integration inside), analytic sensitivities of the internal variables</td><td class="num">6/10</td><td class="num">185/191</td></tr>
+</tbody></table></div>
+<p class="table-cap">Table 1. Checks by step: of 59, 92, 14 and 16. Score: checks plus stiffness points, of 191. One run per
+model, task version 0.5, scored with the stiffness rubric of version 0.6.</p>
+<div class="col">
+<p>The three elements that pass every check were not close to the limits. The largest scored difference was 0.35 percent for Codex, 0.36
+percent for Kimi and 0.32 percent for DeepSeek, against the 1 percent tolerance; our hand-written element reaches 0.58
+percent. Their worst stiffness block in step 2 was below 6&nbsp;&times;&nbsp;10<sup>&minus;7</sup>, against 10<sup>&minus;4</sup>.</p>
+<p>The checks alone therefore do not separate the three. Their decisions on the open points differ (Table 2), most of all
+in the stiffness. All three
+integrated C<sub>v</sub> with a fourth-order Runge-Kutta scheme in substeps and restored det C<sub>v</sub> = 1 after each,
+and each found its own way through the switching of H<sub>r</sub>; so did the GLM element. Each also wrote its own evidence: convergence studies on
+the sphere and the block, converged or independent integrations of the evolution laws, and checks of every stiffness block
+on every increment of step 2.</p>
+</div>
+<div class="table-wrap"><table class="data choices">
+<thead><tr><th>Run</th><th>Viscous variable</th><th>Remanent field</th><th>Stiffness</th></tr></thead>
+<tbody>
+<tr><td>Codex</td><td>classical Runge-Kutta in substeps, rescaled to det C<sub>v</sub> = 1 after each; more substeps if C<sub>v</sub> loses positive definiteness</td><td>a trapezoidal rule on the switching surface, over substeps of the driving path; one scalar equation per substep</td><td>sensitivities carried through the whole update, then the derivatives of P and B: 12 directions per point</td></tr>
+<tr><td>Kimi</td><td>classical Runge-Kutta in substeps, symmetrized and rescaled to det C<sub>v</sub> = 1</td><td>a backward return per substep, in coordinates that keep |H<sub>r</sub>| &lt; m<sub>s</sub>; four unknowns by Newton's method with 3 &times; 3 solves</td><td>central differences of the whole element: two perturbed evaluations for each of the 32 columns</td></tr>
+<tr><td>DeepSeek</td><td>classical Runge-Kutta in substeps, rescaled to det C<sub>v</sub> = 1</td><td>a backward-Euler return per substep, reduced to one scalar equation whose root keeps |H<sub>r</sub>| &lt; m<sub>s</sub></td><td>central differences of each point's update with respect to F and H (25 evaluations per point), then the exact chain rule</td></tr>
+<tr><td>GLM</td><td>classical Runge-Kutta in substeps for the inverse of C<sub>v</sub>, with forward sensitivities integrated by the same scheme</td><td>a backward-Euler return per substep, by damped Newton's method on four unknowns, with |H<sub>r</sub>| kept below 0.9995 m<sub>s</sub></td><td>central differences of the analytic P and B for the material blocks; analytic sensitivities of the internal variables (section 6)</td></tr>
+</tbody></table></div>
+<p class="table-cap">Table 2. The agents' decisions on the points the task left open, from their design notes.</p>
+</section>
+
+<section id="stiffness">
+<h2><span class="num">5</span>The stiffness: four routes to a consistent matrix</h2>
+<div class="col">
+<p>In steps 3 and 4 the host solves with the element's stiffness. When the particle switches, H<sub>r</sub> responds to the
+nodal values within the increment, and a stiffness that leaves out this response is wrong by order one there: our element
+with a stiffness at frozen internal variables fails at the first switching increment of the sphere and of the block, and so
+did the GLM element at its cut-off. All four final elements include the response, by four routes.</p>
+<ul>
+<li><b>Codex derived it.</b> It carried the sensitivities of its update alongside the update itself, through every substep
+and the switching solve, and needed 12 directional derivatives per integration point instead of 32 perturbed element calls.
+Its design note states what this does not cover: the substep counts are held fixed in the derivative.</li>
+<li><b>Kimi differenced the whole element.</b> Each of the 32 columns comes from two perturbed calls of the complete
+residual and update, with the start values held fixed. Its stated reasons: the tangent carries exactly the implemented update
+into all four blocks and "avoids hand-composed field-by-field chain-rule signs"; the cost is "accepted deliberately for
+algorithmic consistency".</li>
+<li><b>DeepSeek differenced at the point and chained exactly.</b> It differenced each integration point's update of P and B
+with respect to F and H, then assembled the element matrix with the exact chain rule; the volumetric part is analytic. It
+computes its substep counts inside the differenced routine, after finding that freezing them outside "produced a 3e-3
+inconsistency in the magnetic blocks".</li>
+<li><b>GLM split the work.</b> It differenced the analytic stress and flux formulas, where no time integration is
+involved, and derived the sensitivities of the internal variables analytically (section 6).</li>
+</ul>
+<p>All four passed the stiffness test with a wide margin. The measured precision against a fourth-order estimate of the
+derivative, median over the matrix and particle increments of step 2, was 10<sup>&minus;11</sup> for Codex, 2&nbsp;&times;&nbsp;10<sup>&minus;10</sup> for Kimi, 5&nbsp;&times;&nbsp;10<sup>&minus;9</sup> for DeepSeek and 2&nbsp;&times;&nbsp;10<sup>&minus;10</sup> for GLM. The routes differ in how many evaluations
+they need. The agents' own timings of the public sphere problem were 309 s for Codex, 559 s for Kimi, 482 s for DeepSeek and 325 s for GLM,
+measured in their own workspaces on a shared machine under different loads, so they are indicative only.</p>
+<p>The task text mentioned that our own check element takes its stiffness by finite differences, and it did not say that the
+method would earn points. With the rubric now in the text, a future run is told that an analytic or complex-step stiffness
+earns 10 points and finite differences 6.</p>
+</div>
+</section>
+
+<section id="glm">
+<h2><span class="num">6</span>The GLM run: two sessions</h2>
+<div class="col">
+<p>The GLM run was cut off after 94 minutes by the five-hour usage limit of its subscription plan, while it was
+still debugging. Scored as it stood, its element was right in the residual: all of step 1 and the nodal forces and fluxes
+of step 2 passed. Its stiffness was not consistent while the particle switched, so Newton's method stopped at the first
+switching increment of the sphere and of the block: 145 of 181 checks, the signature of our element with a stiffness at
+frozen internal variables.</p>
+<p>At Teng Zhang's request the same session was resumed in the same workspace after the limit reset, with this prompt:</p>
+<blockquote class="prompt">Your previous turn was cut off by a usage limit of the model provider, not by you. Continue the challenge of PUBLIC_TASK.md from where you stopped; the files in this folder are as you left them. End with a short summary of what you reached and what remains unverified.</blockquote>
+<p>It ended by itself 54 minutes later, 148 minutes in all. The resumed session changed 16 lines of the element: the sign
+of the two terms that chain the internal-variable sensitivities into the potential columns of the stiffness, and the order
+of the row interchanges in its small linear solver. It spent the rest of the session verifying, and in one of its messages
+noted that its own finite-difference tests "had a double-h bug". The final element passes steps 3 and 4 and 179 of 181
+checks. The two it does not meet are the internal variables of one particle problem of step 2, in its public and hidden
+versions, at 3.0 percent against 1 percent: the same two checks that our one-step control fails, at 3.2 percent.</p>
+<p>Its stiffness is mixed, by its own stated choice. At each Gauss point it takes the material blocks, the derivatives of
+P and B with respect to F, H and the internal variables, by central differences of the analytic formulas, where "no time
+integration is involved, so this is cheap and safe". The sensitivities of the internal variables to the nodal values,
+"which cannot be finite-differenced cheaply", are analytic: forward sensitivities integrated with the same Runge-Kutta
+scheme for C<sub>v</sub>, and the linearized return equations for H<sub>r</sub>, whose driving-force derivatives are again
+central differences. It calls the split "a conscious choice" that "avoids a second derivation of everything". Its measured
+stiffness precision, 2&nbsp;&times;&nbsp;10<sup>&minus;10</sup>, is the same as Kimi's. Under the rubric the finite-difference part
+gives 6 points, and the score is 185 of 191.</p>
+</div>
+</section>
+
+<section id="departures">
+<h2><span class="num">7</span>Where this case departs from our stated procedure</h2>
+<div class="col">
+<p>The site's pages on <a href="../building.html">how a benchmark is built</a>, <a href="../evaluates.html">what it
+evaluates</a> and the <a href="../evaluation.html">evaluation policy</a> describe our procedure in general. This case departs
+from them in the following places.</p>
+<ul>
+<li><b>"The paper is the source of truth, and our code is checked against it"</b> (how a benchmark is built, step 2). Here
+the model and its parameters follow the authors' FEniCS code; the task's equations have not yet been traced one by one to
+the paper, and the test problems are ours, not the paper's.</li>
+<li><b>"Build an independent reference"</b> (step 5). Our reference and our hand-written element agree, but both come from
+the same author and the same text: they differ in method, not in reading, so a misreading could be shared. An AI review of
+draft 0.3 re-derived the stresses, the fluxes and the remanent-field update and found no shared error; no third code has
+solved the sphere problem.</li>
+<li><b>"Everything that judges an agent is fixed and tested before any agent runs"</b> (how a benchmark is built). The
+checks and their tolerances were; the stiffness points were set after the runs (section 3), and no agent was told.</li>
+<li><b>"no internet"</b> (step 9) and <b>"The agent works offline"</b> (what it evaluates). The network stayed on, because
+the model is reached through it. Afterwards every tool input in the logs was searched for network commands (curl, wget,
+pip, apt, http, git clone), for paths of the host machine outside the workspace and for the name of the authors' code
+archive, and none was found; a search of the logs finds only what it looks for, so it is weaker than a closed network.</li>
+<li><b>"a one-line prompt"</b> (step 9). The GLM run received a second prompt, telling it to continue after its plan's
+usage limit had cut it off, and ran in two sessions (section 6).</li>
+<li><b>"The interpolation and quadrature of each field"</b>, listed among what the agent decides (what it evaluates). Here
+the task fixes them, an 8-node brick with 2 &times; 2 &times; 2 Gauss points and the volumetric term at the centroid, so
+that results on a given mesh are comparable; none of the four elements adds F-bar, B-bar, a pressure unknown or enhanced
+strains.</li>
+<li><b>"history variables never decrease; Newton's method converges without avoidable cutbacks"</b> (what it evaluates,
+robustness). That check suits damage models; the remanent field here switches and reverses. Robustness here means that
+every problem completes within the time limit and the constraints of section 3 hold; halvings by the host are allowed and
+not scored.</li>
+<li><b>"The design"</b> and <b>"Honesty"</b> (what it evaluates). A person's reading of each design, for whether its
+choices are justified by evidence and its claims match its files, has not been done yet and is not part of the scores.</li>
+<li><b>"Every published verdict will identify ... the submission, the host and scorer versions, and the reference
+data"</b> (evaluation policy). This page names the task version, the models and the tools; the submissions, the host and
+scorer versions and the reference data are recorded in our private repository and not released.</li>
+<li><b>"Results go to the authors of the source paper before publication"</b> (step 11; evaluation policy). This case
+study has not yet been sent to the authors of the source paper.</li>
+<li><b>"the host that runs a submitted element, the scorer, the reference solution's code, the agents' submissions and the
+results, with a practice problem"</b> (get started, on what a released benchmark holds). For this case only the task text
+is released so far.</li>
+</ul>
+</div>
+</section>
+
+<section id="shows">
+<h2><span class="num">8</span>What this shows, and what it does not</h2>
+<div class="col">
+<p><b>It shows</b> that with a task text at this level of detail, current agents write a correct coupled 3D element and back
+it with their own verification, in 47 to 91 minutes for three of them. The two hardest local problems, the viscous update over large
+increments and the switching of the remanent field when the field turns or reverses within an increment, were solved by
+all four, each in its own way. Agents fully solving the case is a good result: it marks what this kind of guide
+makes possible. Guides of the same kind can be prepared for similar problems: the complete equations, the exact element
+contract, a runner with public problems, and the judging criteria stated in advance.</p>
+<p><b>The checks alone did not separate the three runs that passed them all;</b> the stiffness rubric separates the analytic
+solution from the finite-difference and mixed ones.</p>
+<p><b>It does not show</b> what agents would do from the paper alone or from a less complete text: the equations, the
+contract and the quadrature were given, and the agents did not interpret the source. It does not rank the models, with one
+run each. The GLM run had two sessions and a second prompt, so its time is not comparable with the others. It does not show that the elements run in Abaqus, since the host has not been compared with Abaqus, or
+that the model matches the paper equation by equation.</p>
+</div>
+</section>
+
+<section id="reference">
+<h2>For reference</h2>
+<div class="col">
+<ul>
+<li><b>Source paper.</b> M. Rambausek, D. Mukherjee and K. Danas (2022), A computational framework for magnetically hard and soft viscoelastic magnetorheological elastomers, <a href="https://doi.org/10.1016/j.cma.2021.114500"><i>Comput. Methods Appl. Mech. Engrg.</i> 391, 114500</a>. The authors' codes are on Zenodo (record 5543516). Where their FEniCS code and their
+Abaqus elements differ, we follow the FEniCS code.</li>
+<li><b>Benchmark.</b> Task version 0.5, run on 11 November 2026; version 0.6 adds the stiffness points. Four steps, 12
+public and 14 hidden problems, 181 checks, and up to 10 points for the stiffness.</li>
+<li><b>Runs.</b> gpt-6.1-sol through the Codex CLI 0.167.0; Kimi K3.1 Pro (Azure), DeepSeek V4.1 Flash 1017 (DeepSeek API)
+and GLM-5.3 (Z.AI coding plan) through opencode 2.2.6; thinking at each model's maximum; one run each.</li>
+<li><b>Who did what.</b> Teng Zhang proposed the benchmark, chose the agents and set the stiffness rubric. Claude built the
+task text, the host, the reference, the hand-written element and the scorer with him, and drafted this page. AI models
+reviewed two drafts; no expert has reviewed the benchmark.</li>
+<li><b>Released.</b> The <a href="magnet-element-task.html">task text</a>, version 0.6. Not released: the host, the problems and
+meshes, the hidden problems, the reference solutions and code, our check elements and the scorer. The hidden problems are
+described here only as the task text describes them.</li>
+</ul>
+<h3>Tokens and cost</h3>
+<p>As reported by the tools (opencode: the sum over steps; Codex: its session file). Fresh input excludes cached input.</p>
+</div>
+<div class="table-wrap"><table class="data tokens">
+<thead><tr><th>Run</th><th class="num">Fresh input</th><th class="num">Cached input</th><th class="num">Output (visible)</th><th class="num">Reasoning</th><th>Cost</th></tr></thead>
+<tbody>
+<tr><td>Codex</td><td class="num">53,450</td><td class="num">4,978,944</td><td class="num">42,330</td><td class="num">50,853</td><td>not reported by the CLI; 1.5 to 2.6 USD at list price</td></tr>
+<tr><td>Kimi</td><td class="num">812,765</td><td class="num">14,639,104</td><td class="num">58,843</td><td class="num">46,380</td><td>not known: no price for the Azure deployment</td></tr>
+<tr><td>DeepSeek</td><td class="num">107,267</td><td class="num">48,984,064</td><td class="num">98,335</td><td class="num">179,279</td><td>0.33 USD, reported by opencode</td></tr>
+<tr><td>GLM (both sessions)</td><td class="num">947,141</td><td class="num">112,990,848</td><td class="num">191,666</td><td class="num">243,119</td><td>subscription plan, no price per token</td></tr>
+</tbody></table></div>
+</section>
+
+</div>
+</div>
+</main>
+<footer class="site">
+  <div class="frame footer-row">
+    <p>MechanicsHarness is maintained by Teng Zhang, Syracuse University.
+    Site source: <a href="https://github.com/tengzhang48/mechanicsharness.org">github.com/tengzhang48/mechanicsharness.org</a>.
+    The site design follows the Shape Morphing Data Commons (<a href="https://morphingdatacommons.org">morphingdatacommons.org</a>)
+    of Lining Yao's Morphing Matter Lab, UC Berkeley.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="../index.html">Home</a>
+      <a href="../evaluates.html">What it evaluates</a>
+      <a href="../building.html">How a benchmark is built</a>
+      <a href="../evaluation.html">Evaluation policy</a>
+      <a href="../get-started.html">Get started and contribute</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

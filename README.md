@@ -31,7 +31,7 @@ nine values and missed the drained-tip value.
 | Level | What the agent does | Cases |
 |---|---|---|
 | 1. Classical problems | Analysis problems with known answers, from published papers. The agent derives and computes the asked quantities. | Poroelastic crack (Detournay and Cheng 1991); thin-film cracking (Xia and Hutchinson 2000); viscoelastic crack (Hui and Long 2026); grain-boundary diffusion wedge (Gao et al. 1999); HRR field and notch (Hutchinson 1968); crack bridging (Bao and Suo 1992) |
-| 2. Published research models | The agent implements a recent paper's model as working simulation code, checked against an independent reference. | Rock fracture (Anand 2026); battery fatigue (Noii et al. 2024) |
+| 2. Published research models | The agent implements a recent paper's model as working simulation code, checked against an independent reference. | Magnetic elastomer (Rambausek et al. 2022); battery fatigue (Noii et al. 2024) |
 | 3. Real-world problems | Open questions without a published answer, judged against measurements. This is the aim. | Planned |
 
 Results are dated. As AI agents improve, newer agents are run on the same cases, so the record shows how far up the levels
@@ -50,7 +50,7 @@ separates the agent's errors from errors in our own checks. More on the site:
 
 The battery benchmark is released in the code repository,
 [agent-mechanics-benchmarks-public](https://github.com/tengzhang48/agent-mechanics-benchmarks-public): the task, host, scorer, reference code, the three runs and their results,
-with a practice problem that anyone can rerun. The rock benchmark is in preparation. Six fracture mechanics cases, the
+with a practice problem that anyone can rerun. Six fracture mechanics cases, the
 [poroelastic crack](https://mechanicsharness.org/case-studies/poroelastic-crack.html),
 [thin-film cracking](https://mechanicsharness.org/case-studies/xia-hutchinson-film.html), the
 [viscoelastic crack](https://mechanicsharness.org/case-studies/viscoelastic-crack.html), the
@@ -74,6 +74,7 @@ The website itself: plain HTML and CSS, no build step, served by GitHub Pages.
 | `evaluates.html`, `building.html`, `evaluation.html`, `get-started.html` | The other pages |
 | `404.html` | Page not found |
 | `case-studies/battery-fatigue.html` | The battery benchmark's case study |
+| `case-studies/magnet-element.html`, `case-studies/magnet-element-task.html` | The magnet benchmark's case study and its task text (the host, problems and scorer are not released) |
 | `case-studies/poroelastic-crack.html`, `case-studies/poroelastic-crack/` | The featured case: its page, and its files (task, key, checker, every run, records) |
 | `case-studies/xia-hutchinson-film.html`, `case-studies/xia-hutchinson-film/` | The thin-film cracking case: its page and its files |
 | `case-studies/viscoelastic-crack.html`, `case-studies/viscoelastic-crack/` | The viscoelastic crack case: its page and its files |

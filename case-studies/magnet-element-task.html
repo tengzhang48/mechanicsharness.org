@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Magnetic elastomer task text | MechanicsHarness</title>
+<meta name="description" content="The task text of the magnetic elastomer benchmark, version 0.6: the model, the Abaqus/Standard user-element contract, the four steps and how the work is judged, exactly as written for the AI agents.">
+<link rel="icon" href="../assets/favicon.svg?v=crack-tip" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css?v=9f52a9da">
+<style>
+.task { max-width: 820px; padding: 40px 0 64px; }
+.task .eyebrow { margin: 0 0 14px; font: 700 11.5px/1.5 var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.task h1 { font-size: 38px; line-height: 1.15; letter-spacing: -.8px; margin: 0 0 18px; }
+.task-note { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 0 0 26px; }
+.task-note p { font-size: 15px; line-height: 1.6; margin: 0 0 10px; }
+.task-note p:last-child { margin-bottom: 0; }
+.task-note ul { margin: 0 0 10px; padding-left: 20px; font-size: 15px; line-height: 1.6; }
+.task-toc { font-size: 14px; display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0 0 22px; }
+.doc { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 26px 30px 30px; }
+.doc h2 { font-size: 26px; line-height: 1.25; margin: 0 0 18px; }
+.doc h3 { font-size: 22px; line-height: 1.25; margin: 30px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); }
+.doc p, .doc li { font-size: 15.5px; line-height: 1.7; }
+.doc ul { padding-left: 20px; margin: 0 0 16px; }
+.doc li { margin-bottom: 8px; }
+.doc li::marker { color: #8a8a8a; }
+.doc code { font: .9em/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: #f2f2f2; padding: .05em .3em; border-radius: 3px; overflow-wrap: anywhere; }
+.doc .table-wrap { overflow-x: auto; margin: 6px 0 18px; border: 1px solid var(--line); border-radius: 8px; }
+.doc table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 14px; line-height: 1.45; }
+.doc th, .doc td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+.doc thead th { background: var(--paper); font-weight: 650; }
+.doc tbody tr:last-child td { border-bottom: 0; }
+@media (max-width: 700px) {
+  .task { padding-top: 28px; }
+  .task h1 { font-size: 30px; letter-spacing: -.5px; }
+  .task .eyebrow { font-size: 10.5px; letter-spacing: .1em; }
+  .doc { padding: 18px 16px 20px; border-radius: 10px; }
+  .doc h2 { font-size: 22px; }
+  .doc h3 { font-size: 20px; }
+  .doc p, .doc li { font-size: 15px; }
+}
+</style>
+</head>
+<body class="page-case">
+<header class="site">
+  <a class="brand" href="../index.html">MechanicsHarness</a>
+  <nav class="main" aria-label="Site">
+      <a href="../index.html">Home</a>
+      <a href="../evaluates.html">What it evaluates</a>
+      <a href="../building.html">How a benchmark is built</a>
+      <a href="../evaluation.html">Evaluation policy</a>
+      <a href="../get-started.html">Get started and contribute</a>
+  </nav>
+</header>
+<main class="frame">
+<div class="task">
+<p class="eyebrow">Multiphysics modeling &middot; Magnetic elastomer benchmark &middot; Task text</p>
+<h1>The task text, as the agents received it</h1>
+<div class="task-note">
+<p>This is version 0.6 of the task text, 11 November 2026, word for word; only its Markdown (headings, lists, bold,
+code, the table) is rendered for the web. The four agents of 11 November 2026 ran version 0.5, which differs in three
+places only:</p>
+<ul>
+<li>the version number in the title;</li>
+<li>Section 3: the field <code>"stiffness"</code> of <code>element.json</code> and the sentence that defines it;</li>
+<li>Section 7: the paragraph &ldquo;How you obtain the stiffness, 10 points on top of the checks&rdquo;.</li>
+</ul>
+<p>Only the task text is released. The host, the problems and meshes it names, the hidden problems, the reference
+solutions and code, our check elements and the scorer are not. The agents received this text in a file named
+PUBLIC_TASK.md, with the host and the twelve public problems, and a one-line prompt (quoted in the
+<a href="magnet-element.html#given">case study</a>).</p>
+<p><a href="magnet-element.html">Back to the case study</a></p>
+</div>
+<nav class="task-toc" aria-label="Sections of the task"><a href="#task-1">1. The model (fixed)</a><a href="#task-2">2. Parameters</a><a href="#task-3">3. The element contract</a><a href="#task-4">4. The host and the four steps</a><a href="#task-5">5. What is yours to decide</a><a href="#task-6">6. Deliverables</a><a href="#task-7">7. How you will be judged</a><a href="#task-8">8. Rules</a></nav>
+<article class="doc">
+<h2>Challenge: a 3D user element for magnetically hard, viscoelastic elastomers (version 0.6, 11 Nov 2026)</h2>
+<p><b>Goal.</b> Write a robust, ready-to-use Abaqus/Standard user element (UEL) for the magneto-viscoelastic model below: an 8-node hexahedron with three displacements and one magnetic scalar potential per node. The same element serves as magnetic particle, elastomer matrix or surrounding air, selected by a material flag in its properties. A host program in this workspace calls your element like Abaqus/Standard does, in four steps: a single material point, one distorted element, a magnetized sphere in air (about 5,000 elements; the potentials are solved by Newton's method with your stiffness), and a particle in a block of matrix (216 elements; displacements and potentials are solved together). This text and the host's source define the task. How you integrate the internal variables, how you compute the stiffness and how you handle the difficult cases are your decisions. Show that your element is right. Only the call the host makes is tested (a static step, residual and stiffness together); other Abaqus call modes, the input deck and the ENERGY output are outside this challenge.</p>
+<p>The model is from the published literature. This is not a test of new physics.</p>
+<h3 id="task-1">1. The model (fixed)</h3>
+<p>Units: MN, m, MA, T, s. Stress and energy density are in MPa. mu0 = 4 pi x 10^-1 T m/MA. H, Hr and ms are in MA/m, the potential phi in MA, B and b_r in T. Problem files give fields as mu0 H, in T.</p>
+<p><b>Kinematics and fields.</b> F = I + Grad u, C = F^T F, J = det F, I1 = tr C. The magnetic field is derived from a scalar potential on the reference configuration: H = -Grad phi (Lagrangian field; the current field is h = F^-T H). The Lagrangian flux is B = -d psi/dH (the current flux is b = F B / J). The first Piola-Kirchhoff stress is P = d psi/dF. Both derivatives are taken at fixed internal variables (Cv, Hr), and P at fixed Lagrangian H. P is the total stress, including the magnetic (Maxwell) part; P F^T is symmetric. Hr is a referential vector. The model is defined for J &gt; 0, Cv symmetric positive definite, and |Hr| &lt; ms. There are no body forces, no inertia and no free currents: Div P = 0, Div B = 0.</p>
+<p><b>Energies</b> per unit reference volume:</p>
+<ul>
+<li>elastic: psi_mech = G1/2 [(I1 - 2 ln J) - 3] + G2/54 [(I1 - 2 ln J)^3 - 27] + G' (J - 1)^2</li>
+<li>viscous branch: psi_neq = g/2 [ (J^2 / det Cv)^(-1/3) tr(C Cv^-1) - 3 ], with the internal variable Cv (symmetric)</li>
+<li>magnetic, non-magnetic solid or air: psi_vac = -(mu0/2) J H . C^-1 H</li>
+<li>magnetic, hard particle: psi_mag = J [ -(mu0/2)(1 + chi) H . C^-1 H + mu0 (1 + chi) H . C^-1 Hr ] + mu0 (ms^2/chi_r) f(|Hr|/ms), with f(x) = -(ln(1 - x) + x) and the internal variable Hr (a vector, |Hr| &lt; ms)</li>
+</ul>
+<p><b>Materials</b> (MATFLAG in the properties):</p>
+<ul>
+<li>1, air: psi = psi_mech + psi_vac, with the small stiffness given in the problem file (it only keeps the air mesh regular);</li>
+<li>2, matrix: psi = psi_mech + psi_neq + psi_vac;</li>
+<li>3, particle: psi = psi_mech + psi_mag.</li>
+</ul>
+<p><b>Evolution of the internal variables</b></p>
+<ul>
+<li>Matrix: dCv/dt = -(4/eta) Cv (d psi_neq/d Cv) Cv, which is dCv/dt = (2g/eta) J^(-2/3) (det Cv)^(1/3) [ C - (1/3) tr(C Cv^-1) Cv ], with Cv = I at t = 0. It keeps det Cv = 1. The closed form is the definition; the derivative in the first form is the symmetric tensor derivative.</li>
+<li>Particle: b_r = -d psi_mag/d Hr = -mu0 (1 + chi) J C^-1 H - (mu0/chi_r) Hr / (1 - |Hr|/ms), continuous at Hr = 0. The switching surface is Phi = b_r . b_r - b_c^2 &lt;= 0. The remanent field evolves by dHr/dt = 2 lambda b_r with lambda &gt;= 0, Phi &lt;= 0, lambda Phi = 0, and, when Phi = 0, lambda dPhi/dt = 0 (rate independent: Hr changes only while the state stays on the surface; otherwise the response is reversible). Hr = 0 at t = 0.</li>
+<li>For reference: B = mu0 (1 + chi) J C^-1 (H - Hr) in the particle and B = mu0 J C^-1 H elsewhere.</li>
+</ul>
+<p><b>Weak form.</b> For all test functions (w, q): int P : Grad w dV = 0 and int B . Grad q dV = 0.</p>
+<h3 id="task-2">2. Parameters</h3>
+<p>Problem files give them; the published values are:</p>
+<ul>
+<li>particle: G1 = 500, G2 = 0, G' = 2.5e5 (MPa); ms = 0.842/mu0 (MA/m); chi = 0.105; chi_r = 8.0; b_c = 1.062 (T);</li>
+<li>matrix: G1 = G2 = 0.020, G' = 40, g = 0.120 (MPa); eta = 0.008 (MPa s);</li>
+<li>air: G1 = G2 = 4e-5, G' = 4e-4 (MPa).</li>
+</ul>
+<p>In every problem eta &gt; 0 where g &gt; 0, and ms, chi_r, b_c &gt; 0 for the particle. Entries a material does not use are zero: do not evaluate another material's formulas with them.</p>
+<h3 id="task-3">3. The element contract</h3>
+<ul>
+<li>Fortran, fixed form, in <code>uel.for</code>: the standard Abaqus/Standard <code>SUBROUTINE UEL(...)</code> with the full argument list.</li>
+<li>NNODE = 8 in the C3D8 node order, MCRD = 3; 4 degrees of freedom per node in the order u1, u2, u3, phi (NDOFEL = 32). Natural coordinates of nodes 1 to 8: (-1,-1,-1), (1,-1,-1), (1,1,-1), (-1,1,-1), (-1,-1,1), (1,-1,1), (1,1,1), (-1,1,1).</li>
+<li>With r_u(a) = int P Grad N_a dV and r_phi(a) = int B . Grad N_a dV, both at the internal variables updated to the end of the increment: <code>RHS(:,1)</code> = -(r_u, r_phi) and <code>AMATRX</code> = d(r_u, r_phi)/dU = -d RHS/dU, the full 32 by 32 Jacobian, including the dependence of the updated internal variables on U. The derivative is taken with respect to the end values U at fixed start values U - DU, fixed start-of-increment SVARS, TIME and DTIME (so DU changes with U).</li>
+<li><code>U</code> holds the nodal values at the end of the increment and <code>DU</code> their change over the increment. Within an increment the nodal values go from U - DU to U along a straight line, U - DU + s DU with s from 0 to 1 (so F and H at a point are linear in s; J, the current field h and a rotation are not). The references of steps 1 and 2 follow exactly this path between the listed times.</li>
+<li><code>SVARS</code> start at zero and are passed in at their start-of-increment values on every call; your element initializes its own state (Cv = I, Hr = 0). Keep your own marker for "initialized" in SVARS: do not decide by KINC, because both halves of a repeated increment carry the same KINC.</li>
+<li><code>TIME(1)</code> = <code>TIME(2)</code> = the time at the start of the increment, <code>DTIME</code> its length. KSTEP = 1, JTYPE = 1, NRHS = 1, LFLAGS = (1, 1, 1, 0, 0), V = A = 0, no loads, no predefined fields; ENERGY is ignored.</li>
+<li><code>PNEWDT</code>: if you return a value below 1 (for example for a trial state with J &lt;= 0), the host abandons the increment and repeats it in two halves, with DTIME halved, up to ten times in a row. The value itself is not used.</li>
+<li>PROPS, in this order: MATFLAG, G1, G2, G', g, eta, ms, chi, chi_r, b_c (unused entries are zero).</li>
+<li><code>element.json</code>: <code>{"source": "uel.for", "nsvars": N, "points": 8, "svars_per_point": n, "stiffness": "analytic"}</code>, where "stiffness" states how AMATRX is obtained: "analytic", "complex_step", "finite_difference", or "mixed" if any part of it comes from finite differences. Integration point q (q = 1..8) is the Gauss point at the natural coordinates of node q divided by sqrt(3) (weight 1), and its state occupies SVARS((q-1) n + 1 : q n). The first entries of every block are Cv11, Cv22, Cv33, Cv12, Cv13, Cv23 (matrix; tensor components) or Hr1, Hr2, Hr3 (particle), as true values (not increments or offsets) at the end of the increment. Further entries per point (n &gt;= 6) and entries after the eight blocks are yours.</li>
+<li>Integration (prescribed, so that results on a given mesh are comparable): 2 x 2 x 2 Gauss points for every term except the volumetric term G' (J - 1)^2, which is evaluated at the element centroid (one point, with weight 8 det(dX/dxi) taken at the centroid). How you integrate the internal variables in time is yours.</li>
+</ul>
+<h3 id="task-4">4. The host and the four steps</h3>
+<p><code>python3 host/magnet_host.py element.json problems/NAME.json results/NAME.json</code> builds your element (gfortran, a shared library loaded with ctypes) and runs one problem. The host knows no physics; read <code>host/magnet_host.py</code> for exactly what it does. In steps 1 and 2 every nodal value is prescribed at the listed times and nothing is solved. In step 3 the host solves for the potentials by Newton's method with the phi-phi block of your AMATRX; in step 4 for displacements and potentials with the full AMATRX. The host uses no line search: an increment whose Newton iteration fails is repeated in halves.</p>
+<p><b>Step 1, a material point</b> (<code>P1A</code> to <code>P1D</code>). One cube element with u_a = (F - I) X_a and phi_a = -H . X_a. The host recovers P = (1/V0) sum_a r_u(a) (x) X_a and B = (1/V0) sum_a r_phi(a) X_a from your nodal residual.</p>
+<ul>
+<li>P1A: the particle at F = I, mu0 H along e1 cycled 0 -&gt; 3 -&gt; -3 -&gt; 3 T in increments of 0.02 T.</li>
+<li>P1B: the matrix, F = diag(s, s^-1/2, s^-1/2) at the listed times, with the stretch s rising from 1 to 1.5 in 0.01 s (ten increments), then held to 1 s (increments ending at 0.02, 0.05, 0.1, 0.2, 0.5 and 1 s).</li>
+<li>P1C: the particle at F = I, mu0 H along e1: 0 -&gt; 3 -&gt; 0 T, then a transverse field along e2 raised to 1.5 T; all in increments of 0.05 T.</li>
+<li>P1D: the particle after 0 -&gt; 3 -&gt; 0 T along e1 at F = I (increments of 0.05 T); then, at the end of each of ten increments, F = R, a rotation about the axis (1, 2, 2) growing to 35 degrees, with the Lagrangian field H = R^T h for a current field mu0 h growing in proportion to (0.30, 0.20, -0.10) T.</li>
+</ul>
+<p>The host returns, per increment, P (row by row), B, and the mean over the integration points of the first six SVARS.</p>
+<p><b>Step 2, one element</b> (<code>P2A</code> to <code>P2F</code>). A distorted element with nodal displacements and potentials prescribed at the listed times. The host returns your RHS, AMATRX and SVARS at every increment.</p>
+<ul>
+<li>P2A (air), P2B (matrix), P2C (particle): general states. Large deformation with volume change, a nearly isochoric bending mode, a viscous history whose principal axes turn, magnetization followed by rotation and an oblique reversed field. The nodal forces here are dominated by the volumetric term (in the air, by the Maxwell stress).</li>
+<li>P2D (air without a field), P2E (matrix, homogeneous states with J = 1 at the listed times, in a field), P2F (particle with zero displacements in a non-uniform field): the stresses that the volumetric term hides.</li>
+</ul>
+<p><b>Step 3, a magnetized sphere in air</b> (<code>P3</code>). A rigid spherical particle of radius 0.25 m (all displacements in the mesh are fixed at zero) sits at the centre of a cube of air of side 6 m, with phi = -h_inf . X on the outer boundary. The mesh is supplied (<code>problems/sphere_mesh.npz</code>: 5,361 nodes, 5,120 elements, 1,664 of them in the particle). The applied field mu0 h_inf follows, in increments of 0.05 T, 0 -&gt; 0.5 T along e2 -&gt; 2.5 T along e2 -&gt; 0 -&gt; 0.3 T along e1. There is no physical time scale in this step: increment k runs from time k - 1 to k. Reported at the four turning points: mu0 h at the centre of the sphere (the mean of the centroid values of the eight elements that share the centre node) and at the centroids of two air elements (one near the pole on the e2 axis, one near the equator on the e1 axis), from your nodal potentials, and the volume average of mu0 Hr from your SVARS. For a sphere in unbounded air with uniform Hr the field inside is uniform, h_in = [3 h_inf + (1 + chi) Hr]/(3 + chi), and switching starts at mu0 h_inf = b_c (3 + chi)/(3 (1 + chi)) = 0.995 T. The finite block and the faceted sphere change this by a few percent on the supplied mesh; the closed form is a plausibility check, not the reference. Cost: the host calls your element once per element and Newton iteration. Our own check element, with a stiffness by finite differences, finishes P3 in about 15 minutes on a busy machine.</p>
+<p><b>Step 4, a particle in a block of matrix</b> (<code>P4</code>). A cube of side 0.6 m, 6 x 6 x 6 elements (<code>problems/patch_mesh.npz</code>); the central 2 x 2 x 2 elements are particle, the rest matrix. On all boundary nodes u = (Fbar - I) X and phi = -Hbar . X are prescribed, with Fbar(t) and Hbar(t) piecewise linear in time (listed in the problem file); the 125 interior nodes are free in all four degrees of freedom.</p>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">stage</th><th scope="col">t (s)</th><th scope="col">increments</th><th scope="col">Fbar</th><th scope="col">mu0 Hbar (T)</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>0 to 0.02</td><td>10</td><td>I to F1: stretch 1.15 along e3 with shear F13 = 0.10, scaled to det 1</td><td>0</td></tr>
+<tr><td>2</td><td>0.02 to 0.30</td><td>7</td><td>F1</td><td>0</td></tr>
+<tr><td>3</td><td>0.30 to 0.40</td><td>20</td><td>F1</td><td>0 to 2 along e3</td></tr>
+<tr><td>4</td><td>0.40 to 0.50</td><td>10</td><td>F1</td><td>2 to 0</td></tr>
+<tr><td>5</td><td>0.50 to 0.60</td><td>10</td><td>F1 to F2 (adds F12 = 0.05, F22 = 1.05, F31 = 0.04, scaled to det 1)</td><td>0 to 0.15 along e1</td></tr>
+<tr><td>6</td><td>0.60 to 0.90</td><td>6</td><td>F2</td><td>0.15 along e1</td></tr>
+</tbody></table></div>
+<p>Reported at the end of each stage: the displacements of the interior nodes, the sum of the nodal forces r_u over the face x3 = +0.3, the mean over the particle elements of the current field h = F^-T H at the centroid, and the volume average of mu0 Hr. The matrix relaxes during the holds, and the magnetized particle turns by several degrees in the transverse field. Cost: our check element finishes P4 in about two minutes.</p>
+<p>The source paper's 3D example (an ellipsoid in a matrix cube in air, with large rotations) is not part of this challenge; no problem here has a deforming air mesh.</p>
+<h3 id="task-5">5. What is yours to decide</h3>
+<ul>
+<li>How you integrate Cv (the host's increments are not small compared with eta/g = 0.067 s in every problem).</li>
+<li>How you integrate Hr: the return to the switching surface, the first switching from Hr = 0, |Hr| -&gt; ms, and a field that changes direction or reverses within one increment.</li>
+<li>How you compute AMATRX, including its coupling blocks and the contribution of the internal variables.</li>
+<li>Whether your element substeps or asks for a smaller increment through PNEWDT.</li>
+</ul>
+<p>You must control the time-integration error well enough to meet the tolerances of Section 7 at the host's increments; one consistent step per increment need not suffice.</p>
+<h3 id="task-6">6. Deliverables</h3>
+<p><code>uel.for</code>, <code>element.json</code>, <code>results/</code> (the host's result files for the public problems), <code>design.md</code> (your formulation, every choice, and the evidence that the element is right), <code>verification/</code> (your own tests) and <code>STATUS.md</code>.</p>
+<h3 id="task-7">7. How you will be judged</h3>
+<p>The organizers build your element and run it through the same host on the public problems and on hidden problems of the same kinds (other field amplitudes and directions, a partial field reversal, other rates and hold times, much larger increments, a rotated and translated element, other load paths for the sphere and for the block).</p>
+<ul>
+<li>Accuracy against reference solutions that follow the same piecewise-linear paths, converged in time (step 3: converged in the size of the field increment, on the supplied mesh). They are not shown to you. Over each problem, the largest difference in P, B, nodal forces, nodal fluxes, probe fields and internal variables must be below 1 percent of the largest reference value (5 percent in the problems with much larger increments). In step 4 the comparison is made stage by stage, each against the largest reference value of that stage, for: the departure of the interior displacements from the homogeneous field (Fbar - I) X, the force on the top face, the field in the particle and the mean remanent field (a stage whose reference is below a thousandth of the largest stage is judged against that floor); the reference is converged in the time increment.</li>
+<li>Your stiffness: AMATRX against the central difference of your own residual (as defined in Section 3), block by block, to 1e-4, on every accepted increment of step 2.</li>
+<li>How you obtain the stiffness, 10 points on top of the checks: 10 for an analytic or complex-step stiffness, 6 if any part of it comes from finite differences, 0 if a stiffness check of step 2 fails. The choice is yours. The organizers read your source to confirm the method you declare in <code>element.json</code>.</li>
+<li>Objectivity, to 1e-6 of the reference values: rotating the element, its displacements and the field together rotates the nodal forces; superposing a rigid rotation on the whole motion rotates the nodal forces and leaves the nodal fluxes and the internal variables unchanged.</li>
+<li>Robustness: every problem completes (a problem that does not complete fails all of its checks; a sphere run is stopped after 90 minutes, and so is a run of the block); |Hr| &lt; ms, Phi &lt;= 1e-6 b_c^2 and |det Cv - 1| &lt;= 1e-3 at the end of every listed increment of steps 1 and 2 and at the reported increments of steps 3 and 4.</li>
+<li>Separately from these automated checks, a person reads your design: whether your choices are justified by evidence and your claims match your files.</li>
+</ul>
+<h3 id="task-8">8. Rules</h3>
+<p>Work offline, only inside this workspace. Python 3 with NumPy and SciPy, and gfortran. Time budget: 8 hours. Do not search the disk for other copies of this challenge, reference solutions, or other agents' work.</p>
+</article>
+</div>
+</main>
+<footer class="site">
+  <div class="frame footer-row">
+    <p>MechanicsHarness is maintained by Teng Zhang, Syracuse University.
+    Site source: <a href="https://github.com/tengzhang48/mechanicsharness.org">github.com/tengzhang48/mechanicsharness.org</a>.
+    The site design follows the Shape Morphing Data Commons (<a href="https://morphingdatacommons.org">morphingdatacommons.org</a>)
+    of Lining Yao's Morphing Matter Lab, UC Berkeley.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="../index.html">Home</a>
+      <a href="../evaluates.html">What it evaluates</a>
+      <a href="../building.html">How a benchmark is built</a>
+      <a href="../evaluation.html">Evaluation policy</a>
+      <a href="../get-started.html">Get started and contribute</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

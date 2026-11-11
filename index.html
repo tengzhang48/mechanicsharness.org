@@ -89,7 +89,7 @@ a measurement.</p>
     <h3>Published research models</h3>
     <p>The agent implements a recent paper's model as working simulation code, checked against an independent reference.</p>
     <ul class="rung-cases">
-      <li><a href="#rock">Rock fracture (Anand 2026)</a></li>
+      <li><a href="#magnet">Magnetic elastomer (Rambausek et al. 2022)</a></li>
       <li><a href="#battery">Battery fatigue (Noii et al. 2024)</a></li>
     </ul>
   </div>
@@ -327,23 +327,32 @@ the key and what every agent did.</p>
 <h2>Multiphysics modeling</h2>
 <div class="sec-body wide">
 <div class="cards">
-  <article class="card" id="rock">
+  <article class="card" id="magnet">
     <div class="illustration">
-      <svg viewBox="0 0 64 60" aria-hidden="true" focusable="false">
-        <path class="g-hidden" d="M24 40V8M24 40h32M24 40 6 54"/>
-        <path class="g-edge" d="M6 22h32v32H6zM6 22 24 8h32L38 22M56 8v32L38 54"/>
-        <g class="g-node"><circle cx="6" cy="22" r="2.4"/><circle cx="38" cy="22" r="2.4"/><circle cx="38" cy="54" r="2.4"/><circle cx="6" cy="54" r="2.4"/><circle cx="24" cy="8" r="2.4"/><circle cx="56" cy="8" r="2.4"/><circle cx="56" cy="40" r="2.4"/><circle cx="24" cy="40" r="2.4"/></g>
+      <svg viewBox="0 0 118 60" aria-hidden="true" focusable="false">
+        <rect class="g-body" x="4" y="8" width="52" height="44"/>
+        <rect class="g-tip" x="22" y="22" width="16" height="16"/>
+        <path class="g-arrow" d="M30 49V16"/>
+        <path class="g-arrowhead" d="M26.8 17L30 11L33.2 17Z"/>
+        <path class="g-hidden" d="M70 30H116M93 6V54"/>
+        <path class="g-new" d="M72 44H97C101 44 102 40 103 30C104 20 105 16 109 16H114"/>
+        <path class="g-new" d="M114 16H89C85 16 84 20 83 30C82 40 81 44 77 44H72"/>
       </svg>
     </div>
     <div class="cardbody">
-    <h3>Rock fracture: a gradient-damage user element</h3>
-    <p>Agents write an Abaqus/Standard user element (an 8-node brick with displacement and damage) for the gradient-damage
-    rock model of L. Anand (2026), tested on the one-element compression test of the paper's Fig. 17.</p>
+    <h3>Magnetic elastomer: a 3D magneto-viscoelastic user element</h3>
+    <div class="card-cta">
+      <a class="button" href="case-studies/magnet-element.html">Read the case study</a>
+      <a class="button ghost" href="case-studies/magnet-element-task.html">Read the task text</a>
+    </div>
+    <p>Agents write an Abaqus/Standard user element (an 8-node brick with three displacements and a magnetic potential) for
+    the magnetically hard, viscoelastic elastomer model of M. Rambausek, D. Mukherjee and K. Danas (2022), tested in four
+    steps up to a magnetized particle in a block of matrix. All four agents reached an element that solves all four steps: three passed all 181 checks in 47 to 91 minutes, the fourth 179 after two sessions. How each obtained the stiffness matrix set them apart.</p>
     <dl class="cardfooter">
       <dt>Status</dt>
-      <dd>Case study shared with the source-paper author on 4 Nov 2026; release pending.</dd>
+      <dd>Case study of the four runs of 11 Nov 2026, with the task text. The host, problems and scorer are not released.</dd>
       <dt>Source paper</dt>
-      <dd class="refs">L. Anand (2026), <a href="https://doi.org/10.1016/j.ijsolstr.2025.113739"><i>Int. J. Solids Struct.</i> 325, 113739</a>.</dd>
+      <dd class="refs">M. Rambausek, D. Mukherjee and K. Danas (2022), A computational framework for magnetically hard and soft viscoelastic magnetorheological elastomers, <a href="https://doi.org/10.1016/j.cma.2021.114500"><i>Comput. Methods Appl. Mech. Engrg.</i> 391, 114500</a>.</dd>
     </dl>
     </div>
   </article>
@@ -391,8 +400,8 @@ studies separate errors of the agents from errors of our own test programs.
 <section class="principle">
 <h2>Get started and contribute</h2>
 <p>The battery benchmark is released in the public code repository,
-<a href="https://github.com/tengzhang48/agent-mechanics-benchmarks-public">agent-mechanics-benchmarks-public</a>, with a practice problem that anyone can rerun; the rock
-benchmark is in preparation. <a href="get-started.html">How to run it and how to get in touch</a>.</p>
+<a href="https://github.com/tengzhang48/agent-mechanics-benchmarks-public">agent-mechanics-benchmarks-public</a>, with a practice problem that anyone can
+rerun. <a href="get-started.html">How to run it and how to get in touch</a>.</p>
 </section>
 </div>
 </div>
