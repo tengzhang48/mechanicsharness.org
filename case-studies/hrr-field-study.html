@@ -375,6 +375,7 @@ body.study .case-navigation{position:static}
 .s-answer input,.s-check input{font:16px/1.2 var(--sans);width:7.5em;padding:8px 10px;border:1.5px solid var(--math-border);border-radius:7px;background:var(--surface);color:var(--fg)}
 .s-check input{width:6.5em;padding:6px 8px}
 .s-btn{display:inline-block;font:600 14.5px/1 var(--sans);padding:11px 16px;border-radius:7px;border:1px solid var(--accent);background:var(--accent);color:var(--bg);text-decoration:none;cursor:pointer}
+.page a.s-btn,.page a.s-btn:visited{color:var(--bg)}  /* the case pages' .page a rule would otherwise colour a link button like its background */
 .s-btn.small{padding:8px 11px;font-size:13px;background:var(--surface);color:var(--accent)}
 .s-btn:hover{filter:brightness(1.08)}
 .s-msg{font:15px/1.5 var(--sans)!important;border-radius:8px;padding:0;margin:8px 0}
@@ -3563,9 +3564,11 @@ body.study .lede,body.study header p{max-width:none}
       if (b.label && xs(x1) - xs(x0) > 90)
         svg.appendChild(el('text', { x: xs(x0) + 6, y: m.t + 14, 'class': 'pl-band-lbl' }, b.label));
     });
-    niceTicks(opts.x0, opts.x1, 5).forEach(function (t) {
+    // opts.xticks: optional [[value, label]] (e.g. a logarithmic axis); otherwise evenly spaced round numbers
+    (opts.xticks || niceTicks(opts.x0, opts.x1, 5).map(function (t) { return [t, String(t)]; })).forEach(function (tk) {
+      var t = tk[0];
       svg.appendChild(el('line', { x1: xs(t), x2: xs(t), y1: m.t, y2: H - m.b, 'class': 'pl-grid' }));
-      svg.appendChild(el('text', { x: xs(t), y: H - m.b + 16, 'class': 'pl-tick', 'text-anchor': 'middle' }, String(t)));
+      svg.appendChild(el('text', { x: xs(t), y: H - m.b + 16, 'class': 'pl-tick', 'text-anchor': 'middle' }, tk[1]));
     });
     niceTicks(opts.y0, opts.y1, 5).forEach(function (t) {
       svg.appendChild(el('line', { x1: m.l, x2: W - m.r, y1: ys(t), y2: ys(t), 'class': 'pl-grid' }));
