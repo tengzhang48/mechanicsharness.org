@@ -6,158 +6,154 @@
 <title>Magnetic elastomer element case study | MechanicsHarness</title>
 <meta name="description" content="Case study: AI coding agents wrote an Abaqus/Standard user element for a 3D magneto-viscoelastic elastomer model (Rambausek, Mukherjee and Danas 2022). What they were given, how it was judged, and how each obtained the stiffness matrix.">
 <link rel="icon" href="../assets/favicon.svg?v=crack-tip" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/style.css?v=9f52a9da">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400&amp;display=swap">
+<link rel="stylesheet" href="../assets/style.css?v=15094ef2">
 <style>
-.case { display: grid; grid-template-columns: minmax(0, 1fr); gap: 36px; padding: 40px 0 64px; }
-@media (min-width: 1000px) { .case { grid-template-columns: 180px minmax(0, 1fr); gap: 48px; } }
-.rail { display: none; }
-@media (min-width: 1000px) {
-  .rail { display: block; position: sticky; top: 24px; align-self: start; font-size: 13.5px; }
-}
-.rail p { font: 700 11px/1.2 var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
-.rail ol { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--line); }
-.rail li { margin: 0; }
-.rail a { display: block; padding: 5px 0 5px 12px; color: var(--muted); text-decoration: none; line-height: 1.35; }
-.rail a:hover { color: var(--ink); }
-.article { min-width: 0; }
-.article .col { max-width: 720px; }
-.eyebrow { margin: 0 0 14px; font: 700 11.5px/1.5 var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-.article h1 { font-size: 40px; line-height: 1.15; letter-spacing: -1px; margin: 0 0 20px; max-width: 920px; }
-.article .lede { font-size: 18px; line-height: 1.62; color: var(--ink-soft); margin: 0 0 18px; }
-.article p, .article li { font-size: 16px; line-height: 1.65; }
-.article ul { padding-left: 20px; }
-.article li { margin-bottom: 8px; }
-.article li::marker { color: #8a8a8a; }
-.note { font-size: 14.5px; color: var(--ink-soft); }
-.article p.note { font-size: 14.5px; line-height: 1.6; }
-.jump { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 4px 0 0; font-size: 14px; }
-@media (min-width: 1000px) { .jump { display: none; } }
-.figs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 26px 0 22px; }
-@media (max-width: 860px) { .figs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.figs > div { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--ink); border-radius: 0 0 10px 10px; padding: 14px 16px 15px; min-width: 0; }
-.figs .n { font: 400 30px/1.1 var(--f-serif); margin: 0 0 6px; }
-.figs .l { font-size: 13.5px; line-height: 1.45; color: var(--muted); margin: 0; }
-.article section { border-top: 1px solid var(--line); padding-top: 30px; margin-top: 36px; }
-.article section:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
-.article sup, .article sub { line-height: 0; }
-.nowrap { white-space: nowrap; }
-.cta-line { margin: 4px 0 18px; }
-.small-note { font-size: 12px; color: var(--muted); white-space: nowrap; }
-.article h2 { font-size: 28px; line-height: 1.2; letter-spacing: -.3px; margin: 0 0 16px; max-width: 760px; }
-.article h2 .num, .step-title .num { color: var(--muted); margin-right: 10px; }
-.article h3 { font-size: 20px; line-height: 1.3; margin: 26px 0 10px; }
-blockquote.prompt { margin: 14px 0 18px; padding: 12px 18px; background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink); font: 14.5px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-.table-wrap { overflow-x: auto; margin: 18px 0 8px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
-table.data { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.45; }
-table.data th, table.data td { text-align: left; vertical-align: top; padding: 9px 12px; border-bottom: 1px solid var(--line); }
-table.data thead th { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 650; background: var(--paper); }
-table.data tbody tr:last-child td { border-bottom: 0; }
-table.data td.num, table.data th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
-table.data td.nowrap { white-space: nowrap; }
-table.results { min-width: 860px; }
-table.tokens { min-width: 640px; }
-table.choices { min-width: 760px; }
-.table-cap { font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 0 0 18px; max-width: 900px; }
-.callout { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin: 18px 0; max-width: 720px; }
-.callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
-.callout h3 { margin-top: 0; font-size: 18px; }
-.two { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; max-width: 980px; }
-@media (min-width: 900px) { .two { grid-template-columns: repeat(2, minmax(0, 1fr)); } .two .callout { margin: 0; } }
-.steps-fig { margin: 22px 0 10px; }
-.steps-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-@media (max-width: 1100px) { .steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .steps-grid { grid-template-columns: minmax(0, 1fr); } }
-.step-panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px 14px; min-width: 0; }
-.step-panel svg { display: block; width: 100%; height: auto; max-width: 300px; margin: 4px auto 8px; background: var(--panel); border-radius: 6px; }
-.step-title { font: 400 18px/1.25 var(--f-serif); margin: 0 0 4px; }
-.article p.step-cap { font-size: 13.5px; line-height: 1.5; color: var(--ink-soft); margin: 0; }
-.steps-fig figcaption { font-size: 13.5px; line-height: 1.55; color: var(--muted); margin-top: 10px; max-width: 900px; }
-.f-solid { fill: #ffffff; stroke: #2c3a44; stroke-width: 1.5; stroke-linejoin: round; }
-.f-solid-top { fill: #eef2f5; stroke: #2c3a44; stroke-width: 1.5; stroke-linejoin: round; }
-.f-solid-side { fill: #e3e9ee; stroke: #2c3a44; stroke-width: 1.5; stroke-linejoin: round; }
-.f-hidden { fill: none; stroke: #9aa5ad; stroke-width: 1.1; stroke-dasharray: 3 3; }
-.f-field { fill: none; stroke: #1f7a72; stroke-width: 2; }
-.f-field-h { fill: #1f7a72; }
-.f-load { fill: none; stroke: #2c3a44; stroke-width: 1.4; }
-.f-load-h { fill: #2c3a44; }
-.f-node circle { fill: #ffffff; stroke: #151515; stroke-width: 1.3; }
-.f-node-fixed circle { fill: #151515; }
-.f-air { fill: #ffffff; stroke: #9aa5ad; stroke-width: .6; }
-.f-part { fill: #c0562f; fill-opacity: .35; stroke: #c0562f; stroke-width: .7; }
-.f-matrix { fill: #e3e9ee; stroke: #7f8c96; stroke-width: .8; }
-.f-frame { fill: none; stroke: #2c3a44; stroke-width: 1; }
-.f-lab { font: 500 12.5px var(--f-ui); fill: #151515; }
-.f-sub { font: 500 10px var(--f-ui); }
-.f-fieldlab { fill: #1f7a72; font-style: italic; }
-@media (max-width: 700px) {
-  .case { padding-top: 28px; }
-  .article h1 { font-size: 30px; letter-spacing: -.5px; }
-  .eyebrow { font-size: 10.5px; letter-spacing: .1em; }
-  .article .lede { font-size: 16.5px; }
-  .article h2 { font-size: 24px; }
-  .figs .n { font-size: 25px; }
+.page-case main.frame{max-width:1200px}
+.mcase{padding:28px 0 56px}
+.case-head{display:grid;gap:.75rem;padding-bottom:1.5rem;border-bottom:1px solid var(--rule)}
+.case-head .kicker{margin:0}
+.case-head h1{font-size:clamp(1.7rem,3.6vw,2.45rem);font-weight:700;line-height:1.2;letter-spacing:-.01em;margin:0;max-width:26em}
+.paths{display:flex;flex-wrap:wrap;gap:.5rem;margin:0}
+.paths a{font:600 .82rem/1.4 var(--sans);padding:.35rem .8rem;border:1px solid var(--accent);border-radius:999px;color:var(--accent);text-decoration:none;background:var(--surface)}
+.paths a:hover{background:var(--accent-weak)}
+.ledes{display:grid;gap:1rem 2.4rem;grid-template-columns:minmax(0,1fr);align-items:start}
+@media (min-width:900px){.ledes{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr)}}
+.ledes .side{display:grid;gap:1rem;align-content:start;min-width:0}
+.case-head .lede{font-size:1.08rem;line-height:1.55;color:var(--muted);margin:0}
+.aim{border-left:3px solid var(--accent);padding-left:1rem}
+.aim .kicker{margin:0 0 .25rem}
+.case-head .meta{font:.85rem/1.55 var(--sans);color:var(--muted);margin:0}
+.case-head .meta b{color:var(--fg)}
+nav.toc{display:flex;flex-wrap:wrap;gap:.35rem .9rem;font:.86rem/1.5 var(--sans)}
+nav.toc a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+nav.toc a:hover{border-bottom-color:var(--accent)}
+[id]{scroll-margin-top:4.5rem}
+
+.mcase section{padding:2rem 0;border-bottom:1px solid var(--rule)}
+.mcase section:last-child{border-bottom:0;padding-bottom:0}
+.mcase h2{font-size:1.45rem;font-weight:700;line-height:1.25;margin:0 0 1rem;max-width:38em}
+.mcase h2 .num,.step-title .num{color:var(--accent);font-family:var(--sans);font-weight:600;margin-right:.55rem}
+.mcase h3{font-size:1.1rem;font-weight:600;line-height:1.3;margin:1.7rem 0 .6rem}
+.mcase .col{max-width:46rem}
+.mcase .col p,.mcase .col li{font-size:17px;line-height:1.6}
+.mcase .col p{margin:0 0 .9rem}
+.mcase .col ul{padding-left:1.2rem;margin:0 0 .9rem}
+.mcase .col li{margin-bottom:.5rem}
+.mcase .col li::marker{color:var(--accent)}
+.mcase .col p.note{font-size:15.5px;color:var(--muted)}
+.mcase .nowrap{white-space:nowrap}
+.mcase .cta-line{margin:.2rem 0 1rem}
+.mcase .small-note{font-size:12px;color:var(--muted);white-space:nowrap}
+.mcase .figs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+.mcase .figs>div{min-width:0;background:var(--surface);border:1px solid var(--rule);border-top:3px solid var(--accent);border-radius:4px;padding:.65rem .85rem .75rem}
+.mcase .figs .n{font:700 1.55rem/1.1 var(--serif);color:var(--fg);margin:0 0 .3rem}
+.mcase .figs .l{font:.8rem/1.4 var(--sans);color:var(--muted);margin:0}
+blockquote.prompt{margin:.6rem 0 1.1rem;padding:.7rem 1rem;background:var(--code-bg);border:1px solid var(--math-border);border-left:3px solid var(--accent);border-radius:4px;font:13.5px/1.6 var(--mono);color:var(--fg)}
+.mcase .table-wrap{overflow-x:auto;margin:1.1rem 0 .5rem;border:1px solid var(--rule);border-radius:4px;background:var(--surface)}
+table.data{border-collapse:collapse;width:100%;font:.86rem/1.45 var(--sans);font-variant-numeric:tabular-nums;color:var(--fg)}
+table.data th,table.data td{text-align:left;vertical-align:top;padding:.5rem .7rem;border-bottom:1px solid var(--rule)}
+table.data thead th{font-size:.78rem;font-weight:600;letter-spacing:.03em;color:var(--muted);background:var(--bg)}
+table.data tbody tr:last-child td{border-bottom:0}
+table.data td.num,table.data th.num{text-align:right;white-space:nowrap}
+table.data td.nowrap{white-space:nowrap}
+table.results{min-width:860px}
+table.tokens{min-width:640px}
+table.choices{min-width:760px}
+.mcase .table-cap{font:.83rem/1.55 var(--sans);color:var(--muted);margin:0 0 1.1rem;max-width:72ch}
+.steps-fig{margin:1.4rem 0 .4rem}
+.steps-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem}
+@media (max-width:1100px){.steps-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.steps-grid{grid-template-columns:minmax(0,1fr)}}
+.step-panel{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:.75rem .85rem .85rem;min-width:0}
+.step-panel svg{display:block;width:100%;height:auto;max-width:300px;margin:.3rem auto .5rem;background:var(--bg);border-radius:3px}
+.step-title{font:600 1.02rem/1.3 var(--serif);margin:0 0 .25rem}
+.mcase p.step-cap{font:.82rem/1.5 var(--sans);color:var(--muted);margin:0}
+.steps-fig figcaption{font:.83rem/1.55 var(--sans);color:var(--muted);margin-top:.6rem;max-width:72ch}
+.f-solid{fill:var(--surface);stroke:var(--fg);stroke-width:1.5;stroke-linejoin:round}
+.f-solid-top{fill:var(--math-bg);stroke:var(--fg);stroke-width:1.5;stroke-linejoin:round}
+.f-solid-side{fill:var(--math-border);stroke:var(--fg);stroke-width:1.5;stroke-linejoin:round}
+.f-hidden{fill:none;stroke:var(--muted);stroke-width:1.1;stroke-dasharray:3 3}
+.f-field{fill:none;stroke:var(--accent);stroke-width:2}
+.f-field-h{fill:var(--accent)}
+.f-load{fill:none;stroke:var(--fg);stroke-width:1.4}
+.f-load-h{fill:var(--fg)}
+.f-node circle{fill:var(--surface);stroke:var(--fg);stroke-width:1.3}
+.f-node-fixed circle{fill:var(--fg)}
+.f-air{fill:var(--surface);stroke:var(--muted);stroke-width:.6}
+.f-part{fill:var(--c3);fill-opacity:.35;stroke:var(--c3);stroke-width:.7}
+.f-matrix{fill:var(--math-border);stroke:var(--muted);stroke-width:.8}
+.f-frame{fill:none;stroke:var(--fg);stroke-width:1}
+.f-lab{font:500 12.5px var(--sans);fill:var(--fg)}
+.f-sub{font:500 10px var(--sans)}
+.f-fieldlab{fill:var(--accent);font-style:italic}
+@media (max-width:700px){
+  .mcase .col p,.mcase .col li{font-size:16.5px}
+  .mcase h2{font-size:1.3rem}
 }
 </style>
 </head>
 <body class="page-case">
-<header class="site">
-  <a class="brand" href="../index.html">MechanicsHarness</a>
-  <nav class="main" aria-label="Site">
+<header class="mh-bar">
+  <div class="mh-in">
+    <a class="mh-brand" href="../index.html">MechanicsHarness</a>
+    <nav class="mh-nav" aria-label="Site">
       <a href="../index.html">Home</a>
       <a href="../evaluates.html">What it evaluates</a>
       <a href="../building.html">How a benchmark is built</a>
       <a href="../evaluation.html">Evaluation policy</a>
       <a href="../get-started.html">Get started and contribute</a>
-  </nav>
+    </nav>
+    <details class="mh-menu">
+      <summary><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 4h12M2 8h12M2 12h12"/></svg> Menu</summary>
+      <nav class="mh-list" aria-label="Site">
+        <a href="../index.html">Home</a>
+        <a href="../evaluates.html">What it evaluates</a>
+        <a href="../building.html">How a benchmark is built</a>
+        <a href="../evaluation.html">Evaluation policy</a>
+        <a href="../get-started.html">Get started and contribute</a>
+      </nav>
+    </details>
+  </div>
 </header>
-<main class="frame">
-<div class="case">
-<nav class="rail" aria-label="Contents">
-<p>Contents</p>
-<ol>
-  <li><a href="#summary">Summary</a></li>
-  <li><a href="#problem">1 &middot; The problem</a></li>
-  <li><a href="#given">2 &middot; What the agents were given</a></li>
-  <li><a href="#judged">3 &middot; How it was judged</a></li>
-  <li><a href="#results">4 &middot; Results</a></li>
-  <li><a href="#stiffness">5 &middot; The stiffness</a></li>
-  <li><a href="#glm">6 &middot; The GLM run</a></li>
-  <li><a href="#departures">7 &middot; Where this case departs from our procedure</a></li>
-  <li><a href="#shows">8 &middot; What this shows</a></li>
-  <li><a href="#reference">For reference</a></li>
-</ol>
+<nav class="mh-trail" aria-label="You are here">
+  <div class="mh-in"><ol><li><a href="../index.html">Home</a></li><li class="mh-mid"><a href="../index.html#magnet">Case studies</a></li><li aria-current="page">Magnetic elastomer</li></ol></div>
 </nav>
-<div class="article">
+<main class="frame">
+<div class="mcase">
 
-<section id="summary">
-<p class="eyebrow">Multiphysics modeling case study &middot; Level 2 &middot; Agent runs of 11 November 2026</p>
-<h1>Four AI agents wrote a 3D magneto-viscoelastic user element that solves all four steps; how they obtained the stiffness set them apart</h1>
-<div class="col">
+<header class="case-head" id="summary">
+<p class="kicker">Multiphysics modeling case study &middot; Level 2 &middot; Agent runs of 11 November 2026</p>
+<h1>A hard magnet in a soft, creeping matrix: can AI agents write the coupled 3D user element?</h1>
+<p class="paths"><a href="magnet-element-task.html">Read the task text</a><a href="#results">See the results</a></p>
+<div class="ledes">
 <p class="lede">We gave four AI coding agents a task text with the complete equations of a published model for magnetic
 elastomers, the exact contract of an Abaqus/Standard user element, and public test problems with the program that runs
 them. Three wrote a correct 3D coupled element in 47 to 91 minutes: it passed all 181 checks, on the public problems and on
 hidden ones they never saw. The fourth, GLM-5.3, was cut off by its plan's usage limit after 94 minutes; resumed in the same session, it finished with an element that also solves all four steps and passes 179 of 181 checks, after 148 minutes in all. What separated them was how they obtained the stiffness matrix: one derived it
 analytically, two by finite differences, one combined the two. Agents fully solving the case is a good result. It shows
 what a guide at this level of detail lets current agents do, and guides like it can be prepared for similar problems.</p>
-</div>
-<nav class="jump" aria-label="Sections"><a href="#problem">1 The problem</a><a href="#given">2 What was given</a><a href="#judged">3 How it was judged</a><a href="#results">4 Results</a><a href="#stiffness">5 The stiffness</a><a href="#glm">6 The GLM run</a><a href="#departures">7 Departures from our procedure</a><a href="#shows">8 What this shows</a><a href="#reference">For reference</a></nav>
+<div class="side">
+<div class="aim"><p class="kicker">Aim</p><p class="lede">Whether an AI coding agent can implement a published solid-mechanics model as working simulation code, and show that it is right.</p></div>
 <div class="figs">
   <div><p class="n">181</p><p class="l">checks, on 12 public and 14 hidden problems in four steps</p></div>
   <div><p class="n">3 of 4</p><p class="l">runs passed every check, in 47 to 91 minutes; the fourth passed 179</p></div>
   <div><p class="n">1 of 4</p><p class="l">runs derived the whole stiffness analytically; two used finite differences, one a mix</p></div>
   <div><p class="n">7 of 7</p><p class="l">deliberately wrong elements failed the checks before any agent ran</p></div>
 </div>
-<div class="col">
-<p class="note"><b>Reference work.</b> The model is from M. Rambausek, D. Mukherjee and K. Danas (2022), <i>Comput. Methods
+</div>
+</div>
+<p class="meta"><b>Reference work.</b> The model is from M. Rambausek, D. Mukherjee and K. Danas (2022), <i>Comput. Methods
 Appl. Mech. Engrg.</i> 391, 114500 (full reference at the end), as implemented in the authors' published FEniCS code. The
 task text, the problems, the reference solutions and the scoring are ours, written from the equations; no file of the
 authors is copied, and the task did not name the paper. The benchmark tests how agents implement a published model. It does
 not test or reproduce the authors' results, and an agent's error would not be an error in the paper.</p>
-<p class="note"><b>Status.</b> A case study of the first four runs, 11 November 2026. The <a href="magnet-element-task.html">task text</a>
+<p class="meta"><b>Status.</b> A case study of the first four runs, 11 November 2026. The <a href="magnet-element-task.html">task text</a>
 is released; the host, problems, reference and scorer are not. No expert has reviewed the benchmark. Section 7 lists where
 this case departs from our stated procedure, among them that it has not yet been sent to the source-paper authors.</p>
-</div>
-</section>
+<nav class="toc" aria-label="Sections"><a href="#problem">1 The problem</a><a href="#given">2 What was given</a><a href="#judged">3 How it was judged</a><a href="#results">4 Results</a><a href="#stiffness">5 The stiffness</a><a href="#glm">6 The GLM run</a><a href="#departures">7 Departures from our procedure</a><a href="#shows">8 What this shows</a><a href="#reference">For reference</a></nav>
+</header>
 
 <section id="problem">
 <h2><span class="num">1</span>The problem: a hard magnet in a soft, creeping matrix</h2>
@@ -503,7 +499,6 @@ described here only as the task text describes them.</li>
 </tbody></table></div>
 </section>
 
-</div>
 </div>
 </main>
 <footer class="site">

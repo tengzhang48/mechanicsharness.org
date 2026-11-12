@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Battery fatigue case study | MechanicsHarness</title>
 <meta name="description" content="Case study: an AI agent implemented the battery fatigue model of Noii et al. (2024) as an Abaqus/Standard user element.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400&amp;display=swap">
 <style>
 /* Same visual system as the trial's other pages. Chart series use the validated three-slot palette
    (blue, orange, aqua), stepped separately for the dark surface. */
@@ -394,9 +396,133 @@ pre.prompt code { background: none; padding: 0; }
 table.cmp { min-width: 720px; } table.cmp td:first-child { font-weight: 600; white-space: nowrap; }
 .docs { grid-template-columns: minmax(0, 1fr); } .docbody { overflow-x: auto; } .docbody pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 </style>
+<style>
+/* site design (MechanicsHarness, 12 Nov 2026): shared tokens, top bar, and this page's variables mapped to them */
+/* MechanicsHarness shared tokens (site_chrome.py): the fracture case pages' colours and fonts */
+:root{
+  --serif:"Source Serif 4","Source Serif Pro",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans","Helvetica Neue",Arial,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --bg:#f7f5ef; --surface:#fffdf8; --fg:#1c2230; --muted:#5b6474; --rule:#ddd8cc;
+  --accent:#0e6e6a; --accent-weak:#d6ebe8;
+  --math-bg:#edf1f3; --math-border:#c8d3d9; --math-fg:#1c2230;
+  --c1:#3768b0; --c2:#6f757e; --c3:#c0562f; --c4:#7b4fa0;
+  --fan:#cfe6e2; --plotbg:#fffdf8; --grid:#e8e3d7; --quote-bg:#f1ede3; --code-bg:#f3f1ea;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+  --bg:#14171c; --surface:#1b1f26; --fg:#e6e8ec; --muted:#a3aab6; --rule:#2f353f;
+  --accent:#5cc6bd; --accent-weak:#1d3432;
+  --math-bg:#19222a; --math-border:#2c3b45; --math-fg:#e6e8ec;
+  --c1:#7aa7e8; --c2:#a8aeb7; --c3:#f08a5d; --c4:#bb92dc;
+  --fan:#1e3c39; --plotbg:#1b1f26; --grid:#2a3039; --quote-bg:#20242b; --code-bg:#161a20;
+  color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14171c; --surface:#1b1f26; --fg:#e6e8ec; --muted:#a3aab6; --rule:#2f353f;
+  --accent:#5cc6bd; --accent-weak:#1d3432;
+  --math-bg:#19222a; --math-border:#2c3b45; --math-fg:#e6e8ec;
+  --c1:#7aa7e8; --c2:#a8aeb7; --c3:#f08a5d; --c4:#bb92dc;
+  --fan:#1e3c39; --plotbg:#1b1f26; --grid:#2a3039; --quote-bg:#20242b; --code-bg:#161a20;
+  color-scheme:dark;
+}
+
+/* MechanicsHarness top bar (site_chrome.py). Self-contained: classes mh-*, colours from the shared tokens. */
+.mh-bar{position:relative;z-index:31;display:block;margin:0;padding:0;border:0;border-bottom:1px solid var(--rule,#ddd8cc);
+  background:var(--bg,#f7f5ef);color:var(--fg,#1c2230);font-family:var(--sans,"IBM Plex Sans",Arial,sans-serif)}
+.mh-bar .mh-in,.mh-trail .mh-in{box-sizing:border-box;max-width:var(--mh-max,1600px);margin:0 auto;
+  padding-inline:var(--mh-gutter,clamp(16px,4vw,40px))}
+.mh-bar .mh-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 28px;padding-block:13px}
+.mh-bar a.mh-brand{font:700 19px/1.2 var(--serif,"Source Serif 4",Georgia,serif);letter-spacing:-.005em;
+  color:var(--fg,#1c2230);text-decoration:none;white-space:nowrap}
+.mh-bar a.mh-brand:hover{color:var(--accent,#0e6e6a)}
+.mh-bar .mh-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px 2px;margin:0;padding:0}
+.mh-bar .mh-nav a,.mh-bar .mh-list a{font:500 14px/1.2 var(--sans,"IBM Plex Sans",Arial,sans-serif);color:var(--fg,#1c2230);
+  text-decoration:none;white-space:nowrap}
+.mh-bar .mh-nav a{padding:7px 12px;border:1px solid transparent;border-radius:999px}
+.mh-bar .mh-nav a:hover{background:var(--accent-weak,#d6ebe8)}
+.mh-bar .mh-nav a[aria-current="page"]{color:var(--accent,#0e6e6a);border-color:var(--accent,#0e6e6a);background:var(--surface,#fffdf8)}
+.mh-bar a:focus-visible,.mh-trail a:focus-visible,.mh-bar summary:focus-visible{outline:2px solid var(--accent,#0e6e6a);outline-offset:2px}
+/* phone width: the menu folds into a button (a <details>, no script) */
+.mh-bar .mh-menu{display:none;margin:0;padding:0;border:0}
+.mh-bar .mh-menu>summary{display:flex;align-items:center;gap:8px;list-style:none;cursor:pointer;margin:0;padding:7px 13px;
+  font:600 14px/1.2 var(--sans,"IBM Plex Sans",Arial,sans-serif);color:var(--fg,#1c2230);background:var(--surface,#fffdf8);
+  border:1px solid var(--rule,#ddd8cc);border-radius:999px}
+.mh-bar .mh-menu>summary::-webkit-details-marker{display:none}
+.mh-bar .mh-menu>summary::marker{content:""}
+.mh-bar .mh-menu>summary svg{width:16px;height:16px;stroke:currentColor;stroke-width:1.8;fill:none}
+.mh-bar .mh-menu[open]>summary{color:var(--accent,#0e6e6a);border-color:var(--accent,#0e6e6a)}
+.mh-bar .mh-list{position:absolute;left:0;right:0;top:100%;display:grid;margin:0;padding:4px var(--mh-gutter,16px) 10px;
+  background:var(--surface,#fffdf8);border-bottom:1px solid var(--rule,#ddd8cc);box-shadow:0 10px 18px rgba(0,0,0,.10)}
+.mh-bar .mh-list a{display:block;padding:12px 0;font-size:15.5px;border-bottom:1px solid var(--rule,#ddd8cc)}
+.mh-bar .mh-list a:last-child{border-bottom:0}
+.mh-bar .mh-list a[aria-current="page"]{color:var(--accent,#0e6e6a);font-weight:600}
+@media (max-width:700px){
+  .mh-bar .mh-in{flex-wrap:nowrap;padding-block:10px}
+  .mh-bar .mh-nav{display:none}
+  .mh-bar .mh-menu{display:block}
+}
+/* where-you-are line: stays at the top while the page scrolls */
+.mh-trail{position:sticky;top:0;z-index:30;display:block;margin:0;padding:0;border:0;border-bottom:1px solid var(--rule,#ddd8cc);
+  background:var(--bg,#f7f5ef);font:400 13px/1.4 var(--sans,"IBM Plex Sans",Arial,sans-serif);color:var(--muted,#5b6474)}
+.mh-trail .mh-in{display:flex;align-items:center;justify-content:space-between;gap:4px 18px;padding-block:9px}
+.mh-trail ol{display:flex;flex-wrap:nowrap;align-items:center;min-width:0;margin:0;padding:0;list-style:none}
+.mh-trail li{margin:0;padding:0;white-space:nowrap;color:var(--muted,#5b6474)}
+.mh-trail li+li::before{content:"\203A";padding:0 .5em;color:var(--muted,#5b6474)}
+.mh-trail li:last-child{min-width:0;overflow:hidden;text-overflow:ellipsis;color:var(--fg,#1c2230)}
+.mh-trail a{color:var(--accent,#0e6e6a);text-decoration:none}
+.mh-trail a:hover{text-decoration:underline}
+.mh-trail a.mh-right{flex:none;font-weight:600}
+/* phone width: the middle items hide; a line still too long puts its right-hand link on a second row instead of cutting
+   the page's name ("Fracture Mechanics 1..." at 390 px, found on the fracture pages, 12 Nov 2026) */
+@media (max-width:600px){ .mh-trail li.mh-mid{display:none} .mh-trail .mh-in{flex-wrap:wrap} .mh-trail a.mh-right{margin-left:auto} }
+@media print{ .mh-bar .mh-nav,.mh-bar .mh-menu,.mh-trail{display:none} .mh-bar{border:0} }
+
+:root:not([data-mh]){
+  --paper:var(--bg); --sheet:var(--surface); --ink:var(--fg); --graphite:var(--muted);
+  --prussian:var(--accent); --prussian-soft:var(--accent-weak);
+  --f-display:var(--sans); --f-body:var(--serif); --f-mono:var(--mono);
+}
+body{padding-left:0;padding-right:0}
+.layout{max-width:1212px;padding-inline:max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px))}
+@media (min-width:1000px){nav.rail{top:calc(env(safe-area-inset-top, 0px) + 64px)}}
+[id]{scroll-margin-top:4.5rem}
+h1,h2,h3,.sub,.block>h4,details.card .h,.story .big,.figs .n,details.glossary>summary{font-family:var(--serif);font-stretch:normal}
+h1{font-weight:700;font-size:clamp(1.7rem,3.6vw,2.45rem);line-height:1.2;letter-spacing:-.01em}
+h2{font-weight:700;font-size:1.45rem}
+h3,.sub,.block>h4,details.card .h{font-weight:600}
+.story .big,.figs .n{font-weight:700}
+.tabs button,.seg button,.chips button,.ctrl button,.copybtn,.pts,svg .tick,svg .rowlab,svg .barlab,.fig .lab,.fig .tick,
+.fig .barlab,.caption,.figcap,.legend,.flow-note,.src,.maps figcaption,.readout,nav.rail,.jump a{font-family:var(--sans)}
+</style>
 </head>
 <body>
-<p style="margin:0;padding:.6rem 16px;border-bottom:1px solid var(--rule);background:var(--sheet);font-size:.95rem"><a href="../index.html">MechanicsHarness</a> &middot; case study</p>
+<header class="mh-bar">
+  <div class="mh-in">
+    <a class="mh-brand" href="../index.html">MechanicsHarness</a>
+    <nav class="mh-nav" aria-label="Site">
+      <a href="../index.html">Home</a>
+      <a href="../evaluates.html">What it evaluates</a>
+      <a href="../building.html">How a benchmark is built</a>
+      <a href="../evaluation.html">Evaluation policy</a>
+      <a href="../get-started.html">Get started and contribute</a>
+    </nav>
+    <details class="mh-menu">
+      <summary><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 4h12M2 8h12M2 12h12"/></svg> Menu</summary>
+      <nav class="mh-list" aria-label="Site">
+        <a href="../index.html">Home</a>
+        <a href="../evaluates.html">What it evaluates</a>
+        <a href="../building.html">How a benchmark is built</a>
+        <a href="../evaluation.html">Evaluation policy</a>
+        <a href="../get-started.html">Get started and contribute</a>
+      </nav>
+    </details>
+  </div>
+</header>
+<nav class="mh-trail" aria-label="You are here">
+  <div class="mh-in"><ol><li><a href="../index.html">Home</a></li><li class="mh-mid"><a href="../index.html#battery">Case studies</a></li><li aria-current="page">Battery fatigue</li></ol></div>
+</nav>
 <div id="tip" role="status" aria-live="polite"></div>
 <div class="layout">
 <nav class="rail" aria-label="Contents">

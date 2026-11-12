@@ -6,55 +6,91 @@
 <title>Magnetic elastomer task text | MechanicsHarness</title>
 <meta name="description" content="The task text of the magnetic elastomer benchmark, version 0.6: the model, the Abaqus/Standard user-element contract, the four steps and how the work is judged, exactly as written for the AI agents.">
 <link rel="icon" href="../assets/favicon.svg?v=crack-tip" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/style.css?v=9f52a9da">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400&amp;display=swap">
+<link rel="stylesheet" href="../assets/style.css?v=15094ef2">
 <style>
-.task { max-width: 820px; padding: 40px 0 64px; }
-.task .eyebrow { margin: 0 0 14px; font: 700 11.5px/1.5 var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-.task h1 { font-size: 38px; line-height: 1.15; letter-spacing: -.8px; margin: 0 0 18px; }
-.task-note { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 0 0 26px; }
-.task-note p { font-size: 15px; line-height: 1.6; margin: 0 0 10px; }
-.task-note p:last-child { margin-bottom: 0; }
-.task-note ul { margin: 0 0 10px; padding-left: 20px; font-size: 15px; line-height: 1.6; }
-.task-toc { font-size: 14px; display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0 0 22px; }
-.doc { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 26px 30px 30px; }
-.doc h2 { font-size: 26px; line-height: 1.25; margin: 0 0 18px; }
-.doc h3 { font-size: 22px; line-height: 1.25; margin: 30px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); }
-.doc p, .doc li { font-size: 15.5px; line-height: 1.7; }
-.doc ul { padding-left: 20px; margin: 0 0 16px; }
-.doc li { margin-bottom: 8px; }
-.doc li::marker { color: #8a8a8a; }
-.doc code { font: .9em/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: #f2f2f2; padding: .05em .3em; border-radius: 3px; overflow-wrap: anywhere; }
-.doc .table-wrap { overflow-x: auto; margin: 6px 0 18px; border: 1px solid var(--line); border-radius: 8px; }
-.doc table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 14px; line-height: 1.45; }
-.doc th, .doc td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
-.doc thead th { background: var(--paper); font-weight: 650; }
-.doc tbody tr:last-child td { border-bottom: 0; }
-@media (max-width: 700px) {
-  .task { padding-top: 28px; }
-  .task h1 { font-size: 30px; letter-spacing: -.5px; }
-  .task .eyebrow { font-size: 10.5px; letter-spacing: .1em; }
-  .doc { padding: 18px 16px 20px; border-radius: 10px; }
-  .doc h2 { font-size: 22px; }
-  .doc h3 { font-size: 20px; }
-  .doc p, .doc li { font-size: 15px; }
+.page-case main.frame{max-width:1200px}
+.mcase{padding:28px 0 56px}
+.case-head{display:grid;gap:.75rem;padding-bottom:1.5rem;border-bottom:1px solid var(--rule)}
+.case-head .kicker{margin:0}
+.case-head h1{font-size:clamp(1.7rem,3.6vw,2.45rem);font-weight:700;line-height:1.2;letter-spacing:-.01em;margin:0;max-width:26em}
+.paths{display:flex;flex-wrap:wrap;gap:.5rem;margin:0}
+.paths a{font:600 .82rem/1.4 var(--sans);padding:.35rem .8rem;border:1px solid var(--accent);border-radius:999px;color:var(--accent);text-decoration:none;background:var(--surface)}
+.paths a:hover{background:var(--accent-weak)}
+.ledes{display:grid;gap:1rem 2.4rem;grid-template-columns:minmax(0,1fr);align-items:start}
+@media (min-width:900px){.ledes{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr)}}
+.ledes .side{display:grid;gap:1rem;align-content:start;min-width:0}
+.case-head .lede{font-size:1.08rem;line-height:1.55;color:var(--muted);margin:0}
+.aim{border-left:3px solid var(--accent);padding-left:1rem}
+.aim .kicker{margin:0 0 .25rem}
+.case-head .meta{font:.85rem/1.55 var(--sans);color:var(--muted);margin:0}
+.case-head .meta b{color:var(--fg)}
+nav.toc{display:flex;flex-wrap:wrap;gap:.35rem .9rem;font:.86rem/1.5 var(--sans)}
+nav.toc a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+nav.toc a:hover{border-bottom-color:var(--accent)}
+[id]{scroll-margin-top:4.5rem}
+
+.mtask{max-width:880px}
+.task-note{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:4px;padding:.85rem 1.1rem}
+.task-note p{font-size:16px;line-height:1.6;margin:0 0 .6rem}
+.task-note p:last-child{margin-bottom:0}
+.task-note ul{margin:0 0 .6rem;padding-left:1.2rem;font-size:16px;line-height:1.6}
+.task-note li::marker{color:var(--accent)}
+.task-note code,.doc code{font:.86em/1.5 var(--mono);background:var(--code-bg);padding:.05em .3em;border-radius:3px;overflow-wrap:anywhere}
+.doc{margin-top:1.6rem;background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:26px 30px 30px}
+.doc h2{font-size:1.45rem;font-weight:700;line-height:1.25;margin:0 0 1.1rem}
+.doc h3{font-size:1.15rem;font-weight:600;line-height:1.3;margin:1.8rem 0 .7rem;padding-top:1.1rem;border-top:1px solid var(--rule)}
+.doc p,.doc li{font-size:16.5px;line-height:1.65}
+.doc p{margin:0 0 .9rem}
+.doc ul{padding-left:1.2rem;margin:0 0 1rem}
+.doc li{margin-bottom:.45rem}
+.doc li::marker{color:var(--accent)}
+.doc .table-wrap{overflow-x:auto;margin:.4rem 0 1.1rem;border:1px solid var(--rule);border-radius:4px}
+.doc table{border-collapse:collapse;width:100%;min-width:620px;font:.86rem/1.45 var(--sans);color:var(--fg)}
+.doc th,.doc td{text-align:left;vertical-align:top;padding:.5rem .7rem;border-bottom:1px solid var(--rule)}
+.doc thead th{font-size:.78rem;font-weight:600;letter-spacing:.03em;color:var(--muted);background:var(--bg)}
+.doc tbody tr:last-child td{border-bottom:0}
+@media (max-width:700px){
+  .doc{padding:18px 16px 20px}
+  .doc h2{font-size:1.3rem}
+  .doc h3{font-size:1.08rem}
+  .doc p,.doc li{font-size:16px}
 }
 </style>
 </head>
 <body class="page-case">
-<header class="site">
-  <a class="brand" href="../index.html">MechanicsHarness</a>
-  <nav class="main" aria-label="Site">
+<header class="mh-bar">
+  <div class="mh-in">
+    <a class="mh-brand" href="../index.html">MechanicsHarness</a>
+    <nav class="mh-nav" aria-label="Site">
       <a href="../index.html">Home</a>
       <a href="../evaluates.html">What it evaluates</a>
       <a href="../building.html">How a benchmark is built</a>
       <a href="../evaluation.html">Evaluation policy</a>
       <a href="../get-started.html">Get started and contribute</a>
-  </nav>
+    </nav>
+    <details class="mh-menu">
+      <summary><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 4h12M2 8h12M2 12h12"/></svg> Menu</summary>
+      <nav class="mh-list" aria-label="Site">
+        <a href="../index.html">Home</a>
+        <a href="../evaluates.html">What it evaluates</a>
+        <a href="../building.html">How a benchmark is built</a>
+        <a href="../evaluation.html">Evaluation policy</a>
+        <a href="../get-started.html">Get started and contribute</a>
+      </nav>
+    </details>
+  </div>
 </header>
+<nav class="mh-trail" aria-label="You are here">
+  <div class="mh-in"><ol><li><a href="../index.html">Home</a></li><li class="mh-mid"><a href="../index.html#magnet">Case studies</a></li><li class="mh-mid"><a href="magnet-element.html">Magnetic elastomer</a></li><li aria-current="page">Task text</li></ol><a class="mh-right" href="magnet-element.html">Read the full case study &rarr;</a></div>
+</nav>
 <main class="frame">
-<div class="task">
-<p class="eyebrow">Multiphysics modeling &middot; Magnetic elastomer benchmark &middot; Task text</p>
+<div class="mcase mtask">
+<header class="case-head">
+<p class="kicker">Multiphysics modeling &middot; Magnetic elastomer benchmark &middot; Task text</p>
 <h1>The task text, as the agents received it</h1>
+<p class="paths"><a href="magnet-element.html">Back to the case study</a></p>
 <div class="task-note">
 <p>This is version 0.6 of the task text, 11 November 2026, word for word; only its Markdown (headings, lists, bold,
 code, the table) is rendered for the web. The four agents of 11 November 2026 ran version 0.5, which differs in three
@@ -68,9 +104,9 @@ places only:</p>
 solutions and code, our check elements and the scorer are not. The agents received this text in a file named
 PUBLIC_TASK.md, with the host and the twelve public problems, and a one-line prompt (quoted in the
 <a href="magnet-element.html#given">case study</a>).</p>
-<p><a href="magnet-element.html">Back to the case study</a></p>
 </div>
-<nav class="task-toc" aria-label="Sections of the task"><a href="#task-1">1. The model (fixed)</a><a href="#task-2">2. Parameters</a><a href="#task-3">3. The element contract</a><a href="#task-4">4. The host and the four steps</a><a href="#task-5">5. What is yours to decide</a><a href="#task-6">6. Deliverables</a><a href="#task-7">7. How you will be judged</a><a href="#task-8">8. Rules</a></nav>
+<nav class="toc" aria-label="Sections of the task"><a href="#task-1">1. The model (fixed)</a><a href="#task-2">2. Parameters</a><a href="#task-3">3. The element contract</a><a href="#task-4">4. The host and the four steps</a><a href="#task-5">5. What is yours to decide</a><a href="#task-6">6. Deliverables</a><a href="#task-7">7. How you will be judged</a><a href="#task-8">8. Rules</a></nav>
+</header>
 <article class="doc">
 <h2>Challenge: a 3D user element for magnetically hard, viscoelastic elastomers (version 0.6, 11 Nov 2026)</h2>
 <p><b>Goal.</b> Write a robust, ready-to-use Abaqus/Standard user element (UEL) for the magneto-viscoelastic model below: an 8-node hexahedron with three displacements and one magnetic scalar potential per node. The same element serves as magnetic particle, elastomer matrix or surrounding air, selected by a material flag in its properties. A host program in this workspace calls your element like Abaqus/Standard does, in four steps: a single material point, one distorted element, a magnetized sphere in air (about 5,000 elements; the potentials are solved by Newton's method with your stiffness), and a particle in a block of matrix (216 elements; displacements and potentials are solved together). This text and the host's source define the task. How you integrate the internal variables, how you compute the stiffness and how you handle the difficult cases are your decisions. Show that your element is right. Only the call the host makes is tested (a static step, residual and stiffness together); other Abaqus call modes, the input deck and the ENERGY output are outside this challenge.</p>

@@ -346,10 +346,94 @@ figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2re
 .fig-stack{display:none}
 @media (max-width:600px){.fig-wide{display:none}.fig-stack{display:grid;gap:.75rem}.fig-stack .fig{min-width:0;max-width:440px}}
 </style>
+<style data-site-chrome>
+/* MechanicsHarness top bar (site_chrome.py). Self-contained: classes mh-*, colours from the shared tokens. */
+.mh-bar{position:relative;z-index:31;display:block;margin:0;padding:0;border:0;border-bottom:1px solid var(--rule,#ddd8cc);
+  background:var(--bg,#f7f5ef);color:var(--fg,#1c2230);font-family:var(--sans,"IBM Plex Sans",Arial,sans-serif)}
+.mh-bar .mh-in,.mh-trail .mh-in{box-sizing:border-box;max-width:var(--mh-max,1600px);margin:0 auto;
+  padding-inline:var(--mh-gutter,clamp(16px,4vw,40px))}
+.mh-bar .mh-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 28px;padding-block:13px}
+.mh-bar a.mh-brand{font:700 19px/1.2 var(--serif,"Source Serif 4",Georgia,serif);letter-spacing:-.005em;
+  color:var(--fg,#1c2230);text-decoration:none;white-space:nowrap}
+.mh-bar a.mh-brand:hover{color:var(--accent,#0e6e6a)}
+.mh-bar .mh-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px 2px;margin:0;padding:0}
+.mh-bar .mh-nav a,.mh-bar .mh-list a{font:500 14px/1.2 var(--sans,"IBM Plex Sans",Arial,sans-serif);color:var(--fg,#1c2230);
+  text-decoration:none;white-space:nowrap}
+.mh-bar .mh-nav a{padding:7px 12px;border:1px solid transparent;border-radius:999px}
+.mh-bar .mh-nav a:hover{background:var(--accent-weak,#d6ebe8)}
+.mh-bar .mh-nav a[aria-current="page"]{color:var(--accent,#0e6e6a);border-color:var(--accent,#0e6e6a);background:var(--surface,#fffdf8)}
+.mh-bar a:focus-visible,.mh-trail a:focus-visible,.mh-bar summary:focus-visible{outline:2px solid var(--accent,#0e6e6a);outline-offset:2px}
+/* phone width: the menu folds into a button (a <details>, no script) */
+.mh-bar .mh-menu{display:none;margin:0;padding:0;border:0}
+.mh-bar .mh-menu>summary{display:flex;align-items:center;gap:8px;list-style:none;cursor:pointer;margin:0;padding:7px 13px;
+  font:600 14px/1.2 var(--sans,"IBM Plex Sans",Arial,sans-serif);color:var(--fg,#1c2230);background:var(--surface,#fffdf8);
+  border:1px solid var(--rule,#ddd8cc);border-radius:999px}
+.mh-bar .mh-menu>summary::-webkit-details-marker{display:none}
+.mh-bar .mh-menu>summary::marker{content:""}
+.mh-bar .mh-menu>summary svg{width:16px;height:16px;stroke:currentColor;stroke-width:1.8;fill:none}
+.mh-bar .mh-menu[open]>summary{color:var(--accent,#0e6e6a);border-color:var(--accent,#0e6e6a)}
+.mh-bar .mh-list{position:absolute;left:0;right:0;top:100%;display:grid;margin:0;padding:4px var(--mh-gutter,16px) 10px;
+  background:var(--surface,#fffdf8);border-bottom:1px solid var(--rule,#ddd8cc);box-shadow:0 10px 18px rgba(0,0,0,.10)}
+.mh-bar .mh-list a{display:block;padding:12px 0;font-size:15.5px;border-bottom:1px solid var(--rule,#ddd8cc)}
+.mh-bar .mh-list a:last-child{border-bottom:0}
+.mh-bar .mh-list a[aria-current="page"]{color:var(--accent,#0e6e6a);font-weight:600}
+@media (max-width:700px){
+  .mh-bar .mh-in{flex-wrap:nowrap;padding-block:10px}
+  .mh-bar .mh-nav{display:none}
+  .mh-bar .mh-menu{display:block}
+}
+/* where-you-are line: stays at the top while the page scrolls */
+.mh-trail{position:sticky;top:0;z-index:30;display:block;margin:0;padding:0;border:0;border-bottom:1px solid var(--rule,#ddd8cc);
+  background:var(--bg,#f7f5ef);font:400 13px/1.4 var(--sans,"IBM Plex Sans",Arial,sans-serif);color:var(--muted,#5b6474)}
+.mh-trail .mh-in{display:flex;align-items:center;justify-content:space-between;gap:4px 18px;padding-block:9px}
+.mh-trail ol{display:flex;flex-wrap:nowrap;align-items:center;min-width:0;margin:0;padding:0;list-style:none}
+.mh-trail li{margin:0;padding:0;white-space:nowrap;color:var(--muted,#5b6474)}
+.mh-trail li+li::before{content:"\203A";padding:0 .5em;color:var(--muted,#5b6474)}
+.mh-trail li:last-child{min-width:0;overflow:hidden;text-overflow:ellipsis;color:var(--fg,#1c2230)}
+.mh-trail a{color:var(--accent,#0e6e6a);text-decoration:none}
+.mh-trail a:hover{text-decoration:underline}
+.mh-trail a.mh-right{flex:none;font-weight:600}
+/* phone width: the middle items hide; a line still too long puts its right-hand link on a second row instead of cutting
+   the page's name ("Fracture Mechanics 1..." at 390 px, found on the fracture pages, 12 Nov 2026) */
+@media (max-width:600px){ .mh-trail li.mh-mid{display:none} .mh-trail .mh-in{flex-wrap:wrap} .mh-trail a.mh-right{margin-left:auto} }
+@media print{ .mh-bar .mh-nav,.mh-bar .mh-menu,.mh-trail{display:none} .mh-bar{border:0} }
+/* fracture pages (release_fracture/site_topbar.py) */
+body.study .mh-trail{position:static}
+</style>
+<style data-radicals>/* square roots with a bar over the argument (release_fracture/radicals.py) */
+.rad{white-space:nowrap}
+.rad-s{font-size:0}
+.rad-a{position:relative;display:inline-block;line-height:1;margin-left:.62em;padding:.1em .06em 0 .04em;border-top:.07em solid currentColor}
+.rad-a::before{content:"";position:absolute;top:-.07em;bottom:0;right:100%;width:.62em;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 20' preserveAspectRatio='none'%3E%3Cpath d='M.8 12.2 2.9 11 5.6 18.6 11.3.7H12' fill='none' stroke='%23000' stroke-width='1.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 20' preserveAspectRatio='none'%3E%3Cpath d='M.8 12.2 2.9 11 5.6 18.6 11.3.7H12' fill='none' stroke='%23000' stroke-width='1.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
+</style>
 </head>
 <body>
+<header class="mh-bar">
+  <div class="mh-in">
+    <a class="mh-brand" href="../index.html">MechanicsHarness</a>
+    <nav class="mh-nav" aria-label="Site">
+      <a href="../index.html">Home</a>
+      <a href="../evaluates.html">What it evaluates</a>
+      <a href="../building.html">How a benchmark is built</a>
+      <a href="../evaluation.html">Evaluation policy</a>
+      <a href="../get-started.html">Get started and contribute</a>
+    </nav>
+    <details class="mh-menu">
+      <summary><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 4h12M2 8h12M2 12h12"/></svg> Menu</summary>
+      <nav class="mh-list" aria-label="Site">
+        <a href="../index.html">Home</a>
+        <a href="../evaluates.html">What it evaluates</a>
+        <a href="../building.html">How a benchmark is built</a>
+        <a href="../evaluation.html">Evaluation policy</a>
+        <a href="../get-started.html">Get started and contribute</a>
+      </nav>
+    </details>
+  </div>
+</header>
+<nav class="mh-trail" aria-label="You are here">
+  <div class="mh-in"><ol><li><a href="../index.html">Home</a></li><li class="mh-mid"><a href="../index.html#viscoelastic-crack">Case studies</a></li><li aria-current="page">Viscoelastic crack</li></ol><a class="mh-right" href="viscoelastic-crack-study.html">Study this case &rarr;</a></div>
+</nav>
 <div class="page">
-<nav class="case-navigation" aria-label="Case study navigation"><a href="../index.html#viscoelastic-crack">← MechanicsHarness</a><span>Viscoelastic crack · steady growth in a strip</span></nav>
 <header>
   <div class="kicker">Fracture mechanics case study · AI agents and a viscoelastic crack · 22–23 October 2026</div>
   <h1>Steady crack growth in a viscoelastic strip: can AI agents select the physical state?</h1>
@@ -1492,7 +1576,7 @@ the bracket in (5) to vanish at q = 1:
   <div class="phys">
     <div class="head"><div class="kicker">6 · DeepSeek via Azure</div><h2>Right reductions, a biased front condition</h2></div>
     <p>The Azure run derived the standard-solid overstress equation, excluded a growing homogeneous mode far ahead, reduced the displacement problem to Laplace’s equation and wrote the history as a convolution. These are reusable steps of the solution.</p>
-    <p>To impose the bounded front it fitted the computed stress near the front to K/√X + b + c√X over a fixed window 0.02 &lt; X &lt; 0.4 and set the fitted K to zero. Higher regular terms, left out of that basis, leak into the fitted K, so a zero fitted K is not a bounded front. Its zone lengths came out 5.9% high at V = 0.001 and 3.8% at V = 0.1, and its loads missed the necessary relation a = (2/π) arccos(e<sup>−ε/2</sup>) by 2.45% and 1.52%.</p>
+    <p>To impose the bounded front it fitted the computed stress near the front to K/⁠<span class="rad"><span class="rad-s">√</span><span class="rad-a">X</span></span> + b + c⁠<span class="rad"><span class="rad-s">√</span><span class="rad-a">X</span></span> over a fixed window 0.02 &lt; X &lt; 0.4 and set the fitted K to zero. Higher regular terms, left out of that basis, leak into the fitted K, so a zero fitted K is not a bounded front. Its zone lengths came out 5.9% high at V = 0.001 and 3.8% at V = 0.1, and its loads missed the necessary relation a = (2/π) arccos(e<sup>−ε/2</sup>) by 2.45% and 1.52%.</p>
     <p>A diagnostic on 23 October applied the same fit, at the same window and front-panel coordinates, to the exact continuum fields and changed only the selection condition. It reproduced about 96% and 98% of the submitted zone-length discrepancies. Adding four regular powers to the basis reduced the diagnostic error from 5.68% to 0.008% at V = 0.001.</p>
   </div>
   <div class="side-col"><aside class="math" aria-label="From the Azure run's code">

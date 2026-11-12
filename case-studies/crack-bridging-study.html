@@ -344,8 +344,6 @@ figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2re
 /* Study pages (redesigned 10 Nov 2026): one readable column, typeset equations, things to do at every step.
    Colours come from the case page's variables, so dark mode follows. */
 body.study .page{max-width:920px}
-body.study .case-navigation{position:static}
-.case-navigation a + span + a{margin-left:auto}
 .s-head h1{font:700 clamp(28px,4.2vw,40px)/1.15 var(--serif);margin:.25em 0 .4em}
 .s-head .lede{font:19px/1.55 var(--serif);color:var(--fg)}
 .s-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:18px 0 6px}
@@ -461,7 +459,6 @@ body.study .eq svg{display:block;fill:currentColor;max-width:none}
   .s-two,.x-wrap,.x-plots,.e-cards,.e-tests,.l-cards,.s-meta{grid-template-columns:minmax(0,1fr)}
   .s-step{padding:4px 16px 12px}
   .x-plots figcaption{min-height:0}
-  .case-navigation span{display:none}
   body.study .eq{font-size:14.5px;padding-left:0}
   body.study .e-card .eq,body.study .e-test .eq{font-size:13.5px}
 }
@@ -501,10 +498,94 @@ body.study .lede,body.study header p{max-width:none}
 .w-line{fill:none;stroke:var(--c1);stroke-width:2.2}
 .s-fig-wide{max-width:520px;margin:14px auto}.s-fig figcaption{font:13.5px/1.5 var(--sans);color:var(--muted);margin-top:6px}
 </style>
+<style data-site-chrome>
+/* MechanicsHarness top bar (site_chrome.py). Self-contained: classes mh-*, colours from the shared tokens. */
+.mh-bar{position:relative;z-index:31;display:block;margin:0;padding:0;border:0;border-bottom:1px solid var(--rule,#ddd8cc);
+  background:var(--bg,#f7f5ef);color:var(--fg,#1c2230);font-family:var(--sans,"IBM Plex Sans",Arial,sans-serif)}
+.mh-bar .mh-in,.mh-trail .mh-in{box-sizing:border-box;max-width:var(--mh-max,1600px);margin:0 auto;
+  padding-inline:var(--mh-gutter,clamp(16px,4vw,40px))}
+.mh-bar .mh-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 28px;padding-block:13px}
+.mh-bar a.mh-brand{font:700 19px/1.2 var(--serif,"Source Serif 4",Georgia,serif);letter-spacing:-.005em;
+  color:var(--fg,#1c2230);text-decoration:none;white-space:nowrap}
+.mh-bar a.mh-brand:hover{color:var(--accent,#0e6e6a)}
+.mh-bar .mh-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px 2px;margin:0;padding:0}
+.mh-bar .mh-nav a,.mh-bar .mh-list a{font:500 14px/1.2 var(--sans,"IBM Plex Sans",Arial,sans-serif);color:var(--fg,#1c2230);
+  text-decoration:none;white-space:nowrap}
+.mh-bar .mh-nav a{padding:7px 12px;border:1px solid transparent;border-radius:999px}
+.mh-bar .mh-nav a:hover{background:var(--accent-weak,#d6ebe8)}
+.mh-bar .mh-nav a[aria-current="page"]{color:var(--accent,#0e6e6a);border-color:var(--accent,#0e6e6a);background:var(--surface,#fffdf8)}
+.mh-bar a:focus-visible,.mh-trail a:focus-visible,.mh-bar summary:focus-visible{outline:2px solid var(--accent,#0e6e6a);outline-offset:2px}
+/* phone width: the menu folds into a button (a <details>, no script) */
+.mh-bar .mh-menu{display:none;margin:0;padding:0;border:0}
+.mh-bar .mh-menu>summary{display:flex;align-items:center;gap:8px;list-style:none;cursor:pointer;margin:0;padding:7px 13px;
+  font:600 14px/1.2 var(--sans,"IBM Plex Sans",Arial,sans-serif);color:var(--fg,#1c2230);background:var(--surface,#fffdf8);
+  border:1px solid var(--rule,#ddd8cc);border-radius:999px}
+.mh-bar .mh-menu>summary::-webkit-details-marker{display:none}
+.mh-bar .mh-menu>summary::marker{content:""}
+.mh-bar .mh-menu>summary svg{width:16px;height:16px;stroke:currentColor;stroke-width:1.8;fill:none}
+.mh-bar .mh-menu[open]>summary{color:var(--accent,#0e6e6a);border-color:var(--accent,#0e6e6a)}
+.mh-bar .mh-list{position:absolute;left:0;right:0;top:100%;display:grid;margin:0;padding:4px var(--mh-gutter,16px) 10px;
+  background:var(--surface,#fffdf8);border-bottom:1px solid var(--rule,#ddd8cc);box-shadow:0 10px 18px rgba(0,0,0,.10)}
+.mh-bar .mh-list a{display:block;padding:12px 0;font-size:15.5px;border-bottom:1px solid var(--rule,#ddd8cc)}
+.mh-bar .mh-list a:last-child{border-bottom:0}
+.mh-bar .mh-list a[aria-current="page"]{color:var(--accent,#0e6e6a);font-weight:600}
+@media (max-width:700px){
+  .mh-bar .mh-in{flex-wrap:nowrap;padding-block:10px}
+  .mh-bar .mh-nav{display:none}
+  .mh-bar .mh-menu{display:block}
+}
+/* where-you-are line: stays at the top while the page scrolls */
+.mh-trail{position:sticky;top:0;z-index:30;display:block;margin:0;padding:0;border:0;border-bottom:1px solid var(--rule,#ddd8cc);
+  background:var(--bg,#f7f5ef);font:400 13px/1.4 var(--sans,"IBM Plex Sans",Arial,sans-serif);color:var(--muted,#5b6474)}
+.mh-trail .mh-in{display:flex;align-items:center;justify-content:space-between;gap:4px 18px;padding-block:9px}
+.mh-trail ol{display:flex;flex-wrap:nowrap;align-items:center;min-width:0;margin:0;padding:0;list-style:none}
+.mh-trail li{margin:0;padding:0;white-space:nowrap;color:var(--muted,#5b6474)}
+.mh-trail li+li::before{content:"\203A";padding:0 .5em;color:var(--muted,#5b6474)}
+.mh-trail li:last-child{min-width:0;overflow:hidden;text-overflow:ellipsis;color:var(--fg,#1c2230)}
+.mh-trail a{color:var(--accent,#0e6e6a);text-decoration:none}
+.mh-trail a:hover{text-decoration:underline}
+.mh-trail a.mh-right{flex:none;font-weight:600}
+/* phone width: the middle items hide; a line still too long puts its right-hand link on a second row instead of cutting
+   the page's name ("Fracture Mechanics 1..." at 390 px, found on the fracture pages, 12 Nov 2026) */
+@media (max-width:600px){ .mh-trail li.mh-mid{display:none} .mh-trail .mh-in{flex-wrap:wrap} .mh-trail a.mh-right{margin-left:auto} }
+@media print{ .mh-bar .mh-nav,.mh-bar .mh-menu,.mh-trail{display:none} .mh-bar{border:0} }
+/* fracture pages (release_fracture/site_topbar.py) */
+body.study .mh-trail{position:static}
+</style>
+<style data-radicals>/* square roots with a bar over the argument (release_fracture/radicals.py) */
+.rad{white-space:nowrap}
+.rad-s{font-size:0}
+.rad-a{position:relative;display:inline-block;line-height:1;margin-left:.62em;padding:.1em .06em 0 .04em;border-top:.07em solid currentColor}
+.rad-a::before{content:"";position:absolute;top:-.07em;bottom:0;right:100%;width:.62em;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 20' preserveAspectRatio='none'%3E%3Cpath d='M.8 12.2 2.9 11 5.6 18.6 11.3.7H12' fill='none' stroke='%23000' stroke-width='1.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 20' preserveAspectRatio='none'%3E%3Cpath d='M.8 12.2 2.9 11 5.6 18.6 11.3.7H12' fill='none' stroke='%23000' stroke-width='1.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
+</style>
 </head>
 <body class="study">
+<header class="mh-bar">
+  <div class="mh-in">
+    <a class="mh-brand" href="../index.html">MechanicsHarness</a>
+    <nav class="mh-nav" aria-label="Site">
+      <a href="../index.html">Home</a>
+      <a href="../evaluates.html">What it evaluates</a>
+      <a href="../building.html">How a benchmark is built</a>
+      <a href="../evaluation.html">Evaluation policy</a>
+      <a href="../get-started.html">Get started and contribute</a>
+    </nav>
+    <details class="mh-menu">
+      <summary><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 4h12M2 8h12M2 12h12"/></svg> Menu</summary>
+      <nav class="mh-list" aria-label="Site">
+        <a href="../index.html">Home</a>
+        <a href="../evaluates.html">What it evaluates</a>
+        <a href="../building.html">How a benchmark is built</a>
+        <a href="../evaluation.html">Evaluation policy</a>
+        <a href="../get-started.html">Get started and contribute</a>
+      </nav>
+    </details>
+  </div>
+</header>
+<nav class="mh-trail" aria-label="You are here">
+  <div class="mh-in"><ol><li><a href="../index.html">Home</a></li><li class="mh-mid"><a href="../index.html#crack-bridging">Case studies</a></li><li><a href="crack-bridging.html">Crack bridging</a></li><li aria-current="page">Study</li></ol><a class="mh-right" href="crack-bridging.html">The full case study &rarr;</a></div>
+</nav>
 <div class="page">
-<nav class="case-navigation" aria-label="Study page navigation"><a href="../index.html#crack-bridging">&larr; MechanicsHarness</a><span>Study &middot; crack bridging</span><a href="crack-bridging.html">The full case study &rarr;</a></nav>
 
 <header class="s-head">
   <div class="kicker">Fracture mechanics &middot; a guided exercise &middot; about 45 minutes once you know the background</div>
@@ -773,8 +854,8 @@ body.study .lede,body.study header p{max-width:none}
     <p>There are two unknowns, the load &Sigma; and the bridged length <i>L</i> (or the current half-length
     <i>c</i> = <i>a</i> + <i>L</i>). So two conditions are needed at the moment the first connector fails.</p>
     <p class="s-q"><b>Your turn.</b> Write the two conditions in words before opening the working. Then compute
-    <i>K</i><sub>0</sub> = &radic;(<i>E</i>&prime;&Gamma;<sub>0</sub>).
-      <span class="s-check" data-key="K0" data-unit="MPa&radic;m"><i>K</i><sub>0</sub> = <input type="number" step="any" inputmode="decimal" aria-label="K0 in MPa root metre"> MPa&radic;m <button type="button" class="s-btn small">Check</button> <span class="s-res" role="status"></span></span></p>
+    <i>K</i><sub>0</sub> = <span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a"><i>E</i>&prime;&Gamma;<sub>0</sub></span><span class="rad-s">)</span></span>.
+      <span class="s-check" data-key="K0" data-unit="MPa&radic;m"><i>K</i><sub>0</sub> = <input type="number" step="any" inputmode="decimal" aria-label="K0 in MPa root metre"> MPa⁠<span class="rad"><span class="rad-s">&radic;</span><span class="rad-a">m</span></span> <button type="button" class="s-btn small">Check</button> <span class="s-res" role="status"></span></span></p>
     <details class="s-work">
       <summary>Show the working</summary>
       <p><b>At the front</b> the crack advances quasistatically, so the energy reaching the tip equals
@@ -829,7 +910,7 @@ body.study .lede,body.study header p{max-width:none}
 <use x='110.037222' y='-59.54187' xlink:href='#qconds-g3-99'/>
 </g>
 </svg></div>
-      <p>Here <i>K</i><sub>0</sub> = 1.762 MPa&radic;m. The connectors&rsquo; work does not enter the tip condition: it is
+      <p>Here <i>K</i><sub>0</sub> = 1.762 MPa⁠<span class="rad"><span class="rad-s">&radic;</span><span class="rad-a">m</span></span>. The connectors&rsquo; work does not enter the tip condition: it is
       spent behind the tip, and the tip only sees &Gamma;<sub>0</sub>.</p>
     </details>
   </article>
@@ -954,7 +1035,7 @@ body.study .lede,body.study header p{max-width:none}
 <use x='43.94057' y='-50.57931' xlink:href='#qsigma-g1-99'/>
 </g>
 </svg></div>
-      <p>At <i>c</i> = <i>a</i> the first term vanishes and &Sigma;<sub>start</sub> = <i>K</i><sub>0</sub>/&radic;(&pi;<i>a</i>) = 20.29 MPa.
+      <p>At <i>c</i> = <i>a</i> the first term vanishes and &Sigma;<sub>start</sub> = <i>K</i><sub>0</sub>/⁠<span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a">&pi;<i>a</i></span><span class="rad-s">)</span></span> = 20.29 MPa.
       From there, in this problem, the load rises as the zone grows, because the connectors shield the tip. (With other
       values it can pass a maximum first; the explorer shows such a case.)</p>
     </details>
@@ -1356,7 +1437,7 @@ body.study .lede,body.study header p{max-width:none}
 <use x='48.929433' y='-47.930749' xlink:href='#qkernel-g0-106'/>
 </g>
 </svg></div>
-      <p>A uniform pressure gives the ellipse 4<i>p</i>&radic;(<i>c</i>&sup2; &minus; <i>x</i>&sup2;)/<i>E</i>&prime;. For
+      <p>A uniform pressure gives the ellipse 4<i>p</i>⁠<span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a"><i>c</i>&sup2; &minus; <i>x</i>&sup2;</span><span class="rad-s">)</span></span>/<i>E</i>&prime;. For
       the closing traction on the bridged zones, the integral at <i>r</i> = <i>a</i>/<i>c</i> has a closed form:</p>
       <div class="eq"><svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='23.712em' height='2.487em' role='img' aria-label='\int_r^1\bigl[G(r,t)+G(r,-t)\bigr]\,dt=2\sqrt{1-r^2}\,\arccos r+2r\ln r' viewBox='-70.445832 -71.14012 237.120562 24.874963'>
 <defs>
@@ -1863,7 +1944,7 @@ body.study .lede,body.study header p{max-width:none}
 <use x='11.708686' y='-60.334248' xlink:href='#qellipse-g4-50'/>
 </g>
 </svg></div>
-      <p>(In A&rsquo;s form the stress beyond &Sigma;<sub>D</sub> is <i>K</i><sub>0</sub>/&radic;(&pi;<i>c</i>); with
+      <p>(In A&rsquo;s form the stress beyond &Sigma;<sub>D</sub> is <i>K</i><sub>0</sub>/⁠<span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a">&pi;<i>c</i></span><span class="rad-s">)</span></span>; with
       <i>t</i> = 0 that is all of &Sigma;.)</p>
       <p class="s-q">Which formulas give the ellipse at <i>x</i> = <i>a</i>?</p>
       <div class="e-choice" data-q="t1"><button type="button" data-v="A">only A</button><button type="button" data-v="B">only B</button><button type="button" data-v="both">both</button><button type="button" data-v="none">neither</button></div>
@@ -1957,7 +2038,7 @@ body.study .lede,body.study header p{max-width:none}
     connectors&rsquo; term.</p>
     <p><b>Agent B was DeepSeek V4.1 Flash</b> (run with reasoning off). <span class="s-cite">From the case study:</span></p>
     <blockquote class="s-quote">DeepSeek on the slit, with reasoning off, wrote the tip intensity correctly but took the root
-      opening as (4/<i>E</i>&prime;)[&Sigma;&radic;(<i>c</i>&sup2; &minus; <i>a</i>&sup2;) &minus; <i>t</i>(<i>c</i> &minus; <i>a</i>)],
+      opening as (4/<i>E</i>&prime;)[&Sigma;⁠<span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a"><i>c</i>&sup2; &minus; <i>a</i>&sup2;</span><span class="rad-s">)</span></span> &minus; <i>t</i>(<i>c</i> &minus; <i>a</i>)],
       which is not the opening of a crack under that pressure. With it, the root connector reaches <i>&delta;</i><sub>c</sub>
       only at <i>L</i> = 34.3 mm and &Sigma; = 158.5 MPa, 740% and 18.5% above the key. Eq. 45 gives an opening of 24.3 &micro;m
       at that state, so on the actual path the root connector had failed long before. Its opening &ldquo;check&rdquo;
@@ -1966,7 +2047,7 @@ body.study .lede,body.study header p{max-width:none}
       intensity.</blockquote>
     <p><b>Agent A was GLM-5.3.</b></p>
     <blockquote class="s-quote">GLM on the slit built the root opening itself: the opening of a strip-yield crack under the stress that gives zero tip intensity, plus
-      the opening of an open crack under the remaining stress <i>K</i><sub>0</sub>/&radic;(&pi;<i>c</i>). That is Eq. 45 in another form. It checked the first part against a
+      the opening of an open crack under the remaining stress <i>K</i><sub>0</sub>/⁠<span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a">&pi;<i>c</i></span><span class="rad-s">)</span></span>. That is Eq. 45 in another form. It checked the first part against a
       dislocation-density integration, to 6 &times; 10&#8315;&sup1;&sup1;, and solved the whole problem again by a separate
       spectral method, 133.70 MPa and 4.079 mm. Graded 100.</blockquote>
     <p class="s-small">&ldquo;The key&rdquo; is the reference answer and &ldquo;Eq. 45&rdquo; the source paper&rsquo;s root
@@ -2109,6 +2190,70 @@ so at the slit edge
     for (var v = Math.ceil(lo / step) * step; v <= hi + 1e-9 * step; v += step) out.push(+v.toPrecision(12));
     return out;
   }
+  // Square roots (12 Nov 2026): a radical in text a script writes, '√(ct)' or '√t', gets a bar over its argument, as in
+  // the page's own text (release_fracture/radicals.py, whose styles every study page has). rad(html): the markup for an
+  // innerHTML string; setText(el, text): plain text, radicals included, as DOM nodes. In SVG, svgText(textEl, text) puts
+  // each argument in a tspan, and drawRadicals(root) draws the sign and the bar from the laid-out text: again when the web
+  // fonts arrive, when a fold opens and when the colour scheme changes.
+  var RAD = /√(?:\(([^()]*)\)|([A-Za-zͰ-Ͽℓ]+))/g, WJ = '⁠';
+  // An argument of more than one letter keeps its parentheses in the text, not shown, so copied text reads "√(ct)".
+  function rad(html) {
+    var one = /^(?:&[a-zA-Z]+;|[A-Za-zͰ-Ͽℓ]|<i>[^<]<\/i>)$/.test(html);
+    return WJ + '<span class="rad"><span class="rad-s">√' + (one ? '' : '(') + '</span><span class="rad-a">' + html + '</span>' +
+      (one ? '' : '<span class="rad-s">)</span>') + '</span>';
+  }
+  function setText(node, text) {
+    while (node.firstChild) node.removeChild(node.firstChild);
+    var last = 0, m;
+    RAD.lastIndex = 0;
+    while ((m = RAD.exec(text))) {
+      var r = document.createElement('span'), sg = document.createElement('span'), a = document.createElement('span');
+      r.className = 'rad'; sg.className = 'rad-s'; a.className = 'rad-a';
+      sg.textContent = m[1] != null ? '√(' : '√'; a.textContent = m[1] != null ? m[1] : m[2];
+      r.appendChild(sg); r.appendChild(a);
+      if (m[1] != null) { var cl = document.createElement('span'); cl.className = 'rad-s'; cl.textContent = ')'; r.appendChild(cl); }
+      node.appendChild(document.createTextNode(text.slice(last, m.index) + (m.index && !/\s/.test(text.charAt(m.index - 1)) ? WJ : '')));
+      node.appendChild(r);
+      last = RAD.lastIndex;
+    }
+    node.appendChild(document.createTextNode(text.slice(last)));
+    return node;
+  }
+  function svgText(t, text) {
+    var last = 0, m;
+    t.setAttribute('text-rendering', 'geometricPrecision');   // unhinted: the drawn sign stays in place at every size
+    RAD.lastIndex = 0;
+    while ((m = RAD.exec(text))) {
+      var a = document.createElementNS(NS, 'tspan');
+      a.setAttribute('class', 'rad-a');
+      a.textContent = m[1] != null ? m[1] : m[2];
+      t.appendChild(document.createTextNode(text.slice(last, m.index)));
+      t.appendChild(a);
+      last = RAD.lastIndex;
+    }
+    t.appendChild(document.createTextNode(text.slice(last)));
+    return t;
+  }
+  // the sign as on the site's figures (13 px: from 9 px before the argument, bar 13.5 px above the baseline), scaled
+  function drawRadicals(root) {
+    Array.prototype.forEach.call((root || document).querySelectorAll('text tspan.rad-a'), function (a) {
+      var t = a.parentNode, k = parseFloat(getComputedStyle(a).fontSize) / 13;
+      a.setAttribute('dx', (10 * k).toFixed(1));
+      if (!a.getNumberOfChars()) return;   // not laid out (in a closed fold): drawn when it opens
+      var p0 = a.getStartPositionOfChar(0), w = a.getComputedTextLength(), path = a.radPath;
+      if (!path || !path.parentNode) {
+        path = a.radPath = document.createElementNS(NS, 'path');
+        path.setAttribute('aria-hidden', 'true');
+        t.parentNode.insertBefore(path, t.nextSibling);
+      }
+      if (t.getAttribute('transform')) path.setAttribute('transform', t.getAttribute('transform'));
+      path.setAttribute('d', 'M' + (p0.x - 9 * k).toFixed(1) + ' ' + (p0.y - 5 * k).toFixed(1) + 'l' + (2 * k).toFixed(2) + ' ' +
+        (-1.2 * k).toFixed(2) + 'l' + (2.6 * k).toFixed(2) + ' ' + (6.2 * k).toFixed(2) + 'l' + (3.4 * k).toFixed(2) + ' ' +
+        (-13.5 * k).toFixed(2) + 'h' + (w + 2 * k).toFixed(1));
+      path.setAttribute('style', 'fill:none;stroke:' + getComputedStyle(t).fill + ';stroke-width:' + (1.2 * k).toFixed(2) +
+        ';stroke-linejoin:round;stroke-linecap:round');
+    });
+  }
   function clearSvg(svg) { while (svg.firstChild) svg.removeChild(svg.firstChild); }
   /* opts: {x0,x1,y0,y1,xl,yl, bands:[{x0,x1,cls,label}], lines:[{pts:[[x,y]],cls}], dots:[[x,y,cls]]} */
   function chart(svgId, opts) {
@@ -2135,9 +2280,9 @@ so at the slit edge
       svg.appendChild(el('line', { x1: m.l, x2: W - m.r, y1: ys(t), y2: ys(t), 'class': 'pl-grid' }));
       svg.appendChild(el('text', { x: m.l - 6, y: ys(t) + 4, 'class': 'pl-tick', 'text-anchor': 'end' }, String(t)));
     });
-    svg.appendChild(el('text', { x: (m.l + W - m.r) / 2, y: H - 8, 'class': 'pl-lbl', 'text-anchor': 'middle' }, opts.xl));
-    svg.appendChild(el('text', { x: 14, y: (m.t + H - m.b) / 2, 'class': 'pl-lbl', 'text-anchor': 'middle',
-                                 transform: 'rotate(-90 14 ' + (m.t + H - m.b) / 2 + ')' }, opts.yl));
+    svg.appendChild(svgText(el('text', { x: (m.l + W - m.r) / 2, y: H - 8, 'class': 'pl-lbl', 'text-anchor': 'middle' }), opts.xl));
+    svg.appendChild(svgText(el('text', { x: 14, y: (m.t + H - m.b) / 2, 'class': 'pl-lbl', 'text-anchor': 'middle',
+                                         transform: 'rotate(-90 14 ' + (m.t + H - m.b) / 2 + ')' }), opts.yl));
     var clip = 'clip-' + svgId, cp = el('clipPath', { id: clip });
     cp.appendChild(el('rect', { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b }));
     svg.appendChild(cp);
@@ -2155,6 +2300,7 @@ so at the slit edge
       var x = Math.min(Math.max(xs(l.x) + (l.dx || 0), m.l + 4), W - m.r - 4), y = Math.min(Math.max(ys(l.y) + (l.dy || 0), m.t + 12), H - m.b - 6);
       svg.appendChild(el('text', { x: x, y: y, 'text-anchor': l.anchor || 'start', 'class': 'pl-note ' + (l.cls || '') }, l.text));
     });
+    drawRadicals(svg);
   }
 
   // Feedback: text box + link that opens a pre-filled public GitHub issue. Text is limited to LIMIT characters, counted
@@ -2188,11 +2334,20 @@ so at the slit edge
   document.addEventListener('DOMContentLoaded', function () {
     fitEquations();
     window.addEventListener('resize', fitEquations);
-    Array.prototype.forEach.call(document.querySelectorAll('details'), function (d) { d.addEventListener('toggle', fitEquations); });
+    Array.prototype.forEach.call(document.querySelectorAll('details'), function (d) {
+      d.addEventListener('toggle', fitEquations);
+      d.addEventListener('toggle', function () { drawRadicals(d); });
+    });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { drawRadicals(); });
+    if (window.matchMedia) {
+      var dark = window.matchMedia('(prefers-color-scheme: dark)');
+      if (dark.addEventListener) dark.addEventListener('change', function () { drawRadicals(); });
+    }
   });
 
   root.StudyCommon = { $: $, buildFields: buildFields, setFields: setFields, readFields: readFields, sig: sig,
-                       chart: chart, clearSvg: clearSvg, setupFeedback: setupFeedback, FEEDBACK_LIMIT: LIMIT };
+                       chart: chart, clearSvg: clearSvg, setupFeedback: setupFeedback, FEEDBACK_LIMIT: LIMIT,
+                       rad: rad, setText: setText, svgText: svgText, drawRadicals: drawRadicals };
 })(this);
 </script>
 <script>
@@ -2418,7 +2573,7 @@ so at the slit edge
   var REF = C.solveAll(TASKP);
   var mm = function (x) { return S.sig(x * 1e3, 4); }, mpa = function (x) { return S.sig(x / 1e6, 4); };
   function within(x, want, rel) { return isFinite(x) && Math.abs(x / want - 1) <= rel; }
-  function say(el, cls, text) { el.className = (el.tagName === 'P' ? (el.id === 'answer-msg' ? 's-msg ' : 's-res ') : 's-res ') + cls; el.textContent = text; }
+  function say(el, cls, text) { el.className = (el.tagName === 'P' ? (el.id === 'answer-msg' ? 's-msg ' : 's-res ') : 's-res ') + cls; S.setText(el, text); }   // square roots drawn with a bar (study_common.js)
 
   // ---- 1. the answer boxes ----
   function checkAnswer(ev) {

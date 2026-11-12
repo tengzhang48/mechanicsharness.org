@@ -344,8 +344,6 @@ figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2re
 /* Study pages (redesigned 10 Nov 2026): one readable column, typeset equations, things to do at every step.
    Colours come from the case page's variables, so dark mode follows. */
 body.study .page{max-width:920px}
-body.study .case-navigation{position:static}
-.case-navigation a + span + a{margin-left:auto}
 .s-head h1{font:700 clamp(28px,4.2vw,40px)/1.15 var(--serif);margin:.25em 0 .4em}
 .s-head .lede{font:19px/1.55 var(--serif);color:var(--fg)}
 .s-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:18px 0 6px}
@@ -461,7 +459,6 @@ body.study .eq svg{display:block;fill:currentColor;max-width:none}
   .s-two,.x-wrap,.x-plots,.e-cards,.e-tests,.l-cards,.s-meta{grid-template-columns:minmax(0,1fr)}
   .s-step{padding:4px 16px 12px}
   .x-plots figcaption{min-height:0}
-  .case-navigation span{display:none}
   body.study .eq{font-size:14.5px;padding-left:0}
   body.study .e-card .eq,body.study .e-test .eq{font-size:13.5px}
 }
@@ -501,10 +498,94 @@ body.study .lede,body.study header p{max-width:none}
 .w-line{fill:none;stroke:var(--c1);stroke-width:2.2}
 .s-fig-wide{max-width:520px;margin:14px auto}.s-fig figcaption{font:13.5px/1.5 var(--sans);color:var(--muted);margin-top:6px}
 </style>
+<style data-site-chrome>
+/* MechanicsHarness top bar (site_chrome.py). Self-contained: classes mh-*, colours from the shared tokens. */
+.mh-bar{position:relative;z-index:31;display:block;margin:0;padding:0;border:0;border-bottom:1px solid var(--rule,#ddd8cc);
+  background:var(--bg,#f7f5ef);color:var(--fg,#1c2230);font-family:var(--sans,"IBM Plex Sans",Arial,sans-serif)}
+.mh-bar .mh-in,.mh-trail .mh-in{box-sizing:border-box;max-width:var(--mh-max,1600px);margin:0 auto;
+  padding-inline:var(--mh-gutter,clamp(16px,4vw,40px))}
+.mh-bar .mh-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 28px;padding-block:13px}
+.mh-bar a.mh-brand{font:700 19px/1.2 var(--serif,"Source Serif 4",Georgia,serif);letter-spacing:-.005em;
+  color:var(--fg,#1c2230);text-decoration:none;white-space:nowrap}
+.mh-bar a.mh-brand:hover{color:var(--accent,#0e6e6a)}
+.mh-bar .mh-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px 2px;margin:0;padding:0}
+.mh-bar .mh-nav a,.mh-bar .mh-list a{font:500 14px/1.2 var(--sans,"IBM Plex Sans",Arial,sans-serif);color:var(--fg,#1c2230);
+  text-decoration:none;white-space:nowrap}
+.mh-bar .mh-nav a{padding:7px 12px;border:1px solid transparent;border-radius:999px}
+.mh-bar .mh-nav a:hover{background:var(--accent-weak,#d6ebe8)}
+.mh-bar .mh-nav a[aria-current="page"]{color:var(--accent,#0e6e6a);border-color:var(--accent,#0e6e6a);background:var(--surface,#fffdf8)}
+.mh-bar a:focus-visible,.mh-trail a:focus-visible,.mh-bar summary:focus-visible{outline:2px solid var(--accent,#0e6e6a);outline-offset:2px}
+/* phone width: the menu folds into a button (a <details>, no script) */
+.mh-bar .mh-menu{display:none;margin:0;padding:0;border:0}
+.mh-bar .mh-menu>summary{display:flex;align-items:center;gap:8px;list-style:none;cursor:pointer;margin:0;padding:7px 13px;
+  font:600 14px/1.2 var(--sans,"IBM Plex Sans",Arial,sans-serif);color:var(--fg,#1c2230);background:var(--surface,#fffdf8);
+  border:1px solid var(--rule,#ddd8cc);border-radius:999px}
+.mh-bar .mh-menu>summary::-webkit-details-marker{display:none}
+.mh-bar .mh-menu>summary::marker{content:""}
+.mh-bar .mh-menu>summary svg{width:16px;height:16px;stroke:currentColor;stroke-width:1.8;fill:none}
+.mh-bar .mh-menu[open]>summary{color:var(--accent,#0e6e6a);border-color:var(--accent,#0e6e6a)}
+.mh-bar .mh-list{position:absolute;left:0;right:0;top:100%;display:grid;margin:0;padding:4px var(--mh-gutter,16px) 10px;
+  background:var(--surface,#fffdf8);border-bottom:1px solid var(--rule,#ddd8cc);box-shadow:0 10px 18px rgba(0,0,0,.10)}
+.mh-bar .mh-list a{display:block;padding:12px 0;font-size:15.5px;border-bottom:1px solid var(--rule,#ddd8cc)}
+.mh-bar .mh-list a:last-child{border-bottom:0}
+.mh-bar .mh-list a[aria-current="page"]{color:var(--accent,#0e6e6a);font-weight:600}
+@media (max-width:700px){
+  .mh-bar .mh-in{flex-wrap:nowrap;padding-block:10px}
+  .mh-bar .mh-nav{display:none}
+  .mh-bar .mh-menu{display:block}
+}
+/* where-you-are line: stays at the top while the page scrolls */
+.mh-trail{position:sticky;top:0;z-index:30;display:block;margin:0;padding:0;border:0;border-bottom:1px solid var(--rule,#ddd8cc);
+  background:var(--bg,#f7f5ef);font:400 13px/1.4 var(--sans,"IBM Plex Sans",Arial,sans-serif);color:var(--muted,#5b6474)}
+.mh-trail .mh-in{display:flex;align-items:center;justify-content:space-between;gap:4px 18px;padding-block:9px}
+.mh-trail ol{display:flex;flex-wrap:nowrap;align-items:center;min-width:0;margin:0;padding:0;list-style:none}
+.mh-trail li{margin:0;padding:0;white-space:nowrap;color:var(--muted,#5b6474)}
+.mh-trail li+li::before{content:"\203A";padding:0 .5em;color:var(--muted,#5b6474)}
+.mh-trail li:last-child{min-width:0;overflow:hidden;text-overflow:ellipsis;color:var(--fg,#1c2230)}
+.mh-trail a{color:var(--accent,#0e6e6a);text-decoration:none}
+.mh-trail a:hover{text-decoration:underline}
+.mh-trail a.mh-right{flex:none;font-weight:600}
+/* phone width: the middle items hide; a line still too long puts its right-hand link on a second row instead of cutting
+   the page's name ("Fracture Mechanics 1..." at 390 px, found on the fracture pages, 12 Nov 2026) */
+@media (max-width:600px){ .mh-trail li.mh-mid{display:none} .mh-trail .mh-in{flex-wrap:wrap} .mh-trail a.mh-right{margin-left:auto} }
+@media print{ .mh-bar .mh-nav,.mh-bar .mh-menu,.mh-trail{display:none} .mh-bar{border:0} }
+/* fracture pages (release_fracture/site_topbar.py) */
+body.study .mh-trail{position:static}
+</style>
+<style data-radicals>/* square roots with a bar over the argument (release_fracture/radicals.py) */
+.rad{white-space:nowrap}
+.rad-s{font-size:0}
+.rad-a{position:relative;display:inline-block;line-height:1;margin-left:.62em;padding:.1em .06em 0 .04em;border-top:.07em solid currentColor}
+.rad-a::before{content:"";position:absolute;top:-.07em;bottom:0;right:100%;width:.62em;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 20' preserveAspectRatio='none'%3E%3Cpath d='M.8 12.2 2.9 11 5.6 18.6 11.3.7H12' fill='none' stroke='%23000' stroke-width='1.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 20' preserveAspectRatio='none'%3E%3Cpath d='M.8 12.2 2.9 11 5.6 18.6 11.3.7H12' fill='none' stroke='%23000' stroke-width='1.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
+</style>
 </head>
 <body class="study">
+<header class="mh-bar">
+  <div class="mh-in">
+    <a class="mh-brand" href="../index.html">MechanicsHarness</a>
+    <nav class="mh-nav" aria-label="Site">
+      <a href="../index.html">Home</a>
+      <a href="../evaluates.html">What it evaluates</a>
+      <a href="../building.html">How a benchmark is built</a>
+      <a href="../evaluation.html">Evaluation policy</a>
+      <a href="../get-started.html">Get started and contribute</a>
+    </nav>
+    <details class="mh-menu">
+      <summary><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 4h12M2 8h12M2 12h12"/></svg> Menu</summary>
+      <nav class="mh-list" aria-label="Site">
+        <a href="../index.html">Home</a>
+        <a href="../evaluates.html">What it evaluates</a>
+        <a href="../building.html">How a benchmark is built</a>
+        <a href="../evaluation.html">Evaluation policy</a>
+        <a href="../get-started.html">Get started and contribute</a>
+      </nav>
+    </details>
+  </div>
+</header>
+<nav class="mh-trail" aria-label="You are here">
+  <div class="mh-in"><ol><li><a href="../index.html">Home</a></li><li class="mh-mid"><a href="../index.html#poroelastic-crack">Case studies</a></li><li><a href="poroelastic-crack.html">Poroelastic crack</a></li><li aria-current="page">Study</li></ol><a class="mh-right" href="poroelastic-crack.html">Read the full case study &rarr;</a></div>
+</nav>
 <div class="page">
-<nav class="case-navigation" aria-label="Study page navigation"><a href="../index.html#poroelastic-crack">&larr; MechanicsHarness</a> <span>&nbsp;| Study &middot; Poroelastic crack |&nbsp;</span> <a href="poroelastic-crack.html">Read the full case study &rarr;</a></nav>
 
 <header class="s-head">
   <div class="kicker">A guided fracture mechanics exercise. Find the crack opening by hand, make two estimates of the tip intensity, then test an argument about a small region.</div>
@@ -562,7 +643,7 @@ body.study .lede,body.study header p{max-width:none}
   the load remains &sigma; even though the pore pressure on the face is zero.
   See <a href="fracture-101.html#poroelastic">drained and undrained response</a>.</p>
   <p><b>Diffusion</b> is the spreading and relaxation of a pressure difference through fluid motion.
-  In time <i>t</i>, that change reaches a distance of about &radic;(<i>ct</i>).
+  In time <i>t</i>, that change reaches a distance of about <span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a"><i>ct</i></span><span class="rad-s">)</span></span>.
   This is the <b>diffusion length</b>, not the location of a sharp boundary.
   See <a href="fracture-101.html#diffusion-length">how far pore pressure diffuses</a>.</p>
   <div class="s-ask">
@@ -616,7 +697,7 @@ body.study .lede,body.study header p{max-width:none}
 </g>
 </svg></div>
     <p>The hats mark dimensionless quantities: volume is measured in units of &sigma;<i>L</i><sup>2</sup>/<i>G</i>,
-    intensity in units of &sigma;&radic;(&pi;<i>L</i>), and pore pressure in units of &sigma;.
+    intensity in units of &sigma;⁠<span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a">&pi;<i>L</i></span><span class="rad-s">)</span></span>, and pore pressure in units of &sigma;.
     The answer boxes and interactive displays omit the hats.</p>
     <p>Find the volume just after loading, <i>V</i>(0+), the long-time volume, <i>V</i>(&infin;),
     the initial pore pressure just inside the solid beside the faces, and the initial intensity
@@ -682,7 +763,7 @@ body.study .lede,body.study header p{max-width:none}
   <h2><span class="s-num">2</span> The physical picture</h2>
   <p class="s-intro">Compare the size of the crack with the distance fluid has had time to move.
   Move the time slider to grow the drained layer along the faces and around each tip.
-  The shading marks the scale &radic;(<i>ct</i>), not a sharp boundary between materials.
+  The shading marks the scale <span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a"><i>ct</i></span><span class="rad-s">)</span></span>, not a sharp boundary between materials.
   Fluid very close to the tip has only a short distance to travel to a drained face.
   It can therefore drain at any positive time, even while the layer is too small to see
   at the scale of the whole crack.</p>
@@ -695,7 +776,7 @@ body.study .lede,body.study header p{max-width:none}
         <label class="x-slider"><span>Time since loading</span><output id="pic-t-out"></output>
           <input id="pic-t" type="range" min="0" max="40" step="1" aria-label="Change the time since loading to show the growing drainage distance"></label>
       </div>
-      <p class="p-meter"><span>Drained distance, &radic;(<i>ct</i>), as a fraction of <i>L</i>:</span> <b id="pic-len"></b></p>
+      <p class="p-meter"><span>Drained distance, <span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a"><i>ct</i></span><span class="rad-s">)</span></span>, as a fraction of <i>L</i>:</span> <b id="pic-len"></b></p>
       <p class="p-meter"><span>The crack as a whole is:</span> <b id="pic-state"></b></p>
       <p class="p-meter"><span>The tip is:</span> <b id="pic-tip">drained</b></p>
       <p id="pic-note" class="x-note" role="status"></p>
@@ -705,7 +786,7 @@ body.study .lede,body.study header p{max-width:none}
     <li><b>The load has both effects.</b> The pressure pushes the faces apart and, at the same time,
     compresses the solid beside them. That compression raises the pore pressure.</li>
     <li><b>Fluid drains to the faces.</b> Their pore pressure is held at <i>p</i> = 0.
-    The distance over which drainage changes the response grows as &radic;(<i>ct</i>).</li>
+    The distance over which drainage changes the response grows as <span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a"><i>ct</i></span><span class="rad-s">)</span></span>.</li>
     <li><b>The tip is inside the drained layer at every positive time.</b> At short times most of
     the crack still responds as undrained, while the material close enough to the tip already
     responds as drained.</li>
@@ -1159,7 +1240,7 @@ body.study .lede,body.study header p{max-width:none}
     <p>&sigma; is the applied face pressure, so the induced pressure is about three quarters
     of that load. Exactly on the face, the pore pressure is held at zero. In the solid beside the face
     it starts at <b>0.749&sigma;</b>. At the first instant this is a jump, and diffusion then
-    smooths it into a layer that grows as &radic;(<i>ct</i>). At a later time, 0.749&sigma; is the
+    smooths it into a layer that grows as <span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a"><i>ct</i></span><span class="rad-s">)</span></span>. At a later time, 0.749&sigma; is the
     pressure just outside that layer, and the pressure falls to zero across it.
     The order of limits matters here too: the value asked for is the one at the first instant,
     beside the face.</p>
@@ -1415,12 +1496,12 @@ body.study .lede,body.study header p{max-width:none}
     Over distance <i>r</i> from the tip, it takes a time of order <i>r</i><sup>2</sup>/<i>c</i>.
     A time much shorter than <i>L</i><sup>2</sup>/<i>c</i> can therefore still be long enough
     for drainage sufficiently close to the tip.</p>
-    <figure class="s-fig s-fig-wide" role="img" aria-label="Two orders of limits on a map of distance from the tip against time"><svg viewBox="0 0 460 300" role="img" aria-label="Distance from the tip against time on logarithmic axes. The line r equals the square root of c t separates the drained side from the undrained side. Fixing the time and moving towards the tip ends on the drained side. Fixing the distance and going back in time ends on the undrained side."><path class="w-drained" style="stroke:none" d="M64.0 236.0L424.0 46.0L64.0 46.0Z"/><path class="p-dim" d="M64 236H424M64 236V46"/><path class="w-line" d="M64.0 236.0L424.0 46.0"/><path class="p-dim" d="M64.0 236V241"/><text class="p-lbl" x="64.0" y="255" text-anchor="middle">0.001</text><path class="p-dim" d="M184.0 236V241"/><text class="p-lbl" x="184.0" y="255" text-anchor="middle">0.01</text><path class="p-dim" d="M304.0 236V241"/><text class="p-lbl" x="304.0" y="255" text-anchor="middle">0.1</text><path class="p-dim" d="M424.0 236V241"/><text class="p-lbl" x="424.0" y="255" text-anchor="middle">1</text><path class="p-dim" d="M59 236.0H64"/><text class="p-lbl" x="56" y="240.0" text-anchor="end">10⁻⁶</text><path class="p-dim" d="M59 172.7H64"/><text class="p-lbl" x="56" y="176.7" text-anchor="end">10⁻⁴</text><path class="p-dim" d="M59 109.3H64"/><text class="p-lbl" x="56" y="113.3" text-anchor="end">0.01</text><path class="p-dim" d="M59 46.0H64"/><text class="p-lbl" x="56" y="50.0" text-anchor="end">1</text><text class="p-lbl" x="424" y="274" text-anchor="end">distance from the tip, r / L</text><text class="p-lbl" x="20" y="34">time, ct / L²</text><text class="p-lbl new" x="82.0" y="74.5">closer than √(ct):</text><text class="p-lbl new" x="82.0" y="90.5">drained</text><text class="p-lbl" x="349.6" y="78.3" transform="rotate(-27.8 349.6 78.3)">r = √(ct)</text><path class="p-arrow" d="M274.0 141.0H94.0M102.0 136.0L94.0 141.0L102.0 146.0"/><text class="p-lbl broke" x="82.0" y="115.0">tip first: fix the time,</text><text class="p-lbl broke" x="82.0" y="131.0">go to the tip</text><path class="p-arrow" style="stroke:var(--fg)" d="M304.0 58.7V223.3M299.0 215.3L304.0 223.3L309.0 215.3"/><text class="p-lbl" x="314.0" y="137.8" style="fill:var(--fg);font-weight:600">time first:</text><text class="p-lbl" x="314.0" y="153.7" style="fill:var(--fg);font-weight:600">fix the distance,</text><text class="p-lbl" x="314.0" y="169.5" style="fill:var(--fg);font-weight:600">go back in time</text><text class="p-lbl" x="418.0" y="204.3" text-anchor="end">farther than √(ct):</text><text class="p-lbl" x="418.0" y="220.3" text-anchor="end">undrained</text></svg><figcaption>Both axes are logarithmic: distance from the tip <i>r</i>/<i>L</i> runs horizontally, and time <i>ct</i>/<i>L</i><sup>2</sup> runs vertically. The line <i>r</i> = &radic;(<i>ct</i>) separates the shaded, drained side closer to the tip from the undrained side. The horizontal &ldquo;tip first&rdquo; arrow ends on the drained side; the vertical &ldquo;time first&rdquo; arrow ends on the undrained side. The line marks a diffusion scale, not a sharp boundary.</figcaption></figure>
+    <figure class="s-fig s-fig-wide" role="img" aria-label="Two orders of limits on a map of distance from the tip against time"><svg viewBox="0 0 460 300" role="img" aria-label="Distance from the tip against time on logarithmic axes. The line r equals the square root of c t separates the drained side from the undrained side. Fixing the time and moving towards the tip ends on the drained side. Fixing the distance and going back in time ends on the undrained side."><path class="w-drained" style="stroke:none" d="M64.0 236.0L424.0 46.0L64.0 46.0Z"/><path class="p-dim" d="M64 236H424M64 236V46"/><path class="w-line" d="M64.0 236.0L424.0 46.0"/><path class="p-dim" d="M64.0 236V241"/><text class="p-lbl" x="64.0" y="255" text-anchor="middle">0.001</text><path class="p-dim" d="M184.0 236V241"/><text class="p-lbl" x="184.0" y="255" text-anchor="middle">0.01</text><path class="p-dim" d="M304.0 236V241"/><text class="p-lbl" x="304.0" y="255" text-anchor="middle">0.1</text><path class="p-dim" d="M424.0 236V241"/><text class="p-lbl" x="424.0" y="255" text-anchor="middle">1</text><path class="p-dim" d="M59 236.0H64"/><text class="p-lbl" x="56" y="240.0" text-anchor="end">10⁻⁶</text><path class="p-dim" d="M59 172.7H64"/><text class="p-lbl" x="56" y="176.7" text-anchor="end">10⁻⁴</text><path class="p-dim" d="M59 109.3H64"/><text class="p-lbl" x="56" y="113.3" text-anchor="end">0.01</text><path class="p-dim" d="M59 46.0H64"/><text class="p-lbl" x="56" y="50.0" text-anchor="end">1</text><text class="p-lbl" x="424" y="274" text-anchor="end">distance from the tip, r / L</text><text class="p-lbl" x="20" y="34">time, ct / L²</text><text text-rendering="geometricPrecision" class="p-lbl new" x="82.0" y="74.5">closer than <tspan dx="10.0">ct</tspan>:</text><path aria-hidden="true" d="M152.3 69.5 l2.00 -1.20 l2.60 6.20 l3.40 -13.50 h13.4" style="fill:none;stroke:var(--c1);stroke-width:1.20;stroke-linejoin:round;stroke-linecap:round"/><text class="p-lbl new" x="82.0" y="90.5">drained</text><text text-rendering="geometricPrecision" class="p-lbl" x="349.6" y="78.3" transform="rotate(-27.8 349.6 78.3)">r = <tspan dx="10.0">ct</tspan></text><path aria-hidden="true" transform="rotate(-27.8 349.6 78.3)" d="M369.5 73.3 l2.00 -1.20 l2.60 6.20 l3.40 -13.50 h13.4" style="fill:none;stroke:var(--muted);stroke-width:1.20;stroke-linejoin:round;stroke-linecap:round"/><path class="p-arrow" d="M274.0 141.0H94.0M102.0 136.0L94.0 141.0L102.0 146.0"/><text class="p-lbl broke" x="82.0" y="115.0">tip first: fix the time,</text><text class="p-lbl broke" x="82.0" y="131.0">go to the tip</text><path class="p-arrow" style="stroke:var(--fg)" d="M304.0 58.7V223.3M299.0 215.3L304.0 223.3L309.0 215.3"/><text class="p-lbl" x="314.0" y="137.8" style="fill:var(--fg);font-weight:600">time first:</text><text class="p-lbl" x="314.0" y="153.7" style="fill:var(--fg);font-weight:600">fix the distance,</text><text class="p-lbl" x="314.0" y="169.5" style="fill:var(--fg);font-weight:600">go back in time</text><text text-rendering="geometricPrecision" class="p-lbl" x="418.0" y="204.3" text-anchor="end">farther than <tspan dx="10.0">ct</tspan>:</text><path aria-hidden="true" d="M393.6 199.3 l2.00 -1.20 l2.60 6.20 l3.40 -13.50 h13.4" style="fill:none;stroke:var(--muted);stroke-width:1.20;stroke-linejoin:round;stroke-linecap:round"/><text class="p-lbl" x="418.0" y="220.3" text-anchor="end">undrained</text></svg><figcaption>Both axes are logarithmic: distance from the tip <i>r</i>/<i>L</i> runs horizontally, and time <i>ct</i>/<i>L</i><sup>2</sup> runs vertically. The line <i>r</i> = <span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a"><i>ct</i></span><span class="rad-s">)</span></span> separates the shaded, drained side closer to the tip from the undrained side. The horizontal &ldquo;tip first&rdquo; arrow ends on the drained side; the vertical &ldquo;time first&rdquo; arrow ends on the undrained side. The line marks a diffusion scale, not a sharp boundary.</figcaption></figure>
     <p><b>Tip first:</b> fix a time <i>t</i> &gt; 0 and let <i>r</i> go to zero.
-    Sooner or later <i>r</i> is much smaller than &radic;(<i>ct</i>), so the innermost material
+    Sooner or later <i>r</i> is much smaller than <span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a"><i>ct</i></span><span class="rad-s">)</span></span>, so the innermost material
     is drained. This is the limit asked for on this page.</p>
     <p><b>Time first:</b> fix <i>r</i> and let <i>t</i> go to zero.
-    The distance &radic;(<i>ct</i>) becomes much smaller than <i>r</i>, so the material at
+    The distance <span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a"><i>ct</i></span><span class="rad-s">)</span></span> becomes much smaller than <i>r</i>, so the material at
     <i>r</i> is undrained. Going to the tip afterwards gives the crack-scale value 1.</p>
     <p><i>K</i><sub>out</sub> is read from the undrained stress field at an intermediate distance
     <i>d</i> from the tip, outside the diffusion layer but close compared with the crack length.
@@ -1585,7 +1666,7 @@ body.study .lede,body.study header p{max-width:none}
 </g>
 </svg></div>
       <p>&sigma;<sub>yy</sub>(<i>L</i> + <i>r</i>, 0, <i>t</i>) is the normal stress a distance
-      <i>r</i> ahead of the right tip. Multiplication by &radic;(2&pi;<i>r</i>) extracts the
+      <i>r</i> ahead of the right tip. Multiplication by <span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a">2&pi;<i>r</i></span><span class="rad-s">)</span></span> extracts the
       elastic intensity as <i>r</i> tends to zero; the denominator removes its units.
       The first line takes the tip limit first and gives 0.8076, calculated below.
       The second takes the time limit first and gives exactly 1.
@@ -1903,7 +1984,7 @@ body.study .lede,body.study header p{max-width:none}
     1 + &eta;<sub>t</sub> = 4/3 to find the requested dimensionless tip intensity.
     The initial dimensionless outer intensity is 1.
       <span class="s-check" data-key="K"><i>K</i> at the tip = <input type="number" step="any" inputmode="decimal" aria-label="Dimensionless initial tip intensity from the full solution"> <button type="button" class="s-btn small">Check</button> <span class="s-res" role="status"></span></span></p>
-    <p>When distances are measured in units of &radic;(<i>ct</i>), time no longer appears in the
+    <p>When distances are measured in units of <span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a"><i>ct</i></span><span class="rad-s">)</span></span>, time no longer appears in the
     tip problem. The ratio is therefore the limit for small times, <i>ct</i>/<i>L</i><sup>2</sup>
     tending to zero. Corrections at later times are not part of this result.</p>
     <details class="s-work">
@@ -2026,7 +2107,7 @@ body.study .lede,body.study header p{max-width:none}
       <p>The requested tip-first intensity is <b>0.8076</b>.
       It is smaller than the outer intensity, but larger than the paper&rsquo;s simplified value.</p>
       <p>The opening factor is 1.0768, rather than the 1 assumed by matching the opening
-      or &radic;(4/3) = 1.155 implied by matching the energy.</p>
+      or <span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a">4/3</span><span class="rad-s">)</span></span> = 1.155 implied by matching the energy.</p>
       <p>The numerical calculation uses a <b>2 &times; 2 Wiener-Hopf problem</b>.
       This method solves two coupled quantities when the boundary condition changes at the tip.</p>
       <p>The full solution satisfies a balance that includes the pore-pressure field.
@@ -2125,7 +2206,7 @@ body.study .lede,body.study header p{max-width:none}
     <h3><span class="s-stepn">Step 4</span> How fast does drainage add crack volume?</h3>
     <p class="s-bg">Background: <a href="fracture-101.html#diffusion-length">diffusion length</a>,
     <a href="fracture-101.html#k">the square-root tip singularity</a>.</p>
-    <p>Along the faces, fluid drains through a layer of thickness about &radic;(<i>ct</i>).
+    <p>Along the faces, fluid drains through a layer of thickness about <span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a"><i>ct</i></span><span class="rad-s">)</span></span>.
     For a fixed crack length, the extra volume from this layer grows in proportion to its thickness.
     The early volume therefore has a square-root growth term:</p>
     <div class="eq"><svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='16.038em' height='2.391em' role='img' aria-label='\widehat V(t)\approx\widehat V(0^+)+A\sqrt{\frac{ct}{L^2}},\qquad \frac{ct}{L^2}\ll1' viewBox='-70.445832 -70.605277 160.384031 23.910336'>
@@ -2237,12 +2318,12 @@ body.study .lede,body.study header p{max-width:none}
     <p>In this calculation each bit of fluid lost is multiplied by a weight taken from the stress
     of the initial undrained crack solution, and near the tip both the weight and the fluid loss
     become large.</p>
-    <p>The drained zone around each tip is about &radic;(<i>ct</i>) across, so its area is of order
+    <p>The drained zone around each tip is about <span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a"><i>ct</i></span><span class="rad-s">)</span></span> across, so its area is of order
     <i>ct</i>. But the weighting stress grows as <i>r</i><sup>&minus;1/2</sup> near the tip.
     It is <b>singular</b>, meaning it grows without bound in the ideal sharp-tip model.
     The pore pressure that drains is the initial undrained pressure in the solid around the tip.
     It grows in the same way, although it stays finite beside the faces away from the tips.</p>
-    <p>At distances of order &radic;(<i>ct</i>), each factor is of order
+    <p>At distances of order <span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a"><i>ct</i></span><span class="rad-s">)</span></span>, each factor is of order
     (<i>ct</i>)<sup>&minus;1/4</sup>. Multiply both factors by the tip-zone area:</p>
     <div class="eq"><svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24.053em' height='2.694em' role='img' aria-label='\underbrace{(ct)^{-1/4}}_{\text{weighting stress}}\times\underbrace{(ct)^{-1/4}}_{\text{draining pore pressure}}\times\underbrace{ct}_{\text{tip-zone area}}=(ct)^{1/2}' viewBox='-70.794525 -71.00374 240.529082 26.940616'>
 <defs>
@@ -2711,7 +2792,7 @@ body.study .lede,body.study header p{max-width:none}
       <svg id="plot-K" role="img" aria-label="Tip intensity ratio against coupling, comparing two hand estimates with the full solution" aria-describedby="x-sentence"></svg></figure>
     <figure><figcaption><b>Early crack volume against the square root of time.</b>
       For the problem&rsquo;s material, the leading approximation starts at 1.885 and has slope
-      <i>A</i> = 2.440 when plotted against &radic;(<i>ct</i>/<i>L</i><sup>2</sup>).
+      <i>A</i> = 2.440 when plotted against <span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a"><i>ct</i>/<i>L</i><sup>2</sup></span><span class="rad-s">)</span></span>.
       It is a small-time approximation, not a curve to extrapolate to long times.
       <label class="x-toggle"><input type="checkbox" id="show-b"> show the growth with the face term only (Section 5)</label></figcaption>
       <svg id="plot-V" role="img" aria-label="Dimensionless early crack volume against square root of dimensionless time, with an optional face-only growth comparison" aria-describedby="v-sentence"></svg></figure>
@@ -3022,7 +3103,7 @@ body.study .lede,body.study header p{max-width:none}
     so an answer of 1 for <i>K</i> received partial credit.
     The volume-growth term has no such ambiguity.</p>
     <p class="s-cite">The case study describes the Kimi K3 runs as follows.</p>
-    <blockquote class="s-quote">The three K3 runs started, correctly, from undrained elasticity at t = 0⁺ and drained elasticity at long times, and gave √(πL) for the tip at both. All three noticed the tip zones of size √(ct) and dismissed them: MP-24 wrote that they “contribute only O((ct)<sup>3/4</sup>) and are subleading”. That estimate keeps the singular stress but treats the fluid content in the zone as bounded. It is singular too, as r<sup>&minus;1/2</sup>; over a zone of area ct the two singular factors give order √(ct), the same as the faces.</blockquote>
+    <blockquote class="s-quote">The three K3 runs started, correctly, from undrained elasticity at t = 0⁺ and drained elasticity at long times, and gave <span class="rad"><span class="rad-s">√(</span><span class="rad-a">πL</span><span class="rad-s">)</span></span> for the tip at both. All three noticed the tip zones of size <span class="rad"><span class="rad-s">√(</span><span class="rad-a">ct</span><span class="rad-s">)</span></span> and dismissed them: MP-24 wrote that they “contribute only O((ct)<sup>3/4</sup>) and are subleading”. That estimate keeps the singular stress but treats the fluid content in the zone as bounded. It is singular too, as r<sup>&minus;1/2</sup>; over a zone of area ct the two singular factors give order <span class="rad"><span class="rad-s">√(</span><span class="rad-a">ct</span><span class="rad-s">)</span></span>, the same as the faces.</blockquote>
     <p>MP-24 is the case study&rsquo;s name for one run.</p>
     <p>In this page&rsquo;s units the square root of &pi;<i>L</i> in the quotation is the value 1.</p>
     <p>In the case, the three GPT runs and one Opus run treated the tip as drained and found 0.808;
@@ -3038,7 +3119,7 @@ body.study .lede,body.study header p{max-width:none}
   <div class="l-cards">
     <div class="l-card"><h3>A short time is short only at some scales</h3>
       <p><i>ct</i>/<i>L</i><sup>2</sup> much smaller than 1 makes the crack-scale response undrained.
-      But <i>r</i>/&radic;(<i>ct</i>) tending to zero makes the tip response drained.
+      But <i>r</i>/⁠<span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a"><i>ct</i></span><span class="rad-s">)</span></span> tending to zero makes the tip response drained.
       Before choosing a material response, name the distance scale and state which limit comes first.</p></div>
     <div class="l-card"><h3>Small regions near a singularity are not negligible</h3>
       <p>The tip zones have area of order <i>ct</i>, but both the weighting stress and the draining
@@ -3275,7 +3356,7 @@ body.study .lede,body.study header p{max-width:none}
 </g>
 </svg></div>
   <p><i>V</i><sub>2</sub> is the dimensional volume change for loading 2.
-  Here the hats mean that intensity is divided by <i>p</i><sub>0</sub>&radic;(&pi;<i>L</i>)
+  Here the hats mean that intensity is divided by <i>p</i><sub>0</sub>⁠<span class="rad"><span class="rad-s">&radic;(</span><span class="rad-a">&pi;<i>L</i></span><span class="rad-s">)</span></span>
   and volume by <i>p</i><sub>0</sub><i>L</i><sup>2</sup>/<i>G</i>, using <i>p</i><sub>0</sub>
   rather than &sigma; as the pressure scale.
   A negative <i>K</i> means a closing load.
@@ -3484,6 +3565,70 @@ body.study .lede,body.study header p{max-width:none}
     for (var v = Math.ceil(lo / step) * step; v <= hi + 1e-9 * step; v += step) out.push(+v.toPrecision(12));
     return out;
   }
+  // Square roots (12 Nov 2026): a radical in text a script writes, '√(ct)' or '√t', gets a bar over its argument, as in
+  // the page's own text (release_fracture/radicals.py, whose styles every study page has). rad(html): the markup for an
+  // innerHTML string; setText(el, text): plain text, radicals included, as DOM nodes. In SVG, svgText(textEl, text) puts
+  // each argument in a tspan, and drawRadicals(root) draws the sign and the bar from the laid-out text: again when the web
+  // fonts arrive, when a fold opens and when the colour scheme changes.
+  var RAD = /√(?:\(([^()]*)\)|([A-Za-zͰ-Ͽℓ]+))/g, WJ = '⁠';
+  // An argument of more than one letter keeps its parentheses in the text, not shown, so copied text reads "√(ct)".
+  function rad(html) {
+    var one = /^(?:&[a-zA-Z]+;|[A-Za-zͰ-Ͽℓ]|<i>[^<]<\/i>)$/.test(html);
+    return WJ + '<span class="rad"><span class="rad-s">√' + (one ? '' : '(') + '</span><span class="rad-a">' + html + '</span>' +
+      (one ? '' : '<span class="rad-s">)</span>') + '</span>';
+  }
+  function setText(node, text) {
+    while (node.firstChild) node.removeChild(node.firstChild);
+    var last = 0, m;
+    RAD.lastIndex = 0;
+    while ((m = RAD.exec(text))) {
+      var r = document.createElement('span'), sg = document.createElement('span'), a = document.createElement('span');
+      r.className = 'rad'; sg.className = 'rad-s'; a.className = 'rad-a';
+      sg.textContent = m[1] != null ? '√(' : '√'; a.textContent = m[1] != null ? m[1] : m[2];
+      r.appendChild(sg); r.appendChild(a);
+      if (m[1] != null) { var cl = document.createElement('span'); cl.className = 'rad-s'; cl.textContent = ')'; r.appendChild(cl); }
+      node.appendChild(document.createTextNode(text.slice(last, m.index) + (m.index && !/\s/.test(text.charAt(m.index - 1)) ? WJ : '')));
+      node.appendChild(r);
+      last = RAD.lastIndex;
+    }
+    node.appendChild(document.createTextNode(text.slice(last)));
+    return node;
+  }
+  function svgText(t, text) {
+    var last = 0, m;
+    t.setAttribute('text-rendering', 'geometricPrecision');   // unhinted: the drawn sign stays in place at every size
+    RAD.lastIndex = 0;
+    while ((m = RAD.exec(text))) {
+      var a = document.createElementNS(NS, 'tspan');
+      a.setAttribute('class', 'rad-a');
+      a.textContent = m[1] != null ? m[1] : m[2];
+      t.appendChild(document.createTextNode(text.slice(last, m.index)));
+      t.appendChild(a);
+      last = RAD.lastIndex;
+    }
+    t.appendChild(document.createTextNode(text.slice(last)));
+    return t;
+  }
+  // the sign as on the site's figures (13 px: from 9 px before the argument, bar 13.5 px above the baseline), scaled
+  function drawRadicals(root) {
+    Array.prototype.forEach.call((root || document).querySelectorAll('text tspan.rad-a'), function (a) {
+      var t = a.parentNode, k = parseFloat(getComputedStyle(a).fontSize) / 13;
+      a.setAttribute('dx', (10 * k).toFixed(1));
+      if (!a.getNumberOfChars()) return;   // not laid out (in a closed fold): drawn when it opens
+      var p0 = a.getStartPositionOfChar(0), w = a.getComputedTextLength(), path = a.radPath;
+      if (!path || !path.parentNode) {
+        path = a.radPath = document.createElementNS(NS, 'path');
+        path.setAttribute('aria-hidden', 'true');
+        t.parentNode.insertBefore(path, t.nextSibling);
+      }
+      if (t.getAttribute('transform')) path.setAttribute('transform', t.getAttribute('transform'));
+      path.setAttribute('d', 'M' + (p0.x - 9 * k).toFixed(1) + ' ' + (p0.y - 5 * k).toFixed(1) + 'l' + (2 * k).toFixed(2) + ' ' +
+        (-1.2 * k).toFixed(2) + 'l' + (2.6 * k).toFixed(2) + ' ' + (6.2 * k).toFixed(2) + 'l' + (3.4 * k).toFixed(2) + ' ' +
+        (-13.5 * k).toFixed(2) + 'h' + (w + 2 * k).toFixed(1));
+      path.setAttribute('style', 'fill:none;stroke:' + getComputedStyle(t).fill + ';stroke-width:' + (1.2 * k).toFixed(2) +
+        ';stroke-linejoin:round;stroke-linecap:round');
+    });
+  }
   function clearSvg(svg) { while (svg.firstChild) svg.removeChild(svg.firstChild); }
   /* opts: {x0,x1,y0,y1,xl,yl, bands:[{x0,x1,cls,label}], lines:[{pts:[[x,y]],cls}], dots:[[x,y,cls]]} */
   function chart(svgId, opts) {
@@ -3510,9 +3655,9 @@ body.study .lede,body.study header p{max-width:none}
       svg.appendChild(el('line', { x1: m.l, x2: W - m.r, y1: ys(t), y2: ys(t), 'class': 'pl-grid' }));
       svg.appendChild(el('text', { x: m.l - 6, y: ys(t) + 4, 'class': 'pl-tick', 'text-anchor': 'end' }, String(t)));
     });
-    svg.appendChild(el('text', { x: (m.l + W - m.r) / 2, y: H - 8, 'class': 'pl-lbl', 'text-anchor': 'middle' }, opts.xl));
-    svg.appendChild(el('text', { x: 14, y: (m.t + H - m.b) / 2, 'class': 'pl-lbl', 'text-anchor': 'middle',
-                                 transform: 'rotate(-90 14 ' + (m.t + H - m.b) / 2 + ')' }, opts.yl));
+    svg.appendChild(svgText(el('text', { x: (m.l + W - m.r) / 2, y: H - 8, 'class': 'pl-lbl', 'text-anchor': 'middle' }), opts.xl));
+    svg.appendChild(svgText(el('text', { x: 14, y: (m.t + H - m.b) / 2, 'class': 'pl-lbl', 'text-anchor': 'middle',
+                                         transform: 'rotate(-90 14 ' + (m.t + H - m.b) / 2 + ')' }), opts.yl));
     var clip = 'clip-' + svgId, cp = el('clipPath', { id: clip });
     cp.appendChild(el('rect', { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b }));
     svg.appendChild(cp);
@@ -3530,6 +3675,7 @@ body.study .lede,body.study header p{max-width:none}
       var x = Math.min(Math.max(xs(l.x) + (l.dx || 0), m.l + 4), W - m.r - 4), y = Math.min(Math.max(ys(l.y) + (l.dy || 0), m.t + 12), H - m.b - 6);
       svg.appendChild(el('text', { x: x, y: y, 'text-anchor': l.anchor || 'start', 'class': 'pl-note ' + (l.cls || '') }, l.text));
     });
+    drawRadicals(svg);
   }
 
   // Feedback: text box + link that opens a pre-filled public GitHub issue. Text is limited to LIMIT characters, counted
@@ -3563,11 +3709,20 @@ body.study .lede,body.study header p{max-width:none}
   document.addEventListener('DOMContentLoaded', function () {
     fitEquations();
     window.addEventListener('resize', fitEquations);
-    Array.prototype.forEach.call(document.querySelectorAll('details'), function (d) { d.addEventListener('toggle', fitEquations); });
+    Array.prototype.forEach.call(document.querySelectorAll('details'), function (d) {
+      d.addEventListener('toggle', fitEquations);
+      d.addEventListener('toggle', function () { drawRadicals(d); });
+    });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { drawRadicals(); });
+    if (window.matchMedia) {
+      var dark = window.matchMedia('(prefers-color-scheme: dark)');
+      if (dark.addEventListener) dark.addEventListener('change', function () { drawRadicals(); });
+    }
   });
 
   root.StudyCommon = { $: $, buildFields: buildFields, setFields: setFields, readFields: readFields, sig: sig,
-                       chart: chart, clearSvg: clearSvg, setupFeedback: setupFeedback, FEEDBACK_LIMIT: LIMIT };
+                       chart: chart, clearSvg: clearSvg, setupFeedback: setupFeedback, FEEDBACK_LIMIT: LIMIT,
+                       rad: rad, setText: setText, svgText: svgText, drawRadicals: drawRadicals };
 })(this);
 </script>
 <script>
@@ -3638,8 +3793,8 @@ body.study .lede,body.study header p{max-width:none}
     svg.appendChild(el('circle', { cx: cx - L, cy: cy, r: 3.5, 'class': 'p-tip' })); svg.appendChild(el('circle', { cx: cx + L, cy: cy, r: 3.5, 'class': 'p-tip' }));
     svg.appendChild(el('path', { 'class': 'p-dim', d: 'M' + (cx - L) + ' 268H' + (cx + L) + 'M' + (cx - L) + ' 263V273M' + (cx + L) + ' 263V273' }));
     svg.appendChild(el('text', { x: cx, y: 286, 'class': 'p-lbl', 'text-anchor': 'middle' }, 'the whole crack, length 2L'));
-    svg.appendChild(el('text', { x: 30, y: 38, 'class': 'p-lbl' }, 'white: farther than √(ct), still close to undrained'));
-    svg.appendChild(el('text', { x: 30, y: 56, 'class': 'p-lbl new' }, 'shaded: within √(ct) of the faces, draining'));
+    svg.appendChild(S.svgText(el('text', { x: 30, y: 38, 'class': 'p-lbl' }), 'white: farther than √(ct), still close to undrained'));
+    svg.appendChild(S.svgText(el('text', { x: 30, y: 56, 'class': 'p-lbl new' }), 'shaded: within √(ct) of the faces, draining'));
     // the same tip, magnified so that sqrt(ct) always has the same size on the screen
     var zx = 592, zy = 150, zr = 104, zd = 46, mag = zd / dp;
     svg.appendChild(el('circle', { cx: zx, cy: zy, r: zr, 'class': 'w-lens' }));
@@ -3652,11 +3807,12 @@ body.study .lede,body.study header p{max-width:none}
     svg.appendChild(gz);
     svg.appendChild(el('circle', { cx: zx, cy: zy, r: 4, 'class': 'p-tip' }));
     svg.appendChild(el('path', { 'class': 'p-dim new', d: 'M' + zx + ' ' + zy + 'L' + (zx + zd * 0.71).toFixed(1) + ' ' + (zy - zd * 0.71).toFixed(1) }));
-    svg.appendChild(el('text', { x: zx + zd * 0.71 + 6, y: zy - zd * 0.71 - 4, 'class': 'p-lbl new' }, '√(ct)'));
+    svg.appendChild(S.svgText(el('text', { x: zx + zd * 0.71 + 6, y: zy - zd * 0.71 - 4, 'class': 'p-lbl new' }), '√(ct)'));
     svg.appendChild(el('text', { x: zx + 10, y: zy + 5, 'class': 'p-lbl' }, 'tip'));
     svg.appendChild(el('path', { 'class': 'p-dim', d: 'M' + (cx + L + 5) + ' ' + (cy - 5) + 'L' + (zx - zr * 0.94).toFixed(1) + ' ' + (zy - zr * 0.34).toFixed(1) + 'M' + (cx + L + 5) + ' ' + (cy + 5) + 'L' + (zx - zr * 0.94).toFixed(1) + ' ' + (zy + zr * 0.34).toFixed(1) }));
     svg.appendChild(el('text', { x: zx, y: 30, 'class': 'p-lbl', 'text-anchor': 'middle' }, 'the right tip, magnified ' + (mag >= 10 ? Math.round(mag) : S.sig(mag, 2)) + ' times'));
     svg.appendChild(el('text', { x: zx, y: 286, 'class': 'p-lbl', 'text-anchor': 'middle' }, 'this view looks the same at every time'));
+    S.drawRadicals(svg);   // the square roots of the labels above (study_common.js)
     $('pic-t-out').textContent = 'ct/L² = ' + S.sig(tau, 2);
     $('pic-len').textContent = S.sig(d, 2);
     $('pic-state').textContent = d < 0.1 ? 'still undrained' : 'draining';

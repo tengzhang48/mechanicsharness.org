@@ -346,10 +346,94 @@ figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2re
 .fig-stack{display:none}
 @media (max-width:600px){.fig-wide{display:none}.fig-stack{display:grid;gap:.75rem}.fig-stack .fig{min-width:0;max-width:440px}}
 </style>
+<style data-site-chrome>
+/* MechanicsHarness top bar (site_chrome.py). Self-contained: classes mh-*, colours from the shared tokens. */
+.mh-bar{position:relative;z-index:31;display:block;margin:0;padding:0;border:0;border-bottom:1px solid var(--rule,#ddd8cc);
+  background:var(--bg,#f7f5ef);color:var(--fg,#1c2230);font-family:var(--sans,"IBM Plex Sans",Arial,sans-serif)}
+.mh-bar .mh-in,.mh-trail .mh-in{box-sizing:border-box;max-width:var(--mh-max,1600px);margin:0 auto;
+  padding-inline:var(--mh-gutter,clamp(16px,4vw,40px))}
+.mh-bar .mh-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 28px;padding-block:13px}
+.mh-bar a.mh-brand{font:700 19px/1.2 var(--serif,"Source Serif 4",Georgia,serif);letter-spacing:-.005em;
+  color:var(--fg,#1c2230);text-decoration:none;white-space:nowrap}
+.mh-bar a.mh-brand:hover{color:var(--accent,#0e6e6a)}
+.mh-bar .mh-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px 2px;margin:0;padding:0}
+.mh-bar .mh-nav a,.mh-bar .mh-list a{font:500 14px/1.2 var(--sans,"IBM Plex Sans",Arial,sans-serif);color:var(--fg,#1c2230);
+  text-decoration:none;white-space:nowrap}
+.mh-bar .mh-nav a{padding:7px 12px;border:1px solid transparent;border-radius:999px}
+.mh-bar .mh-nav a:hover{background:var(--accent-weak,#d6ebe8)}
+.mh-bar .mh-nav a[aria-current="page"]{color:var(--accent,#0e6e6a);border-color:var(--accent,#0e6e6a);background:var(--surface,#fffdf8)}
+.mh-bar a:focus-visible,.mh-trail a:focus-visible,.mh-bar summary:focus-visible{outline:2px solid var(--accent,#0e6e6a);outline-offset:2px}
+/* phone width: the menu folds into a button (a <details>, no script) */
+.mh-bar .mh-menu{display:none;margin:0;padding:0;border:0}
+.mh-bar .mh-menu>summary{display:flex;align-items:center;gap:8px;list-style:none;cursor:pointer;margin:0;padding:7px 13px;
+  font:600 14px/1.2 var(--sans,"IBM Plex Sans",Arial,sans-serif);color:var(--fg,#1c2230);background:var(--surface,#fffdf8);
+  border:1px solid var(--rule,#ddd8cc);border-radius:999px}
+.mh-bar .mh-menu>summary::-webkit-details-marker{display:none}
+.mh-bar .mh-menu>summary::marker{content:""}
+.mh-bar .mh-menu>summary svg{width:16px;height:16px;stroke:currentColor;stroke-width:1.8;fill:none}
+.mh-bar .mh-menu[open]>summary{color:var(--accent,#0e6e6a);border-color:var(--accent,#0e6e6a)}
+.mh-bar .mh-list{position:absolute;left:0;right:0;top:100%;display:grid;margin:0;padding:4px var(--mh-gutter,16px) 10px;
+  background:var(--surface,#fffdf8);border-bottom:1px solid var(--rule,#ddd8cc);box-shadow:0 10px 18px rgba(0,0,0,.10)}
+.mh-bar .mh-list a{display:block;padding:12px 0;font-size:15.5px;border-bottom:1px solid var(--rule,#ddd8cc)}
+.mh-bar .mh-list a:last-child{border-bottom:0}
+.mh-bar .mh-list a[aria-current="page"]{color:var(--accent,#0e6e6a);font-weight:600}
+@media (max-width:700px){
+  .mh-bar .mh-in{flex-wrap:nowrap;padding-block:10px}
+  .mh-bar .mh-nav{display:none}
+  .mh-bar .mh-menu{display:block}
+}
+/* where-you-are line: stays at the top while the page scrolls */
+.mh-trail{position:sticky;top:0;z-index:30;display:block;margin:0;padding:0;border:0;border-bottom:1px solid var(--rule,#ddd8cc);
+  background:var(--bg,#f7f5ef);font:400 13px/1.4 var(--sans,"IBM Plex Sans",Arial,sans-serif);color:var(--muted,#5b6474)}
+.mh-trail .mh-in{display:flex;align-items:center;justify-content:space-between;gap:4px 18px;padding-block:9px}
+.mh-trail ol{display:flex;flex-wrap:nowrap;align-items:center;min-width:0;margin:0;padding:0;list-style:none}
+.mh-trail li{margin:0;padding:0;white-space:nowrap;color:var(--muted,#5b6474)}
+.mh-trail li+li::before{content:"\203A";padding:0 .5em;color:var(--muted,#5b6474)}
+.mh-trail li:last-child{min-width:0;overflow:hidden;text-overflow:ellipsis;color:var(--fg,#1c2230)}
+.mh-trail a{color:var(--accent,#0e6e6a);text-decoration:none}
+.mh-trail a:hover{text-decoration:underline}
+.mh-trail a.mh-right{flex:none;font-weight:600}
+/* phone width: the middle items hide; a line still too long puts its right-hand link on a second row instead of cutting
+   the page's name ("Fracture Mechanics 1..." at 390 px, found on the fracture pages, 12 Nov 2026) */
+@media (max-width:600px){ .mh-trail li.mh-mid{display:none} .mh-trail .mh-in{flex-wrap:wrap} .mh-trail a.mh-right{margin-left:auto} }
+@media print{ .mh-bar .mh-nav,.mh-bar .mh-menu,.mh-trail{display:none} .mh-bar{border:0} }
+/* fracture pages (release_fracture/site_topbar.py) */
+body.study .mh-trail{position:static}
+</style>
+<style data-radicals>/* square roots with a bar over the argument (release_fracture/radicals.py) */
+.rad{white-space:nowrap}
+.rad-s{font-size:0}
+.rad-a{position:relative;display:inline-block;line-height:1;margin-left:.62em;padding:.1em .06em 0 .04em;border-top:.07em solid currentColor}
+.rad-a::before{content:"";position:absolute;top:-.07em;bottom:0;right:100%;width:.62em;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 20' preserveAspectRatio='none'%3E%3Cpath d='M.8 12.2 2.9 11 5.6 18.6 11.3.7H12' fill='none' stroke='%23000' stroke-width='1.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 20' preserveAspectRatio='none'%3E%3Cpath d='M.8 12.2 2.9 11 5.6 18.6 11.3.7H12' fill='none' stroke='%23000' stroke-width='1.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
+</style>
 </head>
 <body>
+<header class="mh-bar">
+  <div class="mh-in">
+    <a class="mh-brand" href="../index.html">MechanicsHarness</a>
+    <nav class="mh-nav" aria-label="Site">
+      <a href="../index.html">Home</a>
+      <a href="../evaluates.html">What it evaluates</a>
+      <a href="../building.html">How a benchmark is built</a>
+      <a href="../evaluation.html">Evaluation policy</a>
+      <a href="../get-started.html">Get started and contribute</a>
+    </nav>
+    <details class="mh-menu">
+      <summary><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 4h12M2 8h12M2 12h12"/></svg> Menu</summary>
+      <nav class="mh-list" aria-label="Site">
+        <a href="../index.html">Home</a>
+        <a href="../evaluates.html">What it evaluates</a>
+        <a href="../building.html">How a benchmark is built</a>
+        <a href="../evaluation.html">Evaluation policy</a>
+        <a href="../get-started.html">Get started and contribute</a>
+      </nav>
+    </details>
+  </div>
+</header>
+<nav class="mh-trail" aria-label="You are here">
+  <div class="mh-in"><ol><li><a href="../index.html">Home</a></li><li class="mh-mid"><a href="../index.html#crack-bridging">Case studies</a></li><li aria-current="page">Crack bridging</li></ol><a class="mh-right" href="crack-bridging-study.html">Study this case &rarr;</a></div>
+</nav>
 <div class="page">
-<nav class="case-navigation" aria-label="Case study navigation"><a href="../index.html#crack-bridging">← MechanicsHarness</a><span>Crack bridging · a finite slit and unequal strips</span></nav>
 <header>
   <div class="kicker">Fracture mechanics case study · AI agents and crack bridging · 6 October 2026 probes, written up 25 October</div>
   <h1>A finite bridged crack: can AI agents couple the bridging law to the geometry?</h1>
@@ -526,7 +610,7 @@ figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2re
   <div class="phys">
     <div class="head"><div class="kicker">1 · The model</div><h2>A traction law across the crack, coupled to an elastic body</h2></div>
     <p>Bridging replaces the details of a fracture process by a law. Behind the crack tip, connectors such as fibres or ductile ligaments pull the faces together with a traction t(δ) that falls to zero at a limiting gap δ<sub>c</sub>. The law has a strength scale σ<sub>b</sub> and a gap scale δ<sub>c</sub>, and with the elastic modulus they define one material length, E′δ<sub>c</sub>/σ<sub>b</sub>. Advancing the tip itself costs a separate intrinsic work Γ<sub>0</sub>, such as the matrix fracture energy.</p>
-    <p>When the bridged zone is much shorter than the crack and the body, bridging is small-scale: the zone sits in the square-root field and the body enters only through K. A toughness then exists, Γ = Γ<sub>0</sub> + ∫t dδ (Eq. 15, p. 359), the resistance rises along an R-curve to it, and, when the front work is small, Γ<sub>0</sub> ≪ σ<sub>b</sub>δ<sub>c</sub>, the zone at the plateau is about 0.4 E′δ<sub>c</sub>/σ<sub>b</sub> long: (π/8)E′δ<sub>c</sub>/σ<sub>b</sub> for a constant traction (Eq. 11, p. 358) and 0.366 E′δ<sub>c</sub>/σ<sub>b</sub> for a linearly softening one (Eq. 28, p. 360). Front work shortens it: for a constant traction it is (π/8)(E′δ<sub>c</sub>/σ<sub>b</sub>)[√(1 + g) + √g]<sup>−2</sup> with g = Γ<sub>0</sub>/(σ<sub>b</sub>δ<sub>c</sub>) (Eq. 20, p. 359). Small-scale bridging needs this length to be much shorter than the crack and the body. With little front work that is the paper’s condition a/(E′δ<sub>c</sub>/σ<sub>b</sub>) ≫ 1 (Eq. 14, p. 358); front work shortens the zone and so relaxes the condition. When the crack or the component is comparable to the zone, bridging is large-scale: the zone feels the geometry, toughness and R-curves stop being material properties, and the load has to be computed from the body and the law together (Sec. 1.4, p. 358; Sec. 3, p. 360).</p>
+    <p>When the bridged zone is much shorter than the crack and the body, bridging is small-scale: the zone sits in the square-root field and the body enters only through K. A toughness then exists, Γ = Γ<sub>0</sub> + ∫t dδ (Eq. 15, p. 359), the resistance rises along an R-curve to it, and, when the front work is small, Γ<sub>0</sub> ≪ σ<sub>b</sub>δ<sub>c</sub>, the zone at the plateau is about 0.4 E′δ<sub>c</sub>/σ<sub>b</sub> long: (π/8)E′δ<sub>c</sub>/σ<sub>b</sub> for a constant traction (Eq. 11, p. 358) and 0.366 E′δ<sub>c</sub>/σ<sub>b</sub> for a linearly softening one (Eq. 28, p. 360). Front work shortens it: for a constant traction it is (π/8)(E′δ<sub>c</sub>/σ<sub>b</sub>)[⁠<span class="rad"><span class="rad-s">√(</span><span class="rad-a">1 + g</span><span class="rad-s">)</span></span> + <span class="rad"><span class="rad-s">√</span><span class="rad-a">g</span></span>]<sup>−2</sup> with g = Γ<sub>0</sub>/(σ<sub>b</sub>δ<sub>c</sub>) (Eq. 20, p. 359). Small-scale bridging needs this length to be much shorter than the crack and the body. With little front work that is the paper’s condition a/(E′δ<sub>c</sub>/σ<sub>b</sub>) ≫ 1 (Eq. 14, p. 358); front work shortens the zone and so relaxes the condition. When the crack or the component is comparable to the zone, bridging is large-scale: the zone feels the geometry, toughness and R-curves stop being material properties, and the load has to be computed from the body and the law together (Sec. 1.4, p. 358; Sec. 3, p. 360).</p>
   </div>
   <div class="side-col"><aside class="math" aria-label="Model equations">
     <div class="mh">The model as given to the agents</div>
@@ -760,7 +844,7 @@ figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2re
   <div class="phys">
     <div class="head"><div class="kicker">2 · The solution</div><h2>Two conditions at once: the front moves and the oldest connector breaks</h2></div>
     <p>In both problems the state at first failure is fixed by two conditions that hold together. At the front the crack advances quasistatically, so the energy reaching the tip equals Γ<sub>0</sub>. At the other end of the bridged zone, the oldest connector, which has opened most, reaches δ<sub>c</sub>. The load and the bridged length are the two unknowns.</p>
-    <p><strong>The slit.</strong> By linearity the crack of half-length c = a + L carries a pressure Σ on the slit and Σ − σ<sub>b</sub> on the bridged zones. The paper’s Eq. 46 gives the tip intensity and Eq. 45 the opening at the slit root, x = a, in closed form (from Tada et al., as cited on p. 362). Setting K<sub>tip</sub> = √(E′Γ<sub>0</sub>) and δ(a) = δ<sub>c</sub> and eliminating Σ leaves one equation for u = ln(c/a): L = 4.0856 mm per end and Σ = 133.7303 MPa. From initiation at 20.29 MPa to that point both Σ and the root opening rise, so the event lies on the monotonic branch. With Γ<sub>0</sub> = 0 the same conditions give the paper’s strength formula, Eq. 47.</p>
+    <p><strong>The slit.</strong> By linearity the crack of half-length c = a + L carries a pressure Σ on the slit and Σ − σ<sub>b</sub> on the bridged zones. The paper’s Eq. 46 gives the tip intensity and Eq. 45 the opening at the slit root, x = a, in closed form (from Tada et al., as cited on p. 362). Setting K<sub>tip</sub> = <span class="rad"><span class="rad-s">√(</span><span class="rad-a">E′Γ<sub>0</sub></span><span class="rad-s">)</span></span> and δ(a) = δ<sub>c</sub> and eliminating Σ leaves one equation for u = ln(c/a): L = 4.0856 mm per end and Σ = 133.7303 MPa. From initiation at 20.29 MPa to that point both Σ and the root opening rise, so the event lies on the monotonic branch. With Γ<sub>0</sub> = 0 the same conditions give the paper’s strength formula, Eq. 47.</p>
     <p><strong>The strips.</strong> Each arm bends under the connector tractions, and the opening δ = w<sub>1</sub> + w<sub>2</sub> obeys δ⁗ = −C t(δ), where C = 1/D<sub>1</sub> + 1/D<sub>2</sub> adds the compliances of the two arms. At the front the faces meet with zero gap and slope, and the front work sets the tip curvature: the two tip couples release Cm<sub>tip</sub>²/2 = Γ<sub>0</sub>. At the cut root the gap is δ<sub>c</sub>, the shear vanishes because there are no end forces, and the curvature carries the applied couple.</p>
     <p>The J-integral, taken round the arms and along the bridged faces, gives the couple without the profile: Cm²/2 = Γ<sub>0</sub> + σ<sub>b</sub>δ<sub>c</sub>/2, so M = 0.21263 N·m. The length and the profile need the beam solution. In units of ℓ = 6.41 mm the profile is a sum of hyperbolic and trigonometric functions; its rear conditions give a characteristic equation for λ = L/ℓ = 1.6844, hence L = 10.800 mm and δ(L/2) = 38.219 µm. For equal arms of thickness h, with D = Eh³/12 as T2 prescribes, the left side Cm²/2 becomes 12m²/(Eh³); the paper’s Eq. 51 has the same form with its plane-strain modulus E′ in place of E.</p>
   </div>
@@ -906,7 +990,7 @@ figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2re
 <use x='38.257841' y='-26.154955' xlink:href='#d45-g2-97'/>
 </g>
 </svg></div>
-    <p>With K<sub>tip</sub> = √(E′Γ<sub>0</sub>) and δ(a) = δ<sub>c</sub>:</p>
+    <p>With K<sub>tip</sub> = <span class="rad"><span class="rad-s">√(</span><span class="rad-a">E′Γ<sub>0</sub></span><span class="rad-s">)</span></span> and δ(a) = δ<sub>c</sub>:</p>
     <div class="eq"><svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='26.019em' height='5.106em' role='img' aria-label='\begin{gathered}4k\sqrt{2\sinh u}+\frac8\pi\,u=\frac{E&#39;\delta_c}{\sigma_b a},\qquad \frac{\Sigma}{\sigma_b}=\frac2\pi\cos^{-1}e^{-u}+k\,e^{-u/2},\\ u=\ln\frac ca,\qquad k=\frac{\sqrt{E&#39;\Gamma_0}}{\sigma_b\sqrt{\pi a}}\end{gathered}' viewBox='-70.724786 -71.027749 260.194832 51.056599'>
 <defs>
 <path id='red1-g0-112' d='M3.875467 8.518057L2.122042 4.64259C2.052304 4.483188 2.002491 4.483188 1.972603 4.483188C1.96264 4.483188 1.912827 4.483188 1.803238 4.562889L.856787 5.280199C.727273 5.379826 .727273 5.409714 .727273 5.439601C.727273 5.489415 .757161 5.549191 .826899 5.549191C.886675 5.549191 1.05604 5.409714 1.165629 5.330012C1.225405 5.280199 1.374844 5.17061 1.484433 5.090909L3.447073 9.404732C3.516812 9.564134 3.566625 9.564134 3.656289 9.564134C3.805729 9.564134 3.835616 9.504359 3.905355 9.364882L8.428394 0C8.498132-.139477 8.498132-.179328 8.498132-.199253C8.498132-.298879 8.418431-.398506 8.298879-.398506C8.219178-.398506 8.14944-.348692 8.069738-.18929L3.875467 8.518057Z'/>
@@ -1476,7 +1560,7 @@ figure.beside{grid-template-columns:minmax(0,720px) minmax(0,1fr);column-gap:2re
 <section class="block" id="with-unit">
   <div class="phys">
     <div class="head"><div class="kicker">5 · With the knowledge unit · GLM and DeepSeek</div><h2>The paper’s formulas, taken from the unit</h2></div>
-    <p><strong>The slit.</strong> Both runs used the finite-crack relations from the unit’s extraction, set K<sub>tip</sub> = √(E′Γ<sub>0</sub>) and the root opening to δ<sub>c</sub>, and reported 133.73 MPa and 4.086 mm. Both reported a check of the Γ<sub>0</sub> = 0 limit against the paper’s Eq. 47. DeepSeek first ran a spectral solver that its script describes as “reused/extended from the knowledge unit”; it gave 133.6–133.9 MPa and 4.05–4.13 mm depending on the grid, and DeepSeek then found the closed forms in the unit. GLM checked the closed-form opening against its own quadrature of the crack-opening kernel. Its script also calls the unit’s spectral solver, which the grader could not run without the unit, and the spectral refinement sequence it reports is not in the supplied files.</p>
+    <p><strong>The slit.</strong> Both runs used the finite-crack relations from the unit’s extraction, set K<sub>tip</sub> = <span class="rad"><span class="rad-s">√(</span><span class="rad-a">E′Γ<sub>0</sub></span><span class="rad-s">)</span></span> and the root opening to δ<sub>c</sub>, and reported 133.73 MPa and 4.086 mm. Both reported a check of the Γ<sub>0</sub> = 0 limit against the paper’s Eq. 47. DeepSeek first ran a spectral solver that its script describes as “reused/extended from the knowledge unit”; it gave 133.6–133.9 MPa and 4.05–4.13 mm depending on the grid, and DeepSeek then found the closed forms in the unit. GLM checked the closed-form opening against its own quadrature of the crack-opening kernel. Its script also calls the unit’s spectral solver, which the grader could not run without the unit, and the spectral refinement sequence it reports is not in the supplied files.</p>
     <p><strong>The strips.</strong> Both runs added the two arm compliances, took the couple from the energy balance across the bridged zone, solved the beam for the length, and were graded 100. Their extra material had faults that the grades list without deducting points: a separate DeepSeek length search returned 48.7 mm, which the answer does not mention, and its continuation applied the softening law past δ<sub>c</sub>; GLM wrote that the softening foundation gives “exponential rather than oscillatory modes”, whereas the characteristic roots ±μ and ±iμ give both.</p>
     <p class="status"><span class="chip proved">T1: 100 and 100</span><span class="chip proved">T2: 100 and 100</span> GLM 19 and 31 minutes; DeepSeek 26 and 26 minutes.</p>
   </div>
@@ -1501,8 +1585,8 @@ formulas and an independent spectral solver)</pre>
 <section class="block" id="without-unit">
   <div class="phys">
     <div class="head"><div class="kicker">6 · Without the knowledge unit · GLM and DeepSeek</div><h2>One run derived the opening; the other wrote a wrong one</h2></div>
-    <p><strong>GLM on the slit</strong> built the root opening itself: the opening of a strip-yield crack under the stress that gives zero tip intensity, plus the opening of an open crack under the remaining stress K<sub>0</sub>/√(πc). That is Eq. 45 in another form. It checked the first part against a dislocation-density integration, to 6 × 10⁻¹¹, and solved the whole problem again by a separate spectral method, 133.70 MPa and 4.079 mm. Graded 100.</p>
-    <p><strong>DeepSeek on the slit</strong>, with reasoning off, wrote the tip intensity correctly but took the root opening as (4/E′)[Σ√(c² − a²) − t(c − a)], which is not the opening of a crack under that pressure. With it, the root connector reaches δ<sub>c</sub> only at L = 34.3 mm and Σ = 158.5 MPa, 740% and 18.5% above the key. Eq. 45 gives an opening of 24.3 µm at that state, so on the actual path the root connector had failed long before. Its opening “check” evaluated a double integral that, at x = a, reproduces the same t(c − a) term. It scored 47: no points for the numbers, and full verification credit for a correct, independent check of the tip intensity.</p>
+    <p><strong>GLM on the slit</strong> built the root opening itself: the opening of a strip-yield crack under the stress that gives zero tip intensity, plus the opening of an open crack under the remaining stress K<sub>0</sub>/⁠<span class="rad"><span class="rad-s">√(</span><span class="rad-a">πc</span><span class="rad-s">)</span></span>. That is Eq. 45 in another form. It checked the first part against a dislocation-density integration, to 6 × 10⁻¹¹, and solved the whole problem again by a separate spectral method, 133.70 MPa and 4.079 mm. Graded 100.</p>
+    <p><strong>DeepSeek on the slit</strong>, with reasoning off, wrote the tip intensity correctly but took the root opening as (4/E′)[Σ⁠<span class="rad"><span class="rad-s">√(</span><span class="rad-a">c² − a²</span><span class="rad-s">)</span></span> − t(c − a)], which is not the opening of a crack under that pressure. With it, the root connector reaches δ<sub>c</sub> only at L = 34.3 mm and Σ = 158.5 MPa, 740% and 18.5% above the key. Eq. 45 gives an opening of 24.3 µm at that state, so on the actual path the root connector had failed long before. Its opening “check” evaluated a double integral that, at x = a, reproduces the same t(c − a) term. It scored 47: no points for the numbers, and full verification credit for a correct, independent check of the tip intensity.</p>
     <p><strong>On the strips</strong> both runs got all three numbers. GLM finished in 9 minutes with the exact characteristic equation and executed energy and statics checks; its stated limits were wrong, since with Γ<sub>0</sub> → 0 the root is 1.875, not π/2. DeepSeek’s prose put δ = δ<sub>c</sub> at the front and δ = 0 at the cut root, the wrong way round; the grader found the calculation to be the mirror image of the right one and accepted it, but its checks were boundary residuals only: 6 of 12 for verification, 94 in total.</p>
     <p class="status"><span class="chip proved">GLM: 100 and 100</span><span class="chip wrong">DeepSeek T1: 47</span><span class="chip pend">DeepSeek T2: 94</span> GLM 33 and 9 minutes; DeepSeek 23 and 27 minutes.</p>
   </div>
