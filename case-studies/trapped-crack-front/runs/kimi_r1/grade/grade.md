@@ -1,0 +1,96 @@
+The formulas and the numbers they produce need to be matched against the key before the three answers are fixed.
+
+The solver states a first-order theory in `method.md` and codes the same coefficients in `solve.py`. Comparing with `KEY_NOTES.md` section 1:
+
+| Coeff | Key | Solver |
+|---|---|---|
+| p1 | 1 | 1 |
+| p2 | (2−3ν)/(2−ν) = 11/17 | 2/(2−ν) = 20/17 |
+| p3 | (2+ν)/(2−ν) = 23/17 | 2(1−ν)/(2−ν) = 14/17 |
+| b2 | 2/(2−ν) = 20/17 | 3/2 |
+| b3 | 2(1−ν)/(2−ν) = 14/17 | (2−ν)/2 = 0.85 |
+| m3 | 1/(1−ν) | 1/(1−ν), via G = [(1−ν²)(K1²+K2²)+(1+ν)K3²]/E |
+
+Mode 1 and Irwin's weight of K3² are right. The nonlocal weights of modes 2 and 3 are swapped for the wrong Poisson combinations, and both slope couplings are wrong (the slope terms therefore do not cancel in G). That is a theory error, and it is the first one: Part A cosine coefficients that survive (C1, S1) and the mean loading K10_scaled pass, while everything that uses p2, p3, b2 or b3 fails. The application of the (wrong) operator — Fourier inversion, sampling, search for the maximum of κ3 — is carried out consistently in the code.```json
+{
+  "theory_source": {
+    "answer": "stated_without_source",
+    "evidence": [
+      {
+        "file": "submission/method.md",
+        "lines": "12-23",
+        "quote": "I used the first-order Rice--Gao--Rice result for a coplanar perturbation ... delta K1 = K1^0 R h, delta K2 = [2/(2-nu)] K2^0 R h - (3/2) K3^0 h,z, delta K3 = [2(1-nu)/(2-nu)] K3^0 R h + [(2-nu)/2] K2^0 h,z."
+      },
+      {
+        "file": "submission/method.md",
+        "lines": "143-144",
+        "quote": "The elastic input is the standard first-order coplanar weight-function result; no separate finite-amplitude or higher-order elastic simulation was attempted."
+      }
+    ],
+    "coefficients": {
+      "p1": {"used": "1", "equals_key": "yes"},
+      "p2": {"used": "2/(2-nu) = 20/17", "equals_key": "no"},
+      "p3": {"used": "2(1-nu)/(2-nu) = 14/17", "equals_key": "no"},
+      "b2": {"used": "3/2", "equals_key": "no"},
+      "b3": {"used": "(2-nu)/2 = 0.85", "equals_key": "no"},
+      "m3": {"used": "1/(1-nu), via G = [(1-nu^2)(K1^2+K2^2) + (1+nu)K3^2]/E", "equals_key": "yes"}
+    }
+  },
+  "claimed_checks": {
+    "answer": "all_supported",
+    "checks": [
+      {
+        "claim": "Direct reconstruction of CG and SG from all six SIF coefficients.",
+        "claimed_at": "submission/method.md:133",
+        "status": "supported",
+        "evidence": "submission/solve.py:132-140 computes cg_direct and sg_direct from C1,C2,C3,S2,S3 and asserts equality with CG=-P and SG=2*pi*B."
+      },
+      {
+        "claim": "A 4096-midpoint periodic principal-value quadrature checking R[cos(2*pi*s)] = -pi*cos(2*pi*s).",
+        "claimed_at": "submission/method.md:134-135",
+        "status": "supported",
+        "evidence": "submission/solve.py:144-160 (hilbert_quadrature_check), called at solve.py:207. Output of the assert is not saved; code alone carries it out."
+      },
+      {
+        "claim": "Equilibrium residual from Irwin's relation applied to kappa1, kappa2, kappa3, independently of the reduced operator L, at 4096 points (maximum residual below 4.5e-14).",
+        "claimed_at": "submission/method.md:136-138",
+        "status": "supported",
+        "evidence": "submission/solve.py:66-68 and 192-196 compare energy_from_k with toughness_g on a 4096-point grid to atol 3e-14."
+      },
+      {
+        "claim": "Agreement between the direct-energy and reduced-operator expressions.",
+        "claimed_at": "submission/method.md:139",
+        "status": "supported",
+        "evidence": "submission/solve.py:197-199 asserts energy_from_k equals energy_from_operator (=-P*|Ds|f - B*f') to atol 3e-14."
+      },
+      {
+        "claim": "Zero mean and periodicity of f.",
+        "claimed_at": "submission/method.md:140",
+        "status": "supported",
+        "evidence": "submission/solve.py:200-203 asserts mean(f) < 2e-15 and f(-0.5) = f(0.5)."
+      },
+      {
+        "claim": "Comparison of all bracketed extrema with a dense period-wide grid.",
+        "claimed_at": "submission/method.md:141",
+        "status": "supported",
+        "evidence": "submission/solve.py:168-176 and 204-206 compare bracketed roots of f' and kappa3' against max/min on a 4096-point grid."
+      }
+    ]
+  },
+  "error_location": {
+    "answer": "theory",
+    "first_wrong_step": "The first-order shear response is written with the wrong coefficients: the nonlocal weight of mode 2 is 2/(2-nu) instead of (2-3nu)/(2-nu), the nonlocal weight of mode 3 is 2(1-nu)/(2-nu) instead of (2+nu)/(2-nu), and the slope couplings are 3/2 and (2-nu)/2 instead of 2/(2-nu) and 2(1-nu)/(2-nu). Mode 1 and Irwin's weight of K3^2 are right, so C1, S1 and K10_scaled pass; everything built from the shear coefficients fails.",
+    "where": "submission/method.md:18-21 (same coefficients in submission/solve.py:24-26 and 60-62)",
+    "explains_groups": [
+      "Part A: cosine-front coefficients",
+      "Part B: loading level and front amplitude",
+      "Part B: front shape f(s)",
+      "Part B: kappa1(s)",
+      "Part B: kappa2(s)",
+      "Part B: kappa3(s)",
+      "Part B: maximum of kappa3"
+    ]
+  },
+  "notes": "No publication is named and no derivation from elasticity is shown; the formulas are only attributed to 'the first-order Rice--Gao--Rice result'. The text notes that a pure frame rotation would give slope couplings of 1, and then adds further 'induced-field' contributions, but those additions are the wrong numbers. Because the slope terms no longer cancel in G, the solver introduces a nonzero sine part of the energy (SG) and an odd part of the front, which is why the f and kappa tables are asymmetric about s=0. The subsequent steps (Fourier solution of the equilibrium equation, sampling at k/16, bracketed search for the extrema) are consistent with this wrong theory and are implemented in solve.py; results.json matches that code. The left-out files in MANIFEST.txt are bun binaries, not solver output, so none of the claimed checks is hidden."
+}
+```

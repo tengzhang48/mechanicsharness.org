@@ -1,0 +1,9 @@
+D=2.0696, beta=0.823529411764706, eta=0.0744900975465563
+f minimum at s=0.994079103672757: -0.219856662487379
+f maximum at s=0.48225367193663: 0.128789923558966
+kappa3 maximum at s=0.0455454485275106: 1.13489532763898
+mean f=-5.684e-18
+max equilibrium residual=2.220e-15
+max direct dG/G0 residual=2.220e-15
+max reconstructed-energy residual=2.220e-15
+max Fourier-g versus closed-form residual=2.220e-15

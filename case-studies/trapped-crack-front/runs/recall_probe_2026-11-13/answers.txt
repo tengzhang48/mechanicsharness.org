@@ -1,0 +1,101 @@
+kimi exit 0
+deepseek exit 0
+=================== kimi
+tools used: [] | reasoning tokens 35495
+Let  
+\[
+J[a](z)=\operatorname{PV}\!\int_{-\infty}^{\infty}
+\frac{a(z')-a(z)}{(z'-z)^2}\,dz' .
+\]
+
+My best recollection of the Gao–Rice first-order formulas, using **local shear directions normal and tangent to the curved front**, is
+\[
+\boxed{K_1(z)=K_1^0\left[1+\frac{J[a](z)}{2\pi}\right]}
+\]
+and
+\[
+\boxed{
+K_2(z)=K_2^0+
+\frac{2-3\nu}{2-\nu}\,\frac{K_2^0}{2\pi}J[a](z)
+-\frac{2}{2-\nu}\,K_3^0a'(z)
+}
+\]
+\[
+\boxed{
+K_3(z)=K_3^0+
+\frac{2+\nu}{2-\nu}\,\frac{K_3^0}{2\pi}J[a](z)
++\frac{2(1-\nu)}{2-\nu}\,K_2^0a'(z)
+}
+\]
+to first order in the front perturbation.
+
+For \(\nu=0.3\), \(2-\nu=1.7\), so:
+
+| Coefficient | Exact value at \(\nu=0.3\) | Numerical value | Confidence |
+|---|---:|---:|---|
+| Mode-I factor multiplying \(K_1^0J\) | \(1/(2\pi)\) | \(0.159154943\) | **Sure** |
+| Mode-II integral fraction \((2-3\nu)/(2-\nu)\) | \(11/17\) | \(0.647058824\) | **Sure of the fraction** |
+| Its full multiplier, including \(1/(2\pi)\) | \(11/(34\pi)\) | \(0.102982610\) | **Sure if the preceding convention is correct** |
+| Mode-III integral fraction \((2+\nu)/(2-\nu)\) | \(23/17\) | \(1.352941176\) | **Sure of the fraction** |
+| Its full multiplier, including \(1/(2\pi)\) | \(23/(34\pi)\) | \(0.215327276\) | **Sure if the preceding convention is correct** |
+| \(K_2\) slope coefficient \(-2/(2-\nu)\) | \(-20/17\) | \(-1.176470588\) | **Informed guess**, including its sign and identification with \(K_3^0a'\) |
+| \(K_3\) slope coefficient \(2(1-\nu)/(2-\nu)\) | \(14/17\) | \(0.823529412\) | **Informed guess**, including its sign and identification with \(K_2^0a'\) |
+
+The mode-I formula and the two integral fractions are the parts I would trust from memory. **I would check the paper before relying on either local slope term**, since those terms are especially convention-sensitive.
+=================== deepseek
+tools used: [] | reasoning tokens 54872
+Let \(x=a(z)\) be the crack front, with \(a(z)=a_0+\delta(z)\); the constant \(a_0\) drops out. Define the principal-value Hilbert transform
+\[
+\Lambda(z)=\frac{1}{\pi}\,\mathrm{PV}\!\int_{-\infty}^{\infty}\frac{a'(s)}{s-z}\,ds
+=\frac{1}{\pi}\,\mathrm{PV}\!\int_{-\infty}^{\infty}\frac{a(s)-a(z)}{(s-z)^2}\,ds,
+\]
+which vanishes for a straight front.
+
+My recollection of the Gao–Rice (1986) first-order result is
+\[
+\boxed{
+\begin{aligned}
+K_1(z)&=K_1^0\left[1+\frac{1-2\nu}{2(1-\nu)}\Lambda(z)\right],\\[2mm]
+K_2(z)&=K_2^0\left[1+\frac{3-2\nu}{2(1-\nu)}\Lambda(z)\right]
++K_3^0\,\frac{3(1-2\nu)}{2(1-\nu)}\Lambda(z),\\[2mm]
+K_3(z)&=K_3^0\left[1+\frac{1}{2(1-\nu)}\Lambda(z)\right]
++K_2^0\,\frac{3}{2(1-\nu)}\Lambda(z).
+\end{aligned}}
+\]
+Equivalently,
+\[
+\mathbf K(z)=\bigl[\mathbf I+\Lambda(z)\mathbf C(\nu)\bigr]\mathbf K^0,
+\]
+with
+\[
+\mathbf C(\nu)=
+\begin{pmatrix}
+\dfrac{1-2\nu}{2(1-\nu)} & 0 & 0\\[2mm]
+0 & \dfrac{3-2\nu}{2(1-\nu)} & \dfrac{3(1-2\nu)}{2(1-\nu)}\\[2mm]
+0 & \dfrac{3}{2(1-\nu)} & \dfrac{1}{2(1-\nu)}
+\end{pmatrix}.
+\]
+
+For \(\nu=0.3\), using \(1-\nu=0.7\):
+\[
+\boxed{
+\begin{aligned}
+c_{11}&=\frac{1-2\nu}{2(1-\nu)}=\frac{2}{7}\approx 0.285714,\\
+c_{22}&=\frac{3-2\nu}{2(1-\nu)}=\frac{12}{7}\approx 1.714286,\\
+c_{23}&=\frac{3(1-2\nu)}{2(1-\nu)}=\frac{6}{7}\approx 0.857143,\\
+c_{33}&=\frac{1}{2(1-\nu)}=\frac{5}{7}\approx 0.714286,\\
+c_{32}&=\frac{3}{2(1-\nu)}=\frac{15}{7}\approx 2.142857.
+\end{aligned}}
+\]
+
+Confidence, remembering that this is from memory only:
+
+| coefficient | value at \(\nu=0.3\) | confidence |
+|---|---:|---|
+| \(c_{11}\) | \(2/7\approx0.2857\) | **Sure** of this recalled form, though I would not claim independent verification |
+| \(c_{22}\) | \(12/7\approx1.7143\) | **Sure** |
+| \(c_{33}\) | \(5/7\approx0.7143\) | **Sure** |
+| \(c_{23}\) | \(6/7\approx0.8571\) | **Guessing** mainly on the row/column placement and sign of the shear cross-term |
+| \(c_{32}\) | \(15/7\approx2.1429\) | **Guessing** mainly on the row/column placement and sign |
+
+I am confident about the block structure—no \(K_1\)-\(K_2\) or \(K_1\)-\(K_3\) coupling because of the mirror symmetry of the planar crack, but coupling between the two shear modes—and about the \(\Lambda(z)\) functional. The two off-diagonal shear coefficients are the part I would flag as uncertain. If the opposite Hilbert-transform sign convention is used, all \(\Lambda\)'s, and hence all correction signs, are reversed.

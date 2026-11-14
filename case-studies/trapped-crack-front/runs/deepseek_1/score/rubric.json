@@ -1,0 +1,88 @@
+{
+ "points": 20.0,
+ "of": 100,
+ "response_complete": false,
+ "missing": [
+  "Shear across the front: its own weight, which depends on Poisson's ratio",
+  "Shear along the front: its own weight, which depends on Poisson's ratio",
+  "The slope of the front turns shear along it into shear across it",
+  "The slope of the front turns shear across it into shear along it",
+  "The energy release rate of a wavy front, with no term in the slope"
+ ],
+ "rows": [
+  {
+   "part": "response",
+   "piece": "Tension: a part of the front that lags is loaded more",
+   "points": 10,
+   "numbers": 2,
+   "passed": 2,
+   "earned": 10.0
+  },
+  {
+   "part": "response",
+   "piece": "Energy release rate in mixed mode and the load level of equilibrium",
+   "points": 10,
+   "numbers": 1,
+   "passed": 1,
+   "earned": 10.0
+  },
+  {
+   "part": "response",
+   "piece": "Shear across the front: its own weight, which depends on Poisson's ratio",
+   "points": 10,
+   "numbers": 1,
+   "passed": 0,
+   "earned": 0.0
+  },
+  {
+   "part": "response",
+   "piece": "Shear along the front: its own weight, which depends on Poisson's ratio",
+   "points": 10,
+   "numbers": 1,
+   "passed": 0,
+   "earned": 0.0
+  },
+  {
+   "part": "response",
+   "piece": "The slope of the front turns shear along it into shear across it",
+   "points": 10,
+   "numbers": 1,
+   "passed": 0,
+   "earned": 0.0
+  },
+  {
+   "part": "response",
+   "piece": "The slope of the front turns shear across it into shear along it",
+   "points": 10,
+   "numbers": 1,
+   "passed": 0,
+   "earned": 0.0
+  },
+  {
+   "part": "response",
+   "piece": "The energy release rate of a wavy front, with no term in the slope",
+   "points": 10,
+   "numbers": 2,
+   "passed": 0,
+   "earned": 0.0
+  },
+  {
+   "part": "outcome",
+   "piece": "The equilibrium front in the tough bands",
+   "points": 10,
+   "numbers": 17,
+   "passed": 0,
+   "earned": 0.0
+  },
+  {
+   "part": "outcome",
+   "piece": "The stress intensity factors along that front",
+   "points": 20,
+   "numbers": 50,
+   "passed": 0,
+   "earned": 0.0
+  }
+ ],
+ "checks_passed": 3,
+ "checks": 76
+}

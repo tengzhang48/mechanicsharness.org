@@ -1,0 +1,576 @@
+{
+ "passed": 8,
+ "checks": 76,
+ "groups": [
+  {
+   "group": "Part A: cosine-front coefficients",
+   "passed": 5,
+   "checks": 8
+  },
+  {
+   "group": "Part B: loading level and front amplitude",
+   "passed": 1,
+   "checks": 2
+  },
+  {
+   "group": "Part B: front shape f(s)",
+   "passed": 1,
+   "checks": 16
+  },
+  {
+   "group": "Part B: kappa1(s)",
+   "passed": 0,
+   "checks": 16
+  },
+  {
+   "group": "Part B: kappa2(s)",
+   "passed": 0,
+   "checks": 16
+  },
+  {
+   "group": "Part B: kappa3(s)",
+   "passed": 1,
+   "checks": 16
+  },
+  {
+   "group": "Part B: maximum of kappa3",
+   "passed": 0,
+   "checks": 2
+  }
+ ],
+ "rows": [
+  {
+   "group": "Part A: cosine-front coefficients",
+   "item": "C1",
+   "reference": -3.141592653589793,
+   "submitted": -3.141592653589793,
+   "pass": true
+  },
+  {
+   "group": "Part A: cosine-front coefficients",
+   "item": "S1",
+   "reference": 0.0,
+   "submitted": 0.0,
+   "pass": true
+  },
+  {
+   "group": "Part A: cosine-front coefficients",
+   "item": "C2",
+   "reference": -1.2196771478642725,
+   "submitted": -1.2196771478642725,
+   "pass": true
+  },
+  {
+   "group": "Part A: cosine-front coefficients",
+   "item": "S2",
+   "reference": 5.913586171463141,
+   "submitted": 4.139510320024198,
+   "pass": false
+  },
+  {
+   "group": "Part A: cosine-front coefficients",
+   "item": "C3",
+   "reference": -3.400312048591305,
+   "submitted": -3.400312048591306,
+   "pass": true
+  },
+  {
+   "group": "Part A: cosine-front coefficients",
+   "item": "S3",
+   "reference": -3.104632740018148,
+   "submitted": -4.435189628597355,
+   "pass": false
+  },
+  {
+   "group": "Part A: cosine-front coefficients",
+   "item": "CG",
+   "reference": -6.8236543950865505,
+   "submitted": -6.82365439508655,
+   "pass": true
+  },
+  {
+   "group": "Part A: cosine-front coefficients",
+   "item": "SG",
+   "reference": 0.0,
+   "submitted": -2.273313276969499,
+   "pass": false
+  },
+  {
+   "group": "Part B: loading level and front amplitude",
+   "item": "K10_scaled",
+   "reference": 0.6630976492661631,
+   "submitted": 0.6630976492661631,
+   "pass": true
+  },
+  {
+   "group": "Part B: loading level and front amplitude",
+   "item": "front_peak_to_peak",
+   "reference": 0.32200115218589553,
+   "submitted": 0.30411866731906945,
+   "pass": false
+  },
+  {
+   "group": "Part B: front shape f(s)",
+   "item": "f[0]",
+   "reference": -0.2031601075983724,
+   "submitted": -0.18286400040173018,
+   "pass": false
+  },
+  {
+   "group": "Part B: front shape f(s)",
+   "item": "f[1]",
+   "reference": -0.16420650414365662,
+   "submitted": -0.11777241641399204,
+   "pass": false
+  },
+  {
+   "group": "Part B: front shape f(s)",
+   "item": "f[2]",
+   "reference": -0.08951840076512503,
+   "submitted": -0.03658810490205163,
+   "pass": false
+  },
+  {
+   "group": "Part B: front shape f(s)",
+   "item": "f[3]",
+   "reference": -0.020861437389679428,
+   "submitted": 0.026838651434620567,
+   "pass": false
+  },
+  {
+   "group": "Part B: front shape f(s)",
+   "item": "f[4]",
+   "reference": 0.032701473198127794,
+   "submitted": 0.0701850393768409,
+   "pass": false
+  },
+  {
+   "group": "Part B: front shape f(s)",
+   "item": "f[5]",
+   "reference": 0.07184199408851118,
+   "submitted": 0.09717571206842895,
+   "pass": false
+  },
+  {
+   "group": "Part B: front shape f(s)",
+   "item": "f[6]",
+   "reference": 0.09840288088476418,
+   "submitted": 0.11102800901278456,
+   "pass": false
+  },
+  {
+   "group": "Part B: front shape f(s)",
+   "item": "f[7]",
+   "reference": 0.11379728945453517,
+   "submitted": 0.11386706457227926,
+   "pass": true
+  },
+  {
+   "group": "Part B: front shape f(s)",
+   "item": "f[8]",
+   "reference": 0.11884104458752309,
+   "submitted": 0.10696858296687065,
+   "pass": false
+  },
+  {
+   "group": "Part B: front shape f(s)",
+   "item": "f[9]",
+   "reference": 0.11379728945453517,
+   "submitted": 0.09099035385031905,
+   "pass": false
+  },
+  {
+   "group": "Part B: front shape f(s)",
+   "item": "f[10]",
+   "reference": 0.09840288088476419,
+   "submitted": 0.06611645760874321,
+   "pass": false
+  },
+  {
+   "group": "Part B: front shape f(s)",
+   "item": "f[11]",
+   "reference": 0.07184199408851123,
+   "submitted": 0.03215395398819473,
+   "pass": false
+  },
+  {
+   "group": "Part B: front shape f(s)",
+   "item": "f[12]",
+   "reference": 0.032701473198127815,
+   "submitted": -0.011315980104029996,
+   "pass": false
+  },
+  {
+   "group": "Part B: front shape f(s)",
+   "item": "f[13]",
+   "reference": -0.020861437389679462,
+   "submitted": -0.06439332631940174,
+   "pass": false
+  },
+  {
+   "group": "Part B: front shape f(s)",
+   "item": "f[14]",
+   "reference": -0.08951840076512498,
+   "submitted": -0.1245625566819375,
+   "pass": false
+  },
+  {
+   "group": "Part B: front shape f(s)",
+   "item": "f[15]",
+   "reference": -0.16420650414365653,
+   "submitted": -0.1778314656143998,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa1(s)",
+   "item": "kappa1[0]",
+   "reference": 0.9207947740881872,
+   "submitted": 0.8288055067958742,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa1(s)",
+   "item": "kappa1[1]",
+   "reference": 0.5984077929620362,
+   "submitted": 0.37662135429104876,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa1(s)",
+   "item": "kappa1[2]",
+   "reference": 0.17563568229089224,
+   "submitted": -0.021729639672915264,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa1(s)",
+   "item": "kappa1[3]",
+   "reference": -0.06227511754258376,
+   "submitted": -0.20311642938537217,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa1(s)",
+   "item": "kappa1[4]",
+   "reference": -0.18415895481763744,
+   "submitted": -0.2762083458140632,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa1(s)",
+   "item": "kappa1[5]",
+   "reference": -0.2489062715968849,
+   "submitted": -0.30216291210468765,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa1(s)",
+   "item": "kappa1[6]",
+   "reference": -0.2839644792424436,
+   "submitted": -0.3054768773543048,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa1(s)",
+   "item": "kappa1[7]",
+   "reference": -0.30155783999514624,
+   "submitted": -0.29573511430555105,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa1(s)",
+   "item": "kappa1[8]",
+   "reference": -0.30693159136272913,
+   "submitted": -0.2762685022652913,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa1(s)",
+   "item": "kappa1[9]",
+   "reference": -0.30155783999514624,
+   "submitted": -0.2471280848322615,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa1(s)",
+   "item": "kappa1[10]",
+   "reference": -0.2839644792424436,
+   "submitted": -0.20571482519117404,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa1(s)",
+   "item": "kappa1[11]",
+   "reference": -0.24890627159688497,
+   "submitted": -0.14591714738481223,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa1(s)",
+   "item": "kappa1[12]",
+   "reference": -0.1841589548176375,
+   "submitted": -0.05531385690428657,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa1(s)",
+   "item": "kappa1[13]",
+   "reference": -0.062275117542583656,
+   "submitted": 0.09100901564214334,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa1(s)",
+   "item": "kappa1[14]",
+   "reference": 0.17563568229089194,
+   "submitted": 0.3379082817958354,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa1(s)",
+   "item": "kappa1[15]",
+   "reference": 0.5984077929620354,
+   "submitted": 0.7006299248718388,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa2(s)",
+   "item": "kappa2[0]",
+   "reference": 0.35748502994011977,
+   "submitted": -0.0420546673306459,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa2(s)",
+   "item": "kappa2[1]",
+   "reference": -0.7846173992580204,
+   "submitted": -0.7309685537612767,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa2(s)",
+   "item": "kappa2[2]",
+   "reference": -1.060579518196178,
+   "submitted": -0.789034652152168,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa2(s)",
+   "item": "kappa2[3]",
+   "reference": -0.9473259883275443,
+   "submitted": -0.6358976215234461,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa2(s)",
+   "item": "kappa2[4]",
+   "reference": -0.7648013064779533,
+   "submitted": -0.4712978403158291,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa2(s)",
+   "item": "kappa2[5]",
+   "reference": -0.587030592645775,
+   "submitted": -0.32794533674555304,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa2(s)",
+   "item": "kappa2[6]",
+   "reference": -0.4233604038621445,
+   "submitted": -0.20368046620865674,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa2(s)",
+   "item": "kappa2[7]",
+   "reference": -0.2696344883055851,
+   "submitted": -0.09178538051201122,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa2(s)",
+   "item": "kappa2[8]",
+   "reference": -0.11916167664670664,
+   "submitted": 0.014018222443548608,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa2(s)",
+   "item": "kappa2[9]",
+   "reference": 0.03548369489758904,
+   "submitted": 0.11933096395540603,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa2(s)",
+   "item": "kappa2[10]",
+   "reference": 0.2028703376268352,
+   "submitted": 0.22961899680052858,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa2(s)",
+   "item": "kappa2[11]",
+   "reference": 0.3937621935234875,
+   "submitted": 0.35068150064023607,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa2(s)",
+   "item": "kappa2[12]",
+   "reference": 0.6218072945019052,
+   "submitted": 0.4881197072480876,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa2(s)",
+   "item": "kappa2[13]",
+   "reference": 0.8989711911768322,
+   "submitted": 0.6415860972292808,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa2(s)",
+   "item": "kappa2[14]",
+   "reference": 1.196955459739694,
+   "submitted": 0.7729913374028016,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa2(s)",
+   "item": "kappa2[15]",
+   "reference": 1.2492634502638373,
+   "submitted": 0.676307425420264,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa3(s)",
+   "item": "kappa3[0]",
+   "reference": 0.9966249319542732,
+   "submitted": 1.2868738819021994,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa3(s)",
+   "item": "kappa3[1]",
+   "reference": 1.1815821577348675,
+   "submitted": 1.3474796476861925,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa3(s)",
+   "item": "kappa3[2]",
+   "reference": 0.7827027290112496,
+   "submitted": 0.8128363310564766,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa3(s)",
+   "item": "kappa3[3]",
+   "reference": 0.4172493529855728,
+   "submitted": 0.37698560827586136,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa3(s)",
+   "item": "kappa3[4]",
+   "reference": 0.1646597713663582,
+   "submitted": 0.0911136687531157,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa3(s)",
+   "item": "kappa3[5]",
+   "reference": -0.011946328770726322,
+   "submitted": -0.10136652767401541,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa3(s)",
+   "item": "kappa3[6]",
+   "reference": -0.14296421965684644,
+   "submitted": -0.23947283857704907,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa3(s)",
+   "item": "kappa3[7]",
+   "reference": -0.24629849196273684,
+   "submitted": -0.3447641585327589,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa3(s)",
+   "item": "kappa3[8]",
+   "reference": -0.3322083106514244,
+   "submitted": -0.4289579606340667,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa3(s)",
+   "item": "kappa3[9]",
+   "reference": -0.40648553814440325,
+   "submitted": -0.4981313901672816,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa3(s)",
+   "item": "kappa3[10]",
+   "reference": -0.4717353589385608,
+   "submitted": -0.5542468522996113,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa3(s)",
+   "item": "kappa3[11]",
+   "reference": -0.5268625415095891,
+   "submitted": -0.5943606614314461,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa3(s)",
+   "item": "kappa3[12]",
+   "reference": -0.5633097441480674,
+   "submitted": -0.6058632215139959,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa3(s)",
+   "item": "kappa3[13]",
+   "reference": -0.5520566662542246,
+   "submitted": -0.5510531084683961,
+   "pass": true
+  },
+  {
+   "group": "Part B: kappa3(s)",
+   "item": "kappa3[14]",
+   "reference": -0.40250313440508323,
+   "submitted": -0.3219104947450401,
+   "pass": false
+  },
+  {
+   "group": "Part B: kappa3(s)",
+   "item": "kappa3[15]",
+   "reference": 0.11379471173589151,
+   "submitted": 0.3251522593576902,
+   "pass": false
+  },
+  {
+   "group": "Part B: maximum of kappa3",
+   "item": "kappa3_max",
+   "reference": 1.2319099659523398,
+   "submitted": 1.4649911250111463,
+   "pass": false
+  },
+  {
+   "group": "Part B: maximum of kappa3",
+   "item": "s_kappa3_max",
+   "reference": 0.04092502599738289,
+   "submitted": 0.03242500000000004,
+   "pass": false
+  }
+ ],
+ "read_error": null
+}

@@ -1,0 +1,36 @@
+{
+ "allowed": {
+  "theory_source": [
+   "cannot_tell",
+   "derivation_shown",
+   "own_computation",
+   "stated_with_source",
+   "stated_without_source"
+  ],
+  "claimed_checks": [
+   "all_supported",
+   "cannot_tell",
+   "contradicted",
+   "no_checks_claimed",
+   "some_unsupported"
+  ],
+  "error_location": [
+   "application",
+   "cannot_tell",
+   "format",
+   "incomplete",
+   "none",
+   "theory"
+  ]
+ },
+ "table": "coefficients",
+ "table_keys": [
+  "p1",
+  "p2",
+  "p3",
+  "b2",
+  "b3",
+  "m3"
+ ],
+ "derive_summary": true
+}

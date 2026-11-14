@@ -1,0 +1,103 @@
+{
+ "theory_source": {
+  "answer": "stated_with_source",
+  "evidence": [
+   {
+    "file": "submission/method.md",
+    "lines": "15-20",
+    "quote": "For a small in-plane front perturbation da(z) the standard first-order (Rice 1985) result ... dK_a/K_a^0 = (1/(2 pi)) Int [ da(z') - da(z) ] / (z'-z)^2 dz' , a=1,2,3."
+   },
+   {
+    "file": "submission/method.md",
+    "lines": "22-23",
+    "quote": "The kernel is the same for the three modes"
+   },
+   {
+    "file": "submission/method.md",
+    "lines": "45-50",
+    "quote": "The rotation of the local frame ... K2 = K2^0 - a' K3^0 + ... , K3 = K3^0 + a' K2^0 + ... , K1 = K1^0 (1 + F)"
+   },
+   {
+    "file": "submission/solve.py",
+    "lines": "42-54",
+    "quote": "dK_a/K_a^0 = -(1/2) |k| da ... dK2 = -a' K3^0, dK3 = +a' K2^0 ... C2 = K2r*(-pi); S2 = 2*pi*K3r; C3 = K3r*(-pi); S3 = -2*pi*K2r"
+   }
+  ],
+  "coefficients": {
+   "p1": {
+    "used": "1",
+    "equals_key": "yes"
+   },
+   "p2": {
+    "used": "1 (same nonlocal kernel for all three modes)",
+    "equals_key": "no"
+   },
+   "p3": {
+    "used": "1 (same nonlocal kernel for all three modes)",
+    "equals_key": "no"
+   },
+   "b2": {
+    "used": "1 (K2 = K2^0 - a' K3^0)",
+    "equals_key": "no"
+   },
+   "b3": {
+    "used": "1 (K3 = K3^0 + a' K2^0)",
+    "equals_key": "no"
+   },
+   "m3": {
+    "used": "(1+nu)/(1-nu^2) = 1/(1-nu), via Irwin weights w3",
+    "equals_key": "yes"
+   }
+  }
+ },
+ "claimed_checks": {
+  "answer": "all_supported",
+  "checks": [
+   {
+    "claim": "The closed-form Fourier coefficients of f reproduce the numerical FFT of the closed form to ~2e-16.",
+    "claimed_at": "submission/method.md:161-162",
+    "status": "supported",
+    "evidence": "submission/checks.py:63-68 and submission/tmp/verify.py:63-68 reconstruct f from fhat_n = M*q^k*(-1-i beta)/(2*pi*k*(1+beta^2)) and compare with the closed form; submission/tmp/check_fourier.py:23-29 does the same. No printed output is saved, but the code carries out the check."
+   },
+   {
+    "claim": "The equilibrium equation -H[f'] + beta f' = g is satisfied to ~6e-13 (FFT residual; analytic identity exact).",
+    "claimed_at": "submission/method.md:163-164",
+    "status": "supported",
+    "evidence": "submission/solve.py:191-201 (check_fourier) and submission/checks.py:49-56 compute max|-H[f']+beta f'-g| by FFT; also submission/tmp/check_fourier.py:14-22 and submission/tmp/compute2.py:28-38. Output not saved."
+   },
+   {
+    "claim": "Substituting the first-order kappa_a into the Irwin relation reproduces G/G^0 - 1 = eps g(s) at all sampled points to machine precision.",
+    "claimed_at": "submission/method.md:165-167",
+    "status": "supported",
+    "evidence": "submission/solve.py:204-216 (check_equilibrium_points) and submission/checks.py:40-47 evaluate 2*(w1*d1+w2*d2+w3*d3) - eps*g for small eps. Output not saved."
+   },
+   {
+    "claim": "Part A coefficients were checked by evaluating G(z) from the perturbed K_a(z) and fitting the cos/sin amplitudes; the result agrees with CG and SG to machine precision.",
+    "claimed_at": "submission/method.md:168-170",
+    "status": "supported",
+    "evidence": "submission/checks.py:9-23 (and the identical submission/tmp/verify.py:9-23) builds dG from C,S and the Irwin weights and compares it with eps*(-2*pi*cos - 2*pi*beta*sin), i.e. CG and SG. Output not saved."
+   },
+   {
+    "claim": "The sign of the kernel was checked against the thermodynamic requirement that an advanced part of the front has a lower SIF, fixing C1 = -pi and f(0) < 0.",
+    "claimed_at": "submission/method.md:171-174",
+    "status": "supported",
+    "evidence": "The argument is written at submission/method.md:30-32, and the code uses that sign: solve.py:49 C1=-pi and method.md:122 f(s) with the log term that gives f(0)<0. No separate numerical test beyond that argument."
+   }
+  ]
+ },
+ "error_location": {
+  "answer": "theory",
+  "first_wrong_step": "The first-order kernel is taken to be the same for all three modes (p2 = p3 = 1) and the shear coupling is taken as a pure rotation of the local frame (b2 = b3 = 1). Both differ from the Gao-Rice weights, so the slope terms do not cancel in G and every shear and front result is off.",
+  "where": "submission/method.md:15-20 and 45-51; same formulas coded in submission/solve.py:42-54",
+  "explains_groups": [
+   "Part A: cosine-front coefficients",
+   "Part B: loading level and front amplitude",
+   "Part B: front shape f(s)",
+   "Part B: kappa1(s)",
+   "Part B: kappa2(s)",
+   "Part B: kappa3(s)",
+   "Part B: maximum of kappa3"
+  ]
+ },
+ "notes": "Only C1, S1 and K10_scaled match the reference, because p1 = 1 and the Irwin weight m3 = 1/(1-nu) are right; s_kappa3_max also passes within tolerance. The wrong theory is exactly the usual mistake in KEY_NOTES.md section 3 (mode-1 weight on all modes, slope couplings of 1 and 1). Because b2 != m3*b3 the solver gets a nonzero SG and an antisymmetric piece of f, which is why the tables fail even where a single sample happens to land inside tolerance (f[9], kappa1[9], kappa2[10], kappa3[8]). The five claimed checks only verify internal consistency of this wrong theory; they do not compare with an independent solution. Rice 1985 is named but not derived, and no three-dimensional elasticity computation is in the folder. Large binary files under tmp/ were left out of the copy and are irrelevant."
+}

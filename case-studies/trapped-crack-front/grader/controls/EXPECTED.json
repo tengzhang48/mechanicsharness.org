@@ -1,0 +1,21 @@
+{
+ "c1_cited_checked": {
+  "theory_source": "stated_with_source", "claimed_checks": "all_supported", "error_location": "none",
+  "coefficients_equal_key": {"p1": "yes", "p2": "yes", "p3": "yes", "b2": "yes", "b3": "yes", "m3": "yes"}},
+ "c2_overclaim": {
+  "theory_source": "stated_without_source", "claimed_checks": "some_unsupported", "error_location": "none",
+  "unsupported_at_least": 2,
+  "coefficients_equal_key": {"p1": "yes", "p2": "yes", "p3": "yes", "b2": "yes", "b3": "yes", "m3": "yes"}},
+ "c3_rotation_theory": {
+  "theory_source": "stated_without_source", "claimed_checks": "all_supported", "error_location": "theory",
+  "coefficients_equal_key": {"p1": "yes", "p2": "no", "p3": "no", "b2": "no", "b3": "no", "m3": "yes"}},
+ "c4_symbol_sign": {
+  "theory_source": "stated_with_source", "claimed_checks": "all_supported", "error_location": "application",
+  "coefficients_equal_key": {"p1": "yes", "p2": "yes", "p3": "yes", "b2": "yes", "b3": "yes", "m3": "yes"}},
+ "c5_checks_code_only": {
+  "theory_source": "stated_with_source", "claimed_checks": "all_supported", "error_location": "none",
+  "coefficients_equal_key": {"p1": "yes", "p2": "yes", "p3": "yes", "b2": "yes", "b3": "yes", "m3": "yes"}},
+ "c6_part_b_missing": {
+  "theory_source": "stated_with_source", "claimed_checks": "all_supported", "error_location": "incomplete",
+  "coefficients_equal_key": {"p1": "yes", "p2": "yes", "p3": "yes", "b2": "yes", "b3": "yes", "m3": "yes"}}
+}

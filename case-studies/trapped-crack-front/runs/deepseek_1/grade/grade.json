@@ -1,0 +1,98 @@
+{
+ "theory_source": {
+  "answer": "stated_with_source",
+  "evidence": [
+   {
+    "file": "submission/method.md",
+    "lines": "5-13",
+    "quote": "I used the first-order 3-D crack-front perturbation theory of Rice (1985), in the form in which the local stress-intensity-factor (SIF) change ... is written as δK_α(z) = K_β^0 [ -A_{αβ} H[δa](z) + B_{αβ} (dδa/dz) ], where H is the non-local operator whose Fourier symbol is |k|."
+   },
+   {
+    "file": "submission/method.md",
+    "lines": "21-29",
+    "quote": "A = diag(1/2, -1/2, -1/2). ... This is the standard Rice result. ... B has only B_23 = -1 and B_32 = +1. These follow directly from the geometric projection ... K_II^loc = K_II - a' K_III and K_III^loc = K_III + a' K_II."
+   },
+   {
+    "file": "submission/solve.py",
+    "lines": "11-15",
+    "quote": "# Rice (1985) first-order front-perturbation response: ... a1, a2, a3 = 0.5, -0.5, -0.5; B23, B32 = -1.0, 1.0"
+   }
+  ],
+  "coefficients": {
+   "p1": {
+    "used": "1 (A_11 = 1/2 with H having Fourier symbol |k|, so the weight on l is 1)",
+    "equals_key": "yes"
+   },
+   "p2": {
+    "used": "-1 (A_22 = -1/2; a forward bump is said to raise K_II)",
+    "equals_key": "no"
+   },
+   "p3": {
+    "used": "-1 (A_33 = -1/2; same unstable sign for mode III)",
+    "equals_key": "no"
+   },
+   "b2": {
+    "used": "1 (B_23 = -1, written as δK2 = ... + B_23 K3^0 a', i.e. -K3^0 a')",
+    "equals_key": "no"
+   },
+   "b3": {
+    "used": "1 (B_32 = +1, i.e. +K2^0 a')",
+    "equals_key": "no"
+   },
+   "m3": {
+    "used": "1/(1-ν) = 1/0.7 (Irwin: v/w = (1+ν)/(1-ν²))",
+    "equals_key": "yes"
+   }
+  }
+ },
+ "claimed_checks": {
+  "answer": "some_unsupported",
+  "checks": [
+   {
+    "claim": "Energy consistency: at all sixteen sample points the reported κ_α satisfy 2[w(K1 κ1 + K2 κ2) + v K3 κ3]/G^0 = g(s) to machine precision.",
+    "claimed_at": "submission/method.md:129-131",
+    "status": "supported",
+    "evidence": "solve.py:74-79 evaluates that residual and solve_log.txt:1-17 prints diffs of order 1e-15 to 1e-16 at all sixteen points. check_fixed.py:37-41 asserts the same against results.json."
+   },
+   {
+    "claim": "Fourier vs closed form: front shape and all κ_α evaluated both by Fourier summation (4000–8000 harmonics) and from the closed form, agreement ~1e-15.",
+    "claimed_at": "submission/method.md:132-134",
+    "status": "cannot_tell",
+    "evidence": "solve.py uses a 4000-term Fourier sum and check_fixed.py compares results.json with the closed form, but only to 1e-8 (f) and 1e-6 (kappa) and its output was not saved. No file shows an 8000-harmonic run or a ~1e-15 residual. MANIFEST.txt leaves out only large binary tmp files, not a check log."
+   },
+   {
+    "claim": "Mode-I limit: setting K2^0 = K3^0 = 0 reduces the front equation to g = -H[f] with C_adv = 1, giving f = (1/2π) ln(1 - 2q cos 2πs + q²), the Gao–Rice log-sine shape.",
+    "claimed_at": "submission/method.md:135-137",
+    "status": "unsupported",
+    "evidence": "Neither solve.py nor check_fixed.py sets K2 = K3 = 0 or evaluates that limit. The statement is an algebraic claim, not a check the files carry out."
+   },
+   {
+    "claim": "2-D limits of the crack operator: the Fourier symbols used (mode I/II: μ|k|/[2(1-ν)], mode III: μ|k|/2) reduce correctly to the classical 2-D plane-strain and antiplane crack operators.",
+    "claimed_at": "submission/method.md:138-140",
+    "status": "unsupported",
+    "evidence": "Those symbols do not appear in solve.py, check_fixed.py, or solve_log.txt. The code uses only the A and B matrices of method.md."
+   },
+   {
+    "claim": "G balance in Part B: the reported κ3 is exactly 3.316... g(s) for this loading (the 3-4-5 mix makes the f' contributions cancel), so κ3 peaks at the tough-band centre s = 0.",
+    "claimed_at": "submission/method.md:141-143",
+    "status": "supported",
+    "evidence": "results.json and solve_log.txt:31-35 give kappa3[0] = kappa3_max = 6.63333... at s = 0, and g(0) = 2, so the ratio is 3.31666.... The same cancellation is built into solve.py:45 (a3 = -0.5, B32 = 1) and the G-consistency printout."
+   }
+  ]
+ },
+ "error_location": {
+  "answer": "theory",
+  "first_wrong_step": "The nonlocal weights of modes 2 and 3 are taken as -1/2 (unstable, opposite to mode 1) and the slope couplings as pure geometric projections of magnitude 1, instead of the Gao–Rice weights p2 = (2-3ν)/(2-ν), p3 = (2+ν)/(2-ν), b2 = 2/(2-ν), b3 = 2(1-ν)/(2-ν). Because the slope terms then do not cancel in G, the energy-release-rate response acquires a tilt part and the equilibrium front is solved from that wrong operator.",
+  "where": "submission/method.md:21-29 and submission/solve.py:14-15",
+  "explains_groups": [
+   "Part A: cosine-front coefficients",
+   "Part B: loading level and front amplitude",
+   "Part B: front shape f(s)",
+   "Part B: kappa1(s)",
+   "Part B: kappa2(s)",
+   "Part B: kappa3(s)",
+   "Part B: maximum of kappa3"
+  ]
+ },
+ "notes": "Only C1, S1 and K10_scaled pass, which is consistent with a correct mode-1 weight and a correct Irwin factor m3 = 1/(1-ν). Everything else fails from the same coefficient error: C2 and C3 have the wrong sign, S2 and S3 have the right sign but the geometric magnitudes 1 rather than b2 = 20/17 and b3 = 14/17, and SG is nonzero so the front f(s) is asymmetric and leads in the tough band (f(0) > 0). The mode-I limit quoted in method.md is also inconsistent with the operator used: with A_11 = 1/2 and H having symbol |k|, g = -C_adv H[f] and C_adv = 1 imply f = (1/π) ln(...), not the stated (1/2π) ln(...). Check 5 is internally true of this solution but is a consequence of the wrong coefficients (with the key coefficients the f' terms do not cancel in κ3)."
+}

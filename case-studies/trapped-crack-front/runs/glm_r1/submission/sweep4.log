@@ -1,0 +1,4 @@
+--- margin / ridge / resolution on wavy A=0.02 ---
+m15 r3e-3 M18 Nzm4 Nx4096: relres 1.4e-02 K0err -0.0182 C1 -0.583 S1 -0.000 C2 -0.255 S2 +6.759 C3 -0.424 S3 -2.587 [69s]
+m25 r3e-3 M18 Nzm4 Nx4096: relres 1.4e-02 K0err -0.0171 C1 -0.575 S1 -0.000 C2 -0.250 S2 +6.761 C3 -0.421 S3 -2.590 [69s]
+m25 r1e-3 M18 Nzm4 Nx4096: relres 1.2e-02 K0err -0.0000 C1 -1.375 S1 -0.000 C2 -0.734 S2 +6.851 C3 -1.051 S3 -2.611 [65s]

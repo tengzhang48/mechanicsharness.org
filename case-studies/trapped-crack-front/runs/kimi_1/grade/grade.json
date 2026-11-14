@@ -1,0 +1,111 @@
+{
+ "theory_source": {
+  "answer": "stated_without_source",
+  "evidence": [
+   {
+    "file": "submission/method.md",
+    "lines": "5-13",
+    "quote": "I used the first-order perturbation for a small coplanar advance delta a(z) of a straight crack front. In Fourier space, with front-shape wavenumber k and beta = 2(1-nu)/(2-nu), dK1_hat = -|k| K10 delta_a_hat / 2, dK2_hat = -|k| K20 delta_a_hat / 2 + i k K30 delta_a_hat, dK3_hat = -|k| K30 delta_a_hat / 2 + beta i k K20 delta_a_hat."
+   },
+   {
+    "file": "submission/solve.py",
+    "lines": "16-22",
+    "quote": "Rice's coplanar front perturbation, for a Fourier component of the advance da(z), is dK1 = -|k| K10 da/2, dK2 = -|k| K20 da/2 - K30 d(da)/dz, dK3 = -|k| K30 da/2 + beta K20 d(da)/dz, where beta=2(1-nu)/(2-nu)."
+   }
+  ],
+  "coefficients": {
+   "p1": {
+    "used": "1 (nonlocal weight |k|/2 on K1^0)",
+    "equals_key": "yes"
+   },
+   "p2": {
+    "used": "1 (same |k|/2 weight on K2^0; no (2-3nu)/(2-nu))",
+    "equals_key": "no"
+   },
+   "p3": {
+    "used": "1 (same |k|/2 weight on K3^0; no (2+nu)/(2-nu))",
+    "equals_key": "no"
+   },
+   "b2": {
+    "used": "1 (mode-2 slope coupling written as -K3^0 a')",
+    "equals_key": "no"
+   },
+   "b3": {
+    "used": "2(1-nu)/(2-nu) = 14/17 (beta, plus K2^0 a')",
+    "equals_key": "yes"
+   },
+   "m3": {
+    "used": "1/(1-nu) via Irwin: G = (1-nu^2)(K1^2+K2^2)/E + (1+nu)K3^2/E",
+    "equals_key": "yes"
+   }
+  }
+ },
+ "claimed_checks": {
+  "answer": "all_supported",
+  "checks": [
+   {
+    "claim": "On 20,000 points per period, the maximum equilibrium residual of H f - eta f' + g was 2.22e-15 or smaller.",
+    "claimed_at": "submission/method.md:109-111",
+    "status": "supported",
+    "evidence": "solve.py:147-153,165 computes max |adf - ETA*fp + g| on 20,000 points; solve_checks.txt:6 records 2.220e-15. This is a residual of the solver's own equation, not a comparison with the reference theory."
+   },
+   {
+    "claim": "On 20,000 points, the maximum direct energy residual of dG/G0 against g was 2.22e-15 or smaller.",
+    "claimed_at": "submission/method.md:109-111",
+    "status": "supported",
+    "evidence": "solve.py:157,166; solve_checks.txt:7 records max direct dG/G0 residual=2.220e-15."
+   },
+   {
+    "claim": "On 20,000 points, the reconstructed-energy residual (G rebuilt from the three kappa arrays versus g) was 2.22e-15 or smaller.",
+    "claimed_at": "submission/method.md:109-111",
+    "status": "supported",
+    "evidence": "solve.py:152-156,167; solve_checks.txt:8 records 2.220e-15."
+   },
+   {
+    "claim": "On 20,000 points, the Fourier series of g versus its closed form differed by at most 2.22e-15.",
+    "claimed_at": "submission/method.md:109-111",
+    "status": "supported",
+    "evidence": "solve.py:158-159,168; solve_checks.txt:9 records max Fourier-g versus closed-form residual=2.220e-15."
+   },
+   {
+    "claim": "verify.py independently reevaluates the solution with real closed-form sums (logarithms and arctangents) and checks every JSON sample.",
+    "claimed_at": "submission/method.md:112-117",
+    "status": "supported",
+    "evidence": "verify.py:17-46 implements closed_form and assert_allclose of f, kappa1, kappa2, kappa3 against results.json at atol 2e-12. No saved verify.py output; code alone carries the check out."
+   },
+   {
+    "claim": "verify.py checks the equilibrium identity H f - eta f' = -g and the energy identity rebuilt from all three kappa arrays.",
+    "claimed_at": "submission/method.md:114-117",
+    "status": "supported",
+    "evidence": "verify.py:90-93 asserts energy==g and adf-ETA*fp==-g at the 16 samples, atol 2e-13. No saved output."
+   },
+   {
+    "claim": "verify.py checks the loading normalization K10_scaled = sqrt((1-nu^2)/D), CG = -2 pi, and SG = -2 pi eta.",
+    "claimed_at": "submission/method.md:114-117",
+    "status": "supported",
+    "evidence": "verify.py:86-89 asserts CG=-2*pi, SG=-2*pi*ETA, and K10_scaled=sqrt((1-NU**2)/D). No saved output."
+   },
+   {
+    "claim": "verify.py checks the refined extrema of f (peak-to-peak) and of kappa3 (value and location).",
+    "claimed_at": "submission/method.md:114-117",
+    "status": "supported",
+    "evidence": "verify.py:48-82 re-brackets extrema on 100001 points in [-1/2,1/2) and refines with minimize_scalar, asserting front_peak_to_peak, kappa3_max and s_kappa3_max. No saved output."
+   }
+  ]
+ },
+ "error_location": {
+  "answer": "theory",
+  "first_wrong_step": "The first-order kernel is written with the mode-1 nonlocal weight on all three modes and with slope coupling 1 into mode 2 and only beta=2(1-nu)/(2-nu) into mode 3. The key needs p2=(2-3nu)/(2-nu), p3=(2+nu)/(2-nu) and b2=2/(2-nu). Because b2 is not equal to m3*b3, the slope terms no longer cancel in G, so G acquires a sine part and the equilibrium front an odd part.",
+  "where": "submission/method.md:9-13 and submission/solve.py:16-22 (used at solve.py:35-44 and solve.py:86-91)",
+  "explains_groups": [
+   "Part A: cosine-front coefficients",
+   "Part B: loading level and front amplitude",
+   "Part B: front shape f(s)",
+   "Part B: kappa1(s)",
+   "Part B: kappa2(s)",
+   "Part B: kappa3(s)",
+   "Part B: maximum of kappa3"
+  ]
+ },
+ "notes": "The name 'Rice' appears only as a comment in solve.py:16, with no publication, equation number, or derivation from elasticity, so the source category is stated_without_source rather than stated_with_source. Irwin's m3 and the mode-1 weight p1 and the mode-3 slope weight b3 are right, which is why C1, S1, S3 and K10_scaled pass (K10_scaled depends only on m3). Everything else follows from the wrong p2, p3 and b2: C2=-pi*0.6, S2=2*pi*0.8, C3=-pi*0.8, CG=-2*pi, SG=-0.468, and a nonzero eta that makes f and the kappas asymmetric. s_kappa3_max still passes within the tolerance. The checks in solve.py, verify.py and solve_checks.txt are internally consistent residuals of this wrong theory; they do not compare against Gao and Rice. PUBLIC_TASK.md is a copy of the problem statement, not part of the method. The omitted files in MANIFEST.txt are a pycache folder and large binary tmp objects, not logs needed for any claimed check."
+}
