@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fracture Mechanics 101: curved fronts and trapping | MechanicsHarness</title>
+<meta name="description" content="Two illustrated fracture mechanics lessons for people: mixed-mode curved crack fronts, and crack-front trapping by heterogeneous toughness.">
+<link rel="icon" href="../assets/favicon.svg?v=crack-tip" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400&amp;display=swap">
+<link rel="stylesheet" href="../assets/style.css?v=15094ef2">
+<style>
+.lesson-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 1.3rem;font-family:var(--sans);font-size:.86rem}
+.lesson-head a{color:var(--accent)}
+.lesson{margin-block:1.5rem 3rem;padding-bottom:2.3rem;border-bottom:1px solid var(--rule)}
+.lesson h2{margin:.8rem 0 1rem}
+.lesson h3{margin:1.5rem 0 .7rem}
+.lesson p,.lesson li{max-width:77ch;line-height:1.65}
+.lesson p{margin:.8rem 0}
+.lesson ul{padding-left:1.3rem}
+.mathline{display:block;overflow-x:auto;max-width:100%;margin:1.2rem 0;padding:1rem 1.1rem;border:1px solid var(--math-border);border-radius:7px;background:var(--math-bg);color:var(--math-fg);font:500 clamp(14px,2.6vw,19px)/1.5 var(--mono);white-space:nowrap}
+.fig{max-width:840px;margin:1.1rem 0;padding:clamp(8px,2.1vw,18px);background:var(--surface);border:1px solid var(--rule);border-radius:8px}
+.fig svg{display:block;width:100%;height:auto}
+.fig figcaption{color:var(--muted);font:400 .86rem/1.55 var(--sans);margin-top:.6rem}
+.fig .ink{stroke:var(--fg);fill:none}.fig .soft{fill:var(--accent-weak)}.fig .highlight{stroke:var(--accent);fill:none}.fig .txt{font:14px var(--sans);fill:var(--fg)}.fig .muted{font:12px var(--sans);fill:var(--muted)}
+.note{background:var(--accent-weak);border-left:3px solid var(--accent);padding:.8rem 1.1rem;max-width:77ch}
+.exercise{max-width:77ch;border:1px solid var(--rule);border-radius:8px;background:var(--surface);padding:1rem 1.2rem;margin-top:1.2rem}
+.exercise summary{cursor:pointer;color:var(--accent);font-family:var(--sans);font-weight:600}
+.linkline{display:flex;flex-wrap:wrap;gap:.6rem 1rem;font:500 .9rem var(--sans)}
+.linkline a{color:var(--accent)}
+@media print{.mh-bar,.site,.lesson-head{display:none}.exercise>div{display:block}}
+</style>
+</head>
+<body>
+<header class="mh-bar">
+  <div class="mh-in">
+    <a class="mh-brand" href="../index.html">MechanicsHarness</a>
+    <nav class="mh-nav" aria-label="Site">
+      <a href="../index.html">Home</a>
+      <a href="../evaluates.html">What it evaluates</a>
+      <a href="../building.html">How a benchmark is built</a>
+      <a href="../evaluation.html">Evaluation policy</a>
+      <a href="../get-started.html">Get started and contribute</a>
+    </nav>
+    <details class="mh-menu"><summary><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 4h12M2 8h12M2 12h12"/></svg> Menu</summary>
+      <nav class="mh-list" aria-label="Site">
+        <a href="../index.html">Home</a><a href="../evaluates.html">What it evaluates</a>
+        <a href="../building.html">How a benchmark is built</a>
+        <a href="../evaluation.html">Evaluation policy</a><a href="../get-started.html">Get started and contribute</a>
+      </nav>
+    </details>
+  </div>
+</header>
+<main class="frame">
+<div class="page-head">
+  <p class="lesson-head"><a href="fracture-101.html">Fracture Mechanics 101 · human edition</a> <span aria-hidden="true">/</span> Topics 20 and 21</p>
+  <h1>Mixed-mode crack fronts and trapping</h1>
+  <p class="lede">A straight crack may be described by three stress intensity factors. A curved, three-dimensional front adds two further questions: how the modes interact along the front, and where growth is resisted.</p>
+  <div class="linkline"><a href="#mixed-mode">20 · Mixed-mode curved fronts</a><a href="#trapping">21 · Trapping and stability</a><a href="fracture-101.html#modes">Review loading modes</a></div>
+</div>
+<div class="content">
+<section class="lesson" id="mixed-mode" aria-labelledby="h20">
+  <h2 id="h20">20. Why is mixed-mode fracture harder for a curved front?</h2>
+  <p>Imagine a planar crack in the <em>x–z</em> plane, with the front on a line approximately parallel to <em>z</em> and advancing in the <em>x</em> direction. Opening normal to the plane is <strong>Mode I</strong>. Sliding in the plane and across the front is <strong>Mode II</strong>. Sliding in the plane and along the front is <strong>Mode III</strong>.</p>
+  <figure class="fig">
+    <svg viewBox="0 0 760 250" role="img" aria-label="Top view of a straight crack front and a slightly curved crack front. In each, the shaded area behind the front is cracked; a curved front has a different local forward direction at each point.">
+      <defs><marker id="arrow20" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10" fill="none" stroke="currentColor" stroke-width="1.6"/></marker></defs>
+      <rect x="20" y="35" width="330" height="175" rx="8" class="soft"/>
+      <rect x="410" y="35" width="330" height="175" rx="8" class="soft"/>
+      <path d="M210 35V210" class="ink" stroke-width="3"/>
+      <path d="M594 35 C562 65,626 92,593 122 S626 178,592 210" class="highlight" stroke-width="3"/>
+      <path d="M594 35 C562 65,626 92,593 122 S626 178,592 210 V210 H410 V35 Z" fill="var(--accent-weak)"/>
+      <path d="M594 35 C562 65,626 92,593 122 S626 178,592 210" class="highlight" stroke-width="3"/>
+      <text x="35" y="22" class="txt">Straight front</text>
+      <text x="425" y="22" class="txt">Curved front</text>
+      <text x="42" y="130" class="muted">cracked</text>
+      <text x="442" y="130" class="muted">cracked</text>
+      <path d="M220 102H310" class="ink" stroke-width="1.6" marker-end="url(#arrow20)"/>
+      <path d="M602 123 L680 145" class="highlight" stroke-width="2" marker-end="url(#arrow20)"/>
+      <text x="222" y="94" class="muted">advance</text>
+      <text x="625" y="118" class="muted">local advance</text>
+      <path d="M55 228H105" class="ink" stroke-width="1.4" marker-end="url(#arrow20)"/>
+      <text x="113" y="233" class="muted">x</text>
+      <path d="M55 228V183" class="ink" stroke-width="1.4" marker-end="url(#arrow20)"/>
+      <text x="43" y="185" class="muted">z</text>
+    </svg>
+    <figcaption>Top view of the crack plane, schematic and not to scale. Mode I moves out of this drawing; Modes II and III are distinct in-plane shear directions defined locally at the front.</figcaption>
+  </figure>
+  <p>For a homogeneous isotropic linear elastic solid, away from free surfaces and with small-scale yielding, the local energy release rate is</p>
+  <div class="mathline" role="math" aria-label="G equals K one squared plus K two squared over E prime, plus K three squared over two mu">G = (K<sub>I</sub>² + K<sub>II</sub>²) / E′ + K<sub>III</sub>² / (2μ)</div>
+  <p>Here <em>E′ = E/(1 − ν²)</em> and <em>μ = E/[2(1 + ν)]</em>. A stress intensity factor has units of stress times the square root of length. <em>G</em> has units of energy per newly created crack area. The simple sum above must not be used unchanged for anisotropic, bimaterial or nonlinear crack-tip fields.</p>
+  <h3>The detail that a two-dimensional picture misses</h3>
+  <p>For a straight front, Mode II and Mode III represent different elastic shear responses. A wavy front makes the fields vary along the front, and the local tangent and advance direction change. Consequently, shear modes can interact. <strong>Simply copying the Mode I perturbation rule for both shears, or just rotating the far-field stress intensity factors, is not generally a valid three-dimensional elastic calculation.</strong></p>
+  <p>Even with small waviness, the first-order change in the crack-tip field can contain a <em>nonlocal</em> response to changes elsewhere along the front, as well as <em>local</em> orientation terms. The coefficients of those effects depend on geometry and elastic constitutive assumptions. They are not provided here; deriving or computing them is part of the mechanics problem.</p>
+  <div class="exercise">
+    <p><strong>Try it.</strong> With E = 100 GPa, ν = 0.25 and (K<sub>I</sub>, K<sub>II</sub>, K<sub>III</sub>) = (2, 1, 1) MPa√m, calculate <em>G</em>.</p>
+    <details><summary>Show the working</summary>
+      <p>E′ = 106.667 GPa, μ = 40 GPa. The opening and in-plane shear terms contribute 46.875 J/m². Mode III contributes 12.5 J/m². Thus <strong>G = 59.375 J/m²</strong>. This checks the local energy relation, not the change of K caused by a curved front.</p>
+    </details>
+  </div>
+</section>
+<section class="lesson" id="trapping" aria-labelledby="h21">
+  <h2 id="h21">21. Why can tough regions trap a crack front?</h2>
+  <p>A crack front encounters different local resistance as it passes through a heterogeneous material. Write the local fracture resistance as <em>Γ(z)</em> and the available elastic energy as <em>G(z)</em>, where the front coordinate is <em>z</em>. At an actively advancing point in quasistatic, rate-independent fracture, <em>G = Γ</em> is a necessary condition. A pinned point may have <em>G &lt; Γ</em>.</p>
+  <figure class="fig">
+    <svg viewBox="0 0 760 230" role="img" aria-label="Schematic planar crack front crossing alternating weak and tough bands. The front is displaced more in weak regions and less in tough regions.">
+      <rect x="24" y="24" width="710" height="178" rx="8" fill="var(--surface)" stroke="var(--rule)"/>
+      <rect x="25" y="46" width="708" height="30" fill="var(--accent-weak)"/>
+      <rect x="25" y="102" width="708" height="30" fill="var(--accent-weak)"/>
+      <rect x="25" y="166" width="708" height="30" fill="var(--accent-weak)"/>
+      <path d="M24 24H338 C390 42 390 58 344 77 C300 96 296 115 346 131 C395 150 391 173 342 202 H24 Z" fill="var(--math-bg)"/>
+      <path d="M338 24 C390 42 390 58 344 77 C300 96 296 115 346 131 C395 150 391 173 342 202" fill="none" stroke="var(--accent)" stroke-width="3"/>
+      <path d="M330 24V202" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 5"/>
+      <text x="40" y="60" class="txt">cracked region</text>
+      <text x="560" y="60" class="txt">uncracked</text>
+      <text x="188" y="222" class="muted">tougher bands across z</text>
+      <text x="338" y="222" class="muted">reference straight front</text>
+      <text x="348" y="102" class="muted">front position varies with z</text>
+    </svg>
+    <figcaption>Conceptual illustration of front deflection by toughness variations, not a quantitative elasticity solution. Real front shape depends on loading, elastic interactions and resistance distribution.</figcaption>
+  </figure>
+  <h3>Why a curved front is a collective object</h3>
+  <p>Advancing one portion of a front changes elastic loading elsewhere along it. That redistribution is generally nonlocal. The language of <em>line tension</em> is a useful analogy for resistance to roughness, but a constant local line-tension law is not the exact first-order response of a three-dimensional elastic crack. A quantitative prediction requires an appropriate elasticity solution or a controlled approximation.</p>
+  <p>Finding a shape for which the moving segments satisfy <em>G = Γ</em> does <strong>not</strong> automatically prove that the shape is stable. Stability depends on nearby admissible front perturbations, the surrounding elasticity and whether force or displacement is controlled. Large deflections, kinks, contact, strong material contrast or finite process zones may invalidate a small-perturbation model.</p>
+  <h3>A sensible sequence</h3>
+  <ol>
+    <li>Identify the crack plane, loading and local Mode I/II/III basis.</li>
+    <li>Decide whether isotropic linear elasticity and a slightly perturbed front are justified.</li>
+    <li>Compute how changing the front affects the local stress intensity factors and energy release.</li>
+    <li>Combine the elastic driving forces with a stated toughness or growth law.</li>
+    <li>Test equilibrium and stability separately, and compare against another solution route where possible.</li>
+  </ol>
+  <div class="exercise">
+    <p><strong>Think about it.</strong> A numerical solution gives G(z) = Γ(z) along a trial wavy front. Is that enough to claim a stable trapped configuration?</p>
+    <details><summary>Show the reasoning</summary><p>No. This equality is a local equilibrium condition for advancing portions of a quasistatic front. Stability requires considering nearby admissible shapes and the loading system; a solution may also be outside the domain where the chosen perturbation approximation is valid.</p></details>
+  </div>
+  <p class="note"><strong>For researchers:</strong> the classical analysis of planar first-order crack-front perturbations is associated with Rice (1985), and the mixed-mode shear extension with Gao and Rice (1986). Their theory supplies specialized response coefficients. This lesson deliberately gives the conceptual tools, not the coefficients or answers to the MechanicsHarness trapped-front benchmark.</p>
+</section>
+<section class="sec" aria-label="Further reading">
+  <h2>Continue learning</h2><div class="sec-body">
+    <p>Review <a href="fracture-101.html">Fracture Mechanics 101 (topics 0–19)</a> or try the <a href="trapped-crack-front-study.html">guided trapped-front exercise</a>. The corresponding <a href="https://github.com/tengzhang48/mechanicsharness.org/blob/main/agent-knowledge/fracture-101.md">agent edition</a> is a separate, concise reference that omits case-specific formulas and answers.</p>
+    <p><strong>Original theory:</strong> J. R. Rice, <a href="https://doi.org/10.1115/1.3169103">First-order variation in elastic fields due to variation in location of a planar crack front</a>, <em>J. Appl. Mech.</em> 52 (1985), 571–579; H. Gao and J. R. Rice, <a href="https://doi.org/10.1115/1.3171857">Shear stress intensity factors for a planar crack with slightly curved front</a>, <em>J. Appl. Mech.</em> 53 (1986), 774–778.</p>
+  </div>
+</section>
+</div>
+</main>
+<footer class="site"><div class="frame footer-row"><p>MechanicsHarness · educational material for mechanics and verifiable scientific AI.</p><nav class="footer-nav" aria-label="Footer"><a href="../index.html">Home</a><a href="fracture-101.html">Fracture Mechanics 101</a><a href="../get-started.html">Get started</a></nav></div></footer>
+</body>
+</html>
