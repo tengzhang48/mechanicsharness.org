@@ -1,0 +1,14 @@
+{
+  "caseA": {
+    "G_E2_h_over_P2": 1.771604938271605,
+    "amplitude_sqrt_h_over_P": 1.9331267849436744,
+    "phase_at_h_deg": 52.292443081824686
+  },
+  "caseB": {
+    "G_E2_h3_over_M2": 1.2592592592592593,
+    "amplitude_h32_over_M": 1.6298006013006623,
+    "phase_at_h_deg": 4.336208426449126
+  },
+  "phase_at_h_both_deg": 30.482802259892345,
+  "phase_change_per_decade_deg": -8.513574487346496
+}

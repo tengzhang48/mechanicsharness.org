@@ -1,0 +1,8 @@
+B1 kimi_1
+B2 codex_1
+B3 deepseek_1
+B4 glm_1
+B5 codex_nodef1
+B6 kimi_nodef1
+B7 deepseek_nodef1
+B8 glm_nodef1

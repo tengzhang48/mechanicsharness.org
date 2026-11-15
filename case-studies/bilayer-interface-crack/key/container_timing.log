@@ -1,0 +1,4 @@
+python 3.12.3 numpy 1.26.4 scipy 1.11.4
+refine 0.25 ndof 16674  psiA 52.3866  psiB 4.1816  both solves 1 s  peak memory 0.12 GB
+refine 0.50 ndof 62414  psiA 52.3086  psiB 4.2433  both solves 6 s  peak memory 0.39 GB
+refine 1.00 ndof 243514  psiA 52.2848  psiB 4.2612  both solves 52 s  peak memory 1.71 GB

@@ -25,7 +25,7 @@ requires b3 = (1−ν) b2, whatever the source of the coefficients.
 "We just need to update the rubric". `scorer/rubric.py` weighs the numbers that pass (the pass rule of the task is
 unchanged) by the physics they test:
 
-- the response, 70 points: seven pieces at 10 points, each tested by one or two numbers of Part A that isolate it and
+- the response, 70 points: seven pieces at 10 points, each tested by one or two numbers that isolate it (of Part A, and the load level of Part B) and
   earned only if all of them pass: tension (C1, S1); energy release rate and load level (K10_scaled); the weight of the
   shear across the front (C2) and of the shear along it (C3); the two slope couplings (S2; S3); the energy release rate
   of the wavy front with no term in the slope (CG, SG);

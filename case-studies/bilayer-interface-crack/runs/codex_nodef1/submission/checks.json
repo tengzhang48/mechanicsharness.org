@@ -1,0 +1,122 @@
+{
+  "beta": 0.2,
+  "epsilon": -0.06453177620670408,
+  "G_over_amplitude_squared": 0.47407407407407404,
+  "energies_from_stress_integration": [
+    1.7716049382716061,
+    1.2592592592592597,
+    5.0308641975308666
+  ],
+  "exact_amplitudes": [
+    1.9331267849436742,
+    1.6298006013006623
+  ],
+  "relative_phase_from_energy_deg": 47.97051473954061,
+  "relative_phase_from_fem_deg": 47.96156004528674,
+  "relative_phase_error_deg": -0.008954694253873186,
+  "amplitude_error_percent": [
+    -0.002505401608665636,
+    -0.02543681933138142
+  ],
+  "upper_minus_lower_phase_deg": [
+    -0.0011187810850046276,
+    0.0015140680938996454
+  ],
+  "refinement_phase_change_deg": [
+    -0.004056307066647946,
+    -0.018961382263058546
+  ],
+  "length12_minus_length8_phase_deg": [
+    0.0038771568315709715,
+    0.010924419037826816
+  ],
+  "fit_window_phase_change_deg": [
+    -0.0024167749508023917,
+    -0.00010241026363821959
+  ],
+  "epsilon_from_fem": [
+    -0.0645109681732932,
+    -0.0645325567489149
+  ],
+  "combined_energy_error_percent": 0.006892838058303319,
+  "unrounded_final_phases_deg": [
+    52.24897442996617,
+    4.287414384679429
+  ],
+  "unrounded_combined_phase_deg": 30.436942058992894,
+  "mesh_convergence": [
+    {
+      "file": "fem_initial.json",
+      "nodes": 29377,
+      "elements": 7296,
+      "length": 12,
+      "maximum_angle_deg": 5,
+      "radial_ratio": 1.22,
+      "minimum_radius": 1e-07,
+      "phase_deg": [
+        52.27058307894575,
+        4.4046772512572225
+      ],
+      "both_phase_deg": 30.546576172931083,
+      "amplitudes": [
+        1.9325906496348622,
+        1.6235322785610582
+      ]
+    },
+    {
+      "file": "fem_refined.json",
+      "nodes": 75697,
+      "elements": 18848,
+      "length": 12,
+      "maximum_angle_deg": 3.0,
+      "radial_ratio": 1.15,
+      "minimum_radius": 1e-08,
+      "phase_deg": [
+        52.253030737032816,
+        4.306375766942487
+      ],
+      "both_phase_deg": 30.457682324573767,
+      "amplitudes": [
+        1.9329945660624972,
+        1.6284003497548623
+      ]
+    },
+    {
+      "file": "fem_length8.json",
+      "nodes": 74203,
+      "elements": 18476,
+      "length": 8.0,
+      "maximum_angle_deg": 3.0,
+      "radial_ratio": 1.15,
+      "minimum_radius": 1e-08,
+      "phase_deg": [
+        52.249153580201245,
+        4.2954513479046605
+      ],
+      "both_phase_deg": 30.44631771534293,
+      "amplitudes": [
+        1.9330304567864118,
+        1.6289882342336155
+      ]
+    },
+    {
+      "file": "fem_fine.json",
+      "nodes": 151291,
+      "elements": 37720,
+      "length": 10.0,
+      "maximum_angle_deg": 2.0,
+      "radial_ratio": 1.12,
+      "minimum_radius": 1e-09,
+      "phase_deg": [
+        52.24897442996617,
+        4.287414384679429
+      ],
+      "both_phase_deg": 30.439839326300028,
+      "amplitudes": [
+        1.9330783523541066,
+        1.6293860318662476
+      ]
+    }
+  ],
+  "all_checks_passed": true
+}

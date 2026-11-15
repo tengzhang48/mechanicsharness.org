@@ -1,0 +1,81 @@
+refine 1.0 ndof 243514  psiA 52.2848  psiB 4.2612  J/G 1.00000 1.00001  |K|cod/exact 0.9968 0.9972  26 s
+refine 1.5 ndof 543334  psiA 52.2736  psiB 4.2677  J/G 1.00000 1.00001  |K|cod/exact 0.9979 0.9981  110 s
+refine 2.0 ndof 953970  psiA 52.2684  psiB 4.2708  J/G 1.00000 0.99999  |K|cod/exact 0.9984 0.9986  273 s
+{
+ "materials": {
+  "E1_over_E2": 9.0,
+  "nu1": 0.3333333333333333,
+  "nu2": 0.3333333333333333,
+  "h_over_H": 0.5
+ },
+ "eps": -0.06453177620670408,
+ "alpha": 0.7999999999999999,
+ "beta": 0.19999999999999998,
+ "caseA": {
+  "G_E2_h_over_P2": 1.7716049382716048,
+  "Kabs_sqrt_h_over_P": 1.9331267849436742,
+  "psi_deg": 52.24918382310049
+ },
+ "caseB": {
+  "G_E2_h3_over_M2": 1.259259259259259,
+  "Kabs_h32_over_M": 1.629800601300662,
+  "psi_deg": 4.278662313502883
+ },
+ "phase_angles_from": "second_route, set S2",
+ "relative_phase_deg": {
+  "exact_from_energy": 47.970514739540604,
+  "key": 47.9705215095976,
+  "first_route": 47.997564869209675
+ },
+ "M_over_Ph_both": 1.0,
+ "psi_both_deg": 30.433127024219168,
+ "omega_from_A_deg": 52.24918382310049,
+ "omega_from_B_deg": 52.24917705304349,
+ "gamma_deg": 42.029485260459396,
+ "record_printed_table": {
+  "omega_deg": 51.4,
+  "psiA_deg": 51.4,
+  "psiB_deg": 3.429485260459387,
+  "psi_both_deg": 29.5839462414142
+ },
+ "first_route": {
+  "psiA_deg": 52.268399233759716,
+  "psiB_deg": 4.270834364550042,
+  "psi_both_deg": 30.4401979530297,
+  "diff_psiA_deg": 0.019215410659228382,
+  "diff_psiB_deg": -0.007827948952840558,
+  "diff_psi_both_deg": 0.007070928810531285,
+  "mesh_sequence": [
+   {
+    "refine": 1.0,
+    "ndof": 243514,
+    "psiA": 52.284790881619394,
+    "psiB": 4.261168333052754,
+    "J_over_G_A": 0.999998866120641,
+    "J_over_G_B": 1.0000062203257698,
+    "Kcod_over_exact_A": 0.996806285815961,
+    "Kcod_over_exact_B": 0.9971999312239901
+   },
+   {
+    "refine": 1.5,
+    "ndof": 543334,
+    "psiA": 52.27357477454457,
+    "psiB": 4.267652441116424,
+    "J_over_G_A": 0.9999995282339973,
+    "J_over_G_B": 1.0000056201537513,
+    "Kcod_over_exact_A": 0.9979200476107581,
+    "Kcod_over_exact_B": 0.9981478555768413
+   },
+   {
+    "refine": 2.0,
+    "ndof": 953970,
+    "psiA": 52.268399233759716,
+    "psiB": 4.270834364550042,
+    "J_over_G_A": 0.9999973912821352,
+    "J_over_G_B": 0.9999895892520512,
+    "Kcod_over_exact_A": 0.9984178852219573,
+    "Kcod_over_exact_B": 0.9985685593910345
+   }
+  ]
+ }
+}

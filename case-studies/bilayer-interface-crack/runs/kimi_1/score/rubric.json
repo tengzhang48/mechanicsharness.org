@@ -1,0 +1,51 @@
+{
+ "points": 100.0,
+ "of": 100,
+ "missing": [],
+ "rows": [
+  {
+   "piece": "The bimaterial constant",
+   "points": 5,
+   "numbers": 1,
+   "passed": 1,
+   "earned": 5.0
+  },
+  {
+   "piece": "Energy release rate from the stresses far behind and far ahead of the tip",
+   "points": 20,
+   "numbers": 2,
+   "passed": 2,
+   "earned": 20.0
+  },
+  {
+   "piece": "Magnitude of K from G, for two materials",
+   "points": 15,
+   "numbers": 2,
+   "passed": 2,
+   "earned": 15.0
+  },
+  {
+   "piece": "Phase angle of K under the axial force: the mode mix, computed",
+   "points": 25,
+   "numbers": 1,
+   "passed": 1,
+   "earned": 25.0
+  },
+  {
+   "piece": "Phase angle of K under the moment: the mode mix, computed",
+   "points": 25,
+   "numbers": 1,
+   "passed": 1,
+   "earned": 25.0
+  },
+  {
+   "piece": "The two loadings together: they add as complex numbers",
+   "points": 10,
+   "numbers": 1,
+   "passed": 1,
+   "earned": 10.0
+  }
+ ],
+ "checks_passed": 8,
+ "checks": 8
+}

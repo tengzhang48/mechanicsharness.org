@@ -37,7 +37,7 @@ or 0.005 if that is larger. In the key the shear weights are (2 − 3ν)/(2 − 
 | `runs/<run>/` | Each run: the facts of the run (model, prompt, benchmark commit, workspace hashes, task variant), `AUDIT.md` (its tool calls and any use of the network), `submission/` (every text file it saved, as delivered), `score/`, `grade/`, and `messages.md` (its visible messages and tool steps; no private reasoning). |
 | `runs/RESULTS.md` | The results of both rounds and what they show. |
 | `runs/glm_1/organizer_rerun/` | Two of GLM-5.3's checks of its own elastic computation, rerun by us without network. |
-| `runs/deepseek_1/deleted_working_files/` | Two working scripts that DeepSeek deleted before it finished, restored from its log. |
+| `runs/deepseek_1/deleted_working_files/` | The five working scripts that DeepSeek deleted before it finished, and their outputs, restored from its log. |
 | `runs/recall_probe_2026-11-13/` | The question put to two models after their runs (the paper named): not part of the benchmark. |
 | `runs/launch_*.sh`, `runs/make_opencode_home.py`, `runs/audit_*.py`, `runs/collect_record.py` | How the runs were launched (container, time limit, web tools off) and how their records were made. |
 | `knowledge_levels/MISSED_PHYSICS.md` | The physics the three runs missed, as we read it. |

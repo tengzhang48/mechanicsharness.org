@@ -1,0 +1,24 @@
+{
+ "accepted": true,
+ "form_problems": [],
+ "tool_calls": 9,
+ "tools_used": [
+  "read"
+ ],
+ "paths_read": [
+  "<run-folders>/grading/B8/GRADING.md",
+  "<run-folders>/grading/B8/KEY_NOTES.md",
+  "<run-folders>/grading/B8/MANIFEST.txt",
+  "<run-folders>/grading/B8/SUBMISSION_ALL.txt",
+  "<run-folders>/grading/B8/TASK.md",
+  "<run-folders>/grading/B8/score.md"
+ ],
+ "refused_tool_calls": [],
+ "packet_unchanged": true,
+ "steps": 8,
+ "reasoning_tokens": 160,
+ "input_tokens": 134080,
+ "output_tokens": 2965,
+ "stream_errors": [],
+ "summary_note": "summary of question 2 written by the grader: 'some_unsupported'; derived from its listed checks: 'contradicted'"
+}

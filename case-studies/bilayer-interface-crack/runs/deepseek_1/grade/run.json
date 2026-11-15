@@ -1,0 +1,24 @@
+{
+ "accepted": true,
+ "form_problems": [],
+ "tool_calls": 8,
+ "tools_used": [
+  "read"
+ ],
+ "paths_read": [
+  "<run-folders>/grading/B3/GRADING.md",
+  "<run-folders>/grading/B3/KEY_NOTES.md",
+  "<run-folders>/grading/B3/MANIFEST.txt",
+  "<run-folders>/grading/B3/SUBMISSION_ALL.txt",
+  "<run-folders>/grading/B3/TASK.md",
+  "<run-folders>/grading/B3/score.md"
+ ],
+ "refused_tool_calls": [],
+ "packet_unchanged": true,
+ "steps": 9,
+ "reasoning_tokens": 223,
+ "input_tokens": 77747,
+ "output_tokens": 3624,
+ "stream_errors": [],
+ "summary_note": "summary of question 2 written by the grader: 'cannot_tell'; derived from its listed checks: 'some_unsupported'"
+}

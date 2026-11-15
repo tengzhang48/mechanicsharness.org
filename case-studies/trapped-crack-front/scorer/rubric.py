@@ -6,8 +6,8 @@ misses a physics, they need to lose points"; "We just need to update the rubric"
 score.py still decides whether a number is right, by the rule stated in the task (within 1% of the reference or within
 0.005). This file weighs the right numbers by the physics they test:
 
-- The response, 70 points: seven pieces of physics, 10 points each. Each is tested by one or two numbers of Part A,
-  which isolate it, and is earned only if all of them pass. A run that misses a piece loses that piece's points.
+- The response, 70 points: seven pieces of physics, 10 points each. Each is tested by one or two numbers that
+  isolate it (of Part A, and the load level of Part B), and is earned only if all of them pass. A run that misses a piece loses that piece's points.
 - The outcome, 30 points: the equilibrium front and the stress intensity factors along it (Part B). It needs every
   piece of the response, so it is counted only in a run that has all seven; then each part earns its points in
   proportion to its numbers that pass (a slip in one number costs little, a missing piece of physics costs all).

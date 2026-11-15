@@ -1,0 +1,10 @@
+{
+ "allowed": {
+  "theory_source": ["own_computation", "derivation_shown", "stated_with_source", "stated_without_source", "cannot_tell"],
+  "claimed_checks": ["all_supported", "some_unsupported", "contradicted", "cannot_tell", "no_checks_claimed"],
+  "error_location": ["none", "theory", "numerics", "application", "format", "incomplete", "cannot_tell"]
+ },
+ "table": "pieces",
+ "table_keys": ["eps", "energy_release_rate", "K_from_G", "phase_force", "phase_moment", "both_loads"],
+ "derive_summary": true
+}

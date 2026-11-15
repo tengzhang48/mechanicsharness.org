@@ -1,0 +1,1 @@
+Read PUBLIC_TASK.md in this folder, then solve the problem it states. Work only inside this folder and do not use the web. End with a short summary of what you reached and what remains unverified.

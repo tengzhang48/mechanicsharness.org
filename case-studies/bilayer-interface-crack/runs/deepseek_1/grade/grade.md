@@ -1,0 +1,164 @@
+The phase angles come from the solver's own finite-element solution of the interface-crack problem, and every reported number passes. The details below are taken only from the copied files.
+
+**Question 1.** `own_computation`. `eps`, both energy release rates and both `|K|` are closed forms (`finalize_results.py` lines 23–35; `method.md` sections 1–3). The three phase angles are not: `fem_bilayer.py` is a plane-strain Q_p FEM of the bilayer with the crack, `analyze_case.py` reads K from the crack-opening displacement with the two-material prefactor and `r^{-iε}`, and `finalize_results.py` lines 41–67, 86 fits the saved COD and writes the reported angles. The saved `data/cod_*.npz` are binary and were left out of the copy (`MANIFEST.txt` lines 11–13), so the numerical fit itself is not re-executable from the copied text, but the code that produces and fits it is present. No published phase angle is used.
+
+**Question 2.** Several checks are carried by code (COD constant from the eigenfield, stress extrapolation, interaction integral, mesh study, homogeneous limit, J-integral, superposition). The numerical outcomes quoted in `method.md` (specific degrees, `1e-8`, `0.4740747`) are not in any copied output file, and the COD data those fits read were left out. That is `cannot_tell` for those claims, which sets the summary.
+
+**Question 3.** `none`: `score.md` is 8 of 8.
+
+```json
+{
+  "theory_source": {
+    "answer": "own_computation",
+    "evidence": [
+      {
+        "file": "submission/finalize_results.py",
+        "lines": "1-8",
+        "quote": "The phase angles are obtained from the high-order FEM crack-opening-displacement fits stored in data/cod_*.npz"
+      },
+      {
+        "file": "submission/analyze_case.py",
+        "lines": "25-33",
+        "quote": "Q=d*np.sqrt(2*np.pi/r)/Ceff*r**(-1j*eps) ... K0=fit_q(r,Q,a,b,deg)"
+      },
+      {
+        "file": "submission/finalize_results.py",
+        "lines": "52-67",
+        "quote": "K1 = fit_K(tag, 0.01, 0.1, 2); K2 = fit_K(tag, 0.02, 0.1, 2); K = 0.5*(K1+K2)"
+      },
+      {
+        "file": "submission/method.md",
+        "lines": "176-180",
+        "quote": "case A (P>0, M=0): psi = 52.27 deg; case B (P=0, M>0): psi = 4.25 deg"
+      },
+      {
+        "file": "submission/fem_bilayer.py",
+        "lines": "253-271",
+        "quote": "delta2 + i delta1 on the crack faces (upper - lower)"
+      }
+    ],
+    "pieces": {
+      "eps": {
+        "used": "Plane-strain formula eps = ln((kappa/mu1 + 1/mu2)/(kappa/mu2 + 1/mu1))/(2 pi) with E1=9, E2=1, nu=1/3, giving ln(2/3)/(2 pi) = -0.0645317762067041",
+        "equals_key": "yes"
+      },
+      "energy_release_rate": {
+        "used": "Strain energy of both beams far behind the tip, plane-strain moduli E*=E/(1-nu^2): case A has axial energy of both layers plus the moment P(h+H)/2 in layer 2 (287/162); case B has bending energy of both layers (34/27)",
+        "equals_key": "yes"
+      },
+      "K_from_G": {
+        "used": "G = (1 - beta^2) |K|^2 / E* with 1/E* = (1/2)(1/E1* + 1/E2*), beta=0.2, so |K|=sqrt(G E*/(1-beta^2)); equivalent to the two-material cosh form",
+        "equals_key": "yes"
+      },
+      "phase_force": {
+        "used": "Own FEM (Q_p, graded mesh, beam tractions at x=-L): COD extrapolated with the two-material factor including 1/(1+2 i eps) and r^{-i eps}, reference length h; average of two fit windows, reported 52.27 deg",
+        "equals_key": "yes"
+      },
+      "phase_moment": {
+        "used": "Its own FEM run of load case B (P=0, M=1), same COD extraction, reported 4.25 deg; not derived from case A",
+        "equals_key": "yes"
+      },
+      "both_loads": {
+        "used": "Direct FEM of P=1, M=1 (M=Ph), same COD fit, reported 30.42 deg; superposition of the two complex K's is computed as a check (30.43 deg) but is not the reported number",
+        "equals_key": "yes"
+      }
+    }
+  },
+  "claimed_checks": {
+    "answer": "cannot_tell",
+    "checks": [
+      {
+        "claim": "FEM J-integral on vertical cuts behind the tip recovers the beam energies to about 1e-8 relative (J_A=1.77160493, J_B=1.25925926)",
+        "claimed_at": "submission/method.md:71-75",
+        "status": "cannot_tell",
+        "evidence": "J_line in fem_bilayer.py:371-395 implements the integral, but no copied file prints these J values. The quoted numbers exist only in method.md."
+      },
+      {
+        "claim": "J-integral of the unit-K eigenfield is 0.4740747, agreeing with (1-beta^2)/E*=0.4740741 to about 1e-6",
+        "claimed_at": "submission/method.md:99-102",
+        "status": "cannot_tell",
+        "evidence": "asymptotic.py builds the eigenfield but contains no J evaluation of it; the number 0.4740747 appears only in method.md."
+      },
+      {
+        "claim": "Element stiffness checked against a uniform-strain patch, and a uniform-tension FEM test reproduces the exact stress to better than 1e-5",
+        "claimed_at": "submission/method.md:125-127",
+        "status": "unsupported",
+        "evidence": "No patch test or uniform-tension test is present in fem_bilayer.py, analyze_case.py, converge.py, asymptotic.py, finalize_results.py, eig.py or eig2.py."
+      },
+      {
+        "claim": "The COD factor 1/(1+2 i eps) equals the ratio of the exact eigenfield jump to the uncorrected formula, checked to 1e-6 over several decades in r and several complex K",
+        "claimed_at": "submission/method.md:144-150",
+        "status": "cannot_tell",
+        "evidence": "asymptotic.py constructs and normalises the Airy eigenfield (AuxField, lines 56-96) but does not evaluate the displacement jump or print that ratio. No output file holds the 1e-6 comparison."
+      },
+      {
+        "claim": "Homogeneous limit of the eigenfield recovers the standard mode-I angular stress field, and its J-integral equals (1-beta^2)|K|^2/E* to about 1e-6",
+        "claimed_at": "submission/method.md:151-155",
+        "status": "cannot_tell",
+        "evidence": "The eigenfield code is in asymptotic.py, but no script sets eps=0, compares the angular field, or prints this J value."
+      },
+      {
+        "claim": "Varying the COD fit window and polynomial degree changes the extracted phase by less than 0.05 deg",
+        "claimed_at": "submission/method.md:164-167",
+        "status": "cannot_tell",
+        "evidence": "analyze_case.py:29-33 and finalize_results.py:41-57 loop over windows and degrees, but the printed spreads are not saved, and the COD arrays they read (data/cod_*.npz) were left out of the copy (MANIFEST.txt, not a text file)."
+      },
+      {
+        "claim": "Fitted COD magnitudes are 1.928 and 1.627, about 0.2-0.3% below the closed-form |K|",
+        "claimed_at": "submission/method.md:168-172",
+        "status": "cannot_tell",
+        "evidence": "The comparison is coded in finalize_results.py:99-100, but its printed output is not in the folder and the npz inputs were left out."
+      },
+      {
+        "claim": "Mesh convergence of the COD phases: four meshes from 1.07e5 to 2.90e5 dofs give psi_A from 52.31 to 52.27 and psi_B from 4.16 to 4.25",
+        "claimed_at": "submission/method.md:183-190",
+        "status": "cannot_tell",
+        "evidence": "converge.py runs only two meshes (coarse p=2 and medium p=3) and prints phases, but no output of that run is saved. The four-row table, including the two finest meshes, appears only in method.md."
+      },
+      {
+        "claim": "Stress extrapolation of sigma22+i sigma12 ahead of the tip gives psi_A = 52.20-52.28 deg and psi_B = 4.13-4.22 deg",
+        "claimed_at": "submission/method.md:194-197",
+        "status": "cannot_tell",
+        "evidence": "analyze_case.py:36-51 and 65-71 implement and print the stress fits, but no printed output is in the folder."
+      },
+      {
+        "claim": "Domain interaction integral with the Airy auxiliary field, on a coarse mesh, gives psi_A = 52.06-52.40 deg, psi_B = 4.12-4.40 deg and |K| within about 0.3%",
+        "claimed_at": "submission/method.md:198-202",
+        "status": "cannot_tell",
+        "evidence": "interaction_domain, interaction_integral and interaction_line are implemented in fem_bilayer.py:418-509, but nothing in the folder calls them or records these ranges."
+      },
+      {
+        "claim": "Homogeneous FEM check (E1=E2, h=H, load case B) returns psi=0 to 1e-8 deg and |K|=3.456-3.459 against sqrt(12)=3.46410",
+        "claimed_at": "submission/method.md:203-208",
+        "status": "unsupported",
+        "evidence": "No script sets E1=E2 and h=H or runs that case. The quoted numbers appear only in method.md."
+      },
+      {
+        "claim": "Homogeneous symmetric J-integral equals 10.66666668, matching the exact beam energy to about 1e-8",
+        "claimed_at": "submission/method.md:209-212",
+        "status": "unsupported",
+        "evidence": "Same missing homogeneous run; only the J_line routine exists, with no call and no output."
+      },
+      {
+        "claim": "Superposition of the two complex K's gives psi_both = 30.43 deg, and a direct FEM run with P=1, M=1 gives 30.42 deg (stress extrapolation 30.35-30.42 deg)",
+        "claimed_at": "submission/method.md:216-225",
+        "status": "cannot_tell",
+        "evidence": "finalize_results.py:70-72 codes the superposition and prints it, and analyze_case.py tag C solves P=1, M=1. Neither printout is saved, and data/cod_C.npz was left out, so the 30.43 and 30.35-30.42 figures cannot be confirmed from the copied files. The reported 30.42 is the number that passed in score.md."
+      },
+      {
+        "claim": "J-integral is independent of the vertical cut position to 1e-8, and a run with L=12 h confirms truncation is negligible for the energy and the phase",
+        "claimed_at": "submission/method.md:248-251",
+        "status": "cannot_tell",
+        "evidence": "converge.py includes one L=12 mesh and fem_bilayer.py has J_line, but no saved output shows cut-position independence or the L=12 phase."
+      }
+    ]
+  },
+  "error_location": {
+    "answer": "none",
+    "first_wrong_step": "",
+    "where": "",
+    "explains_groups": []
+  },
+  "notes": "All eight items in score.md pass (eps, both G, both |K|, and the three phase angles within 0.03 deg). The reported magnitudes come from the closed-form beam energy and G=(1-beta^2)|K|^2/E*, which matches the key's two-material relation; the phases are the solver's own FEM COD extrapolations, not a published omega. data/cod_A.npz, data/cod_B.npz and data/cod_C.npz, which finalize_results.py reads, were left out as non-text (MANIFEST.txt), and no stdout from the FEM runs was copied, so the specific check numbers quoted in method.md cannot be verified from the text files even though the code that would produce most of them is present. Two claimed checks (the uniform-strain/tension patch test and the homogeneous E1=E2, h=H FEM run) have no corresponding code at all. The phase difference 52.27-4.25=48.02 deg is consistent with the exact energy relation 47.9705 deg to about 0.05 deg, and the reported combined-load angle is the direct FEM value rather than an average of the two phases."
+}
+```

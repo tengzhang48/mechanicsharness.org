@@ -50,14 +50,15 @@ separates the agent's errors from errors in our own checks. More on the site:
 
 The battery benchmark is released in the code repository,
 [agent-mechanics-benchmarks-public](https://github.com/tengzhang48/agent-mechanics-benchmarks-public): the task, host, scorer, reference code, the three runs and their results,
-with a practice problem that anyone can rerun. Seven fracture mechanics cases, the
+with a practice problem that anyone can rerun. Eight fracture mechanics cases, the
 [poroelastic crack](https://mechanicsharness.org/case-studies/poroelastic-crack.html),
 [thin-film cracking](https://mechanicsharness.org/case-studies/xia-hutchinson-film.html), the
 [viscoelastic crack](https://mechanicsharness.org/case-studies/viscoelastic-crack.html), the
 [grain-boundary diffusion wedge](https://mechanicsharness.org/case-studies/grain-boundary-wedge.html), the
 [HRR field and notch](https://mechanicsharness.org/case-studies/hrr-field.html),
-[crack bridging](https://mechanicsharness.org/case-studies/crack-bridging.html) and the
-[trapped crack front](https://mechanicsharness.org/case-studies/trapped-crack-front.html), are released on this website, each
+[crack bridging](https://mechanicsharness.org/case-studies/crack-bridging.html), the
+[trapped crack front](https://mechanicsharness.org/case-studies/trapped-crack-front.html) and the
+[interface crack between two layers](https://mechanicsharness.org/case-studies/bilayer-interface-crack.html), are released on this website, each
 with its task, key, checker and the agents' runs (folders under `case-studies/`).
 
 You can already ask for your own element to be scored on the battery benchmark's hidden problem (see the code repository's
@@ -83,11 +84,14 @@ The website itself: plain HTML and CSS, no build step, served by GitHub Pages.
 | `case-studies/hrr-field.html`, `case-studies/hrr-field/` | The HRR field and notch case: its page and its files |
 | `case-studies/crack-bridging.html`, `case-studies/crack-bridging/` | The crack bridging case: its page and its files |
 | `case-studies/trapped-crack-front.html`, `case-studies/trapped-crack-front/` | The trapped crack front case: its page and its files |
+| `case-studies/bilayer-interface-crack.html`, `case-studies/bilayer-interface-crack/` | The interface crack between two layers: its page and its files |
 | `case-studies/crack-bridging-study.html` | A guided exercise for students on the crack bridging case |
 | `case-studies/poroelastic-crack-study.html` | A guided exercise for students on the poroelastic crack (drained tip, undrained crack) |
 | `case-studies/viscoelastic-crack-study.html` | A guided exercise for students on the viscoelastic crack (the speed-toughening curve and the strip's terminal speed) |
 | `case-studies/xia-hutchinson-film-study.html` | A guided exercise for students on thin-film cracking (channel cracks, simultaneous and sequential) |
 | `case-studies/grain-boundary-wedge-study.html` | A guided exercise for students on the grain-boundary diffusion wedge (the decay rates and the long-time crack) |
+| `case-studies/trapped-crack-front-study.html` | A guided exercise for students on the trapped crack front (the response of a wavy front in tension and shear, and the energy test) |
+| `case-studies/bilayer-interface-crack-study.html` | A guided exercise for students on the interface crack between two layers (the energy, the turning crack-tip field and the mode mix) |
 | `case-studies/hrr-field-study.html`, `case-studies/hrr-antiplane-study.html` | A guided exercise for students on the HRR field (mode I, plane strain), and an extra exercise in antiplane shear |
 | `case-studies/fracture-101.html` | Fracture Mechanics 101: the background the study pages use |
 | `assets/` | Style sheet, site icon and figures |

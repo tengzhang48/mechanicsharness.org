@@ -1,0 +1,5 @@
+work/betterA.npz (24333502 bytes): not copied, larger than 2000000 bytes
+work/betterB.npz (24333502 bytes): not copied, larger than 2000000 bytes
+work/fineA_full.npz (6578636 bytes): not copied, larger than 2000000 bytes
+work/fine_data.npz (5411072 bytes): not copied, larger than 2000000 bytes
+work/quarterA.npz (2289716 bytes): not copied, larger than 2000000 bytes

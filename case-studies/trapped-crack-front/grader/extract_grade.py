@@ -77,7 +77,7 @@ def problems(g):
         if cc.get('answer') in ALLOWED['claimed_checks'] and cc.get('answer') != want and not DERIVE_SUMMARY:
             out.append('claimed_checks.answer %r does not follow from the listed statuses (%s)' % (cc.get('answer'), want))
     el = g.get('error_location') if isinstance(g.get('error_location'), dict) else {}
-    if el.get('answer') in ('theory', 'application', 'format', 'incomplete') and not str(el.get('first_wrong_step') or '').strip():
+    if el.get('answer') in ('theory', 'application', 'format', 'incomplete', 'numerics') and not str(el.get('first_wrong_step') or '').strip():
         out.append('error_location.first_wrong_step is empty')
     return out
 

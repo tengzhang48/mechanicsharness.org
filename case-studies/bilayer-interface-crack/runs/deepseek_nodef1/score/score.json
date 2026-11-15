@@ -1,0 +1,64 @@
+{
+ "passed": 6,
+ "checks": 8,
+ "rows": [
+  {
+   "item": "phase change per decade of r, case A (deg)",
+   "key": "phase_change_per_decade_deg",
+   "reference": -8.513574487346496,
+   "submitted": -8.513574487346496,
+   "pass": true
+  },
+  {
+   "item": "case A: G E2 h/P^2",
+   "key": "caseA.G_E2_h_over_P2",
+   "reference": 1.7716049382716048,
+   "submitted": 1.771604938271605,
+   "pass": true
+  },
+  {
+   "item": "case A: amplitude sqrt(h)/P",
+   "key": "caseA.amplitude_sqrt_h_over_P",
+   "reference": 1.9331267849436742,
+   "submitted": 1.9331267849436744,
+   "pass": true
+  },
+  {
+   "item": "case A: phase at r = h (deg)",
+   "key": "caseA.phase_at_h_deg",
+   "reference": 52.24918382310049,
+   "submitted": 51.6,
+   "pass": false
+  },
+  {
+   "item": "case B: G E2 h^3/M^2",
+   "key": "caseB.G_E2_h3_over_M2",
+   "reference": 1.259259259259259,
+   "submitted": 1.2592592592592593,
+   "pass": true
+  },
+  {
+   "item": "case B: amplitude h^(3/2)/M",
+   "key": "caseB.amplitude_h32_over_M",
+   "reference": 1.629800601300662,
+   "submitted": 1.6298006013006623,
+   "pass": true
+  },
+  {
+   "item": "case B: phase at r = h (deg)",
+   "key": "caseB.phase_at_h_deg",
+   "reference": 4.278662313502883,
+   "submitted": 5.4,
+   "pass": false
+  },
+  {
+   "item": "both loads, M = P h: phase at r = h (deg)",
+   "key": "phase_at_h_both_deg",
+   "reference": 30.433127024219168,
+   "submitted": 30.6,
+   "pass": true
+  }
+ ],
+ "read_error": null,
+ "variant": "no_definitions"
+}

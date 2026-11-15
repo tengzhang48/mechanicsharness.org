@@ -1,0 +1,12 @@
+eta 0.02 {'far': 0.1}                 omega N 52.065  M 52.102   1992 fit 52.04   ndof 247242   28 s
+eta 0.05 {'far': 0.1}                 omega N 52.045  M 52.106   1992 fit 51.95   ndof 210806   51 s
+eta 0.10 {'far': 0.1}                 omega N 52.012  M 52.075   1992 fit 51.80   ndof 185606   70 s
+eta 0.25 {'far': 0.1}                 omega N 51.735  M 51.796   1992 fit 51.35   ndof 156030   86 s
+eta 0.50 {'far': 0.1}                 omega N 50.912  M 50.967   1992 fit 50.60   ndof 136154   97 s
+eta 0.75 {'far': 0.1}                 omega N 49.973  M 50.017   1992 fit 49.85   ndof 127794   106 s
+eta 1.00 {'far': 0.1}                 omega N 49.074  M 49.107   1992 fit 49.10   ndof 120878   116 s
+eta 0.50 {}                           omega N 50.912  M 50.967   1992 fit 50.60   ndof 243514   143 s
+eta 0.50 {'refine': 1.5}              omega N 50.923  M 50.959   1992 fit 50.60   ndof 543334   233 s
+eta 0.50 {'Lfac': 14.0}               omega N 50.912  M 50.967   1992 fit 50.60   ndof 367642   273 s
+eta 0.50 {'fit': (0.002, 0.02)}       omega N 50.882  M 50.989   1992 fit 50.60   ndof 243514   299 s
+eta 0.50 {'fit': (0.01, 0.08)}        omega N 50.930  M 50.954   1992 fit 50.60   ndof 243514   324 s

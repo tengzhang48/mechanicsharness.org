@@ -97,6 +97,7 @@ a measurement.</p>
       <li><a href="#hrr-field">HRR field and notch (Hutchinson 1968)</a></li>
       <li><a href="#crack-bridging">Crack bridging (Bao and Suo 1992)</a></li>
       <li><a href="#trapped-crack-front">Trapped crack front (Gao and Rice 1986)</a></li>
+      <li><a href="#bilayer-interface-crack">Interface crack between two layers (Suo and Hutchinson 1990)</a></li>
     </ul>
   </div>
   <div class="rung rung-2">
@@ -351,6 +352,7 @@ the key and what every agent did.</p>
     <div class="card-cta">
       <a class="button" href="case-studies/trapped-crack-front.html">Read the case study</a>
       <a class="button ghost" href="https://github.com/tengzhang48/mechanicsharness.org/tree/main/case-studies/trapped-crack-front">Get the files</a>
+      <a class="button study" href="case-studies/trapped-crack-front-study.html">Study this case</a>
     </div>
     <p>A planar crack front is held in equilibrium by periodic tough bands, loaded in tension and two shears. The bands are
     our own configuration of a published first-order result. Without the paper, the agents were asked how the three stress
@@ -362,6 +364,37 @@ the key and what every agent did.</p>
       <dd>Released on 14 Nov 2026: the task, the key and its scorer, the seven runs of two rounds, the grading and the records.</dd>
       <dt>Source paper</dt>
       <dd class="refs">H. Gao and J. R. Rice (1986), Shear stress intensity factors for a planar crack with slightly curved front, <a href="https://doi.org/10.1115/1.3171857"><i>J. Appl. Mech.</i> 53, 774&ndash;778</a>.</dd>
+    </dl>
+    </div>
+  </article>
+  <article class="card" id="bilayer-interface-crack">
+    <div class="illustration">
+      <svg viewBox="0 0 64 60" aria-hidden="true" focusable="false">
+        <rect class="g-sub" x="12" y="16" width="46" height="12"/>
+        <rect class="g-body" x="12" y="28" width="46" height="22"/>
+        <path class="g-crack" d="M12 28H35"/>
+        <path class="g-arrow" d="M1 22H7"/>
+        <path class="g-arrowhead" d="M6 19L11 22L6 25Z"/>
+        <path class="g-new" d="M4.5 14.5A7 7 0 0 1 12.5 10.5"/>
+      </svg>
+    </div>
+    <div class="cardbody">
+    <h3>Interface crack between two layers: the mode mix</h3>
+    <div class="card-cta">
+      <a class="button" href="case-studies/bilayer-interface-crack.html">Read the case study</a>
+      <a class="button ghost" href="https://github.com/tengzhang48/mechanicsharness.org/tree/main/case-studies/bilayer-interface-crack">Get the files</a>
+      <a class="button study" href="case-studies/bilayer-interface-crack-study.html">Study this case</a>
+    </div>
+    <p>A crack runs along the interface of two bonded elastic layers, loaded by a force and a moment. Its energy release
+    rate follows from beam theory; its phase angle, how much of the loading opens the crack and how much shears it, needs
+    the elasticity solution, and the phase of the crack-tip field turns with the distance from the tip. Without the paper
+    and without the interface-crack definitions, GPT, Kimi and GLM passed all eight checks; DeepSeek missed two phase
+    angles, by 0.65&deg; and 1.12&deg;. All four supplied the interface-crack physics themselves.</p>
+    <dl class="cardfooter">
+      <dt>Status</dt>
+      <dd>Released on 15 Nov 2026: both versions of the task, the key with its two finite-element computations, the scorer, the eight runs, the grading and the records.</dd>
+      <dt>Source paper</dt>
+      <dd class="refs">Z. Suo and J. W. Hutchinson (1990), Interface crack between two elastic layers, <a href="https://doi.org/10.1007/BF00018123"><i>Int. J. Fract.</i> 43, 1&ndash;18</a>.</dd>
     </dl>
     </div>
   </article>
