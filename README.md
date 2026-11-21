@@ -46,6 +46,12 @@ separates the agent's errors from errors in our own checks. More on the site:
 [how a benchmark is built](https://mechanicsharness.org/building.html) and
 [the evaluation policy](https://mechanicsharness.org/evaluation.html).
 
+## Fracture Mechanics 101: human and agent editions
+
+**For human readers:** [Fracture Mechanics 101, topics 0–19](case-studies/fracture-101.html) uses illustrations, explanations and worked exercises. The companion [topics 20–21 on mixed-mode curved fronts and trapping](case-studies/fracture-101-curved-fronts.html) extends this foundation.
+
+**For AI agents:** [the machine-readable physics reference](agent-knowledge/fracture-101.md) concentrates on definitions, assumptions and transferable mechanics while omitting benchmark-specific formulas and answers. The [verification workflow](agent-knowledge/verification-workflow.md) is deliberately a separate intervention. See [evaluation guidance](agent-knowledge/README.md) for a three-arm comparison; these new editions have not yet been tested in agent runs.
+
 ## Get started and contribute
 
 The battery benchmark is released in the code repository,
@@ -94,6 +100,9 @@ The website itself: plain HTML and CSS, no build step, served by GitHub Pages.
 | `case-studies/bilayer-interface-crack-study.html` | A guided exercise for students on the interface crack between two layers (the energy, the turning crack-tip field and the mode mix) |
 | `case-studies/hrr-field-study.html`, `case-studies/hrr-antiplane-study.html` | A guided exercise for students on the HRR field (mode I, plane strain), and an extra exercise in antiplane shear |
 | `case-studies/fracture-101.html` | Fracture Mechanics 101: the background the study pages use |
+| `case-studies/fracture-101-curved-fronts.html` | Human lessons 20–21: mixed-mode curved fronts and trapping |
+| `agent-knowledge/fracture-101.md` | Concise, versioned physics reference for controlled agent experiments |
+| `agent-knowledge/verification-workflow.md`, `agent-knowledge/README.md` | Separately test verification guidance and document the evaluation protocol |
 | `assets/` | Style sheet, site icon and figures |
 | `CNAME`, `.nojekyll` | GitHub Pages settings |
 | `LICENSE`, `LICENSE-CONTENT` | Licences (below) |
