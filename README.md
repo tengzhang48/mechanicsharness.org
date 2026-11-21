@@ -1,6 +1,6 @@
 # MechanicsHarness
 
-<img src="assets/favicon.svg" width="72" align="right" alt="">
+<img src="assets/apple-touch-icon.png" width="72" align="right" alt="">
 
 **How AI agents and mechanics can work together, with every result checked against an independent reference or a
 measurement.**
@@ -104,7 +104,8 @@ To preview locally, run `python3 -m http.server 8000` in this folder and open ht
 
 MechanicsHarness is maintained by Teng Zhang, Syracuse University. The site design follows the Shape Morphing Data Commons
 ([morphingdatacommons.org](https://morphingdatacommons.org)) of Lining Yao's Morphing Matter Lab, UC Berkeley. The site icon
-shows the von Mises stress contours at a mode-I crack tip (plane strain, ν = 0.3).
+shows the computed field near a crack tip in a Mooney–Rivlin sheet under plane stress (T. Zhang, *Soft Matter*, 2026),
+drawn as on the back-cover artwork made for that paper.
 
 ## Licence
 
