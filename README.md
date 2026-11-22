@@ -2,8 +2,7 @@
 
 <img src="assets/apple-touch-icon.png" width="72" align="right" alt="">
 
-**How AI agents and mechanics can work together, with every result checked against an independent reference or a
-measurement.**
+**MechanicsHarness investigates the pitfalls, pivotal corrections and transferable lessons that emerge when AI agents tackle difficult mechanics problems. Every case is grounded in independent reference checks or measurements.**
 
 Website: **https://mechanicsharness.org**
 
@@ -25,6 +24,10 @@ whose key value is 0). Key and checker as corrected on 26 October 2026; the [cas
 has the task, the key and every run's saved answer, and [`case-studies/poroelastic-crack/`](case-studies/poroelastic-crack/) holds
 its files. Also left out: three DeepSeek runs with reasoning off, which matched two or three of the
 nine values and missed the drained-tip value.
+
+## What the cases teach
+
+MechanicsHarness is not simply a ranking of AI agents. Its case studies explain the physics and mathematics, document observed agent errors and successful approaches, and analyze the verification checks or conceptual pivots needed to resolve a problem. Examples include the noncommuting crack-scale and tip limits of poroelastic fracture, numerical stability with an incorrect diffusion operator, a crack-bridging check that reused a mistaken formula, and robust battery-fatigue elements with incorrect damage predictions. Case pages distinguish agent behavior from subsequent human-led analysis.
 
 ## Three levels
 
