@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MechanicsHarness</title>
-<meta name="description" content="MechanicsHarness shows how AI agents and mechanics can work together, with every result checked against an independent reference or a measurement.">
+<meta name="description" content="MechanicsHarness reveals pitfalls, pivotal corrections and transferable lessons from AI agents tackling difficult mechanics problems, grounded in independently verified solutions.">
 <link rel="icon" href="assets/favicon-32.png?v=mr-sheet" sizes="32x32" type="image/png"><link rel="icon" href="assets/favicon-16.png?v=mr-sheet" sizes="16x16" type="image/png"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=mr-sheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400&amp;display=swap">
@@ -36,8 +36,8 @@
 <main class="frame">
 <div class="page-head hero">
 <h1>MechanicsHarness</h1>
-<p class="lede">How AI agents and mechanics can work together, with every result checked against an independent reference or
-a measurement.</p>
+<p class="lede">Difficult mechanics problems reveal more than whether an AI agent gets the right answer. MechanicsHarness uncovers the pitfalls, pivotal corrections and transferable lessons behind independently verified solutions.</p>
+<p>Explore the scientific reasoning, failed approaches and checks that distinguish a plausible answer from a trustworthy one. <a href="#lessons">Start with the lessons</a>.</p>
 </div>
 <section class="feature" id="featured" aria-label="Featured case">
   <div class="feature-text">
@@ -64,6 +64,7 @@ a measurement.</p>
     <p>A crack in a fluid-saturated solid is loaded suddenly. The crack as a whole has no time to drain, but within <svg class="sqrt" viewBox="0 0 27 20" role="img" aria-label="the square root of ct"><path d="M1 11.2 l2 -1.1 l2.8 6.6 l3.6 -14.4 H26.5"/><text x="10.6" y="15.6">ct</text></svg>
     of each tip the solid drains at once. The task did not say which limit comes first; the key takes the drained tip, 0.808
     times the crack-scale value, and credits the latter in part.</p>
+    <p><strong>Pitfall:</strong> treating the crack-scale and near-tip limits as interchangeable. <strong>Pivot:</strong> resolve the drained-tip limit and verify the factor independently. An agent challenge also led to a correction of our own reference key.</p>
     <p class="feature-source">Problem from E. Detournay and A. H.-D. Cheng (1991), <a href="https://doi.org/10.1016/0020-7683(91)90067-P"><i>Int. J. Solids
     Struct.</i> 27, 1645&ndash;1662</a>, given to the agents without the paper.</p>
   </div>
@@ -72,7 +73,7 @@ a measurement.</p>
     <source media="(max-width: 700px)" srcset="assets/poroelastic-best-mobile.svg" width="576" height="436">
     <img src="assets/poroelastic-best.svg" width="683" height="444" alt="Which of nine reference values the best run of each agent matched: GPT 9, Opus 5.5 9, Kimi K3 5, Kimi K3.1 5, GLM-5.3 7, DeepSeek reasoning on 5. All six matched the five crack-scale values. Only GPT and Opus matched the tip intensity.">
     </picture>
-    <p class="finding">Only GPT and Opus 5.5 found the drained-tip value.</p>
+    <p class="finding">The critical lesson: which limit comes first changes the answer.</p>
     <figcaption>Each row is an agent's best saved run, October 2026 (of three runs for GPT, Kimi K3, GLM-5.3 and DeepSeek, two
     for Kimi K3.1, one for Opus 5.5); a filled cell is a value within 1% of the corrected key (0.01
     absolute for K&#8322;(0&#8314;), whose key value is 0). Key and checker as corrected on 26 October 2026; the case page has
@@ -81,6 +82,42 @@ a measurement.</p>
   </figure>
 </section>
 <div class="content">
+<section class="sec full" id="lessons">
+<h2>What the cases teach</h2>
+<div class="sec-body wide">
+  <p>Every case goes beyond a score. We examine the mechanics behind an answer, identify specific failures and decisive corrections, and ask which lessons may transfer to other scientific problems. Observed agent actions are distinguished from conclusions drawn in later human-led analysis.</p>
+  <div class="cards">
+    <article class="card">
+      <div class="cardbody">
+        <h3>The limiting scale matters</h3>
+        <p><strong>Pitfall:</strong> applying a crack-scale undrained approximation at the tip. <strong>Pivot:</strong> distinguish the singular limits and independently verify the corrected intensity.</p>
+        <p><a href="case-studies/poroelastic-crack.html">Poroelastic crack — read the analysis</a></p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="cardbody">
+        <h3>Numerical stability is not correctness</h3>
+        <p><strong>Pitfall:</strong> stable decay rates from the wrong governing operator. <strong>Pivot:</strong> verify the operator against independent modal and limiting checks.</p>
+        <p><a href="case-studies/grain-boundary-wedge.html">Grain-boundary wedge — trace the error</a></p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="cardbody">
+        <h3>A formula cannot validate itself</h3>
+        <p><strong>Pitfall:</strong> a check that reuses an incorrect crack-opening relation. <strong>Pivot:</strong> test the decisive relation against an independent quantity.</p>
+        <p><a href="case-studies/crack-bridging.html">Crack bridging — see the checks</a></p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="cardbody">
+        <h3>A robust solver can still be wrong</h3>
+        <p><strong>Pitfall:</strong> converged finite-element runs that overpredict damage. <strong>Pivot:</strong> localize the discrepancy, diagnose the element formulation and verify a correction.</p>
+        <p><a href="case-studies/battery-fatigue.html">Battery fatigue — follow the correction</a></p>
+      </div>
+    </article>
+  </div>
+</div>
+</section>
 <section class="sec full">
 <h2>Three levels</h2>
 <div class="sec-body wide">
@@ -123,7 +160,7 @@ far up the levels they reach. Errors are reported as well as successes.</p>
 </div>
 </section>
 <section class="sec">
-<h2>How every result is checked</h2>
+<h2>How the findings are verified</h2>
 <div class="sec-body with-figure">
 <div class="sec-text">
 <p>Each case restates a published problem as a self-contained task. The agent's answer, or the code it writes, is compared with
@@ -147,8 +184,7 @@ built</a></p>
 <section class="sec">
 <h2>Fracture mechanics cases</h2>
 <div class="sec-body wide">
-<p>Level 1: problems from published fracture papers, given to the agents without the paper. Each case page shows the task,
-the key and what every agent did.</p>
+<p>Level 1: problems from published fracture papers, given to the agents without the paper. Each case links the original task, verified solution, observed agent attempts and analysis of the underlying pitfalls and lessons.</p>
 <div class="cards">
   <article class="card" id="poroelastic-crack">
     <div class="illustration">
