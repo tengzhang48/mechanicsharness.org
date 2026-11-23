@@ -94,6 +94,7 @@ The website itself: plain HTML and CSS, no build step, served by GitHub Pages.
 | `case-studies/bilayer-interface-crack-study.html` | A guided exercise for students on the interface crack between two layers (the energy, the turning crack-tip field and the mode mix) |
 | `case-studies/hrr-field-study.html`, `case-studies/hrr-antiplane-study.html` | A guided exercise for students on the HRR field (mode I, plane strain), and an extra exercise in antiplane shear |
 | `case-studies/fracture-101.html` | Fracture Mechanics 101: the background the study pages use |
+| `case-studies/fracture-101-agent/` | Fracture Mechanics 101, agent edition: the text given to agents (version 0.4.0) and a note on what has been tested |
 | `assets/` | Style sheet, site icon and figures |
 | `CNAME`, `.nojekyll` | GitHub Pages settings |
 | `LICENSE`, `LICENSE-CONTENT` | Licences (below) |
