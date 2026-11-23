@@ -1,7 +1,7 @@
 # Fracture Mechanics 101, agent edition (version 0.4.0)
 
 `fracture-101.md` is a general text of fracture physics written for AI agents. It is the companion of
-[Fracture Mechanics 101](../fracture-101.html), which is for human readers. Each entry gives a statement, the reason
+[Fracture Mechanics 101](https://mechanicsharness.org/case-studies/fracture-101.html), which is for human readers. Each entry gives a statement, the reason
 for it and its use: what it lets an agent set up or test. It contains no solved task, no answer key and no names of
 source papers.
 
@@ -10,7 +10,7 @@ revised it after reviews by two other AI models (GPT-6.1 Sol and Gemini). Both r
 asked for corrections, which were made. Teng Zhang directed the work. No expert in fracture mechanics has checked
 the text line by line.
 
-**What has been tested: one run.** On the [trapped crack front](../trapped-crack-front.html) case, Kimi K3.1 Pro,
+**What has been tested: one run.** On the [trapped crack front](https://mechanicsharness.org/case-studies/trapped-crack-front.html) case, Kimi K3.1 Pro,
 working with a DeepSeek reviewer inside the run, was given this file and got all 76 requested numbers right. The same
 setup without the file got 9 of 76.
 
